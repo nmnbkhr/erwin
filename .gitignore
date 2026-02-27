@@ -18,3 +18,4 @@ venv/
 
 # Claude settings
 .claude/
+unpacked_*/
