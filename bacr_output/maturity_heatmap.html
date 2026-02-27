@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BACR Maturity Heatmap - UBL</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; }
+h1 { color: #2F5496; text-align: center; }
+.subtitle { text-align: center; color: #666; margin-bottom: 20px; }
+.controls { text-align: center; margin: 15px 0; }
+.controls label { margin: 0 10px; cursor: pointer; }
+table { border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+th { background: #2F5496; color: white; padding: 10px 12px; text-align: left; font-size: 13px; position: sticky; top: 0; }
+td { padding: 8px 12px; border-bottom: 1px solid #eee; font-size: 13px; }
+tr:hover { background: #f0f4ff; }
+.cat-header { background: #D6E4F0; font-weight: bold; }
+.cat-header td { font-size: 14px; color: #2F5496; padding: 10px 12px; }
+.gap-3 { background: #ff9999; color: #800; font-weight: bold; }
+.gap-2 { background: #ffff99; color: #660; }
+.gap-1 { background: #99ff99; color: #060; }
+.gap-0 { background: #d4edda; color: #060; }
+.prof-mark { background: #FFF2CC; }
+.score { text-align: center; width: 60px; }
+.legend { display: flex; gap: 15px; justify-content: center; margin: 15px 0; font-size: 13px; }
+.legend span { padding: 3px 10px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h1>BACR Maturity Heatmap</h1>
+<p class="subtitle">Rows: Category &rarr; Section | Colors: Gap Severity | Highlighted: Profitability-Critical</p>
+
+<div class="controls">
+    <label><input type="checkbox" id="profOnly" onchange="filterRows()"> Show profitability-critical only</label>
+    <label><input type="checkbox" id="financialOnly" onchange="filterRows()"> Show financial industry only</label>
+</div>
+
+<div class="legend">
+    <span class="gap-3">Gap &ge; 3 (Critical)</span>
+    <span class="gap-2">Gap = 2 (High)</span>
+    <span class="gap-1">Gap = 1 (Low)</span>
+    <span class="gap-0">Gap = 0 (Met)</span>
+    <span class="prof-mark">&#9733; Profitability-Critical</span>
+</div>
+
+<table id="heatmap">
+<thead>
+<tr>
+    <th>Category</th><th>Section</th><th>Questions</th><th>Financial Qs</th>
+    <th class="score">Current</th><th class="score">Desired</th><th class="score">Gap</th>
+    <th>Prof. Critical</th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+
+<script>
+const data = [{"category": "Outcomes", "section": "Analytic Capabilities", "questions": 220, "financial": 191, "current": 2, "desired": 4, "gap": 2, "profitability_critical": true}, {"category": "Information", "section": "Summary", "questions": 6, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Strategy", "questions": 2, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Roadmap", "questions": 1, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Architecture", "questions": 6, "financial": 0, "current": 3, "desired": 5, "gap": 2, "profitability_critical": true}, {"category": "Information", "section": "Master Data Management", "questions": 19, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": true}, {"category": "Information", "section": "Metadata Management", "questions": 15, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Data Organisation", "questions": 8, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Data Centricity", "questions": 2, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Data Tiers", "questions": 3, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Data Usage Zones", "questions": 2, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Security and Privacy", "questions": 23, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Information", "section": "Data Quality", "questions": 5, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": true}, {"category": "Information", "section": "Data Coverage", "questions": 10, "financial": 0, "current": 3, "desired": 5, "gap": 2, "profitability_critical": true}, {"category": "Systems", "section": "Summary", "questions": 7, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Systems", "section": "Strat", "questions": 2, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Systems", "section": "Roadmap", "questions": 3, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Systems", "section": "Architecture", "questions": 8, "financial": 0, "current": 3, "desired": 5, "gap": 2, "profitability_critical": false}, {"category": "Systems", "section": "Storage", "questions": 3, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Systems", "section": "Infrastructure Models", "questions": 2, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Systems", "section": "Infra", "questions": 2, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Systems", "section": "SysMgmt", "questions": 3, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Systems", "section": "OpMgmt", "questions": 21, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Systems", "section": "Teradata", "questions": 31, "financial": 0, "current": 3, "desired": 5, "gap": 2, "profitability_critical": false}, {"category": "Systems", "section": "Hadoop", "questions": 18, "financial": 0, "current": 1, "desired": 3, "gap": 2, "profitability_critical": false}, {"category": "Applications", "section": "Summary", "questions": 8, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Applications", "section": "Strat", "questions": 2, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Applications", "section": "Roadmap", "questions": 3, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Applications", "section": "Architecture", "questions": 6, "financial": 0, "current": 3, "desired": 4, "gap": 1, "profitability_critical": false}, {"category": "Applications", "section": "Data Orchestration", "questions": 15, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Applications", "section": "Analytic Apps", "questions": 6, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Applications", "section": "Availability", "questions": 14, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Governance", "section": "Summary", "questions": 5, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Governance", "section": "Strategy", "questions": 2, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Governance", "section": "Roadmap", "questions": 2, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Governance", "section": "Bus Governance", "questions": 3, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Governance", "section": "Data Governance", "questions": 21, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Governance", "section": "Tech Governance", "questions": 4, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Business", "section": "Summary", "questions": 4, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Business", "section": "Strategy", "questions": 8, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Business", "section": "Roadmap", "questions": 3, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Business", "section": "Funding", "questions": 17, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Business", "section": "ROI", "questions": 10, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Culture", "section": "Summary", "questions": 2, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Culture", "section": "Strategy", "questions": 3, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Culture", "section": "Roadmap", "questions": 4, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Culture", "section": "Business Analytics/IT Alignment", "questions": 13, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Culture", "section": "Data Drive Mindset", "questions": 8, "financial": 0, "current": 2, "desired": 4, "gap": 2, "profitability_critical": false}, {"category": "Agility", "section": "Summary", "questions": 5, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}, {"category": "Agility", "section": "Strategy", "questions": 4, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}, {"category": "Agility", "section": "Roadmap", "questions": 4, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}, {"category": "Agility", "section": "Methodology", "questions": 11, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}, {"category": "Agility", "section": "Agile", "questions": 94, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}, {"category": "Agility", "section": "DevOps", "questions": 25, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}, {"category": "Agility", "section": "Skills, Knowledge, Training", "questions": 29, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}, {"category": "Agility", "section": "Organisational Change Management", "questions": 5, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}, {"category": "Agility", "section": "Communications", "questions": 9, "financial": 0, "current": 2, "desired": 3, "gap": 1, "profitability_critical": false}];
+let prevCat = '';
+
+function renderTable(filtered) {
+    const tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
+    let prevC = '';
+    filtered.forEach(r => {
+        if (r.category !== prevC) {
+            const catRow = document.createElement('tr');
+            catRow.className = 'cat-header';
+            catRow.innerHTML = '<td colspan="8">' + r.category + ' (' +
+                filtered.filter(x => x.category === r.category).reduce((s,x) => s + x.questions, 0) +
+                ' questions)</td>';
+            tbody.appendChild(catRow);
+            prevC = r.category;
+        }
+        const tr = document.createElement('tr');
+        if (r.profitability_critical) tr.classList.add('prof-mark');
+
+        const gapClass = r.gap >= 3 ? 'gap-3' : r.gap >= 2 ? 'gap-2' : r.gap >= 1 ? 'gap-1' : 'gap-0';
+
+        tr.innerHTML = `
+            <td>${r.category}</td>
+            <td>${r.section}</td>
+            <td style="text-align:center">${r.questions}</td>
+            <td style="text-align:center">${r.financial}</td>
+            <td class="score">${r.current}</td>
+            <td class="score">${r.desired}</td>
+            <td class="score ${gapClass}">${r.gap}</td>
+            <td style="text-align:center">${r.profitability_critical ? '&#9733;' : ''}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function filterRows() {
+    let filtered = data;
+    if (document.getElementById('profOnly').checked) {
+        filtered = filtered.filter(r => r.profitability_critical);
+    }
+    if (document.getElementById('financialOnly').checked) {
+        filtered = filtered.filter(r => r.financial > 0);
+    }
+    renderTable(filtered);
+}
+
+renderTable(data);
+</script>
+</body>
+</html>

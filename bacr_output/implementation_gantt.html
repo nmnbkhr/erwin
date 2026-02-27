@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Implementation Gantt - Profitability Engine</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; background: #f0f2f5; }
+h1 { color: #2F5496; text-align: center; }
+.subtitle { text-align: center; color: #666; margin-bottom: 25px; }
+.gantt-container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 12px;
+    padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.gantt { width: 100%; }
+.gantt-header { display: grid; grid-template-columns: 250px 1fr; border-bottom: 2px solid #2F5496; padding-bottom: 10px; margin-bottom: 10px; }
+.gantt-header .timeline { display: grid; grid-template-columns: repeat(4, 1fr); }
+.gantt-header .timeline div { text-align: center; font-size: 12px; color: #666; font-weight: bold; }
+.gantt-row { display: grid; grid-template-columns: 250px 1fr; margin: 8px 0; min-height: 60px; }
+.gantt-label { padding: 8px; font-size: 13px; }
+.gantt-label h3 { margin: 0 0 4px 0; font-size: 14px; color: #2F5496; }
+.gantt-label p { margin: 0; font-size: 11px; color: #666; }
+.gantt-bars { position: relative; display: grid; grid-template-columns: repeat(48, 1fr); gap: 0; }
+.gantt-bar { border-radius: 4px; color: white; font-size: 10px; padding: 4px 8px;
+    display: flex; align-items: center; min-height: 32px; position: relative; }
+.gantt-bar .cap { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 10px; }
+.phase-color-1 { background: #4472C4; }
+.phase-color-2 { background: #ED7D31; }
+.phase-color-3 { background: #A5A5A5; }
+.phase-color-4 { background: #FFC000; color: #333; }
+.dependency-arrow { position: absolute; top: 50%; right: -8px; width: 0; height: 0;
+    border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.quarter-line { position: absolute; top: 0; bottom: 0; border-left: 1px dashed #ddd; }
+.milestone { position: absolute; top: -8px; right: -4px; width: 8px; height: 8px;
+    background: #70AD47; border-radius: 50%; border: 2px solid white; }
+.measures-row { margin-top: 5px; }
+.measure-tag { display: inline-block; background: #E8F5E9; color: #2E7D32; padding: 2px 8px;
+    border-radius: 10px; font-size: 10px; margin: 2px; }
+.cumulative { max-width: 1200px; margin: 20px auto; background: white; border-radius: 12px;
+    padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.cumulative h2 { color: #2F5496; font-size: 16px; }
+</style>
+</head>
+<body>
+<h1>Profitability Engine Implementation Gantt</h1>
+<p class="subtitle">4-Phase Implementation with Maturity Progression and Capability Unlocks</p>
+
+<div class="gantt-container">
+
+<div class="gantt-header">
+    <div style="font-weight:bold; color:#2F5496;">Phase / Capability</div>
+    <div class="timeline">
+        <div>Q1-Q2 (Foundation)</div>
+        <div>Q3-Q4 (Core)</div>
+        <div>Y2 H1 (Risk-Adjusted)</div>
+        <div>Y2 H2 (Advanced)</div>
+    </div>
+</div>
+
+    <div class="gantt-row">
+        <div class="gantt-label">
+            <h3>Phase 1: Foundation</h3>
+            <p>Effort: L</p>
+        </div>
+        <div class="gantt-bars">
+            <div class="gantt-bar phase-color-1"
+                 style="grid-column: 1 / span 12;">
+                <span class="cap">Foundation</span>
+                <div class="milestone"></div>
+            </div>
+    <div class="quarter-line" style="left:25.0%"></div><div class="quarter-line" style="left:50.0%"></div><div class="quarter-line" style="left:75.0%"></div></div></div>
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Single Customer View (Party Hub)</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-1" style="grid-column: 1 / span 4; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Single Customer View (Par</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Account Holdings (Agreement Hub)</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-1" style="grid-column: 4 / span 4; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Account Holdings (Agreeme</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Financial Transactions (Event Hub)</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-1" style="grid-column: 7 / span 4; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Financial Transactions (E</span>
+                </div>
+            </div>
+        </div>
+        <div class="gantt-row measures-row" style="min-height:30px;"><div class="gantt-label" style="padding-left:20px;"><span class="measure-tag">Basic customer profitability</span> <span class="measure-tag">Account-level revenue</span> </div><div></div></div>
+    <div class="gantt-row">
+        <div class="gantt-label">
+            <h3>Phase 2: Core Profitability</h3>
+            <p>Effort: XL</p>
+        </div>
+        <div class="gantt-bars">
+            <div class="gantt-bar phase-color-2"
+                 style="grid-column: 10 / span 14;">
+                <span class="cap">Core Profitability</span>
+                <div class="milestone"></div>
+            </div>
+    <div class="quarter-line" style="left:25.0%"></div><div class="quarter-line" style="left:50.0%"></div><div class="quarter-line" style="left:75.0%"></div></div></div>
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Funds Transfer Pricing Engine</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-2" style="grid-column: 10 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Funds Transfer Pricing En</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Activity-Based Costing</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-2" style="grid-column: 12 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Activity-Based Costing</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Balance & Fee Tracking</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-2" style="grid-column: 14 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Balance & Fee Tracking</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Product Master Enhancement</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-2" style="grid-column: 16 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Product Master Enhancemen</span>
+                </div>
+            </div>
+        </div>
+        <div class="gantt-row measures-row" style="min-height:30px;"><div class="gantt-label" style="padding-left:20px;"><span class="measure-tag">NII calculation</span> <span class="measure-tag">Direct cost allocation</span> <span class="measure-tag">Basic P&L by customer</span> </div><div></div></div>
+    <div class="gantt-row">
+        <div class="gantt-label">
+            <h3>Phase 3: Risk-Adjusted</h3>
+            <p>Effort: XL</p>
+        </div>
+        <div class="gantt-bars">
+            <div class="gantt-bar phase-color-3"
+                 style="grid-column: 22 / span 14;">
+                <span class="cap">Risk-Adjusted</span>
+                <div class="milestone"></div>
+            </div>
+    <div class="quarter-line" style="left:25.0%"></div><div class="quarter-line" style="left:50.0%"></div><div class="quarter-line" style="left:75.0%"></div></div></div>
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; PD/LGD Model Integration</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-3" style="grid-column: 22 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">PD/LGD Model Integration</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Risk-Based Pricing</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-3" style="grid-column: 24 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Risk-Based Pricing</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Economic Capital Allocation</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-3" style="grid-column: 26 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Economic Capital Allocati</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Provision Modelling</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-3" style="grid-column: 28 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Provision Modelling</span>
+                </div>
+            </div>
+        </div>
+        <div class="gantt-row measures-row" style="min-height:30px;"><div class="gantt-label" style="padding-left:20px;"><span class="measure-tag">RAROC</span> <span class="measure-tag">Risk-adjusted profitability</span> <span class="measure-tag">Economic capital by customer</span> </div><div></div></div>
+    <div class="gantt-row">
+        <div class="gantt-label">
+            <h3>Phase 4: Advanced Analytics</h3>
+            <p>Effort: XL</p>
+        </div>
+        <div class="gantt-bars">
+            <div class="gantt-bar phase-color-4"
+                 style="grid-column: 34 / span 14;">
+                <span class="cap">Advanced Analytics</span>
+                <div class="milestone"></div>
+            </div>
+    <div class="quarter-line" style="left:25.0%"></div><div class="quarter-line" style="left:50.0%"></div><div class="quarter-line" style="left:75.0%"></div></div></div>
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Profitability Optimization</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-4" style="grid-column: 34 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Profitability Optimizatio</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Lifetime Value Models</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-4" style="grid-column: 36 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Lifetime Value Models</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Dynamic Pricing</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-4" style="grid-column: 38 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Dynamic Pricing</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gantt-row" style="min-height:30px;">
+            <div class="gantt-label" style="padding-left:20px;">
+                <p style="color:#333; font-size:12px;">&#8226; Executive Dashboards</p>
+            </div>
+            <div class="gantt-bars">
+                <div class="gantt-bar phase-color-4" style="grid-column: 40 / span 3; opacity: 0.7; min-height: 22px;">
+                    <span class="cap" style="font-size:9px">Executive Dashboards</span>
+                </div>
+            </div>
+        </div>
+        <div class="gantt-row measures-row" style="min-height:30px;"><div class="gantt-label" style="padding-left:20px;"><span class="measure-tag">Predictive profitability</span> <span class="measure-tag">LTV models</span> <span class="measure-tag">Real-time dashboards</span> </div><div></div></div>
+</div>
+
+<div class="cumulative">
+<h2>Cumulative Profitability Measures by Phase</h2>
+<table style="width:100%; border-collapse:collapse; font-size:13px;">
+<tr style="background:#2F5496; color:white;">
+    <th style="padding:8px; text-align:left;">Phase</th>
+    <th style="padding:8px; text-align:left;">New Measures Enabled</th>
+    <th style="padding:8px; text-align:center;">Cumulative Total</th>
+    <th style="padding:8px; text-align:left;">Maturity Level</th>
+</tr>
+<tr style="background:#E8F0FE;">
+    <td style="padding:8px;">Phase 1: Foundation</td>
+    <td style="padding:8px;">Account balance, transaction count, basic revenue</td>
+    <td style="padding:8px; text-align:center;">3</td>
+    <td style="padding:8px;">1 &rarr; 2</td>
+</tr>
+<tr>
+    <td style="padding:8px;">Phase 2: Core Profitability</td>
+    <td style="padding:8px;">NII, FTP credit/charge, direct costs, fee income, basic P&L</td>
+    <td style="padding:8px; text-align:center;">8</td>
+    <td style="padding:8px;">2 &rarr; 3</td>
+</tr>
+<tr style="background:#E8F0FE;">
+    <td style="padding:8px;">Phase 3: Risk-Adjusted</td>
+    <td style="padding:8px;">PD, LGD, EL, economic capital, RAROC, provisions</td>
+    <td style="padding:8px; text-align:center;">14</td>
+    <td style="padding:8px;">3 &rarr; 4</td>
+</tr>
+<tr>
+    <td style="padding:8px;">Phase 4: Advanced Analytics</td>
+    <td style="padding:8px;">LTV, predictive profitability, dynamic pricing, optimization</td>
+    <td style="padding:8px; text-align:center;">18</td>
+    <td style="padding:8px;">4 &rarr; 5</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profitability Maturity Dashboard - UBL</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; background: #f0f2f5; }
+h1 { color: #2F5496; text-align: center; margin-bottom: 5px; }
+.subtitle { text-align: center; color: #666; margin-bottom: 25px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1400px; margin: 0 auto; }
+.card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.card h2 { color: #2F5496; font-size: 16px; margin: 0 0 15px 0; border-bottom: 2px solid #D6E4F0; padding-bottom: 8px; }
+.full-width { grid-column: 1 / -1; }
+.gauge-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.gauge { text-align: center; }
+.gauge-value { font-size: 32px; font-weight: bold; }
+.gauge-label { font-size: 11px; color: #666; margin-top: 4px; }
+.gauge-bar { height: 8px; border-radius: 4px; background: #eee; margin: 8px 10px; position: relative; }
+.gauge-fill { height: 100%; border-radius: 4px; position: absolute; left: 0; top: 0; }
+.overall-score { text-align: center; padding: 20px; }
+.overall-score .big { font-size: 48px; font-weight: bold; color: #2F5496; }
+.overall-score .target { font-size: 18px; color: #70AD47; }
+.overall-score .gap { font-size: 16px; color: #C00000; margin-top: 5px; }
+.phase-timeline { display: flex; gap: 0; margin-top: 15px; }
+.phase-box { flex: 1; padding: 12px; text-align: center; color: white; position: relative; }
+.phase-box h3 { margin: 0 0 5px 0; font-size: 13px; }
+.phase-box p { margin: 2px 0; font-size: 11px; opacity: 0.9; }
+.phase-box .effort { font-weight: bold; font-size: 12px; }
+.p1 { background: #4472C4; border-radius: 8px 0 0 8px; }
+.p2 { background: #ED7D31; }
+.p3 { background: #A5A5A5; }
+.p4 { background: #FFC000; border-radius: 0 8px 8px 0; color: #333; }
+.arrow { position: absolute; right: -10px; top: 50%; transform: translateY(-50%); z-index: 1;
+         width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
+.p1 .arrow { border-left: 10px solid #4472C4; }
+.p2 .arrow { border-left: 10px solid #ED7D31; }
+.p3 .arrow { border-left: 10px solid #A5A5A5; }
+.legend { display: flex; gap: 15px; justify-content: center; margin-top: 10px; font-size: 12px; }
+.legend-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+</style>
+</head>
+<body>
+<h1>Profitability Engine Maturity Dashboard</h1>
+<p class="subtitle">United Bank Limited &mdash; BACR Assessment × BVF × FSDM Integration</p>
+
+<div class="grid">
+
+<!-- Overall Score -->
+<div class="card">
+    <h2>Overall Profitability Maturity</h2>
+    <div class="overall-score">
+        <div class="big">2.1<span style="font-size:24px;color:#888">/5</span></div>
+        <div class="target">Target: 4.17/5</div>
+        <div class="gap">Gap: 2.07</div>
+    </div>
+</div>
+
+<!-- Component Gauges -->
+<div class="card">
+    <h2>Component Maturity Scores</h2>
+    <div class="gauge-grid">
+
+        <div class="gauge">
+            <div class="gauge-value" style="color:#4472C4">2.6</div>
+            <div class="gauge-bar">
+                <div class="gauge-fill" style="width:52.0%;background:#4472C4"></div>
+            </div>
+            <div class="gauge-label">Revenue Maturity<br>Gap: 2.0</div>
+        </div>
+    
+        <div class="gauge">
+            <div class="gauge-value" style="color:#ED7D31">2.0</div>
+            <div class="gauge-bar">
+                <div class="gauge-fill" style="width:40.0%;background:#ED7D31"></div>
+            </div>
+            <div class="gauge-label">Cost Maturity<br>Gap: 2.0</div>
+        </div>
+    
+        <div class="gauge">
+            <div class="gauge-value" style="color:#A5A5A5">2.0</div>
+            <div class="gauge-bar">
+                <div class="gauge-fill" style="width:40.0%;background:#A5A5A5"></div>
+            </div>
+            <div class="gauge-label">Risk-Adjusted Return Maturity<br>Gap: 2.0</div>
+        </div>
+    
+        <div class="gauge">
+            <div class="gauge-value" style="color:#FFC000">2.0</div>
+            <div class="gauge-bar">
+                <div class="gauge-fill" style="width:40.0%;background:#FFC000"></div>
+            </div>
+            <div class="gauge-label">Treasury/Pricing Maturity<br>Gap: 2.14</div>
+        </div>
+    
+        <div class="gauge">
+            <div class="gauge-value" style="color:#5B9BD5">2.0</div>
+            <div class="gauge-bar">
+                <div class="gauge-fill" style="width:40.0%;background:#5B9BD5"></div>
+            </div>
+            <div class="gauge-label">Reporting Maturity<br>Gap: 2.14</div>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Capability Gaps Bar Chart -->
+<div class="card">
+    <h2>Top Capability Gaps (by Profitability Impact)</h2>
+    <canvas id="gapChart" height="250"></canvas>
+</div>
+
+<!-- Priority Bar Chart -->
+<div class="card">
+    <h2>Top 20 Implementation Priorities</h2>
+    <canvas id="priorityChart" height="250"></canvas>
+    <div class="legend">
+        <span><span class="legend-dot" style="background:#C00000"></span>Profitability Critical</span>
+        <span><span class="legend-dot" style="background:#ED7D31"></span>Tier 1</span>
+        <span><span class="legend-dot" style="background:#4472C4"></span>Other</span>
+    </div>
+</div>
+
+<!-- Implementation Timeline -->
+<div class="card full-width">
+    <h2>Implementation Phases - Profitability Engine Build</h2>
+    <div class="phase-timeline">
+
+        <div class="phase-box p1">
+            <h3>Phase 1: Foundation (Maturity 1→2)</h3>
+            <p style="font-size:10px;text-align:left">• Single Interaction View of Customer<br>• Transaction Classification<br>• Customer Value</p>
+            <p class="effort">Effort: L</p>
+            <p>Enables: Basic customer profitability at account level</p>
+            <div class="arrow"></div>
+        </div>
+    
+        <div class="phase-box p2">
+            <h3>Phase 2: Core Profitability (Maturity 2→3)</h3>
+            <p style="font-size:10px;text-align:left">• Funds Transfer Pricing<br>• Activity Based Costing<br>• Profitability Modelling<br>• Financial Accounting / Accounting Hub</p>
+            <p class="effort">Effort: XL</p>
+            <p>Enables: NII calculation, direct cost allocation, basic P&L by custom</p>
+            <div class="arrow"></div>
+        </div>
+    
+        <div class="phase-box p3">
+            <h3>Phase 3: Risk-Adjusted (Maturity 3→4)</h3>
+            <p style="font-size:10px;text-align:left">• Credit Risk Scoring (Underwriting Likeli<br>• Credit Risk Expected Loss Model<br>• Credit Risk Based Pricing Model<br>• Capital Management (Planning and Allocat</p>
+            <p class="effort">Effort: XL</p>
+            <p>Enables: RAROC, risk-adjusted profitability, economic capital allocat</p>
+            <div class="arrow"></div>
+        </div>
+    
+        <div class="phase-box p4">
+            <h3>Phase 4: Advanced Analytics (Maturity 4→5)</h3>
+            <p style="font-size:10px;text-align:left">• Profitability Analytics and Optimisation<br>• Future / Lifetime Value<br>• Customer Segmentation<br>• Performance Management and KPIs</p>
+            <p class="effort">Effort: XL</p>
+            <p>Enables: Predictive profitability, LTV models, dynamic pricing, real-</p>
+            
+        </div>
+    
+    </div>
+</div>
+
+<!-- Sankey-style flow (simplified) -->
+<div class="card full-width">
+    <h2>Data Flow: BACR Questions &rarr; BVF Capabilities &rarr; Profitability Measures</h2>
+    <canvas id="flowChart" height="200"></canvas>
+</div>
+
+</div>
+
+<script>
+// Gap chart
+new Chart(document.getElementById('gapChart'), {
+    type: 'bar',
+    data: {
+        labels: ["Funds Transfer Pricing", "Functional Profit & Loss State", "Transaction Classification", "Customer Value", "Profitability Modelling", "Sales Reporting", "Pricing Analysis & Optimisatio", "Activity Based Costing", "GL, AP, HR, Expense Analytics ", "Business Process Analytics & O"],
+        datasets: [{
+            label: 'Maturity Gap',
+            data: [3, 3, 2, 2, 2, 2, 2, 2, 2, 2],
+            backgroundColor: [3, 3, 2, 2, 2, 2, 2, 2, 2, 2].map(v => v >= 3 ? '#C00000' : v >= 2 ? '#ED7D31' : '#FFC000'),
+            borderRadius: 4
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { x: { min: 0, max: 4, title: { display: true, text: 'Gap (Desired - Current)' } } }
+    }
+});
+
+// Priority chart
+new Chart(document.getElementById('priorityChart'), {
+    type: 'bar',
+    data: {
+        labels: ["A/B and Test and Learn Deployment", "Performance Reporting", "Exception Reporting", "Executive Dashboards", "Model Performance Analytics", "Profitability Analytics and Optimis", "Credit Risk Based Pricing Model", "Active Portfolio Management", "Profitability Modelling", "Financial Budgeting, Planning & For", "Regulatory & Compliance Reporting", "Performance Management and KPIs", "Pricing Analysis & Optimisation", "Big Data Analytics", "Dynamic Datastore", "Real Time Threat Detection", "Collection Strategy Model", "Future / Lifetime Value", "Activity Based Costing", "Credit Risk Expected Loss Model"],
+        datasets: [{
+            label: 'Enhanced Priority Score',
+            data: [22.5, 21.6, 21.6, 21.6, 21.38, 21.06, 18.68, 18.68, 18.09, 18.0, 18.0, 17.55, 16.88, 15.0, 15.0, 15.0, 14.4, 14.4, 13.72, 13.72],
+            backgroundColor: ["#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#C00000", "#ED7D31", "#ED7D31", "#ED7D31", "#C00000", "#C00000", "#C00000", "#C00000"],
+            borderRadius: 4
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { x: { title: { display: true, text: 'Enhanced Priority Score' } } }
+    }
+});
+
+// Flow chart (simplified stacked bar)
+const flowData = {
+    'Revenue': { bacr: 15, bvf: 5, measures: 4 },
+    'Cost': { bacr: 12, bvf: 4, measures: 3 },
+    'Risk-Adjusted': { bacr: 18, bvf: 7, measures: 5 },
+    'Treasury': { bacr: 14, bvf: 7, measures: 4 },
+    'Reporting': { bacr: 16, bvf: 7, measures: 5 }
+};
+const flowLabels = Object.keys(flowData);
+new Chart(document.getElementById('flowChart'), {
+    type: 'bar',
+    data: {
+        labels: flowLabels,
+        datasets: [
+            { label: 'BACR Questions', data: flowLabels.map(k => flowData[k].bacr), backgroundColor: '#4472C4' },
+            { label: 'BVF Capabilities', data: flowLabels.map(k => flowData[k].bvf), backgroundColor: '#ED7D31' },
+            { label: 'Star Schema Measures', data: flowLabels.map(k => flowData[k].measures), backgroundColor: '#70AD47' }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } },
+        scales: { y: { title: { display: true, text: 'Count' } } }
+    }
+});
+</script>
+</body>
+</html>

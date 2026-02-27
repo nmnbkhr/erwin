@@ -7,12 +7,13 @@ This project reverse-engineers and integrates two Teradata banking assets to bui
 1. **FSDM v16.00.00** (Financial Services Data Model) - Teradata's canonical banking data model with 3,917 entities
 2. **Banking BVF v1.2** (Business Value Framework) - Maps 112 banking capabilities to data requirements
 
-The pipeline works in 3 phases:
+The pipeline works in 4 phases:
 
 ```
 Phase 1: Parse source files (ERWIN model + XSD schema + BVF Excel)
 Phase 2: Analyze FSDM structure (entities, relationships, domains, inheritance)
 Phase 3: Integrate BVF with FSDM -> Profitability Star Schema + Gap Extensions
+Phase 4: BACR Maturity Assessment -> Implementation Priority + Profitability Roadmap
 ```
 
 ---
@@ -85,6 +86,7 @@ All visualizations use pure Canvas/SVG rendering - they work offline without int
 ├── erwin-parser-prompt.md               Prompt for Phase 1 (ERWIN parsing)
 ├── fsdm-xsd-analyzer-prompt.md          Prompt for Phase 2 (XSD analysis)
 ├── bvf-fsdm-integration-prompt.md       Prompt for Phase 3 (BVF-FSDM integration)
+├── bacr-maturity-assessment-prompt.md   Prompt for Phase 4 (BACR maturity assessment)
 │
 ├── ── PYTHON SCRIPTS ───────────────────────────────────────
 │
@@ -93,6 +95,16 @@ All visualizations use pure Canvas/SVG rendering - they work offline without int
 ├── bvf_fsdm_integration.py              [2,402 lines] Phase 3: BVF-FSDM integration engine
 ├── bvf_fsdm_rebuild_viz.py              [812 lines]   Visualization generator (Canvas/SVG)
 ├── bvf_fsdm_visualizations.py           [505 lines]   Original viz (Plotly CDN - superseded)
+├── bacr_phase1_parse.py                 Phase 4: BACR parser (All Questions + Control Sheet)
+├── bacr_phase2_bvf_mapping.py           Phase 4: BACR Outcomes → BVF capability matching
+├── bacr_phase3_fsdm_mapping.py          Phase 4: BACR Information → FSDM domain mapping
+├── bacr_phase4_priority.py              Phase 4: Enhanced priority scoring
+├── bacr_phase5_profitability.py         Phase 4: Profitability maturity profile
+├── bacr_phase6_crosscat.py              Phase 4: Cross-category dependency analysis
+├── bacr_phase7a_excel.py                Phase 4: Excel assessment template generator
+├── bacr_phase7b_report.py               Phase 4: Markdown report + statistics
+├── bacr_phase8a_radar_heatmap.py        Phase 4: Radar chart + heatmap visualizations
+├── bacr_phase8b_dashboard_gantt.py      Phase 4: Dashboard + Gantt chart visualizations
 │
 ├── ── PHASE 1 OUTPUT ───────────────────────────────────────
 │
@@ -269,9 +281,18 @@ All visualizations use pure Canvas/SVG rendering - they work offline without int
 | Gap Extension Tables | 21 |
 | Gap Extension Views | 6 |
 | Data Lineage Entries | 23 |
-| Total Python Lines | ~5,400 |
+| BACR Questions Parsed | 771 |
+| BACR Categories | 8 |
+| BACR Financial Industry Questions | 191 |
+| BACR Profitability-Critical Mappings | 127 |
+| BACR→BVF Mapped | 197 of 220 Outcomes |
+| BVF Capabilities Covered by BACR | 77 of 112 |
+| Profitability Current Maturity | 2.1 / 5 |
+| Profitability Target Maturity | 4.17 / 5 |
+| Implementation Phases | 4 |
+| Total Python Lines | ~7,800 |
 | Total SQL Lines | ~1,085 |
-| Total Output Files | 18 |
+| Total Output Files | 39 |
 
 ---
 
@@ -289,6 +310,18 @@ python3 bvf_fsdm_integration.py
 
 # Generate visualizations (requires Phase 3 outputs)
 python3 bvf_fsdm_rebuild_viz.py
+
+# Phase 4: BACR Maturity Assessment (requires Phase 2 + 3 outputs)
+python3 bacr_phase1_parse.py          # Parse BACR Interview Master
+python3 bacr_phase2_bvf_mapping.py    # Map BACR Outcomes → BVF
+python3 bacr_phase3_fsdm_mapping.py   # Map BACR Information → FSDM
+python3 bacr_phase4_priority.py       # Enhanced implementation priority
+python3 bacr_phase5_profitability.py  # Profitability maturity profile
+python3 bacr_phase6_crosscat.py       # Cross-category dependencies
+python3 bacr_phase7a_excel.py         # Excel assessment template
+python3 bacr_phase7b_report.py        # Markdown report + statistics
+python3 bacr_phase8a_radar_heatmap.py # Radar chart + heatmap
+python3 bacr_phase8b_dashboard_gantt.py # Dashboard + Gantt chart
 ```
 
 ### Dependencies
@@ -296,8 +329,9 @@ python3 bvf_fsdm_rebuild_viz.py
 ```
 Python 3.x
 lxml        # XSD parsing
-openpyxl    # Excel parsing
+openpyxl    # Excel parsing + generation
 pandas      # Data manipulation (optional)
+networkx    # Graph analysis (optional)
 ```
 
 ---
@@ -349,3 +383,116 @@ The star schema and extensions include Pakistan-specific design decisions:
 | Credit Loss | IFRS 9 ECL (Stage 1/2/3) + SBP prudential classification (1-9) |
 | Segments | Retail/Corporate/Commercial/SME/Agriculture/Islamic/Micro/Treasury |
 | Channels | Branch/ATM/Mobile/Internet + JazzCash/Easypaisa/RAAST |
+
+---
+
+## Phase 4 - BACR Maturity Assessment
+
+**Scripts:** `bacr_phase1_parse.py` through `bacr_phase8b_dashboard_gantt.py` (8 scripts)
+**Input:** `BACR - INTERVIEW MASTER - DA004462.xlsm` (793+ questions, 8 categories, 5-level maturity model)
+**Output:** `bacr_output/`
+
+Parses Teradata's Business & Analytics Capability Review interview master and integrates it with BVF capabilities and FSDM entities to produce a maturity-informed profitability engine implementation plan.
+
+### Pipeline
+
+```
+Phase 1: Parse BACR "All Questions" + "Control Sheet" (771 questions, 8 categories)
+Phase 2: Map 220 BACR Outcomes → 77 BVF capabilities (direct + fuzzy matching)
+Phase 3: Map 102 BACR Information questions → FSDM data domains
+Phase 4: Calculate enhanced implementation priority (maturity gap × BVF score × readiness)
+Phase 5: Build profitability maturity profile (Revenue/Cost/Risk/Treasury/Reporting)
+Phase 6: Cross-category dependency analysis (Information→Outcomes→Business chain)
+Phase 7: Generate Excel assessment template + Markdown report + Statistics
+Phase 8: Build 4 interactive HTML visualizations
+```
+
+### BACR Output Files
+
+```
+bacr_output/
+│
+├── ── PARSED DATA ─────────────────────────────────────────────
+│
+├── bacr_all_questions.json         [964 KB]  771 questions with maturity descriptors, role/industry/function filters
+├── bacr_all_questions.csv          [602 KB]  Flat CSV of all questions
+├── bacr_category_summary.json      [5 KB]    8 categories with section breakdowns
+│
+├── ── BVF MAPPING ─────────────────────────────────────────────
+│
+├── bacr_to_bvf_mapping.csv         [43 KB]   220 Outcomes → BVF capabilities (197 mapped, 23 BACR-only)
+├── bacr_to_bvf_mapping.json        [539 KB]  Full structured mapping with match scores
+│
+├── ── FSDM MAPPING ────────────────────────────────────────────
+│
+├── bacr_information_to_fsdm.csv    [40 KB]   102 Information questions → FSDM domains
+├── bacr_information_to_fsdm.json   [127 KB]  Structured with profitability impact notes
+│
+├── ── PRIORITY & GAP ANALYSIS ─────────────────────────────────
+│
+├── enhanced_implementation_priority.csv [11 KB]  77 capabilities ranked by enhanced score
+│                                                 39 Tier-1 Critical, 12 Tier-2 High
+├── maturity_gap_analysis.csv       [17 KB]   Per-question gap analysis with tier assignments
+│
+├── ── PROFITABILITY MATURITY ──────────────────────────────────
+│
+├── profitability_maturity_profile.json [27 KB] 5-component profile:
+│                                               Revenue (2.6/5), Cost (2.0/5), Risk (2.0/5),
+│                                               Treasury (2.0/5), Reporting (2.0/5)
+│                                               Top gaps: FTP (gap=3), Functional P&L (gap=3)
+│                                               4-phase implementation sequence
+├── profitability_implementation_sequence.csv [1.5 KB] Phased plan (Foundation→Core→Risk→Advanced)
+│
+├── ── CROSS-CATEGORY ──────────────────────────────────────────
+│
+├── cross_category_dependencies.json [14 KB]  Profitability dependency chain:
+│                                             Data Readiness (2.38) → Technology (3.0) →
+│                                             Governance (2.0) → Capabilities (2.0)
+│
+├── ── REPORTS ─────────────────────────────────────────────────
+│
+├── bacr_assessment_template.xlsx   [72 KB]   5-sheet Excel workbook:
+│                                             Sheet 1: Assessment Dashboard (category scores, gaps)
+│                                             Sheet 2: Profitability Questions (pre-populated defaults)
+│                                             Sheet 3: All Financial Questions (191 questions)
+│                                             Sheet 4: Maturity Mapping (BACR→BVF traceability)
+│                                             Sheet 5: Implementation Roadmap (4 phases)
+├── bacr_maturity_report.md         [13 KB]   9-section comprehensive report
+├── bacr_statistics.json            [2 KB]    Summary statistics
+│
+├── ── VISUALIZATIONS (HTML with Chart.js) ─────────────────────
+│
+├── maturity_radar.html             [5 KB]    Interactive radar chart
+│                                             8 category axes, current vs. desired
+│                                             Toggle: All / Financial-only / Profitability-critical
+├── maturity_heatmap.html           [13 KB]   Filterable heatmap
+│                                             Category→Section rows, gap severity coloring
+│                                             Profitability-critical highlighting
+├── profitability_maturity_dashboard.html [11 KB] 6-panel dashboard
+│                                             Gauge charts, gap bars, priority bars
+│                                             Phase timeline, data flow chart
+└── implementation_gantt.html       [16 KB]   Gantt-style implementation timeline
+                                              4 phases with capability sub-tasks
+                                              Cumulative profitability measures table
+```
+
+### Architecture Flow (Full Pipeline)
+
+```
+┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│ ERWIN Model (v13)│  │ XSD Schema (v16) │  │ BVF Excel (v1.2) │  │ BACR Master      │
+│ 133 MB           │  │ 9 MB             │  │ 6 sheets         │  │ 793 questions    │
+└───────┬──────────┘  └───────┬──────────┘  └───────┬──────────┘  └───────┬──────────┘
+        │                     │                      │                     │
+   Phase 1               Phase 2                Phase 3               Phase 4
+        │                     │                      │                     │
+        v                     v                      v                     v
+┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│erwin_parser_out/ │  │ fsdm_output/     │─>│ bvf_fsdm_output/ │─>│ bacr_output/      │
+│ Data dictionary  │  │ Entity catalog   │  │ BVF-FSDM mapping │  │ Maturity profile │
+│ DDL              │  │ Relationships    │  │ Star schema DDL  │  │ Priority ranking │
+│ Relationships    │  │ Domain map       │  │ Gap extensions   │  │ Gap analysis     │
+│ Subject areas    │  │ Inheritance tree │  │ Data lineage     │  │ Excel template   │
+│                  │  │ Interactive ERD  │  │ Visualizations   │  │ Visualizations   │
+└──────────────────┘  └──────────────────┘  └──────────────────┘  └──────────────────┘
+```

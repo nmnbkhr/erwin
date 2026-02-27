@@ -1,0 +1,899 @@
+{
+  "profitability_maturity": {
+    "overall_score": 2.1,
+    "overall_target": 4.17,
+    "overall_gap": 2.07,
+    "components": {
+      "revenue": {
+        "label": "Revenue Maturity",
+        "current_avg": 2.6,
+        "target_avg": 4.6,
+        "gap": 2.0,
+        "capability_count": 5,
+        "questions": [
+          {
+            "bvf_capability": "Transaction Classification",
+            "current": 3,
+            "desired": 5,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.interest_income, fee_income",
+            "fsdm_entities": [
+              "FINANCIAL_TRANSACTION",
+              "ACCOUNT",
+              "PRODUCT"
+            ],
+            "bacr_question_ids": [
+              736
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Customer Value",
+            "current": 3,
+            "desired": 5,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.total_revenue",
+            "fsdm_entities": [
+              "PARTY",
+              "INDIVIDUAL",
+              "AGREEMENT"
+            ],
+            "bacr_question_ids": [
+              554,
+              599,
+              601
+            ],
+            "bacr_question_count": 3
+          },
+          {
+            "bvf_capability": "Profitability Modelling",
+            "current": 3,
+            "desired": 5,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY - all revenue measures",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "PRODUCT",
+              "FINANCIAL_TRANSACTION"
+            ],
+            "bacr_question_ids": [
+              606,
+              644,
+              722
+            ],
+            "bacr_question_count": 3
+          },
+          {
+            "bvf_capability": "Sales Reporting",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.fee_income, commission_income",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "PRODUCT",
+              "EVENT"
+            ],
+            "bacr_question_ids": [
+              594,
+              638,
+              669,
+              756
+            ],
+            "bacr_question_count": 4
+          },
+          {
+            "bvf_capability": "Pricing Analysis & Optimisation",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "DIM_PRODUCT.pricing attributes",
+            "fsdm_entities": [
+              "PRODUCT",
+              "PRODUCT_FEATURE",
+              "INTEREST_RATE"
+            ],
+            "bacr_question_ids": [
+              645,
+              748,
+              753,
+              761,
+              769,
+              770
+            ],
+            "bacr_question_count": 6
+          }
+        ]
+      },
+      "cost": {
+        "label": "Cost Maturity",
+        "current_avg": 2.0,
+        "target_avg": 4.0,
+        "gap": 2.0,
+        "capability_count": 4,
+        "questions": [
+          {
+            "bvf_capability": "Activity Based Costing",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.direct_cost, indirect_cost_allocation",
+            "fsdm_entities": [
+              "INTERNAL_ORGANIZATION",
+              "EVENT",
+              "AGREEMENT"
+            ],
+            "bacr_question_ids": [
+              622,
+              647
+            ],
+            "bacr_question_count": 2
+          },
+          {
+            "bvf_capability": "GL, AP, HR, Expense Analytics & Optimisation",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.overhead_allocation",
+            "fsdm_entities": [
+              "INTERNAL_ORGANIZATION",
+              "GL_ACCOUNT"
+            ],
+            "bacr_question_ids": [
+              621
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Business Process Analytics & Optimisation",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.operational_cost",
+            "fsdm_entities": [
+              "EVENT",
+              "INTERNAL_ORGANIZATION"
+            ],
+            "bacr_question_ids": [
+              611,
+              626,
+              628,
+              654,
+              664,
+              745,
+              746,
+              765
+            ],
+            "bacr_question_count": 8
+          },
+          {
+            "bvf_capability": "Financial Accounting / Accounting Hub",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY - cost classification",
+            "fsdm_entities": [
+              "GL_ACCOUNT",
+              "FINANCIAL_TRANSACTION"
+            ],
+            "bacr_question_ids": [
+              612,
+              615,
+              759,
+              767
+            ],
+            "bacr_question_count": 4
+          }
+        ]
+      },
+      "risk_adjusted_return": {
+        "label": "Risk-Adjusted Return Maturity",
+        "current_avg": 2.0,
+        "target_avg": 4.0,
+        "gap": 2.0,
+        "capability_count": 7,
+        "questions": [
+          {
+            "bvf_capability": "Credit Risk Scoring (Underwriting Likelihood Model)",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.probability_of_default",
+            "fsdm_entities": [
+              "PARTY",
+              "AGREEMENT",
+              "ANALYTICAL_MODEL"
+            ],
+            "bacr_question_ids": [
+              694
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Credit Risk Expected Loss Model",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.expected_loss, loss_given_default",
+            "fsdm_entities": [
+              "PARTY",
+              "AGREEMENT",
+              "COLLATERAL"
+            ],
+            "bacr_question_ids": [
+              695,
+              731
+            ],
+            "bacr_question_count": 2
+          },
+          {
+            "bvf_capability": "Capital Management (Planning and Allocation)",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.economic_capital, regulatory_capital",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "RISK_EXPOSURE"
+            ],
+            "bacr_question_ids": [
+              698
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Credit Risk Based Pricing Model",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.raroc",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "PRODUCT",
+              "ANALYTICAL_MODEL"
+            ],
+            "bacr_question_ids": [
+              590,
+              704
+            ],
+            "bacr_question_count": 2
+          },
+          {
+            "bvf_capability": "Active Portfolio Management",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Portfolio-level risk-return optimization",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "PARTY",
+              "RISK_EXPOSURE"
+            ],
+            "bacr_question_ids": [
+              705
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Risk Appetite",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Risk limit framework for profitability targets",
+            "fsdm_entities": [
+              "INTERNAL_ORGANIZATION",
+              "RISK_EXPOSURE"
+            ],
+            "bacr_question_ids": [
+              632,
+              672,
+              675,
+              702,
+              749
+            ],
+            "bacr_question_count": 5
+          },
+          {
+            "bvf_capability": "Risk Scenario & Stress Testing Results (Analytical Model)",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Stress-tested profitability scenarios",
+            "fsdm_entities": [
+              "ANALYTICAL_MODEL",
+              "AGREEMENT",
+              "PARTY"
+            ],
+            "bacr_question_ids": [],
+            "bacr_question_count": 0
+          }
+        ]
+      },
+      "treasury_pricing": {
+        "label": "Treasury/Pricing Maturity",
+        "current_avg": 2.0,
+        "target_avg": 4.14,
+        "gap": 2.14,
+        "capability_count": 7,
+        "questions": [
+          {
+            "bvf_capability": "Funds Transfer Pricing",
+            "current": 2,
+            "desired": 5,
+            "gap": 3,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.ftp_charge, ftp_credit, net_interest_margin",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "INTEREST_RATE",
+              "PRODUCT"
+            ],
+            "bacr_question_ids": [
+              634
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Asset & Liability Management",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Balance sheet management for NII sensitivity",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "BALANCE",
+              "INTEREST_RATE"
+            ],
+            "bacr_question_ids": [
+              633,
+              708,
+              713,
+              720
+            ],
+            "bacr_question_count": 4
+          },
+          {
+            "bvf_capability": "Capital Planning and Management",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Capital allocation to business lines",
+            "fsdm_entities": [
+              "INTERNAL_ORGANIZATION",
+              "AGREEMENT"
+            ],
+            "bacr_question_ids": [
+              593,
+              630,
+              643,
+              650,
+              717,
+              719,
+              760
+            ],
+            "bacr_question_count": 7
+          },
+          {
+            "bvf_capability": "Cashflow Generation",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FACT_CUSTOMER_PROFITABILITY.cashflow_projection",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "FINANCIAL_TRANSACTION",
+              "EVENT"
+            ],
+            "bacr_question_ids": [
+              629,
+              711
+            ],
+            "bacr_question_count": 2
+          },
+          {
+            "bvf_capability": "Liquidity Management",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Liquidity cost allocation to products",
+            "fsdm_entities": [
+              "AGREEMENT",
+              "BALANCE",
+              "FINANCIAL_TRANSACTION"
+            ],
+            "bacr_question_ids": [
+              631,
+              648,
+              651,
+              668,
+              676,
+              729,
+              741,
+              742,
+              743,
+              755,
+              768
+            ],
+            "bacr_question_count": 11
+          },
+          {
+            "bvf_capability": "FX & Trading Book Management",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "FX impact on cross-currency profitability",
+            "fsdm_entities": [
+              "CURRENCY",
+              "EXCHANGE_RATE",
+              "AGREEMENT"
+            ],
+            "bacr_question_ids": [
+              635
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Interest Rate Management",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "NII sensitivity and repricing impact",
+            "fsdm_entities": [
+              "INTEREST_RATE",
+              "AGREEMENT",
+              "PRODUCT"
+            ],
+            "bacr_question_ids": [
+              636
+            ],
+            "bacr_question_count": 1
+          }
+        ]
+      },
+      "reporting": {
+        "label": "Reporting Maturity",
+        "current_avg": 2.0,
+        "target_avg": 4.14,
+        "gap": 2.14,
+        "capability_count": 7,
+        "questions": [
+          {
+            "bvf_capability": "Functional Profit & Loss Statement (P&L)",
+            "current": 2,
+            "desired": 5,
+            "gap": 3,
+            "star_schema_impact": "Core output - functional P&L by customer/product/channel",
+            "fsdm_entities": [
+              "PARTY",
+              "PRODUCT",
+              "INTERNAL_ORGANIZATION",
+              "AGREEMENT"
+            ],
+            "bacr_question_ids": [
+              619
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Financial Consolidation",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Group-level consolidated profitability",
+            "fsdm_entities": [
+              "INTERNAL_ORGANIZATION",
+              "GL_ACCOUNT"
+            ],
+            "bacr_question_ids": [
+              604,
+              618,
+              738
+            ],
+            "bacr_question_count": 3
+          },
+          {
+            "bvf_capability": "Statutory Financial Reporting",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Regulatory financial statement production",
+            "fsdm_entities": [
+              "GL_ACCOUNT",
+              "INTERNAL_ORGANIZATION"
+            ],
+            "bacr_question_ids": [
+              637,
+              723,
+              732
+            ],
+            "bacr_question_count": 3
+          },
+          {
+            "bvf_capability": "Performance Management and KPIs",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "KPI dashboards driven by profitability measures",
+            "fsdm_entities": [
+              "All dimensions"
+            ],
+            "bacr_question_ids": [
+              609,
+              625,
+              667,
+              721,
+              739,
+              740
+            ],
+            "bacr_question_count": 6
+          },
+          {
+            "bvf_capability": "Executive Dashboards",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "C-suite profitability visibility",
+            "fsdm_entities": [
+              "All fact/dimension tables"
+            ],
+            "bacr_question_ids": [
+              642
+            ],
+            "bacr_question_count": 1
+          },
+          {
+            "bvf_capability": "Performance Reporting",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Branch/product/segment performance from profitability cube",
+            "fsdm_entities": [
+              "INTERNAL_ORGANIZATION",
+              "PRODUCT",
+              "PARTY"
+            ],
+            "bacr_question_ids": [
+              587,
+              589,
+              603,
+              640,
+              649,
+              655,
+              701,
+              709,
+              715,
+              733,
+              750,
+              758,
+              764,
+              766,
+              771
+            ],
+            "bacr_question_count": 15
+          },
+          {
+            "bvf_capability": "Exception Reporting",
+            "current": 2,
+            "desired": 4,
+            "gap": 2,
+            "star_schema_impact": "Profitability anomaly detection and alerts",
+            "fsdm_entities": [
+              "All fact tables"
+            ],
+            "bacr_question_ids": [
+              641
+            ],
+            "bacr_question_count": 1
+          }
+        ]
+      }
+    },
+    "critical_gaps": [
+      {
+        "capability": "Funds Transfer Pricing",
+        "current": 2,
+        "desired": 5,
+        "gap": 3,
+        "profitability_component": "Treasury/Pricing Maturity",
+        "star_schema_measures_affected": [
+          "FACT_CUSTOMER_PROFITABILITY.ftp_charge, ftp_credit, net_interest_margin"
+        ],
+        "fsdm_entities_required": [
+          "AGREEMENT",
+          "INTEREST_RATE",
+          "PRODUCT"
+        ],
+        "recommended_actions": [
+          "Critical gap: Immediate focus needed for Funds Transfer Pricing",
+          "Establish foundational data sourcing and integration",
+          "Build dedicated data pipeline for Funds Transfer Pricing",
+          "Implement automated quality checks",
+          "Deploy FTP rate curve management and matched-maturity methodology"
+        ]
+      },
+      {
+        "capability": "Functional Profit & Loss Statement (P&L)",
+        "current": 2,
+        "desired": 5,
+        "gap": 3,
+        "profitability_component": "Reporting Maturity",
+        "star_schema_measures_affected": [
+          "Core output - functional P&L by customer/product/channel"
+        ],
+        "fsdm_entities_required": [
+          "PARTY",
+          "PRODUCT",
+          "INTERNAL_ORGANIZATION",
+          "AGREEMENT"
+        ],
+        "recommended_actions": [
+          "Critical gap: Immediate focus needed for Functional Profit & Loss Statement (P&L)",
+          "Establish foundational data sourcing and integration",
+          "Build dedicated data pipeline for Functional Profit & Loss Statement (P&L)",
+          "Implement automated quality checks",
+          "Build functional P&L dimensions: customer, product, channel, branch"
+        ]
+      },
+      {
+        "capability": "Transaction Classification",
+        "current": 3,
+        "desired": 5,
+        "gap": 2,
+        "profitability_component": "Revenue Maturity",
+        "star_schema_measures_affected": [
+          "FACT_CUSTOMER_PROFITABILITY.interest_income, fee_income"
+        ],
+        "fsdm_entities_required": [
+          "FINANCIAL_TRANSACTION",
+          "ACCOUNT",
+          "PRODUCT"
+        ],
+        "recommended_actions": [
+          "Build dedicated data pipeline for Transaction Classification",
+          "Implement automated quality checks"
+        ]
+      },
+      {
+        "capability": "Customer Value",
+        "current": 3,
+        "desired": 5,
+        "gap": 2,
+        "profitability_component": "Revenue Maturity",
+        "star_schema_measures_affected": [
+          "FACT_CUSTOMER_PROFITABILITY.total_revenue"
+        ],
+        "fsdm_entities_required": [
+          "PARTY",
+          "INDIVIDUAL",
+          "AGREEMENT"
+        ],
+        "recommended_actions": [
+          "Build dedicated data pipeline for Customer Value",
+          "Implement automated quality checks"
+        ]
+      },
+      {
+        "capability": "Profitability Modelling",
+        "current": 3,
+        "desired": 5,
+        "gap": 2,
+        "profitability_component": "Revenue Maturity",
+        "star_schema_measures_affected": [
+          "FACT_CUSTOMER_PROFITABILITY - all revenue measures"
+        ],
+        "fsdm_entities_required": [
+          "AGREEMENT",
+          "PRODUCT",
+          "FINANCIAL_TRANSACTION"
+        ],
+        "recommended_actions": [
+          "Build dedicated data pipeline for Profitability Modelling",
+          "Implement automated quality checks",
+          "Build functional P&L dimensions: customer, product, channel, branch"
+        ]
+      },
+      {
+        "capability": "Sales Reporting",
+        "current": 2,
+        "desired": 4,
+        "gap": 2,
+        "profitability_component": "Revenue Maturity",
+        "star_schema_measures_affected": [
+          "FACT_CUSTOMER_PROFITABILITY.fee_income, commission_income"
+        ],
+        "fsdm_entities_required": [
+          "AGREEMENT",
+          "PRODUCT",
+          "EVENT"
+        ],
+        "recommended_actions": [
+          "Build dedicated data pipeline for Sales Reporting",
+          "Implement automated quality checks"
+        ]
+      },
+      {
+        "capability": "Pricing Analysis & Optimisation",
+        "current": 2,
+        "desired": 4,
+        "gap": 2,
+        "profitability_component": "Revenue Maturity",
+        "star_schema_measures_affected": [
+          "DIM_PRODUCT.pricing attributes"
+        ],
+        "fsdm_entities_required": [
+          "PRODUCT",
+          "PRODUCT_FEATURE",
+          "INTEREST_RATE"
+        ],
+        "recommended_actions": [
+          "Build dedicated data pipeline for Pricing Analysis & Optimisation",
+          "Implement automated quality checks"
+        ]
+      },
+      {
+        "capability": "Activity Based Costing",
+        "current": 2,
+        "desired": 4,
+        "gap": 2,
+        "profitability_component": "Cost Maturity",
+        "star_schema_measures_affected": [
+          "FACT_CUSTOMER_PROFITABILITY.direct_cost, indirect_cost_allocation"
+        ],
+        "fsdm_entities_required": [
+          "INTERNAL_ORGANIZATION",
+          "EVENT",
+          "AGREEMENT"
+        ],
+        "recommended_actions": [
+          "Build dedicated data pipeline for Activity Based Costing",
+          "Implement automated quality checks"
+        ]
+      },
+      {
+        "capability": "GL, AP, HR, Expense Analytics & Optimisation",
+        "current": 2,
+        "desired": 4,
+        "gap": 2,
+        "profitability_component": "Cost Maturity",
+        "star_schema_measures_affected": [
+          "FACT_CUSTOMER_PROFITABILITY.overhead_allocation"
+        ],
+        "fsdm_entities_required": [
+          "INTERNAL_ORGANIZATION",
+          "GL_ACCOUNT"
+        ],
+        "recommended_actions": [
+          "Build dedicated data pipeline for GL, AP, HR, Expense Analytics & Optimisation",
+          "Implement automated quality checks"
+        ]
+      },
+      {
+        "capability": "Business Process Analytics & Optimisation",
+        "current": 2,
+        "desired": 4,
+        "gap": 2,
+        "profitability_component": "Cost Maturity",
+        "star_schema_measures_affected": [
+          "FACT_CUSTOMER_PROFITABILITY.operational_cost"
+        ],
+        "fsdm_entities_required": [
+          "EVENT",
+          "INTERNAL_ORGANIZATION"
+        ],
+        "recommended_actions": [
+          "Build dedicated data pipeline for Business Process Analytics & Optimisation",
+          "Implement automated quality checks"
+        ]
+      }
+    ],
+    "implementation_sequence": [
+      {
+        "phase": 1,
+        "name": "Foundation (Maturity 1\u21922)",
+        "capabilities": [
+          "Single Interaction View of Customer",
+          "Transaction Classification",
+          "Customer Value"
+        ],
+        "capability_count": 3,
+        "description": "Party hub, Agreement hub, Financial Transactions, Product Master, Org Hierarchy",
+        "enables": "Basic customer profitability at account level",
+        "fsdm_entities": [
+          "PARTY",
+          "INDIVIDUAL",
+          "ORGANIZATION",
+          "AGREEMENT",
+          "ACCOUNT",
+          "FINANCIAL_TRANSACTION",
+          "PRODUCT",
+          "INTERNAL_ORGANIZATION"
+        ],
+        "fsdm_entity_count": 8,
+        "bvf_data_requirements": 54,
+        "prerequisite_phases": [],
+        "estimated_effort": "L"
+      },
+      {
+        "phase": 2,
+        "name": "Core Profitability (Maturity 2\u21923)",
+        "capabilities": [
+          "Funds Transfer Pricing",
+          "Activity Based Costing",
+          "Profitability Modelling",
+          "Financial Accounting / Accounting Hub",
+          "Sales Reporting"
+        ],
+        "capability_count": 5,
+        "description": "FTP engine, ABC allocation, balance summaries, fee tracking",
+        "enables": "NII calculation, direct cost allocation, basic P&L by customer",
+        "fsdm_entities": [
+          "INTEREST_RATE",
+          "BALANCE",
+          "GL_ACCOUNT",
+          "PRODUCT_FEATURE",
+          "INTERNAL_ORGANIZATION",
+          "EVENT"
+        ],
+        "fsdm_entity_count": 6,
+        "bvf_data_requirements": 211,
+        "prerequisite_phases": [
+          1
+        ],
+        "estimated_effort": "XL"
+      },
+      {
+        "phase": 3,
+        "name": "Risk-Adjusted (Maturity 3\u21924)",
+        "capabilities": [
+          "Credit Risk Scoring (Underwriting Likelihood Model)",
+          "Credit Risk Expected Loss Model",
+          "Credit Risk Based Pricing Model",
+          "Capital Management (Planning and Allocation)",
+          "Risk Appetite"
+        ],
+        "capability_count": 5,
+        "description": "PD/LGD models, risk-based pricing, economic capital allocation, provisions",
+        "enables": "RAROC, risk-adjusted profitability, economic capital allocation",
+        "fsdm_entities": [
+          "ANALYTICAL_MODEL",
+          "RISK_EXPOSURE",
+          "COLLATERAL",
+          "PROVISION",
+          "WRITE_OFF"
+        ],
+        "fsdm_entity_count": 5,
+        "bvf_data_requirements": 277,
+        "prerequisite_phases": [
+          1,
+          2
+        ],
+        "estimated_effort": "XL"
+      },
+      {
+        "phase": 4,
+        "name": "Advanced Analytics (Maturity 4\u21925)",
+        "capabilities": [
+          "Profitability Analytics and Optimisation",
+          "Future / Lifetime Value",
+          "Customer Segmentation",
+          "Performance Management and KPIs",
+          "Executive Dashboards",
+          "Functional Profit & Loss Statement (P&L)"
+        ],
+        "capability_count": 6,
+        "description": "Predictive profitability, LTV models, dynamic pricing, real-time dashboards",
+        "enables": "Predictive profitability, LTV models, dynamic pricing, real-time dashboards",
+        "fsdm_entities": [
+          "All entities - full star schema deployment"
+        ],
+        "fsdm_entity_count": 1,
+        "bvf_data_requirements": 385,
+        "prerequisite_phases": [
+          1,
+          2,
+          3
+        ],
+        "estimated_effort": "XL"
+      }
+    ]
+  }
+}

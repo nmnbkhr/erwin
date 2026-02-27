@@ -1,0 +1,89 @@
+Star_Schema_Table,Table_Type,Column_Name,Source_FSDM_Entity,Source_BVF_Data_Requirement,Source_BVF_Capabilities,Coverage_Status
+FACT_CUSTOMER_PROFITABILITY,FACT,Interest_Income_Amt,MONETARY_TRANSACTION,Financial Transactions,Accounting Hub; Functional P&L; Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Interest_Income_Amt,MONETARY_TRANSACTION,Account Balances,Accounting Hub; Functional P&L; Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Interest_Income_Amt,AGREEMENT_SUMMARY,Financial Transactions,Accounting Hub; Functional P&L; Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Interest_Income_Amt,AGREEMENT_SUMMARY,Account Balances,Accounting Hub; Functional P&L; Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Interest_Expense_Amt,MONETARY_TRANSACTION,Financial Transactions,Accounting Hub; Functional P&L,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Interest_Expense_Amt,MONETARY_TRANSACTION,Account Balances,Accounting Hub; Functional P&L,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Interest_Expense_Amt,AGREEMENT_SUMMARY,Financial Transactions,Accounting Hub; Functional P&L,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Interest_Expense_Amt,AGREEMENT_SUMMARY,Account Balances,Accounting Hub; Functional P&L,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Net_Interest_Income_Amt,AGREEMENT_SUMMARY,Account Balances,Functional P&L; Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,FTP_Credit_Amt,FUND_TRANSFER_PRICING,Master & Ref Data - FTP rates,Funds Transfer Pricing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,FTP_Charge_Amt,FUND_TRANSFER_PRICING,Master & Ref Data - FTP rates,Funds Transfer Pricing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Net_FTP_Amt,FUND_TRANSFER_PRICING,Master & Ref Data - FTP rates,Funds Transfer Pricing; Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Fee_Income_Amt,FEE_TRANSACTION,"Account Fees, Commissions & Charges",Accounting Hub; Functional P&L,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Fee_Income_Amt,SERVICE_FEE,"Account Fees, Commissions & Charges",Accounting Hub; Functional P&L,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Commission_Income_Amt,FEE_TRANSACTION,"Account Fees, Commissions & Charges",Accounting Hub; Functional P&L,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,FX_Gain_Loss_Amt,EXCHANGE_RATE_HISTORY,Master & Ref Data - exchange rates,Accounting Hub,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,FX_Gain_Loss_Amt,EXCHANGE_RATE_HISTORY,FX Trading,Accounting Hub,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,FX_Gain_Loss_Amt,CURRENCY,Master & Ref Data - exchange rates,Accounting Hub,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,FX_Gain_Loss_Amt,CURRENCY,FX Trading,Accounting Hub,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Other_Income_Amt,MONETARY_TRANSACTION,Financial Transactions,Accounting Hub,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Total_Revenue_Amt,AGREEMENT_SUMMARY,Account Balances,Functional P&L; Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Total_Revenue_Amt,AGREEMENT_SUMMARY,Financial Transactions,Functional P&L; Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Direct_Cost_Amt,GL_TRANSACTION,Finance Systems - General Ledger,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Direct_Cost_Amt,GL_TRANSACTION,Service Usage,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Direct_Cost_Amt,CHANNEL_USAGE_EVENT,Finance Systems - General Ledger,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Direct_Cost_Amt,CHANNEL_USAGE_EVENT,Service Usage,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Channel_Cost_Amt,CHANNEL_TYPE,Master & Ref Data - Channel,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Channel_Cost_Amt,CHANNEL_TYPE,Service Usage,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Channel_Cost_Amt,CHANNEL_INSTANCE,Master & Ref Data - Channel,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Channel_Cost_Amt,CHANNEL_INSTANCE,Service Usage,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Operations_Cost_Amt,COST_CENTER,Finance Systems - ERP,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Operations_Cost_Amt,COST_CENTER,Finance Systems - General Ledger,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Operations_Cost_Amt,GL_TRANSACTION,Finance Systems - ERP,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Operations_Cost_Amt,GL_TRANSACTION,Finance Systems - General Ledger,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Indirect_Cost_Amt,COST_CENTER,Finance Systems - ERP,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Indirect_Cost_Amt,COST_CENTER,Master & Ref Data - organisation hierarchy,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Indirect_Cost_Amt,ORGANIZATION_UNIT,Finance Systems - ERP,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Indirect_Cost_Amt,ORGANIZATION_UNIT,Master & Ref Data - organisation hierarchy,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Total_Cost_Amt,GL_TRANSACTION,Finance Systems - General Ledger,Functional P&L; Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Provision_Expense_Amt,AGREEMENT_RISK_METRIC,"Provisions, Losses & Writeoffs",Credit Risk Expected Loss Model,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Provision_Expense_Amt,AGREEMENT_RISK_METRIC,Risk Exposures,Credit Risk Expected Loss Model,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Provision_Expense_Amt,CREDIT_RISK_SUMMARY,"Provisions, Losses & Writeoffs",Credit Risk Expected Loss Model,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Provision_Expense_Amt,CREDIT_RISK_SUMMARY,Risk Exposures,Credit Risk Expected Loss Model,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Risk_Weighted_Asset_Amt,RISK_WEIGHTED_ASSET,RWA & Capital,Risk Weighted Assets and Regulatory Capital,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Risk_Weighted_Asset_Amt,RISK_WEIGHTED_ASSET,Risk Weighted Assets & Capital Results,Risk Weighted Assets and Regulatory Capital,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Risk_Weighted_Asset_Amt,BANK_CAPITAL_SUMMARY,RWA & Capital,Risk Weighted Assets and Regulatory Capital,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Risk_Weighted_Asset_Amt,BANK_CAPITAL_SUMMARY,Risk Weighted Assets & Capital Results,Risk Weighted Assets and Regulatory Capital,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Economic_Capital_Amt,BANK_CAPITAL_SUMMARY,RWA & Capital,Capital Planning and Management; Capital Consumption,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Economic_Capital_Amt,CAPITAL_REQUIREMENTS_SUMMARY,RWA & Capital,Capital Planning and Management; Capital Consumption,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Expected_Loss_Amt,CREDIT_RISK_SUMMARY,Expected Loss / PD / LGD / EAD,Credit Risk Expected Loss Model,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Expected_Loss_Amt,CREDIT_RISK_SUMMARY,Risk Exposures,Credit Risk Expected Loss Model,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Expected_Loss_Amt,AGREEMENT_RISK_METRIC,Expected Loss / PD / LGD / EAD,Credit Risk Expected Loss Model,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Expected_Loss_Amt,AGREEMENT_RISK_METRIC,Risk Exposures,Credit Risk Expected Loss Model,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Net_Profit_Amt,,Profitability Results,Functional P&L; Profitability Modelling,PARTIAL
+FACT_CUSTOMER_PROFITABILITY,FACT,RAROC_Pct,,Profitability Results,Profitability Analytics and Optimisation; Capital Planning and Management,PARTIAL
+FACT_CUSTOMER_PROFITABILITY,FACT,RAROC_Pct,,RWA & Capital,Profitability Analytics and Optimisation; Capital Planning and Management,PARTIAL
+FACT_CUSTOMER_PROFITABILITY,FACT,Return_On_Equity_Pct,,Profitability Results,Profitability Analytics and Optimisation,PARTIAL
+FACT_CUSTOMER_PROFITABILITY,FACT,Cost_To_Income_Ratio_Pct,,Profitability Results,Performance Management and KPIs,PARTIAL
+FACT_CUSTOMER_PROFITABILITY,FACT,Economic_Profit_Amt,,Profitability Results,Profitability Modelling,PARTIAL
+FACT_CUSTOMER_PROFITABILITY,FACT,Economic_Profit_Amt,,RWA & Capital,Profitability Modelling,PARTIAL
+FACT_CUSTOMER_PROFITABILITY,FACT,Avg_Balance_Amt,AGREEMENT_SUMMARY,Account Balances,Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Avg_Balance_Amt,ACCOUNT_METRIC,Account Balances,Profitability Modelling,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Transaction_Count,MONETARY_TRANSACTION,Financial Transactions,Activity Based Costing,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Product_Count,AGREEMENT,Account Holdings,Customer Value,FULL
+FACT_CUSTOMER_PROFITABILITY,FACT,Product_Count,PARTY_AGREEMENT_ROLE,Account Holdings,Customer Value,FULL
+DIM_CUSTOMER,DIM,Customer_Id,PARTY,Single Customer View (Master Record),Single Customer View (Risk),FULL
+DIM_CUSTOMER,DIM,Customer_Name,PARTY,Single Customer View (Master Record),Single Customer View (Risk),FULL
+DIM_CUSTOMER,DIM,Customer_Type_Cd,INDIVIDUAL,Customer Demographics,Customer Segmentation,FULL
+DIM_CUSTOMER,DIM,Customer_Type_Cd,ORGANIZATION,Customer Demographics,Customer Segmentation,FULL
+DIM_CUSTOMER,DIM,Customer_Segment_Cd,PARTY_CLASSIFICATION,Customer Segments,Customer Segmentation,FULL
+DIM_CUSTOMER,DIM,Risk_Rating_Cd,RISK_GRADE_VALUE,Ratings/Scores (Internal & External),Credit Risk Based Pricing Model,FULL
+DIM_PRODUCT,DIM,Product_Id,PRODUCT,Master & Ref Data - product,Pricing Analysis & Optimisation,FULL
+DIM_PRODUCT,DIM,Product_Name,PRODUCT,Master & Ref Data - product,Pricing Analysis & Optimisation,FULL
+DIM_PRODUCT,DIM,Product_Type_Cd,PRODUCT_TYPE,Master & Ref Data - product,Pricing Analysis & Optimisation,FULL
+DIM_PRODUCT,DIM,Interest_Rate_Type,INTEREST_RATE,Master & Ref Data - FTP rates,Funds Transfer Pricing,FULL
+DIM_BRANCH,DIM,Branch_Id,ORGANIZATION_UNIT,Master & Ref Data - organisation hierarchy,Performance Management and KPIs,FULL
+DIM_BRANCH,DIM,Branch_Name,ORGANIZATION_UNIT,Master & Ref Data - organisation hierarchy,Performance Management and KPIs,FULL
+DIM_BRANCH,DIM,Region_Cd,GEOGRAPHICAL_AREA,Master & Ref Data - geography / location,Performance Management and KPIs,FULL
+DIM_BUSINESS_SEGMENT,DIM,Segment_Cd,ORGANIZATION_BUSINESS_TYPE,Master & Ref Data - organisation hierarchy,Profitability Analytics and Optimisation,FULL
+DIM_BUSINESS_SEGMENT,DIM,Segment_Name,ORGANIZATION_BUSINESS_TYPE,Master & Ref Data - organisation hierarchy,Profitability Analytics and Optimisation,FULL
+DIM_CHANNEL,DIM,Channel_Type_Cd,CHANNEL_TYPE,Master & Ref Data - Channel,Activity Based Costing,FULL
+DIM_CHANNEL,DIM,Channel_Name,CHANNEL_INSTANCE,Master & Ref Data - Channel,Activity Based Costing,FULL
+DIM_CHANNEL,DIM,Channel_Cost_Rate,CHANNEL_TYPE,Master & Ref Data - Channel,Activity Based Costing,FULL
+DIM_TIME,DIM,Calendar_Dt,TIME_PERIOD_TYPE,,,PARTIAL
+DIM_GEOGRAPHY,DIM,Country_Cd,GEOGRAPHICAL_AREA,Master & Ref Data - geography / location,,FULL
+DIM_GEOGRAPHY,DIM,Region_Name,GEOGRAPHICAL_AREA,Master & Ref Data - geography / location,,FULL
+DIM_GEOGRAPHY,DIM,City_Name,GEOGRAPHICAL_AREA,Master & Ref Data - geography / location,,FULL
+DIM_GEOGRAPHY,DIM,City_Name,SITE,Master & Ref Data - geography / location,,FULL

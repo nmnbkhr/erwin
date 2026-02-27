@@ -1,0 +1,709 @@
+{
+  "star_schema_tables": {
+    "FACT_CUSTOMER_PROFITABILITY": {
+      "type": "FACT",
+      "columns": {
+        "Interest_Income_Amt": {
+          "fsdm_entities": [
+            "MONETARY_TRANSACTION",
+            "AGREEMENT_SUMMARY"
+          ],
+          "bvf_data_requirements": [
+            "Financial Transactions",
+            "Account Balances"
+          ],
+          "bvf_capabilities": [
+            "Accounting Hub",
+            "Functional P&L",
+            "Profitability Modelling"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Interest_Expense_Amt": {
+          "fsdm_entities": [
+            "MONETARY_TRANSACTION",
+            "AGREEMENT_SUMMARY"
+          ],
+          "bvf_data_requirements": [
+            "Financial Transactions",
+            "Account Balances"
+          ],
+          "bvf_capabilities": [
+            "Accounting Hub",
+            "Functional P&L"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Net_Interest_Income_Amt": {
+          "fsdm_entities": [
+            "AGREEMENT_SUMMARY"
+          ],
+          "bvf_data_requirements": [
+            "Account Balances"
+          ],
+          "bvf_capabilities": [
+            "Functional P&L",
+            "Profitability Modelling"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "FTP_Credit_Amt": {
+          "fsdm_entities": [
+            "FUND_TRANSFER_PRICING"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - FTP rates"
+          ],
+          "bvf_capabilities": [
+            "Funds Transfer Pricing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "FTP_Charge_Amt": {
+          "fsdm_entities": [
+            "FUND_TRANSFER_PRICING"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - FTP rates"
+          ],
+          "bvf_capabilities": [
+            "Funds Transfer Pricing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Net_FTP_Amt": {
+          "fsdm_entities": [
+            "FUND_TRANSFER_PRICING"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - FTP rates"
+          ],
+          "bvf_capabilities": [
+            "Funds Transfer Pricing",
+            "Profitability Modelling"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Fee_Income_Amt": {
+          "fsdm_entities": [
+            "FEE_TRANSACTION",
+            "SERVICE_FEE"
+          ],
+          "bvf_data_requirements": [
+            "Account Fees, Commissions & Charges"
+          ],
+          "bvf_capabilities": [
+            "Accounting Hub",
+            "Functional P&L"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 2
+        },
+        "Commission_Income_Amt": {
+          "fsdm_entities": [
+            "FEE_TRANSACTION"
+          ],
+          "bvf_data_requirements": [
+            "Account Fees, Commissions & Charges"
+          ],
+          "bvf_capabilities": [
+            "Accounting Hub",
+            "Functional P&L"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 2
+        },
+        "FX_Gain_Loss_Amt": {
+          "fsdm_entities": [
+            "EXCHANGE_RATE_HISTORY",
+            "CURRENCY"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - exchange rates",
+            "FX Trading"
+          ],
+          "bvf_capabilities": [
+            "Accounting Hub"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Other_Income_Amt": {
+          "fsdm_entities": [
+            "MONETARY_TRANSACTION"
+          ],
+          "bvf_data_requirements": [
+            "Financial Transactions"
+          ],
+          "bvf_capabilities": [
+            "Accounting Hub"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Total_Revenue_Amt": {
+          "fsdm_entities": [
+            "AGREEMENT_SUMMARY"
+          ],
+          "bvf_data_requirements": [
+            "Account Balances",
+            "Financial Transactions"
+          ],
+          "bvf_capabilities": [
+            "Functional P&L",
+            "Profitability Modelling"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Direct_Cost_Amt": {
+          "fsdm_entities": [
+            "GL_TRANSACTION",
+            "CHANNEL_USAGE_EVENT"
+          ],
+          "bvf_data_requirements": [
+            "Finance Systems - General Ledger",
+            "Service Usage"
+          ],
+          "bvf_capabilities": [
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 2
+        },
+        "Channel_Cost_Amt": {
+          "fsdm_entities": [
+            "CHANNEL_TYPE",
+            "CHANNEL_INSTANCE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - Channel",
+            "Service Usage"
+          ],
+          "bvf_capabilities": [
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 2
+        },
+        "Operations_Cost_Amt": {
+          "fsdm_entities": [
+            "COST_CENTER",
+            "GL_TRANSACTION"
+          ],
+          "bvf_data_requirements": [
+            "Finance Systems - ERP",
+            "Finance Systems - General Ledger"
+          ],
+          "bvf_capabilities": [
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 2
+        },
+        "Indirect_Cost_Amt": {
+          "fsdm_entities": [
+            "COST_CENTER",
+            "ORGANIZATION_UNIT"
+          ],
+          "bvf_data_requirements": [
+            "Finance Systems - ERP",
+            "Master & Ref Data - organisation hierarchy"
+          ],
+          "bvf_capabilities": [
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 2
+        },
+        "Total_Cost_Amt": {
+          "fsdm_entities": [
+            "GL_TRANSACTION"
+          ],
+          "bvf_data_requirements": [
+            "Finance Systems - General Ledger"
+          ],
+          "bvf_capabilities": [
+            "Functional P&L",
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 2
+        },
+        "Provision_Expense_Amt": {
+          "fsdm_entities": [
+            "AGREEMENT_RISK_METRIC",
+            "CREDIT_RISK_SUMMARY"
+          ],
+          "bvf_data_requirements": [
+            "Provisions, Losses & Writeoffs",
+            "Risk Exposures"
+          ],
+          "bvf_capabilities": [
+            "Credit Risk Expected Loss Model"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Risk_Weighted_Asset_Amt": {
+          "fsdm_entities": [
+            "RISK_WEIGHTED_ASSET",
+            "BANK_CAPITAL_SUMMARY"
+          ],
+          "bvf_data_requirements": [
+            "RWA & Capital",
+            "Risk Weighted Assets & Capital Results"
+          ],
+          "bvf_capabilities": [
+            "Risk Weighted Assets and Regulatory Capital"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 2
+        },
+        "Economic_Capital_Amt": {
+          "fsdm_entities": [
+            "BANK_CAPITAL_SUMMARY",
+            "CAPITAL_REQUIREMENTS_SUMMARY"
+          ],
+          "bvf_data_requirements": [
+            "RWA & Capital"
+          ],
+          "bvf_capabilities": [
+            "Capital Planning and Management",
+            "Capital Consumption"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Expected_Loss_Amt": {
+          "fsdm_entities": [
+            "CREDIT_RISK_SUMMARY",
+            "AGREEMENT_RISK_METRIC"
+          ],
+          "bvf_data_requirements": [
+            "Expected Loss / PD / LGD / EAD",
+            "Risk Exposures"
+          ],
+          "bvf_capabilities": [
+            "Credit Risk Expected Loss Model"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Net_Profit_Amt": {
+          "fsdm_entities": [],
+          "bvf_data_requirements": [
+            "Profitability Results"
+          ],
+          "bvf_capabilities": [
+            "Functional P&L",
+            "Profitability Modelling"
+          ],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 3
+        },
+        "RAROC_Pct": {
+          "fsdm_entities": [],
+          "bvf_data_requirements": [
+            "Profitability Results",
+            "RWA & Capital"
+          ],
+          "bvf_capabilities": [
+            "Profitability Analytics and Optimisation",
+            "Capital Planning and Management"
+          ],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 3
+        },
+        "Return_On_Equity_Pct": {
+          "fsdm_entities": [],
+          "bvf_data_requirements": [
+            "Profitability Results"
+          ],
+          "bvf_capabilities": [
+            "Profitability Analytics and Optimisation"
+          ],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 3
+        },
+        "Cost_To_Income_Ratio_Pct": {
+          "fsdm_entities": [],
+          "bvf_data_requirements": [
+            "Profitability Results"
+          ],
+          "bvf_capabilities": [
+            "Performance Management and KPIs"
+          ],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 3
+        },
+        "Economic_Profit_Amt": {
+          "fsdm_entities": [],
+          "bvf_data_requirements": [
+            "Profitability Results",
+            "RWA & Capital"
+          ],
+          "bvf_capabilities": [
+            "Profitability Modelling"
+          ],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 3
+        },
+        "Avg_Balance_Amt": {
+          "fsdm_entities": [
+            "AGREEMENT_SUMMARY",
+            "ACCOUNT_METRIC"
+          ],
+          "bvf_data_requirements": [
+            "Account Balances"
+          ],
+          "bvf_capabilities": [
+            "Profitability Modelling"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Transaction_Count": {
+          "fsdm_entities": [
+            "MONETARY_TRANSACTION"
+          ],
+          "bvf_data_requirements": [
+            "Financial Transactions"
+          ],
+          "bvf_capabilities": [
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Product_Count": {
+          "fsdm_entities": [
+            "AGREEMENT",
+            "PARTY_AGREEMENT_ROLE"
+          ],
+          "bvf_data_requirements": [
+            "Account Holdings"
+          ],
+          "bvf_capabilities": [
+            "Customer Value"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        }
+      }
+    },
+    "DIM_CUSTOMER": {
+      "type": "DIM",
+      "columns": {
+        "Customer_Id": {
+          "fsdm_entities": [
+            "PARTY"
+          ],
+          "bvf_data_requirements": [
+            "Single Customer View (Master Record)"
+          ],
+          "bvf_capabilities": [
+            "Single Customer View (Risk)"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Customer_Name": {
+          "fsdm_entities": [
+            "PARTY"
+          ],
+          "bvf_data_requirements": [
+            "Single Customer View (Master Record)"
+          ],
+          "bvf_capabilities": [
+            "Single Customer View (Risk)"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Customer_Type_Cd": {
+          "fsdm_entities": [
+            "INDIVIDUAL",
+            "ORGANIZATION"
+          ],
+          "bvf_data_requirements": [
+            "Customer Demographics"
+          ],
+          "bvf_capabilities": [
+            "Customer Segmentation"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Customer_Segment_Cd": {
+          "fsdm_entities": [
+            "PARTY_CLASSIFICATION"
+          ],
+          "bvf_data_requirements": [
+            "Customer Segments"
+          ],
+          "bvf_capabilities": [
+            "Customer Segmentation"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 1
+        },
+        "Risk_Rating_Cd": {
+          "fsdm_entities": [
+            "RISK_GRADE_VALUE"
+          ],
+          "bvf_data_requirements": [
+            "Ratings/Scores (Internal & External)"
+          ],
+          "bvf_capabilities": [
+            "Credit Risk Based Pricing Model"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        }
+      }
+    },
+    "DIM_PRODUCT": {
+      "type": "DIM",
+      "columns": {
+        "Product_Id": {
+          "fsdm_entities": [
+            "PRODUCT"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - product"
+          ],
+          "bvf_capabilities": [
+            "Pricing Analysis & Optimisation"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Product_Name": {
+          "fsdm_entities": [
+            "PRODUCT"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - product"
+          ],
+          "bvf_capabilities": [
+            "Pricing Analysis & Optimisation"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Product_Type_Cd": {
+          "fsdm_entities": [
+            "PRODUCT_TYPE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - product"
+          ],
+          "bvf_capabilities": [
+            "Pricing Analysis & Optimisation"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Interest_Rate_Type": {
+          "fsdm_entities": [
+            "INTEREST_RATE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - FTP rates"
+          ],
+          "bvf_capabilities": [
+            "Funds Transfer Pricing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        }
+      }
+    },
+    "DIM_BRANCH": {
+      "type": "DIM",
+      "columns": {
+        "Branch_Id": {
+          "fsdm_entities": [
+            "ORGANIZATION_UNIT"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - organisation hierarchy"
+          ],
+          "bvf_capabilities": [
+            "Performance Management and KPIs"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Branch_Name": {
+          "fsdm_entities": [
+            "ORGANIZATION_UNIT"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - organisation hierarchy"
+          ],
+          "bvf_capabilities": [
+            "Performance Management and KPIs"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Region_Cd": {
+          "fsdm_entities": [
+            "GEOGRAPHICAL_AREA"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - geography / location"
+          ],
+          "bvf_capabilities": [
+            "Performance Management and KPIs"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        }
+      }
+    },
+    "DIM_BUSINESS_SEGMENT": {
+      "type": "DIM",
+      "columns": {
+        "Segment_Cd": {
+          "fsdm_entities": [
+            "ORGANIZATION_BUSINESS_TYPE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - organisation hierarchy"
+          ],
+          "bvf_capabilities": [
+            "Profitability Analytics and Optimisation"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Segment_Name": {
+          "fsdm_entities": [
+            "ORGANIZATION_BUSINESS_TYPE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - organisation hierarchy"
+          ],
+          "bvf_capabilities": [
+            "Profitability Analytics and Optimisation"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        }
+      }
+    },
+    "DIM_CHANNEL": {
+      "type": "DIM",
+      "columns": {
+        "Channel_Type_Cd": {
+          "fsdm_entities": [
+            "CHANNEL_TYPE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - Channel"
+          ],
+          "bvf_capabilities": [
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Channel_Name": {
+          "fsdm_entities": [
+            "CHANNEL_INSTANCE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - Channel"
+          ],
+          "bvf_capabilities": [
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        },
+        "Channel_Cost_Rate": {
+          "fsdm_entities": [
+            "CHANNEL_TYPE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - Channel"
+          ],
+          "bvf_capabilities": [
+            "Activity Based Costing"
+          ],
+          "coverage_status": "FULL",
+          "implementation_tier": 4
+        }
+      }
+    },
+    "DIM_TIME": {
+      "type": "DIM",
+      "columns": {
+        "Calendar_Dt": {
+          "fsdm_entities": [
+            "TIME_PERIOD_TYPE"
+          ],
+          "bvf_data_requirements": [],
+          "bvf_capabilities": [],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 4
+        }
+      }
+    },
+    "DIM_GEOGRAPHY": {
+      "type": "DIM",
+      "columns": {
+        "Country_Cd": {
+          "fsdm_entities": [
+            "GEOGRAPHICAL_AREA"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - geography / location"
+          ],
+          "bvf_capabilities": [],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 4
+        },
+        "Region_Name": {
+          "fsdm_entities": [
+            "GEOGRAPHICAL_AREA"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - geography / location"
+          ],
+          "bvf_capabilities": [],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 4
+        },
+        "City_Name": {
+          "fsdm_entities": [
+            "GEOGRAPHICAL_AREA",
+            "SITE"
+          ],
+          "bvf_data_requirements": [
+            "Master & Ref Data - geography / location"
+          ],
+          "bvf_capabilities": [],
+          "coverage_status": "PARTIAL",
+          "implementation_tier": 4
+        }
+      }
+    }
+  },
+  "coverage_summary": {
+    "total_measures": 49,
+    "fully_covered": 40,
+    "partially_covered": 9,
+    "gaps": 0,
+    "coverage_pct": 81.6
+  }
+}

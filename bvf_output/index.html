@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIApp — Banking Intelligence Application</title>
+<style>
+:root {
+    --bg: #0a0e1a; --surface: #111827; --surface2: #1a2332;
+    --border: #1e2740; --text: #e0e0e0; --text2: #8b949e;
+    --blue: #58a6ff; --green: #7ee787; --purple: #d2a8ff;
+    --orange: #f0883e; --red: #f85149; --yellow: #f59e0b;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a1f3a 50%, #0d1117 100%);
+    padding: 32px 40px 28px;
+    border-bottom: 1px solid var(--border);
+}
+.header h1 {
+    font-size: 26px; color: var(--blue); font-weight: 700;
+    display: flex; align-items: center; gap: 12px;
+}
+.header h1 .icon { font-size: 28px; }
+.header .subtitle { font-size: 14px; color: var(--text2); margin-top: 6px; }
+.header .meta { font-size: 12px; color: var(--text2); margin-top: 4px; opacity: 0.7; }
+
+/* Stats Row */
+.stats-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px; padding: 20px 40px;
+}
+.stat-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px; text-align: center; transition: transform 0.2s, border-color 0.2s;
+}
+.stat-card:hover { transform: translateY(-2px); border-color: var(--blue); }
+.stat-card .val { font-size: 36px; font-weight: 800; line-height: 1; }
+.stat-card .lbl { font-size: 12px; color: var(--text2); margin-top: 6px; }
+.stat-card .sub { font-size: 11px; color: var(--text2); opacity: 0.6; margin-top: 2px; }
+
+/* Section */
+.section { padding: 16px 40px; }
+.section h2 {
+    font-size: 18px; color: var(--text); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--border); padding-bottom: 8px;
+}
+.section h2 .badge {
+    font-size: 11px; padding: 2px 10px; border-radius: 10px;
+    background: rgba(88,166,255,0.15); color: var(--blue);
+}
+
+/* Card Grid */
+.card-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+}
+.card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; cursor: pointer; text-decoration: none; color: inherit;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column; gap: 6px;
+}
+.card:hover {
+    transform: translateY(-3px); border-color: var(--blue);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.card .card-icon { font-size: 24px; margin-bottom: 4px; }
+.card .card-title { font-size: 15px; font-weight: 600; color: var(--blue); }
+.card .card-desc { font-size: 12px; color: var(--text2); line-height: 1.4; }
+.card .card-meta {
+    font-size: 11px; color: var(--text2); opacity: 0.6;
+    margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border);
+}
+.card .card-type {
+    display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 4px;
+    font-weight: 600; letter-spacing: 0.3px;
+}
+.type-json { background: rgba(126,231,135,0.15); color: var(--green); }
+.type-csv { background: rgba(240,136,62,0.15); color: var(--orange); }
+.type-html { background: rgba(210,168,255,0.15); color: var(--purple); }
+.type-md { background: rgba(88,166,255,0.15); color: var(--blue); }
+
+/* BVF Area Bars */
+.area-bars { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.area-bar { display: flex; align-items: center; gap: 12px; }
+.area-bar .label { width: 280px; font-size: 13px; text-align: right; color: var(--text2); }
+.area-bar .bar { flex: 1; height: 28px; border-radius: 4px; display: flex; overflow: hidden; }
+.area-bar .bar-seg { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
+.area-bar .count { width: 40px; font-size: 13px; font-weight: 600; }
+
+/* Tier visualization */
+.tier-flow { display: flex; gap: 8px; margin-bottom: 16px; }
+.tier-card {
+    flex: 1; border-radius: 8px; padding: 14px; text-align: center;
+    border: 1px solid var(--border); position: relative;
+}
+.tier-card .tier-num { font-size: 28px; font-weight: 800; }
+.tier-card .tier-label { font-size: 11px; color: var(--text2); margin-top: 2px; }
+.tier-card .tier-count { font-size: 12px; color: var(--text2); margin-top: 6px; }
+.tier-card .tier-pct { font-size: 20px; font-weight: 700; margin-top: 4px; }
+.tier-arrow { display: flex; align-items: center; color: var(--text2); font-size: 20px; }
+
+/* Coverage donut placeholder */
+.coverage-ring {
+    display: flex; align-items: center; justify-content: center; gap: 30px;
+    padding: 16px 0;
+}
+.ring-container { position: relative; width: 120px; height: 120px; }
+.ring-container canvas { width: 120px; height: 120px; }
+.ring-label {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center;
+}
+.ring-label .val { font-size: 28px; font-weight: 800; color: var(--green); }
+.ring-label .lbl { font-size: 10px; color: var(--text2); }
+.ring-details { font-size: 13px; }
+.ring-details div { margin: 4px 0; display: flex; align-items: center; gap: 6px; }
+.ring-details .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+/* Footer */
+.footer {
+    padding: 20px 40px; text-align: center;
+    font-size: 12px; color: var(--text2); opacity: 0.5;
+    border-top: 1px solid var(--border); margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1><span class="icon">&#9881;</span> BIApp — Banking Intelligence Application</h1>
+    <div class="subtitle">Business Value Framework mapped to Financial Services Data Model — Profitability Engine</div>
+    <div class="meta">Generated: 2026-02-27 | BVF → FSDM Entity Mapper & Profitability Engine Integration</div>
+</div>
+
+<!-- KPI Stats Row -->
+<div class="stats-row">
+    <div class="stat-card">
+        <div class="val" style="color:var(--blue)">112</div>
+        <div class="lbl">BVF Capabilities</div>
+        <div class="sub">3 areas, 12 sub-areas</div>
+    </div>
+    <div class="stat-card">
+        <div class="val" style="color:var(--green)">113</div>
+        <div class="lbl">Data Requirements</div>
+        <div class="sub">5,267 total mappings</div>
+    </div>
+    <div class="stat-card">
+        <div class="val" style="color:var(--purple)">1,197</div>
+        <div class="lbl">FSDM Entities Mapped</div>
+        <div class="sub">of 3,917 total (30.6%)</div>
+    </div>
+    <div class="stat-card">
+        <div class="val" style="color:var(--orange)">3,143</div>
+        <div class="lbl">Entity Mappings</div>
+        <div class="sub">27.8 avg per data req</div>
+    </div>
+    <div class="stat-card">
+        <div class="val" style="color:var(--green)">81.6%</div>
+        <div class="lbl">Star Schema Coverage</div>
+        <div class="sub">40 of 49 measures</div>
+    </div>
+    <div class="stat-card">
+        <div class="val" style="color:var(--yellow)">97.3%</div>
+        <div class="lbl">Tier 1 Cap Unlock</div>
+        <div class="sub">109 of 112 capabilities</div>
+    </div>
+</div>
+
+<!-- BVF Structure -->
+<div class="section">
+    <h2>BVF Structure <span class="badge">3 Areas × 12 Sub-areas</span></h2>
+    <div class="area-bars">
+        <div class="area-bar">
+            <div class="label">Marketing & Customer Experience</div>
+            <div class="bar">
+                <div class="bar-seg" style="background:#2563eb;width:25.6%">CI:10</div>
+                <div class="bar-seg" style="background:#3b82f6;width:23.1%">BR:9</div>
+                <div class="bar-seg" style="background:#60a5fa;width:25.6%">DI:10</div>
+                <div class="bar-seg" style="background:#93c5fd;width:25.6%">RC:10</div>
+            </div>
+            <div class="count" style="color:#2563eb">39</div>
+        </div>
+        <div class="area-bar">
+            <div class="label">Risk Management & Regulation</div>
+            <div class="bar">
+                <div class="bar-seg" style="background:#dc2626;width:21.4%">RI:9</div>
+                <div class="bar-seg" style="background:#ef4444;width:42.9%">MP:18</div>
+                <div class="bar-seg" style="background:#f87171;width:21.4%">ED:9</div>
+                <div class="bar-seg" style="background:#fca5a5;width:14.3%">RB:6</div>
+            </div>
+            <div class="count" style="color:#dc2626">42</div>
+        </div>
+        <div class="area-bar">
+            <div class="label">Finance & Performance Management</div>
+            <div class="bar">
+                <div class="bar-seg" style="background:#16a34a;width:25.8%">FA:8</div>
+                <div class="bar-seg" style="background:#22c55e;width:29.0%">FP:9</div>
+                <div class="bar-seg" style="background:#4ade80;width:22.6%">TM:7</div>
+                <div class="bar-seg" style="background:#86efac;width:22.6%">MR:7</div>
+            </div>
+            <div class="count" style="color:#16a34a">31</div>
+        </div>
+    </div>
+</div>
+
+<!-- Implementation Tiers -->
+<div class="section">
+    <h2>Implementation Tiers <span class="badge">Prioritized for Profitability</span></h2>
+    <div class="tier-flow">
+        <div class="tier-card" style="background:rgba(37,99,235,0.1);border-color:#2563eb">
+            <div class="tier-num" style="color:#2563eb">20</div>
+            <div class="tier-label">Tier 1 — Must Have</div>
+            <div class="tier-count">583 entities</div>
+            <div class="tier-pct" style="color:#2563eb">97.3%</div>
+            <div class="tier-label">capabilities enabled</div>
+        </div>
+        <div class="tier-arrow">&#8594;</div>
+        <div class="tier-card" style="background:rgba(124,58,237,0.1);border-color:#7c3aed">
+            <div class="tier-num" style="color:#7c3aed">30</div>
+            <div class="tier-label">Tier 2 — Should Have</div>
+            <div class="tier-count">+risk/marketing</div>
+            <div class="tier-pct" style="color:#7c3aed">100%</div>
+            <div class="tier-label">capabilities enabled</div>
+        </div>
+        <div class="tier-arrow">&#8594;</div>
+        <div class="tier-card" style="background:rgba(245,158,11,0.1);border-color:#f59e0b">
+            <div class="tier-num" style="color:#f59e0b">30</div>
+            <div class="tier-label">Tier 3 — Nice to Have</div>
+            <div class="tier-count">full BVF coverage</div>
+            <div class="tier-pct" style="color:#f59e0b">100%</div>
+            <div class="tier-label">capabilities enabled</div>
+        </div>
+        <div class="tier-arrow">&#8594;</div>
+        <div class="tier-card" style="background:rgba(107,114,128,0.1);border-color:#6b7280">
+            <div class="tier-num" style="color:#6b7280">33</div>
+            <div class="tier-label">Tier 4 — Future</div>
+            <div class="tier-count">specialized</div>
+            <div class="tier-pct" style="color:#6b7280">100%</div>
+            <div class="tier-label">capabilities enabled</div>
+        </div>
+    </div>
+</div>
+
+<!-- Star Schema Coverage -->
+<div class="section">
+    <h2>Star Schema Coverage <span class="badge">Profitability Engine</span></h2>
+    <div class="coverage-ring">
+        <div class="ring-container">
+            <canvas id="coverageRing" width="120" height="120"></canvas>
+            <div class="ring-label">
+                <div class="val">81.6%</div>
+                <div class="lbl">covered</div>
+            </div>
+        </div>
+        <div class="ring-details">
+            <div><div class="dot" style="background:var(--green)"></div> <strong>40</strong> Fully Covered measures</div>
+            <div><div class="dot" style="background:var(--yellow)"></div> <strong>9</strong> Partially Covered measures</div>
+            <div><div class="dot" style="background:var(--red)"></div> <strong>0</strong> Gap measures</div>
+            <div style="margin-top:10px;color:var(--text2);font-size:12px">
+                18 profitability-critical capabilities<br>
+                98 data requirements feed the engine<br>
+                Avg reuse coefficient: 0.504
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Interactive Visualizations -->
+<div class="section">
+    <h2>Interactive Visualizations <span class="badge">5 HTML Files</span></h2>
+    <div class="card-grid">
+        <a class="card" href="bvf_capability_heatmap.html">
+            <div class="card-icon">&#9608;&#9608;&#9608;</div>
+            <div class="card-title">Capability × Data Heatmap</div>
+            <div class="card-desc">112 capabilities × 113 data requirements interactive grid. Filter by BVF area, subject area, or profitability-critical. Hover for FSDM entity details.</div>
+            <div class="card-meta"><span class="card-type type-html">HTML</span> Canvas-based heatmap with filters</div>
+        </a>
+        <a class="card" href="bvf_fsdm_sankey.html">
+            <div class="card-icon">&#8594;&#8594;&#8594;</div>
+            <div class="card-title">BVF → FSDM Sankey Flow</div>
+            <div class="card-desc">D3.js Sankey diagram: BVF Areas → Sub-areas → Data Requirements → FSDM Subject Areas. Width proportional to mapping count.</div>
+            <div class="card-meta"><span class="card-type type-html">HTML</span> D3.js Sankey diagram</div>
+        </a>
+        <a class="card" href="profitability_lineage.html">
+            <div class="card-icon">&#9733;</div>
+            <div class="card-title">Profitability Measure Lineage</div>
+            <div class="card-desc">Full data lineage for every star schema measure: FSDM entities → BVF data requirements → BVF capabilities. Coverage status per measure.</div>
+            <div class="card-meta"><span class="card-type type-html">HTML</span> 49 measures across 8 tables</div>
+        </a>
+        <a class="card" href="bvf_reuse_network.html">
+            <div class="card-icon">&#9675;&#8212;&#9675;</div>
+            <div class="card-title">Capability Reuse Network</div>
+            <div class="card-desc">D3.js force-directed graph of 112 capabilities. Edges = data reuse > threshold (adjustable). Color by BVF area, profitability nodes highlighted.</div>
+            <div class="card-meta"><span class="card-type type-html">HTML</span> D3.js force network</div>
+        </a>
+        <a class="card" href="implementation_roadmap.html">
+            <div class="card-icon">&#9654;</div>
+            <div class="card-title">Implementation Roadmap</div>
+            <div class="card-desc">Visual 4-tier implementation plan. Shows cumulative capability unlock per tier. Tier 1 (20 data reqs) enables 97.3% of all capabilities.</div>
+            <div class="card-meta"><span class="card-type type-html">HTML</span> Tiered roadmap with metrics</div>
+        </a>
+    </div>
+</div>
+
+<!-- Data Files -->
+<div class="section">
+    <h2>Data Files <span class="badge">12 Files</span></h2>
+    <div class="card-grid">
+        <a class="card" href="bvf_parsed_capabilities.json" target="_blank">
+            <div class="card-title">bvf_parsed_capabilities.json</div>
+            <div class="card-desc">112 capabilities with BVF area, sub-area, data requirement mappings, and output data.</div>
+            <div class="card-meta"><span class="card-type type-json">JSON</span> Phase 1 output</div>
+        </a>
+        <a class="card" href="bvf_parsed_data_requirements.json" target="_blank">
+            <div class="card-title">bvf_parsed_data_requirements.json</div>
+            <div class="card-desc">113 data requirements with FSDM subject area, capability mappings, and output-of relationships.</div>
+            <div class="card-meta"><span class="card-type type-json">JSON</span> Phase 1 output</div>
+        </a>
+        <a class="card" href="bvf_reuse_matrix.json" target="_blank">
+            <div class="card-title">bvf_reuse_matrix.json</div>
+            <div class="card-desc">Capability-to-capability reuse coefficients (0.0-1.0). Avg coefficient: 0.504.</div>
+            <div class="card-meta"><span class="card-type type-json">JSON</span> Phase 1 output</div>
+        </a>
+        <a class="card" href="bvf_to_fsdm_entity_map.csv" target="_blank">
+            <div class="card-title">bvf_to_fsdm_entity_map.csv</div>
+            <div class="card-desc">3,143 BVF data requirement → FSDM entity mappings with confidence scores and match methods.</div>
+            <div class="card-meta"><span class="card-type type-csv">CSV</span> Phase 2 output</div>
+        </a>
+        <a class="card" href="bvf_to_fsdm_entity_map.json" target="_blank">
+            <div class="card-title">bvf_to_fsdm_entity_map.json</div>
+            <div class="card-desc">Same entity mapping in structured JSON with full entity details per data requirement.</div>
+            <div class="card-meta"><span class="card-type type-json">JSON</span> Phase 2 output</div>
+        </a>
+        <a class="card" href="capability_entity_dependencies.csv" target="_blank">
+            <div class="card-title">capability_entity_dependencies.csv</div>
+            <div class="card-desc">147,707 rows mapping each capability to its FSDM entity dependencies with profitability flags.</div>
+            <div class="card-meta"><span class="card-type type-csv">CSV</span> Phase 3 output</div>
+        </a>
+        <a class="card" href="capability_entity_summary.csv" target="_blank">
+            <div class="card-title">capability_entity_summary.csv</div>
+            <div class="card-desc">Summary per capability: entity count, attribute count, reuse score, profitability flag.</div>
+            <div class="card-meta"><span class="card-type type-csv">CSV</span> Phase 3 output</div>
+        </a>
+        <a class="card" href="profitability_bvf_lineage.csv" target="_blank">
+            <div class="card-title">profitability_bvf_lineage.csv</div>
+            <div class="card-desc">88 lineage rows: Star schema table/column → FSDM entity → BVF data req → capabilities.</div>
+            <div class="card-meta"><span class="card-type type-csv">CSV</span> Phase 4 output</div>
+        </a>
+        <a class="card" href="bvf_implementation_priority.csv" target="_blank">
+            <div class="card-title">bvf_implementation_priority.csv</div>
+            <div class="card-desc">113 data requirements ranked by priority score with implementation tiers (1-4).</div>
+            <div class="card-meta"><span class="card-type type-csv">CSV</span> Phase 4 output</div>
+        </a>
+        <a class="card" href="profitability_data_coverage.json" target="_blank">
+            <div class="card-title">profitability_data_coverage.json</div>
+            <div class="card-desc">Star schema coverage analysis: 40 FULL, 9 PARTIAL, 0 GAP across 8 tables.</div>
+            <div class="card-meta"><span class="card-type type-json">JSON</span> Phase 4 output</div>
+        </a>
+        <a class="card" href="bvf_fsdm_mapping_report.md" target="_blank">
+            <div class="card-title">bvf_fsdm_mapping_report.md</div>
+            <div class="card-desc">Comprehensive markdown report: executive summary, coverage analysis, profitability readiness, implementation roadmap.</div>
+            <div class="card-meta"><span class="card-type type-md">MD</span> Phase 6 output</div>
+        </a>
+        <a class="card" href="bvf_statistics.json" target="_blank">
+            <div class="card-title">bvf_statistics.json</div>
+            <div class="card-desc">All summary statistics: BVF summary, FSDM coverage, profitability metrics, reuse analysis.</div>
+            <div class="card-meta"><span class="card-type type-json">JSON</span> Phase 6 output</div>
+        </a>
+    </div>
+</div>
+
+<div class="footer">
+    BIApp — Banking Intelligence Application | FSDM v16 | BVF v1.2 | Profitability Engine Integration
+</div>
+
+<script>
+// Draw coverage ring
+const canvas = document.getElementById('coverageRing');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    const cx = 60, cy = 60, r = 48, lw = 10;
+    const full = 40, partial = 9, gap = 0, total = 49;
+
+    function drawArc(start, end, color) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, start - Math.PI/2, end - Math.PI/2);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = lw;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+    }
+
+    const fullEnd = (full / total) * Math.PI * 2;
+    const partialEnd = fullEnd + (partial / total) * Math.PI * 2;
+
+    // Background
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.strokeStyle = '#1e2740';
+    ctx.lineWidth = lw;
+    ctx.stroke();
+
+    drawArc(0, fullEnd, '#16a34a');
+    if (partial > 0) drawArc(fullEnd + 0.03, partialEnd, '#f59e0b');
+}
+</script>
+</body>
+</html>

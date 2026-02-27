@@ -1,0 +1,97 @@
+{
+  "bacr_summary": {
+    "total_questions": 771,
+    "categories": 8,
+    "financial_industry_questions": 191,
+    "tba_questions": 360,
+    "questions_by_category": {
+      "Agility": 186,
+      "Applications": 54,
+      "Business": 42,
+      "Culture": 30,
+      "Governance": 37,
+      "Information": 102,
+      "Outcomes": 220,
+      "Systems": 100
+    },
+    "questions_by_business_function": {
+      "Customer": 48,
+      "Product": 39,
+      "Operations": 86,
+      "Financial": 69,
+      "Risks and Threats": 43,
+      "Asset Lifecycle Mgmt": 25,
+      "Human Resources": 7,
+      "Supply Chain": 36,
+      "Analytics Operations": 2,
+      "Marketing": 5
+    },
+    "questions_by_review_type": {
+      "Big Data Capability Review": 437,
+      "Data Warehouse Maturity Review": 671,
+      "Ecosystem Architecture Review": 332,
+      "AI and Machine Learning Review": 437,
+      "Custom Review": 224
+    }
+  },
+  "bvf_mapping": {
+    "bacr_outcomes_mapped_to_bvf": 197,
+    "bacr_outcomes_unmapped": 23,
+    "bvf_capabilities_covered": 77,
+    "bvf_capabilities_not_in_bacr": 35,
+    "profitability_critical_mappings": 127
+  },
+  "fsdm_mapping": {
+    "bacr_info_questions_mapped": 102,
+    "fsdm_domains_covered": 6,
+    "fsdm_domains": [
+      "Agreement",
+      "Channel",
+      "Event",
+      "Location",
+      "Party",
+      "Product"
+    ]
+  },
+  "profitability": {
+    "profitability_questions_count": 127,
+    "avg_current_maturity": 2.1,
+    "avg_desired_maturity": 4.17,
+    "avg_gap": 2.07,
+    "implementation_phases": 4,
+    "component_scores": {
+      "revenue": {
+        "current": 2.6,
+        "target": 4.6,
+        "gap": 2.0
+      },
+      "cost": {
+        "current": 2.0,
+        "target": 4.0,
+        "gap": 2.0
+      },
+      "risk_adjusted_return": {
+        "current": 2.0,
+        "target": 4.0,
+        "gap": 2.0
+      },
+      "treasury_pricing": {
+        "current": 2.0,
+        "target": 4.14,
+        "gap": 2.14
+      },
+      "reporting": {
+        "current": 2.0,
+        "target": 4.14,
+        "gap": 2.14
+      }
+    },
+    "critical_gap_count": 10
+  },
+  "priority": {
+    "tier1_critical": 39,
+    "tier2_high": 12,
+    "tier3_medium": 13,
+    "tier4_low": 13
+  }
+}

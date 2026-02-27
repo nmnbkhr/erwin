@@ -1,0 +1,3293 @@
+[
+  {
+    "bacr_question_id": 43,
+    "bacr_section": "Summary",
+    "question_short": "Do the business users have access to the data they need to complete their reporting and analysis?",
+    "question_full": "Do the business users have access to the data they need to complete their reporting and analysis?",
+    "maturity_descriptors": {
+      "1_emerging": "Some required data not available for review or analysis",
+      "2_developing": "Data available for operational needs but only through transactional systems",
+      "3_practicing": "Business has access to all operational data needed and some data for exploration or discovery",
+      "4_innovating": "Data coverage includes all business functions and needs",
+      "5_leading": "Analytics dta avilable for all business functions and related needs"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Overall data accessibility determines profitability data availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 44,
+    "bacr_section": "Summary",
+    "question_short": "Have you considered the impact of \u201cbig data\u201d on your data integration; e.g., are you able to link so",
+    "question_full": "Have you considered the impact of \u201cbig data\u201d on your data integration; e.g., are you able to link social media data to your Customer or Product master?",
+    "maturity_descriptors": {
+      "1_emerging": "No \"big data\" is captured",
+      "2_developing": "Big Data is maintained separately from operational data and cannot be integrated",
+      "3_practicing": "Ad hoc integration using approximation techniques are in place on an as-needs basis",
+      "4_innovating": "Specific matching keys (e.g. credit card or customer name) allow for moderate levels of matching",
+      "5_leading": "Specific programs are in place (e.g. self registration, cookies, customer details matching) to increase the ability to link between Big Data sources and operational master data"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Overall data accessibility determines profitability data availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 45,
+    "bacr_section": "Summary",
+    "question_short": "How effective are the security and privacy management policies and processes of your organisation?",
+    "question_full": "How effective are the security and privacy management policies and processes of your organisation?",
+    "maturity_descriptors": {
+      "1_emerging": "Security and Privacy polies are outdated or insufficient",
+      "2_developing": "Security and privacy needs and regulartory requirements are understood and appropriate management is being initiated",
+      "3_practicing": "Security and privacy policies have been implemented to meet the security and regulatory requirements of the enterprise",
+      "4_innovating": "A comprehensive security management process is in place for the enterprise. Security and Privacy policies are solid, allowing easy access to those authorised, but preventing access to others",
+      "5_leading": "There is a continuous process improvement approach to security management with an understanding that data sources and types are continuously evolving"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Overall data accessibility determines profitability data availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 46,
+    "bacr_section": "Summary",
+    "question_short": "How often is data updated?  Are there certain data only available or updated daily or weekly?",
+    "question_full": "How often is data updated?  Are there certain data only available or updated daily or weekly?",
+    "maturity_descriptors": {
+      "1_emerging": "Data for analysis is updated on a daily basis and may be out of date when analysed",
+      "2_developing": "Data is kept current ofr targetted business needs though some challenges remain",
+      "3_practicing": "Data currency is acceptable",
+      "4_innovating": "Data is current for discovery and production purposes",
+      "5_leading": "Data is up to date with future predicted data effecively leveraged"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Overall data accessibility determines profitability data availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 47,
+    "bacr_section": "Summary",
+    "question_short": "Is the data in the analytics ecosystem of sufficient quality to meet most business analytics needs?",
+    "question_full": "Is the data in the analytics ecosystem of sufficient quality to meet most business analytics needs?",
+    "maturity_descriptors": {
+      "1_emerging": "Data Quality is not measured and is known to be poor",
+      "2_developing": "There are some data quality processes in place - usually manual and without data profiling",
+      "3_practicing": "Data quality is acceptable, with data stewardship programs in place",
+      "4_innovating": "Data quality is maintained and managed to standards and metrics",
+      "5_leading": "Data quality is effectively managed with meaningful metrics for accountability"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Overall data accessibility determines profitability data availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 48,
+    "bacr_section": "Summary",
+    "question_short": "How much historical data is immediately available (not archived) for online analysis?  Does the amou",
+    "question_full": "How much historical data is immediately available (not archived) for online analysis?  Does the amount of online historical data support analysis requirements such as seasonal, current versus prior period, and period + 1 (13, 25, or 37 month) for trend identification?",
+    "maturity_descriptors": {
+      "1_emerging": "Historical data is difficult to access",
+      "2_developing": "Some historical data is available",
+      "3_practicing": "Defined processes exist for sourcing and access to current and historical data",
+      "4_innovating": "Historical data is available for 1-2 years and archived (and recoverable) beyond that.  Sometimes summary historical data is always available.",
+      "5_leading": "Historical data is available for long periods of time but on slower response, lower cost platforms"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Overall data accessibility determines profitability data availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 49,
+    "bacr_section": "Strategy",
+    "question_short": "Does your organisation have a defined information or data strategy.  Is that strategy capable of dea",
+    "question_full": "Does your organisation have a defined information or data strategy.  Is that strategy capable of dealing with big data as well as traditional data sources?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Data strategy maturity determines long-term profitability engine evolution",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 50,
+    "bacr_section": "Strategy",
+    "question_short": "Do you operate with an underlying principle that data is a corporate asset?  How is this manifested ",
+    "question_full": "Do you operate with an underlying principle that data is a corporate asset?  How is this manifested within the organization?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Data strategy maturity determines long-term profitability engine evolution",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 51,
+    "bacr_section": "Roadmap",
+    "question_short": "Do you have a planned sequence to load new sources of data?  Is this sequence well known and agreed ",
+    "question_full": "Do you have a planned sequence to load new sources of data?  Is this sequence well known and agreed by all parties?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Implementation planning enables phased profitability build-out",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 52,
+    "bacr_section": "Architecture",
+    "question_short": "Is there an information architecture and corresponding data model(s) that guides where each differen",
+    "question_full": "Is there an information architecture and corresponding data model(s) that guides where each different type of data should be stored across a range of information and analytics platforms (e.g. IDW, Data Lake, Data Labs etc.)?  Are there data model(s) that allows for integration across analytics platforms?",
+    "maturity_descriptors": {
+      "1_emerging": "A consistent data model and/ or information architecture does not exist",
+      "2_developing": "A draft information architecture and/or data model exists and is available to show high level data storage structrures and locations",
+      "3_practicing": "An information architecture and/or data model is consistently leveraged when developing analytics or applications",
+      "4_innovating": "An information architecture and/or data model is leveraged and referenced for consistency and to test the impact of new ideas",
+      "5_leading": "An information architecture and/or data model enables and supports current business needs whilst allowing the business to test new concepts and changing business needs"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location",
+      "Channel"
+    ],
+    "fsdm_key_entities": [
+      "All 3933 entities - architecture assessment"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location"
+    ],
+    "profitability_impact": "Architecture maturity determines if FSDM can be deployed as integrated model vs siloed",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 53,
+    "bacr_section": "Architecture",
+    "question_short": "Can data and analytics users easily find out where data is stored and how it is structured?",
+    "question_full": "Can data and analytics users easily find out where data is stored and how it is structured?",
+    "maturity_descriptors": {
+      "1_emerging": "More time is spent finding and understanding and preparing data than in analysing it for business purposes",
+      "2_developing": "Data is consolidated into smaller numbers of data stores, but these are still not well documented",
+      "3_practicing": "A unified view of data is provided for most analytics purposes",
+      "4_innovating": "Metadata repositories provide users useful information on the location, structure and data quality concerns of most analytics data",
+      "5_leading": "Analytics data is logically structured, located and organised and is supported by effective business-language search tools across platforms"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location",
+      "Channel"
+    ],
+    "fsdm_key_entities": [
+      "All 3933 entities - architecture assessment"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location"
+    ],
+    "profitability_impact": "Architecture maturity determines if FSDM can be deployed as integrated model vs siloed",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 54,
+    "bacr_section": "Architecture",
+    "question_short": "Is data stored for analytics in a logically integrated manner, even if spread across multiple platfo",
+    "question_full": "Is data stored for analytics in a logically integrated manner, even if spread across multiple platforms?",
+    "maturity_descriptors": {
+      "1_emerging": "Data is acquired and integrated in a silo fashion by project or application or data mart",
+      "2_developing": "Data is acquired once and shared throughout the enterprise, eliminating some redundancy",
+      "3_practicing": "Management sees cross-functional information sharing as a way to scale up and prmoote enterprise-wide initiatives",
+      "4_innovating": "The SDLC contains a process for addressing data management with an emphasis on acquiring data and integrating it using a standard approach",
+      "5_leading": "Industry data interchange standards are in place facilitating data integration within the enterprise and with B2B partners.  Data assets are exploited across the enterprise"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location",
+      "Channel"
+    ],
+    "fsdm_key_entities": [
+      "All 3933 entities - architecture assessment"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location"
+    ],
+    "profitability_impact": "Architecture maturity determines if FSDM can be deployed as integrated model vs siloed",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 55,
+    "bacr_section": "Architecture",
+    "question_short": "Is relational data stored in an integrated data model of some type?  What type?",
+    "question_full": "Is relational data stored in an integrated data model of some type?  What type?",
+    "maturity_descriptors": {
+      "1_emerging": "Data modelling is not consistently done",
+      "2_developing": "Data models exist for different business areas or functions",
+      "3_practicing": "A data model is available that represents the business",
+      "4_innovating": "Data models are leveraged for consistency and used to test the impact of new ideas",
+      "5_leading": "Data models enable and support current business whilst allowing the business to test new concepts"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location",
+      "Channel"
+    ],
+    "fsdm_key_entities": [
+      "All 3933 entities - architecture assessment"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location"
+    ],
+    "profitability_impact": "Architecture maturity determines if FSDM can be deployed as integrated model vs siloed",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 56,
+    "bacr_section": "Architecture",
+    "question_short": "Is non-relational multi-structured data stored in an organised, formatted, logical manner or stored ",
+    "question_full": "Is non-relational multi-structured data stored in an organised, formatted, logical manner or stored in source format for later integration?",
+    "maturity_descriptors": {
+      "1_emerging": "Non-relational data is not loaded",
+      "2_developing": "Occassional use cases for multi-structured data are emerging but are handled as one-off projects without standards or integration",
+      "3_practicing": "A platform for multi-structured data exists but is not architecture or controlled",
+      "4_innovating": "Multi-structured data is organised and formatted in a logical manner but not integrated with other analytics data types",
+      "5_leading": "Data is integrated across the analytic ecosystem regardless of data type.  Employing loosely coupled or tightly coupled approaches appropriate to the data types and use cases"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location",
+      "Channel"
+    ],
+    "fsdm_key_entities": [
+      "All 3933 entities - architecture assessment"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location"
+    ],
+    "profitability_impact": "Architecture maturity determines if FSDM can be deployed as integrated model vs siloed",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 57,
+    "bacr_section": "Architecture",
+    "question_short": "Can anyone load data into any analytic ecosystem, or only into data lab areas?  If anyone can load d",
+    "question_full": "Can anyone load data into any analytic ecosystem, or only into data lab areas?  If anyone can load data anywhere, how is metadata captured and architectural control exerted?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location",
+      "Channel"
+    ],
+    "fsdm_key_entities": [
+      "All 3933 entities - architecture assessment"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location"
+    ],
+    "profitability_impact": "Architecture maturity determines if FSDM can be deployed as integrated model vs siloed",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 58,
+    "bacr_section": "Master Data Management",
+    "question_short": "How is reference and master data managed?  Is this centralised and shared, or maintained by individu",
+    "question_full": "How is reference and master data managed?  Is this centralised and shared, or maintained by individual systems",
+    "maturity_descriptors": {
+      "1_emerging": "There is little consideration of reference or master data across the organisation",
+      "2_developing": "Some reference and master data domains are identified",
+      "3_practicing": "Reference and Master data is consistently defined with processes in place to ensure capture across applications",
+      "4_innovating": "Reference and Master data is manged consistently and in a consolidated way across the enterprise",
+      "5_leading": "Reference and Master data enables and supports corporate changes"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 59,
+    "bacr_section": "Master Data Management",
+    "question_short": "How do you define reference and master data within your major transactional applications?  Within yo",
+    "question_full": "How do you define reference and master data within your major transactional applications?  Within your data warehouse, data marts, or data lakes?",
+    "maturity_descriptors": {
+      "1_emerging": "There is an application-centric approach to reference and master data.  Master data is not defined across the organisation",
+      "2_developing": "Most applications and data repositories define master data locally, causing redundancy and reporting inconsistencies",
+      "3_practicing": "There is a clear vision for master data management that demonstrates how master data facilitiates strategic objectives",
+      "4_innovating": "There is a formalized orgasniation associated with the Master Data program including defined roles and responsibilities, clearly defined metrics and an iterative learning cycle",
+      "5_leading": "Reference and master data initiatives are taken in support of the strategic business initiatives and incorporated into the projects"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 60,
+    "bacr_section": "Master Data Management",
+    "question_short": "What processes are in place to ensure reference data is consistent and that you have visibility to t",
+    "question_full": "What processes are in place to ensure reference data is consistent and that you have visibility to the changes made to various code values? Is this a manual or automated process?",
+    "maturity_descriptors": {
+      "1_emerging": "Cross-business or cross-functional reporting requires master data reconciliation",
+      "2_developing": "Cross-business or cross-functional reporting is completed with minimal reconciliation required for targetted reference and master data use cases",
+      "3_practicing": "There is foundational policy-driven standardization of technology and methods in place. Common usage of tools and procedures across projects",
+      "4_innovating": "",
+      "5_leading": "Master data management is automated across systems with the business seeing the value of consistent foundational data"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 61,
+    "bacr_section": "Master Data Management",
+    "question_short": "How would you describe the state of master data at your company?  How are master data updates commun",
+    "question_full": "How would you describe the state of master data at your company?  How are master data updates communicated and managed across different functions?",
+    "maturity_descriptors": {
+      "1_emerging": "There is a lack of understanding how master data should be aligned to business initiatives",
+      "2_developing": "Cross-business or cross-functional reporting is completed with minimal reconciliation required for targetted reference and master data use cases",
+      "3_practicing": "A formal master data management framework has been defined and is being implemented in all major systems",
+      "4_innovating": "Some domains have automated master data management in place, whilst others are managed manually.  Synchronisation across systems including analytics systems is standard",
+      "5_leading": "Master data management is automated across systems with the business seeing the value of consistent foundational data"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 62,
+    "bacr_section": "Master Data Management",
+    "question_short": "Are your existing data governance policies adequately addressing the naming standards necessary for ",
+    "question_full": "Are your existing data governance policies adequately addressing the naming standards necessary for successful master data management?",
+    "maturity_descriptors": {
+      "1_emerging": "There are no data governance processes in place for master data or reference data",
+      "2_developing": "Governance processe are defined and implemented in enterprise systems",
+      "3_practicing": "Governance processes are defined to update master data",
+      "4_innovating": "Governance is effective with master data available and leveraged for discovery",
+      "5_leading": "Governance processes are automated so that master data is effectively updated across systems and data repositories"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 63,
+    "bacr_section": "Master Data Management",
+    "question_short": "Do you have data owners identified for your master data domains?",
+    "question_full": "Do you have data owners identified for your master data domains?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 64,
+    "bacr_section": "Master Data Management",
+    "question_short": "Have you considered the impact of \u201cbig data\u201d on your master data; e.g., are you able to link social ",
+    "question_full": "Have you considered the impact of \u201cbig data\u201d on your master data; e.g., are you able to link social media data to your Customer or Product master?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 65,
+    "bacr_section": "Master Data Management",
+    "question_short": "Do you have enterprise business process workflows for each line of business involved in the data gov",
+    "question_full": "Do you have enterprise business process workflows for each line of business involved in the data governance framework to maintain and approve master data?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 66,
+    "bacr_section": "Master Data Management",
+    "question_short": "Are the master data requirements for all major lines of business known? Are these master data items ",
+    "question_full": "Are the master data requirements for all major lines of business known? Are these master data items held in any centralized logical data model or repository?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 67,
+    "bacr_section": "Master Data Management",
+    "question_short": "Do you have a mechanism and rules in place to detect bad, inaccurate, or duplicate data? To what deg",
+    "question_full": "Do you have a mechanism and rules in place to detect bad, inaccurate, or duplicate data? To what degree does your organization profile its master data?",
+    "maturity_descriptors": {
+      "1_emerging": "Data quality is an issue with lots of manual work-arounds",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "Master data is up to date and consistent across the enterprise and the entire analytic ecosystem",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 68,
+    "bacr_section": "Master Data Management",
+    "question_short": "Is there a set of MDM SLAs agreed on between the business and IT?",
+    "question_full": "Is there a set of MDM SLAs agreed on between the business and IT?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 69,
+    "bacr_section": "Master Data Management",
+    "question_short": "Does master data at your company undergo a structured and automated process to be corrected, cleanse",
+    "question_full": "Does master data at your company undergo a structured and automated process to be corrected, cleansed, and approved?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 70,
+    "bacr_section": "Master Data Management",
+    "question_short": "Does the data warehouse act as a publisher for master data? In other words, is there bidirectional f",
+    "question_full": "Does the data warehouse act as a publisher for master data? In other words, is there bidirectional flow of master data between the operational systems and the data warehouse?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 71,
+    "bacr_section": "Master Data Management",
+    "question_short": "Do you store and track historical changes to your master data?",
+    "question_full": "Do you store and track historical changes to your master data?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 72,
+    "bacr_section": "Master Data Management",
+    "question_short": "Do you have insight into the hierarchies and relationships between master data records?",
+    "question_full": "Do you have insight into the hierarchies and relationships between master data records?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 73,
+    "bacr_section": "Master Data Management",
+    "question_short": "Do you produce data quality metrics on your master data? How frequently are those metrics refreshed ",
+    "question_full": "Do you produce data quality metrics on your master data? How frequently are those metrics refreshed and reviewed by the governance committee?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 74,
+    "bacr_section": "Master Data Management",
+    "question_short": "Are the business rules related to your master data documented in the DW metadata repository?",
+    "question_full": "Are the business rules related to your master data documented in the DW metadata repository?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 75,
+    "bacr_section": "Master Data Management",
+    "question_short": "How are changes in master data elements communicated and synchronized across the enterprise?",
+    "question_full": "How are changes in master data elements communicated and synchronized across the enterprise?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 76,
+    "bacr_section": "Master Data Management",
+    "question_short": "How does your organization ensure that different systems use data in the same manner and get the sam",
+    "question_full": "How does your organization ensure that different systems use data in the same manner and get the same results?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Product",
+      "Location",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "PRODUCT",
+      "GEOGRAPHICAL_AREA",
+      "CURRENCY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Master & Reference Data - product",
+      "Master & Reference Data - geography / location",
+      "Master & Reference Data - staff / colleague",
+      "Master & Reference Data - Channel",
+      "Master & Reference Data - Campaign",
+      "Master & Reference Data - FTP rates",
+      "Master & Reference Data - exchange rates",
+      "Master & Reference Data - merchant / transaction",
+      "Master & Reference Data - organisation hierarchy",
+      "Master & Reference Data - Risk Policy Rules"
+    ],
+    "profitability_impact": "MDM maturity determines quality of dimension data in profitability star schema",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 77,
+    "bacr_section": "Metadata Management",
+    "question_short": "Is Metadata captured along with the data?  Is this business Metadata, operational or technical metad",
+    "question_full": "Is Metadata captured along with the data?  Is this business Metadata, operational or technical metadata?  What about data quality metadata? Is metadata specific to a data warehouse or to an analytics environment managed as part of a centralized solution, or do components of metadata exist across multiple platforms?",
+    "maturity_descriptors": {
+      "1_emerging": "Metadata is captured occassionally as a part of an individual project or as part of a business glosssary",
+      "2_developing": "Some metadata is captured. Usually this is either system-specific or business metadata shown as a data dictionary or business glossary",
+      "3_practicing": "Metadata has been defined and collected for most data.",
+      "4_innovating": "Metadta is effectively used and leveraged to enable user self-sufficiency in data access",
+      "5_leading": "Metadata is leveraged to test and understand new ideas / concepts"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 78,
+    "bacr_section": "Metadata Management",
+    "question_short": "Are data fields consistently defined across the organization?",
+    "question_full": "Are data fields consistently defined across the organization?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 79,
+    "bacr_section": "Metadata Management",
+    "question_short": "Are you able to meet your regulatory requirements for data lineage, etc.?  Describe the challenges a",
+    "question_full": "Are you able to meet your regulatory requirements for data lineage, etc.?  Describe the challenges and barriers associated with doing so.",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 80,
+    "bacr_section": "Metadata Management",
+    "question_short": "Describe the tools, processes, and techniques used to capture metadata information.   How is metadat",
+    "question_full": "Describe the tools, processes, and techniques used to capture metadata information.   How is metadata defined and accessed across the systems?",
+    "maturity_descriptors": {
+      "1_emerging": "Standards are not in place for metadata (e.g. no naming standards).  Metadata is usually manually maintained outside the application.",
+      "2_developing": "A metadata repostiory tool creates and maintains descrptions of data and can produce simply listings but they tend not to be user-friendly or useful",
+      "3_practicing": "The methods and tools used to create common semantic definitions for business and IT terms, data models, data types and repositories are in place",
+      "4_innovating": "A metadata tool, with import and export abilities from other tools has been loaded and defined",
+      "5_leading": "A repository is used to track near real-time updates as changes occur, providing alerts to targetted users based on rules"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 81,
+    "bacr_section": "Metadata Management",
+    "question_short": "Who owns and manages metadata?  How do owners communicate changes or challenges?",
+    "question_full": "Who owns and manages metadata?  How do owners communicate changes or challenges?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 82,
+    "bacr_section": "Metadata Management",
+    "question_short": "What are you SMART goals, metrics, and KPI\u2019s associated with metadata management?",
+    "question_full": "What are you SMART goals, metrics, and KPI\u2019s associated with metadata management?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 83,
+    "bacr_section": "Metadata Management",
+    "question_short": "How frequently is the metadata content refreshed?  What governance process is followed to standardiz",
+    "question_full": "How frequently is the metadata content refreshed?  What governance process is followed to standardize and harmonize metadata?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 84,
+    "bacr_section": "Metadata Management",
+    "question_short": "What is the governance process followed to add new metadata sources?  Is it based on business value ",
+    "question_full": "What is the governance process followed to add new metadata sources?  Is it based on business value or usage? Is it compliance driven?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 85,
+    "bacr_section": "Metadata Management",
+    "question_short": "Is there a single, standard tool and methodology for accessing the metadata?  Describe.",
+    "question_full": "Is there a single, standard tool and methodology for accessing the metadata?  Describe.",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "There may be different metadata tools requireing users to manually review and update metadata",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 86,
+    "bacr_section": "Metadata Management",
+    "question_short": "How is metadata being used in the enterprise?  Examples could include data lineage, standardizing tr",
+    "question_full": "How is metadata being used in the enterprise?  Examples could include data lineage, standardizing transformations, impact analysis, or audit and traceability.",
+    "maturity_descriptors": {
+      "1_emerging": "Metadata is not used throughout the organization to aid development and user self-sufficiency.  Metadata is mostly obtained from talking to local SMEs",
+      "2_developing": "There are few secondary uses for metadata content",
+      "3_practicing": "Some tools or applications are starting to leverage available metadata",
+      "4_innovating": "Users can view data definitions, tehcnical transformations and samples of dat from tables when developing or updating queries, reports or analytics",
+      "5_leading": "Users can view metadata and contribute observations and updates based on experience"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 87,
+    "bacr_section": "Metadata Management",
+    "question_short": "Do data stewards or other data governance organizations establish and communicate metadata standards",
+    "question_full": "Do data stewards or other data governance organizations establish and communicate metadata standards across the organization?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "The value of metadata has been discussed with critical metadata measured",
+      "5_leading": "Metadata is valued and measured providing consistency across business functions"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 88,
+    "bacr_section": "Metadata Management",
+    "question_short": "How do end users access definitions, transformation rules, and metric formulas?",
+    "question_full": "How do end users access definitions, transformation rules, and metric formulas?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 89,
+    "bacr_section": "Metadata Management",
+    "question_short": "Is Metadata seen as a valuable asset or a constraint?",
+    "question_full": "Is Metadata seen as a valuable asset or a constraint?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 90,
+    "bacr_section": "Metadata Management",
+    "question_short": "What standards are being used while retrieving, transforming, and storing metadata?",
+    "question_full": "What standards are being used while retrieving, transforming, and storing metadata?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 91,
+    "bacr_section": "Metadata Management",
+    "question_short": "Is there training available for end users and metadata developers?",
+    "question_full": "Is there training available for end users and metadata developers?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - metadata catalog"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Metadata enables profitability data lineage and audit trail",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 92,
+    "bacr_section": "Data Organisation",
+    "question_short": "Does your organisation make use of different data states and concepts, such as Data Lake, Data Wareh",
+    "question_full": "Does your organisation make use of different data states and concepts, such as Data Lake, Data Warehouse, Master Data, Data Projection and Metadata across a variety of architectures and technologies?",
+    "maturity_descriptors": {
+      "1_emerging": "Data has no formal organisation or organisation defaults to past historical standards",
+      "2_developing": "A draft data organisation strategy exists and is available to show high level data organisation definitions, patterns and the interactions between the different states and concepts.",
+      "3_practicing": "A data organisation strategy is consistently leveraged when extending the capabilities of the Analytic Ecosystem",
+      "4_innovating": "A data organisation strategy is leveraged to test the impact of innovating and adopting emerging concepts and technologies",
+      "5_leading": "A data organisation strategy  enables and supports current business needs whilst allowing innovation and adoption of emerging concetps and technologies"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - logical organization"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Logical data organization affects query performance for profitability calculations",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 93,
+    "bacr_section": "Data Organisation",
+    "question_short": "Does each data concept have a defined level of data governance?",
+    "question_full": "Does each data concept have a defined level of data governance?",
+    "maturity_descriptors": {
+      "1_emerging": "No formal governance processes are practiced.",
+      "2_developing": "Governance processes are instantiated in silos of data and an integrated governance program is under development.",
+      "3_practicing": "Data governance processes are formally defined and practiced across major data assets of the organisation.",
+      "4_innovating": "Data governance processes are leveraged to test the impact of various levels of governance on achieving business goals within aggressive timeframes and the required level of accuracy.",
+      "5_leading": "Data governance processes are largely automated and transparent allowing rapid exploitation of new data assets."
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - logical organization"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Logical data organization affects query performance for profitability calculations",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 94,
+    "bacr_section": "Data Organisation",
+    "question_short": "Does each data concept have a defined level of data integration?",
+    "question_full": "Does each data concept have a defined level of data integration?",
+    "maturity_descriptors": {
+      "1_emerging": "Integration is only defined for mature data assets (e.g. Data Warehouse, Data Marts)",
+      "2_developing": "Integration of data across the organisation is considered a key capability to achieve business advantages.",
+      "3_practicing": "Integration of data assets is defined at an organisation level and is being leveraged to integrate data assets where required to achive the business outcome.",
+      "4_innovating": "Integration of data assets is conferred through specific matching keys and allows for reasonable levels of integration.",
+      "5_leading": "Integration of data assets is conferred through specific matching keys, is largely automate and provides for full integration across master and event data."
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - logical organization"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Logical data organization affects query performance for profitability calculations",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 95,
+    "bacr_section": "Data Organisation",
+    "question_short": "Does each data concept have a defined level of data quality?",
+    "question_full": "Does each data concept have a defined level of data quality?",
+    "maturity_descriptors": {
+      "1_emerging": "Data Quality is not measured and is known to be poor",
+      "2_developing": "There are some data quality processes in place - usually manual and without data profiling",
+      "3_practicing": "Data quality is acceptable, with data stewardship programs in place",
+      "4_innovating": "Data quality is maintained and managed to standards and metrics",
+      "5_leading": "Data quality is effectively managed with meaningful metrics for accountability"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - logical organization"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Logical data organization affects query performance for profitability calculations",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 96,
+    "bacr_section": "Data Organisation",
+    "question_short": "How are data states organised across the different data concepts?",
+    "question_full": "How are data states organised across the different data concepts?",
+    "maturity_descriptors": {
+      "1_emerging": "States are duplicated across concepts resulting in multiple sources of truth (e.g. raw data is stored on multiple platforms for different purposes).",
+      "2_developing": "Some data states are common across the environment but as the data gets closer to business use duplication occurs.",
+      "3_practicing": "A data organisation strategy is leveraged to minimise duplication of data states across the ecosystem and encourages re-use of data assets.",
+      "4_innovating": "A data organisation strategy is leveraged to test the impact of rationalising data assets through efficient organisation of data states.",
+      "5_leading": "???"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - logical organization"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Logical data organization affects query performance for profitability calculations",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 97,
+    "bacr_section": "Data Organisation",
+    "question_short": "Does your organisation have a data lake? What is its main purpose?",
+    "question_full": "Does your organisation have a data lake? What is its main purpose?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - logical organization"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Logical data organization affects query performance for profitability calculations",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 98,
+    "bacr_section": "Data Organisation",
+    "question_short": "Does your organisation have a data warehouse? Is it integrated?",
+    "question_full": "Does your organisation have a data warehouse? Is it integrated?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - logical organization"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Logical data organization affects query performance for profitability calculations",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 99,
+    "bacr_section": "Data Organisation",
+    "question_short": "Are the data lake and data warehouse integrated in any way. For example, the data lake may provide s",
+    "question_full": "Are the data lake and data warehouse integrated in any way. For example, the data lake may provide source data to the data warehouse for later integration.",
+    "maturity_descriptors": {
+      "1_emerging": "Data is held in independent silos that do not interact with any other silo.",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": "Data virtualisation is used across the various data assets allowing seamless access to data regardless of physical location."
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product",
+      "Location"
+    ],
+    "fsdm_key_entities": [
+      "All domains - logical organization"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Logical data organization affects query performance for profitability calculations",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 100,
+    "bacr_section": "Data Centricity",
+    "question_short": "Do your data assets require a detailed level of definition to allow you to exploit the data asset?",
+    "question_full": "Do your data assets require a detailed level of definition to allow you to exploit the data asset?",
+    "maturity_descriptors": {
+      "1_emerging": "Yes. Cannot use the data asset unless it is fully understood.",
+      "2_developing": "The organisation is aware that all data has value at different levels of defintion and integration and is working towards a strategy to address this.",
+      "3_practicing": "Different levels of definition and integration are applied to data assets according to a defined set of data centricity guidelines (e.g. data assets for exploration are loose/non- coupled).",
+      "4_innovating": "Data centricity processes are largely automated and coupled with business and operational metadata allowing exploitation of data assets.",
+      "5_leading": "The business routinely is able to answer new business questions. Complexity of data assets in much reduced."
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "AGREEMENT",
+      "INVOLVED_PARTY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Customer Demographics",
+      "KYC Data"
+    ],
+    "profitability_impact": "Customer-centric data design enables customer-level profitability",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 101,
+    "bacr_section": "Data Centricity",
+    "question_short": "Do you data assets require a detailed level of defintion to provide value to the organisation?",
+    "question_full": "Do you data assets require a detailed level of defintion to provide value to the organisation?",
+    "maturity_descriptors": {
+      "1_emerging": "Yes. Cannot use the data asset unless it is fully understood.",
+      "2_developing": "The organisation is aware that all data has value at different levels of defintion and integration and is working towards a strategy to address this.",
+      "3_practicing": "Different levels of definition and integration are applied to data assets according to a defined set of data centricity guidelines (e.g. data assets for exploration are loose/non- coupled).",
+      "4_innovating": "Data centricity processes are largely automated and coupled with business and operational metadata allowing exploitation of data assets.",
+      "5_leading": "The business routinely is able to answer new business questions. Complexity of data assets in much reduced."
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "ORGANIZATION",
+      "AGREEMENT",
+      "INVOLVED_PARTY"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Customer Demographics",
+      "KYC Data"
+    ],
+    "profitability_impact": "Customer-centric data design enables customer-level profitability",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 102,
+    "bacr_section": "Data Tiers",
+    "question_short": "Do you know what state of data you need to answer your business questions or perform the required an",
+    "question_full": "Do you know what state of data you need to answer your business questions or perform the required analytics (e.g. source data, integrated data, summarised, etc)?",
+    "maturity_descriptors": {
+      "1_emerging": "Minimal levels of refinement. Largely source like data with some integration.",
+      "2_developing": "Detailed definitions of Data Tiers have been established with the Data Warehouse and are being further revised to address data assets across the analytic ecosystem.",
+      "3_practicing": "Data assets are organised across defined Data Tiers that allow users to easily find the data in the state the require.",
+      "4_innovating": "???",
+      "5_leading": "???"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "All domains - tiering assessment"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Data tiering affects historical profitability trend availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 103,
+    "bacr_section": "Data Tiers",
+    "question_short": "What different levels of refinement does your data pass through?",
+    "question_full": "What different levels of refinement does your data pass through?",
+    "maturity_descriptors": {
+      "1_emerging": "Data is minimally refined or refined by the business user for consumption.",
+      "2_developing": "???",
+      "3_practicing": "???",
+      "4_innovating": "???",
+      "5_leading": "???"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "All domains - tiering assessment"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Data tiering affects historical profitability trend availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 104,
+    "bacr_section": "Data Tiers",
+    "question_short": "What level of sharing and reuseability is achieved with your data assets?",
+    "question_full": "What level of sharing and reuseability is achieved with your data assets?",
+    "maturity_descriptors": {
+      "1_emerging": "Silos. Not a lot of sharing.",
+      "2_developing": "???",
+      "3_practicing": "???",
+      "4_innovating": "???",
+      "5_leading": "Data assets are routinely re-used. New data assets are quickly published and available for wide business use via standard interfaces (e.g. API)"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "All domains - tiering assessment"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Data tiering affects historical profitability trend availability",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 105,
+    "bacr_section": "Data Usage Zones",
+    "question_short": "Does  your organisation have a Discovery/Exploration data zone that allows you to explore the value ",
+    "question_full": "Does  your organisation have a Discovery/Exploration data zone that allows you to explore the value of data without strict controls?",
+    "maturity_descriptors": {
+      "1_emerging": "No discovery capability.",
+      "2_developing": "A strategy is being developed to provide discovery/exploration capabiliies.",
+      "3_practicing": "Data scientists and I.T. have access to a Discovery/Exploration zone.",
+      "4_innovating": "All the organisations data is accessible from the Discovery/Exploration zone and is used by Data Scientists and I.T. to find new business value.",
+      "5_leading": "??? Available to all???"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "All domains - zone classification"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Analytics sandboxes enable profitability model development",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 106,
+    "bacr_section": "Data Usage Zones",
+    "question_short": "Does your organisation have a process that allows new valuable data to be published into the operati",
+    "question_full": "Does your organisation have a process that allows new valuable data to be published into the operational are once the value of the data is proven?",
+    "maturity_descriptors": {
+      "1_emerging": "No discovery capability.",
+      "2_developing": "A strategy is being developed to productionise newly discovered valueable data.",
+      "3_practicing": "Newly discovered data assets are routinely productionised in a verifable and repeatable manner.",
+      "4_innovating": "Newly discovered data assets are quickly productionised via automated procedures.",
+      "5_leading": "???"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "All domains - zone classification"
+    ],
+    "bvf_data_requirements": [],
+    "profitability_impact": "Analytics sandboxes enable profitability model development",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 107,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Does the company have a formal, published data security and privacy policy describing why customer d",
+    "question_full": "Does the company have a formal, published data security and privacy policy describing why customer data is collected, what the information is used for, who has access, and when it is deleted?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 108,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Is there an organizational function that is responsible for establishing the policies and auditing t",
+    "question_full": "Is there an organizational function that is responsible for establishing the policies and auditing them to ensure compliance?  Where does that business unit fit within the organizational hierarchy?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 109,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Is there someone in the company with the official title of Head of Information Security or Chief Inf",
+    "question_full": "Is there someone in the company with the official title of Head of Information Security or Chief Information Security Officer (CISO)?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "There is a Chief Security Officer who sets the standards and monitors compliance",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 110,
+    "bacr_section": "Security and Privacy",
+    "question_short": "What are the regulations in your industry with which you are most concerned?  For example,GDPR or Sa",
+    "question_full": "What are the regulations in your industry with which you are most concerned?  For example,GDPR or Sarbanes Oxley?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 111,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Is there a formal privacy policy that defines data privacy, access control, and auditing requirement",
+    "question_full": "Is there a formal privacy policy that defines data privacy, access control, and auditing requirements specifically for data in the analytics ecosystem?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "Security and privacy are proactively addressed with the inclusion of data security requirements in service level agreements and outsrouced contractual obligations",
+      "5_leading": "Data security is adddress within organisational initiatives (e.g. balanced scorecards, metrics frameworks, business cases etc.)"
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 112,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Does the privacy policy incorporate all standard privacy principles including: Accountability, Notic",
+    "question_full": "Does the privacy policy incorporate all standard privacy principles including: Accountability, Notice, Consent, Collection Limitation, Use Limitation, Disclosure, Access and Correction, Data Accuracy, Enforcement, and Openness?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 113,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Are there documented information security policies that govern data collection, storage, transmissio",
+    "question_full": "Are there documented information security policies that govern data collection, storage, transmission, retention, and destruction?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 114,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Does your analytic ecosystem  contain PII, such as Social Security Numbers (SSN); Private Health Inf",
+    "question_full": "Does your analytic ecosystem  contain PII, such as Social Security Numbers (SSN); Private Health Information (PHI); customer financial records (such as bank account details); credit card numbers (PAN), or other Non-Public Information (NPI)?  Are there procedures and techniques in place to mask or obfuscated this data?",
+    "maturity_descriptors": {
+      "1_emerging": "There is no clear identification of Personally Identifiable Information (PII) throughout the enterprise and there is no catalogue of where that data is housed",
+      "2_developing": "Data has been appropriately classified and there is an inventory of applications that contain sensitive data.  Encryption techniques have been deployed to safeguard data",
+      "3_practicing": "PII data has been secured through encryption and physical security has been addressed with access to mobile devices and portable storage devices.  Data security audits occur regularly.",
+      "4_innovating": "Training is in place to promote security awareness and controls at all levels of the organisation.  There is an empahsis on the legal, contractual and regulatory requirements for data privacy and security",
+      "5_leading": "There is a continuous process improvement approach to securty management with an understanding that data types and sources are continuously evolving"
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 115,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Does the company have assigned data owners for all information assets who are actively involved in s",
+    "question_full": "Does the company have assigned data owners for all information assets who are actively involved in setting access policy, authorizing all access to their data, and regularly reviewing who has access to data in the analytic ecosystem?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 116,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Are the data owners aware of everyone who has access to their data and where all copies of their dat",
+    "question_full": "Are the data owners aware of everyone who has access to their data and where all copies of their data exist?  For example, is data copied to spreadsheets and Access databases?  If so, are the same controls applied to this data?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 117,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Are data contained in the anlaytics ecosystem classified or identified according to a standard Data ",
+    "question_full": "Are data contained in the anlaytics ecosystem classified or identified according to a standard Data Classification scheme?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "Data has been appropriately classified and there is an inventory of whichh data types are in which systems",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 118,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Does the company apply the principle of  least privilege when granting access to sensitive data?",
+    "question_full": "Does the company apply the principle of  least privilege when granting access to sensitive data?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 119,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Does the company use role-based access controls (RBAC) within the analytics ecosystem?  Are they lev",
+    "question_full": "Does the company use role-based access controls (RBAC) within the analytics ecosystem?  Are they leveraging organizational roles across the organization, or are they unique to the Teradata data warehouse?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 120,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Are they aware of all regulatory compliance requirements resulting from the types of data in the  ED",
+    "question_full": "Are they aware of all regulatory compliance requirements resulting from the types of data in the  EDW and the jurisdictions in which they operate?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 121,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Have they ever conducted a risk assessment or audit of the analytic ecosystem to determine complianc",
+    "question_full": "Have they ever conducted a risk assessment or audit of the analytic ecosystem to determine compliance with company policy, privacy laws, and other regulatory compliance requirements?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 122,
+    "bacr_section": "Security and Privacy",
+    "question_short": "How many users have direct ad-hoc query access to the analytic ecosystem?   Is access always granted",
+    "question_full": "How many users have direct ad-hoc query access to the analytic ecosystem?   Is access always granted from the access layer or do some users have access to the acquisition and integration layers (e.g., data scientists or ETL developers)?  How is that access managed across all environments \u2013 production, test, UAT, etc.?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 123,
+    "bacr_section": "Security and Privacy",
+    "question_short": "How many external users or business partners have access to the analytic ecosystem?",
+    "question_full": "How many external users or business partners have access to the analytic ecosystem?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 124,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Are  shared accounts used for accessing data in the analytics ecosystem that don\u2019t provide accountab",
+    "question_full": "Are  shared accounts used for accessing data in the analytics ecosystem that don\u2019t provide accountability back to the originating end user?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 125,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Is there any logging of access to sensitive data?",
+    "question_full": "Is there any logging of access to sensitive data?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 126,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Is there any process in place to monitor or review access log data?",
+    "question_full": "Is there any process in place to monitor or review access log data?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 127,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Does the company use a formal or recognized information security management system (ISMS) framework,",
+    "question_full": "Does the company use a formal or recognized information security management system (ISMS) framework, such as ISO 2700x, as a reference or benchmark for implemented security controls within the EDW?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 128,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Does the EDW support business-critical applications where system availability is important?",
+    "question_full": "Does the EDW support business-critical applications where system availability is important?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 129,
+    "bacr_section": "Security and Privacy",
+    "question_short": "Are there any known risks regarding access to sensitive data that are not being adequately managed o",
+    "question_full": "Are there any known risks regarding access to sensitive data that are not being adequately managed or mitigated?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "INDIVIDUAL",
+      "PARTY_IDENTIFICATION",
+      "CONTACT_POINT"
+    ],
+    "bvf_data_requirements": [
+      "KYC Data",
+      "Customer Demographics"
+    ],
+    "profitability_impact": "Privacy constraints may limit customer-level profitability granularity",
+    "maturity_level_required_for_profitability": 2,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 130,
+    "bacr_section": "Data Quality",
+    "question_short": "How would you describe the overall quality of your data?  How does your organization handle data qua",
+    "question_full": "How would you describe the overall quality of your data?  How does your organization handle data quality issues?  How are those issues identified and who is responsible for their resolution?",
+    "maturity_descriptors": {
+      "1_emerging": "Data Quality is not measured and is known to be poor",
+      "2_developing": "There are some data quality processes in place - usually manual and without data profiling",
+      "3_practicing": "Data quality is acceptable, with data stewardship programs in place",
+      "4_innovating": "Data quality is maintained and managed to standards and metrics",
+      "5_leading": "Data quality is effectively managed with meaningful metrics for accountability"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "FINANCIAL_TRANSACTION",
+      "PRODUCT"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Transaction Data",
+      "Account Balances & Summaries"
+    ],
+    "profitability_impact": "Data quality directly affects profitability calculation accuracy",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 131,
+    "bacr_section": "Data Quality",
+    "question_short": "Are data quality feedback loops in place to report quality issues identifyied in the analytics ecosy",
+    "question_full": "Are data quality feedback loops in place to report quality issues identifyied in the analytics ecosystem back to the operational system that is responsible for the creation of the bad data?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "FINANCIAL_TRANSACTION",
+      "PRODUCT"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Transaction Data",
+      "Account Balances & Summaries"
+    ],
+    "profitability_impact": "Data quality directly affects profitability calculation accuracy",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 132,
+    "bacr_section": "Data Quality",
+    "question_short": "Is data quality measured and reported to the analytics ecosystem users at least daily so that they k",
+    "question_full": "Is data quality measured and reported to the analytics ecosystem users at least daily so that they know if the data is of sufficient quality each day to support the analytics they plan to execute?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "FINANCIAL_TRANSACTION",
+      "PRODUCT"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Transaction Data",
+      "Account Balances & Summaries"
+    ],
+    "profitability_impact": "Data quality directly affects profitability calculation accuracy",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 133,
+    "bacr_section": "Data Quality",
+    "question_short": "Is the data quality in the analytics ecosystem reported to senior management if it exceeds specified",
+    "question_full": "Is the data quality in the analytics ecosystem reported to senior management if it exceeds specified thresholds?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "FINANCIAL_TRANSACTION",
+      "PRODUCT"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Transaction Data",
+      "Account Balances & Summaries"
+    ],
+    "profitability_impact": "Data quality directly affects profitability calculation accuracy",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 134,
+    "bacr_section": "Data Quality",
+    "question_short": "Are integration issues (where master data from one system doesn't not full match another) reported f",
+    "question_full": "Are integration issues (where master data from one system doesn't not full match another) reported for resolution to a responsible person?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "FINANCIAL_TRANSACTION",
+      "PRODUCT"
+    ],
+    "bvf_data_requirements": [
+      "Single Customer View (Master Record)",
+      "Transaction Data",
+      "Account Balances & Summaries"
+    ],
+    "profitability_impact": "Data quality directly affects profitability calculation accuracy",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 135,
+    "bacr_section": "Data Coverage",
+    "question_short": "How much of your business leverages data for analytics today?",
+    "question_full": "How much of your business leverages data for analytics today?",
+    "maturity_descriptors": {
+      "1_emerging": "Data is available for limited business areas or units",
+      "2_developing": "Data is available for all critical business areas",
+      "3_practicing": "Business units have the majority of the data they need",
+      "4_innovating": "All business units have the data coverage required for operations",
+      "5_leading": "Business units have data for operational and strategic decisions"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 136,
+    "bacr_section": "Data Coverage",
+    "question_short": "Is data available outside of functional applications?  (In other words, can business users access an",
+    "question_full": "Is data available outside of functional applications?  (In other words, can business users access and explore data directly from an analytic ecosystem platform)",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 137,
+    "bacr_section": "Data Coverage",
+    "question_short": "Are there business areas where there are gaps in data availability?",
+    "question_full": "Are there business areas where there are gaps in data availability?",
+    "maturity_descriptors": {
+      "1_emerging": "Not all functional areas have the breadth of data needed",
+      "2_developing": "Critical functional areas have the breadth of data needed",
+      "3_practicing": "Functional areas have the data coverage needed for operations",
+      "4_innovating": "There are no gaps in functional coverage",
+      "5_leading": "Data about data is gathered and available for new insights and predictions"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 138,
+    "bacr_section": "Data Coverage",
+    "question_short": "Is some data stored in multiple repositories (data marts, data warehouses, etc.)?",
+    "question_full": "Is some data stored in multiple repositories (data marts, data warehouses, etc.)?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 139,
+    "bacr_section": "Data Coverage",
+    "question_short": "Is data integrated across the organisation into a consistent coherent scheme?",
+    "question_full": "Is data integrated across the organisation into a consistent coherent scheme?",
+    "maturity_descriptors": {
+      "1_emerging": "Data may be targetted for a specific group or need and may not be aligned to enterprise needs",
+      "2_developing": "Critical enterprise-wide data is consistently covered to business users",
+      "3_practicing": "Business areas and functions have consistent enterprise data for their use",
+      "4_innovating": "Proactive data coverage helps anticipate new data needs",
+      "5_leading": "New data is available for analytics the analytics and new predictions and forecasts are provided"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 140,
+    "bacr_section": "Data Coverage",
+    "question_short": "What level of historical detail is retained online?",
+    "question_full": "What level of historical detail is retained online?",
+    "maturity_descriptors": {
+      "1_emerging": "Historical data is difficult to access",
+      "2_developing": "Some historical data is available",
+      "3_practicing": "Defined processes exist for sourcing and access to current and historical data",
+      "4_innovating": "Historical data is available for 1-2 years and archived (and recoverable) beyond that.  Sometimes summary historical data is always available.",
+      "5_leading": "Historical data is available for long periods of time but on slower response, lower cost platforms"
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": false
+  },
+  {
+    "bacr_question_id": 141,
+    "bacr_section": "Data Coverage",
+    "question_short": "Are prior periods summarised and retained online for analysis?",
+    "question_full": "Are prior periods summarised and retained online for analysis?",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 142,
+    "bacr_section": "Data Coverage",
+    "question_short": "Do users frequently have to extract data from the analytics system(s) to merge it with other data th",
+    "question_full": "Do users frequently have to extract data from the analytics system(s) to merge it with other data that is not available on the analytics platform(s)",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 143,
+    "bacr_section": "Data Coverage",
+    "question_short": "Application Section",
+    "question_full": "Application Section",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  },
+  {
+    "bacr_question_id": 144,
+    "bacr_section": "Data Coverage",
+    "question_short": "Applications Section - Summary Questions",
+    "question_full": "Applications Section - Summary Questions",
+    "maturity_descriptors": {
+      "1_emerging": "",
+      "2_developing": "",
+      "3_practicing": "",
+      "4_innovating": "",
+      "5_leading": ""
+    },
+    "fsdm_domains": [
+      "Party",
+      "Agreement",
+      "Event",
+      "Product"
+    ],
+    "fsdm_key_entities": [
+      "PARTY",
+      "AGREEMENT",
+      "EVENT",
+      "PRODUCT",
+      "FINANCIAL_TRANSACTION"
+    ],
+    "bvf_data_requirements": [
+      "Transaction Data",
+      "Account Balances & Summaries",
+      "Product Pricing - Interest Rates",
+      "Product Pricing - Fee Rates"
+    ],
+    "profitability_impact": "Gaps in data coverage = gaps in profitability measures",
+    "maturity_level_required_for_profitability": 3,
+    "is_tba": true
+  }
+]

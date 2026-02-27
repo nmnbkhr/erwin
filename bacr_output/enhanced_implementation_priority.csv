@@ -1,0 +1,78 @@
+Rank,Capability,BVF_Area,BVF_Group,BVF_Priority_Score,Current_Maturity,Target_Maturity,Maturity_Gap,Readiness_Factor,Enhanced_Priority_Score,Implementation_Tier,Is_Profitability_Critical,BACR_Question_Count,Data_Requirements_Count
+1,A/B and Test and Learn Deployment,Risk Management & Regulation,Execution & Delivery,10.0,2,4,2,1.0,22.5,Tier 1 - Critical,True,1,105
+2,Performance Reporting,Finance & Peformance Management,MIS & Reporting,9.6,2,4,2,1.0,21.6,Tier 1 - Critical,True,15,96
+3,Exception Reporting,Finance & Peformance Management,MIS & Reporting,9.6,2,4,2,1.0,21.6,Tier 1 - Critical,True,1,96
+4,Executive Dashboards,Finance & Peformance Management,MIS & Reporting,9.6,2,4,2,1.0,21.6,Tier 1 - Critical,True,1,96
+5,Model Performance Analytics,Risk Management & Regulation,Reporting & BI,9.5,2,4,2,1.0,21.38,Tier 1 - Critical,True,3,95
+6,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,7.8,3,5,2,1.2,21.06,Tier 1 - Critical,True,10,78
+7,Credit Risk Based Pricing Model,Risk Management & Regulation,Modelling and Predictiions,8.3,2,4,2,1.0,18.68,Tier 1 - Critical,True,2,83
+8,Active Portfolio Management,Risk Management & Regulation,Execution & Delivery,8.3,2,4,2,1.0,18.68,Tier 1 - Critical,True,1,83
+9,Profitability Modelling,Finance & Peformance Management,Financial Planning & Controlling,6.7,3,5,2,1.2,18.09,Tier 1 - Critical,True,3,67
+10,"Financial Budgeting, Planning & Forecasting",Finance & Peformance Management,Financial Planning & Controlling,8.0,2,4,2,1.0,18.0,Tier 1 - Critical,True,1,80
+11,Regulatory & Compliance Reporting,Finance & Peformance Management,MIS & Reporting,8.0,2,4,2,1.0,18.0,Tier 1 - Critical,True,2,80
+12,Performance Management and KPIs,Finance & Peformance Management,Financial Planning & Controlling,7.8,2,4,2,1.0,17.55,Tier 1 - Critical,True,6,78
+13,Pricing Analysis & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,7.5,2,4,2,1.0,16.88,Tier 1 - Critical,True,6,75
+14,Big Data Analytics,Marketing and Customer Experience,Customer Insight,10.0,2,4,2,1.0,15.0,Tier 1 - Critical,False,2,113
+15,Dynamic Datastore,Risk Management & Regulation,Execution & Delivery,10.0,2,4,2,1.0,15.0,Tier 1 - Critical,False,1,105
+16,Real Time Threat Detection,Risk Management & Regulation,Execution & Delivery,10.0,2,4,2,1.0,15.0,Tier 1 - Critical,False,3,105
+17,Collection Strategy Model,Risk Management & Regulation,Modelling and Predictiions,6.4,2,4,2,1.0,14.4,Tier 1 - Critical,True,3,64
+18,Future / Lifetime Value,Finance & Peformance Management,Financial Planning & Controlling,6.4,2,4,2,1.0,14.4,Tier 1 - Critical,True,1,64
+19,Activity Based Costing,Finance & Peformance Management,Financial Planning & Controlling,6.1,2,4,2,1.0,13.72,Tier 1 - Critical,True,2,61
+20,Credit Risk Expected Loss Model,Risk Management & Regulation,Modelling and Predictiions,6.1,2,4,2,1.0,13.72,Tier 1 - Critical,True,2,61
+21,Strategy (Rules) Performance MI,Risk Management & Regulation,Reporting & BI,6.1,2,4,2,1.0,13.72,Tier 1 - Critical,True,1,61
+22,Credit Risk Scoring (Underwriting Likelihood Model),Risk Management & Regulation,Modelling and Predictiions,6.0,2,4,2,1.0,13.5,Tier 1 - Critical,True,1,60
+23,Fraud and Money Laundering Loss Modelling,Risk Management & Regulation,Modelling and Predictiions,8.9,2,4,2,1.0,13.35,Tier 1 - Critical,False,3,89
+24,Fraud and Money Laundering Likelihood Model,Risk Management & Regulation,Modelling and Predictiions,8.8,2,4,2,1.0,13.2,Tier 1 - Critical,False,1,88
+25,Operational Dashboard & Decisioning,Finance & Peformance Management,MIS & Reporting,8.3,2,4,2,1.0,12.45,Tier 1 - Critical,False,1,83
+26,Risk Based Price Calculation,Risk Management & Regulation,Execution & Delivery,8.3,2,4,2,1.0,12.45,Tier 1 - Critical,False,1,83
+27,Regulatory Reporting and Information Sharing,Risk Management & Regulation,Reporting & BI,8.0,2,4,2,1.0,12.0,Tier 1 - Critical,False,1,80
+28,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,4.7,2,4,2,1.0,10.58,Tier 1 - Critical,True,8,47
+29,Functional Profit & Loss Statement (P&L),Finance & Peformance Management,Financial Accounting,4.0,2,5,3,1.0,10.5,Tier 1 - Critical,True,1,40
+30,"Policy, Forensics and Underwriter Rules",Risk Management & Regulation,Risk Insight,6.5,2,4,2,1.0,9.75,Tier 1 - Critical,False,1,65
+31,Tax Management & Optimisation,Finance & Peformance Management,Financial Accounting,4.2,2,4,2,1.0,9.45,Tier 1 - Critical,True,1,42
+32,Financial Accounting / Accounting Hub,Finance & Peformance Management,Financial Accounting,4.0,2,4,2,1.0,9.0,Tier 1 - Critical,True,4,40
+33,Credit Risk Underwriting/Monitoring Strategy Model,Risk Management & Regulation,Modelling and Predictiions,6.0,2,4,2,1.0,9.0,Tier 1 - Critical,False,1,60
+34,Credit Risk model Deployment,Risk Management & Regulation,Execution & Delivery,6.0,2,4,2,1.0,9.0,Tier 1 - Critical,False,1,60
+35,Fair Value & Hedge Accounting,Finance & Peformance Management,Financial Accounting,3.8,2,4,2,1.0,8.55,Tier 1 - Critical,True,2,38
+36,Pre-Default Transaction Analytics,Risk Management & Regulation,Risk Insight,5.6,2,4,2,1.0,8.4,Tier 1 - Critical,False,5,56
+37,Cashflow Generation,Finance & Peformance Management,Treasury Mgmt & Insight,3.7,2,4,2,1.0,8.33,Tier 1 - Critical,True,2,37
+38,Risk Appetite,Risk Management & Regulation,Risk Insight,3.7,2,4,2,1.0,8.33,Tier 1 - Critical,True,5,37
+39,Capital Management (Planning and Allocation),Risk Management & Regulation,Risk Insight,3.6,2,4,2,1.0,8.1,Tier 1 - Critical,True,1,36
+40,Event Detection,Marketing and Customer Experience,Customer Insight,5.2,2,4,2,1.0,7.8,Tier 2 - High,False,5,52
+41,Asset & Liability Management,Finance & Peformance Management,Treasury Mgmt & Insight,3.4,2,4,2,1.0,7.65,Tier 2 - High,True,4,34
+42,Insight Led Customer Strategy,Marketing and Customer Experience,Customer Insight,4.9,2,4,2,1.0,7.35,Tier 2 - High,False,5,49
+43,Next Best Action Arbitration,Marketing and Customer Experience,Delivery of Insight to Channels,4.8,2,4,2,1.0,7.2,Tier 2 - High,False,1,48
+44,Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,3.2,2,4,2,1.0,7.2,Tier 2 - High,True,7,32
+45,Customer Value,Marketing and Customer Experience,Customer Insight,2.6,3,5,2,1.2,7.02,Tier 2 - High,True,3,26
+46,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,3.1,2,4,2,1.0,6.98,Tier 2 - High,True,11,31
+47,"Reconciliation, Validation & Adjustments",Finance & Peformance Management,Financial Accounting,3.0,2,4,2,1.0,6.75,Tier 2 - High,True,1,30
+48,Sales Reporting,Finance & Peformance Management,MIS & Reporting,2.9,2,4,2,1.0,6.52,Tier 2 - High,True,4,29
+49,Omni Channel Campaign Management,Marketing and Customer Experience,Define & Deploy Business Rules,3.9,2,4,2,1.0,5.85,Tier 2 - High,False,1,39
+50,Strategy Monitoring,Marketing and Customer Experience,Reporting & Continuous Improvement,3.9,2,4,2,1.0,5.85,Tier 2 - High,False,1,39
+51,NPS MI & Drill Down,Marketing and Customer Experience,Reporting & Continuous Improvement,3.6,2,4,2,1.0,5.4,Tier 2 - High,False,1,36
+52,Personalisation,Marketing and Customer Experience,Define & Deploy Business Rules,3.1,2,4,2,1.0,4.65,Tier 3 - Medium,False,2,31
+53,Predictive Models,Marketing and Customer Experience,Customer Insight,3.0,2,4,2,1.0,4.5,Tier 3 - Medium,False,2,30
+54,Channel Coverage,Marketing and Customer Experience,Delivery of Insight to Channels,3.0,2,4,2,1.0,4.5,Tier 3 - Medium,False,1,30
+55,FX & Trading Book Management,Finance & Peformance Management,Treasury Mgmt & Insight,2.0,2,4,2,1.0,4.5,Tier 3 - Medium,True,1,20
+56,Customer Segmentation,Marketing and Customer Experience,Customer Insight,2.9,2,4,2,1.0,4.35,Tier 3 - Medium,False,4,29
+57,Single Interaction View of Customer,Marketing and Customer Experience,Delivery of Insight to Channels,2.3,3,5,2,1.2,4.14,Tier 3 - Medium,False,3,23
+58,Marketing Attribution MI across all channels,Marketing and Customer Experience,Reporting & Continuous Improvement,2.6,2,4,2,1.0,3.9,Tier 3 - Medium,False,1,26
+59,Statutory Financial Reporting,Finance & Peformance Management,MIS & Reporting,1.7,2,4,2,1.0,3.82,Tier 3 - Medium,True,3,17
+60,Funds Transfer Pricing,Finance & Peformance Management,Treasury Mgmt & Insight,1.4,2,5,3,1.0,3.67,Tier 3 - Medium,True,1,14
+61,Real Time Omni-Channel  Integration,Marketing and Customer Experience,Delivery of Insight to Channels,2.4,2,4,2,1.0,3.6,Tier 3 - Medium,False,1,24
+62,Campaign Business Cases,Marketing and Customer Experience,Define & Deploy Business Rules,2.1,2,4,2,1.0,3.15,Tier 3 - Medium,False,1,21
+63,Attrition Root Cause Analysis MI,Marketing and Customer Experience,Reporting & Continuous Improvement,2.0,2,4,2,1.0,3.0,Tier 3 - Medium,False,2,20
+64,Scope of Contact,Marketing and Customer Experience,Define & Deploy Business Rules,2.0,2,4,2,1.0,3.0,Tier 3 - Medium,False,1,20
+65,Channel Support & Engagement,Marketing and Customer Experience,Delivery of Insight to Channels,1.9,2,4,2,1.0,2.85,Tier 4 - Low,False,4,19
+66,Contextual Decisioning,Marketing and Customer Experience,Delivery of Insight to Channels,1.8,2,4,2,1.0,2.7,Tier 4 - Low,False,1,18
+67,Lead & Contact Management,Marketing and Customer Experience,Delivery of Insight to Channels,1.6,2,4,2,1.0,2.4,Tier 4 - Low,False,1,16
+68,Direct Customer Access to Information Products,Marketing and Customer Experience,Delivery of Insight to Channels,1.5,2,4,2,1.0,2.25,Tier 4 - Low,False,1,15
+69,Multi-Step Dialogue,Marketing and Customer Experience,Define & Deploy Business Rules,1.4,2,4,2,1.0,2.1,Tier 4 - Low,False,1,14
+70,Campaign ROI Reporting by Channel,Marketing and Customer Experience,Reporting & Continuous Improvement,1.2,2,4,2,1.0,1.8,Tier 4 - Low,False,1,12
+71,Fixed Assets Management,Finance & Peformance Management,Financial Accounting,1.1,2,4,2,1.0,1.65,Tier 4 - Low,False,5,11
+72,Interest Rate Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.7,2,4,2,1.0,1.57,Tier 4 - Low,True,1,7
+73,Customer Managed Relationships,Marketing and Customer Experience,Customer Insight,1.0,2,4,2,1.0,1.5,Tier 4 - Low,False,1,10
+74,Third Party Settlement Controls,Finance & Peformance Management,Financial Accounting,1.0,2,4,2,1.0,1.5,Tier 4 - Low,False,2,10
+75,Financial Consolidation,Finance & Peformance Management,Financial Accounting,0.6,2,4,2,1.0,1.35,Tier 4 - Low,True,3,6
+76,"GL, AP, HR, Expense Analytics & Optimisation",Finance & Peformance Management,Financial Planning & Controlling,0.6,2,4,2,1.0,1.35,Tier 4 - Low,True,1,6
+77,Transaction Classification,Marketing and Customer Experience,Customer Insight,0.5,3,5,2,1.2,1.35,Tier 4 - Low,True,1,5

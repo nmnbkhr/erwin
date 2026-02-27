@@ -1,0 +1,75 @@
+{
+  "bvf_summary": {
+    "total_capabilities": 112,
+    "total_data_requirements": 113,
+    "bvf_areas": 3,
+    "sub_areas": 12,
+    "total_mappings": 5267,
+    "avg_data_reqs_per_capability": 47.03,
+    "avg_capabilities_per_data_req": 46.61
+  },
+  "fsdm_coverage": {
+    "data_reqs_with_fsdm_match": 113,
+    "data_reqs_without_match": 0,
+    "total_fsdm_entities_mapped": 1197,
+    "entities_by_domain": {
+      "Other": 898,
+      "Party Management": 657,
+      "Agreement/Account": 373,
+      "Channel Management": 251,
+      "Risk Management": 160,
+      "Campaign/Marketing": 154,
+      "Claims Management": 150,
+      "Investment Management": 147,
+      "Product Management": 133,
+      "Financial Transaction": 93,
+      "Reference Data": 42,
+      "Asset Management": 33,
+      "Event Management": 21,
+      "Web Analytics": 21,
+      "Human Resources": 8
+    },
+    "coverage_by_subject_area": {
+      "Event": 700,
+      "Agreement": 585,
+      "Party": 473,
+      "Party or Agreement": 210,
+      "Campaign": 180,
+      "Product": 177,
+      "Cross Subject - Document": 150,
+      "Not Covered": 90,
+      "Finance": 80,
+      "Location": 60,
+      "Party Asset": 60,
+      "Analytical Model": 60,
+      "Cross Subject - Multi-media object": 60,
+      "Internal Organisation": 57,
+      "Party & Product": 30,
+      "Cross Subject  -  Limits": 30,
+      "Event or Cross Subject - Document": 30,
+      "Channel": 30,
+      "Cross Subject - Survey": 30,
+      "Cross Subject - Watch List": 30,
+      "Cross Subject": 21
+    }
+  },
+  "profitability": {
+    "profitability_critical_capabilities": 18,
+    "profitability_data_requirements": 98,
+    "star_schema_coverage_pct": 81.6,
+    "tier1_entity_count": 583,
+    "tier1_capability_unlock_count": 109,
+    "top20_data_reqs_capability_coverage_pct": 97.3
+  },
+  "reuse_analysis": {
+    "avg_reuse_coefficient": 0.5038,
+    "max_reuse_pair": [
+      "Transaction Classification",
+      "Big Data Analytics",
+      1.0
+    ],
+    "capability_clusters": 5,
+    "most_reused_data_req": "Customer Segments",
+    "most_reused_data_req_capability_count": 96
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BACR Maturity Radar - UBL Assessment</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { color: #2F5496; text-align: center; }
+.subtitle { text-align: center; color: #666; margin-bottom: 20px; }
+.controls { text-align: center; margin: 20px 0; }
+.controls button {
+    padding: 8px 20px; margin: 0 5px; border: 2px solid #2F5496;
+    background: white; color: #2F5496; border-radius: 20px; cursor: pointer;
+    font-size: 14px; transition: all 0.3s;
+}
+.controls button.active { background: #2F5496; color: white; }
+.controls button:hover { background: #1a3a7a; color: white; }
+.chart-container { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.legend-info { text-align: center; margin-top: 15px; font-size: 13px; color: #555; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; }
+.stat-card { background: white; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+.stat-value { font-size: 28px; font-weight: bold; color: #2F5496; }
+.stat-label { font-size: 12px; color: #888; margin-top: 5px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>BACR Maturity Radar</h1>
+<p class="subtitle">United Bank Limited &mdash; 8 Assessment Categories, 5-Level Maturity Scale</p>
+
+<div class="controls">
+    <button class="active" onclick="setView('all')">All Questions</button>
+    <button onclick="setView('financial')">Financial Only</button>
+    <button onclick="setView('profitability')">Profitability Critical</button>
+</div>
+
+<div class="chart-container">
+    <canvas id="radarChart" width="800" height="600"></canvas>
+</div>
+
+<div class="legend-info">
+    <span style="color:#4472C4">&#9632;</span> Current State &nbsp;&nbsp;
+    <span style="color:#70AD47">&#9632;</span> Desired State &nbsp;&nbsp;
+    Gap = Desired - Current
+</div>
+
+<div class="stats">
+    <div class="stat-card">
+        <div class="stat-value">771</div>
+        <div class="stat-label">Total Questions</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">191</div>
+        <div class="stat-label">Financial Questions</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">2.1</div>
+        <div class="stat-label">Profitability Score</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">2.07</div>
+        <div class="stat-label">Overall Gap</div>
+    </div>
+</div>
+</div>
+
+<script>
+const categories = ["Outcomes", "Information", "Systems", "Applications", "Governance", "Business", "Culture", "Agility"];
+const datasets = {
+    all: {
+        current: [2.0, 2.15, 2.82, 2.14, 2.0, 2.0, 2.0, 2.0],
+        desired: [4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 3.0]
+    },
+    financial: {
+        current: [2.2, 2.4, 3.0, 2.14, 2.0, 2.0, 2.0, 2.0],
+        desired: [4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 3.0]
+    },
+    profitability: {
+        current: [2.1, 2.4, 3.0, 2.2, 2.0, 2.0, 2.0, 2.0],
+        desired: [4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 3.0]
+    }
+};
+
+const ctx = document.getElementById('radarChart').getContext('2d');
+let chart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: categories,
+        datasets: [
+            {
+                label: 'Current State',
+                data: datasets.all.current,
+                backgroundColor: 'rgba(68, 114, 196, 0.2)',
+                borderColor: '#4472C4',
+                borderWidth: 2,
+                pointRadius: 5,
+                pointBackgroundColor: '#4472C4'
+            },
+            {
+                label: 'Desired State',
+                data: datasets.all.desired,
+                backgroundColor: 'rgba(112, 173, 71, 0.15)',
+                borderColor: '#70AD47',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                pointRadius: 5,
+                pointBackgroundColor: '#70AD47'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            r: {
+                min: 0, max: 5,
+                ticks: { stepSize: 1, font: { size: 12 } },
+                pointLabels: { font: { size: 14, weight: 'bold' } },
+                grid: { color: 'rgba(0,0,0,0.1)' }
+            }
+        },
+        plugins: {
+            legend: { position: 'bottom', labels: { font: { size: 13 } } },
+            tooltip: {
+                callbacks: {
+                    label: function(ctx) {
+                        return ctx.dataset.label + ': ' + ctx.raw.toFixed(1) + '/5';
+                    }
+                }
+            }
+        }
+    }
+});
+
+function setView(view) {
+    document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    chart.data.datasets[0].data = datasets[view].current;
+    chart.data.datasets[1].data = datasets[view].desired;
+    chart.update();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+BVF_Capability,BVF_Area,BACR_Question_ID,Current_State,Desired_State,Maturity_Gap,Is_Profitability_Critical,FSDM_Entity_Count,Priority_Tier
+Single Interaction View of Customer,Marketing and Customer Experience,552,3,5,2,False,23,Tier 3
+Single Interaction View of Customer,Marketing and Customer Experience,553,3,5,2,False,23,Tier 3
+Single Interaction View of Customer,Marketing and Customer Experience,557,3,5,2,False,23,Tier 3
+Customer Value,Marketing and Customer Experience,554,3,5,2,True,26,Tier 2
+Customer Value,Marketing and Customer Experience,599,3,5,2,True,26,Tier 2
+Customer Value,Marketing and Customer Experience,601,3,5,2,True,26,Tier 2
+NPS MI & Drill Down,Marketing and Customer Experience,555,2,4,2,False,36,Tier 3
+Channel Support & Engagement,Marketing and Customer Experience,556,2,4,2,False,19,Tier 3
+Channel Support & Engagement,Marketing and Customer Experience,574,2,4,2,False,19,Tier 3
+Channel Support & Engagement,Marketing and Customer Experience,663,2,4,2,False,19,Tier 3
+Channel Support & Engagement,Marketing and Customer Experience,752,2,4,2,False,19,Tier 3
+Event Detection,Marketing and Customer Experience,558,2,4,2,False,52,Tier 3
+Event Detection,Marketing and Customer Experience,662,2,4,2,False,52,Tier 3
+Event Detection,Marketing and Customer Experience,687,2,4,2,False,52,Tier 3
+Event Detection,Marketing and Customer Experience,734,2,4,2,False,52,Tier 3
+Event Detection,Marketing and Customer Experience,751,2,4,2,False,52,Tier 3
+Customer Segmentation,Marketing and Customer Experience,559,2,4,2,False,29,Tier 3
+Customer Segmentation,Marketing and Customer Experience,595,2,4,2,False,29,Tier 3
+Customer Segmentation,Marketing and Customer Experience,597,2,4,2,False,29,Tier 3
+Customer Segmentation,Marketing and Customer Experience,754,2,4,2,False,29,Tier 3
+Customer Managed Relationships,Marketing and Customer Experience,560,2,4,2,False,10,Tier 3
+Predictive Models,Marketing and Customer Experience,561,2,4,2,False,30,Tier 3
+Predictive Models,Marketing and Customer Experience,562,2,4,2,False,30,Tier 3
+Insight Led Customer Strategy,Marketing and Customer Experience,563,2,4,2,False,49,Tier 3
+Insight Led Customer Strategy,Marketing and Customer Experience,564,2,4,2,False,49,Tier 3
+Insight Led Customer Strategy,Marketing and Customer Experience,567,2,4,2,False,49,Tier 3
+Insight Led Customer Strategy,Marketing and Customer Experience,568,2,4,2,False,49,Tier 3
+Insight Led Customer Strategy,Marketing and Customer Experience,602,2,4,2,False,49,Tier 3
+Attrition Root Cause Analysis MI,Marketing and Customer Experience,565,2,4,2,False,20,Tier 3
+Attrition Root Cause Analysis MI,Marketing and Customer Experience,566,2,4,2,False,20,Tier 3
+Lead & Contact Management,Marketing and Customer Experience,569,2,4,2,False,16,Tier 3
+Scope of Contact,Marketing and Customer Experience,570,2,4,2,False,20,Tier 3
+Omni Channel Campaign Management,Marketing and Customer Experience,571,2,4,2,False,39,Tier 3
+Channel Coverage,Marketing and Customer Experience,572,2,4,2,False,30,Tier 3
+Contextual Decisioning,Marketing and Customer Experience,573,2,4,2,False,18,Tier 3
+Real Time Omni-Channel  Integration,Marketing and Customer Experience,575,2,4,2,False,24,Tier 3
+Direct Customer Access to Information Products,Marketing and Customer Experience,576,2,4,2,False,15,Tier 3
+Personalisation,Marketing and Customer Experience,577,2,4,2,False,31,Tier 3
+Personalisation,Marketing and Customer Experience,579,2,4,2,False,31,Tier 3
+Next Best Action Arbitration,Marketing and Customer Experience,578,2,4,2,False,48,Tier 3
+Multi-Step Dialogue,Marketing and Customer Experience,580,2,4,2,False,14,Tier 3
+Campaign ROI Reporting by Channel,Marketing and Customer Experience,581,2,4,2,False,12,Tier 3
+Marketing Attribution MI across all channels,Marketing and Customer Experience,582,2,4,2,False,26,Tier 3
+Big Data Analytics,Marketing and Customer Experience,583,2,4,2,False,113,Tier 3
+Big Data Analytics,Marketing and Customer Experience,684,2,4,2,False,113,Tier 3
+Campaign Business Cases,Marketing and Customer Experience,585,2,4,2,False,21,Tier 3
+Performance Reporting,Finance & Peformance Management,587,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,589,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,603,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,640,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,649,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,655,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,701,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,709,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,715,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,733,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,750,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,758,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,764,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,766,2,4,2,True,96,Tier 2
+Performance Reporting,Finance & Peformance Management,771,2,4,2,True,96,Tier 2
+Credit Risk Based Pricing Model,Risk Management & Regulation,590,2,4,2,True,83,Tier 2
+Credit Risk Based Pricing Model,Risk Management & Regulation,704,2,4,2,True,83,Tier 2
+Dynamic Datastore,Risk Management & Regulation,592,2,4,2,False,105,Tier 3
+Capital Planning and Management,Finance & Peformance Management,593,2,4,2,True,32,Tier 2
+Capital Planning and Management,Finance & Peformance Management,630,2,4,2,True,32,Tier 2
+Capital Planning and Management,Finance & Peformance Management,643,2,4,2,True,32,Tier 2
+Capital Planning and Management,Finance & Peformance Management,650,2,4,2,True,32,Tier 2
+Capital Planning and Management,Finance & Peformance Management,717,2,4,2,True,32,Tier 2
+Capital Planning and Management,Finance & Peformance Management,719,2,4,2,True,32,Tier 2
+Capital Planning and Management,Finance & Peformance Management,760,2,4,2,True,32,Tier 2
+Sales Reporting,Finance & Peformance Management,594,2,4,2,True,29,Tier 2
+Sales Reporting,Finance & Peformance Management,638,2,4,2,True,29,Tier 2
+Sales Reporting,Finance & Peformance Management,669,2,4,2,True,29,Tier 2
+Sales Reporting,Finance & Peformance Management,756,2,4,2,True,29,Tier 2
+Financial Consolidation,Finance & Peformance Management,604,2,4,2,True,6,Tier 2
+Financial Consolidation,Finance & Peformance Management,618,2,4,2,True,6,Tier 2
+Financial Consolidation,Finance & Peformance Management,738,2,4,2,True,6,Tier 2
+Profitability Modelling,Finance & Peformance Management,606,3,5,2,True,67,Tier 2
+Profitability Modelling,Finance & Peformance Management,644,3,5,2,True,67,Tier 2
+Profitability Modelling,Finance & Peformance Management,722,3,5,2,True,67,Tier 2
+Performance Management and KPIs,Finance & Peformance Management,609,2,4,2,True,78,Tier 2
+Performance Management and KPIs,Finance & Peformance Management,625,2,4,2,True,78,Tier 2
+Performance Management and KPIs,Finance & Peformance Management,667,2,4,2,True,78,Tier 2
+Performance Management and KPIs,Finance & Peformance Management,721,2,4,2,True,78,Tier 2
+Performance Management and KPIs,Finance & Peformance Management,739,2,4,2,True,78,Tier 2
+Performance Management and KPIs,Finance & Peformance Management,740,2,4,2,True,78,Tier 2
+Collection Strategy Model,Risk Management & Regulation,610,2,4,2,True,64,Tier 2
+Collection Strategy Model,Risk Management & Regulation,707,2,4,2,True,64,Tier 2
+Collection Strategy Model,Risk Management & Regulation,727,2,4,2,True,64,Tier 2
+Business Process Analytics & Optimisation,Finance & Peformance Management,611,2,4,2,True,47,Tier 2
+Business Process Analytics & Optimisation,Finance & Peformance Management,626,2,4,2,True,47,Tier 2
+Business Process Analytics & Optimisation,Finance & Peformance Management,628,2,4,2,True,47,Tier 2
+Business Process Analytics & Optimisation,Finance & Peformance Management,654,2,4,2,True,47,Tier 2
+Business Process Analytics & Optimisation,Finance & Peformance Management,664,2,4,2,True,47,Tier 2
+Business Process Analytics & Optimisation,Finance & Peformance Management,745,2,4,2,True,47,Tier 2
+Business Process Analytics & Optimisation,Finance & Peformance Management,746,2,4,2,True,47,Tier 2
+Business Process Analytics & Optimisation,Finance & Peformance Management,765,2,4,2,True,47,Tier 2
+Financial Accounting / Accounting Hub,Finance & Peformance Management,612,2,4,2,True,40,Tier 2
+Financial Accounting / Accounting Hub,Finance & Peformance Management,615,2,4,2,True,40,Tier 2
+Financial Accounting / Accounting Hub,Finance & Peformance Management,759,2,4,2,True,40,Tier 2
+Financial Accounting / Accounting Hub,Finance & Peformance Management,767,2,4,2,True,40,Tier 2
+Fair Value & Hedge Accounting,Finance & Peformance Management,613,2,4,2,True,38,Tier 2
+Fair Value & Hedge Accounting,Finance & Peformance Management,614,2,4,2,True,38,Tier 2
+Tax Management & Optimisation,Finance & Peformance Management,616,2,4,2,True,42,Tier 2
+"Reconciliation, Validation & Adjustments",Finance & Peformance Management,617,2,4,2,True,30,Tier 2
+Functional Profit & Loss Statement (P&L),Finance & Peformance Management,619,2,5,3,True,40,Tier 1
+Profitability Analytics and Optimisation,Finance & Peformance Management,620,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,624,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,660,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,670,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,671,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,706,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,710,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,716,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,757,3,5,2,True,78,Tier 2
+Profitability Analytics and Optimisation,Finance & Peformance Management,763,3,5,2,True,78,Tier 2
+"GL, AP, HR, Expense Analytics & Optimisation",Finance & Peformance Management,621,2,4,2,True,6,Tier 2
+Activity Based Costing,Finance & Peformance Management,622,2,4,2,True,61,Tier 2
+Activity Based Costing,Finance & Peformance Management,647,2,4,2,True,61,Tier 2
+Future / Lifetime Value,Finance & Peformance Management,623,2,4,2,True,64,Tier 2
+"Financial Budgeting, Planning & Forecasting",Finance & Peformance Management,627,2,4,2,True,80,Tier 2
+Cashflow Generation,Finance & Peformance Management,629,2,4,2,True,37,Tier 2
+Cashflow Generation,Finance & Peformance Management,711,2,4,2,True,37,Tier 2
+Liquidity Management,Finance & Peformance Management,631,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,648,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,651,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,668,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,676,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,729,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,741,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,742,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,743,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,755,2,4,2,True,31,Tier 2
+Liquidity Management,Finance & Peformance Management,768,2,4,2,True,31,Tier 2
+Risk Appetite,Risk Management & Regulation,632,2,4,2,True,37,Tier 2
+Risk Appetite,Risk Management & Regulation,672,2,4,2,True,37,Tier 2
+Risk Appetite,Risk Management & Regulation,675,2,4,2,True,37,Tier 2
+Risk Appetite,Risk Management & Regulation,702,2,4,2,True,37,Tier 2
+Risk Appetite,Risk Management & Regulation,749,2,4,2,True,37,Tier 2
+Asset & Liability Management,Finance & Peformance Management,633,2,4,2,True,34,Tier 2
+Asset & Liability Management,Finance & Peformance Management,708,2,4,2,True,34,Tier 2
+Asset & Liability Management,Finance & Peformance Management,713,2,4,2,True,34,Tier 2
+Asset & Liability Management,Finance & Peformance Management,720,2,4,2,True,34,Tier 2
+Funds Transfer Pricing,Finance & Peformance Management,634,2,5,3,True,14,Tier 1
+FX & Trading Book Management,Finance & Peformance Management,635,2,4,2,True,20,Tier 2
+Interest Rate Management,Finance & Peformance Management,636,2,4,2,True,7,Tier 2
+Statutory Financial Reporting,Finance & Peformance Management,637,2,4,2,True,17,Tier 2
+Statutory Financial Reporting,Finance & Peformance Management,723,2,4,2,True,17,Tier 2
+Statutory Financial Reporting,Finance & Peformance Management,732,2,4,2,True,17,Tier 2
+Regulatory & Compliance Reporting,Finance & Peformance Management,639,2,4,2,True,80,Tier 2
+Regulatory & Compliance Reporting,Finance & Peformance Management,661,2,4,2,True,80,Tier 2
+Exception Reporting,Finance & Peformance Management,641,2,4,2,True,96,Tier 2
+Executive Dashboards,Finance & Peformance Management,642,2,4,2,True,96,Tier 2
+Pricing Analysis & Optimisation,Finance & Peformance Management,645,2,4,2,True,75,Tier 2
+Pricing Analysis & Optimisation,Finance & Peformance Management,748,2,4,2,True,75,Tier 2
+Pricing Analysis & Optimisation,Finance & Peformance Management,753,2,4,2,True,75,Tier 2
+Pricing Analysis & Optimisation,Finance & Peformance Management,761,2,4,2,True,75,Tier 2
+Pricing Analysis & Optimisation,Finance & Peformance Management,769,2,4,2,True,75,Tier 2
+Pricing Analysis & Optimisation,Finance & Peformance Management,770,2,4,2,True,75,Tier 2
+Fixed Assets Management,Finance & Peformance Management,646,2,4,2,False,11,Tier 3
+Fixed Assets Management,Finance & Peformance Management,652,2,4,2,False,11,Tier 3
+Fixed Assets Management,Finance & Peformance Management,653,2,4,2,False,11,Tier 3
+Fixed Assets Management,Finance & Peformance Management,656,2,4,2,False,11,Tier 3
+Fixed Assets Management,Finance & Peformance Management,718,2,4,2,False,11,Tier 3
+Operational Dashboard & Decisioning,Finance & Peformance Management,657,2,4,2,False,83,Tier 3
+Model Performance Analytics,Risk Management & Regulation,658,2,4,2,True,95,Tier 2
+Model Performance Analytics,Risk Management & Regulation,666,2,4,2,True,95,Tier 2
+Model Performance Analytics,Risk Management & Regulation,679,2,4,2,True,95,Tier 2
+Strategy Monitoring,Marketing and Customer Experience,665,2,4,2,False,39,Tier 3
+Real Time Threat Detection,Risk Management & Regulation,674,2,4,2,False,105,Tier 3
+Real Time Threat Detection,Risk Management & Regulation,682,2,4,2,False,105,Tier 3
+Real Time Threat Detection,Risk Management & Regulation,762,2,4,2,False,105,Tier 3
+Fraud and Money Laundering Loss Modelling,Risk Management & Regulation,677,2,4,2,False,89,Tier 3
+Fraud and Money Laundering Loss Modelling,Risk Management & Regulation,678,2,4,2,False,89,Tier 3
+Fraud and Money Laundering Loss Modelling,Risk Management & Regulation,737,2,4,2,False,89,Tier 3
+Pre-Default Transaction Analytics,Risk Management & Regulation,680,2,4,2,False,56,Tier 3
+Pre-Default Transaction Analytics,Risk Management & Regulation,681,2,4,2,False,56,Tier 3
+Pre-Default Transaction Analytics,Risk Management & Regulation,685,2,4,2,False,56,Tier 3
+Pre-Default Transaction Analytics,Risk Management & Regulation,691,2,4,2,False,56,Tier 3
+Pre-Default Transaction Analytics,Risk Management & Regulation,703,2,4,2,False,56,Tier 3
+Third Party Settlement Controls,Finance & Peformance Management,693,2,4,2,False,10,Tier 3
+Third Party Settlement Controls,Finance & Peformance Management,726,2,4,2,False,10,Tier 3
+Credit Risk Scoring (Underwriting Likelihood Model),Risk Management & Regulation,694,2,4,2,True,60,Tier 2
+Credit Risk Expected Loss Model,Risk Management & Regulation,695,2,4,2,True,61,Tier 2
+Credit Risk Expected Loss Model,Risk Management & Regulation,731,2,4,2,True,61,Tier 2
+Credit Risk Underwriting/Monitoring Strategy Model,Risk Management & Regulation,696,2,4,2,False,60,Tier 3
+A/B and Test and Learn Deployment,Risk Management & Regulation,697,2,4,2,True,105,Tier 2
+Capital Management (Planning and Allocation),Risk Management & Regulation,698,2,4,2,True,36,Tier 2
+Credit Risk model Deployment,Risk Management & Regulation,699,2,4,2,False,60,Tier 3
+Strategy (Rules) Performance MI,Risk Management & Regulation,700,2,4,2,True,61,Tier 2
+Active Portfolio Management,Risk Management & Regulation,705,2,4,2,True,83,Tier 2
+Fraud and Money Laundering Likelihood Model,Risk Management & Regulation,725,2,4,2,False,88,Tier 3
+"Policy, Forensics and Underwriter Rules",Risk Management & Regulation,728,2,4,2,False,65,Tier 3
+Transaction Classification,Marketing and Customer Experience,736,3,5,2,True,5,Tier 2
+Risk Based Price Calculation,Risk Management & Regulation,744,2,4,2,False,83,Tier 3
+Regulatory Reporting and Information Sharing,Risk Management & Regulation,747,2,4,2,False,80,Tier 3
