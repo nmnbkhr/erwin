@@ -1,0 +1,113 @@
+Capability,BVF_Area,Sub_Area,Total_Data_Requirements,Total_FSDM_Entities,Total_Attributes,Profitability_Critical,Data_Reuse_Score_Avg
+Transaction Classification,Marketing and Customer Experience,Customer Insight,5,139,896,N,0.6941
+Predictive Models,Marketing and Customer Experience,Customer Insight,34,483,2949,N,0.5419
+Event Detection,Marketing and Customer Experience,Customer Insight,52,685,3830,N,0.4832
+Customer Value,Marketing and Customer Experience,Customer Insight,27,408,2455,Y,0.5314
+"Customer, Product & Channel  insight",Marketing and Customer Experience,Customer Insight,55,686,3863,N,0.4577
+Conduct  Risk Monitoring,Marketing and Customer Experience,Customer Insight,44,652,3270,N,0.4493
+Insight Led Customer Strategy,Marketing and Customer Experience,Customer Insight,49,568,3379,N,0.4592
+Customer Segmentation,Marketing and Customer Experience,Customer Insight,34,483,2949,Y,0.5308
+Big Data Analytics,Marketing and Customer Experience,Customer Insight,113,1197,6425,N,0.4069
+Customer Managed Relationships,Marketing and Customer Experience,Customer Insight,15,281,1464,N,0.5368
+Scope of Contact,Marketing and Customer Experience,Define & Deploy Business Rules,20,318,1844,N,0.5005
+Customer Contact Policy,Marketing and Customer Experience,Define & Deploy Business Rules,32,476,2480,N,0.4667
+Campaign Business Cases,Marketing and Customer Experience,Define & Deploy Business Rules,21,316,1832,N,0.3582
+Omni Channel Campaign Management,Marketing and Customer Experience,Define & Deploy Business Rules,39,469,2289,N,0.4467
+Creation & Management of Offers and Content,Marketing and Customer Experience,Define & Deploy Business Rules,18,326,1864,N,0.4427
+Multi-Step Dialogue,Marketing and Customer Experience,Define & Deploy Business Rules,14,253,1292,N,0.4609
+Personalisation,Marketing and Customer Experience,Define & Deploy Business Rules,33,544,3256,N,0.4729
+Rapid Prototyping supports Test & Learn,Marketing and Customer Experience,Define & Deploy Business Rules,21,331,1898,N,0.4316
+Regulatory & Audit Compliance,Marketing and Customer Experience,Define & Deploy Business Rules,27,429,2307,N,0.4492
+Channel Coverage,Marketing and Customer Experience,Delivery of Insight to Channels,30,433,2202,N,0.4676
+Real Time Omni-Channel  Integration,Marketing and Customer Experience,Delivery of Insight to Channels,24,378,2252,N,0.5351
+Next Best Action Arbitration,Marketing and Customer Experience,Delivery of Insight to Channels,48,662,3591,N,0.4848
+Contextual Decisioning,Marketing and Customer Experience,Delivery of Insight to Channels,18,267,1468,N,0.536
+Recycle Unused Leads into alternative channels,Marketing and Customer Experience,Delivery of Insight to Channels,10,182,873,N,0.5231
+Lead & Contact Management,Marketing and Customer Experience,Delivery of Insight to Channels,16,301,1535,N,0.4452
+Single Interaction View of Customer,Marketing and Customer Experience,Delivery of Insight to Channels,23,393,2243,N,0.4949
+Channel Support & Engagement,Marketing and Customer Experience,Delivery of Insight to Channels,19,321,1734,N,0.4713
+Direct Customer Access to Information Products,Marketing and Customer Experience,Delivery of Insight to Channels,15,288,1685,N,0.6086
+Auto processing of  Channel Feedback,Marketing and Customer Experience,Delivery of Insight to Channels,4,84,380,N,0.5747
+Campaign ROI Reporting by Channel,Marketing and Customer Experience,Reporting & Continuous Improvement,12,214,1136,N,0.3303
+Lead/Sales Funnel Analytics  & Reporting,Marketing and Customer Experience,Reporting & Continuous Improvement,2,56,204,N,1.0
+Marketing Attribution MI across all channels,Marketing and Customer Experience,Reporting & Continuous Improvement,27,414,2467,N,0.4965
+Marketing Asset Evaluation,Marketing and Customer Experience,Reporting & Continuous Improvement,15,324,1818,N,0.3254
+"Earned, Paid & Owned media analysis",Marketing and Customer Experience,Reporting & Continuous Improvement,11,167,860,N,0.5381
+NPS MI & Drill Down,Marketing and Customer Experience,Reporting & Continuous Improvement,36,526,2731,N,0.4278
+Strategy Monitoring,Marketing and Customer Experience,Reporting & Continuous Improvement,39,485,2756,N,0.4752
+Contact Frequency Monitoring,Marketing and Customer Experience,Reporting & Continuous Improvement,9,166,792,N,0.4829
+Complaints Root Cause Analysis MI,Marketing and Customer Experience,Reporting & Continuous Improvement,14,311,1534,N,0.4903
+Attrition Root Cause Analysis MI,Marketing and Customer Experience,Reporting & Continuous Improvement,20,366,2179,N,0.4701
+Application and New Business Written,Risk Management & Regulation,Risk Insight,65,783,4287,N,0.4833
+Single Customer View from a Risk Perspective,Risk Management & Regulation,Risk Insight,33,525,3178,N,0.5881
+"Policy, Forensics and Underwriter Rules",Risk Management & Regulation,Risk Insight,65,833,4816,N,0.5015
+"Can’t Pay, Won’t Pay and Collusion",Risk Management & Regulation,Risk Insight,65,833,4816,N,0.5015
+Roll and Rehabilitation Rates,Risk Management & Regulation,Risk Insight,25,335,2147,N,0.6297
+Capital Management (Planning and Allocation),Risk Management & Regulation,Risk Insight,37,500,3175,Y,0.5772
+Capital Consumption,Risk Management & Regulation,Risk Insight,36,486,3146,Y,0.5648
+Risk Appetite,Risk Management & Regulation,Risk Insight,37,499,3278,N,0.5723
+Pre-Default Transaction Analytics,Risk Management & Regulation,Risk Insight,56,725,4114,N,0.5175
+Credit Risk Scoring (Underwriting Likelihood Model),Risk Management & Regulation,Modelling and Predictiions,61,816,4543,N,0.5211
+Credit Risk Expected Loss Model,Risk Management & Regulation,Modelling and Predictiions,62,822,4558,N,0.5182
+Credit Risk Underwriting/Monitoring Strategy Model,Risk Management & Regulation,Modelling and Predictiions,61,816,4543,N,0.5211
+"Credit Risk Capital, CVaR Modelling",Risk Management & Regulation,Modelling and Predictiions,37,487,3057,N,0.573
+Credit Risk Based Pricing Model,Risk Management & Regulation,Modelling and Predictiions,84,932,5097,Y,0.4668
+Collection Score (Likelihood Model),Risk Management & Regulation,Modelling and Predictiions,65,844,4640,N,0.5163
+Expected Collection Amount,Risk Management & Regulation,Modelling and Predictiions,66,850,4655,N,0.5137
+Collection Strategy Model,Risk Management & Regulation,Modelling and Predictiions,65,844,4640,N,0.5163
+Fraud and Money Laundering Likelihood Model,Risk Management & Regulation,Modelling and Predictiions,89,1026,5585,N,0.4535
+Fraud and Money Laundering Loss Modelling,Risk Management & Regulation,Modelling and Predictiions,90,1032,5600,N,0.4523
+Fraud and Money Laundering Strategy Modelling,Risk Management & Regulation,Modelling and Predictiions,89,1026,5585,N,0.4535
+Operational Risk / Cybercrime Likelihood,Risk Management & Regulation,Modelling and Predictiions,90,1044,5637,N,0.4497
+Operational Risk / Cybercrime Expected Loss,Risk Management & Regulation,Modelling and Predictiions,90,1032,5600,N,0.4523
+Operational Risk / Cybercrime Strategy Model,Risk Management & Regulation,Modelling and Predictiions,90,1044,5637,N,0.4497
+Operational Risk Capital and OPVaR,Risk Management & Regulation,Modelling and Predictiions,27,458,2701,N,0.5
+Market & Liquidity Risk Likelihood Modelling,Risk Management & Regulation,Modelling and Predictiions,36,491,2958,N,0.5524
+Market & Liquidity Risk Strategy Modelling,Risk Management & Regulation,Modelling and Predictiions,36,491,2958,N,0.5524
+Market & Liquidity Value at Risk (M-VaR) Modelling,Risk Management & Regulation,Modelling and Predictiions,39,508,3090,N,0.5386
+Business Rules Directory,Risk Management & Regulation,Execution & Delivery,113,1197,6425,N,0.4069
+Regulatory Threshold Calculation,Risk Management & Regulation,Execution & Delivery,35,480,3012,N,0.5899
+Risk Based Price Calculation,Risk Management & Regulation,Execution & Delivery,84,932,5097,N,0.4668
+Active Portfolio Management,Risk Management & Regulation,Execution & Delivery,84,932,5097,N,0.466
+Dynamic Datastore,Risk Management & Regulation,Execution & Delivery,105,1128,6113,N,0.427
+Credit Risk model Deployment,Risk Management & Regulation,Execution & Delivery,61,816,4543,N,0.5211
+Risk Weighted Assets and Regulatory Capital,Risk Management & Regulation,Execution & Delivery,35,480,3012,Y,0.5899
+A/B and Test and Learn Deployment,Risk Management & Regulation,Execution & Delivery,105,1128,6113,N,0.427
+Real Time Threat Detection,Risk Management & Regulation,Execution & Delivery,105,1128,6113,N,0.427
+New Business MI & Reporting,Risk Management & Regulation,Reporting & BI,64,755,4217,N,0.4834
+Model Performance Analytics,Risk Management & Regulation,Reporting & BI,95,1011,5555,N,0.4505
+Portfolio MI & Portfolio Performance Analytics,Risk Management & Regulation,Reporting & BI,84,932,5097,N,0.4651
+Collections MI,Risk Management & Regulation,Reporting & BI,65,844,4640,N,0.5148
+Regulatory Reporting and Information Sharing,Risk Management & Regulation,Reporting & BI,80,975,5371,N,0.4609
+Strategy (Rules) Performance MI,Risk Management & Regulation,Reporting & BI,61,816,4543,N,0.5194
+Financial Accounting / Accounting Hub,Finance & Peformance Management,Financial Accounting,40,574,3517,Y,0.5561
+Financial Consolidation,Finance & Peformance Management,Financial Accounting,6,115,603,N,0.6798
+Functional Profit & Loss Statement (P&L),Finance & Peformance Management,Financial Accounting,40,574,3517,Y,0.5561
+Fair Value & Hedge Accounting,Finance & Peformance Management,Financial Accounting,38,553,3338,N,0.5597
+"Reconciliation, Validation & Adjustments",Finance & Peformance Management,Financial Accounting,30,520,3235,N,0.5812
+Tax Management & Optimisation,Finance & Peformance Management,Financial Accounting,42,624,3801,N,0.5377
+Third Party Settlement Controls,Finance & Peformance Management,Financial Accounting,10,243,1487,N,0.5598
+Fixed Assets Management,Finance & Peformance Management,Financial Accounting,11,230,1479,N,0.4807
+Activity Based Costing,Finance & Peformance Management,Financial Planning & Controlling,61,773,4245,Y,0.4708
+Profitability Modelling,Finance & Peformance Management,Financial Planning & Controlling,68,813,4637,Y,0.4909
+Future / Lifetime Value,Finance & Peformance Management,Financial Planning & Controlling,65,735,4213,Y,0.4811
+Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,78,854,4773,Y,0.4593
+Performance Management and KPIs,Finance & Peformance Management,Financial Planning & Controlling,78,909,5065,Y,0.4559
+Pricing Analysis & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,75,829,4654,Y,0.47
+"Financial Budgeting, Planning & Forecasting",Finance & Peformance Management,Financial Planning & Controlling,80,856,4780,N,0.4545
+"GL, AP, HR, Expense Analytics & Optimisation",Finance & Peformance Management,Financial Planning & Controlling,6,113,480,N,0.4759
+Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,47,605,3309,N,0.4745
+Funds Transfer Pricing,Finance & Peformance Management,Treasury Mgmt & Insight,15,240,1550,Y,0.6644
+Asset & Liability Management,Finance & Peformance Management,Treasury Mgmt & Insight,34,479,2921,Y,0.5629
+Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,33,458,2850,Y,0.5773
+Cashflow Generation,Finance & Peformance Management,Treasury Mgmt & Insight,38,537,3291,N,0.5668
+Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,31,443,2698,N,0.5659
+FX & Trading Book Management,Finance & Peformance Management,Treasury Mgmt & Insight,20,333,2184,N,0.6282
+Interest Rate Management,Finance & Peformance Management,Treasury Mgmt & Insight,7,147,943,N,0.669
+Statutory Financial Reporting,Finance & Peformance Management,MIS & Reporting,17,275,1770,N,0.6487
+Regulatory & Compliance Reporting,Finance & Peformance Management,MIS & Reporting,80,975,5371,N,0.4609
+Sales Reporting,Finance & Peformance Management,MIS & Reporting,29,474,2844,N,0.5315
+Performance Reporting,Finance & Peformance Management,MIS & Reporting,96,1067,5848,N,0.4355
+Exception Reporting,Finance & Peformance Management,MIS & Reporting,96,1067,5848,N,0.4355
+Executive Dashboards,Finance & Peformance Management,MIS & Reporting,96,1067,5848,N,0.4355
+Operational Dashboard & Decisioning,Finance & Peformance Management,MIS & Reporting,83,974,5218,N,0.4538

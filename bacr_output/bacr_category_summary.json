@@ -1,0 +1,196 @@
+{
+  "categories": {
+    "Agility": {
+      "question_count": 186,
+      "sections": [
+        "Agile",
+        "Communications",
+        "DevOps",
+        "Methodology",
+        "Organisational Change Management",
+        "Roadmap",
+        "Skills, Knowledge, Training",
+        "Strategy",
+        "Summary"
+      ],
+      "financial_question_count": 0,
+      "tba_count": 161,
+      "business_functions": {},
+      "review_types": {
+        "Big Data Capability Review": 84,
+        "Data Warehouse Maturity Review": 92,
+        "Ecosystem Architecture Review": 41,
+        "AI and Machine Learning Review": 84
+      }
+    },
+    "Applications": {
+      "question_count": 54,
+      "sections": [
+        "Analytic Apps",
+        "Architecture",
+        "Availability",
+        "Data Orchestration",
+        "Roadmap",
+        "Strat",
+        "Summary"
+      ],
+      "financial_question_count": 0,
+      "tba_count": 17,
+      "business_functions": {},
+      "review_types": {
+        "Big Data Capability Review": 35,
+        "Data Warehouse Maturity Review": 52,
+        "Ecosystem Architecture Review": 52,
+        "AI and Machine Learning Review": 35
+      }
+    },
+    "Business": {
+      "question_count": 42,
+      "sections": [
+        "Funding",
+        "ROI",
+        "Roadmap",
+        "Strategy",
+        "Summary"
+      ],
+      "financial_question_count": 0,
+      "tba_count": 10,
+      "business_functions": {},
+      "review_types": {
+        "Big Data Capability Review": 4,
+        "Data Warehouse Maturity Review": 42,
+        "Ecosystem Architecture Review": 4,
+        "AI and Machine Learning Review": 4,
+        "Custom Review": 4
+      }
+    },
+    "Culture": {
+      "question_count": 30,
+      "sections": [
+        "Business Analytics/IT Alignment",
+        "Data Drive Mindset",
+        "Roadmap",
+        "Strategy",
+        "Summary"
+      ],
+      "financial_question_count": 0,
+      "tba_count": 18,
+      "business_functions": {},
+      "review_types": {
+        "Big Data Capability Review": 10,
+        "Data Warehouse Maturity Review": 30,
+        "AI and Machine Learning Review": 10
+      }
+    },
+    "Governance": {
+      "question_count": 37,
+      "sections": [
+        "Bus Governance",
+        "Data Governance",
+        "Roadmap",
+        "Strategy",
+        "Summary",
+        "Tech Governance"
+      ],
+      "financial_question_count": 0,
+      "tba_count": 13,
+      "business_functions": {},
+      "review_types": {
+        "Big Data Capability Review": 5,
+        "Data Warehouse Maturity Review": 37,
+        "Ecosystem Architecture Review": 37,
+        "AI and Machine Learning Review": 5
+      }
+    },
+    "Information": {
+      "question_count": 102,
+      "sections": [
+        "Architecture",
+        "Data Centricity",
+        "Data Coverage",
+        "Data Organisation",
+        "Data Quality",
+        "Data Tiers",
+        "Data Usage Zones",
+        "Master Data Management",
+        "Metadata Management",
+        "Roadmap",
+        "Security and Privacy",
+        "Strategy",
+        "Summary"
+      ],
+      "financial_question_count": 0,
+      "tba_count": 60,
+      "business_functions": {},
+      "review_types": {
+        "Big Data Capability Review": 59,
+        "Data Warehouse Maturity Review": 102,
+        "Ecosystem Architecture Review": 102,
+        "AI and Machine Learning Review": 59
+      }
+    },
+    "Outcomes": {
+      "question_count": 220,
+      "sections": [
+        "Analytic Capabilities"
+      ],
+      "financial_question_count": 191,
+      "tba_count": 28,
+      "business_functions": {
+        "Customer": 48,
+        "Product": 39,
+        "Operations": 86,
+        "Financial": 69,
+        "Risks and Threats": 43,
+        "Asset Lifecycle Mgmt": 25,
+        "Human Resources": 7,
+        "Supply Chain": 36,
+        "Analytics Operations": 2,
+        "Marketing": 5
+      },
+      "review_types": {
+        "Big Data Capability Review": 220,
+        "Data Warehouse Maturity Review": 220,
+        "AI and Machine Learning Review": 220,
+        "Custom Review": 220
+      }
+    },
+    "Systems": {
+      "question_count": 100,
+      "sections": [
+        "Architecture",
+        "Hadoop",
+        "Infra",
+        "Infrastructure Models",
+        "OpMgmt",
+        "Roadmap",
+        "Storage",
+        "Strat",
+        "Summary",
+        "SysMgmt",
+        "Teradata"
+      ],
+      "financial_question_count": 0,
+      "tba_count": 53,
+      "business_functions": {},
+      "review_types": {
+        "Big Data Capability Review": 20,
+        "Data Warehouse Maturity Review": 96,
+        "Ecosystem Architecture Review": 96,
+        "AI and Machine Learning Review": 20
+      }
+    }
+  },
+  "totals": {
+    "total_questions": 771,
+    "financial_industry_questions": 191,
+    "tba_questions": 360,
+    "questions_by_review_type": {
+      "Big Data Capability Review": 437,
+      "Data Warehouse Maturity Review": 671,
+      "Ecosystem Architecture Review": 332,
+      "AI and Machine Learning Review": 437,
+      "Custom Review": 224
+    }
+  }
+}

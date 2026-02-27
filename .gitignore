@@ -1,7 +1,8 @@
 # Input data files
 *.erwin
 *.xlsm
-*.pptx
+/*.pptx
+!pptout/*.pptx
 *.pdf
 *.xsd
 

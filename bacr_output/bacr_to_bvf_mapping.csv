@@ -1,0 +1,221 @@
+BACR_Question_ID,BACR_Category,BACR_Section,BACR_Question_Short,BVF_Capability,BVF_Area,BVF_Sub_Area,Match_Score,Match_Method,Is_Profitability_Critical,Business_Functions
+552,Outcomes,Analytic Capabilities,single view of customer across the organisation?,Single Interaction View of Customer,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+553,Outcomes,Analytic Capabilities,Multi-dimensional customer view (360 degree view of customer,Single Interaction View of Customer,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+554,Outcomes,Analytic Capabilities,solid understanding of customer value and profitability?,Customer Value,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,True,Customer
+555,Outcomes,Analytic Capabilities,Customer Satisfaction Index,NPS MI & Drill Down,Marketing and Customer Experience,Reporting & Continuous Improvement,0.95,direct_mapping,False,Customer
+556,Outcomes,Analytic Capabilities,Customer Experience Analytic,Channel Support & Engagement,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+557,Outcomes,Analytic Capabilities,Customer Journey analytic,Single Interaction View of Customer,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+558,Outcomes,Analytic Capabilities,Event Analytics,Event Detection,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+559,Outcomes,Analytic Capabilities,Customer Segmentation,Customer Segmentation,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+560,Outcomes,Analytic Capabilities,Customer Connection Analytics,Customer Managed Relationships,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+561,Outcomes,Analytic Capabilities,Behaviour/Preference Analytics,Predictive Models,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+562,Outcomes,Analytic Capabilities,Customer Life Stage Analytics,Predictive Models,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+563,Outcomes,Analytic Capabilities,Customer Acquisition,Insight Led Customer Strategy,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+564,Outcomes,Analytic Capabilities,Customer Onboarding and Development,Insight Led Customer Strategy,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+565,Outcomes,Analytic Capabilities,Customer Retention analytics,Attrition Root Cause Analysis MI,Marketing and Customer Experience,Reporting & Continuous Improvement,0.95,direct_mapping,False,Customer
+566,Outcomes,Analytic Capabilities,Customer Churn analytics,Attrition Root Cause Analysis MI,Marketing and Customer Experience,Reporting & Continuous Improvement,0.95,direct_mapping,False,Customer
+567,Outcomes,Analytic Capabilities,Customer Re-Engagement analytics,Insight Led Customer Strategy,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+568,Outcomes,Analytic Capabilities,Analytics to create Customer Loyalty,Insight Led Customer Strategy,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,False,Customer
+569,Outcomes,Analytic Capabilities,Cross-sell / Up-sell analytics,Lead & Contact Management,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+570,Outcomes,Analytic Capabilities,Contact Optimization analytics,Scope of Contact,Marketing and Customer Experience,Define & Deploy Business Rules,0.95,direct_mapping,False,Customer
+571,Outcomes,Analytic Capabilities,Response Optimization,Omni Channel Campaign Management,Marketing and Customer Experience,Define & Deploy Business Rules,0.95,direct_mapping,False,Customer
+572,Outcomes,Analytic Capabilities,Cross Channel Customer Experience analytics,Channel Coverage,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+573,Outcomes,Analytic Capabilities,Contextual Decisioning,Contextual Decisioning,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+574,Outcomes,Analytic Capabilities,Call/Contact Center Optimization,Channel Support & Engagement,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+575,Outcomes,Analytic Capabilities,Digital optimisation,Real Time Omni-Channel  Integration,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+576,Outcomes,Analytic Capabilities,Search Engine Optimization,Direct Customer Access to Information Products,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+577,Outcomes,Analytic Capabilities,Personalization of offers,Personalisation,Marketing and Customer Experience,Define & Deploy Business Rules,0.95,direct_mapping,False,Customer
+578,Outcomes,Analytic Capabilities,Next Best Action Arbitration,Next Best Action Arbitration,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer
+579,Outcomes,Analytic Capabilities,Product Recommendation,Personalisation,Marketing and Customer Experience,Define & Deploy Business Rules,0.95,direct_mapping,False,Customer
+580,Outcomes,Analytic Capabilities,Multi-Step Campaigns,Multi-Step Dialogue,Marketing and Customer Experience,Define & Deploy Business Rules,0.95,direct_mapping,False,Customer
+581,Outcomes,Analytic Capabilities,Campaign Effectiveness,Campaign ROI Reporting by Channel,Marketing and Customer Experience,Reporting & Continuous Improvement,0.95,direct_mapping,False,Customer
+582,Outcomes,Analytic Capabilities,Marketing Attribution,Marketing Attribution MI across all channels,Marketing and Customer Experience,Reporting & Continuous Improvement,0.95,direct_mapping,False,Customer
+583,Outcomes,Analytic Capabilities,Brand Analytics,Big Data Analytics,Marketing and Customer Experience,Customer Insight,0.391,name_similarity,False,Customer
+584,Outcomes,Analytic Capabilities,Research New Product Development Opportunities,BACR-only (no BVF match),,,0.0,none,False,Product
+585,Outcomes,Analytic Capabilities,Predict Business Impact (Discovery),Campaign Business Cases,Marketing and Customer Experience,Define & Deploy Business Rules,0.34,name_similarity,False,Product
+586,Outcomes,Analytic Capabilities,Develop and Test Product Prototypes,BACR-only (no BVF match),,,0.0,none,False,Product
+587,Outcomes,Analytic Capabilities,Source Products and Develop Contracts,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.324,keyword_overlap,True,Product
+588,Outcomes,Analytic Capabilities,Plan Product Investments to Support Go-to-Market Strategy,BACR-only (no BVF match),,,0.0,none,False,Product
+589,Outcomes,Analytic Capabilities,Improve Product Onboarding,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.353,keyword_overlap,True,Product
+590,Outcomes,Analytic Capabilities,Analyzing Competitive Pricing,Credit Risk Based Pricing Model,Risk Management & Regulation,Modelling and Predictiions,0.347,keyword_overlap,True,Product
+591,Outcomes,Analytic Capabilities,Adjust Product Lifecycle Pricing,BACR-only (no BVF match),,,0.0,none,False,Product
+592,Outcomes,Analytic Capabilities,Manage Dynamic Pricing,Dynamic Datastore,Risk Management & Regulation,Execution & Delivery,0.385,keyword_overlap,False,Product
+593,Outcomes,Analytic Capabilities,Plan and Manage Promotional Items / Offers,Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.32,keyword_overlap,True,Product
+594,Outcomes,Analytic Capabilities,Measure Promotional Effectiveness,Sales Reporting,Finance & Peformance Management,MIS & Reporting,0.35,keyword_overlap,True,Product
+595,Outcomes,Analytic Capabilities,Optimize Product Placement,Customer Segmentation,Marketing and Customer Experience,Customer Insight,0.353,keyword_overlap,False,Product
+596,Outcomes,Analytic Capabilities,Optimize Micro and Macro Space,BACR-only (no BVF match),,,0.0,none,False,Product
+597,Outcomes,Analytic Capabilities,Optimize Assortments / Ranges or Product Mix,Customer Segmentation,Marketing and Customer Experience,Customer Insight,0.335,keyword_overlap,False,Product
+598,Outcomes,Analytic Capabilities,Support Product Clearance,BACR-only (no BVF match),,,0.0,none,False,Product
+599,Outcomes,Analytic Capabilities,Determine Product Migration is the identification and priori,Customer Value,Marketing and Customer Experience,Customer Insight,0.443,keyword_overlap,True,Product
+600,Outcomes,Analytic Capabilities,Optimize Reduce,BACR-only (no BVF match),,,0.0,none,False,Product
+601,Outcomes,Analytic Capabilities,Support Product Recalls,Customer Value,Marketing and Customer Experience,Customer Insight,0.33,keyword_overlap,True,Product; Operations
+602,Outcomes,Analytic Capabilities,Analyzing Market Basket and Affinity,Insight Led Customer Strategy,Marketing and Customer Experience,Customer Insight,0.335,keyword_overlap,False,Product
+603,Outcomes,Analytic Capabilities,Analyze cross-channel performance,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.363,keyword_overlap,True,Product
+604,Outcomes,Analytic Capabilities,Manage Open,Financial Consolidation,Finance & Peformance Management,Financial Accounting,0.441,keyword_overlap,True,Product; Financial
+605,Outcomes,Analytic Capabilities,Compare,BACR-only (no BVF match),,,0.0,none,False,Product
+606,Outcomes,Analytic Capabilities,Manage Product Profitability,Profitability Modelling,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Product; Financial
+607,Outcomes,Analytic Capabilities,Produce Behavioural Segmentations.  Determine and leverage i,BACR-only (no BVF match),,,0.0,none,False,Product
+608,Outcomes,Analytic Capabilities,Predict Product/Service Retention,BACR-only (no BVF match),,,0.0,none,False,Product
+609,Outcomes,Analytic Capabilities,Support Contract Management,Performance Management and KPIs,Finance & Peformance Management,Financial Planning & Controlling,0.34,name_similarity,True,Product
+610,Outcomes,Analytic Capabilities,Billing and Collections analysis,Collection Strategy Model,Risk Management & Regulation,Modelling and Predictiions,0.95,direct_mapping,True,Financial
+611,Outcomes,Analytic Capabilities,Procurement and Payment analysis,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+612,Outcomes,Analytic Capabilities,Sub-ledger accounting analyis,Financial Accounting / Accounting Hub,Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,True,Financial
+613,Outcomes,Analytic Capabilities,Fair Value and Hedge Accounting,Fair Value & Hedge Accounting,Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,True,Financial
+614,Outcomes,Analytic Capabilities,Asset Valuations,Fair Value & Hedge Accounting,Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,True,Financial
+615,Outcomes,Analytic Capabilities,Reserve Analytics,Financial Accounting / Accounting Hub,Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,True,Financial
+616,Outcomes,Analytic Capabilities,Tax Management and Optimisation,Tax Management & Optimisation,Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,True,Financial
+617,Outcomes,Analytic Capabilities,Reconciliation,"Reconciliation, Validation & Adjustments",Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,True,Financial
+618,Outcomes,Analytic Capabilities,Financial Consolidation,Financial Consolidation,Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,True,Financial
+619,Outcomes,Analytic Capabilities,Functional Profit and Loss Statement,Functional Profit & Loss Statement (P&L),Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,True,Financial
+620,Outcomes,Analytic Capabilities,Revenue Analytics,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+621,Outcomes,Analytic Capabilities,GL,"GL, AP, HR, Expense Analytics & Optimisation",Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+622,Outcomes,Analytic Capabilities,Activity-Based Costing,Activity Based Costing,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+623,Outcomes,Analytic Capabilities,Future / Lifetime Value,Future / Lifetime Value,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Customer; Product; Financial
+624,Outcomes,Analytic Capabilities,Profitability Analytics and Optimisation,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+625,Outcomes,Analytic Capabilities,Performance Management and KPIs,Performance Management and KPIs,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+626,Outcomes,Analytic Capabilities,Inventory Analytics,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+627,Outcomes,Analytic Capabilities,Financial Budgetting,"Financial Budgeting, Planning & Forecasting",Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+628,Outcomes,Analytic Capabilities,Business Process Analytics and Optimisation to analyse,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+629,Outcomes,Analytic Capabilities,Cashflow Generation analytics to generate detailed,Cashflow Generation,Finance & Peformance Management,Treasury Mgmt & Insight,0.95,direct_mapping,True,Financial
+630,Outcomes,Analytic Capabilities,Capital Planning and Management,Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.95,direct_mapping,True,Financial
+631,Outcomes,Analytic Capabilities,Liquidity Management,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.95,direct_mapping,True,Financial; Operations
+632,Outcomes,Analytic Capabilities,Risk Scenario and Stress Test,Risk Appetite,Risk Management & Regulation,Risk Insight,0.571,keyword_overlap,True,Financial; Operations; Risks and Threats
+633,Outcomes,Analytic Capabilities,Asset and Liability Management,Asset & Liability Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.95,direct_mapping,True,Financial
+634,Outcomes,Analytic Capabilities,Funds Transfer Pricing,Funds Transfer Pricing,Finance & Peformance Management,Treasury Mgmt & Insight,0.95,direct_mapping,True,Financial
+635,Outcomes,Analytic Capabilities,FX and Trading Book Management analytics will identify,FX & Trading Book Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.95,direct_mapping,True,Financial
+636,Outcomes,Analytic Capabilities,Interest (Risk) Rate Management analytics will identify,Interest Rate Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.743,name_similarity,True,Financial; Risks and Threats
+637,Outcomes,Analytic Capabilities,Statutory Financial Reporting analytics enable accurate,Statutory Financial Reporting,Finance & Peformance Management,MIS & Reporting,0.95,direct_mapping,True,Financial
+638,Outcomes,Analytic Capabilities,Sales Reporting covers the timely,Sales Reporting,Finance & Peformance Management,MIS & Reporting,0.95,direct_mapping,True,Financial
+639,Outcomes,Analytic Capabilities,Regulatory and Compliance Reporting is aimed at the accurate,Regulatory & Compliance Reporting,Finance & Peformance Management,MIS & Reporting,0.95,direct_mapping,True,Financial
+640,Outcomes,Analytic Capabilities,Performance Reporting covers the timely,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.95,direct_mapping,True,Financial
+641,Outcomes,Analytic Capabilities,Exception Reporting is the timely,Exception Reporting,Finance & Peformance Management,MIS & Reporting,0.95,direct_mapping,True,Financial
+642,Outcomes,Analytic Capabilities,Executive Dashboards provide direct access for executives an,Executive Dashboards,Finance & Peformance Management,MIS & Reporting,0.95,direct_mapping,True,Financial
+643,Outcomes,Analytic Capabilities,Functional Unit Management is the ability,Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.567,keyword_overlap,True,Operations
+644,Outcomes,Analytic Capabilities,Service Cost Management is calculating the profitability of,Profitability Modelling,Finance & Peformance Management,Financial Planning & Controlling,0.446,keyword_overlap,True,Operations
+645,Outcomes,Analytic Capabilities,Predictive Maintenance Optimization is a proactive approach,Pricing Analysis & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.478,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+646,Outcomes,Analytic Capabilities,Priorize Assets,Fixed Assets Management,Finance & Peformance Management,Financial Accounting,0.423,keyword_overlap,False,Operations; Asset Lifecycle Mgmt
+647,Outcomes,Analytic Capabilities,Reduce Maintenance Hours covers the definition of optimal ho,Activity Based Costing,Finance & Peformance Management,Financial Planning & Controlling,0.321,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+648,Outcomes,Analytic Capabilities,Yield Management is the analytics required,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.455,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+649,Outcomes,Analytic Capabilities,Staff Performance Optimization covers understanding staff ef,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.468,keyword_overlap,True,Operations; Human Resources
+650,Outcomes,Analytic Capabilities,Spares Management aims,Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.563,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+651,Outcomes,Analytic Capabilities,Warranty Management is the reduction of product warranty cos,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.43,keyword_overlap,True,Product; Operations; Risks and Threats
+652,Outcomes,Analytic Capabilities,Lease Management covers the dynamic development of an asset,Fixed Assets Management,Finance & Peformance Management,Financial Accounting,0.95,direct_mapping,False,Financial; Operations
+653,Outcomes,Analytic Capabilities,Optimize Configuration Management will ensure,Fixed Assets Management,Finance & Peformance Management,Financial Accounting,0.543,keyword_overlap,False,Operations; Asset Lifecycle Mgmt
+654,Outcomes,Analytic Capabilities,Improve Asset Availability is the process,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.457,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+655,Outcomes,Analytic Capabilities,Improve OT Performance focusses on improving the visibility,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.47,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+656,Outcomes,Analytic Capabilities,Reduce Asset Strain and Degradation is the analytics,Fixed Assets Management,Finance & Peformance Management,Financial Accounting,0.383,keyword_overlap,False,Operations; Asset Lifecycle Mgmt
+657,Outcomes,Analytic Capabilities,Validate Operational Specifications is the analytics,Operational Dashboard & Decisioning,Finance & Peformance Management,MIS & Reporting,0.393,keyword_overlap,False,Operations; Asset Lifecycle Mgmt
+658,Outcomes,Analytic Capabilities,Improve Health and Safety Performance focusses on supplement,Model Performance Analytics,Risk Management & Regulation,Reporting & BI,0.441,keyword_overlap,True,Operations; Human Resources
+659,Outcomes,Analytic Capabilities,Manage Carbon Footprint aims to reduce,BACR-only (no BVF match),,,0.0,none,False,Operations
+660,Outcomes,Analytic Capabilities,Quality Assurance focusses on supplementing existing QA proc,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.393,keyword_overlap,True,Operations
+661,Outcomes,Analytic Capabilities,Reduce Regulatory / Legal cost of compliance focusses on red,Regulatory & Compliance Reporting,Finance & Peformance Management,MIS & Reporting,0.615,name_similarity,True,Operations
+662,Outcomes,Analytic Capabilities,Service Issue Detection is the timely and accurate identific,Event Detection,Marketing and Customer Experience,Customer Insight,0.439,keyword_overlap,False,Customer; Product; Operations
+663,Outcomes,Analytic Capabilities,Individual Customer Experience is a systematic approach,Channel Support & Engagement,Marketing and Customer Experience,Delivery of Insight to Channels,0.95,direct_mapping,False,Customer; Operations
+664,Outcomes,Analytic Capabilities,Energy Efficiency is an analytic approach,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.336,keyword_overlap,True,Operations
+665,Outcomes,Analytic Capabilities,SLA and KPI Monitoring is the approach,Strategy Monitoring,Marketing and Customer Experience,Reporting & Continuous Improvement,0.482,keyword_overlap,False,Customer; Operations
+666,Outcomes,Analytic Capabilities,Device Analytics and Performance is the systematic approach,Model Performance Analytics,Risk Management & Regulation,Reporting & BI,0.453,keyword_overlap,True,Operations
+667,Outcomes,Analytic Capabilities,Proactive Complaint Management aims,Performance Management and KPIs,Finance & Peformance Management,Financial Planning & Controlling,0.488,name_similarity,True,Customer; Product; Operations
+668,Outcomes,Analytic Capabilities,Analytical Complaint Management is the ability,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.458,keyword_overlap,True,Customer; Product; Operations
+669,Outcomes,Analytic Capabilities,Sales / Value-based Compensation aims,Sales Reporting,Finance & Peformance Management,MIS & Reporting,0.469,keyword_overlap,True,Operations; Human Resources
+670,Outcomes,Analytic Capabilities,Insider Trading analytics optimises surveillance processes,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.421,keyword_overlap,True,Operations; Human Resources; Risks and Threats
+671,Outcomes,Analytic Capabilities,Document Fraud analytics aims,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.442,name_similarity,True,Operations; Risks and Threats
+672,Outcomes,Analytic Capabilities,Insider Threat -  Analysis,Risk Appetite,Risk Management & Regulation,Risk Insight,0.403,keyword_overlap,True,Operations; Human Resources; Risks and Threats
+673,Outcomes,Analytic Capabilities,Internal Theft,BACR-only (no BVF match),,,0.0,none,False,Operations; Risks and Threats
+674,Outcomes,Analytic Capabilities,Real-Time Threat Detection and Mitigation,Real Time Threat Detection,Risk Management & Regulation,Execution & Delivery,0.599,name_similarity,False,Operations; Risks and Threats
+675,Outcomes,Analytic Capabilities,Fraud Risk Assessment,Risk Appetite,Risk Management & Regulation,Risk Insight,0.488,keyword_overlap,True,Operations; Risks and Threats
+676,Outcomes,Analytic Capabilities,Fraud Incident Management,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.567,name_similarity,True,Operations; Risks and Threats
+677,Outcomes,Analytic Capabilities,Fraud Investigations and Forensics,Fraud and Money Laundering Loss Modelling,Risk Management & Regulation,Modelling and Predictiions,0.329,keyword_overlap,False,Operations; Risks and Threats
+678,Outcomes,Analytic Capabilities,Fraud Loss Recovery,Fraud and Money Laundering Loss Modelling,Risk Management & Regulation,Modelling and Predictiions,0.42,keyword_overlap,False,Operations; Risks and Threats
+679,Outcomes,Analytic Capabilities,Fraud Model and Rule Development aims,Model Performance Analytics,Risk Management & Regulation,Reporting & BI,0.542,keyword_overlap,True,Operations; Risks and Threats
+680,Outcomes,Analytic Capabilities,Loss Prevention analytics provides analytics,Pre-Default Transaction Analytics,Risk Management & Regulation,Risk Insight,0.431,keyword_overlap,False,Supply Chain; Risks and Threats
+681,Outcomes,Analytic Capabilities,Identity Fraud Analytics,Pre-Default Transaction Analytics,Risk Management & Regulation,Risk Insight,0.444,name_similarity,False,Operations; Risks and Threats
+682,Outcomes,Analytic Capabilities,External Theft and Shrinkage uses analytics,Real Time Threat Detection,Risk Management & Regulation,Execution & Delivery,0.462,keyword_overlap,False,Supply Chain; Risks and Threats
+683,Outcomes,Analytic Capabilities,Claim Fraud,BACR-only (no BVF match),,,0.0,none,False,Supply Chain; Risks and Threats
+684,Outcomes,Analytic Capabilities,Subscriber Fraud uses analytics,Big Data Analytics,Marketing and Customer Experience,Customer Insight,0.462,name_similarity,False,Customer; Operations; Risks and Threats
+685,Outcomes,Analytic Capabilities,Returns Fraud uses analytics,Pre-Default Transaction Analytics,Risk Management & Regulation,Risk Insight,0.456,name_similarity,False,Supply Chain; Risks and Threats
+686,Outcomes,Analytic Capabilities,Discount Fraud,BACR-only (no BVF match),,,0.0,none,False,Supply Chain; Risks and Threats
+687,Outcomes,Analytic Capabilities,Vendor Fraud Detection,Event Detection,Marketing and Customer Experience,Customer Insight,0.481,name_similarity,False,Supply Chain; Risks and Threats
+688,Outcomes,Analytic Capabilities,Licensing and Carriage,BACR-only (no BVF match),,,0.0,none,False,Supply Chain
+689,Outcomes,Analytic Capabilities,Counterfeit  TBA,BACR-only (no BVF match),,,0.0,none,False,Supply Chain; Risks and Threats
+690,Outcomes,Analytic Capabilities,Smuggling,BACR-only (no BVF match),,,0.0,none,False,Supply Chain; Risks and Threats
+691,Outcomes,Analytic Capabilities,Access Controls,Pre-Default Transaction Analytics,Risk Management & Regulation,Risk Insight,0.333,keyword_overlap,False,Supply Chain; Risks and Threats
+692,Outcomes,Analytic Capabilities,Governance,BACR-only (no BVF match),,,0.0,none,False,Supply Chain; Risks and Threats
+693,Outcomes,Analytic Capabilities,Physical Controls,Third Party Settlement Controls,Finance & Peformance Management,Financial Accounting,0.417,name_similarity,False,Operations; Risks and Threats
+694,Outcomes,Analytic Capabilities,Risk Propensity and Modelling - Identify causes,Credit Risk Scoring (Underwriting Likelihood Model),Risk Management & Regulation,Modelling and Predictiions,0.95,direct_mapping,True,Financial; Operations; Risks and Threats
+695,Outcomes,Analytic Capabilities,Risk Severity Modelling and Analysis,Credit Risk Expected Loss Model,Risk Management & Regulation,Modelling and Predictiions,0.95,direct_mapping,True,Financial; Operations; Risks and Threats
+696,Outcomes,Analytic Capabilities,Risk Underwriting measures and monitors the risk associated,Credit Risk Underwriting/Monitoring Strategy Model,Risk Management & Regulation,Modelling and Predictiions,0.95,direct_mapping,False,Financial; Operations; Risks and Threats
+697,Outcomes,Analytic Capabilities,Risk Model Champion Analysis,A/B and Test and Learn Deployment,Risk Management & Regulation,Execution & Delivery,0.95,direct_mapping,True,Financial; Operations; Risks and Threats
+698,Outcomes,Analytic Capabilities,Capital Calculation and Management is the optimization of th,Capital Management (Planning and Allocation),Risk Management & Regulation,Risk Insight,0.95,direct_mapping,True,Financial; Operations; Risks and Threats
+699,Outcomes,Analytic Capabilities,Model Deployment and Oprationalisation is the effcient and c,Credit Risk model Deployment,Risk Management & Regulation,Execution & Delivery,0.345,keyword_overlap,False,Analytics Operations
+700,Outcomes,Analytic Capabilities,Risk/Reward Strategy Optimization,Strategy (Rules) Performance MI,Risk Management & Regulation,Reporting & BI,0.95,direct_mapping,True,Product; Financial; Risks and Threats
+701,Outcomes,Analytic Capabilities,Model Performance  Reporting and Analysis,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.771,name_similarity,True,Financial; Analytics Operations
+702,Outcomes,Analytic Capabilities,Credit Risk Appetite,Risk Appetite,Risk Management & Regulation,Risk Insight,0.95,direct_mapping,True,Financial; Risks and Threats
+703,Outcomes,Analytic Capabilities,Pre-default analytics,Pre-Default Transaction Analytics,Risk Management & Regulation,Risk Insight,0.678,name_similarity,False,Risks and Threats
+704,Outcomes,Analytic Capabilities,Risk-based pricing and valuation,Credit Risk Based Pricing Model,Risk Management & Regulation,Modelling and Predictiions,0.95,direct_mapping,True,Product; Financial; Operations; Risks and Threats
+705,Outcomes,Analytic Capabilities,Credit Portfolio Management,Active Portfolio Management,Risk Management & Regulation,Execution & Delivery,0.95,direct_mapping,True,Customer; Product; Financial; Operations; Risks and Threats
+706,Outcomes,Analytic Capabilities,Revenue Assurance,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial
+707,Outcomes,Analytic Capabilities,Collections and Recoveries Optimization,Collection Strategy Model,Risk Management & Regulation,Modelling and Predictiions,0.95,direct_mapping,True,Financial
+708,Outcomes,Analytic Capabilities,Understand Asset Failure - Gain fundamental visibility,Asset & Liability Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.327,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+709,Outcomes,Analytic Capabilities,Decrease Service Issues due to New Product Delivery,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.378,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+710,Outcomes,Analytic Capabilities,Maintain or Improve Quality of Service through Product Uptak,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.361,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+711,Outcomes,Analytic Capabilities,Revenue Generation from Under Utilized Assets,Cashflow Generation,Finance & Peformance Management,Treasury Mgmt & Insight,0.438,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+712,Outcomes,Analytic Capabilities,Prioritise Technology to Implemention,BACR-only (no BVF match),,,0.0,none,False,Operations; Asset Lifecycle Mgmt
+713,Outcomes,Analytic Capabilities,Assess Impact on Asset Maintenance,Asset & Liability Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.329,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+714,Outcomes,Analytic Capabilities,Optimise Procurement Procedures,BACR-only (no BVF match),,,0.0,none,False,Operations; Asset Lifecycle Mgmt
+715,Outcomes,Analytic Capabilities,Assess Potential/Actual Performance against Specs,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.46,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+716,Outcomes,Analytic Capabilities,Assess Suitability vs current infrastructure,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.386,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+717,Outcomes,Analytic Capabilities,Optimize and Plan Assets,Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.422,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+718,Outcomes,Analytic Capabilities,Value-Based Asset Decommissioning,Fixed Assets Management,Finance & Peformance Management,Financial Accounting,0.405,keyword_overlap,False,Operations; Asset Lifecycle Mgmt
+719,Outcomes,Analytic Capabilities,Capacity Planning,Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.467,name_similarity,True,Operations; Asset Lifecycle Mgmt
+720,Outcomes,Analytic Capabilities,Asset and Power Management,Asset & Liability Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.567,name_similarity,True,Operations; Asset Lifecycle Mgmt
+721,Outcomes,Analytic Capabilities,Lifecycle Insight,Performance Management and KPIs,Finance & Peformance Management,Financial Planning & Controlling,0.467,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+722,Outcomes,Analytic Capabilities,Product/Service Reliability,Profitability Modelling,Finance & Peformance Management,Financial Planning & Controlling,0.476,keyword_overlap,True,Operations; Asset Lifecycle Mgmt
+723,Outcomes,Analytic Capabilities,Financial Reporting Regulation,Statutory Financial Reporting,Finance & Peformance Management,MIS & Reporting,0.624,name_similarity,True,Financial
+724,Outcomes,Analytic Capabilities,Disclosure,BACR-only (no BVF match),,,0.0,none,False,Financial
+725,Outcomes,Analytic Capabilities,Collusion and Fixing,Fraud and Money Laundering Likelihood Model,Risk Management & Regulation,Modelling and Predictiions,0.95,direct_mapping,False,Financial; Risks and Threats
+726,Outcomes,Analytic Capabilities,Regulated Rate Controls,Third Party Settlement Controls,Finance & Peformance Management,Financial Accounting,0.422,name_similarity,False,Financial
+727,Outcomes,Analytic Capabilities,Occupational Safety,Collection Strategy Model,Risk Management & Regulation,Modelling and Predictiions,0.3,keyword_overlap,True,Human Resources; Risks and Threats
+728,Outcomes,Analytic Capabilities,Compensation and Benefit Rules,"Policy, Forensics and Underwriter Rules",Risk Management & Regulation,Risk Insight,0.332,name_similarity,False,Human Resources
+729,Outcomes,Analytic Capabilities,Trade Rules Management,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.529,name_similarity,True,Operations
+730,Outcomes,Analytic Capabilities,Sanctions,BACR-only (no BVF match),,,0.0,none,False,Operations
+731,Outcomes,Analytic Capabilities,Restricted Goods,Credit Risk Expected Loss Model,Risk Management & Regulation,Modelling and Predictiions,0.321,name_similarity,True,Operations; Risks and Threats
+732,Outcomes,Analytic Capabilities,Truth in Advertising,Statutory Financial Reporting,Finance & Peformance Management,MIS & Reporting,0.312,name_similarity,True,Operations; Marketing; Risks and Threats
+733,Outcomes,Analytic Capabilities,Product/Service Performance,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.383,keyword_overlap,True,
+734,Outcomes,Analytic Capabilities,Privacy Protections,Event Detection,Marketing and Customer Experience,Customer Insight,0.412,name_similarity,False,Customer; Marketing; Risks and Threats
+735,Outcomes,Analytic Capabilities,Environmental Protection,BACR-only (no BVF match),,,0.0,none,False,Operations
+736,Outcomes,Analytic Capabilities,Transaction Classification,Transaction Classification,Marketing and Customer Experience,Customer Insight,0.95,direct_mapping,True,Customer; Financial
+737,Outcomes,Analytic Capabilities,Anti-Money Laundering,Fraud and Money Laundering Loss Modelling,Risk Management & Regulation,Modelling and Predictiions,0.492,name_similarity,False,Operations; Risks and Threats
+738,Outcomes,Analytic Capabilities,Care Co-ordination,Financial Consolidation,Finance & Peformance Management,Financial Accounting,0.334,name_similarity,True,Customer; Operations
+739,Outcomes,Analytic Capabilities,Care Management - manage care for a population of patients,Performance Management and KPIs,Finance & Peformance Management,Financial Planning & Controlling,0.313,keyword_overlap,True,
+740,Outcomes,Analytic Capabilities,Provider Management,Performance Management and KPIs,Finance & Peformance Management,Financial Planning & Controlling,0.491,name_similarity,True,Supply Chain
+741,Outcomes,Analytic Capabilities,Claims Management,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.581,name_similarity,True,Customer; Operations
+742,Outcomes,Analytic Capabilities,Pharmacy Management,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.546,name_similarity,True,Customer; Operations
+743,Outcomes,Analytic Capabilities,Contract Compliance Management,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.408,name_similarity,True,
+744,Outcomes,Analytic Capabilities,Suppplier Collaboration,Risk Based Price Calculation,Risk Management & Regulation,Execution & Delivery,0.304,name_similarity,False,Financial; Supply Chain
+745,Outcomes,Analytic Capabilities,Supplier Performance Management,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial; Supply Chain
+746,Outcomes,Analytic Capabilities,Spend Analytics - improve margins through product,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Financial; Supply Chain
+747,Outcomes,Analytic Capabilities,Global Spend Visibility,Regulatory Reporting and Information Sharing,Risk Management & Regulation,Reporting & BI,0.319,keyword_overlap,False,Financial; Supply Chain
+748,Outcomes,Analytic Capabilities,Purchasing Optimisation,Pricing Analysis & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.481,name_similarity,True,Financial; Supply Chain
+749,Outcomes,Analytic Capabilities,Supplier Risk Management,Risk Appetite,Risk Management & Regulation,Risk Insight,0.573,keyword_overlap,True,Financial; Supply Chain; Risks and Threats
+750,Outcomes,Analytic Capabilities,Forecasting (Short/Long Term),Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.428,keyword_overlap,True,Customer; Financial; Supply Chain; Marketing
+751,Outcomes,Analytic Capabilities,Event Management,Event Detection,Marketing and Customer Experience,Customer Insight,0.581,keyword_overlap,False,Customer; Product; Supply Chain; Marketing
+752,Outcomes,Analytic Capabilities,Forecast Performance Managmeent,Channel Support & Engagement,Marketing and Customer Experience,Delivery of Insight to Channels,0.463,keyword_overlap,False,Customer; Product; Supply Chain; Marketing
+753,Outcomes,Analytic Capabilities,Order Analysis,Pricing Analysis & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.378,keyword_overlap,True,Financial; Supply Chain
+754,Outcomes,Analytic Capabilities,Fulfilment,Customer Segmentation,Marketing and Customer Experience,Customer Insight,0.329,keyword_overlap,False,Financial; Supply Chain
+755,Outcomes,Analytic Capabilities,Product Lifecycle Management,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.533,name_similarity,True,Product; Financial; Supply Chain
+756,Outcomes,Analytic Capabilities,Sales & Operations Planning (S&OP),Sales Reporting,Finance & Peformance Management,MIS & Reporting,0.596,keyword_overlap,True,Product; Financial; Operations; Supply Chain
+757,Outcomes,Analytic Capabilities,Supply Network Optimisation,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.448,name_similarity,True,Operations; Supply Chain
+758,Outcomes,Analytic Capabilities,Distribution / Fulfillment Performance Analysis,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.453,keyword_overlap,True,Operations; Supply Chain
+759,Outcomes,Analytic Capabilities,Lot / Batch Track and Trace,Financial Accounting / Accounting Hub,Finance & Peformance Management,Financial Accounting,0.412,keyword_overlap,True,Operations; Supply Chain
+760,Outcomes,Analytic Capabilities,Shipment / Load Planning,Capital Planning and Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.408,keyword_overlap,True,Operations; Supply Chain
+761,Outcomes,Analytic Capabilities,Availability / Lost Sales Analysis and Optimisation,Pricing Analysis & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.544,name_similarity,True,Financial; Supply Chain
+762,Outcomes,Analytic Capabilities,Supply Chain Visibility - Provides the end to end,Real Time Threat Detection,Risk Management & Regulation,Execution & Delivery,0.317,keyword_overlap,False,Product; Financial; Supply Chain
+763,Outcomes,Analytic Capabilities,Order to Cash - Link Sales and Finance organisations,Profitability Analytics and Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.425,keyword_overlap,True,Financial; Supply Chain
+764,Outcomes,Analytic Capabilities,Supply Chain Financial Performance Analysis,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.463,keyword_overlap,True,Financial; Supply Chain
+765,Outcomes,Analytic Capabilities,Quality Management,Business Process Analytics & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.95,direct_mapping,True,Operations
+766,Outcomes,Analytic Capabilities,Manufacturing Performance,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.491,keyword_overlap,True,Operations
+767,Outcomes,Analytic Capabilities,Global Plant Visibility,Financial Accounting / Accounting Hub,Finance & Peformance Management,Financial Accounting,0.32,keyword_overlap,True,Operations
+768,Outcomes,Analytic Capabilities,Fleet Management - Locate,Liquidity Management,Finance & Peformance Management,Treasury Mgmt & Insight,0.531,name_similarity,True,Operations
+769,Outcomes,Analytic Capabilities,Logistics Capacity Analysis,Pricing Analysis & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.366,keyword_overlap,True,Operations; Supply Chain
+770,Outcomes,Analytic Capabilities,Logistics Efficiency Analysis -Analysis,Pricing Analysis & Optimisation,Finance & Peformance Management,Financial Planning & Controlling,0.383,keyword_overlap,True,Operations; Supply Chain
+771,Outcomes,Analytic Capabilities,Freight / Carrier Analysis,Performance Reporting,Finance & Peformance Management,MIS & Reporting,0.485,keyword_overlap,True,Financial; Operations; Supply Chain
