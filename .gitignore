@@ -1,0 +1,19 @@
+# Input data files
+*.erwin
+*.xlsm
+*.pptx
+*.pdf
+*.xsd
+
+# Office temp/lock files
+~$*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Claude settings
+.claude/

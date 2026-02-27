@@ -1,0 +1,413 @@
+erDiagram
+    ACCESS_DEVICE_ACTIVATE_EVENT {
+        Identifier Access_Device_Id "PK"
+    }
+    ACCESS_DEVICE_EVENT {
+        Identifier Access_Device_Event_Id "PK"
+        Number Access_Device_Num ""
+        Code Access_Device_Method_Type_Cd ""
+        Code Access_Device_Verify_Type_Cd ""
+        Identifier Access_Device_Id "PK"
+    }
+    ALERT_EVENT {
+        Identifier Alert_Event_Id "PK"
+        Percent Alert_Confidence_Level_Lower_Pct ""
+        Percent Alert_Confidence_Level_Upper_Pct ""
+        Identifier Alert_Event_Headline_Standard_Comment_Id ""
+        Datetime Alert_Event_Issued_Dttm ""
+        string more "5 more"
+    }
+    ALERT_EVENT_CATEGORY {
+        Code Alert_Event_Category_Cd "PK"
+        Description Alert_Event_Category_Desc ""
+    }
+    ALERT_EVENT_SUBTYPE {
+        Code Alert_Event_Subtype_Cd "PK"
+        Description Alert_Event_Subtype_Desc ""
+    }
+    ALERT_EVENT_WEIGHTING {
+        Code Alert_Weighting_Value_Type_Cd "PK"
+        Identifier Alert_Event_Id "PK"
+        Amount Alert_Event_Weighting_Amt ""
+        Code Alert_Event_Weighting_Currency_Cd ""
+    }
+    APPLICATION_EVENT {
+        Identifier Application_Id ""
+    }
+    ASTRONOMICAL_EVENT_TYPE {
+        Code Astronomical_Event_Cd "PK"
+        Description Astronomical_Event_Desc ""
+    }
+    BACK_OFFICE_EVENT {
+        Datetime Back_Office_Event_Effective_Dttm ""
+    }
+    BANK_EVENT {
+        Identifier Bank_Event_Agreement_Id "PK"
+    }
+    BOFD_CHECK_EVENT {
+        Identifier Channel_Instance_Id ""
+    }
+    CASE_EVENT {
+        Identifier Case_Id "PK"
+        Identifier Event_Id "PK"
+        Code Case_Event_Role_Cd "PK"
+    }
+    CASE_EVENT_ROLE_TYPE {
+        Code Case_Event_Role_Cd "PK"
+        Description Case_Event_Role_Desc ""
+    }
+    CAUSAL_EVENT {
+        Identifier Causal_Event_Id "PK"
+        Code Causal_Event_Type_Cd ""
+        Code Causal_Event_Subtype_Cd ""
+    }
+    CAUSAL_EVENT_METRIC_TYPE {
+        Code Causal_Event_Metric_Type_Cd "PK"
+        Description Causal_Event_Metric_Type_Desc ""
+    }
+    CAUSAL_EVENT_SEVERITY {
+        Code Causal_Event_Severity_Cd "PK"
+        Code Causal_Event_Type_Cd "PK"
+        Text Causal_Event_Severity_Txt ""
+    }
+    CAUSAL_EVENT_SUBTYPE {
+        Code Causal_Event_Subtype_Cd "PK"
+        Description Causal_Event_Subtype_Desc ""
+    }
+    CAUSAL_EVENT_TYPE {
+        Code Causal_Event_Type_Cd "PK"
+        Description Causal_Event_Type_Desc ""
+        Code Causal_Event_Subtype_Cd ""
+    }
+    CHECK_EVENT {
+        Identifier Agreement_Id ""
+        Code Check_Event_Type_Cd "PK"
+        Code Draft_Type_Cd "PK"
+    }
+    CHECK_EVENT_TYPE {
+        Code Check_Event_Type_Cd "PK"
+        Description Check_Event_Type_Desc ""
+    }
+    CLAIM_AUTHORIZATION_EVENT {
+        Identifier Claim_Authorization_Id "PK"
+        Identifier Event_Id "PK"
+        Code Claim_Authorization_Event_Role_Cd "PK"
+    }
+    CLAIM_AUTHORIZATION_EVENT_ROLE {
+        Code Claim_Authorization_Event_Role_Cd "PK"
+        Description Claim_Authorization_Event_Role_Desc ""
+    }
+    CLAIM_EVENT {
+        Identifier Event_Id "PK"
+        Identifier Claim_Id "PK"
+        Code Claim_Event_Role_Cd ""
+    }
+    CLAIM_EVENT_ROLE {
+        Code Claim_Event_Role_Cd "PK"
+        Description Claim_Event_Role_Desc ""
+    }
+    CUSTOM_EVENT_INFORMATION {
+        Identifier Web_Site_Id ""
+        Count Custom_Event_Time_Offset_Cnt ""
+        Text Custom_Large_String_Value_Txt ""
+        Indicator Tracked_Visitor_Ind ""
+    }
+    CUSTOM_PAGE_VIEW_EVENT {
+        Identifier Web_Visit_Id "PK"
+        Code Interaction_Activity_Type_Cd "PK"
+        Count Web_Page_View_Sequence_Cnt "PK"
+        Count Visitor_Interaction_Event_Sequence_Cnt "PK"
+        Identifier Custom_Page_View_Event_Id "PK"
+    }
+    EVENT {
+        Identifier Event_Id "PK"
+        Description Event_Desc ""
+        Datetime Event_Start_Dttm ""
+        Datetime Event_End_Dttm ""
+        Datetime Event_GMT_Start_Dttm ""
+        string more "5 more"
+    }
+    EVENT_ACTIVITY_TYPE {
+        Code Event_Activity_Type_Cd "PK"
+        Description Event_Activity_Type_Desc ""
+        Name Event_Activity_Type_Name ""
+    }
+    EVENT_CLASS_SCHEME_TYPE {
+        Code Event_Class_Cd "PK"
+        Description Event_Class_Scheme_Desc ""
+        Code Parent_Event_Class_Cd ""
+        Datetime Event_Class_Scheme_Start_Dttm ""
+        Datetime Event_Class_Scheme_End_Dttm ""
+    }
+    EVENT_CLASS_VALUE {
+        Code Event_Class_Value_Cd "PK"
+        Code Event_Class_Cd "PK"
+        Code Parent_Event_Class_Value_Cd ""
+        Description Event_Class_Value_Desc ""
+        Measure Event_Class_From_Meas ""
+        string more "5 more"
+    }
+    EVENT_CONTENT {
+        Code Content_Type_Cd "PK"
+        Identifier Event_Id "PK"
+        Code In_Out_Direction_Type_Cd ""
+    }
+    EVENT_CONTENT_ITEM {
+        Code Content_Type_Cd "PK"
+        Number Content_Serial_Num "PK"
+        Identifier Event_Id "PK"
+        Quantity Content_Qty ""
+        Amount Content_Total_Amt ""
+    }
+    EVENT_COST {
+        Code Cost_Type_Cd "PK"
+        Identifier Event_Id "PK"
+        Datetime Event_Cost_Start_Dttm "PK"
+        Datetime Event_Cost_End_Dttm ""
+        Amount Event_Cost_Amt ""
+    }
+    EVENT_DOCUMENT {
+        Identifier Event_Id "PK"
+        Identifier Document_Id "PK"
+        Code Event_Document_Role_Cd ""
+    }
+    EVENT_DOCUMENT_ROLE {
+        Code Event_Document_Role_Cd "PK"
+        Description Event_Document_Role_Desc ""
+    }
+    EVENT_EVENT_CLASS_XREF {
+        Identifier Event_Id "PK"
+        Datetime Event_Class_Start_Dttm "PK"
+        Code Event_Class_Cd "PK"
+        Code Event_Class_Value_Cd "PK"
+        Datetime Event_Class_End_Dttm ""
+    }
+    EVENT_FORECAST_METRIC {
+        Identifier Event_Id "PK"
+        Code Event_Metric_Type_Cd "PK"
+        Datetime Event_Forecast_Metric_Calculation_Dttm "PK"
+        Datetime Event_Forecast_Metric_Start_Dttm ""
+        Datetime Event_Forecast_Metric_End_Dttm ""
+        string more "6 more"
+    }
+    EVENT_GROUP {
+        Identifier Event_Group_Id "PK"
+        Identifier Parent_Event_Group_Id ""
+        Code Event_Group_Type_Cd "PK"
+        Number Host_Event_Group_Num ""
+        Description Event_Group_Desc ""
+    }
+    EVENT_GROUP_TYPE {
+        Code Event_Group_Type_Cd "PK"
+        Description Event_Group_Type_Desc ""
+    }
+    EVENT_GROUP_XREF {
+        Identifier Event_Group_Id "PK"
+        Identifier Event_Id "PK"
+    }
+    EVENT_MEDIUM_TYPE {
+        Code Event_Medium_Type_Cd "PK"
+        Description Event_Medium_Type_Desc ""
+    }
+    EVENT_METRIC {
+        Identifier Event_Id "PK"
+        Code Event_Metric_Type_Cd "PK"
+        Amount Event_Metric_Amt ""
+        Percent Event_Metric_Pct ""
+        Rate Event_Metric_Rate ""
+        string more "3 more"
+    }
+    EVENT_METRIC_TYPE {
+        Code Event_Metric_Type_Cd "PK"
+        Description Event_Metric_Type_Desc ""
+    }
+    EVENT_MULTIMEDIA_OBJECT {
+        Identifier Event_Id "PK"
+        Identifier MM_Object_Id "PK"
+        Code Event_Multimedia_Reason_Cd ""
+    }
+    EVENT_MULTIMEDIA_REASON {
+        Code Event_Multimedia_Reason_Cd "PK"
+        Description Event_Multimedia_Reason_Desc ""
+    }
+    EVENT_REASON {
+        Code Event_Reason_Cd "PK"
+        Description Event_Reason_Desc ""
+    }
+    EVENT_RELATED {
+        Identifier Event_Id "PK"
+        Identifier Related_Event_Id "PK"
+        Code Event_Related_Reason_Cd "PK"
+        Datetime Event_Related_Start_Dttm "PK"
+        Datetime Event_Related_End_Dttm ""
+        string more "1 more"
+    }
+    EVENT_RELATED_REASON {
+        Code Event_Related_Reason_Cd "PK"
+        Description Event_Related_Reason_Desc ""
+    }
+    EVENT_SCORE {
+        Identifier Event_Id "PK"
+        Identifier Model_Id "PK"
+        Identifier Model_Run_Id "PK"
+        Value Event_Score_Val ""
+    }
+    EVENT_SITE {
+        Identifier Event_Id "PK"
+        Identifier Site_Id "PK"
+        Code Event_Site_Reason_Cd "PK"
+        Datetime Event_Site_Start_Dttm "PK"
+        Datetime Event_Site_End_Dttm ""
+    }
+    EVENT_SITE_REASON {
+        Code Event_Site_Reason_Cd "PK"
+        Description Event_Site_Reason_Desc ""
+    }
+    EVENT_STATUS {
+        Identifier Event_Id "PK"
+        Datetime Event_Status_Dttm "PK"
+        Code Event_Status_Type_Cd "PK"
+        Code Event_Status_Reason_Cd "PK"
+        Text Event_Status_Txt ""
+    }
+    EVENT_STATUS_REASON {
+        Code Event_Status_Reason_Cd "PK"
+        Description Event_Status_Reason_Desc ""
+    }
+    EVENT_STATUS_TYPE {
+        Code Event_Status_Type_Cd "PK"
+        Description Event_Status_Type_Desc ""
+    }
+    EVENT_SUBTYPE {
+        Code Event_Subtype_Cd "PK"
+        Description Event_Subtype_Desc ""
+    }
+    EVENT_TEXT {
+        Identifier Event_Id "PK"
+        Count Text_Sequence_Cnt "PK"
+        Code Text_Type_Cd "PK"
+        Text Event_Txt ""
+        Identifier Event_Text_Source_Party_Id ""
+    }
+    EVENT_TEXT_SECTION {
+        Identifier Event_Id "PK"
+        Count Text_Sequence_Cnt "PK"
+        Identifier Text_Section_Id "PK"
+    }
+    FINANCIAL_EVENT {
+        Date Financial_Event_Period_Start_Dt ""
+        Date Financial_Event_Period_End_Dt ""
+        Code Financial_Event_Type_Cd "PK"
+        Code Document_Production_Cycle_Cd ""
+        Code Event_Medium_Type_Cd ""
+        string more "3 more"
+    }
+    FINANCIAL_EVENT_AMOUNT {
+        Code Financial_Event_Amount_Type_Cd "PK"
+        Datetime Financial_Event_Amount_Dttm "PK"
+        Identifier Event_Id "PK"
+        Amount Event_Transaction_Amt ""
+        Amount Event_Local_Amt ""
+        string more "5 more"
+    }
+    ACCESS_DEVICE_EVENT ||--o{ NETWORK_ACCESS_DEVICE_EVENT : ""
+    ALERT_EVENT ||--o{ ALERT_EVENT_WEIGHTING : ""
+    ALERT_EVENT_CATEGORY ||--o{ ALERT_EVENT : ""
+    ALERT_EVENT_SUBTYPE ||--o{ ALERT_EVENT : ""
+    CASE_EVENT_ROLE_TYPE ||--o{ CASE_EVENT : ""
+    CAUSAL_EVENT_SUBTYPE ||--o{ CAUSAL_EVENT : ""
+    CAUSAL_EVENT_SUBTYPE ||--o{ CAUSAL_EVENT_TYPE : ""
+    CAUSAL_EVENT_TYPE ||--o{ CAUSAL_EVENT_SEVERITY : ""
+    CAUSAL_EVENT_TYPE ||--o{ CAUSAL_EVENT : ""
+    CHECK_EVENT_TYPE ||--o{ CHECK_EVENT : ""
+    CLAIM_AUTHORIZATION_EVENT_ROLE ||--o{ CLAIM_AUTHORIZATION_EVENT : ""
+    CLAIM_EVENT_ROLE ||--o{ CLAIM_EVENT : ""
+    EVENT ||--o{ EVENT_DOCUMENT : ""
+    EVENT ||--o{ EVENT_SITE : ""
+    EVENT ||--o{ TAX_LOT_EVENT : ""
+    EVENT ||--o{ EVENT_STATUS : ""
+    EVENT ||--o{ EVENT_TEXT : ""
+    EVENT ||--o{ EVENT_MULTIMEDIA_OBJECT : ""
+    EVENT ||--o{ EVENT_METRIC : ""
+    EVENT ||--o{ EVENT_FORECAST_METRIC : ""
+    EVENT ||--o{ EVENT_EVENT_CLASS_XREF : ""
+    EVENT ||--o{ CASE_EVENT : ""
+    EVENT ||--o{ WORK_PROCESS_EVENT : ""
+    EVENT ||--o{ EVENT_SCORE : ""
+    EVENT ||--o{ CLAIM_EVENT : ""
+    EVENT ||--o{ CLAIM_AUTHORIZATION_EVENT : ""
+    EVENT ||--o{ EVENT_GROUP_XREF : ""
+    EVENT ||--o{ EVENT_COST : ""
+    EVENT_ACTIVITY_TYPE ||--o{ EVENT : ""
+    EVENT_CLASS_SCHEME_TYPE ||--o{ EVENT_CLASS_SCHEME_TYPE : ""
+    EVENT_CLASS_SCHEME_TYPE ||--o{ EVENT_CLASS_VALUE : ""
+    EVENT_CLASS_SCHEME_TYPE ||--o{ EVENT_EVENT_CLASS_XREF : ""
+    EVENT_CLASS_VALUE ||--o{ EVENT_EVENT_CLASS_XREF : ""
+    EVENT_CLASS_VALUE ||--o{ EVENT_CLASS_VALUE : ""
+    EVENT_CONTENT ||--o{ EVENT_CONTENT_ITEM : ""
+    EVENT_DOCUMENT_ROLE ||--o{ EVENT_DOCUMENT : ""
+    EVENT_GROUP ||--o{ EVENT_GROUP : ""
+    EVENT_GROUP ||--o{ EVENT_GROUP_XREF : ""
+    EVENT_GROUP_TYPE ||--o{ EVENT_GROUP : ""
+    EVENT_MEDIUM_TYPE ||--o{ FINANCIAL_EVENT : ""
+    EVENT_METRIC_TYPE ||--o{ EVENT_FORECAST_METRIC : ""
+    EVENT_METRIC_TYPE ||--o{ EVENT_METRIC : ""
+    EVENT_MULTIMEDIA_REASON ||--o{ EVENT_MULTIMEDIA_OBJECT : ""
+    EVENT_REASON ||--o{ EVENT : ""
+    EVENT_RELATED_REASON ||--o{ EVENT_RELATED : ""
+    EVENT_SITE_REASON ||--o{ EVENT_SITE : ""
+    EVENT_STATUS_REASON ||--o{ EVENT_STATUS : ""
+    EVENT_STATUS_TYPE ||--o{ EVENT_STATUS : ""
+    EVENT_SUBTYPE ||--o{ EVENT : ""
+    EVENT_TEXT ||--o{ EVENT_TEXT_SECTION : ""
+    FINANCIAL_EVENT ||--o{ FINANCIAL_EVENT_AMOUNT : ""
+    FINANCIAL_EVENT_AMOUNT_TYPE ||--o{ FINANCIAL_EVENT_AMOUNT : ""
+    FINANCIAL_EVENT_TYPE ||--o{ FINANCIAL_EVENT : ""
+    INTERNAL_SEARCH_EVENT ||--o{ INTERNAL_SEARCH_EVENT_XREF : ""
+    MEASUREMENT_EVENT ||--o{ MEASUREMENT_EVENT_MEASURE : ""
+    MEASUREMENT_EVENT_MEASURE ||--o{ MEASUREMENT_EVENT_RESULT : ""
+    MEASUREMENT_EVENT_MEASURE_TYPE ||--o{ MEASUREMENT_EVENT_MEASURE : ""
+    MEASUREMENT_EVENT_RESULT_TYPE ||--o{ MEASUREMENT_EVENT_RESULT : ""
+    MEASUREMENT_EVENT_TYPE ||--o{ MEASUREMENT_EVENT : ""
+    PAGE_EVENT_STATUS_TYPE ||--o{ WEB_PAGE_EVENT_INFORMATION : ""
+    SEARCH_EVENT_FIELD ||--o{ INTERNAL_SEARCH_EVENT_XREF : ""
+    TRAINING_EVENT ||--o{ PROJECT_TASK_TRAINING_EVENT : ""
+    VISITOR_INTERACTION_EVENT ||--o{ SESSION_EVENT_INFORMATION : ""
+    VISITOR_INTERACTION_EVENT ||--o{ WEB_EVENT_DETAIL : ""
+    VISITOR_INTERACTION_EVENT ||--o{ WEB_PAGE_EVENT_INFORMATION : ""
+    VISITOR_INTERACTION_EVENT ||--o{ INTERACTION_EVENT_IMPRESSION_XREF : ""
+    VISITOR_INTERACTION_EVENT ||--o{ INTERACTION_EVENT : ""
+    VISITOR_INTERACTION_EVENT ||--o{ WEB_FORM_EVENT : ""
+    VISITOR_INTERACTION_EVENT_SUBTYPE ||--o{ VISITOR_INTERACTION_EVENT : ""
+    WEB_FORM_EVENT ||--o{ FORM_FIELD_EVENT : ""
+    WEB_PAGE_EVENT_INFORMATION ||--o{ WEB_DOCUMENT_EVENT : ""
+    WEB_PAGE_EVENT_INFORMATION ||--o{ CUSTOM_PAGE_VIEW_EVENT : ""
+    WEB_SHOPPING_EXPERIENCE_EVENT_SUBTYPE ||--o{ WEB_SHOPPING_EXPERIENCE_EVENT : ""
+    EVENT ||--|| ACCESS_DEVICE_EVENT : "inherits"
+    EVENT ||--|| ALERT_EVENT : "inherits"
+    EVENT ||--|| APPLICATION_EVENT : "inherits"
+    CHECK_EVENT ||--|| BOFD_CHECK_EVENT : "inherits"
+    EVENT ||--|| CAUSAL_EVENT : "inherits"
+    EVENT ||--|| CONSENT_EVENT : "inherits"
+    VISITOR_INTERACTION_EVENT ||--|| CUSTOM_EVENT_INFORMATION : "inherits"
+    EVENT ||--|| FINANCIAL_EVENT : "inherits"
+    MEASUREMENT_EVENT ||--|| GEOSPATIAL_POINT_MEASUREMENT_EVENT : "inherits"
+    CHECK_EVENT ||--|| HOME_BANK_CHECK_EVENT : "inherits"
+    VISITOR_INTERACTION_EVENT ||--|| INTERNAL_SEARCH_EVENT : "inherits"
+    EVENT ||--|| LEGAL_ACTION_EVENT : "inherits"
+    CAUSAL_EVENT ||--|| MAN_MADE_EVENT : "inherits"
+    ALERT_EVENT ||--|| MATURITY_EVENT_ALERT : "inherits"
+    EVENT ||--|| MEASUREMENT_EVENT : "inherits"
+    CAUSAL_EVENT ||--|| NATURAL_EVENT : "inherits"
+    EVENT ||--|| NETWORK_SERVICE_EVENT : "inherits"
+    WEB_SHOPPING_EXPERIENCE_EVENT ||--|| PURCHASE_EVENT : "inherits"
+    WEB_SHOPPING_EXPERIENCE_EVENT ||--|| REBATE_EVENT : "inherits"
+    VISITOR_INTERACTION_EVENT ||--|| RECOMMENDATION_EVENT : "inherits"
+    EVENT ||--|| SERVICE_REQUEST_EVENT : "inherits"
+    WEB_SHOPPING_EXPERIENCE_EVENT ||--|| SHOPPING_CART_EVENT : "inherits"
+    EVENT ||--|| TRAINING_EVENT : "inherits"
+    EVENT ||--|| TRAVEL_EVENT : "inherits"
+    EVENT ||--|| TRAVEL_PLAN_EVENT : "inherits"
+    VISITOR_INTERACTION_EVENT ||--|| WEB_SCENARIO_EVENT : "inherits"
+    VISITOR_INTERACTION_EVENT ||--|| WEB_SHOPPING_EXPERIENCE_EVENT : "inherits"
+    WEB_SHOPPING_EXPERIENCE_EVENT ||--|| WISH_LIST_EVENT : "inherits"

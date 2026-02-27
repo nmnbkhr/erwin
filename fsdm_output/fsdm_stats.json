@@ -1,0 +1,302 @@
+{
+  "model_info": {
+    "model_name": "Teradata Financial Services Data Model",
+    "version": "16.00.00",
+    "file_type": "XSD Schema",
+    "generated": "2026-02-27T07:35:07.151060"
+  },
+  "summary": {
+    "total_entities": 3917,
+    "total_attributes": 15364,
+    "total_relationships": 5636,
+    "total_inheritance_chains": 839,
+    "classword_types": 22,
+    "avg_attributes_per_entity": 3.9
+  },
+  "domain_breakdown": {
+    "Agreement/Account": 506,
+    "Asset Management": 71,
+    "Campaign/Marketing": 230,
+    "Channel Management": 165,
+    "Claims Management": 156,
+    "Event Management": 109,
+    "Financial Transaction": 141,
+    "Human Resources": 36,
+    "Investment Management": 191,
+    "Location/Geography": 35,
+    "Other": 1197,
+    "Party Management": 622,
+    "Product Management": 209,
+    "Reference Data": 39,
+    "Risk Management": 133,
+    "Web Analytics": 77
+  },
+  "hub_entities": [
+    {
+      "entity": "PARTY",
+      "relationships": 299
+    },
+    {
+      "entity": "CURRENCY",
+      "relationships": 206
+    },
+    {
+      "entity": "UNIT_OF_MEASURE",
+      "relationships": 172
+    },
+    {
+      "entity": "TIME_PERIOD_TYPE",
+      "relationships": 108
+    },
+    {
+      "entity": "AGREEMENT",
+      "relationships": 102
+    },
+    {
+      "entity": "PRODUCT",
+      "relationships": 88
+    },
+    {
+      "entity": "FEATURE",
+      "relationships": 71
+    },
+    {
+      "entity": "RISK_CALCULATION_SCENARIO",
+      "relationships": 50
+    },
+    {
+      "entity": "ORGANIZATION",
+      "relationships": 47
+    },
+    {
+      "entity": "PARTY_ASSET",
+      "relationships": 46
+    },
+    {
+      "entity": "SITE",
+      "relationships": 45
+    },
+    {
+      "entity": "LOCATOR",
+      "relationships": 44
+    },
+    {
+      "entity": "CLAIM",
+      "relationships": 43
+    },
+    {
+      "entity": "PRODUCT_GROUP",
+      "relationships": 43
+    },
+    {
+      "entity": "EVENT",
+      "relationships": 42
+    },
+    {
+      "entity": "RISK_GRADE_VALUE",
+      "relationships": 40
+    },
+    {
+      "entity": "GEOGRAPHICAL_AREA",
+      "relationships": 36
+    },
+    {
+      "entity": "DOCUMENT",
+      "relationships": 35
+    },
+    {
+      "entity": "OPPORTUNITY",
+      "relationships": 34
+    },
+    {
+      "entity": "RISK_GRADE_SCHEME",
+      "relationships": 34
+    },
+    {
+      "entity": "INVESTMENT_PRODUCT",
+      "relationships": 33
+    },
+    {
+      "entity": "CHANNEL_INSTANCE",
+      "relationships": 33
+    },
+    {
+      "entity": "APPLICATION",
+      "relationships": 32
+    },
+    {
+      "entity": "WEB_PAGE",
+      "relationships": 32
+    },
+    {
+      "entity": "INDIVIDUAL",
+      "relationships": 30
+    },
+    {
+      "entity": "AD",
+      "relationships": 28
+    },
+    {
+      "entity": "AGREEMENT_GROUP",
+      "relationships": 28
+    },
+    {
+      "entity": "MODEL_RUN",
+      "relationships": 28
+    },
+    {
+      "entity": "CAMPAIGN",
+      "relationships": 28
+    },
+    {
+      "entity": "ANALYTICAL_MODEL",
+      "relationships": 27
+    }
+  ],
+  "top_entities_by_attributes": [
+    {
+      "entity": "AGREEMENT_RISK_METRIC",
+      "attributes": 54
+    },
+    {
+      "entity": "TRADE_ORDER",
+      "attributes": 47
+    },
+    {
+      "entity": "AGREEMENT_SUMMARY",
+      "attributes": 44
+    },
+    {
+      "entity": "EXTENDED_SESSION_INFORMATION",
+      "attributes": 34
+    },
+    {
+      "entity": "WEB_PAGE_VIEW",
+      "attributes": 34
+    },
+    {
+      "entity": "WEB_VISIT",
+      "attributes": 33
+    },
+    {
+      "entity": "TRADE_EXECUTION",
+      "attributes": 30
+    },
+    {
+      "entity": "BANK_CAPITAL_SUMMARY",
+      "attributes": 27
+    },
+    {
+      "entity": "LOAN_TERM_AGREEMENT",
+      "attributes": 27
+    },
+    {
+      "entity": "AD_CAMPAIGN_OBJECTIVE",
+      "attributes": 25
+    },
+    {
+      "entity": "SECURITIZATION_POOL_RISK",
+      "attributes": 25
+    },
+    {
+      "entity": "EXTERNALLY_REPORTED_CLAIM",
+      "attributes": 24
+    },
+    {
+      "entity": "CREDIT_RISK_SUMMARY",
+      "attributes": 23
+    },
+    {
+      "entity": "HEALTH_CLAIM",
+      "attributes": 23
+    },
+    {
+      "entity": "INSTITUTIONAL_CLAIM",
+      "attributes": 23
+    },
+    {
+      "entity": "AGREEMENT",
+      "attributes": 22
+    },
+    {
+      "entity": "DOCUMENT",
+      "attributes": 22
+    },
+    {
+      "entity": "ONLINE_APPLICATION_ACCESS",
+      "attributes": 22
+    },
+    {
+      "entity": "PHARMACY_CLAIM_SERVICE",
+      "attributes": 21
+    },
+    {
+      "entity": "SOCIAL_MEDIA_TRANSFER",
+      "attributes": 21
+    },
+    {
+      "entity": "PROFESSIONAL_CLAIM_SERVICE",
+      "attributes": 20
+    },
+    {
+      "entity": "BOND",
+      "attributes": 19
+    },
+    {
+      "entity": "CAMPAIGN",
+      "attributes": 19
+    },
+    {
+      "entity": "CLAIM_AUTHORIZATION",
+      "attributes": 19
+    },
+    {
+      "entity": "PHARMACY_CLAIM_SERVICE_DRUG",
+      "attributes": 19
+    },
+    {
+      "entity": "PURCHASED_RECEIVABLE_ISSUER_AGREEMENT",
+      "attributes": 19
+    },
+    {
+      "entity": "SECURITIZATION_EXPOSURE",
+      "attributes": 19
+    },
+    {
+      "entity": "TRADITIONAL_PLACEMENT",
+      "attributes": 19
+    },
+    {
+      "entity": "VENDOR_PO_LINE",
+      "attributes": 19
+    },
+    {
+      "entity": "CAPITAL_REQUIREMENTS_SUMMARY",
+      "attributes": 18
+    }
+  ],
+  "classword_types": {
+    "Classword_Amount": "DECIMAL(18,4)",
+    "Classword_Blob": "BLOB",
+    "Classword_Clob": "CLOB",
+    "Classword_Code": "VARCHAR(50)",
+    "Classword_Count": "INTEGER",
+    "Classword_Date": "DATE",
+    "Classword_Datetime": "TIMESTAMP",
+    "Classword_Description": "VARCHAR(500)",
+    "Classword_Geospatial": "ST_GEOMETRY",
+    "Classword_Identifier": "BIGINT",
+    "Classword_Indicator": "CHAR(1)",
+    "Classword_Measure": "DECIMAL(18,4)",
+    "Classword_Name": "VARCHAR(100)",
+    "Classword_Number": "VARCHAR(50)",
+    "Classword_Percent": "DECIMAL(7,4)",
+    "Classword_Period_Date": "PERIOD(DATE)",
+    "Classword_Period_Datetime": "PERIOD(TIMESTAMP)",
+    "Classword_Quantity": "DECIMAL(18,4)",
+    "Classword_Rate": "DECIMAL(10,6)",
+    "Classword_Text": "VARCHAR(2000)",
+    "Classword_Time": "TIME",
+    "Classword_Value": "DECIMAL(18,4)"
+  }
+}

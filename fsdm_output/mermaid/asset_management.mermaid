@@ -1,0 +1,356 @@
+erDiagram
+    APPLICATION_ASSET {
+        Identifier Party_Asset_Id "PK"
+        Identifier Application_Id "PK"
+        Code Application_Asset_Role_Subtype_Cd "PK"
+        Date Application_Asset_Start_Dt "PK"
+    }
+    APPLICATION_ASSET_ROLE_SUBTYPE {
+        Code Application_Asset_Role_Subtype_Cd "PK"
+        Description Application_Asset_Role_Subtype_Desc ""
+    }
+    APPLICATION_INSURED_ASSET {
+        Amount Application_Insured_Asset_Amt ""
+        Amount Application_Currency_Insured_Asset_Amt ""
+    }
+    ASSET_APPRAISAL_REASON_TYPE {
+        Code Asset_Appraisal_Reason_Cd "PK"
+        Description Asset_Appraisal_Reason_Desc ""
+    }
+    ASSET_CLASSIFICATION_SUBJECT {
+        Code Party_Asset_Value_Cd "PK"
+        Code Party_Asset_Class_Cd "PK"
+    }
+    ASSET_CLASS_TO_OBLIGOR_TYPE {
+        Code Party_Class_Cd "PK"
+        Code Party_Class_Value_Cd "PK"
+        Date Asset_To_Obligor_Start_Dt "PK"
+        Identifier Basel_II_Asset_Class_Id "PK"
+        Date Asset_To_Obligor_End_Dt ""
+    }
+    ASSET_DETAIL_CODE_XREF {
+        Identifier Party_Asset_Id "PK"
+        Code Asset_Detail_Cd "PK"
+        Date Asset_Detail_Xref_Start_Dt "PK"
+        Date Asset_Detail_Xref_End_Dt ""
+        Count Asset_Detail_Cnt ""
+        string more "7 more"
+    }
+    ASSET_DETAIL_SCHEME_TYPE {
+        Code Asset_Detail_Scheme_Type_Cd "PK"
+        Description Asset_Detail_Scheme_Type_Desc ""
+    }
+    ASSET_DETAIL_TYPE {
+        Code Asset_Detail_Cd "PK"
+        Description Asset_Detail_Desc ""
+        Code Asset_Detail_Scheme_Type_Cd ""
+    }
+    ASSET_INSPECTION {
+        Identifier Party_Asset_Id "PK"
+        Date Inspection_Dt "PK"
+        Code Inspection_Evaluation_Method_Type_Cd ""
+    }
+    ASSET_INSPECTION_RESULT {
+        Identifier Party_Asset_Id "PK"
+        Date Inspection_Dt "PK"
+        Code Inspection_Type_Cd "PK"
+        Code Inspection_Result_Type_Cd ""
+        Count Asset_Inspection_Result_Cnt ""
+        string more "1 more"
+    }
+    ASSET_INSURANCE_REFUSED_TYPE {
+        Code Asset_Insurance_Refused_Type_Cd "PK"
+        Description Asset_Insurance_Refused_Type_Desc ""
+    }
+    ASSET_LIABILITY_TYPE {
+        Code Asset_Liability_Cd "PK"
+        Description Asset_Liability_Desc ""
+    }
+    ASSET_MAINTENANCE_TYPE {
+        Code Asset_Maintenance_Type_Cd "PK"
+        Description Asset_Maintenance_Type_Desc ""
+    }
+    ASSET_ROLE_TYPE {
+        Code Asset_Role_Cd "PK"
+        Description Asset_Role_Desc ""
+    }
+    ASSET_SCORE {
+        Identifier Party_Asset_Id "PK"
+        Identifier Analytical_Model_Id "PK"
+        Identifier Model_Run_Id "PK"
+        Value Asset_Score_Val ""
+    }
+    ASSET_USE_TYPE {
+        Code Asset_Use_Cd "PK"
+        Description Asset_Use_Desc ""
+    }
+    ASSET_VALUATION_AMOUNT_TYPE {
+        Code Asset_Valuation_Amount_Cd "PK"
+        Description Asset_Valuation_Amount_Desc ""
+    }
+    ASSET_VALUATION_METHOD_TYPE {
+        Code Asset_Valuation_Method_Cd "PK"
+        Description Asset_Valuation_Method_Desc ""
+    }
+    ASSET_VALUE {
+        Identifier Party_Asset_Id "PK"
+        Code Asset_Valuation_Amount_Cd "PK"
+        Date Asset_Value_Start_Dt "PK"
+        Date Asset_Value_End_Dt ""
+        Identifier Evaluator_Party_Id ""
+        string more "8 more"
+    }
+    CASH_ASSET {
+        Code Currency_Cd ""
+    }
+    DEPRECIABLE_ASSET_DEPRECIATION {
+        Identifier Depreciable_Fixed_Asset_Id "PK"
+        Code Depreciation_Method_Cd "PK"
+        Datetime Depreciable_Asset_Depreciation_Start_Dttm "PK"
+        Datetime Depreciable_Asset_Depreciation_End_Dttm ""
+    }
+    DEPRECIABLE_ASSET_TYPE {
+        Code Depreciable_Asset_Type_Cd "PK"
+        Description Depreciable_Asset_Type_Desc ""
+    }
+    DEPRECIABLE_FIXED_ASSET {
+        Identifier Depreciable_Fixed_Asset_Id "PK"
+        Code Depreciable_Asset_Type_Cd ""
+    }
+    DEPRECIABLE_PROPERTY {
+        Identifier Depreciable_Property_Fixed_Asset_Id "PK"
+    }
+    DWELLING_TYPE {
+        Code Dwelling_Type_Cd "PK"
+        Description Dwelling_Type_Desc ""
+    }
+    EQUIPMENT_ASSET {
+        Code Equipment_Type_Cd ""
+    }
+    FINANCIAL_ASSET {
+        Code Financial_Asset_Subtype_Cd "PK"
+        Date Financial_Asset_Maturity_Dt ""
+        Date Financial_Asset_Short_Maturity_Dt ""
+        Date Financial_Asset_Open_Dt ""
+    }
+    FINANCIAL_ASSET_SUBTYPE {
+        Code Financial_Asset_Subtype_Cd "PK"
+        Description Financial_Asset_Subtype_Desc ""
+    }
+    FIXED_ASSET {
+        Identifier Fixed_Asset_Id "PK"
+        Name Fixed_Asset_Name ""
+        Description Fixed_Asset_Desc ""
+        Datetime Fixed_Asset_Acquire_Dttm ""
+        Date Fixed_Asset_Useful_Life_End_Dt ""
+        string more "9 more"
+    }
+    FIXED_ASSET_AMOUNT {
+        Identifier Fixed_Asset_Id "PK"
+        Code Fixed_Asset_Amount_Type_Cd "PK"
+        Datetime Fixed_Asset_Amount_Start_Dttm "PK"
+        Datetime Fixed_Asset_Amount_End_Dttm ""
+        Amount Fixed_Asset_Amt ""
+        string more "5 more"
+    }
+    FIXED_ASSET_AMOUNT_TYPE {
+        Code Fixed_Asset_Amount_Type_Cd "PK"
+        Description Fixed_Asset_Amount_Type_Desc ""
+    }
+    FIXED_ASSET_BOOK {
+        Identifier Fixed_Asset_Id "PK"
+        Code Set_Of_Books_Cd "PK"
+    }
+    FIXED_ASSET_CLASS_SCHEME_TYPE {
+        Code Fixed_Asset_Class_Cd "PK"
+        Code Parent_Fixed_Asset_Class_Cd ""
+        Description Fixed_Asset_Class_Desc ""
+        Datetime Fixed_Asset_Class_Start_Dttm ""
+        Datetime Fixed_Asset_Class_End_Dttm ""
+    }
+    FIXED_ASSET_CLASS_VALUE {
+        Code Fixed_Asset_Class_Cd "PK"
+        Code Fixed_Asset_Class_Value_Cd "PK"
+        Code Parent_Fixed_Asset_Class_Value_Cd ""
+        Measure Fixed_Asset_Class_From_Meas ""
+        Measure Fixed_Asset_Class_To_Meas ""
+        string more "4 more"
+    }
+    FIXED_ASSET_CLASS_VALUE_XREF {
+        Identifier Fixed_Asset_Id "PK"
+        Code Fixed_Asset_Class_Cd "PK"
+        Datetime Fixed_Asset_Class_Value_Start_Dttm "PK"
+        Datetime Fixed_Asset_Class_Value_End_Dttm ""
+        Code Fixed_Asset_Class_Value_Cd ""
+    }
+    FIXED_ASSET_GROUP {
+        Identifier Fixed_Asset_Group_Id "PK"
+        Description Fixed_Asset_Group_Desc ""
+        Name Fixed_Asset_Group_Name ""
+    }
+    FIXED_ASSET_GROUP_XREF {
+        Identifier Fixed_Asset_Group_Id "PK"
+        Identifier Fixed_Asset_Id "PK"
+        Datetime Fixed_Asset_Group_Start_Dttm "PK"
+        Datetime Fixed_Asset_Group_End_Dttm ""
+    }
+    FIXED_ASSET_OWNERSHIP_TYPE {
+        Code Fixed_Asset_Ownership_Type_Cd "PK"
+        Description Fixed_Asset_Ownership_Type_Desc ""
+    }
+    FIXED_ASSET_PO {
+        Identifier Fixed_Asset_Id "PK"
+        Identifier Vendor_PO_Id "PK"
+        Number Vendor_PO_Line_Num "PK"
+    }
+    FIXED_ASSET_STATUS {
+        Identifier Fixed_Asset_Id "PK"
+        Datetime Fixed_Asset_Status_Dttm "PK"
+        Code Fixed_Asset_Status_Type_Cd "PK"
+        Identifier Fixed_Asset_Status_Party_Id ""
+    }
+    FIXED_ASSET_STATUS_TYPE {
+        Code Fixed_Asset_Status_Type_Cd "PK"
+        Description Fixed_Asset_Status_Type_Desc ""
+    }
+    FIXED_ASSET_TYPE {
+        Code Fixed_Asset_Type_Cd "PK"
+        Description Fixed_Asset_Type_Desc ""
+    }
+    INSURED_ASSET_UNDERWRITE_CLASS {
+        Code Agreement_Asset_Role_Subtype_Cd "PK"
+        Identifier Agreement_Id "PK"
+        Code Underwrite_Class_Cd "PK"
+        Identifier Party_Asset_Id "PK"
+        Date Agreement_Asset_Start_Dt "PK"
+        string more "2 more"
+    }
+    INTELLECTUAL_PROPERTY {
+        Code Intellectual_Property_Type_Cd "PK"
+    }
+    INTELLECTUAL_PROPERTY_TYPE {
+        Code Intellectual_Property_Type_Cd "PK"
+        Description Intellectual_Property_Type_Desc ""
+    }
+    INTERNAL_ASSET_SUBTYPE {
+        Code Internal_Asset_Subtype_Cd "PK"
+        Description Internal_Asset_Subtype_Desc ""
+    }
+    INTERNAL_ASSET_TYPE {
+        Code Internal_Asset_Type_Cd "PK"
+        Description Internal_Asset_Type_Desc ""
+        Name Internal_Asset_Type_Name ""
+        Code Internal_Asset_Subtype_Cd "PK"
+    }
+    INTERNAL_FIXED_ASSET_TYPE {
+        Identifier Fixed_Asset_Group_Id "PK"
+    }
+    JEWELRY {
+        Code Jewelry_Metal_Type_Cd "PK"
+        Code Jewelry_Type_Cd "PK"
+        Code Jewelry_Gem_Type_Cd "PK"
+    }
+    JEWELRY_GEM_TYPE {
+        Code Jewelry_Gem_Type_Cd "PK"
+        Description Jewelry_Gem_Type_Desc ""
+    }
+    JEWELRY_METAL_TYPE {
+        Code Jewelry_Metal_Type_Cd "PK"
+        Description Jewelry_Metal_Type_Desc ""
+    }
+    JEWELRY_TYPE {
+        Code Jewelry_Type_Cd "PK"
+        Description Jewelry_Type_Desc ""
+    }
+    MOTOR_VEHICLE {
+        Code Motor_Vehicle_Type_Cd "PK"
+        Code Body_Type_Cd "PK"
+        Code Transmission_Type_Cd "PK"
+        Code Modification_Cd "PK"
+        Number Motor_Vehicle_Serial_Num ""
+        string more "3 more"
+    }
+    MOTOR_VEHICLE_DETAIL {
+        Identifier Party_Asset_Id "PK"
+        Datetime Motor_Vehicle_Detail_Start_Dttm "PK"
+        Datetime Motor_Vehicle_Detail_End_Dttm ""
+        Indicator Drivable_Ind ""
+        Description Motor_Vehicle_Desc ""
+        string more "9 more"
+    }
+    MOTOR_VEHICLE_SPECIFICATION {
+        Identifier Party_Asset_Id "PK"
+        Code Vehicle_Specification_Type_Cd "PK"
+        Code Unit_Of_Measure_Cd ""
+        Value Vehicle_Specification_Val ""
+        Count Vehicle_Specification_Cnt ""
+        string more "1 more"
+    }
+    MOTOR_VEHICLE_TYPE {
+        Code Motor_Vehicle_Type_Cd "PK"
+        Description Motor_Vehicle_Type_Desc ""
+    }
+    MOTOR_VEHICLE_USAGE_METRIC {
+        Identifier Party_Asset_Id "PK"
+        Code Motor_Vehicle_Usage_Metric_Type_Cd "PK"
+        Date Motor_Vehicle_Usage_Metric_Dt "PK"
+        Code Unit_Of_Measure_Cd ""
+        Quantity Motor_Vehicle_Usage_Metric_Qty ""
+    }
+    MOTOR_VEHICLE_USAGE_METRIC_TYPE {
+        Code Motor_Vehicle_Usage_Metric_Type_Cd "PK"
+        Description Motor_Vehicle_Usage_Metric_Type_Desc ""
+    }
+    APPLICATION_ASSET_ROLE_SUBTYPE ||--o{ APPLICATION_ASSET : ""
+    ASSET_DETAIL_SCHEME_TYPE ||--o{ ASSET_DETAIL_TYPE : ""
+    ASSET_DETAIL_TYPE ||--o{ ASSET_DETAIL_CODE_XREF : ""
+    ASSET_INSPECTION ||--o{ ASSET_VALUE : ""
+    ASSET_INSPECTION ||--o{ ASSET_INSPECTION_RESULT : ""
+    ASSET_VALUATION_AMOUNT_TYPE ||--o{ ASSET_VALUE : ""
+    ASSET_VALUATION_METHOD_TYPE ||--o{ ASSET_VALUE : ""
+    DEPRECIABLE_ASSET_TYPE ||--o{ DEPRECIABLE_FIXED_ASSET : ""
+    DEPRECIABLE_FIXED_ASSET ||--o{ DEPRECIABLE_ASSET_DEPRECIATION : ""
+    FINANCIAL_ASSET_SUBTYPE ||--o{ FINANCIAL_ASSET : ""
+    FIXED_ASSET ||--o{ FIXED_ASSET_CLASS_VALUE_XREF : ""
+    FIXED_ASSET ||--o{ FIXED_ASSET_AMOUNT : ""
+    FIXED_ASSET ||--o{ FIXED_ASSET_BOOK : ""
+    FIXED_ASSET ||--o{ FIXED_ASSET_GROUP_XREF : ""
+    FIXED_ASSET ||--o{ FIXED_ASSET_STATUS : ""
+    FIXED_ASSET ||--o{ PROJECT_RESOURCE_FIXED_ASSET : ""
+    FIXED_ASSET ||--o{ FIXED_ASSET_PO : ""
+    FIXED_ASSET_AMOUNT_TYPE ||--o{ FIXED_ASSET_AMOUNT : ""
+    FIXED_ASSET_CLASS_SCHEME_TYPE ||--o{ FIXED_ASSET_CLASS_VALUE_XREF : ""
+    FIXED_ASSET_CLASS_SCHEME_TYPE ||--o{ FIXED_ASSET_CLASS_VALUE : ""
+    FIXED_ASSET_CLASS_SCHEME_TYPE ||--o{ FIXED_ASSET_CLASS_SCHEME_TYPE : ""
+    FIXED_ASSET_CLASS_VALUE ||--o{ FIXED_ASSET_CLASS_VALUE : ""
+    FIXED_ASSET_CLASS_VALUE ||--o{ FIXED_ASSET_CLASS_VALUE_XREF : ""
+    FIXED_ASSET_GROUP ||--o{ FIXED_ASSET_GROUP_XREF : ""
+    FIXED_ASSET_GROUP ||--o{ INTERNAL_FIXED_ASSET_TYPE : ""
+    FIXED_ASSET_OWNERSHIP_TYPE ||--o{ FIXED_ASSET : ""
+    FIXED_ASSET_STATUS_TYPE ||--o{ FIXED_ASSET_STATUS : ""
+    FIXED_ASSET_TYPE ||--o{ FIXED_ASSET : ""
+    INTELLECTUAL_PROPERTY_TYPE ||--o{ INTELLECTUAL_PROPERTY : ""
+    INTERNAL_ASSET_SUBTYPE ||--o{ INTERNAL_ASSET_TYPE : ""
+    JEWELRY_GEM_TYPE ||--o{ JEWELRY : ""
+    JEWELRY_METAL_TYPE ||--o{ JEWELRY : ""
+    JEWELRY_TYPE ||--o{ JEWELRY : ""
+    MOTOR_VEHICLE ||--o{ MOTOR_VEHICLE_USAGE_METRIC : ""
+    MOTOR_VEHICLE ||--o{ MOTOR_VEHICLE_SPECIFICATION : ""
+    MOTOR_VEHICLE ||--o{ MOTOR_VEHICLE_DETAIL : ""
+    MOTOR_VEHICLE_TYPE ||--o{ MOTOR_VEHICLE : ""
+    MOTOR_VEHICLE_USAGE_METRIC_TYPE ||--o{ MOTOR_VEHICLE_USAGE_METRIC : ""
+    NONDEPRECIABLE_ASSET_TYPE ||--o{ NONDEPRECIABLE_FIXED_ASSET : ""
+    VEHICLE_MAKE_MODEL ||--o{ VEHICLE_MAKE_MODEL_YEAR : ""
+    VEHICLE_MAKE_MODEL_YEAR ||--o{ MOTOR_VEHICLE : ""
+    VEHICLE_MAKE_MODEL_YEAR ||--o{ VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION : ""
+    VEHICLE_MAKE_TYPE ||--o{ VEHICLE_MAKE_MODEL : ""
+    VEHICLE_SERIES_TYPE ||--o{ VEHICLE_MAKE_MODEL_YEAR : ""
+    VEHICLE_SPECIFICATION_TYPE ||--o{ MOTOR_VEHICLE_SPECIFICATION : ""
+    VEHICLE_SPECIFICATION_TYPE ||--o{ VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION : ""
+    APPLICATION_ASSET ||--|| APPLICATION_INSURED_ASSET : "inherits"
+    FINANCIAL_ASSET ||--|| CASH_ASSET : "inherits"
+    FIXED_ASSET ||--|| DEPRECIABLE_FIXED_ASSET : "inherits"
+    DEPRECIABLE_FIXED_ASSET ||--|| DEPRECIABLE_PROPERTY : "inherits"
+    INTERNAL_ASSET_TYPE ||--|| INTERNAL_CONSUMABLE_ASSET_TYPE : "inherits"
+    INTERNAL_ASSET_TYPE ||--|| INTERNAL_FIXED_ASSET_TYPE : "inherits"
+    FIXED_ASSET ||--|| NONDEPRECIABLE_FIXED_ASSET : "inherits"

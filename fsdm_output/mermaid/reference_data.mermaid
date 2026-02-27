@@ -1,0 +1,212 @@
+erDiagram
+    AMBULATORY_PATIENT_CLASSIFICATION {
+        Code Ambulatory_Patient_Classification_Cd "PK"
+        Description Ambulatory_Patient_Classification_Desc ""
+    }
+    ASTRONOMICAL_CALENDAR {
+        Identifier Weather_Station_Site_Id "PK"
+        Code Astronomical_Event_Cd "PK"
+        Datetime Event_Start_Dttm "PK"
+        Datetime Event_End_Dttm ""
+    }
+    CALENDAR_TYPE {
+        Code Calendar_Type_Cd "PK"
+        Description Calendar_Type_Desc ""
+    }
+    CURRENCY {
+        Code Currency_Cd "PK"
+        Name Currency_Name "PK"
+        Count Exchange_Rate_Unit_Cnt ""
+        Count Currency_Rounding_Decimal_Cnt ""
+        string ISO_4217_Currency_Alpha_3_Cd "PK"
+    }
+    CURRENCY_DENOMINATION_TYPE {
+        Code Currency_Denomination_Type_Cd "PK"
+        Description Currency_Denomination_Type_Desc ""
+    }
+    CURRENCY_SEGMENT {
+        Identifier GL_Currency_Segment_Id "PK"
+    }
+    CURRENCY_TRANSLATION_RATE {
+        Code Source_Currency_Cd "PK"
+        Code Target_Currency_Cd "PK"
+        Code Currency_Translation_Rate_Type_Cd "PK"
+        Datetime Currency_Translation_Rate_Start_Dttm "PK"
+        Datetime Currency_Translation_Rate_End_Dttm ""
+        string more "3 more"
+    }
+    CURRENCY_TRANSLATION_RATE_TYPE {
+        Code Currency_Translation_Rate_Type_Cd "PK"
+        Description Currency_Translation_Rate_Type_Desc ""
+    }
+    CURRENCY_USE_TYPE {
+        Code Currency_Use_Cd "PK"
+        Description Currency_Cd_Desc ""
+    }
+    CUSTOM_CALENDAR {
+        Identifier Custom_Calendar_Id "PK"
+        Code Calendar_Type_Cd ""
+        Number First_Day_Of_Week_Num ""
+        Description Custom_Calendar_Desc ""
+    }
+    CUSTOM_CALENDAR_DAY {
+        Date Gregorian_Dt "PK"
+        Identifier Custom_Calendar_Id "PK"
+        Number Custom_Calendar_Day_Of_Month_Num ""
+        Number Custom_Calendar_Day_Of_Year_Num ""
+        Identifier Custom_Calendar_Week_Id ""
+        string more "1 more"
+    }
+    CUSTOM_CALENDAR_MONTH {
+        Identifier Custom_Calendar_Month_Id "PK"
+        Description Custom_Calendar_Month_Desc "PK"
+        Identifier Custom_Calendar_Quarter_Id "PK"
+    }
+    CUSTOM_CALENDAR_MONTH_WEEK {
+        Identifier Custom_Calendar_Week_Id "PK"
+        Identifier Custom_Calendar_Month_Id "PK"
+    }
+    CUSTOM_CALENDAR_QUARTER {
+        Identifier Custom_Calendar_Quarter_Id "PK"
+        Description Custom_Calendar_Quarter_Desc "PK"
+        Identifier Custom_Calendar_Year_Id "PK"
+    }
+    CUSTOM_CALENDAR_WEEK {
+        Identifier Custom_Calendar_Week_Id "PK"
+        Description Custom_Calendar_Week_Desc "PK"
+    }
+    CUSTOM_CALENDAR_YEAR {
+        Identifier Custom_Calendar_Year_Id "PK"
+        Description Custom_Calendar_Year_Desc "PK"
+        Identifier Custom_Calendar_Id ""
+    }
+    DEA_DRUG_CLASSIFICATION__GEO {
+        Number DEA_Num__Geo "PK"
+        Number DEA_Schedule_Num__Geo ""
+        Name DEA_Name ""
+        Indicator Narcotic_Ind ""
+    }
+    DIAGNOSIS_CLASSIFICATION_TYPE {
+        Code Diagnosis_Classification_Type_Cd "PK"
+        Description Diagnosis_Classification_Type_Desc ""
+    }
+    DOMAIN_ROOT_TYPE {
+        Code Domain_Root_Cd "PK"
+        Description Domain_Root_Desc ""
+    }
+    GEOGRAPHICAL_AREA_CURRENCY {
+        Identifier Geographical_Area_Id "PK"
+        Code Currency_Cd "PK"
+        Date Geographical_Area_Currency_Start_Dt "PK"
+        Code Geographical_Area_Currency_Role_Cd "PK"
+        Date Geographical_Area_Currency_End_Dt ""
+    }
+    GEOGRAPHICAL_AREA_CURRENCY_ROLE {
+        Code Geographical_Area_Currency_Role_Cd "PK"
+        Description Geographical_Area_Currency_Role_Desc ""
+    }
+    HOLIDAY_CALENDAR {
+        Identifier Holiday_Calendar_Id "PK"
+        Name Holiday_Calendar_Name ""
+    }
+    HOLIDAY_CALENDAR_DATE {
+        Date Gregorian_Dt "PK"
+        Identifier Holiday_Calendar_Id "PK"
+        Code Holiday_Cd "PK"
+        Indicator Weekend_Ind ""
+    }
+    ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS {
+        Identifier CFI_Code_Id "PK"
+        string CFI_Category_Alpha_1_Val ""
+        string CFI_Group_Alpha_1_Val ""
+        string CFI_Group_Attribute_1_Alpha_1_Val ""
+        string CFI_Group_Attribute_2_Alpha_1_Val ""
+        string more "2 more"
+    }
+    ISO_4217_CURRENCY_TYPE {
+        string ISO_4217_Currency_Alpha_3_Cd "PK"
+        string ISO_3166_Country_Alpha_2_Cd "PK"
+        string Replaced_ISO_4217_Currency_Alpha_3_Cd ""
+        Description ISO_4217_Currency_Desc ""
+        string ISO_4217_Currency_3_Num ""
+        string more "3 more"
+    }
+    ISO_LANGUAGE_TYPE {
+        Code ISO_Language_Type_Cd "PK"
+        Description ISO_Language_Type_Desc ""
+    }
+    LANGUAGE_PROFICIENCY_TYPE {
+        Code Language_Proficiency_Type_Cd "PK"
+        Description Language_Proficiency_Type_Desc ""
+    }
+    LANGUAGE_TYPE {
+        Code Language_Type_Cd "PK"
+        Description Language_Type_Desc ""
+        Name Language_Native_Name ""
+        Code ISO_Language_Type_Cd "PK"
+    }
+    LANGUAGE_USAGE_TYPE {
+        Code Language_Usage_Type_Cd "PK"
+        Description Language_Usage_Type_Desc ""
+    }
+    LEGAL_CLASSIFICATION {
+        Code Legal_Classification_Cd "PK"
+        Description Legal_Classification_Desc ""
+    }
+    METRIC_DOMAIN_TYPE {
+        Code Metric_Domain_Type_Cd "PK"
+        Description Metric_Domain_Type_Desc ""
+    }
+    PROJECT_CLASSIFICATION_TYPE {
+        Code Project_Classification_Type_Cd "PK"
+        Description Project_Classification_Type_Desc ""
+    }
+    SET_OF_BOOKS_CALENDAR_YEAR {
+        Code Set_Of_Books_Cd "PK"
+        Identifier Custom_Calendar_Year_Id "PK"
+        Datetime Set_Of_Books_Calendar_Start_Dttm "PK"
+        Datetime Set_Of_Books_Calendar_End_Dttm ""
+    }
+    SET_OF_BOOKS_CURRENCY {
+        Code Set_Of_Books_Cd "PK"
+        Code Currency_Cd "PK"
+        Datetime Set_Of_Books_Currency_Start_Dttm "PK"
+        Datetime Set_Of_Books_Currency_End_Dttm ""
+    }
+    TIME_PERIOD_TYPE {
+        Code Time_Period_Cd "PK"
+        Description Time_Period_Desc ""
+    }
+    UNIT_OF_MEASURE {
+        Code Unit_Of_Measure_Cd "PK"
+        Name Unit_Of_Measure_Name ""
+        Code Unit_Of_Measure_Type_Cd ""
+    }
+    UNIT_OF_MEASURE_CONVERSION {
+        Code To_UOM_Cd "PK"
+        Code From_UOM_Cd "PK"
+        Quantity UOM_Conversion_Factor_Qty ""
+    }
+    UNIT_OF_MEASURE_TYPE {
+        Code Unit_Of_Measure_Type_Cd "PK"
+        Description Unit_Of_Measure_Type_Desc ""
+    }
+    CALENDAR_TYPE ||--o{ CUSTOM_CALENDAR : ""
+    CURRENCY ||--o{ GEOGRAPHICAL_AREA_CURRENCY : ""
+    CURRENCY ||--o{ SET_OF_BOOKS_CURRENCY : ""
+    CURRENCY_TRANSLATION_RATE_TYPE ||--o{ CURRENCY_TRANSLATION_RATE : ""
+    CUSTOM_CALENDAR ||--o{ CUSTOM_CALENDAR_YEAR : ""
+    CUSTOM_CALENDAR ||--o{ CUSTOM_CALENDAR_DAY : ""
+    CUSTOM_CALENDAR_MONTH ||--o{ CUSTOM_CALENDAR_MONTH_WEEK : ""
+    CUSTOM_CALENDAR_MONTH_WEEK ||--o{ CUSTOM_CALENDAR_DAY : ""
+    CUSTOM_CALENDAR_QUARTER ||--o{ CUSTOM_CALENDAR_MONTH : ""
+    CUSTOM_CALENDAR_WEEK ||--o{ CUSTOM_CALENDAR_MONTH_WEEK : ""
+    CUSTOM_CALENDAR_YEAR ||--o{ SET_OF_BOOKS_CALENDAR_YEAR : ""
+    CUSTOM_CALENDAR_YEAR ||--o{ CUSTOM_CALENDAR_QUARTER : ""
+    GEOGRAPHICAL_AREA_CURRENCY_ROLE ||--o{ GEOGRAPHICAL_AREA_CURRENCY : ""
+    HOLIDAY_CALENDAR ||--o{ HOLIDAY_CALENDAR_DATE : ""
+    ISO_4217_CURRENCY_TYPE ||--o{ ISO_4217_CURRENCY_TYPE : ""
+    ISO_4217_CURRENCY_TYPE ||--o{ CURRENCY : ""
+    ISO_LANGUAGE_TYPE ||--o{ LANGUAGE_TYPE : ""
+    UNIT_OF_MEASURE_TYPE ||--o{ UNIT_OF_MEASURE : ""
+    CALENDAR_TYPE ||--|| CROP_YEAR_CALENDAR_TYPE : "inherits"

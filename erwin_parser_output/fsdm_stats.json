@@ -1,0 +1,343 @@
+{
+  "model_info": {
+    "model_name": "Teradata Financial Services Data Model",
+    "version": "13.00.00",
+    "erwin_build": "9.5.00.4043",
+    "file_type": "ERwin GDM Binary (Logical Data Model)",
+    "generated": "2026-02-27T07:25:46.868023"
+  },
+  "summary": {
+    "total_entities": 3271,
+    "total_attributes": 9379,
+    "total_relationships": 219,
+    "total_subject_areas": 26,
+    "entities_with_attributes": 2545,
+    "entities_without_attributes": 726,
+    "avg_attributes_per_entity": 2.9
+  },
+  "subject_area_breakdown": {
+    "Banking": 3,
+    "Banking - Agreement": 240,
+    "Banking - Campaign": 1,
+    "Banking - Channel": 2,
+    "Banking - Event": 5,
+    "Banking - Finance": 7,
+    "Banking - Internal Organization": 6,
+    "Banking - Party": 14,
+    "Banking - Party Asset": 21,
+    "Banking - Product": 11,
+    "Foundation": 174,
+    "Foundation - Agreement": 252,
+    "Foundation - Campaign": 266,
+    "Foundation - Channel": 122,
+    "Foundation - Event": 354,
+    "Foundation - Finance": 356,
+    "Foundation - Internal Organization": 25,
+    "Foundation - Location": 117,
+    "Foundation - Party": 380,
+    "Foundation - Party Asset": 109,
+    "Foundation - Product": 127,
+    "Investment - Agreement": 121,
+    "Investment - Event": 52,
+    "Investment - Party": 20,
+    "Investment - Product": 129,
+    "Unassigned": 357
+  },
+  "top_entities_by_attributes": [
+    {
+      "entity": "INCOME STATEMENT GL MAIN ACCOUNT",
+      "attribute_count": 548
+    },
+    {
+      "entity": "SETTLEMENT ACCOUNT DETAILS",
+      "attribute_count": 78
+    },
+    {
+      "entity": "AGREEMENT CHANNEL TYPE",
+      "attribute_count": 69
+    },
+    {
+      "entity": "REINSURED RISK",
+      "attribute_count": 55
+    },
+    {
+      "entity": "SURVEY RESOLUTION TYPE",
+      "attribute_count": 53
+    },
+    {
+      "entity": "AGREEMENT RISK HISTORY",
+      "attribute_count": 50
+    },
+    {
+      "entity": "AGREEMENT SUMMARY",
+      "attribute_count": 41
+    },
+    {
+      "entity": "PARTY AGREEMENT METRIC",
+      "attribute_count": 40
+    },
+    {
+      "entity": "INTEREST RATE QUOTATION",
+      "attribute_count": 32
+    },
+    {
+      "entity": "STREET ADDRESS DETAIL",
+      "attribute_count": 27
+    },
+    {
+      "entity": "WEB PAGE VIEW",
+      "attribute_count": 27
+    },
+    {
+      "entity": "EXPOSURE AGREEMENT ASSET VALUE",
+      "attribute_count": 25
+    },
+    {
+      "entity": "LOAN TERM AGREEMENT",
+      "attribute_count": 24
+    },
+    {
+      "entity": "SECURITIZATION EXPOSURE",
+      "attribute_count": 23
+    },
+    {
+      "entity": "WEB VISIT",
+      "attribute_count": 22
+    },
+    {
+      "entity": "SECURITIZATION POOL RISK",
+      "attribute_count": 22
+    },
+    {
+      "entity": "REPURCHASE AGREEMENT",
+      "attribute_count": 22
+    },
+    {
+      "entity": "PARTY LIABILITY CREDIT RATING",
+      "attribute_count": 21
+    },
+    {
+      "entity": "ASSUMPTION SET",
+      "attribute_count": 21
+    },
+    {
+      "entity": "CREDIT AGREEMENT",
+      "attribute_count": 20
+    },
+    {
+      "entity": "COLLATERAL ITEM VALUE",
+      "attribute_count": 19
+    },
+    {
+      "entity": "SOCIAL NETWORK ACCESS",
+      "attribute_count": 19
+    },
+    {
+      "entity": "PURCHASED RECEIVABLE ISSUER AGREEMENT",
+      "attribute_count": 18
+    },
+    {
+      "entity": "EXTENDED SESSION INFORMATION",
+      "attribute_count": 18
+    },
+    {
+      "entity": "GL MAIN ACCOUNT SCHEME TYPE",
+      "attribute_count": 18
+    },
+    {
+      "entity": "OPTION PRODUCT",
+      "attribute_count": 17
+    },
+    {
+      "entity": "POSITION GRADE",
+      "attribute_count": 16
+    },
+    {
+      "entity": "AGREEMENT PRODUCT FEATURE",
+      "attribute_count": 16
+    },
+    {
+      "entity": "QUOTATION FEATURE",
+      "attribute_count": 16
+    },
+    {
+      "entity": "TRADE EXECUTION",
+      "attribute_count": 16
+    }
+  ],
+  "hub_entities": [
+    {
+      "entity": "HR POSITION SITE REASON",
+      "relationship_count": 50
+    },
+    {
+      "entity": "OPPORTUNITY STATUS TYPE",
+      "relationship_count": 15
+    },
+    {
+      "entity": "AGREEMENT FEATURE RELATED",
+      "relationship_count": 10
+    },
+    {
+      "entity": "BANK CAPITAL SUMMARY",
+      "relationship_count": 5
+    },
+    {
+      "entity": "PRODUCT GROUP METRIC",
+      "relationship_count": 4
+    },
+    {
+      "entity": "AGREEMENT PARTY FEATURE",
+      "relationship_count": 4
+    },
+    {
+      "entity": "AGREEMENT IDENTIFICATION",
+      "relationship_count": 4
+    },
+    {
+      "entity": "CHANNEL CHANNEL CLASS XREF",
+      "relationship_count": 4
+    },
+    {
+      "entity": "MARKET QUOTATION METRIC TYPE",
+      "relationship_count": 3
+    },
+    {
+      "entity": "INVESTMENT PRODUCT GROUP RISK FACTOR",
+      "relationship_count": 3
+    },
+    {
+      "entity": "MARKET QUOTATION METRIC",
+      "relationship_count": 3
+    },
+    {
+      "entity": "AGREEMENT ASSET",
+      "relationship_count": 3
+    },
+    {
+      "entity": "AGREEMENT METRIC PROJECTION",
+      "relationship_count": 3
+    },
+    {
+      "entity": "BASEL DEFAULT STATUS PARAMETER",
+      "relationship_count": 3
+    },
+    {
+      "entity": "INTEREST RATE BANKING BOOK SUMMARY",
+      "relationship_count": 3
+    },
+    {
+      "entity": "INCIDENT PERIL TYPE",
+      "relationship_count": 3
+    },
+    {
+      "entity": "PARTY CLASS VALUE",
+      "relationship_count": 3
+    },
+    {
+      "entity": "TASK ADJUSTMENT",
+      "relationship_count": 3
+    },
+    {
+      "entity": "VISITOR",
+      "relationship_count": 3
+    },
+    {
+      "entity": "FUTURES AGREEMENT",
+      "relationship_count": 2
+    },
+    {
+      "entity": "ASSOCIATE LEAVE TAKEN",
+      "relationship_count": 2
+    },
+    {
+      "entity": "ASSOCIATE POSITION STATUS",
+      "relationship_count": 2
+    },
+    {
+      "entity": "BENEFIT PLAN OPTION POSITION",
+      "relationship_count": 2
+    },
+    {
+      "entity": "ASSOCIATE STATUS",
+      "relationship_count": 2
+    },
+    {
+      "entity": "DWELLING TYPE",
+      "relationship_count": 2
+    },
+    {
+      "entity": "COMMUNICATION COLLATERAL",
+      "relationship_count": 2
+    },
+    {
+      "entity": "FOREIGN EXCHANGE METRIC",
+      "relationship_count": 2
+    },
+    {
+      "entity": "OPPORTUNITY COMPETITOR",
+      "relationship_count": 2
+    },
+    {
+      "entity": "BANK ACTUAL RISK LOSS",
+      "relationship_count": 2
+    },
+    {
+      "entity": "INCOME STATEMENT GL MAIN ACCOUNT",
+      "relationship_count": 2
+    }
+  ],
+  "orphan_entity_count": 2971,
+  "orphan_entities_sample": [
+    "ACCESS DEVICE",
+    "ACCESS DEVICE ACTIVATE EVENT",
+    "ACCESS DEVICE DESCRIPTIVE FEATURE",
+    "ACCESS DEVICE EVENT",
+    "ACCESS DEVICE FEATURE",
+    "ACCESS DEVICE LIMIT",
+    "ACCESS DEVICE METHOD TYPE",
+    "ACCESS DEVICE PIN",
+    "ACCESS DEVICE PIN REASON TYPE",
+    "ACCESS DEVICE REASON TYPE",
+    "ACCESS DEVICE RELATED",
+    "ACCESS DEVICE RELATED TYPE",
+    "ACCESS DEVICE STATUS",
+    "ACCESS DEVICE STATUS TYPE",
+    "ACCESS DEVICE SUBTYPE",
+    "ACCESS DEVICE VERIFY TYPE",
+    "ACCESS MEDIUM TYPE",
+    "ACCIDENT EVENT",
+    "ACCIDENT TYPE",
+    "ACCOUNT INVOLVEMENT SUBTYPE",
+    "ACCOUNT METRIC",
+    "ACCOUNT METRIC TYPE",
+    "ACCOUNT PURPOSE SUBTYPE",
+    "ACCOUNT RENEWAL",
+    "ACCOUNT TYPE",
+    "ACCOUNTING CALENDAR TYPE",
+    "ACCOUNTING CURRENCY",
+    "ACCOUNTING TYPE",
+    "ACCOUNTS PAYABLE",
+    "ACCOUNTS RECEIVABLE",
+    "ACCRUED LIABILITY ACCOUNT",
+    "ACTIVITY ACTIVITY GROUP",
+    "ACTIVITY GROUP",
+    "AD CONTACT XREF",
+    "AD DELIVERY TYPE",
+    "AD EVENT",
+    "AD EVENT TYPE",
+    "AD GROUP CAMPAIGN XREF",
+    "AD IMPRESSION SUMMARY",
+    "AD NETWORK",
+    "AD NETWORK WEB SITE",
+    "AD OBJECT",
+    "AD OFFER",
+    "AD ORDER BROADCAST MEDIUM",
+    "AD ORDER COMMISSION",
+    "AD ORDER DELIVERY SUBTYPE",
+    "AD ORDER DISPLAY TIME",
+    "AD ORDER EVENT",
+    "AD ORDER EXPENSE FORECAST",
+    "AD ORDER INTERACTIVE DEVICE MEDIUM"
+  ]
+}

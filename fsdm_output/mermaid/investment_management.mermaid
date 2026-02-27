@@ -1,0 +1,316 @@
+erDiagram
+    AGENT_COMMISSION_OPTION_TYPE {
+        Code Agent_Commission_Option_Cd "PK"
+        Description Agent_Commission_Option_Desc ""
+    }
+    APPLICATION_INVESTMENT_DETAIL {
+        Identifier Product_Id "PK"
+        Identifier Application_Id "PK"
+        Date Application_Detail_Start_Dt "PK"
+        Date Application_Detail_End_Dt ""
+        Percent Application_Detail_Investment_Pct ""
+    }
+    ASIAN_OPTION {
+        Date Asian_Option_Average_Start_Dt ""
+        Date Asian_Option_Average_End_Dt ""
+        Amount Asian_Option_Running_Average_Amt ""
+        Rate Asian_Option_Strike_Multiply_Rate ""
+        Count Asian_Option_Day_Cnt ""
+        string more "1 more"
+    }
+    ASIAN_OPTION_TYPE {
+        Code Asian_Option_Type_Cd "PK"
+        Description Asian_Option_Type_Desc ""
+    }
+    ASSET_BACKED_SECURITY_PRINCIPAL {
+        Identifier Investment_Product_Id "PK"
+        Date ABS_Principal_Dt "PK"
+        Amount ABS_Outstanding_Principal_Amt ""
+    }
+    ASSET_BACKED_SECURITY_TYPE {
+        Code Asset_backed_Security_Type_Cd "PK"
+        Description Asset_backed_Security_Desc ""
+    }
+    BANK_TRADE_BOOK_TYPE {
+        Code Bank_Trade_Book_Cd "PK"
+        Description Bank_Trade_Book_Desc ""
+    }
+    BARRIER_OPTION_TYPE {
+        Code Barrier_Option_Type_Cd "PK"
+        Description Barrier_Option_Type_Desc ""
+    }
+    BENEFIT_PLAN_OPTION {
+        Identifier Benefit_Plan_Id "PK"
+        Identifier Benefit_Plan_Option_Id "PK"
+        Code Benefit_Plan_Option_Subtype_Cd "PK"
+        Code Benefit_Plan_Option_Status_Cd "PK"
+        Description Benefit_Plan_Option_Desc ""
+        string more "3 more"
+    }
+    BENEFIT_PLAN_OPTION_ELIGIBILITY {
+        Identifier Benefit_Plan_Id "PK"
+        Identifier Benefit_Plan_Option_Id "PK"
+        Code Benefit_Plan_Eligibility_Term_Cd "PK"
+        Date Plan_Option_Eligibility_Start_Dt "PK"
+        Date Plan_Option_Eligibility_End_Dt ""
+    }
+    BENEFIT_PLAN_OPTION_STATUS_TYPE {
+        Code Benefit_Plan_Option_Status_Cd "PK"
+        Description Benefit_Plan_Option_Status_Desc ""
+    }
+    BENEFIT_PLAN_OPTION_SUBTYPE {
+        Code Benefit_Plan_Option_Subtype_Cd "PK"
+        Description Benefit_Plan_Option_Subtype_Desc ""
+    }
+    BOND {
+        Number Bond_Interest_Payment_Month_Num ""
+        Number Bond_Interest_Payment_Day_Num ""
+        Quantity Bond_Unit_Issued_Qty ""
+        Rate Bond_Coupon_Rate ""
+        Code Bond_Subtype_Cd "PK"
+        string more "14 more"
+    }
+    BOND_AMORTIZATION_SCHEDULE {
+        Identifier Investment_Product_Id "PK"
+        Date Bond_Amortization_Dt "PK"
+        Percent Bond_Principal_Change_Pct ""
+    }
+    BOND_CALL_SCHEDULE {
+        Identifier Investment_Product_Id "PK"
+        Date Bond_Call_Dt "PK"
+        Amount Bond_Call_Price_Amt ""
+    }
+    BOND_CALL_TYPE {
+        Code Bond_Call_Type_Cd "PK"
+        Description Bond_Call_Type_Desc ""
+    }
+    BOND_CONVERSION_SCHEDULE {
+        Identifier Investment_Product_Id "PK"
+        Date Bond_Conversion_Dt "PK"
+        Rate Convertible_Bond_Rate ""
+    }
+    BOND_CONVERSION_STYLE_TYPE {
+        Code Bond_Conversion_Type_Cd "PK"
+        Description Bond_Conversion_Type_Desc ""
+    }
+    BOND_DELIVERY_FORM_TYPE {
+        Code Bond_Delivery_Form_Cd "PK"
+        Description Bond_Delivery_Form_Desc ""
+    }
+    BOND_FUTURES {
+        Rate Bond_Future_Conversion_Rate ""
+    }
+    BOND_PUT_SCHEDULE {
+        Identifier Investment_Product_Id "PK"
+        Date Bond_Put_Dt "PK"
+        Amount Bond_Put_Price_Amt ""
+    }
+    BOND_REDEMPTION {
+        Quantity Bond_Redemption_Qty ""
+        Amount Bond_Redemption_Price_Amt ""
+        Date Redemption_Announcement_Dt ""
+    }
+    BOND_SUBTYPE {
+        Code Bond_Subtype_Cd "PK"
+        Description Bond_Subtype_Desc ""
+    }
+    BOND_TO_EQUITY_CONVERSION {
+        Quantity Per_Share_Conversion_Qty ""
+        Date Bond_To_Equity_Conversion_Dt ""
+        Identifier Equity_Investment_Product_Id ""
+    }
+    CASH_DIVIDEND_EVENT {
+        Amount Per_Share_Amt ""
+        Code Currency_Cd ""
+    }
+    CELL_TARGET_MARKET {
+        Identifier Locator_Id "PK"
+        Identifier Campaign_Cell_Id "PK"
+        Identifier Campaign_Id "PK"
+        Date Target_Market_Dt ""
+    }
+    COMMODITY_FUTURES {
+        Indicator EU_Commodities_Derivative_Ind ""
+    }
+    CONVERTIBLE_BOND {
+        Code Bond_Conversion_Type_Cd ""
+    }
+    CORPORATE_BOND {
+        Code Corporate_Bond_Type_Cd ""
+    }
+    CORPORATE_BOND_TYPE {
+        Code Corporate_Bond_Type_Cd "PK"
+        Description Corporate_Bond_Type_Desc ""
+    }
+    COUPON_TYPE {
+        Code Coupon_Type_Cd "PK"
+        Description Coupon_Type_Desc ""
+    }
+    CURRENCY_EXCHANGE_QUOTATION {
+        Code From_Currency_Cd ""
+        Code To_Currency_Cd ""
+        Rate Quoted_Currency_Exchange_Rate ""
+        Amount Quoted_Currency_Exchange_Fee_Amt ""
+    }
+    CURRENCY_FORWARD {
+        Rate Currency_Forward_Exchange_Rate ""
+        Quantity Currency_Forward_Qty ""
+        Date Currency_Forward_Value_Dt ""
+        Code Forward_Buy_Currency_Cd ""
+        Code Forward_Sell_Currency_Cd ""
+    }
+    CURRENCY_SWAP {
+        Quantity Swap_In_Currency_Qty ""
+        Quantity Swap_Out_Currency_Qty ""
+        Code Swap_In_Currency_Cd "PK"
+        Code Swap_Out_Currency_Cd ""
+        Code Currency_Swap_Type_Cd ""
+    }
+    CURRENCY_SWAP_TYPE {
+        Code Currency_Swap_Type_Cd "PK"
+        Description Currency_Swap_Type_Desc ""
+    }
+    DERIVATIVE_NOTIONAL_CHANGE_TYPE {
+        Code Derivative_Notional_Change_Type_Cd "PK"
+        Description Derivative_Notional_Change_Type_Desc ""
+    }
+    DERIVATIVE_SUBTYPE {
+        Code Derivative_Subtype_Cd "PK"
+        Description Derivative_Subtype_Desc ""
+    }
+    DESIGNATED_MARKET_AREA__GEO {
+        Identifier DMA_Id__Geo "PK"
+    }
+    DIVIDEND_DECLARE_EVENT {
+        Identifier Dividend_Declare_Exchange_Party_Id "PK"
+        Identifier Event_Id "PK"
+        Code Dividend_Type_Cd "PK"
+        Date Dividend_Record_Dt ""
+        Date Dividend_Payable_Dt ""
+        string more "2 more"
+    }
+    DIVIDEND_TYPE {
+        Code Dividend_Type_Cd "PK"
+        Description Dividend_Type_Desc ""
+    }
+    EQUITY_FUTURES {
+        Rate Equity_Future_Dividend_Yield_Rate ""
+    }
+    EQUITY_FUTURES_DIVIDEND_SCHEDULE {
+        Identifier Investment_Product_Id "PK"
+        Date Equity_Future_Dividend_Payment_Dt "PK"
+        Amount Equity_Future_Dividend_Amt ""
+    }
+    EQUITY_HOLDING_SUMMARY {
+        Identifier Party_Id "PK"
+        Code Basel_II_Approach_Type_Cd "PK"
+        Code Basel_Function_Type_Cd "PK"
+        Identifier Equity_Type_Product_Group_Id "PK"
+        Identifier Risk_Scenario_Id "PK"
+        string more "12 more"
+    }
+    EUROCURRENCY_FUTURES {
+        Count Euro_Future_Rate_Month_Cnt ""
+    }
+    ASIAN_OPTION_TYPE ||--o{ ASIAN_OPTION : ""
+    BENEFIT_PLAN_OPTION ||--o{ BENEFIT_PLAN_OPTION_ELIGIBILITY : ""
+    BENEFIT_PLAN_OPTION_STATUS_TYPE ||--o{ BENEFIT_PLAN_OPTION : ""
+    BENEFIT_PLAN_OPTION_SUBTYPE ||--o{ BENEFIT_PLAN_OPTION : ""
+    BOND ||--o{ BOND_AMORTIZATION_SCHEDULE : ""
+    BOND ||--o{ BOND_CALL_SCHEDULE : ""
+    BOND ||--o{ BOND_PUT_SCHEDULE : ""
+    BOND_CALL_TYPE ||--o{ BOND : ""
+    BOND_CONVERSION_STYLE_TYPE ||--o{ CONVERTIBLE_BOND : ""
+    BOND_DELIVERY_FORM_TYPE ||--o{ BOND : ""
+    BOND_SUBTYPE ||--o{ BOND : ""
+    CONVERTIBLE_BOND ||--o{ BOND_CONVERSION_SCHEDULE : ""
+    CORPORATE_BOND ||--o{ SINKING_FUND_SCHEDULE : ""
+    CORPORATE_BOND_TYPE ||--o{ CORPORATE_BOND : ""
+    COUPON_TYPE ||--o{ EXTERNAL_COUPON : ""
+    CURRENCY_SWAP_TYPE ||--o{ CURRENCY_SWAP : ""
+    DERIVATIVE_NOTIONAL_CHANGE_TYPE ||--o{ TRADE_EXECUTION : ""
+    DIVIDEND_TYPE ||--o{ DIVIDEND_DECLARE_EVENT : ""
+    EQUITY_FUTURES ||--o{ EQUITY_FUTURES_DIVIDEND_SCHEDULE : ""
+    FUND_SOURCE_TYPE ||--o{ LIFE_LINE_QUOTATION : ""
+    FUND_TYPE ||--o{ FUND : ""
+    INTEREST_RATE_SWAP_SUBTYPE ||--o{ INTEREST_RATE_SWAP : ""
+    INVESTMENT_CORPORATE_ACTION ||--o{ DIVIDEND_DECLARE_EVENT : ""
+    INVESTMENT_COST_BASIS_CHANGE_REASON ||--o{ INVESTMENT_COST_BASIS : ""
+    INVESTMENT_SERVICE_SUBTYPE ||--o{ INVESTMENT_SERVICE : ""
+    ISO_10383_MARKET_IDENTIFIER_CODE ||--o{ ISO_10383_MARKET_IDENTIFIER_CODE : ""
+    ISO_10383_MARKET_IDENTIFIER_CODE_STATUS ||--o{ ISO_10383_MARKET_IDENTIFIER_CODE : ""
+    MARKET_INDEX ||--o{ MARKET_INDEX_VALUE : ""
+    MARKET_QUOTATION ||--o{ MARKET_QUOTATION_METRIC : ""
+    MARKET_QUOTATION ||--o{ MARKET_QUOTATION_TIME_PERIOD_METRIC : ""
+    MARKET_QUOTATION_METRIC_TYPE ||--o{ INTEREST_RATE_QUOTATION : ""
+    MARKET_QUOTATION_METRIC_TYPE ||--o{ MARKET_QUOTATION_METRIC : ""
+    MARKET_QUOTATION_METRIC_TYPE ||--o{ MARKET_QUOTATION_TIME_PERIOD_METRIC : ""
+    MARKET_SEGMENT_GROUP ||--o{ MARKET_SEGMENT : ""
+    MARKET_SEGMENT_SCHEME ||--o{ MARKET_SEGMENT : ""
+    PORTFOLIO ||--o{ PORTFOLIO_INVESTMENT_ALLOCATION : ""
+    QUOTATION ||--o{ QUOTATION_METRIC : ""
+    QUOTATION ||--o{ QUOTATION_EVENT : ""
+    QUOTATION ||--o{ QUOTATION_STATUS : ""
+    QUOTATION ||--o{ QUOTATION_ASSET : ""
+    QUOTATION_ASSET_ROLE_SUBTYPE ||--o{ QUOTATION_ASSET : ""
+    QUOTATION_CLOSE_REASON_TYPE ||--o{ QUOTATION : ""
+    QUOTATION_METRIC_TYPE ||--o{ QUOTATION_METRIC : ""
+    QUOTATION_ORIGIN_TYPE ||--o{ QUOTATION : ""
+    QUOTATION_RELATIONSHIP_TYPE ||--o{ QUOTATION_RELATED : ""
+    QUOTATION_STATUS ||--o{ QUOTATION_STATUS_REASON : ""
+    QUOTATION_STATUS_REASON_TYPE ||--o{ QUOTATION_STATUS_REASON : ""
+    QUOTATION_STATUS_TYPE ||--o{ QUOTATION_STATUS : ""
+    QUOTATION_SUBTYPE ||--o{ QUOTATION : ""
+    REAL_ESTATE_INVESTMENT_TRUST ||--o{ REIT_DIVIDEND_SCHEDULE : ""
+    SALES_MARKET ||--o{ SALES_MARKETING_ACTIVITY : ""
+    SALES_MARKETING_ACTIVITY ||--o{ SALES_MARKETING_ACTIVITY_TEXT_COMMENT : ""
+    SALES_MARKETING_ACTIVITY ||--o{ SALES_MARKETING_ACTIVITY_STATUS : ""
+    SALES_MARKETING_ACTIVITY_RELATED ||--o{ SALES_MARKETING_ACTIVITY_RELATED_STATUS : ""
+    SALES_MARKETING_ACTIVITY_RELATED_ROLE ||--o{ SALES_MARKETING_ACTIVITY_RELATED : ""
+    SALES_MARKETING_ACTIVITY_RELATED_STATUS_REASON ||--o{ SALES_MARKETING_ACTIVITY_RELATED_STATUS : ""
+    SALES_MARKETING_ACTIVITY_RELATED_STATUS_TYPE ||--o{ SALES_MARKETING_ACTIVITY_RELATED_STATUS : ""
+    SALES_MARKETING_ACTIVITY_STATUS_TYPE ||--o{ SALES_MARKETING_ACTIVITY_STATUS : ""
+    TRADE_CANCEL_TYPE ||--o{ TRADE_ORDER : ""
+    TRADE_EXECUTION ||--o{ TRADE_EXECUTION_WAIVER : ""
+    TRADE_EXECUTION_STATUS_TYPE ||--o{ TRADE_EXECUTION : ""
+    TRADE_EXECUTION_WAIVER_TYPE ||--o{ TRADE_EXECUTION_WAIVER : ""
+    TRADE_METHOD_TYPE ||--o{ TRADE_EXECUTION : ""
+    TRADE_ORDER ||--o{ TRADE_ORDER_STATUS : ""
+    TRADE_ORDER ||--o{ TRADE_ORDER_VENUE_PRIORITY : ""
+    TRADE_ORDER ||--o{ TRADE_ORDER_RESTRICTION : ""
+    TRADE_ORDER_BUY_SELL_TYPE ||--o{ TRADE_EXECUTION : ""
+    TRADE_ORDER_BUY_SELL_TYPE ||--o{ TRADE_ORDER : ""
+    TRADE_ORDER_EVENT_TYPE ||--o{ TRADE_ORDER : ""
+    TRADE_ORDER_INVESTMENT_DECIDER_TYPE ||--o{ TRADE_ORDER : ""
+    TRADE_ORDER_PHASE_TYPE ||--o{ TRADE_ORDER : ""
+    TRADE_ORDER_PRICE_NOTATION_TYPE ||--o{ TRADE_ORDER : ""
+    TRADE_ORDER_RESTRICTION_TYPE ||--o{ TRADE_ORDER_RESTRICTION : ""
+    TRADE_ORDER_STATUS_TYPE ||--o{ TRADE_ORDER_STATUS : ""
+    TRADE_ORDER_TYPE ||--o{ TRADE_ORDER : ""
+    TRADE_ORDER_VENUE_TYPE ||--o{ TRADE_ORDER : ""
+    TREASURY_BOND_SUBTYPE ||--o{ U.S._TREASURY_BOND : ""
+    ASIAN_OPTION ||--|| AVERAGE_PRICE_OPTION : "inherits"
+    ASIAN_OPTION ||--|| AVERAGE_STRIKE_OPTION : "inherits"
+    BOND ||--|| BOND_FIXED_INTEREST_RATE : "inherits"
+    BOND ||--|| BOND_FLOATING_INTEREST_RATE : "inherits"
+    BOND ||--|| BOND_INTEREST_PAY_AT_MATURITY : "inherits"
+    INVESTMENT_CORPORATE_ACTION ||--|| BOND_REDEMPTION : "inherits"
+    INVESTMENT_CORPORATE_ACTION ||--|| BOND_TO_EQUITY_CONVERSION : "inherits"
+    DIVIDEND_DECLARE_EVENT ||--|| CASH_DIVIDEND_EVENT : "inherits"
+    BOND ||--|| CONVERTIBLE_BOND : "inherits"
+    BOND ||--|| CORPORATE_BOND : "inherits"
+    QUOTATION ||--|| CURRENCY_EXCHANGE_QUOTATION : "inherits"
+    INTEREST_RATE_SWAP ||--|| FIXED_FIXED_INTEREST_RATE_SWAP : "inherits"
+    INTEREST_RATE_SWAP ||--|| FIXED_FLOATING_INTEREST_RATE_SWAP : "inherits"
+    INTEREST_RATE_SWAP ||--|| FLOAT_FLOAT_INTEREST_RATE_SWAP : "inherits"
+    QUOTATION ||--|| INSURANCE_QUOTATION : "inherits"
+    INSURANCE_QUOTATION ||--|| LIFE_LINE_QUOTATION : "inherits"
+    BOND ||--|| MUNICIPAL_BOND : "inherits"
+    INVESTMENT_CORPORATE_ACTION ||--|| OPTION_EXERCISE : "inherits"
+    INTEREST_RATE_SWAP ||--|| OVERNIGHT_INDEX_SWAP : "inherits"
+    QUOTATION_ASSET ||--|| QUOTATION_INSURED_ASSET : "inherits"
+    DIVIDEND_DECLARE_EVENT ||--|| STOCK_DIVIDEND_EVENT : "inherits"
+    TRADE_EVENT_SETTLE_INSTRUCTION ||--|| TRADE_SETTLE_BOOK_DELIVERY : "inherits"
+    TRADE_EVENT_SETTLE_INSTRUCTION ||--|| TRADE_SETTLE_FOREIGN_DELIVERY : "inherits"
+    TRADE_EVENT_SETTLE_INSTRUCTION ||--|| TRADE_SETTLE_PHYSICAL_DELIVERY : "inherits"
+    BOND ||--|| U.S._TREASURY_BOND : "inherits"

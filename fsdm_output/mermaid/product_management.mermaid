@@ -1,0 +1,522 @@
+erDiagram
+    ACCESS_DEVICE_FEATURE {
+        Identifier Access_Device_Id "PK"
+        Identifier Feature_Id "PK"
+    }
+    AD_PRODUCT_XREF {
+        Identifier Ad_Id "PK"
+        Identifier Product_Id "PK"
+        Datetime Ad_Item_Relationship_Start_Dttm "PK"
+        Datetime Ad_Item_Relationship_End_Dttm ""
+    }
+    AMOUNT_FEATURE {
+        Amount From_Feature_Amt ""
+        Amount To_Feature_Amt ""
+        Code Amount_Time_Period_Cd ""
+        Number Amount_Time_Period_Num ""
+        Code Currency_Cd "PK"
+    }
+    APPLICATION_FEATURE {
+        Identifier Feature_Id "PK"
+        Identifier Application_Id "PK"
+        Code Application_Feature_Role_Cd "PK"
+        Datetime Application_Feature_Start_Dttm "PK"
+        Datetime Application_Feature_End_Dttm ""
+        string more "7 more"
+    }
+    APPLICATION_FEATURE_RELATED {
+        Identifier Application_Id "PK"
+        Identifier Feature_Id "PK"
+        Code Application_Feature_Role_Cd "PK"
+        Datetime Application_Feature_Start_Dttm "PK"
+        Identifier Related_Feature_Id "PK"
+        string more "10 more"
+    }
+    APPLICATION_PRODUCT {
+        Identifier Application_Id "PK"
+        Identifier Product_Id "PK"
+    }
+    ASSET_BACKED_SECURITY_PRODUCT {
+        Code Asset_backed_Security_Type_Cd "PK"
+        Identifier Securitization_Pool_Id "PK"
+        Amount ABS_Original_Principal_Amt ""
+        Rate ABS_Coupon_Rate ""
+        Rate ABS_Pool_Rate ""
+        string more "2 more"
+    }
+    ASSET_FEATURE {
+        Identifier Party_Asset_Id "PK"
+        Identifier Feature_Id "PK"
+        Datetime Asset_Feature_Start_Dttm "PK"
+        Datetime Asset_Feature_End_Dttm ""
+    }
+    BANKING_PRODUCT {
+        Code Banking_Product_Type_Cd ""
+        Code Banking_Line_Of_Business_Cd "PK"
+    }
+    BANKING_PRODUCT_TYPE {
+        Code Banking_Product_Type_Cd "PK"
+        Description Banking_Product_Type_Desc ""
+    }
+    BARRIER_OPTION_PRODUCT {
+        Amount Barrier_Amt ""
+        Code Barrier_Option_Type_Cd ""
+    }
+    CAMPAIGN_PRODUCT {
+        Identifier Product_Id "PK"
+        Identifier Campaign_Id "PK"
+        Code Campaign_Product_Role_Cd "PK"
+    }
+    CAMPAIGN_PRODUCT_ROLE {
+        Code Campaign_Product_Role_Cd "PK"
+        Description Campaign_Product_Role_Desc ""
+    }
+    CHANNEL_FEATURE {
+        Identifier Channel_Instance_Id "PK"
+        Identifier Channel_Feature_Id "PK"
+        Datetime Channel_Feature_Start_Dttm "PK"
+        Datetime Channel_Feature_End_Dttm ""
+        Amount Channel_Feature_Amt ""
+        string more "2 more"
+    }
+    CLAIM_PRICING_RULE_TYPE {
+        Code Claim_Pricing_Rule_Cd "PK"
+        Description Claim_Pricing_Rule_Desc ""
+    }
+    CLAIM_SERVICE_FEATURE_STATUS {
+        Identifier Claim_Id "PK"
+        Identifier Service_Feature_Id "PK"
+        Datetime Claim_Service_Start_Dttm "PK"
+        Number Claim_Service_Sequence_Num "PK"
+        Date Claim_Service_Status_Start_Dt "PK"
+        string more "3 more"
+    }
+    COVERAGE_FEATURE {
+        Identifier Coverage_Feature_Id "PK"
+        Code Insurance_Coverage_Type_Cd ""
+        Code Insurance_Line_Of_Business_Type_Cd ""
+    }
+    CURRENCY_PRODUCT {
+        Identifier Currency_Investment_Product_Id "PK"
+    }
+    CUSIP_PRODUCT_IDENTIFIER {
+        string CUSIP_Alpha_9_Val ""
+    }
+    DATE_FEATURE {
+        Date Feature_Dt ""
+    }
+    DERIVATIVE_UNDERLYING_PRODUCT_TYPE {
+        Code Derivative_Underlying_Product_Type_Cd "PK"
+        Description Derivative_Underlying_Product_Type_Desc ""
+    }
+    DESCRIPTIVE_FEATURE {
+        Code Descriptive_Feature_Type_Cd "PK"
+        Text Descriptive_Feature_Txt ""
+    }
+    DESCRIPTIVE_FEATURE_TYPE {
+        Code Descriptive_Feature_Type_Cd "PK"
+        Description Descriptive_Feature_Type_Desc ""
+    }
+    DOCUMENT_PRODUCTION_CYCLE_TYPE {
+        Code Document_Production_Cycle_Cd "PK"
+        Code Time_Period_Cd ""
+        Description Document_Cycle_Desc ""
+        Number Document_Cycle_Frequency_Num ""
+        Number Document_Cycle_Frequency_Day_Num ""
+    }
+    EVENT_FEATURE {
+        Identifier Event_Id "PK"
+        Identifier Feature_Id "PK"
+        Code Event_Feature_Role_Cd ""
+    }
+    EVENT_FEATURE_ROLE {
+        Code Event_Feature_Role_Cd "PK"
+        Description Event_Feature_Role_Desc ""
+    }
+    EVENT_PRODUCT {
+        Identifier Event_Id "PK"
+        Identifier Product_Id "PK"
+        Code Event_Product_Role_Cd "PK"
+    }
+    EVENT_PRODUCT_ROLE {
+        Code Event_Product_Role_Cd "PK"
+        Description Event_Product_Role_Desc ""
+    }
+    EXCHANGE_LISTED_PRODUCT_RELATED {
+        Code Listed_Product_Related_Role_Cd "PK"
+        Code Product_Party_Role_Cd "PK"
+        Identifier Related_Product_Id "PK"
+        Identifier Product_Id "PK"
+        Identifier Exchange_Party_Id "PK"
+        string more "3 more"
+    }
+    FEATURE {
+        Identifier Feature_Id "PK"
+        Code Feature_Subtype_Cd "PK"
+        Code Feature_Insurance_Subtype_Cd ""
+        Code Feature_Classification_Cd ""
+        Description Feature_Desc ""
+        string more "3 more"
+    }
+    FEATURE_TO_FEATURE_GROUP {
+        Identifier Feature_Group_Id "PK"
+        Identifier Feature_Id "PK"
+        Datetime Feature_to_feature_Group_Start_Dttm "PK"
+        Datetime Feature_to_feature_Group_End_Dttm ""
+    }
+    FEATURE_CLASSIFICATION_TYPE {
+        Code Feature_Classification_Cd "PK"
+        Description Feature_Classification_Desc ""
+    }
+    FEATURE_CLASS_SCHEME_TYPE {
+        Code Feature_Class_Cd "PK"
+        Code Parent_Feature_Class_Cd ""
+        Description Feature_Class_Desc ""
+        Datetime Feature_Class_Start_Dttm ""
+        Datetime Feature_Class_End_Dttm ""
+    }
+    FEATURE_CLASS_VALUE {
+        Code Feature_Class_Cd "PK"
+        Code Feature_Class_Value_Cd "PK"
+        Code Parent_Feature_Class_Value_Cd ""
+        Description Feature_Class_Value_Desc ""
+        Measure Feature_Class_From_Meas ""
+        string more "5 more"
+    }
+    FEATURE_CLASS_VALUE_XREF {
+        Code Feature_Class_Cd "PK"
+        Identifier Feature_Id "PK"
+        Datetime Feature_Class_Value_Start_Dttm "PK"
+        Code Feature_Class_Value_Cd "PK"
+        Datetime Feature_Class_Value_End_Dttm ""
+    }
+    FEATURE_ELIGIBILITY {
+        Identifier Feature_Id "PK"
+        Code Product_Feature_Eligibility_Type_Cd "PK"
+        Datetime Feature_Eligibility_Start_Dttm "PK"
+        Datetime Feature_Eligibility_End_Dttm ""
+        Value Feature_Eligibility_Val ""
+    }
+    FEATURE_EVENT_ACTIVITY_ELIGIBILITY {
+        Identifier Feature_Id "PK"
+        Code Event_Activity_Type_Cd "PK"
+        Datetime Feature_Event_Activity_Start_Dttm "PK"
+        Datetime Feature_Event_Activity_End_Dttm ""
+        Code Eligibility_Restriction_Type_Cd ""
+    }
+    FEATURE_GEOGRAPHICAL_AREA {
+        Identifier Feature_Id "PK"
+        Identifier Geographical_Area_Id "PK"
+        Code Feature_Geographical_Area_Role_Cd "PK"
+        Datetime Feature_Geographical_Area_Start_Dttm "PK"
+        Datetime Feature_Geographical_Area_End_Dttm ""
+    }
+    FEATURE_GEOGRAPHICAL_AREA_ROLE {
+        Code Feature_Geographical_Area_Role_Cd "PK"
+        Description Feature_Geographical_Area_Role_Desc ""
+    }
+    FEATURE_GROUP {
+        Identifier Feature_Group_Id "PK"
+        Code Feature_Group_Type_Cd "PK"
+        Date Feature_Group_Start_Dt ""
+        Date Feature_Group_End_Dt ""
+        Identifier Parent_Feature_Group_Id ""
+        string more "3 more"
+    }
+    FEATURE_GROUP_METRIC {
+        Identifier Feature_Group_Id "PK"
+        Code Insurance_Metric_Type_Cd "PK"
+        Datetime Feature_Group_Metric_Start_Dttm "PK"
+        Amount Feature_Group_Metric_Amt ""
+        Count Feature_Group_Metric_Cnt ""
+        string more "2 more"
+    }
+    FEATURE_GROUP_TYPE {
+        Code Feature_Group_Type_Cd "PK"
+        Description Feature_Group_Type_Desc ""
+    }
+    FEATURE_INSURANCE_SUBTYPE {
+        Code Feature_Insurance_Subtype_Cd "PK"
+        Description Feature_Insurance_Subtype_Desc ""
+    }
+    FEATURE_OCCUPATION_ELIGIBILITY {
+        Identifier Feature_Id "PK"
+        Code Occupation_Type_Cd "PK"
+        Datetime Feature_Occupation_Start_Dttm "PK"
+        Datetime Feature_Occupation_End_Dttm ""
+        Code Eligibility_Restriction_Type_Cd ""
+    }
+    FEATURE_RELATED {
+        Identifier Feature_Id "PK"
+        Identifier Related_Feature_Id "PK"
+        Code Feature_Relationship_Type_Cd "PK"
+        Datetime Feature_Related_Start_Dttm "PK"
+        Datetime Feature_Related_End_Dttm ""
+    }
+    FEATURE_RELATIONSHIP_TYPE {
+        Code Feature_Relationship_Type_Cd "PK"
+        Description Feature_Relationship_Type_Desc ""
+    }
+    FEATURE_RISK_GRADE_ELIGIBILITY_RULE {
+        Identifier Risk_Grade_Scheme_Id "PK"
+        Identifier Feature_Id "PK"
+        Datetime Feature_Credit_Rating_Start_Dttm "PK"
+        Identifier Risk_Grade_Id "PK"
+        Datetime Feature_Credit_Rating_End_Dttm ""
+        string more "1 more"
+    }
+    FEATURE_SCORE_MODEL_ELIGIBILITY {
+        Identifier Model_Id "PK"
+        Identifier Feature_Id "PK"
+        Identifier Analytical_Model_Value_Id "PK"
+        Datetime Analytical_Model_Start_Dttm "PK"
+        Datetime Feature_Score_Model_Start_Dttm "PK"
+        string more "2 more"
+    }
+    FEATURE_SUBJECT {
+        Identifier Feature_Id "PK"
+    }
+    FEATURE_SUBTYPE {
+        Code Feature_Subtype_Cd "PK"
+        Description Feature_Subtype_Desc ""
+    }
+    FEATURE_UNIFIED_COVERAGE {
+        Identifier Feature_Id "PK"
+        Code Unified_Coverage_Type_Cd "PK"
+        Datetime Feature_Unified_Coverage_Start_Dttm "PK"
+        Datetime Feature_Unified_Coverage_End_Dttm ""
+    }
+    FINANCIAL_EVENT_AMOUNT_FEATURE {
+        Code Financial_Event_Amount_Type_Cd "PK"
+        Datetime Financial_Event_Amount_Dttm "PK"
+        Identifier Feature_Id "PK"
+        Identifier Event_Id "PK"
+    }
+    FINANCIAL_PRODUCT {
+        Code Balance_Sheet_Cd "PK"
+        Code Asset_Liability_Cd "PK"
+    }
+    FISN_PRODUCT_IDENTIFIER {
+        string FISN_Issuer_Name ""
+        string FISN_Instrument_Name ""
+    }
+    FIXED_INTEREST_RATE_FEATURE {
+        Rate Fixed_Interest_Rate ""
+    }
+    GL_NONSERVICE_PRODUCT_TYPE {
+        Code GL_Nonservice_Product_Type_Cd "PK"
+        Description GL_Nonservice_Product_Type_Desc ""
+    }
+    GL_PRODUCT_SEGMENT {
+        Identifier GL_Product_Segment_Id "PK"
+    }
+    APPLICATION_FEATURE ||--o{ APPLICATION_FEATURE_RELATED : ""
+    BANKING_PRODUCT_TYPE ||--o{ BANKING_PRODUCT : ""
+    CAMPAIGN_PRODUCT_ROLE ||--o{ CAMPAIGN_PRODUCT : ""
+    DESCRIPTIVE_FEATURE_TYPE ||--o{ DESCRIPTIVE_FEATURE : ""
+    EVENT_FEATURE_ROLE ||--o{ EVENT_FEATURE : ""
+    EVENT_PRODUCT_ROLE ||--o{ EVENT_PRODUCT : ""
+    FEATURE ||--o{ FEATURE_SUBJECT : ""
+    FEATURE ||--o{ OPPORTUNITY_FEATURE : ""
+    FEATURE ||--o{ ACCESS_DEVICE_FEATURE : ""
+    FEATURE ||--o{ FINANCIAL_EVENT_AMOUNT_FEATURE : ""
+    FEATURE ||--o{ FEATURE_CLASS_VALUE_XREF : ""
+    FEATURE ||--o{ FEATURE_GEOGRAPHICAL_AREA : ""
+    FEATURE ||--o{ INVOICE_FEATURE : ""
+    FEATURE ||--o{ NEXT_OFFER_FEATURE : ""
+    FEATURE ||--o{ OPPORTUNITY_PRODUCT_FEATURE : ""
+    FEATURE ||--o{ PROPOSAL_PRODUCT_FEATURE : ""
+    FEATURE ||--o{ POLICY_INSURABLE_INTEREST_FEATURE_RELATED : ""
+    FEATURE ||--o{ PROPOSAL_FEATURE : ""
+    FEATURE ||--o{ VISIT_PRODUCT_FEATURE_SUMMARY : ""
+    FEATURE ||--o{ EVENT_FEATURE : ""
+    FEATURE ||--o{ OFFER_FEATURE : ""
+    FEATURE ||--o{ PRODUCT_FEATURE_RELATED : ""
+    FEATURE ||--o{ PRODUCT_PACKAGE_FEATURE_RELATED : ""
+    FEATURE ||--o{ FEATURE_OCCUPATION_ELIGIBILITY : ""
+    FEATURE ||--o{ FEATURE_EVENT_ACTIVITY_ELIGIBILITY : ""
+    FEATURE ||--o{ FEATURE_ELIGIBILITY : ""
+    FEATURE ||--o{ FEATURE_SCORE_MODEL_ELIGIBILITY : ""
+    FEATURE ||--o{ PRODUCT_PACKAGE_FEATURE : ""
+    FEATURE ||--o{ PRODUCT_FEATURE : ""
+    FEATURE ||--o{ PRODUCT_FEATURE_GROUP : ""
+    FEATURE ||--o{ SWAP_LEG_CASH_FLOW_FEATURE : ""
+    FEATURE ||--o{ CHANNEL_FEATURE : ""
+    FEATURE ||--o{ FEATURE_RISK_GRADE_ELIGIBILITY_RULE : ""
+    FEATURE ||--o{ FEATURE_TO_FEATURE_GROUP : ""
+    FEATURE ||--o{ LIABILITY_FEATURE : ""
+    FEATURE ||--o{ FEATURE_UNIFIED_COVERAGE : ""
+    FEATURE ||--o{ PRODUCT_FEATURE_PERIL : ""
+    FEATURE ||--o{ ASSET_FEATURE : ""
+    FEATURE_CLASS_SCHEME_TYPE ||--o{ FEATURE_CLASS_VALUE_XREF : ""
+    FEATURE_CLASS_SCHEME_TYPE ||--o{ FEATURE_CLASS_SCHEME_TYPE : ""
+    FEATURE_CLASS_SCHEME_TYPE ||--o{ FEATURE_CLASS_VALUE : ""
+    FEATURE_CLASS_VALUE ||--o{ FEATURE_CLASS_VALUE_XREF : ""
+    FEATURE_CLASS_VALUE ||--o{ FEATURE_CLASS_VALUE : ""
+    FEATURE_CLASSIFICATION_TYPE ||--o{ FEATURE : ""
+    FEATURE_GEOGRAPHICAL_AREA_ROLE ||--o{ FEATURE_GEOGRAPHICAL_AREA : ""
+    FEATURE_GROUP ||--o{ FEATURE_GROUP_METRIC : ""
+    FEATURE_GROUP ||--o{ PRODUCT_FEATURE_GROUP : ""
+    FEATURE_GROUP ||--o{ FEATURE_TO_FEATURE_GROUP : ""
+    FEATURE_GROUP ||--o{ FEATURE_GROUP : ""
+    FEATURE_GROUP_TYPE ||--o{ FEATURE_GROUP : ""
+    FEATURE_INSURANCE_SUBTYPE ||--o{ FEATURE : ""
+    FEATURE_RELATIONSHIP_TYPE ||--o{ FEATURE_RELATED : ""
+    FEATURE_SUBTYPE ||--o{ FEATURE : ""
+    GL_NONSERVICE_PRODUCT_TYPE ||--o{ GL_REPORTING_NONSERVICE_PRODUCT : ""
+    GL_PRODUCT_GROUP_SEGMENT ||--o{ REPORTING_PRODUCT_GROUP : ""
+    GL_PRODUCT_SEGMENT ||--o{ REPORTING_PRODUCT : ""
+    GL_SERVICE_PRODUCT_TYPE ||--o{ GL_REPORTING_SERVICE_PRODUCT : ""
+    INVESTMENT_PRODUCT ||--o{ INVESTMENT_PRODUCT_RISK_METRIC : ""
+    INVESTMENT_PRODUCT ||--o{ INVESTMENT_PRODUCT_CFI : ""
+    INVESTMENT_PRODUCT ||--o{ INVESTMENT_PRODUCT_RISK_FACTOR : ""
+    INVESTMENT_PRODUCT ||--o{ INVESTMENT_PRODUCT_INDEX : ""
+    INVESTMENT_PRODUCT ||--o{ PORTFOLIO_PRODUCT_HOLDING : ""
+    INVESTMENT_PRODUCT ||--o{ INVESTMENT_PRODUCT_EVENT : ""
+    INVESTMENT_PRODUCT ||--o{ OPTION_PRODUCT : ""
+    INVESTMENT_PRODUCT_INDEX_PURPOSE_TYPE ||--o{ INVESTMENT_PRODUCT_INDEX : ""
+    INVESTMENT_PRODUCT_SUBTYPE ||--o{ INVESTMENT_PRODUCT : ""
+    INVESTMENT_PRODUCT_TRADE_SUBTYPE ||--o{ INVESTMENT_PRODUCT : ""
+    LISTED_PRODUCT_RELATED_ROLE_TYPE ||--o{ EXCHANGE_LISTED_PRODUCT_RELATED : ""
+    MONEY_MARKET_PRODUCT_TYPE ||--o{ MONEY_MARKET_PRODUCT : ""
+    NSIN_PRODUCT_IDENTIFIER ||--o{ ISIN_PRODUCT_IDENTIFIER : ""
+    OPPORTUNITY_PRODUCT ||--o{ OPPORTUNITY_PRODUCT_FEATURE : ""
+    PACKAGE_OFFERING ||--o{ PRODUCT_PACKAGE : ""
+    PORTFOLIO_PRODUCT_HOLDING ||--o{ PORTFOLIO_PRODUCT_QUANTITY : ""
+    PORTFOLIO_PRODUCT_HOLDING ||--o{ PORTFOLIO_PRODUCT_HOLDING_VALUE : ""
+    PORTFOLIO_PRODUCT_HOLDING ||--o{ PORTFOLIO_PRODUCT_COST_BASIS : ""
+    PRODUCT ||--o{ PRODUCT_DOCUMENT : ""
+    PRODUCT ||--o{ PRODUCT_LIMIT : ""
+    PRODUCT ||--o{ PRODUCT_METRIC : ""
+    PRODUCT ||--o{ PLANNED_PRODUCT_REVENUE : ""
+    PRODUCT ||--o{ PRODUCT_CLASS_VALUE_XREF : ""
+    PRODUCT ||--o{ PRODUCT_PAYMENT_OPTION : ""
+    PRODUCT ||--o{ PRODUCT_FINANCIAL_RULE : ""
+    PRODUCT ||--o{ AD_PRODUCT_XREF : ""
+    PRODUCT ||--o{ WEB_PAGE_PRODUCT_XREF : ""
+    PRODUCT ||--o{ PRODUCT_TAX_STATUS : ""
+    PRODUCT ||--o{ OPPORTUNITY_PRODUCT : ""
+    PRODUCT ||--o{ PRODUCT_TO_PRODUCT_IDENTIFIER : ""
+    PRODUCT ||--o{ SITE_PRODUCT : ""
+    PRODUCT ||--o{ PRODUCT_VALUE_AT_RISK : ""
+    PRODUCT ||--o{ PRODUCT_REVIEW_EVENT : ""
+    PRODUCT ||--o{ REPORTING_PRODUCT : ""
+    PRODUCT ||--o{ PATH_ANALYSIS_PRODUCT_XREF : ""
+    PRODUCT ||--o{ PROPOSAL_PRODUCT : ""
+    PRODUCT ||--o{ WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF : ""
+    PRODUCT ||--o{ PROMOTION_PRODUCT_OFFER : ""
+    PRODUCT ||--o{ SEARCH_PRODUCT_XREF : ""
+    PRODUCT ||--o{ PRODUCT_MARKET_SEGMENT : ""
+    PRODUCT ||--o{ PROMOTED_PRODUCT_EVENT : ""
+    PRODUCT ||--o{ VISIT_PRODUCT_FEATURE_SUMMARY : ""
+    PRODUCT ||--o{ PRODUCT_VIEW_WEB_EVENT : ""
+    PRODUCT ||--o{ PRODUCT_OFFER : ""
+    PRODUCT ||--o{ PRODUCT_REVENUE : ""
+    PRODUCT ||--o{ PRODUCT_OCCUPATION_ELIGIBILITY : ""
+    PRODUCT ||--o{ PRODUCT_EVENT_ACTIVITY_ELIGIBILITY : ""
+    PRODUCT ||--o{ PRODUCT_SCORE_MODEL_ELIGIBILITY : ""
+    PRODUCT ||--o{ PRODUCT_PACKAGE : ""
+    PRODUCT ||--o{ PRODUCT_RISK_GRADE : ""
+    PRODUCT ||--o{ PRODUCT_SCORE : ""
+    PRODUCT ||--o{ PRODUCT_FEATURE : ""
+    PRODUCT ||--o{ PRODUCT_FEATURE_GROUP : ""
+    PRODUCT ||--o{ PRODUCT_CHANNEL_TYPE_XREF : ""
+    PRODUCT ||--o{ APPLICATION_PRODUCT : ""
+    PRODUCT ||--o{ PRODUCT_RISK_GRADE_ELIGIBILITY_RULE : ""
+    PRODUCT ||--o{ PRODUCT_ELIGIBILITY : ""
+    PRODUCT ||--o{ CAMPAIGN_PRODUCT : ""
+    PRODUCT ||--o{ PRODUCT_TO_PRODUCT_GROUP : ""
+    PRODUCT ||--o{ PRODUCT_PROFIT : ""
+    PRODUCT ||--o{ QUOTATION_PRODUCT : ""
+    PRODUCT ||--o{ PRODUCT_COST : ""
+    PRODUCT ||--o{ EVENT_PRODUCT : ""
+    PRODUCT ||--o{ PRODUCT_STATUS : ""
+    PRODUCT ||--o{ PRODUCT_FEATURE_PERIL : ""
+    PRODUCT_CHANNEL_ROLE_TYPE ||--o{ PRODUCT_CHANNEL_TYPE_XREF : ""
+    PRODUCT_CLASS_SCHEME_TYPE ||--o{ PRODUCT_CLASS_SCHEME_TYPE : ""
+    PRODUCT_CLASS_SCHEME_TYPE ||--o{ PRODUCT_CLASS_VALUE : ""
+    PRODUCT_CLASS_SCHEME_TYPE ||--o{ PRODUCT_CLASS_VALUE_XREF : ""
+    PRODUCT_CLASS_VALUE ||--o{ PRODUCT_CLASS_VALUE_XREF : ""
+    PRODUCT_CLASS_VALUE ||--o{ PRODUCT_CLASS_VALUE : ""
+    PRODUCT_DOCUMENT_ROLE_TYPE ||--o{ PRODUCT_DOCUMENT : ""
+    PRODUCT_FEATURE ||--o{ PROMOTION_PRODUCT_OFFER_FEATURE : ""
+    PRODUCT_FEATURE ||--o{ PRODUCT_FEATURE_STATUS : ""
+    PRODUCT_FEATURE ||--o{ PRODUCT_FEATURE_RELATED : ""
+    PRODUCT_FEATURE ||--o{ PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY : ""
+    PRODUCT_FEATURE ||--o{ PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY : ""
+    PRODUCT_FEATURE ||--o{ PRODUCT_FEATURE_ELIGIBILITY : ""
+    PRODUCT_FEATURE ||--o{ PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY : ""
+    PRODUCT_FEATURE ||--o{ PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE : ""
+    PRODUCT_FEATURE ||--o{ PRODUCT_FEATURE_LEEWAY : ""
+    PRODUCT_FEATURE_ELIGIBILITY_CATEGORY_TYPE ||--o{ PRODUCT_FEATURE_ELIGIBILITY_TYPE : ""
+    PRODUCT_FEATURE_ELIGIBILITY_TYPE ||--o{ PRODUCT_FEATURE_ELIGIBILITY : ""
+    PRODUCT_FEATURE_ELIGIBILITY_TYPE ||--o{ FEATURE_ELIGIBILITY : ""
+    PRODUCT_FEATURE_ELIGIBILITY_TYPE ||--o{ PRODUCT_ELIGIBILITY : ""
+    PRODUCT_FEATURE_STATUS_TYPE ||--o{ PRODUCT_FEATURE_STATUS : ""
+    PRODUCT_FEATURE_TYPE ||--o{ PRODUCT_FEATURE_RELATED : ""
+    PRODUCT_FEATURE_TYPE ||--o{ PRODUCT_PACKAGE_FEATURE_RELATED : ""
+    PRODUCT_FEATURE_TYPE ||--o{ PRODUCT_PACKAGE_FEATURE : ""
+    PRODUCT_FEATURE_TYPE ||--o{ PRODUCT_FEATURE : ""
+    PRODUCT_GROUP ||--o{ INVESTMENT_PRODUCT_GROUP_RISK_FACTOR : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_GROUP_LIMIT : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_GROUP_METRIC : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_GROUP_SUBJECT : ""
+    PRODUCT_GROUP ||--o{ REPORTING_PRODUCT_GROUP : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_GROUP_RISK_GRADE : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_GROUP_BASEL_1_WEIGHT : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_TO_PRODUCT_GROUP : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_GROUP_MARGIN : ""
+    PRODUCT_GROUP ||--o{ PRODUCT_GROUP : ""
+    PRODUCT_GROUP_METRIC_TYPE ||--o{ PRODUCT_GROUP_METRIC : ""
+    PRODUCT_GROUP_REASON_TYPE ||--o{ PRODUCT_GROUP : ""
+    PRODUCT_METRIC_TYPE ||--o{ PRODUCT_METRIC : ""
+    PRODUCT_PACKAGE ||--o{ PRODUCT_PACKAGE_FEATURE : ""
+    PRODUCT_PACKAGE_FEATURE ||--o{ PRODUCT_PACKAGE_FEATURE_RELATED : ""
+    PRODUCT_PACKAGE_FEATURE ||--o{ PRODUCT_PACKAGE_FEATURE_LEEWAY : ""
+    PRODUCT_PACKAGE_TYPE ||--o{ PRODUCT : ""
+    PRODUCT_RELATIONSHIP_TYPE ||--o{ PRODUCT_RELATED : ""
+    PRODUCT_STATUS_TYPE ||--o{ PRODUCT_STATUS : ""
+    PRODUCT_STRUCTURE_TYPE ||--o{ PRODUCT_RELATED : ""
+    PRODUCT_SUBTYPE ||--o{ PRODUCT : ""
+    PRODUCT_TO_PRODUCT_GROUP_ROLE_TYPE ||--o{ PRODUCT_TO_PRODUCT_GROUP : ""
+    PROMOTION_PRODUCT_OFFER ||--o{ PROMOTION_PRODUCT_OFFER_FEATURE : ""
+    PROPOSAL_PRODUCT ||--o{ PROPOSAL_PRODUCT_FEATURE : ""
+    QUOTATION_FEATURE ||--o{ QUOTATION_FEATURE_RELATED : ""
+    RATE_FEATURE_TYPE ||--o{ RATE_FEATURE : ""
+    REPORTING_PRODUCT_GROUP ||--o{ REPORTING_PRODUCT_GROUP : ""
+    SITE_PRODUCT_ROLE ||--o{ SITE_PRODUCT : ""
+    WORK_PRODUCT_TYPE ||--o{ WORK_PRODUCT : ""
+    DESCRIPTIVE_FEATURE ||--|| ACCESS_DEVICE_DESCRIPTIVE_FEATURE : "inherits"
+    FEATURE ||--|| AMOUNT_FEATURE : "inherits"
+    INVESTMENT_PRODUCT ||--|| ASSET_BACKED_SECURITY_PRODUCT : "inherits"
+    PRODUCT ||--|| BANKING_PRODUCT : "inherits"
+    OPTION_PRODUCT ||--|| BARRIER_OPTION_PRODUCT : "inherits"
+    FEATURE ||--|| COVERAGE_FEATURE : "inherits"
+    INVESTMENT_PRODUCT ||--|| CURRENCY_PRODUCT : "inherits"
+    INVESTMENT_PRODUCT ||--|| CURRENCY_PRODUCT_PAIR : "inherits"
+    FEATURE ||--|| DATE_FEATURE : "inherits"
+    FEATURE ||--|| DESCRIPTIVE_FEATURE : "inherits"
+    PRODUCT ||--|| FINANCIAL_PRODUCT : "inherits"
+    RATE_FEATURE ||--|| FIXED_INTEREST_RATE_FEATURE : "inherits"
+    REPORTING_PRODUCT_GROUP ||--|| GL_REPORTING_NONSERVICE_PRODUCT : "inherits"
+    REPORTING_PRODUCT_GROUP ||--|| GL_REPORTING_SERVICE_PRODUCT : "inherits"
+    PRODUCT ||--|| INSURANCE_PRODUCT : "inherits"
+    INVESTMENT_PRODUCT ||--|| INTEREST_INDEX_PRODUCT : "inherits"
+    PRODUCT ||--|| INVESTMENT_PRODUCT : "inherits"
+    INVESTMENT_PRODUCT ||--|| MONEY_MARKET_PRODUCT : "inherits"
+    INVESTMENT_PRODUCT ||--|| NONTRADED_INVESTMENT_PRODUCT : "inherits"
+    RATE_FEATURE ||--|| OTHER_RATE_FEATURE : "inherits"
+    PRODUCT ||--|| PACKAGE_OFFERING : "inherits"
+    BANKING_PRODUCT ||--|| PAYMENT_CARD_PRODUCT : "inherits"
+    FEATURE ||--|| PRIMARY_FEATURE : "inherits"
+    PRODUCT_RELATED ||--|| PRODUCT_COMPONENT_SHARE : "inherits"
+    FEATURE ||--|| QUANTITY_FEATURE : "inherits"
+    FEATURE ||--|| RATE_FEATURE : "inherits"
+    FEATURE ||--|| SECONDARY_FEATURE : "inherits"
+    INVESTMENT_PRODUCT ||--|| SECURITIES_INDEX_PRODUCT : "inherits"
+    FEATURE ||--|| SERVICE_FEATURE : "inherits"
+    INVESTMENT_PRODUCT ||--|| SWAP_PRODUCT : "inherits"
+    FEATURE ||--|| TERM_FEATURE : "inherits"
+    INVESTMENT_PRODUCT ||--|| TRADED_INVESTMENT_PRODUCT : "inherits"
+    RATE_FEATURE ||--|| VARIABLE_INTEREST_RATE_FEATURE : "inherits"

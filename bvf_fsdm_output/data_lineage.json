@@ -1,0 +1,398 @@
+{
+  "metadata": {
+    "generated": "2026-02-27T07:59:53.929199",
+    "model": "FSDM v16.00.00 + BVF v1.2",
+    "target": "Customer Profitability Engine (Pakistani Bank)"
+  },
+  "lineage": [
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Interest_Income_Amt",
+      "calculation": "SUM(AGREEMENT_SUMMARY.Interest_Income_Amt) for period",
+      "source_fsdm_entities": [
+        "AGREEMENT_SUMMARY"
+      ],
+      "bvf_data_requirements": [
+        "Financial Transactions",
+        "Account Balances"
+      ],
+      "bvf_capabilities": [
+        "Profitability Modelling",
+        "Financial Accounting / Accounting Hub"
+      ],
+      "notes": "Markup earned for conventional; profit earned for Islamic products"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Interest_Expense_Amt",
+      "calculation": "SUM(AGREEMENT_SUMMARY.Interest_Expense_Amt) for period",
+      "source_fsdm_entities": [
+        "AGREEMENT_SUMMARY"
+      ],
+      "bvf_data_requirements": [
+        "Financial Transactions",
+        "Account Balances"
+      ],
+      "bvf_capabilities": [
+        "Profitability Modelling"
+      ],
+      "notes": "Markup paid on deposits; profit shared for Islamic"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Net_Interest_Income_Amt",
+      "calculation": "Interest_Income_Amt - Interest_Expense_Amt + FTP_Credit_Amt - FTP_Debit_Amt",
+      "source_fsdm_entities": [
+        "AGREEMENT_SUMMARY",
+        "INTEREST_RATE"
+      ],
+      "bvf_data_requirements": [
+        "Financial Transactions",
+        "FTP Rates",
+        "Account Balances"
+      ],
+      "bvf_capabilities": [
+        "Funds Transfer Pricing",
+        "Profitability Modelling"
+      ],
+      "notes": "Net interest income after FTP adjustment; KIBOR-based FTP curves"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Fee_Income_Amt",
+      "calculation": "SUM(MONETARY_TRANSACTION.Transaction_Amt) WHERE type IN ('FEE','CHARGE')",
+      "source_fsdm_entities": [
+        "MONETARY_TRANSACTION",
+        "FEE_TRANSACTION"
+      ],
+      "bvf_data_requirements": [
+        "Account Fees, Commissions & Charges"
+      ],
+      "bvf_capabilities": [
+        "Profitability Modelling",
+        "Financial Accounting / Accounting Hub"
+      ],
+      "notes": "Account fees, service charges, penalty charges"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Commission_Income_Amt",
+      "calculation": "SUM(MONETARY_TRANSACTION.Transaction_Amt) WHERE type IN ('COMMISSION','LC_FEE','GUARANTEE_FEE')",
+      "source_fsdm_entities": [
+        "MONETARY_TRANSACTION",
+        "COMMISSION_TRANSACTION"
+      ],
+      "bvf_data_requirements": [
+        "Account Fees, Commissions & Charges",
+        "Financial Transactions"
+      ],
+      "bvf_capabilities": [
+        "Profitability Modelling"
+      ],
+      "notes": "LC commissions, guarantee fees, trade finance commissions"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "FX_Income_Amt",
+      "calculation": "SUM(FX gain/loss from CURRENCY_EXCHANGE_RATE revaluation)",
+      "source_fsdm_entities": [
+        "CURRENCY_EXCHANGE_RATE",
+        "MONETARY_TRANSACTION"
+      ],
+      "bvf_data_requirements": [
+        "Master & Reference Data - exchange rates",
+        "Financial Transactions"
+      ],
+      "bvf_capabilities": [
+        "FX & Trading Book Management",
+        "Profitability Modelling"
+      ],
+      "notes": "Foreign exchange gains and losses"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "FTP_Rate_Pct",
+      "calculation": "INTEREST_RATE.Rate_Value for product/tenor matched FTP curve",
+      "source_fsdm_entities": [
+        "INTEREST_RATE",
+        "INTEREST_RATE_INDEX"
+      ],
+      "bvf_data_requirements": [
+        "Master & Reference Data - FTP rates"
+      ],
+      "bvf_capabilities": [
+        "Funds Transfer Pricing"
+      ],
+      "notes": "KIBOR-based FTP rate curve by tenor bucket"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "FTP_Credit_Amt",
+      "calculation": "Average_Balance_Amt * FTP_Rate_Pct * Days/365 (for deposits)",
+      "source_fsdm_entities": [
+        "AGREEMENT_SUMMARY",
+        "INTEREST_RATE"
+      ],
+      "bvf_data_requirements": [
+        "FTP Rates",
+        "Account Balances"
+      ],
+      "bvf_capabilities": [
+        "Funds Transfer Pricing"
+      ],
+      "notes": "FTP credit for liability (deposit) side"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "FTP_Debit_Amt",
+      "calculation": "Average_Balance_Amt * FTP_Rate_Pct * Days/365 (for loans)",
+      "source_fsdm_entities": [
+        "AGREEMENT_SUMMARY",
+        "INTEREST_RATE"
+      ],
+      "bvf_data_requirements": [
+        "FTP Rates",
+        "Account Balances"
+      ],
+      "bvf_capabilities": [
+        "Funds Transfer Pricing"
+      ],
+      "notes": "FTP charge for asset (lending) side"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Direct_Cost_Amt",
+      "calculation": "Activity cost drivers * unit cost rates (ABC allocation)",
+      "source_fsdm_entities": [
+        "GL_MAIN_ACCOUNT",
+        "CHANNEL_USAGE_METRIC"
+      ],
+      "bvf_data_requirements": [
+        "Finance Systems - General Ledger ",
+        "Financial Transactions"
+      ],
+      "bvf_capabilities": [
+        "Activity Based Costing"
+      ],
+      "notes": "Direct costs allocated via ABC model"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Transaction_Cost_Amt",
+      "calculation": "COUNT(transactions) * Channel_Cost_Per_Txn by channel type",
+      "source_fsdm_entities": [
+        "MONETARY_TRANSACTION",
+        "CHANNEL_USAGE_METRIC",
+        "CHANNEL_INSTANCE"
+      ],
+      "bvf_data_requirements": [
+        "Financial Transactions",
+        "Master & Reference Data - Channel"
+      ],
+      "bvf_capabilities": [
+        "Activity Based Costing"
+      ],
+      "notes": "Per-transaction costs by channel"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Allocated_Overhead_Amt",
+      "calculation": "Branch overhead * allocation_key (balance, revenue, or headcount based)",
+      "source_fsdm_entities": [
+        "GL_MAIN_ACCOUNT",
+        "INTERNAL_ORGANIZATION_UNIT"
+      ],
+      "bvf_data_requirements": [
+        "Finance Systems - General Ledger ",
+        "Master & Reference Data - organisation hierarchy"
+      ],
+      "bvf_capabilities": [
+        "Activity Based Costing",
+        "GL, AP, HR, Expense Analytics & Optimisation"
+      ],
+      "notes": "Overhead allocation from GL cost centers to customer"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Provision_Expense_Amt",
+      "calculation": "AGREEMENT_RISK_METRIC.Provision_Amt (IFRS9 ECL model)",
+      "source_fsdm_entities": [
+        "AGREEMENT_RISK_METRIC"
+      ],
+      "bvf_data_requirements": [
+        "Provisions, Losses & Writeoffs",
+        "Risk Exposures"
+      ],
+      "bvf_capabilities": [
+        "Credit Risk Expected Loss Model",
+        "Profitability Modelling"
+      ],
+      "notes": "Expected credit loss (ECL) under IFRS 9 Stage 1/2/3"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Expected_Loss_Amt",
+      "calculation": "PD * LGD * EAD from AGREEMENT_RISK_METRIC",
+      "source_fsdm_entities": [
+        "AGREEMENT_RISK_METRIC",
+        "PARTY_LIABILITY_CREDIT_RATING"
+      ],
+      "bvf_data_requirements": [
+        "Risk Exposures",
+        "Predictive Models - risk"
+      ],
+      "bvf_capabilities": [
+        "Credit Risk Expected Loss Model"
+      ],
+      "notes": "PD x LGD x EAD calculation"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Risk_Weighted_Asset_Amt",
+      "calculation": "EAD * Risk_Weight from AGREEMENT_RISK_METRIC (Basel III SA/IRB)",
+      "source_fsdm_entities": [
+        "AGREEMENT_RISK_METRIC",
+        "BANK_CAPITAL_SUMMARY"
+      ],
+      "bvf_data_requirements": [
+        "Risk Weighted Assets & Capital Results"
+      ],
+      "bvf_capabilities": [
+        "Risk Weighted Assets and Regulatory Capital",
+        "Capital Management (Planning and Allocation)"
+      ],
+      "notes": "Basel III risk-weighted assets for RAROC denominator"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "RAROC_Pct",
+      "calculation": "Net_Profit_Amt / Economic_Capital_Amt * 100",
+      "source_fsdm_entities": [
+        "Calculated"
+      ],
+      "bvf_data_requirements": [
+        "Profitability Results",
+        "Risk Weighted Assets & Capital Results"
+      ],
+      "bvf_capabilities": [
+        "Profitability Modelling",
+        "Profitability Analytics and Optimisation"
+      ],
+      "notes": "Risk-Adjusted Return on Capital - key profitability KPI"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Cost_To_Income_Ratio",
+      "calculation": "Total_Cost_Amt / Total_Revenue_Amt",
+      "source_fsdm_entities": [
+        "Calculated"
+      ],
+      "bvf_data_requirements": [
+        "Profitability Results"
+      ],
+      "bvf_capabilities": [
+        "Performance Management and KPIs",
+        "Profitability Analytics and Optimisation"
+      ],
+      "notes": "Cost efficiency ratio - SBP benchmark monitoring"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Average_Balance_Amt",
+      "calculation": "AVG(daily AGREEMENT_SUMMARY.Balance_Amt) over period",
+      "source_fsdm_entities": [
+        "AGREEMENT_SUMMARY",
+        "BALANCE_SUMMARY"
+      ],
+      "bvf_data_requirements": [
+        "Account Balances"
+      ],
+      "bvf_capabilities": [
+        "Profitability Modelling",
+        "Asset & Liability Management"
+      ],
+      "notes": "Average daily balance for the reporting period"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "WHT_Amount_Amt",
+      "calculation": "Profit_Amount * WHT_Rate (currently 15%/35% based on filer status)",
+      "source_fsdm_entities": [
+        "AGREEMENT_SUMMARY"
+      ],
+      "bvf_data_requirements": [
+        "Financial Transactions",
+        "Account Balances"
+      ],
+      "bvf_capabilities": [
+        "Tax Management & Optimisation"
+      ],
+      "notes": "Pakistan-specific: Withholding tax on bank profit"
+    },
+    {
+      "target_table": "FACT_CUSTOMER_PROFITABILITY",
+      "target_column": "Zakat_Deduction_Amt",
+      "calculation": "Balance_Amt * 2.5% (on Zakat valuation date, 1st Ramadan)",
+      "source_fsdm_entities": [
+        "AGREEMENT_SUMMARY"
+      ],
+      "bvf_data_requirements": [
+        "Account Balances"
+      ],
+      "bvf_capabilities": [
+        "Financial Accounting / Accounting Hub"
+      ],
+      "notes": "Pakistan-specific: Compulsory Zakat deduction on eligible accounts"
+    },
+    {
+      "target_table": "DIM_CUSTOMER",
+      "target_column": "Customer_Segment_Cd",
+      "calculation": "PARTY_CLASSIFICATION.Classification_Value where type='SEGMENT'",
+      "source_fsdm_entities": [
+        "PARTY_CLASSIFICATION",
+        "PARTY_CLASSIFICATION_VALUE"
+      ],
+      "bvf_data_requirements": [
+        "Customer Segments"
+      ],
+      "bvf_capabilities": [
+        "Customer Segmentation",
+        "Insight Led Customer Strategy"
+      ],
+      "notes": "Customer value segmentation"
+    },
+    {
+      "target_table": "DIM_CUSTOMER",
+      "target_column": "Risk_Segment_Cd",
+      "calculation": "RISK_GRADE_VALUE.Grade_Cd from customer risk model",
+      "source_fsdm_entities": [
+        "RISK_GRADE_VALUE",
+        "PARTY_LIABILITY_CREDIT_RATING"
+      ],
+      "bvf_data_requirements": [
+        "Risk Segments, Cohorts & Groupings"
+      ],
+      "bvf_capabilities": [
+        "Credit Risk Scoring (Underwriting Likelihood Model)"
+      ],
+      "notes": "Customer-level risk grade"
+    },
+    {
+      "target_table": "DIM_PRODUCT",
+      "target_column": "FTP_Rate_Pct",
+      "calculation": "INTEREST_RATE.Rate_Value matched by product tenor to KIBOR curve",
+      "source_fsdm_entities": [
+        "INTEREST_RATE",
+        "INTEREST_RATE_INDEX",
+        "PRODUCT"
+      ],
+      "bvf_data_requirements": [
+        "Master & Reference Data - FTP rates"
+      ],
+      "bvf_capabilities": [
+        "Funds Transfer Pricing"
+      ],
+      "notes": "Product-level FTP rate from KIBOR yield curve"
+    }
+  ]
+}

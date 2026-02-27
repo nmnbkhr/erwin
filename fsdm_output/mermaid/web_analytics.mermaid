@@ -1,0 +1,412 @@
+erDiagram
+    BROWSER_APPLICATION_TYPE {
+        Code Browser_Application_Cd "PK"
+        Description Browser_Application_Desc ""
+    }
+    BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION {
+        Identifier DMA_Id__Geo ""
+        Identifier MSA_Id__Geo ""
+        Identifier PMSA_Id__Geo ""
+        Identifier MSA_City_Id ""
+        Identifier MSA_Territory_Id ""
+        string more "12 more"
+    }
+    BROWSER_PLUG_IN {
+        Code Browser_Plug_in_Cd "PK"
+        Description Browser_Plug_in_Desc ""
+    }
+    BROWSER_PLUG_IN_XREF {
+        Identifier Browser_Identification_Id "PK"
+        Code Browser_Plug_in_Cd "PK"
+    }
+    BROWSER_VERSION {
+        Code Browser_Application_Cd "PK"
+        Number Browser_Application_Version_Num "PK"
+    }
+    CLICK_ACTION_TYPE {
+        Code Click_Action_Type_Cd "PK"
+        Description Click_Action_Type_Desc "PK"
+    }
+    CLICK_ACTIVITY {
+        Count Web_Page_View_Sequence_Cnt "PK"
+        Datetime Click_Activity_Dttm "PK"
+        Number Click_Activity_Num "PK"
+        Identifier Web_Visit_Id "PK"
+        Identifier Click_Activity_Source_Id ""
+        string more "6 more"
+    }
+    CLICK_CONTEXT_TYPE {
+        Code Click_Context_Type_Cd "PK"
+        Description Click_Context_Type_Desc ""
+    }
+    COOKIE {
+        Number Cookie_Num "PK"
+        Value Cookie_String_Val ""
+        Indicator Cookie_Persistent_Ind ""
+        Indicator Cookie_Third_party_Ind ""
+    }
+    CRAWLER {
+        Identifier Crawler_Id "PK"
+        Description Crawler_Desc ""
+    }
+    CRAWLER_PERMISSION_TYPE {
+        Code Crawler_Permission_Type_Cd "PK"
+        Description Crawler_Permission_Type_Desc ""
+    }
+    CRAWLER_WEB_PAGE_PERMISSION {
+        Identifier Crawler_Id "PK"
+        Code Crawler_Permission_Type_Cd "PK"
+        Identifier Crawler_Web_Page_Id "PK"
+    }
+    CRAWLER_WEB_SITE_PERMISSION {
+        Identifier Web_Site_Id "PK"
+        Code Crawler_Permission_Type_Cd "PK"
+        Identifier Crawler_Id "PK"
+    }
+    CUSTOM_SEARCH_CLICK_THROUGH {
+        Code Search_Type_Cd ""
+        Code Search_Engine_System_Type_Cd ""
+        Identifier Keyword_Phrase_Id ""
+        Number Custom_Search_Page_Num ""
+    }
+    EXTENDED_SESSION_INFORMATION {
+        Identifier Visitor_First_Platform_Id ""
+        Identifier Visitor_Last_Platform_Id ""
+        Identifier Visitor_IP_Address_Id ""
+        Text Geographical_Trend_Data_Txt ""
+        Identifier Source_Session_Id ""
+        string more "29 more"
+    }
+    PROGRAM_PAGE_VIEW_XREF {
+        Identifier Online_Application_Program_Id "PK"
+        Count Web_Page_View_Sequence_Cnt "PK"
+        Identifier Web_Visit_Id "PK"
+        Text Online_Application_Program_Page_Link_Txt ""
+        Value Online_Application_Program_Page_Link_Val ""
+    }
+    REFERRAL_WEB_AD {
+        Identifier Channel_Instance_Id ""
+        Identifier Ad_Spot_Id ""
+        Date Ad_Placement_Start_Dt ""
+    }
+    SESSION_ATTRIBUTE_TYPE {
+        Code Session_Attribute_Type_Cd "PK"
+        Identifier Web_Visit_Id "PK"
+        Description Session_Attribute_Type_Desc ""
+    }
+    VISITOR {
+        Identifier Visitor_Id "PK"
+        Value Visitor_Source_Val ""
+        Code Visitor_Identification_Method_Type_Cd ""
+    }
+    VISITOR_BEHAVIOR_ANALYSIS {
+        Identifier Visitor_Id "PK"
+        Code Behavior_Reason_Cd "PK"
+        Datetime Visitor_Behavior_Analysis_Start_Dttm "PK"
+        Identifier Web_Visit_Id "PK"
+        Code Visitor_Score_Value_UOM_Cd ""
+        string more "2 more"
+    }
+    VISITOR_INPUT {
+        Count Web_Page_View_Sequence_Cnt "PK"
+        Count Visitor_Input_Index_Cnt "PK"
+        Identifier Web_Visit_Id "PK"
+        Identifier Postal_Code_Id ""
+        Identifier Telephone_Number_Id ""
+        string more "2 more"
+    }
+    VISITOR_LOGON {
+        Identifier Web_Visit_Id "PK"
+        Code Interaction_Activity_Type_Cd "PK"
+        Count Visitor_Interaction_Event_Sequence_Cnt "PK"
+        Name Visitor_Logon_System_User_Name "PK"
+        Code Visitor_Logon_Type_Cd ""
+        string more "3 more"
+    }
+    VISITOR_LOGON_SYSTEM {
+        Name Visitor_Logon_System_User_Name "PK"
+        Code Online_Visitor_Affiliation_Type_Cd ""
+    }
+    VISITOR_LOGON_SYSTEM_XREF {
+        Name Visitor_Logon_System_User_Name "PK"
+        Identifier Visitor_Id "PK"
+    }
+    VISITOR_LOGON_TYPE {
+        Code Visitor_Logon_Type_Cd "PK"
+        Description Visitor_Logon_Type_Desc ""
+    }
+    VISITOR_PATH_ANALYSIS {
+        Identifier Visitor_Id "PK"
+        Identifier Current_Web_Page_Id "PK"
+        Datetime Visitor_Path_Analysis_Start_Dttm "PK"
+        Identifier Web_Visit_Id "PK"
+        Identifier Parent_Web_Page_Id ""
+        string more "10 more"
+    }
+    VISITOR_PATH_ANALYSIS_ITEM_XREF {
+        Identifier Visitor_Id "PK"
+        Identifier Current_Web_Page_Id "PK"
+        Identifier Product_Id "PK"
+        Code Cart_Action_Type_Cd "PK"
+        Datetime Visitor_Path_Analysis_Start_Dttm "PK"
+        string more "2 more"
+    }
+    WEB_AD {
+        Identifier Web_Ad_Id "PK"
+        Code Web_Ad_Type_Cd ""
+    }
+    WEB_FORM {
+        Identifier Web_Form_Document_Id "PK"
+    }
+    WEB_GROUP_PUBLISHER {
+        Identifier Publisher_Party_Id "PK"
+        Code Web_Site_Group_Cd "PK"
+    }
+    WEB_INTERACTION_SITE_TYPE {
+        Code Web_Interaction_Site_Type_Cd "PK"
+        Description Web_Interaction_Site_Type_Desc ""
+    }
+    WEB_PAGE {
+        Identifier Web_Page_Id "PK"
+        Identifier Web_Site_Navigation_Id ""
+        Code Web_Page_Generation_Type_Cd ""
+        Code Page_Type_Cd ""
+        Name Web_Page_Name ""
+        string more "13 more"
+    }
+    WEB_PAGE_CONTEXT {
+        Identifier Web_Page_Id "PK"
+        Code Context_Cd "PK"
+        Code Rank_Type_Cd ""
+    }
+    WEB_PAGE_CREATIVE {
+        Identifier Web_Page_Id "PK"
+        Identifier Creative_Id "PK"
+        Datetime Web_Page_Creative_Start_Dttm "PK"
+        Identifier Link_To_Web_Page_Id ""
+        Code Page_Position_Cd ""
+        string more "2 more"
+    }
+    WEB_PAGE_ERROR {
+        Datetime Web_Page_Error_Dttm "PK"
+        Identifier Web_Page_Error_Type_Id "PK"
+        Count Web_Page_View_Sequence_Cnt "PK"
+        Identifier Web_Visit_Id "PK"
+        Identifier Web_Page_Id ""
+    }
+    WEB_PAGE_ERROR_TYPE {
+        Identifier Web_Page_Error_Type_Id "PK"
+        Description Web_Page_Error_Type_Desc ""
+        Text Web_Page_Error_Type_Attribute_Txt ""
+        Text Web_Page_Error_Attribute_Extended_Txt ""
+        Code Web_Page_Status_Category_Cd ""
+    }
+    WEB_PAGE_GENERATION_TYPE {
+        Code Web_Page_Generation_Type_Cd "PK"
+        Description Web_Page_Generation_Type_Desc ""
+    }
+    WEB_PAGE_MM_OBJECT {
+        Identifier Web_Page_Id "PK"
+        Identifier MM_Object_Id "PK"
+        Datetime Web_Page_MM_Object_Start_Dttm "PK"
+        Code Page_Position_Cd ""
+        Datetime Web_Page_MM_Object_End_Dttm ""
+        string more "2 more"
+    }
+    WEB_PAGE_OBJECT_VIEW {
+        Count Web_Page_View_Sequence_Cnt "PK"
+        Identifier MM_Object_Id "PK"
+        Datetime Web_Page_Object_View_Object_Dttm "PK"
+        Identifier Web_Visit_Id "PK"
+        Value Web_Page_Object_View_Link_Val ""
+        string more "1 more"
+    }
+    WEB_PAGE_STATUS_CATEGORY {
+        Code Web_Page_Status_Category_Cd "PK"
+        Description Web_Page_Status_Category_Desc ""
+    }
+    WEB_PAGE_TEXT {
+        Identifier Web_Page_Id "PK"
+        Code Text_Type_Cd "PK"
+        Text Web_Page_Txt ""
+    }
+    WEB_PAGE_TEXT_SECTION {
+        Identifier Web_Page_Id "PK"
+        Code Text_Type_Cd "PK"
+        Identifier Text_Section_Id "PK"
+    }
+    WEB_PAGE_VIEW {
+        Identifier Web_Visit_Id "PK"
+        Count Web_Page_View_Sequence_Cnt "PK"
+        Identifier Current_Web_Page_Id "PK"
+        Datetime Page_View_Start_Dttm ""
+        Datetime Page_View_End_Dttm ""
+        string more "29 more"
+    }
+    WEB_PAGE_VIEW_SUMMARY {
+        Count Web_Page_View_Sequence_Cnt "PK"
+        Identifier Visitor_Id "PK"
+        Date Web_Page_View_Summary_Start_Dt "PK"
+        Identifier Web_Visit_Id "PK"
+        Date Web_Page_View_Summary_End_Dt ""
+        string more "3 more"
+    }
+    WEB_PLATFORM {
+        Code Web_Page_Position_Cd ""
+        Identifier Web_Page_Id ""
+    }
+    WEB_SCENARIO_STEP {
+        Identifier Web_Visit_Id "PK"
+        Count Visitor_Interaction_Event_Sequence_Cnt "PK"
+        Code Interaction_Activity_Type_Cd "PK"
+        Count Scenario_Step_Sequence_Cnt "PK"
+        Name Web_Scenario_Event_Step_Name ""
+        string more "1 more"
+    }
+    WEB_SECTION_SUBTYPE {
+        Code Web_Section_Subtype_Cd "PK"
+        Description Web_Section_Subtype_Desc ""
+    }
+    WEB_SELF_HELP {
+        Identifier Web_Visit_Id ""
+        Count Web_Page_View_Sequence_Cnt ""
+    }
+    WEB_SERVER {
+        Identifier Web_Server_Id "PK"
+        Name Web_Server_Name ""
+        Indicator Web_Server_Secure_Ind ""
+        Number Web_Server_Port_Num ""
+        Count Web_Server_Hit_Cnt ""
+        string more "6 more"
+    }
+    WEB_SERVER_ACTIVITY {
+        Identifier Web_Server_Id "PK"
+        Datetime Web_Server_Start_Dttm "PK"
+        Datetime Web_Server_End_Dttm ""
+        Count Web_Server_Hits_Per_Minute_Cnt ""
+        Quantity Web_Server_Refused_Request_Qty ""
+        string more "7 more"
+    }
+    WEB_SERVER_INTERNET_PROTOCOL_ADDRESS {
+        Identifier Web_Server_Id "PK"
+        Identifier Internet_Protocol_Address_Id "PK"
+        Datetime Web_Server_Internet_Protocol_Address_Start_Dttm "PK"
+        Datetime Web_Server_Internet_Protocol_Address_End_Dttm ""
+    }
+    WEB_SERVER_SOFTWARE {
+        Code Web_Server_Software_Cd "PK"
+        Description Web_Server_Software_Desc ""
+    }
+    WEB_SERVER_STATUS {
+        Identifier Web_Server_Id "PK"
+        Datetime Web_Server_Start_Dttm "PK"
+        Datetime Web_Server_Status_Dttm "PK"
+        Code Web_Server_Status_Type_Cd "PK"
+    }
+    WEB_SERVER_STATUS_CATEGORY {
+        Code Web_Server_Status_Category_Cd "PK"
+        Description Web_Server_Status_Category_Desc ""
+    }
+    WEB_SERVER_STATUS_TYPE {
+        Code Web_Server_Status_Type_Cd "PK"
+        Code Web_Server_Status_Category_Cd ""
+        Description Web_Server_Status_Desc ""
+    }
+    WEB_SESSION_COOKIE {
+        Number Cookie_Num "PK"
+        Identifier Web_Visit_Id "PK"
+    }
+    WEB_SHOPPING_EXPERIENCE_FUNCTION_TYPE {
+        Code Web_Shopping_Experience_Function_Type_Cd "PK"
+        Description Web_Shopping_Experience_Function_Desc ""
+    }
+    WEB_SITE {
+        Identifier Web_Site_Id "PK"
+        Description Web_Site_URI_Desc ""
+        Name Web_Site_Name ""
+        Code Web_Site_Content_Cd ""
+        Identifier Web_Site_Owner_Party_Id "PK"
+        string more "3 more"
+    }
+    WEB_SITE_BREADCRUMB {
+        Identifier Web_Site_Breadcrumb_Id "PK"
+        Description Web_Site_Breadcrumb_Desc ""
+        Code Breadcrumb_Type_Cd ""
+    }
+    BROWSER_APPLICATION_TYPE ||--o{ BROWSER_VERSION : ""
+    BROWSER_PLUG_IN ||--o{ BROWSER_PLUG_IN_XREF : ""
+    CLICK_ACTION_TYPE ||--o{ CLICK_ACTIVITY : ""
+    CLICK_CONTEXT_TYPE ||--o{ CLICK_ACTIVITY : ""
+    COOKIE ||--o{ WEB_SESSION_COOKIE : ""
+    CRAWLER ||--o{ CRAWLER_WEB_PAGE_PERMISSION : ""
+    CRAWLER ||--o{ WEB_SITE_CRAWLER : ""
+    CRAWLER ||--o{ CRAWLER_WEB_SITE_PERMISSION : ""
+    CRAWLER_PERMISSION_TYPE ||--o{ CRAWLER_WEB_SITE_PERMISSION : ""
+    CRAWLER_PERMISSION_TYPE ||--o{ CRAWLER_WEB_PAGE_PERMISSION : ""
+    VISITOR ||--o{ WEB_PAGE_VIEW_SUMMARY : ""
+    VISITOR ||--o{ WEB_VISIT : ""
+    VISITOR ||--o{ VISITOR_LOGON_SYSTEM_XREF : ""
+    VISITOR ||--o{ VISITOR_PATH_ANALYSIS : ""
+    VISITOR ||--o{ WEB_SITE_USER_SPACE : ""
+    VISITOR ||--o{ VISITOR_BEHAVIOR_ANALYSIS : ""
+    VISITOR ||--o{ WEB_VISIT_SUMMARY : ""
+    VISITOR_LOGON_SYSTEM ||--o{ VISITOR_LOGON : ""
+    VISITOR_LOGON_SYSTEM ||--o{ VISITOR_LOGON_SYSTEM_XREF : ""
+    VISITOR_LOGON_TYPE ||--o{ VISITOR_LOGON : ""
+    VISITOR_PATH_ANALYSIS ||--o{ VISITOR_PATH_ANALYSIS_ITEM_XREF : ""
+    WEB_PAGE ||--o{ WEB_PAGE_CONTEXT : ""
+    WEB_PAGE ||--o{ WEB_VISIT : ""
+    WEB_PAGE ||--o{ WEB_PAGE_TEXT : ""
+    WEB_PAGE ||--o{ WEB_PAGE_ERROR : ""
+    WEB_PAGE ||--o{ WEB_PLATFORM : ""
+    WEB_PAGE ||--o{ CRAWLER_WEB_PAGE_PERMISSION : ""
+    WEB_PAGE_ERROR_TYPE ||--o{ WEB_PAGE_ERROR : ""
+    WEB_PAGE_GENERATION_TYPE ||--o{ WEB_PAGE : ""
+    WEB_PAGE_STATUS_CATEGORY ||--o{ WEB_PAGE_ERROR_TYPE : ""
+    WEB_PAGE_TEXT ||--o{ WEB_PAGE_TEXT_SECTION : ""
+    WEB_PAGE_VIEW ||--o{ WEB_PAGE_VIEW_SUMMARY : ""
+    WEB_PAGE_VIEW ||--o{ VISITOR_INPUT : ""
+    WEB_PAGE_VIEW ||--o{ WEB_PAGE_OBJECT_VIEW : ""
+    WEB_PAGE_VIEW ||--o{ PROGRAM_PAGE_VIEW_XREF : ""
+    WEB_PAGE_VIEW ||--o{ CLICK_ACTIVITY : ""
+    WEB_PAGE_VIEW ||--o{ WEB_SELF_HELP : ""
+    WEB_PAGE_VIEW ||--o{ WEB_PAGE_ERROR : ""
+    WEB_SECTION_SUBTYPE ||--o{ WEB_SITE_SECTION : ""
+    WEB_SERVER ||--o{ WEB_PAGE_VIEW : ""
+    WEB_SERVER ||--o{ WEB_SERVER_INTERNET_PROTOCOL_ADDRESS : ""
+    WEB_SERVER ||--o{ WEB_SITE_SERVER : ""
+    WEB_SERVER ||--o{ WEB_SERVER_ACTIVITY : ""
+    WEB_SERVER_ACTIVITY ||--o{ WEB_SERVER_STATUS : ""
+    WEB_SERVER_SOFTWARE ||--o{ WEB_SERVER : ""
+    WEB_SERVER_STATUS_CATEGORY ||--o{ WEB_SERVER_STATUS_TYPE : ""
+    WEB_SERVER_STATUS_TYPE ||--o{ WEB_PAGE_VIEW : ""
+    WEB_SERVER_STATUS_TYPE ||--o{ WEB_SERVER_STATUS : ""
+    WEB_SITE ||--o{ WEB_SITE_SERVER : ""
+    WEB_SITE ||--o{ WEB_SITE_CRAWLER : ""
+    WEB_SITE ||--o{ WEB_PAGE : ""
+    WEB_SITE ||--o{ WEB_SITE_SECTION : ""
+    WEB_SITE ||--o{ WEB_SITE_GROUP_XREF : ""
+    WEB_SITE ||--o{ CRAWLER_WEB_SITE_PERMISSION : ""
+    WEB_SITE_CONTENT_TYPE ||--o{ WEB_SITE : ""
+    WEB_SITE_ENTRY_TYPE ||--o{ WEB_VISIT : ""
+    WEB_SITE_GROUP ||--o{ WEB_GROUP_PUBLISHER : ""
+    WEB_SITE_GROUP ||--o{ WEB_SITE_GROUP_XREF : ""
+    WEB_SITE_NAVIGATION ||--o{ WEB_SITE_NAVIGATION : ""
+    WEB_SITE_NAVIGATION ||--o{ WEB_PAGE : ""
+    WEB_SITE_SECTION ||--o{ WEB_SITE_SECTION : ""
+    WEB_SITE_SECTION ||--o{ WEB_SITE_SUBSTITUTE_SECTION : ""
+    WEB_SITE_SECTION ||--o{ WEB_PAGE : ""
+    WEB_SITE_SUBSTITUTE_SECTION_TYPE ||--o{ WEB_SITE_SUBSTITUTE_SECTION : ""
+    WEB_SITE_SUBTYPE ||--o{ WEB_SITE : ""
+    WEB_VISIT ||--o{ WEB_PAGE_VIEW : ""
+    WEB_VISIT ||--o{ WEB_VISIT_INTERNET_PROTOCOL_XREF : ""
+    WEB_VISIT ||--o{ SESSION_ATTRIBUTE_TYPE : ""
+    WEB_VISIT ||--o{ WEB_SESSION_COOKIE : ""
+    WEB_VISIT ||--o{ WEB_VISIT_SUMMARY : ""
+    WEB_VISIT ||--o{ VISITOR_BEHAVIOR_ANALYSIS : ""
+    WEB_VISIT ||--o{ VISITOR_PATH_ANALYSIS : ""
+    WEB_VISIT_SUBTYPE ||--o{ WEB_VISIT : ""
+    WEB_VISIT ||--|| EXTENDED_SESSION_INFORMATION : "inherits"
+    WEB_AD ||--|| WEB_BANNER_AD : "inherits"
+    WEB_SITE_SECTION ||--|| WEB_SITE_USER_SPACE : "inherits"
+    WEB_AD ||--|| WEB_TEXT_AD : "inherits"

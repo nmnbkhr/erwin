@@ -1,0 +1,474 @@
+erDiagram
+    AP_INVOICE {
+        Identifier AP_Invoice_Id "PK"
+        Identifier AP_Invoice_Batch_Id ""
+        Code AP_Invoice_Subtype_Cd ""
+        Identifier AP_Invoice_COA_Id ""
+        Code Set_Of_Books_Cd ""
+    }
+    AP_INVOICE_LINE {
+        Identifier AP_Invoice_Id "PK"
+        Number AP_Invoice_Line_Num "PK"
+        Quantity AP_Invoice_Line_Qty ""
+        Description AP_Invoice_Line_Desc ""
+        Number AP_Invoice_Line_Merchant_Document_Num ""
+        string more "4 more"
+    }
+    AP_INVOICE_LINE_ADJUSTMENT {
+        Identifier AP_Invoice_Id "PK"
+        Number AP_Invoice_Line_Num "PK"
+        Identifier AP_Invoice_Line_Adjusted_Id "PK"
+        Datetime AP_Invoice_Line_Adjustment_Creation_Dttm ""
+        Quantity AP_Invoice_Line_Adjustment_Qty ""
+        string more "7 more"
+    }
+    AP_INVOICE_LINE_AMOUNT {
+        Identifier AP_Invoice_Id "PK"
+        Number AP_Invoice_Line_Num "PK"
+        Datetime AP_Invoice_Line_Amount_Dttm "PK"
+        Amount AP_Invoice_Line_Amount_Global_Amt ""
+        Amount AP_Invoice_Line_Amount_Local_Amt ""
+        string more "1 more"
+    }
+    AP_INVOICE_LINE_PAYMENT {
+        Number AP_Invoice_Line_Payment_Num "PK"
+        Amount AP_Invoice_Line_Payment_Amt ""
+        Number AP_Invoice_Line_Num ""
+        Identifier AP_Invoice_Id ""
+        Code Set_Of_Books_Cd ""
+        string more "1 more"
+    }
+    AP_INVOICE_LINE_STATUS {
+        Identifier AP_Invoice_Id "PK"
+        Number AP_Invoice_Line_Num "PK"
+        Code AP_Invoice_Line_Status_Type_Cd "PK"
+        Datetime AP_Invoice_Line_Status_Dttm "PK"
+        Code AP_Invoice_Line_Status_Reason_Cd ""
+        string more "1 more"
+    }
+    AP_INVOICE_LINE_VENDOR_PO_LINE {
+        Identifier AP_Invoice_Id "PK"
+        Number AP_Invoice_Line_Num "PK"
+        Identifier Vendor_PO_Id "PK"
+        Number Vendor_PO_Line_Num "PK"
+        Code AP_Invoice_Line_Vendor_PO_Line_UOM_Cd ""
+        string more "1 more"
+    }
+    AP_INVOICE_LINE_VENDOR_RECEIPT_LINE {
+        Identifier AP_Invoice_Id "PK"
+        Number AP_Invoice_Line_Num "PK"
+        Identifier Vendor_Receipt_Id "PK"
+        Number Receipt_Line_Num "PK"
+        Code AP_Invoice_Line_Vendor_Receipt_UOM_Cd ""
+        string more "1 more"
+    }
+    AP_INVOICE_SUBTYPE {
+        Code AP_Invoice_Subtype_Cd "PK"
+        Description AP_Invoice_Subtype_Desc ""
+    }
+    AR_INVOICE {
+        Identifier AR_Invoice_Id "PK"
+        Number AR_Invoice_Customer_PO_Num ""
+        Identifier AR_Invoice_GL_Batch_Id ""
+        Code AR_Invoice_Type_Cd "PK"
+        Code AR_Invoice_Reason_Type_Cd ""
+        string more "3 more"
+    }
+    AR_INVOICE_LINE {
+        Identifier AR_Invoice_Id "PK"
+        Number AR_Invoice_Line_Num "PK"
+        Text AR_Invoice_Line_Description_Txt ""
+        Code AR_Invoice_Line_Type_Cd "PK"
+        Number Host_Invoice_Line_Num ""
+        string more "3 more"
+    }
+    AR_INVOICE_LINE_ADJUSTMENT {
+        Identifier AR_Invoice_Id "PK"
+        Number AR_Invoice_Line_Num "PK"
+        Identifier AR_Invoice_Line_Adjustment_Id "PK"
+        Datetime AR_Invoice_Line_Adjustment_Creation_Dttm ""
+        Amount AR_Invoice_Line_Adjustment_Amt ""
+        string more "7 more"
+    }
+    AR_INVOICE_LINE_AMOUNT {
+        Identifier AR_Invoice_Id "PK"
+        Number AR_Invoice_Line_Num "PK"
+        Code AR_Invoice_Line_Amount_Type_Cd "PK"
+        Datetime AR_Invoice_Line_Amount_Dttm ""
+        Amount AR_Invoice_Line_Amount_Global_Amt ""
+        string more "2 more"
+    }
+    AR_INVOICE_LINE_QUANTITY {
+        Identifier AR_Invoice_Id "PK"
+        Number AR_Invoice_Line_Num "PK"
+        Code Invoice_Quantity_Type_Cd "PK"
+        Quantity AR_Invoice_Line_Quantity_Qty ""
+        Code AR_Invoice_Line_Quantity_UOM_Cd ""
+    }
+    AR_INVOICE_LINE_RECEIPT {
+        Number AR_Invoice_Line_Receipt_Num "PK"
+        Amount AR_Invoice_Line_Receipt_Amt ""
+        Number AR_Invoice_Line_Num ""
+        Identifier AR_Invoice_Line_Receipt_COA_Id ""
+        Identifier AR_Invoice_Id ""
+        string more "1 more"
+    }
+    AR_INVOICE_LINE_TYPE {
+        Code AR_Invoice_Line_Type_Cd "PK"
+        Description AR_Invoice_Line_Type_Desc ""
+    }
+    AR_INVOICE_REASON_TYPE {
+        Code AR_Invoice_Reason_Type_Cd "PK"
+        Description AR_Invoice_Reason_Type_Desc ""
+    }
+    AR_INVOICE_TYPE {
+        Code AR_Invoice_Type_Cd "PK"
+        Description AR_Invoice_Type_Desc ""
+    }
+    BANK_TRANSFER_EVENT_TYPE {
+        Code Bank_Transfer_Event_Type_Cd "PK"
+        Description Bank_Transfer_Event_Type_Desc ""
+    }
+    BOND_PAYMENT_SCHEDULE {
+        Identifier Investment_Product_Id "PK"
+        Date Bond_Payment_Interest_Payment_Start_Dt "PK"
+        Date Bond_Payment_Interest_Period_End_Dt ""
+        Date Bond_Payment_Rate_Fixing_Dt ""
+        Amount Bond_Interest_Payment_Amt ""
+        string more "1 more"
+    }
+    CARD_STATEMENT {
+        Identifier Agreement_Id "PK"
+        Identifier Statement_Document_Id "PK"
+        Identifier Access_Device_Id "PK"
+    }
+    CARD_STATEMENT_LINE_ITEM {
+        Number Statement_Merchant_Purchase_Reference_Num ""
+        Identifier Statement_Merchant_Party_Id ""
+        Code Statement_Organization_Business_Type_Cd ""
+        Identifier Statement_Merchant_Address_Id ""
+        Identifier Access_Device_Id ""
+    }
+    CARD_STATEMENT_METRIC {
+        Identifier Agreement_Id "PK"
+        Identifier Statement_Document_Id "PK"
+        Identifier Access_Device_Id "PK"
+        Code Statement_Metric_Type_Cd "PK"
+        Amount Card_Statement_Amt ""
+        string more "4 more"
+    }
+    CHECK_TRANSACTION_TYPE {
+        Code Check_Transaction_Type_Cd "PK"
+        Description Check_Transaction_Type_Desc ""
+    }
+    CLAIM_EXPOSURE_ACTIVITY_PAYMENT_TYPE {
+        Code Claim_Exposure_Activity_Payment_Type_Cd "PK"
+        Description Claim_Exposure_Activity_Payment_Type_Desc ""
+    }
+    CLAIM_IVR_STEP_TRANSACTION {
+        Identifier Claim_Id ""
+    }
+    CLAIM_PAYMENT_TYPE {
+        Code Claim_Payment_Type_Cd "PK"
+        Description Claim_Payment_Type_Desc ""
+    }
+    COA_MONETARY_BALANCE {
+        Code Monetary_Balance_Currency_Cd ""
+        Amount Starting_Monetary_Balance_Amt ""
+        Amount Ending_Monetary_Balance_Amt ""
+        Amount Average_Monetary_Balance_Amt ""
+        Amount Average_Global_Monetary_Balance_Amt ""
+        string more "5 more"
+    }
+    COLLECTION_DEBT_INVOICE {
+        Amount Original_Collection_Amt ""
+        Amount Agreement_Currency_Original_Amt ""
+        Date Original_Collection_Due_Dt ""
+        Identifier Collection_Issuer_Agreement_Id "PK"
+    }
+    COMMODITY_TRANSACTION_TYPE {
+        Code Commodity_Transaction_Type_Cd "PK"
+        Description Commodity_Transaction_Type_Desc ""
+    }
+    CONSOLIDATED_INVOICE {
+        Identifier Consolidated_Invoice_Id "PK"
+        Datetime Consolidated_Invoice_Create_Dttm ""
+        Identifier Consolidated_Invoice_Created_By_Party_Id ""
+    }
+    CONSOLIDATED_INVOICE_STATUS {
+        Identifier Consolidated_Invoice_Id "PK"
+        Code Invoice_Status_Type_Cd "PK"
+        Datetime Consolidated_Invoice_Status_Dttm "PK"
+    }
+    CONSOLIDATED_INVOICE_SUMMARY {
+        Identifier Consolidated_Invoice_Id "PK"
+        Datetime Consolidated_Invoice_Summary_Dttm "PK"
+        Amount Consolidated_Invoice_Summary_Begin_Balance_Amt ""
+        Amount Consolidated_Invoice_Summary_Payment_Amt ""
+        Amount Consolidated_Invoice_Summary_Adjusted_Amt ""
+        string more "2 more"
+    }
+    DEBT_PRINCIPAL_REPAYMENT {
+        Amount Debt_Principal_Repayment_Amt ""
+        Identifier Debt_Repayment_Agent_Party_Id ""
+        Date Debt_Principal_Repayment_Dt ""
+    }
+    EARNING_STATEMENT_TYPE {
+        Code Earning_Statement_Type_Cd "PK"
+        Description Earning_Statement_Type_Desc ""
+    }
+    EVENT_PAYMENT_INSTRUCTION {
+        Identifier Event_Id "PK"
+        Identifier Payment_Instruction_Id "PK"
+        Code Payment_Instruction_Event_Role_Cd "PK"
+    }
+    FILE_TRANSFER {
+        Identifier File_Transfer_Program_Id "PK"
+        Identifier File_Transfer_Program_Version_Id "PK"
+        Datetime File_Transfer_Program_Access_Start_Dttm "PK"
+        Code Transfer_Failure_Reason_Cd ""
+        Code Transfer_Direction_Type_Cd ""
+        string more "12 more"
+    }
+    FINANCIAL_EVENT_JOURNAL_ENTRY_LINE {
+        Identifier Event_Id ""
+        Identifier Journal_Entry_Header_Id "PK"
+        Count Journal_Entry_Line_Cnt "PK"
+        Code Financial_Event_Amount_Type_Cd ""
+        Datetime Financial_Event_Amount_Dttm ""
+    }
+    FIXED_INCOME_INTEREST_PAYMENT {
+        Amount Fixed_Income_Interest_Payment_Amt ""
+        Date Fixed_Income_Payment_Dt ""
+        Identifier Payment_Agent_Party_Id ""
+    }
+    FORM_OF_PAYMENT_TYPE {
+        Code Form_Of_Payment_Type_Cd "PK"
+        Description Form_Of_Payment_Type_Desc ""
+    }
+    FREIGHT_TERM_TYPE_INVOICE_XREF {
+        Identifier Invoice_Id "PK"
+        Code Freight_Term_Type_Cd "PK"
+    }
+    FUNDS_TRANSFER_EVENT {
+        Number Funds_Transfer_Host_Num ""
+        Date Funds_Transfer_Effective_Dt ""
+        Number Funds_Transfer_Reference_Num ""
+        Code Funds_Transfer_Method_Type_Cd "PK"
+        Code Funds_Transfer_Type_Cd ""
+        string more "2 more"
+    }
+    FUNDS_TRANSFER_METHOD_TYPE {
+        Code Funds_Transfer_Method_Type_Cd "PK"
+        Description Funds_Transfer_Method_Type_Desc ""
+    }
+    FUNDS_TRANSFER_TYPE {
+        Code Funds_Transfer_Type_Cd "PK"
+        Description Funds_Transfer_Type_Desc ""
+    }
+    GL_PROJECT_SEGMENT {
+        Identifier GL_Project_Segment_Id "PK"
+    }
+    GL_ROLL_UP_TYPE {
+        Code GL_Roll_up_Type_Cd "PK"
+        Description GL_Roll_up_Type_Desc ""
+    }
+    HEALTH_BILLING_CATEGORY {
+        Code Health_Billing_Category_Cd "PK"
+        Code Health_Billing_Type_Cd ""
+    }
+    HEALTH_BILLING_CODE {
+        Code Health_Billing_Cd "PK"
+        Code Health_Billing_Category_Cd "PK"
+        Description Health_Billing_Code_Desc ""
+    }
+    HEALTH_BILLING_TYPE {
+        Code Health_Billing_Type_Cd "PK"
+        Description Health_Billing_Type_Desc ""
+    }
+    INTEREST_PAYMENT_METHOD_TYPE_JAPAN {
+        Code Interest_Payment_Method_Cd "PK"
+        Description Interest_Payment_Method_Desc ""
+    }
+    INVESTMENT_HOLDING_STATEMENT {
+        Identifier Statement_Document_Id "PK"
+        Identifier Agreement_Id "PK"
+        Identifier Portfolio_Id "PK"
+        Identifier Investment_Product_Id "PK"
+        Code Statement_Holding_Position_Type_Cd ""
+    }
+    INVESTMENT_HOLDING_STATEMENT_METRIC {
+        Identifier Statement_Document_Id "PK"
+        Identifier Agreement_Id "PK"
+        Identifier Portfolio_Id "PK"
+        Identifier Investment_Product_Id "PK"
+        Code Statement_Metric_Type_Cd "PK"
+        string more "5 more"
+    }
+    INVESTMENT_STATEMENT_LINE_ITEM {
+        Identifier Statement_Document_Id "PK"
+        Identifier Agreement_Id "PK"
+        Identifier Investment_Product_Id "PK"
+        Identifier Portfolio_Id "PK"
+        Number Investment_Statement_Line_Item_Num "PK"
+        string more "3 more"
+    }
+    INVESTMENT_STATEMENT_LINE_ITEM_METRIC {
+        Identifier Agreement_Id "PK"
+        Identifier Statement_Document_Id "PK"
+        Identifier Investment_Product_Id "PK"
+        Identifier Portfolio_Id "PK"
+        Number Investment_Statement_Line_Item_Num "PK"
+        string more "6 more"
+    }
+    INVOICE {
+        Identifier Invoice_Id "PK"
+        Datetime Invoice_Dttm ""
+        Text Invoice_Description_Txt ""
+        Number Host_Invoice_Num ""
+        Code Transmittal_Mode_Type_Cd ""
+        string more "7 more"
+    }
+    INVOICE_ADJUSTMENT {
+        Identifier Invoice_Id "PK"
+        Identifier Invoice_Adjustment_Id "PK"
+        Datetime Invoice_Adjustment_Creation_Dttm ""
+        Amount Invoice_Adjustment_Amt ""
+        Code Invoice_Adjustment_Reason_Cd ""
+        string more "4 more"
+    }
+    INVOICE_AMOUNT {
+        Identifier Invoice_Id "PK"
+        Code Invoice_Amount_Type_Cd "PK"
+        Datetime Invoice_Amount_Dttm "PK"
+        Amount Invoice_Amount_Global_Amt ""
+        Amount Invoice_Amount_Transaction_Amt ""
+        string more "1 more"
+    }
+    INVOICE_AMOUNT_TYPE {
+        Code Invoice_Amount_Type_Cd "PK"
+        Description Invoice_Amount_Type_Desc ""
+    }
+    INVOICE_CHARGE {
+        Identifier Invoice_Id "PK"
+        Code Charge_Type_Cd "PK"
+        Amount Invoice_Charge_Amt ""
+    }
+    AP_INVOICE ||--o{ AP_INVOICE_LINE : ""
+    AP_INVOICE_LINE ||--o{ AP_INVOICE_LINE_PAYMENT : ""
+    AP_INVOICE_LINE ||--o{ AP_INVOICE_LINE_AMOUNT : ""
+    AP_INVOICE_LINE ||--o{ AP_INVOICE_LINE_VENDOR_RECEIPT_LINE : ""
+    AP_INVOICE_LINE ||--o{ AP_INVOICE_LINE_ADJUSTMENT : ""
+    AP_INVOICE_LINE ||--o{ AP_INVOICE_LINE_VENDOR_PO_LINE : ""
+    AP_INVOICE_LINE ||--o{ AP_INVOICE_LINE_STATUS : ""
+    AP_INVOICE_SUBTYPE ||--o{ AP_INVOICE : ""
+    AR_INVOICE ||--o{ AR_INVOICE_LINE : ""
+    AR_INVOICE_LINE ||--o{ AR_INVOICE_LINE_AMOUNT : ""
+    AR_INVOICE_LINE ||--o{ AR_INVOICE_LINE_QUANTITY : ""
+    AR_INVOICE_LINE ||--o{ AR_INVOICE_LINE_RECEIPT : ""
+    AR_INVOICE_LINE ||--o{ AR_INVOICE_LINE_ADJUSTMENT : ""
+    AR_INVOICE_LINE_TYPE ||--o{ AR_INVOICE_LINE : ""
+    AR_INVOICE_REASON_TYPE ||--o{ AR_INVOICE : ""
+    AR_INVOICE_TYPE ||--o{ AR_INVOICE : ""
+    BANK_TRANSFER_EVENT_TYPE ||--o{ FUNDS_TRANSFER_EVENT : ""
+    CARD_STATEMENT ||--o{ CARD_STATEMENT_METRIC : ""
+    CONSOLIDATED_INVOICE ||--o{ CONSOLIDATED_INVOICE_SUMMARY : ""
+    CONSOLIDATED_INVOICE ||--o{ CONSOLIDATED_INVOICE_STATUS : ""
+    CONSOLIDATED_INVOICE ||--o{ PAYMENT_SCHEDULE : ""
+    CONSOLIDATED_INVOICE ||--o{ INVOICE : ""
+    FUNDS_TRANSFER_EVENT ||--o{ PAYROLL_REGISTER_PAYMENT : ""
+    FUNDS_TRANSFER_EVENT ||--o{ PAYMENT_BANK_DRAFT_XREF : ""
+    FUNDS_TRANSFER_EVENT ||--o{ INVOICE_PAYMENT : ""
+    FUNDS_TRANSFER_EVENT ||--o{ PAYMENT_ADJUSTMENT : ""
+    FUNDS_TRANSFER_EVENT ||--o{ PAYMENT_STATUS : ""
+    FUNDS_TRANSFER_EVENT ||--o{ PAYMENT_SCHEDULE_PAYMENT : ""
+    FUNDS_TRANSFER_METHOD_TYPE ||--o{ FUNDS_TRANSFER_EVENT : ""
+    FUNDS_TRANSFER_TYPE ||--o{ FUNDS_TRANSFER_EVENT : ""
+    HEALTH_BILLING_CATEGORY ||--o{ HEALTH_BILLING_CODE : ""
+    HEALTH_BILLING_TYPE ||--o{ HEALTH_BILLING_CATEGORY : ""
+    INVESTMENT_HOLDING_STATEMENT ||--o{ INVESTMENT_STATEMENT_LINE_ITEM : ""
+    INVESTMENT_HOLDING_STATEMENT ||--o{ INVESTMENT_HOLDING_STATEMENT_METRIC : ""
+    INVESTMENT_STATEMENT_LINE_ITEM ||--o{ INVESTMENT_STATEMENT_LINE_ITEM_METRIC : ""
+    INVOICE ||--o{ INVOICE_CHARGE : ""
+    INVOICE ||--o{ INVOICE_STATUS : ""
+    INVOICE ||--o{ PAYMENT_TERM_TYPE_INVOICE_XREF : ""
+    INVOICE ||--o{ INVOICE_ADJUSTMENT : ""
+    INVOICE ||--o{ PAYMENT_SCHEDULE : ""
+    INVOICE ||--o{ INVOICE_PAYMENT : ""
+    INVOICE ||--o{ INVOICE_AMOUNT : ""
+    INVOICE ||--o{ FREIGHT_TERM_TYPE_INVOICE_XREF : ""
+    INVOICE_AMOUNT_TYPE ||--o{ AR_INVOICE_LINE_AMOUNT : ""
+    INVOICE_AMOUNT_TYPE ||--o{ PA_DRAFT_INVOICE_LINE_AMOUNT : ""
+    INVOICE_AMOUNT_TYPE ||--o{ INVOICE_AMOUNT : ""
+    INVOICE_LINE_PAYMENT ||--o{ INVOICE_LINE_PAYMENT_STATUS : ""
+    INVOICE_PAYMENT ||--o{ INVOICE_LINE_PAYMENT : ""
+    INVOICE_PAYMENT_METHOD_TYPE ||--o{ INVOICE_PAYMENT : ""
+    INVOICE_PAYMENT_SUBTYPE ||--o{ INVOICE_LINE_PAYMENT : ""
+    INVOICE_QUANTITY_TYPE ||--o{ AR_INVOICE_LINE_QUANTITY : ""
+    INVOICE_RELATIONSHIP_TYPE ||--o{ INVOICE_RELATED : ""
+    INVOICE_SOURCE_TYPE ||--o{ INVOICE : ""
+    INVOICE_STATUS_REASON_TYPE ||--o{ AP_INVOICE_LINE_STATUS : ""
+    INVOICE_STATUS_REASON_TYPE ||--o{ INVOICE_STATUS : ""
+    INVOICE_STATUS_TYPE ||--o{ CONSOLIDATED_INVOICE_STATUS : ""
+    INVOICE_STATUS_TYPE ||--o{ AP_INVOICE_LINE_STATUS : ""
+    INVOICE_STATUS_TYPE ||--o{ INVOICE_STATUS : ""
+    INVOICE_SUBTYPE ||--o{ INVOICE : ""
+    ITEM_TRANSFER_DIRECTION_TYPE ||--o{ ITEM_TRANSFER : ""
+    IVR_STEP_TRANSACTION_SUBTYPE ||--o{ IVR_STEP_TRANSACTION : ""
+    JOURNAL_ENTRY_HEADER ||--o{ JOURNAL_ENTRY_LINE : ""
+    JOURNAL_ENTRY_LINE ||--o{ FINANCIAL_EVENT_JOURNAL_ENTRY_LINE : ""
+    NONCASH_PAYMENT_APPROVAL_TYPE ||--o{ INVOICE_PAYMENT : ""
+    PA_DRAFT_INVOICE ||--o{ PA_DRAFT_INVOICE_LINE : ""
+    PA_DRAFT_INVOICE_LINE ||--o{ PA_DRAFT_INVOICE_LINE_AMOUNT : ""
+    PAYMENT_ADJUSTMENT_TYPE ||--o{ PAYMENT_ADJUSTMENT : ""
+    PAYMENT_INSTRUCTION ||--o{ EVENT_PAYMENT_INSTRUCTION : ""
+    PAYMENT_INSTRUCTION ||--o{ PAYMENT_INSTRUCTION_STATUS : ""
+    PAYMENT_INSTRUCTION ||--o{ PAYMENT_INSTRUCTION_TEXT : ""
+    PAYMENT_INSTRUCTION_EVENT_ROLE ||--o{ EVENT_PAYMENT_INSTRUCTION : ""
+    PAYMENT_INSTRUCTION_STATUS_REASON_TYPE ||--o{ PAYMENT_INSTRUCTION_STATUS : ""
+    PAYMENT_INSTRUCTION_STATUS_TYPE ||--o{ PAYMENT_INSTRUCTION_STATUS : ""
+    PAYMENT_INSTRUCTION_TYPE ||--o{ PAYMENT_INSTRUCTION : ""
+    PAYMENT_SCHEDULE ||--o{ PAYMENT_SCHEDULE_PAYMENT : ""
+    PAYMENT_SCHEDULE ||--o{ PAYMENT_SCHEDULE_TERM : ""
+    PAYMENT_SCHEDULE ||--o{ PAYMENT_SCHEDULE_AMOUNT : ""
+    PAYMENT_SCHEDULE_AMOUNT_TYPE ||--o{ PAYMENT_SCHEDULE_AMOUNT : ""
+    PAYMENT_SCHEDULE_TYPE ||--o{ PAYMENT_SCHEDULE : ""
+    PAYMENT_STATUS_REASON_TYPE ||--o{ INVOICE_LINE_PAYMENT_STATUS : ""
+    PAYMENT_STATUS_REASON_TYPE ||--o{ PAYMENT_STATUS : ""
+    PAYMENT_STATUS_TYPE ||--o{ PAYMENT_STATUS : ""
+    PAYMENT_STATUS_TYPE ||--o{ INVOICE_LINE_PAYMENT_STATUS : ""
+    PAYMENT_TERM_TYPE ||--o{ PAYMENT_SCHEDULE : ""
+    PAYMENT_TERM_TYPE ||--o{ PAYMENT_TERM_TYPE_INVOICE_XREF : ""
+    PURCHASED_RECEIVABLE_INVOICE_TYPE ||--o{ PURCHASED_RECEIVABLE_INVOICE : ""
+    STATEMENT ||--o{ STATEMENT_METRIC : ""
+    STATEMENT ||--o{ STATEMENT_EVENT : ""
+    STATEMENT_EVENT_TYPE ||--o{ STATEMENT_EVENT : ""
+    STATEMENT_MAIL_TYPE ||--o{ STATEMENT : ""
+    STATEMENT_METRIC_TYPE ||--o{ STATEMENT_METRIC : ""
+    STATEMENT_METRIC_TYPE ||--o{ INVESTMENT_HOLDING_STATEMENT_METRIC : ""
+    STATEMENT_METRIC_TYPE ||--o{ CARD_STATEMENT_METRIC : ""
+    STATEMENT_METRIC_TYPE ||--o{ INVESTMENT_STATEMENT_LINE_ITEM_METRIC : ""
+    STATEMENT_TYPE ||--o{ STATEMENT : ""
+    TRANSACTION_FRAUD_TYPE ||--o{ TRANSACTION_FRAUD_CASE : ""
+    TRANSFER_EVENT_SUBTYPE ||--o{ TRANSFER_EVENT : ""
+    TRANSFER_EVENT_SUBTYPE ||--o{ SOCIAL_MEDIA_TRANSFER : ""
+    TRANSFER_FAILURE_REASON ||--o{ TRANSFER_EVENT : ""
+    TRANSFER_FAILURE_REASON ||--o{ FILE_TRANSFER : ""
+    TRANSFER_FAILURE_REASON ||--o{ SOCIAL_MEDIA_TRANSFER : ""
+    TRANSFER_PROTOCOL_TYPE ||--o{ FILE_TRANSFER : ""
+    TRANSFER_PROTOCOL_TYPE ||--o{ TRANSFER_EVENT : ""
+    TRANSFER_PROTOCOL_TYPE ||--o{ SOCIAL_MEDIA_TRANSFER : ""
+    INVOICE ||--|| AP_INVOICE : "inherits"
+    AP_INVOICE ||--|| AP_INVOICE_EXPENSE : "inherits"
+    INVOICE_LINE_PAYMENT ||--|| AP_INVOICE_LINE_PAYMENT : "inherits"
+    INVOICE ||--|| AR_INVOICE : "inherits"
+    INVOICE_LINE_PAYMENT ||--|| AR_INVOICE_LINE_RECEIPT : "inherits"
+    IVR_STEP_TRANSACTION ||--|| CLAIM_IVR_STEP_TRANSACTION : "inherits"
+    STATEMENT ||--|| INVOICE : "inherits"
+    TRANSFER_EVENT ||--|| ITEM_TRANSFER : "inherits"
+    TRANSACTION_FRAUD_CASE ||--|| MERCHANT_TRANSACTION_FRAUD : "inherits"
+    AP_INVOICE ||--|| OTHER_INVOICE_EXPENSE : "inherits"
+    INVOICE ||--|| PA_DRAFT_INVOICE : "inherits"
+    TRANSACTION_FRAUD_CASE ||--|| PHISHING_TRANSACTION_FRAUD : "inherits"
+    SOCIAL_MEDIA_TRANSFER ||--|| SOCIAL_MEDIA_DOWNLOAD_TRANSFER : "inherits"
+    SOCIAL_MEDIA_TRANSFER ||--|| SOCIAL_MEDIA_UPLOAD_TRANSFER : "inherits"

@@ -1,0 +1,497 @@
+erDiagram
+    ADVERTISEMENT_SPOT_TYPE {
+        Code Advertisement_Spot_Type_Cd "PK"
+        Description Advertisement_Spot_Type_Desc ""
+    }
+    ADVERTISEMENT_USAGE_INFORMATION {
+        Identifier Programming_Package_Id "PK"
+        Value Package_Channel_Val "PK"
+        Identifier Online_Impression_Experienced_Id "PK"
+        Datetime Receiver_Usage_Start_Dttm "PK"
+    }
+    AD_CAMPAIGN_OBJECTIVE {
+        Identifier Ad_Id "PK"
+        Identifier Campaign_Id "PK"
+        Identifier Ad_Campaign_Objective_Id "PK"
+        Code Campaign_Interest_Cd ""
+        Code Campaign_Audience_Reach_Cd ""
+        string more "20 more"
+    }
+    AD_CREATIVE {
+        Identifier Ad_Id "PK"
+        Identifier MM_Object_Id "PK"
+    }
+    AD_DELIVERY_TYPE {
+        Code Ad_Delivery_Type_Cd "PK"
+        Description Ad_Delivery_Type_Desc ""
+    }
+    AD_EVENT {
+        Identifier Page_Ad_Displayed_Id ""
+        Code Ad_Event_Type_Cd ""
+        Identifier Web_Site_Breadcrumb_Id ""
+        Identifier Ad_Id ""
+        Identifier Online_Impression_Experienced_Id ""
+    }
+    AD_EVENT_TYPE {
+        Code Ad_Event_Type_Cd "PK"
+        Description Ad_Event_Type_Desc ""
+    }
+    AD_GROUP_PROMOTION_XREF {
+        Identifier Ad_Group_Id "PK"
+        Identifier Online_Promotion_Id "PK"
+    }
+    AD_IDENTIFIER {
+        Identifier Ad_Identifier_Id "PK"
+        Code Ad_Identifier_Definition_Cd ""
+        Code Ad_Identifier_Prefix_Cd ""
+        Indicator Ad_Identifier_Locked_Ind ""
+        Value Ad_Identifier_Sequence_Val ""
+        string more "3 more"
+    }
+    AD_IDENTIFIER_DEFINITION_TYPE {
+        Code Ad_Identifier_Definition_Cd "PK"
+        Description Ad_Identifier_Definition_Desc ""
+    }
+    AD_IDENTIFIER_PREFIX_TYPE {
+        Code Ad_Identifier_Prefix_Cd "PK"
+        Description Ad_Identifier_Prefix_Desc ""
+    }
+    AD_IMPRESSION_SUMMARY {
+        Identifier Ad_Id "PK"
+        Datetime Ad_Impression_Summary_Statistics_Dttm "PK"
+        Identifier Web_Site_Id "PK"
+        Count Impressions_Viewed_Cnt ""
+        Count Impression_Click_through_Cnt ""
+        string more "1 more"
+    }
+    AD_NETWORK {
+        Identifier Ad_Network_Id "PK"
+        Description Ad_Network_Desc ""
+        Identifier Controlling_Party_Id ""
+    }
+    AD_NETWORK_WEB_SITE {
+        Identifier Ad_Network_Id "PK"
+        Identifier Web_Site_Id "PK"
+    }
+    AD_OFFER {
+        Identifier Offer_Id "PK"
+        Identifier Ad_Id "PK"
+    }
+    AD_ORDER_COMMISSION {
+        Identifier Ad_Order_Header_Id "PK"
+        Identifier Sales_Party_Id "PK"
+        Percent Ad_Order_Commission_Pct ""
+        Amount Ad_Order_Commission_Fixed_Amt ""
+    }
+    AD_ORDER_DIGITAL_TYPE {
+        Code Ad_Order_Digital_Type_Cd "PK"
+        Description Ad_Order_Digital_Type_Desc ""
+    }
+    AD_ORDER_EVENT {
+        Identifier Event_Id "PK"
+        Identifier Ad_Order_Header_Id "PK"
+    }
+    AD_ORDER_EXPENSE_FORECAST {
+        Identifier Ad_Spot_Id "PK"
+        Identifier Model_Id "PK"
+        Identifier Model_Run_Id "PK"
+        Code Cost_Type_Cd "PK"
+        Date Ad_Order_Expense_Forecast_End_Dt "PK"
+        string more "2 more"
+    }
+    AD_ORDER_HEADER {
+        Identifier Ad_Order_Header_Id "PK"
+        Identifier Ad_Id ""
+        Code Ad_Order_Header_Subtype_Cd ""
+        Datetime Ad_Order_Dttm ""
+        Name Ad_Order_Name ""
+        string more "1 more"
+    }
+    AD_ORDER_HEADER_DETAIL {
+        Identifier Ad_Order_Header_Id "PK"
+        Datetime Ad_Order_Header_Detail_Update_Dttm "PK"
+        Code Ad_Order_Header_Value_Cd ""
+        Code Currency_Cd ""
+        Identifier Agreement_Id ""
+        string more "6 more"
+    }
+    AD_ORDER_HEADER_PLATFORM_XREF {
+        Identifier Ad_Spot_Id "PK"
+        Identifier Channel_Instance_Id "PK"
+        Identifier Ad_Order_Header_Id "PK"
+    }
+    AD_ORDER_HEADER_REVENUE_TYPE {
+        Code Ad_Order_Header_Revenue_Type_Cd "PK"
+        Description Ad_Order_Header_Revenue_Type_Desc ""
+    }
+    AD_ORDER_HEADER_SUBTYPE {
+        Code Ad_Order_Header_Subtype_Cd "PK"
+        Description Ad_Order_Header_Subtype_Desc ""
+    }
+    AD_ORDER_HEADER_VALUE {
+        Code Ad_Order_Header_Value_Cd "PK"
+        Description Ad_Order_Header_Value_Desc ""
+    }
+    AD_ORDER_LINE {
+        Identifier Ad_Order_Header_Id "PK"
+        Number Ad_Order_Line_Num "PK"
+        Datetime Ad_Order_Line_Start_Dttm ""
+        Datetime Ad_Order_Line_End_Dttm ""
+        Description Ad_Order_Line_Desc ""
+    }
+    AD_ORDER_LINE_CATEGORY {
+        Code Ad_Order_Line_Category_Cd "PK"
+        Description Ad_Order_Line_Category_Desc ""
+    }
+    AD_ORDER_LINE_DETAIL {
+        Identifier Ad_Order_Header_Id "PK"
+        Number Ad_Order_Line_Num "PK"
+        Datetime Ad_Order_Line_Detail_Update_Dttm "PK"
+        Code Ad_Order_Line_Type_Cd ""
+        Code Ad_Order_Line_Category_Cd ""
+        string more "10 more"
+    }
+    AD_ORDER_LINE_STATUS {
+        Identifier Ad_Order_Header_Id "PK"
+        Number Ad_Order_Line_Num "PK"
+        Datetime Ad_Order_Line_Status_Start_Dttm "PK"
+        Code Ad_Order_Line_Status_Type_Cd "PK"
+        Datetime Ad_Order_Line_Status_End_Dttm ""
+    }
+    AD_ORDER_LINE_STATUS_TYPE {
+        Code Ad_Order_Line_Status_Type_Cd "PK"
+        Description Ad_Order_Line_Status_Type_Desc ""
+    }
+    AD_ORDER_LINE_TYPE {
+        Code Ad_Order_Line_Type_Cd "PK"
+        Description Ad_Order_Line_Type_Desc ""
+    }
+    AD_ORDER_MAKE_GOOD_REASON_TYPE {
+        Code Make_Good_Reason_Cd "PK"
+        Description Make_Good_Reason_Desc ""
+    }
+    AD_ORDER_MAKE_GOOD_REFUND {
+        Quantity Refund_Item_Qty ""
+        Amount Refund_Item_Amt ""
+    }
+    AD_ORDER_MAKE_GOOD_SUBTYPE {
+        Code Ad_Order_Make_Good_Subtype_Cd "PK"
+        Description Ad_Order_Make_Good_Subtype_Desc ""
+    }
+    AD_ORDER_REVENUE_FORECAST {
+        Identifier Ad_Spot_Id "PK"
+        Identifier Model_Id "PK"
+        Identifier Model_Run_Id "PK"
+        Code Revenue_Type_Cd "PK"
+        Date Ad_Order_Revenue_Forecast_End_Dt "PK"
+        string more "2 more"
+    }
+    AD_ORDER_STATUS {
+        Code Ad_Order_Status_Type_Cd "PK"
+        Datetime Ad_Order_Status_Start_Dttm "PK"
+        Datetime Ad_Order_Status_End_Dttm ""
+        Identifier Ad_Order_Header_Id ""
+    }
+    AD_ORDER_STATUS_TYPE {
+        Code Ad_Order_Status_Type_Cd "PK"
+        Description Ad_Order_Status_Type_Desc ""
+    }
+    AD_ORDER_TRADITIONAL_TYPE {
+        Code Ad_Order_Traditional_Type_Cd "PK"
+        Description Ad_Order_Traditional_Type_Desc ""
+    }
+    AD_ORDER_TYPE {
+        Code Ad_Order_Type_Cd "PK"
+        Description Ad_Order_Type_Desc ""
+    }
+    AD_PERFORMANCE_RATING {
+        Identifier Ad_Id "PK"
+        Identifier Rating_Source_Organization_Party_Id "PK"
+        Identifier Country_Id "PK"
+        Number Ad_Performance_Rating_Num ""
+        Description Ad_Performance_Rating_Desc ""
+    }
+    AD_PERFORMANCE_RATING_DAYPART {
+        Identifier Ad_Id "PK"
+        Identifier Rating_Source_Organization_Party_Id "PK"
+        Identifier Country_Id "PK"
+        Number Day_Of_Week_Num "PK"
+        Code Daypart_Cd "PK"
+    }
+    AD_PLACEMENT {
+        Identifier Channel_Instance_Id "PK"
+        Identifier Ad_Spot_Id "PK"
+        Date Ad_Placement_Start_Dt "PK"
+        Code Ad_Placement_Subtype_Cd "PK"
+        Time Spot_Display_Tm ""
+        string more "4 more"
+    }
+    AD_PLACEMENT_BROADCAST_PLATFORM {
+        Identifier Channel_Instance_Id "PK"
+        Identifier Ad_Spot_Id "PK"
+        Date Ad_Placement_Start_Dt "PK"
+        Number Ad_Placement_Broadcast_Channel_Num "PK"
+        Identifier Product_Id ""
+    }
+    AD_PLACEMENT_DISPLAY_TIME {
+        Code Site_Schedule_Group_Cd "PK"
+        Code Daypart_Cd "PK"
+        Number Day_Of_Week_Num "PK"
+        Identifier Channel_Instance_Id "PK"
+        Identifier Ad_Spot_Id "PK"
+        string more "1 more"
+    }
+    AD_PLACEMENT_OUTDOOR_PLATFORM {
+        Identifier Geospatial_Point_Id ""
+    }
+    AD_PLACEMENT_PRINT_PLATFORM {
+        Number Ad_Placement_Page_Num ""
+        Code Print_Ad_Placement_Page_Position_Cd ""
+        Code Print_Ad_Placement_Page_Type_Cd ""
+    }
+    AD_PLACEMENT_SUBTYPE {
+        Code Ad_Placement_Subtype_Cd "PK"
+        Description Ad_Placement_Subtype_Desc ""
+    }
+    AD_RATING {
+        Identifier Ad_Rating_System_Id "PK"
+        Code Ad_Rating_Cd "PK"
+        Description Ad_Rating_Desc ""
+    }
+    AD_RATING_REASON {
+        Code Ad_Rating_Reason_Cd "PK"
+        Description Ad_Rating_Reason_Desc ""
+    }
+    AD_RATING_REASON_XREF {
+        Identifier Ad_Id "PK"
+        Code Ad_Rating_Reason_Cd "PK"
+        Identifier Country_Id "PK"
+    }
+    AD_RATING_SYSTEM {
+        Identifier Ad_Rating_System_Id "PK"
+        Identifier Owner_Organization_Party_Id ""
+        Description Ad_Rating_System_Desc ""
+    }
+    AD_RATING_XREF {
+        Identifier Country_Id "PK"
+        Identifier Ad_Id "PK"
+        Identifier Ad_Rating_System_Id ""
+        Code Ad_Rating_Cd ""
+    }
+    AD_RELATED {
+        Identifier Ad_Id "PK"
+        Identifier Related_Ad_Id "PK"
+        Code Ad_Related_Type_Cd "PK"
+        Datetime Ad_Related_Start_Dttm "PK"
+        Datetime Ad_Related_End_Dttm ""
+    }
+    AD_RELATED_TYPE {
+        Code Ad_Related_Type_Cd "PK"
+        Description Ad_Related_Type_Desc ""
+    }
+    AD_SPONSORSHIP_CATEGORY_TYPE {
+        Code Ad_Sponsorship_Category_Cd "PK"
+        Description Ad_Sponsorship_Category_Desc ""
+    }
+    AD_SPONSORSHIP_PROGRAM_TYPE {
+        Code Ad_Sponsorship_Program_Cd "PK"
+        Description Ad_Sponsorship_Program_Desc ""
+    }
+    AD_SPOT {
+        Identifier Ad_Spot_Id "PK"
+        Name Ad_Spot_Name ""
+        Description Ad_Spot_Desc ""
+    }
+    AD_SPOT_GROUP {
+        Identifier Ad_Spot_Group_Id "PK"
+        Description Ad_Spot_Group_Desc ""
+    }
+    AD_SPOT_GROUP_XREF {
+        Identifier Ad_Spot_Group_Id "PK"
+        Identifier Ad_Spot_Id "PK"
+    }
+    AD_EVENT_TYPE ||--o{ AD_EVENT : ""
+    AD_IDENTIFIER_DEFINITION_TYPE ||--o{ AD_IDENTIFIER : ""
+    AD_IDENTIFIER_PREFIX_TYPE ||--o{ AD_IDENTIFIER : ""
+    AD_NETWORK ||--o{ AD_NETWORK_WEB_SITE : ""
+    AD_ORDER_HEADER ||--o{ AD_ORDER_LINE : ""
+    AD_ORDER_HEADER ||--o{ AD_ORDER_EVENT : ""
+    AD_ORDER_HEADER ||--o{ AD_ORDER_COMMISSION : ""
+    AD_ORDER_HEADER ||--o{ AD_ORDER_STATUS : ""
+    AD_ORDER_HEADER ||--o{ AD_ORDER_HEADER_PLATFORM_XREF : ""
+    AD_ORDER_HEADER ||--o{ AD_ORDER_HEADER_DETAIL : ""
+    AD_ORDER_HEADER_REVENUE_TYPE ||--o{ AD_ORDER_HEADER_DETAIL : ""
+    AD_ORDER_HEADER_SUBTYPE ||--o{ AD_ORDER_HEADER : ""
+    AD_ORDER_HEADER_VALUE ||--o{ AD_ORDER_HEADER_DETAIL : ""
+    AD_ORDER_LINE ||--o{ AD_ORDER_LINE_STATUS : ""
+    AD_ORDER_LINE ||--o{ AD_ORDER_LINE_DETAIL : ""
+    AD_ORDER_LINE_CATEGORY ||--o{ AD_ORDER_LINE_DETAIL : ""
+    AD_ORDER_LINE_STATUS_TYPE ||--o{ AD_ORDER_LINE_STATUS : ""
+    AD_ORDER_LINE_TYPE ||--o{ AD_ORDER_LINE_DETAIL : ""
+    AD_ORDER_STATUS_TYPE ||--o{ AD_ORDER_STATUS : ""
+    AD_ORDER_TYPE ||--o{ AD_ORDER_HEADER_DETAIL : ""
+    AD_PERFORMANCE_RATING ||--o{ AD_PERFORMANCE_RATING_DAYPART : ""
+    AD_PLACEMENT ||--o{ AD_PLACEMENT_DISPLAY_TIME : ""
+    AD_PLACEMENT ||--o{ AD_SPOT_PLACEMENT_XREF : ""
+    AD_PLACEMENT ||--o{ AD_ORDER_LINE_DETAIL : ""
+    AD_PLACEMENT_SUBTYPE ||--o{ AD_PLACEMENT : ""
+    AD_RATING ||--o{ AD_RATING_XREF : ""
+    AD_RATING_REASON ||--o{ AD_RATING_REASON_XREF : ""
+    AD_RATING_SYSTEM ||--o{ AD_RATING : ""
+    AD_RATING_XREF ||--o{ AD_RATING_REASON_XREF : ""
+    AD_RELATED_TYPE ||--o{ AD_RELATED : ""
+    AD_SPONSORSHIP_CATEGORY_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    AD_SPONSORSHIP_PROGRAM_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    AD_SPOT ||--o{ AD_ORDER_EXPENSE_FORECAST : ""
+    AD_SPOT ||--o{ AD_PLACEMENT : ""
+    AD_SPOT ||--o{ AD_ORDER_REVENUE_FORECAST : ""
+    AD_SPOT ||--o{ AD_ORDER_HEADER_PLATFORM_XREF : ""
+    AD_SPOT ||--o{ AD_SPOT_GROUP_XREF : ""
+    AD_SPOT_GROUP ||--o{ AD_SPOT_GROUP_XREF : ""
+    AD_STATUS_TYPE ||--o{ AD_STATUS : ""
+    AD_SUBCATEGORY ||--o{ AD_SUBTYPE : ""
+    CAMPAIGN ||--o{ CAMPAIGN_CELL : ""
+    CAMPAIGN ||--o{ CAMPAIGN_SEGMENT : ""
+    CAMPAIGN ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN ||--o{ CAMPAIGN_TRAIT_VALUE_XREF : ""
+    CAMPAIGN ||--o{ CAMPAIGN_STATUS : ""
+    CAMPAIGN ||--o{ CAMPAIGN_STEP : ""
+    CAMPAIGN ||--o{ CAMPAIGN_COST : ""
+    CAMPAIGN ||--o{ CAMPAIGN_LOYALTY_PROGRAM : ""
+    CAMPAIGN ||--o{ PROMOTION : ""
+    CAMPAIGN ||--o{ CAMPAIGN : ""
+    CAMPAIGN_AUDIENCE_REACH_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_CELL ||--o{ CAMPAIGN_CELL_AD : ""
+    CAMPAIGN_CELL ||--o{ CAMPAIGN_CELL_RESPONSE : ""
+    CAMPAIGN_CELL ||--o{ CAMPAIGN_STEP_RESPONSE : ""
+    CAMPAIGN_CELL ||--o{ CAMPAIGN_CELL_WEB_SITE_SECTION : ""
+    CAMPAIGN_CELL ||--o{ CAMPAIGN_TARGET_MARKET : ""
+    CAMPAIGN_CELL ||--o{ CAMPAIGN_CELL_MANAGEMENT : ""
+    CAMPAIGN_CELL ||--o{ CAMPAIGN_CELL_COST : ""
+    CAMPAIGN_CELL_CLASSIFICATION ||--o{ CAMPAIGN_CELL : ""
+    CAMPAIGN_CLASSIFICATION ||--o{ CAMPAIGN : ""
+    CAMPAIGN_COST_CATEGORY ||--o{ CAMPAIGN_COST_TYPE : ""
+    CAMPAIGN_COST_TYPE ||--o{ CAMPAIGN_COST : ""
+    CAMPAIGN_COST_TYPE ||--o{ CAMPAIGN_CELL_COST : ""
+    CAMPAIGN_INTEREST_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_LEVEL_TYPE ||--o{ CAMPAIGN : ""
+    CAMPAIGN_MEDIA_MIX_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_OBJECTIVE_AD_COLOR_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_OBJECTIVE_AD_DIMENSION_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_OBJECTIVE_CATEGORY ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_OBJECTIVE_DISPLAY_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_OBJECTIVE_RESEARCH_SOURCE_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_OBJECTIVE_UNIT_SIZE_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_OBJECTIVE_UNIT_TYPE ||--o{ AD_CAMPAIGN_OBJECTIVE : ""
+    CAMPAIGN_RELATED ||--o{ CAMPAIGN_RELATED_STATUS : ""
+    CAMPAIGN_RELATED_ROLE ||--o{ CAMPAIGN_RELATED : ""
+    CAMPAIGN_RELATED_STATUS_REASON ||--o{ CAMPAIGN_RELATED_STATUS : ""
+    CAMPAIGN_RELATED_STATUS_TYPE ||--o{ CAMPAIGN_RELATED_STATUS : ""
+    CAMPAIGN_RESPONSE_TYPE ||--o{ CAMPAIGN_CELL_RESPONSE : ""
+    CAMPAIGN_STATUS_TYPE ||--o{ CAMPAIGN_STATUS : ""
+    CAMPAIGN_STEP_TYPE ||--o{ CAMPAIGN_STEP : ""
+    CAMPAIGN_STRATEGY_TYPE ||--o{ CAMPAIGN : ""
+    CAMPAIGN_TRAIT ||--o{ CAMPAIGN_TRAIT_VALUE : ""
+    CAMPAIGN_TRAIT ||--o{ CAMPAIGN_TRAIT_VALUE_XREF : ""
+    CAMPAIGN_TRAIT_VALUE ||--o{ CAMPAIGN_TRAIT_VALUE_XREF : ""
+    CAMPAIGN_TYPE ||--o{ CAMPAIGN : ""
+    DOWNLOAD_FAILURE_REASON_TYPE ||--o{ DOWNLOAD_EVENT : ""
+    GROUP_SURVEY ||--o{ SURVEY_RESPONSE : ""
+    GROUP_SURVEY ||--o{ SURVEY_RESOLUTION : ""
+    GROUP_SURVEY ||--o{ SURVEY_FEEDBACK : ""
+    LEAD_STATUS_TYPE ||--o{ LEAD_STATUS : ""
+    LEAD_STEP_TYPE ||--o{ LEAD_STEP : ""
+    LEAD_TRAIT ||--o{ LEAD_TRAIT_VALUE : ""
+    LEAD_TRAIT_VALUE ||--o{ LEAD_TRAIT_VALUE_XREF : ""
+    LOYALTY_LEVEL ||--o{ LOYALTY_LEVEL_QUALIFYING_UNIT : ""
+    LOYALTY_LEVEL_QUALIFYING_UNIT ||--o{ REWARD_EVENT : ""
+    LOYALTY_PROGRAM ||--o{ LOYALTY_PROGRAM_UNIT : ""
+    LOYALTY_PROGRAM ||--o{ CAMPAIGN_LOYALTY_PROGRAM : ""
+    LOYALTY_PROGRAM ||--o{ LOYALTY_LEVEL : ""
+    LOYALTY_PROGRAM_UNIT ||--o{ LOYALTY_LEVEL_QUALIFYING_UNIT : ""
+    LOYALTY_UNIT ||--o{ LOYALTY_PROGRAM_UNIT : ""
+    LOYALTY_UNIT_TYPE ||--o{ LOYALTY_UNIT : ""
+    OFFER ||--o{ NEXT_OFFER : ""
+    OFFER ||--o{ CAMPAIGN_CELL : ""
+    OFFER ||--o{ AD_OFFER : ""
+    OFFER ||--o{ PROMOTION_OFFER : ""
+    OFFER_TYPE ||--o{ OFFER : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_ASSET : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_STEP : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_FINANCE : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_TEXT : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_SEGMENT : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_STATUS : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_QUOTATION : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_EVENT : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_ISSUE : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_DOCUMENT : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_SALES_STAGE : ""
+    OPPORTUNITY ||--o{ OPPORTUNITY_PROMOTION : ""
+    OPPORTUNITY_ASSET_ROLE_TYPE ||--o{ OPPORTUNITY_ASSET : ""
+    OPPORTUNITY_COMPETITOR ||--o{ OPPORTUNITY_COMPETITOR_FINANCE : ""
+    OPPORTUNITY_COMPETITOR ||--o{ OPPORTUNITY_COMPETITOR_TEXT : ""
+    OPPORTUNITY_DOCUMENT_ROLE_TYPE ||--o{ OPPORTUNITY_DOCUMENT : ""
+    OPPORTUNITY_FINANCE_TYPE ||--o{ OPPORTUNITY_COMPETITOR_FINANCE : ""
+    OPPORTUNITY_FINANCE_TYPE ||--o{ OPPORTUNITY_FINANCE : ""
+    OPPORTUNITY_ISSUE_RESOLVE_TYPE ||--o{ OPPORTUNITY_ISSUE : ""
+    OPPORTUNITY_ISSUE_TYPE ||--o{ OPPORTUNITY_ISSUE : ""
+    OPPORTUNITY_LEAD_TYPE ||--o{ OPPORTUNITY : ""
+    OPPORTUNITY_REVENUE_SIZE_TYPE ||--o{ OPPORTUNITY : ""
+    OPPORTUNITY_REVENUE_TYPE ||--o{ OPPORTUNITY : ""
+    OPPORTUNITY_SALES_STAGE ||--o{ OPPORTUNITY_SALES_STAGE_STATUS : ""
+    OPPORTUNITY_STATUS ||--o{ OPPORTUNITY_STATUS_REASON : ""
+    OPPORTUNITY_STATUS_REASON_TYPE ||--o{ OPPORTUNITY_COMPETITOR : ""
+    OPPORTUNITY_STATUS_REASON_TYPE ||--o{ OPPORTUNITY_STATUS_REASON : ""
+    OPPORTUNITY_STATUS_TYPE ||--o{ OPPORTUNITY_STATUS : ""
+    OPPORTUNITY_STATUS_TYPE ||--o{ OPPORTUNITY_COMPETITOR : ""
+    OPPORTUNITY_STEP_TYPE ||--o{ OPPORTUNITY_STEP : ""
+    OPPORTUNITY_STRATEGIC_VALUE_TYPE ||--o{ OPPORTUNITY : ""
+    OPPORTUNITY_TEXT ||--o{ OPPORTUNITY_TEXT_SECTION : ""
+    OPPORTUNITY_TEXT_TYPE ||--o{ OPPORTUNITY_TEXT : ""
+    OPPORTUNITY_TEXT_TYPE ||--o{ OPPORTUNITY_COMPETITOR_TEXT : ""
+    OPPORTUNITY_TYPE ||--o{ OPPORTUNITY : ""
+    OPPORTUNITY_VISIBLE_TYPE ||--o{ OPPORTUNITY : ""
+    PROMOTION ||--o{ PROMOTION_METRIC : ""
+    PROMOTION ||--o{ OPPORTUNITY_PROMOTION : ""
+    PROMOTION ||--o{ PROMOTION_STATUS : ""
+    PROMOTION ||--o{ PROMOTION_SCRIPTED_MESSAGE_XREF : ""
+    PROMOTION ||--o{ PROMOTION_EXPENSE_XREF : ""
+    PROMOTION ||--o{ PROMOTION_RESPONSE_SCORE : ""
+    PROMOTION ||--o{ PROMOTION_OFFER : ""
+    PROMOTION_CELL ||--o{ PROMOTION_STEP_RESPONSE : ""
+    PROMOTION_CLASSIFICATION ||--o{ PROMOTION : ""
+    PROMOTION_EXPENSE_TYPE ||--o{ PROMOTION_EXPENSE_XREF : ""
+    PROMOTION_METRIC_TYPE ||--o{ PROMOTION_METRIC : ""
+    PROMOTION_OFFER ||--o{ CAMPAIGN_CELL : ""
+    PROMOTION_OFFER ||--o{ COMPENSATORY_OFFER : ""
+    PROMOTION_OFFER ||--o{ PROMOTION_OFFER_SEGMENT : ""
+    PROMOTION_OFFER_TYPE ||--o{ PROMOTION_OFFER : ""
+    PROMOTION_STATUS_TYPE ||--o{ PROMOTION_STATUS : ""
+    PROMOTION_STEP_TYPE ||--o{ PROMOTION_STEP : ""
+    PROMOTION_TYPE ||--o{ PROMOTION : ""
+    REWARD_EVENT_SUBTYPE ||--o{ REWARD_EVENT : ""
+    REWARD_EVENT_TYPE ||--o{ REWARD_EVENT : ""
+    SURVEY_EVENT_REASON_TYPE ||--o{ SURVEY_EVENT : ""
+    SURVEY_FEEDBACK ||--o{ SURVEY_FEEDBACK_SURVEY_RESPONSE : ""
+    SURVEY_QUESTION_RESPONSE ||--o{ SURVEY_FEEDBACK_SURVEY_RESPONSE : ""
+    SURVEY_QUESTION_RESPONSE ||--o{ SURVEY_RESPONSE_TEXT : ""
+    SURVEY_QUESTION_RESPONSE ||--o{ SURVEY_RESPONSE_ANSWER : ""
+    SURVEY_RESOLUTION_TYPE ||--o{ SURVEY_RESOLUTION : ""
+    SURVEY_RESPONSE ||--o{ SURVEY_EVENT : ""
+    SURVEY_RESPONSE ||--o{ SURVEY_QUESTION_RESPONSE : ""
+    SURVEY_RESPONSE ||--o{ SURVEY_FEEDBACK : ""
+    SURVEY_RESPONSE_TEXT ||--o{ SURVEY_RESPONSE_TEXT_SECTION : ""
+    SURVEY_SUBJECT_SUBTYPE ||--o{ SURVEY_QUESTION_RESPONSE : ""
+    TARGET_PROMOTION ||--o{ PROMOTION_CELL : ""
+    TARGET_PROMOTION ||--o{ PROMOTION_SEGMENT : ""
+    WEB_AD_PLACEMENT_TEXT ||--o{ WEB_AD_PLACEMENT_TEXT_SECTION : ""
+    CAMPAIGN ||--|| CARD_NETWORK_CAMPAIGN : "inherits"
+    SURVEY_QUESTION_RESPONSE ||--|| CLAIM_PROVIDER_SURVEY_RESPONSE : "inherits"
+    SURVEY_QUESTION_RESPONSE ||--|| CLAIM_SURVEY_RESPONSE : "inherits"
+    CAMPAIGN ||--|| COLLECTION_CAMPAIGN : "inherits"
+    CAMPAIGN ||--|| CONSUMER_MARKETING_CAMPAIGN : "inherits"
+    SURVEY_QUESTION_RESPONSE ||--|| EVENT_SURVEY_RESPONSE : "inherits"
+    PROMOTION ||--|| MASS_PROMOTION : "inherits"
+    PROMOTION ||--|| TARGET_PROMOTION : "inherits"

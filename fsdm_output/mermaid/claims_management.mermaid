@@ -1,0 +1,521 @@
+erDiagram
+    ADJUDICATION_AMOUNT_TYPE {
+        Code Adjudication_Amount_Type_Cd "PK"
+        Description Adjudication_Amount_Type_Desc ""
+    }
+    ADJUDICATION_TYPE {
+        Code Adjudication_Type_Cd "PK"
+        Description Adjudication_Type_Desc ""
+    }
+    ASSET_INSURABLE_INTEREST {
+        Identifier Asset_Insurable_Interest_Id "PK"
+        Identifier Party_Asset_Id "PK"
+    }
+    CLAIM {
+        Identifier Claim_Id "PK"
+        Code Claim_Type_Cd ""
+        Code Claim_Media_Type_Cd "PK"
+        Number Claim_Media_Control_Num ""
+        Code Claim_Submittal_Type_Cd ""
+        string more "9 more"
+    }
+    CLAIMANT_INSURABLE_INTEREST_STATUS {
+        Identifier Claim_Id "PK"
+        Identifier Insurable_Interest_Id "PK"
+        Identifier Party_Id "PK"
+        Code Party_Claim_Role_Cd "PK"
+        Datetime Party_Claim_Start_Dttm "PK"
+        string more "2 more"
+    }
+    CLAIMANT_INSURABLE_INTEREST_STATUS_TYPE {
+        Code Claimant_Insurable_Interest_Status_Cd "PK"
+        Description Claimant_Insurable_Interest_Status_Desc ""
+    }
+    CLAIM_ADJUDICATION {
+        Identifier Claim_Adjudication_Id "PK"
+        Identifier Claim_Id ""
+        Code Benefit_Rule_Cd ""
+        Code Claim_Pricing_Rule_Cd ""
+        Date Adjudication_Dt ""
+        string more "1 more"
+    }
+    CLAIM_ADJUDICATION_AMOUNT {
+        Identifier Claim_Adjudication_Id "PK"
+        Code Adjudication_Amount_Type_Cd "PK"
+        Value Adjudication_Claim_Detail_Val ""
+        Code Currency_Cd ""
+    }
+    CLAIM_AMOUNT {
+        Identifier Claim_Id "PK"
+        Code Claim_Amount_Type_Cd "PK"
+        Number Claim_Amount_Sequence_Num "PK"
+        Value Claim_Val ""
+        Amount Claim_Amt ""
+        string more "2 more"
+    }
+    CLAIM_AMOUNT_TYPE {
+        Code Claim_Amount_Type_Cd "PK"
+        Description Claim_Amount_Type_Desc ""
+    }
+    CLAIM_ASSET {
+        Code Claim_Asset_Relationship_Type_Cd ""
+        Indicator Motor_Vehicle_Ind ""
+        Amount Claim_Asset_Amt ""
+        Amount Agreement_Currency_Claim_Asset_Amt ""
+        Amount Original_Currency_Claim_Asset_Amt ""
+        string more "1 more"
+    }
+    CLAIM_ASSET_RELATIONSHIP_TYPE {
+        Code Claim_Asset_Relationship_Type_Cd "PK"
+        Description Claim_Asset_Relationship_Type_Desc ""
+    }
+    CLAIM_AUTHORIZATION {
+        Identifier Claim_Authorization_Id "PK"
+        Code Authorization_Approval_Type_Cd ""
+        Identifier Agreement_Id "PK"
+        Date Claim_Authorization_Application_Dt ""
+        Date Claim_Authorization_Approval_Dt ""
+        string more "14 more"
+    }
+    CLAIM_AUTHORIZATION_AMOUNT {
+        Code Claim_Authorization_Amount_Type_Cd "PK"
+        Identifier Claim_Authorization_Id "PK"
+        Code Unit_Of_Measure_Cd ""
+        Value Claim_Authorization_Amount_Val ""
+        Code Currency_Cd ""
+    }
+    CLAIM_AUTHORIZATION_AMOUNT_TYPE {
+        Code Claim_Authorization_Amount_Type_Cd "PK"
+        Description Claim_Authorization_Amount_Desc ""
+    }
+    CLAIM_AUTHORIZATION_ATTACHMENT {
+        Identifier Claim_Authorization_Id "PK"
+        Identifier Document_Id "PK"
+        Code Attachment_Transmit_Type_Cd ""
+    }
+    CLAIM_AUTHORIZATION_CATEGORY {
+        Code Claim_Authorization_Category_Cd "PK"
+        Description Claim_Authorization_Category_Desc ""
+    }
+    CLAIM_AUTHORIZATION_CERTIFICATION {
+        Identifier Claim_Authorization_Id "PK"
+        Identifier Certification_Of_Medical_Necessity_Id "PK"
+    }
+    CLAIM_AUTHORIZATION_DIAGNOSIS_CODE {
+        Identifier Claim_Authorization_Id "PK"
+        Number Diagnosis_Num "PK"
+        Count Diagnosis_Sequence_Cnt "PK"
+        Code Diagnosis_Cd "PK"
+        Code Diagnosis_Classification_Type_Cd "PK"
+        string more "1 more"
+    }
+    CLAIM_AUTHORIZATION_END_REASON_TYPE {
+        Code Claim_Authorization_End_Reason_Cd "PK"
+        Description Claim_Authorization_End_Reason_Desc ""
+    }
+    CLAIM_AUTHORIZATION_IDENTIFIER {
+        Identifier Claim_Authorization_Id "PK"
+        Identifier Assigning_Party_Id "PK"
+        Number Claim_Authorization_Trace_Num ""
+    }
+    CLAIM_AUTHORIZATION_REASON {
+        Code Claim_Authorization_Reason_Cd "PK"
+        Description Claim_Authorization_Reason_Desc ""
+    }
+    CLAIM_AUTHORIZATION_RELATED {
+        Identifier Claim_Authorization_Id "PK"
+        Identifier Related_Claim_Authorization_Id "PK"
+        Code Claim_Authorization_Relationship_Type_Cd "PK"
+        Date Claim_Authorization_Relationship_Start_Dt "PK"
+        Date Claim_Authorization_Relationship_End_Dt ""
+    }
+    CLAIM_AUTHORIZATION_RELATIONSHIP_TYPE {
+        Code Claim_Authorization_Relationship_Type_Cd "PK"
+        Description Claim_Authorization_Relationship_Type_Desc ""
+    }
+    CLAIM_AUTHORIZATION_SERVICE {
+        Identifier Claim_Authorization_Id "PK"
+        Code Claim_Authorization_Service_Role_Cd "PK"
+        Number Health_Procedure_Num "PK"
+        Code Procedure_Qualifier_Type_Cd "PK"
+        Quantity Requested_Authorization_Service_Qty ""
+        string more "1 more"
+    }
+    CLAIM_AUTHORIZATION_SERVICE_AMOUNT {
+        Identifier Claim_Authorization_Id "PK"
+        Code Claim_Authorization_Service_Role_Cd "PK"
+        Number Health_Procedure_Num "PK"
+        Code Procedure_Qualifier_Type_Cd "PK"
+        Code Claim_Authorization_Amount_Type_Cd "PK"
+        string more "3 more"
+    }
+    CLAIM_AUTHORIZATION_SERVICE_ROLE {
+        Code Claim_Authorization_Service_Role_Cd "PK"
+        Description Claim_Authorization_Service_Desc ""
+    }
+    CLAIM_AUTHORIZATION_STATUS {
+        Identifier Claim_Authorization_Id "PK"
+        Date Claim_Authorization_Status_Dt "PK"
+        Code Claim_Authorization_Status_Type_Cd "PK"
+        Code Claim_Authorization_Status_Reason_Cd ""
+    }
+    CLAIM_AUTHORIZATION_STATUS_REASON {
+        Code Claim_Authorization_Status_Reason_Cd "PK"
+        Description Claim_Authorization_Status_Reason_Desc ""
+    }
+    CLAIM_AUTHORIZATION_STATUS_TYPE {
+        Code Claim_Authorization_Status_Type_Cd "PK"
+        Description Claim_Authorization_Status_Type_Desc ""
+    }
+    CLAIM_AUTHORIZATION_TYPE {
+        Code Claim_Authorization_Type_Cd "PK"
+        Description Claim_Authorization_Type_Desc ""
+    }
+    CLAIM_CATEGORY_TYPE {
+        Code Claim_Category_Type_Cd "PK"
+        Description Claim_Category_Type_Desc ""
+    }
+    CLAIM_CLAIM_GROUP {
+        Identifier Claim_Group_Id "PK"
+        Identifier Claim_Id "PK"
+        Date Claim_Claim_Group_Start_Dt "PK"
+        Date Claim_Claim_Group_End_Dt ""
+    }
+    CLAIM_CLASS_SCHEME_TYPE {
+        Code Claim_Class_Cd "PK"
+        Code Parent_Claim_Class_Cd ""
+        Description Claim_Class_Desc ""
+        Datetime Claim_Class_Start_Dttm ""
+        Datetime Claim_Class_End_Dttm ""
+    }
+    CLAIM_CLASS_VALUE {
+        Code Claim_Class_Cd "PK"
+        Code Claim_Class_Value_Cd "PK"
+        Code Parent_Claim_Class_Value_Cd ""
+        Measure Claim_Class_From_Meas ""
+        Measure Claim_Class_To_Meas ""
+        string more "4 more"
+    }
+    CLAIM_CLASS_VALUE_XREF {
+        Code Claim_Class_Cd "PK"
+        Identifier Claim_Id "PK"
+        Code Claim_Class_Value_Cd "PK"
+    }
+    CLAIM_CLIA {
+        Number Claim_CLIA_Num "PK"
+        Identifier Professional_Claim_Id "PK"
+    }
+    CLAIM_COST_RECOVERY {
+        Identifier Claim_Id "PK"
+        Code Claim_Amount_Type_Cd "PK"
+        Code Cost_Recovery_Type_Cd "PK"
+        Number Claim_Amount_Sequence_Num "PK"
+        Datetime Claim_Cost_Recover_Calculation_Dttm "PK"
+        string more "3 more"
+    }
+    CLAIM_COVERAGE {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Date Claim_Coverage_Statute_Dt ""
+    }
+    CLAIM_COVERAGE_ADJUDICATION {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Identifier Claim_Adjudication_Id "PK"
+    }
+    CLAIM_COVERAGE_ADJUDICATION_AMOUNT {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Identifier Claim_Adjudication_Id "PK"
+        Code Adjudication_Amount_Type_Cd "PK"
+        Value Adjudication_Coverage_Val ""
+        string more "1 more"
+    }
+    CLAIM_COVERAGE_AMOUNT {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Code Claim_Amount_Type_Cd "PK"
+        Value Claim_Coverage_Amount_Val ""
+        Code Claim_Coverage_UOM_Cd ""
+        string more "1 more"
+    }
+    CLAIM_COVERAGE_COST_RECOVERY {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Code Claim_Amount_Type_Cd "PK"
+        Code Cost_Recovery_Type_Cd "PK"
+        Date Claim_Coverage_Recover_Calculation_Dt "PK"
+        string more "3 more"
+    }
+    CLAIM_COVERAGE_INSURABLE_INTEREST {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Identifier Insurable_Interest_Id "PK"
+    }
+    CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Code Claim_Amount_Type_Cd "PK"
+        Identifier Insurable_Interest_Id "PK"
+        Number Claim_Coverage_Amount_Sequence_Num "PK"
+        string more "4 more"
+    }
+    CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Identifier Insurable_Interest_Id "PK"
+        Identifier Reinsurance_Agreement_Id "PK"
+    }
+    CLAIM_COVERAGE_LEGAL_ACTION {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Identifier Legal_Action_Id "PK"
+    }
+    CLAIM_COVERAGE_SCORE {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Identifier Model_Run_Id "PK"
+        Identifier Model_Id "PK"
+        Value Claim_Coverage_Score_Val ""
+    }
+    CLAIM_COVERAGE_STATUS {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Date Claim_Coverage_Status_Dt "PK"
+        Code Claim_Status_Type_Cd ""
+        Code Claim_Status_Reason_Type_Cd ""
+    }
+    CLAIM_COVERAGE_TEXT {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Code Claim_Text_Type_Cd "PK"
+        Datetime Claim_Coverage_Text_Dttm "PK"
+        Text Claim_Coverage_Txt ""
+    }
+    CLAIM_COVERAGE_TEXT_SECTION {
+        Identifier Claim_Id "PK"
+        Identifier Coverage_Feature_Id "PK"
+        Code Claim_Text_Type_Cd "PK"
+        Datetime Claim_Coverage_Text_Dttm "PK"
+        Identifier Text_Section_Id "PK"
+    }
+    CLAIM_DATE {
+        Identifier Claim_Id "PK"
+        Code Claim_Date_Type_Cd "PK"
+        Datetime Claim_Dttm ""
+    }
+    CLAIM_DATE_TYPE {
+        Code Claim_Date_Type_Cd "PK"
+        Description Claim_Date_Type_Desc ""
+    }
+    CLAIM_DIAGNOSIS_CODE {
+        Identifier Claim_Id "PK"
+        Number Diagnosis_Num "PK"
+        Count Diagnosis_Sequence_Cnt "PK"
+        Code Diagnosis_Cd "PK"
+        Code Diagnosis_Classification_Type_Cd "PK"
+        string more "2 more"
+    }
+    CLAIM_DOCUMENT {
+        Identifier Document_Id "PK"
+        Identifier Claim_Id "PK"
+        Indicator Proof_Of_Loss_Ind ""
+    }
+    CLAIM_FILING_TYPE {
+        Code Claim_Filing_Type_Cd "PK"
+        Description Claim_Filing_Type_Desc ""
+    }
+    CLAIM_FOLLOW_UP {
+        Identifier Claim_Follow_up_Id "PK"
+        Identifier Claim_Id "PK"
+        Code Follow_up_Channel_Type_Cd "PK"
+        Identifier Follow_up_Party_Id "PK"
+        Code Claim_Follow_up_Type_Cd "PK"
+        string more "2 more"
+    }
+    CLAIM_FOLLOW_UP_TYPE {
+        Code Claim_Follow_up_Type_Cd "PK"
+        Description Claim_Follow_up_Type_Desc ""
+    }
+    CLAIM_FREQUENCY_TYPE {
+        Code Claim_Frequency_Type_Cd "PK"
+        Description Claim_Frequency_Type_Desc ""
+    }
+    CLAIM_GROUP {
+        Identifier Claim_Group_Id "PK"
+        Code Claim_Group_Type_Cd ""
+        Date Claim_Group_Start_Dt ""
+        Date Claim_Group_End_Dt ""
+        Identifier Parent_Claim_Group_Id ""
+    }
+    ADJUDICATION_AMOUNT_TYPE ||--o{ CLAIM_COVERAGE_ADJUDICATION_AMOUNT : ""
+    ADJUDICATION_AMOUNT_TYPE ||--o{ CLAIM_SERVICE_ADJUDICATION_AMOUNT : ""
+    ADJUDICATION_AMOUNT_TYPE ||--o{ CLAIM_ADJUDICATION_AMOUNT : ""
+    ADJUDICATION_TYPE ||--o{ CLAIM_ADJUDICATION : ""
+    CLAIM ||--o{ CLAIM_LEGAL_ACTION : ""
+    CLAIM ||--o{ CLAIM_SCORE : ""
+    CLAIM ||--o{ CLAIM_TEXT : ""
+    CLAIM ||--o{ CLAIM_CLASS_VALUE_XREF : ""
+    CLAIM ||--o{ EXTERNALLY_REPORTED_CLAIM : ""
+    CLAIM ||--o{ CLAIM_DIAGNOSIS_CODE : ""
+    CLAIM ||--o{ INSURANCE_CLAIM_CASE : ""
+    CLAIM ||--o{ WORK_PROCESS_CLAIM : ""
+    CLAIM ||--o{ CLAIM_INSURABLE_INTEREST : ""
+    CLAIM ||--o{ CLAIM_COVERAGE : ""
+    CLAIM ||--o{ CLAIM_TO_CLAIM_AUTHORIZATION : ""
+    CLAIM ||--o{ CLAIM_AMOUNT : ""
+    CLAIM ||--o{ CLAIM_CLAIM_GROUP : ""
+    CLAIM ||--o{ CLAIM_DOCUMENT : ""
+    CLAIM ||--o{ CLAIM_ADJUDICATION : ""
+    CLAIM ||--o{ CLAIM_PERIL : ""
+    CLAIM ||--o{ CLAIM_DATE : ""
+    CLAIM ||--o{ CLAIM_FOLLOW_UP : ""
+    CLAIM ||--o{ CLAIM_STATUS : ""
+    CLAIM ||--o{ CLAIM_SERVICE : ""
+    CLAIM_ADJUDICATION ||--o{ CLAIM_COVERAGE_ADJUDICATION : ""
+    CLAIM_ADJUDICATION ||--o{ CLAIM_SERVICE_ADJUDICATION : ""
+    CLAIM_ADJUDICATION ||--o{ CLAIM_ADJUDICATION_AMOUNT : ""
+    CLAIM_AMOUNT ||--o{ CLAIM_COST_RECOVERY : ""
+    CLAIM_AMOUNT_TYPE ||--o{ CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT : ""
+    CLAIM_AMOUNT_TYPE ||--o{ CLAIM_SERVICE_COVERAGE_AMOUNT : ""
+    CLAIM_AMOUNT_TYPE ||--o{ CLAIM_REINSURANCE_AMOUNT : ""
+    CLAIM_AMOUNT_TYPE ||--o{ CLAIM_SERVICE_AMOUNT : ""
+    CLAIM_AMOUNT_TYPE ||--o{ CLAIM_AMOUNT : ""
+    CLAIM_AMOUNT_TYPE ||--o{ CLAIM_COVERAGE_AMOUNT : ""
+    CLAIM_ASSET_RELATIONSHIP_TYPE ||--o{ CLAIM_ASSET : ""
+    CLAIM_AUTHORIZATION ||--o{ CLAIM_AUTHORIZATION_ATTACHMENT : ""
+    CLAIM_AUTHORIZATION ||--o{ CLAIM_AUTHORIZATION_IDENTIFIER : ""
+    CLAIM_AUTHORIZATION ||--o{ CLAIM_AUTHORIZATION_STATUS : ""
+    CLAIM_AUTHORIZATION ||--o{ CLAIM_AUTHORIZATION_SERVICE : ""
+    CLAIM_AUTHORIZATION ||--o{ CLAIM_AUTHORIZATION_CERTIFICATION : ""
+    CLAIM_AUTHORIZATION ||--o{ CLAIM_AUTHORIZATION_DIAGNOSIS_CODE : ""
+    CLAIM_AUTHORIZATION ||--o{ CLAIM_TO_CLAIM_AUTHORIZATION : ""
+    CLAIM_AUTHORIZATION ||--o{ CLAIM_AUTHORIZATION_AMOUNT : ""
+    CLAIM_AUTHORIZATION_AMOUNT_TYPE ||--o{ CLAIM_AUTHORIZATION_SERVICE_AMOUNT : ""
+    CLAIM_AUTHORIZATION_AMOUNT_TYPE ||--o{ CLAIM_AUTHORIZATION_AMOUNT : ""
+    CLAIM_AUTHORIZATION_CATEGORY ||--o{ CLAIM_AUTHORIZATION : ""
+    CLAIM_AUTHORIZATION_END_REASON_TYPE ||--o{ CLAIM_AUTHORIZATION : ""
+    CLAIM_AUTHORIZATION_REASON ||--o{ CLAIM_AUTHORIZATION : ""
+    CLAIM_AUTHORIZATION_RELATIONSHIP_TYPE ||--o{ CLAIM_AUTHORIZATION_RELATED : ""
+    CLAIM_AUTHORIZATION_SERVICE ||--o{ CLAIM_AUTHORIZATION_SERVICE_AMOUNT : ""
+    CLAIM_AUTHORIZATION_SERVICE_ROLE ||--o{ CLAIM_AUTHORIZATION_SERVICE : ""
+    CLAIM_AUTHORIZATION_STATUS_REASON ||--o{ CLAIM_AUTHORIZATION_STATUS : ""
+    CLAIM_AUTHORIZATION_STATUS_TYPE ||--o{ CLAIM_AUTHORIZATION_STATUS : ""
+    CLAIM_AUTHORIZATION_TYPE ||--o{ CLAIM_AUTHORIZATION : ""
+    CLAIM_CATEGORY_TYPE ||--o{ CLAIM : ""
+    CLAIM_CLASS_SCHEME_TYPE ||--o{ CLAIM_CLASS_VALUE : ""
+    CLAIM_CLASS_SCHEME_TYPE ||--o{ CLAIM_CLASS_VALUE_XREF : ""
+    CLAIM_CLASS_SCHEME_TYPE ||--o{ CLAIM_CLASS_SCHEME_TYPE : ""
+    CLAIM_CLASS_VALUE ||--o{ CLAIM_CLASS_VALUE_XREF : ""
+    CLAIM_CLASS_VALUE ||--o{ CLAIM_CLASS_VALUE : ""
+    CLAIM_COVERAGE ||--o{ CLAIM_COVERAGE_STATUS : ""
+    CLAIM_COVERAGE ||--o{ CLAIM_COVERAGE_TEXT : ""
+    CLAIM_COVERAGE ||--o{ CLAIM_COVERAGE_ADJUDICATION : ""
+    CLAIM_COVERAGE ||--o{ CLAIM_COVERAGE_INSURABLE_INTEREST : ""
+    CLAIM_COVERAGE ||--o{ CLAIM_COVERAGE_SCORE : ""
+    CLAIM_COVERAGE ||--o{ CLAIM_COVERAGE_LEGAL_ACTION : ""
+    CLAIM_COVERAGE ||--o{ CLAIM_COVERAGE_AMOUNT : ""
+    CLAIM_COVERAGE_ADJUDICATION ||--o{ CLAIM_COVERAGE_ADJUDICATION_AMOUNT : ""
+    CLAIM_COVERAGE_AMOUNT ||--o{ CLAIM_COVERAGE_COST_RECOVERY : ""
+    CLAIM_COVERAGE_INSURABLE_INTEREST ||--o{ CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT : ""
+    CLAIM_COVERAGE_INSURABLE_INTEREST ||--o{ CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE : ""
+    CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE ||--o{ CLAIM_REINSURANCE_AMOUNT : ""
+    CLAIM_COVERAGE_TEXT ||--o{ CLAIM_COVERAGE_TEXT_SECTION : ""
+    CLAIM_DATE_TYPE ||--o{ CLAIM_DATE : ""
+    CLAIM_FILING_TYPE ||--o{ HEALTH_CLAIM : ""
+    CLAIM_FOLLOW_UP_TYPE ||--o{ CLAIM_FOLLOW_UP : ""
+    CLAIM_FREQUENCY_TYPE ||--o{ HEALTH_CLAIM : ""
+    CLAIM_GROUP ||--o{ CLAIM_CLAIM_GROUP : ""
+    CLAIM_GROUP ||--o{ CLAIM_GROUP : ""
+    CLAIM_GROUP_TYPE ||--o{ CLAIM_GROUP : ""
+    CLAIM_INSURABLE_INTEREST ||--o{ CLAIM_INSURABLE_INTEREST_ACCIDENT : ""
+    CLAIM_INSURABLE_INTEREST ||--o{ CLAIM_SERVICE_REQUEST : ""
+    CLAIM_INSURABLE_INTEREST_TYPE ||--o{ CLAIM_INSURABLE_INTEREST : ""
+    CLAIM_MEDIA_TYPE ||--o{ CLAIM : ""
+    CLAIM_OBLIGATION_TYPE ||--o{ CLAIM : ""
+    CLAIM_REFERRAL_TYPE ||--o{ HEALTH_CLAIM : ""
+    CLAIM_RELATIONSHIP_TYPE ||--o{ CLAIM_RELATED : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_DIAGNOSIS_CODE : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_LEGAL_ACTION : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_SCORE : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_TEXT : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_AMOUNT : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_COVERAGE : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_ASSET : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_ADJUDICATION : ""
+    CLAIM_SERVICE ||--o{ CLAIM_SERVICE_DATE : ""
+    CLAIM_SERVICE_ADJUDICATION ||--o{ CLAIM_SERVICE_ADJUDICATION_AMOUNT : ""
+    CLAIM_SERVICE_AMOUNT ||--o{ CLAIM_SERVICE_COST_RECOVERY : ""
+    CLAIM_SERVICE_CATEGORY_TYPE ||--o{ HEALTH_CLAIM : ""
+    CLAIM_SERVICE_COVERAGE ||--o{ CLAIM_SERVICE_COVERAGE_AMOUNT : ""
+    CLAIM_SERVICE_DATE_TYPE ||--o{ CLAIM_SERVICE_DATE : ""
+    CLAIM_SERVICE_TEXT ||--o{ CLAIM_SERVICE_TEXT_SECTION : ""
+    CLAIM_STATUS_REASON_TYPE ||--o{ CLAIM_COVERAGE_STATUS : ""
+    CLAIM_STATUS_REASON_TYPE ||--o{ CLAIM_STATUS : ""
+    CLAIM_STATUS_TYPE ||--o{ CLAIM_COVERAGE_STATUS : ""
+    CLAIM_STATUS_TYPE ||--o{ CLAIM_STATUS : ""
+    CLAIM_SUBMITTAL_TYPE ||--o{ CLAIM : ""
+    CLAIM_TEXT ||--o{ CLAIM_TEXT_SECTION : ""
+    CLAIM_TEXT_TYPE ||--o{ CLAIM_COVERAGE_TEXT : ""
+    CLAIM_TEXT_TYPE ||--o{ CLAIM_SERVICE_TEXT : ""
+    CLAIM_TEXT_TYPE ||--o{ CLAIM_TEXT : ""
+    CLAIM_TYPE ||--o{ CLAIM_SERVICE : ""
+    CLAIM_TYPE ||--o{ CLAIM : ""
+    CLAIMANT_INSURABLE_INTEREST_STATUS_TYPE ||--o{ CLAIMANT_INSURABLE_INTEREST_STATUS : ""
+    DENTAL_CLAIM ||--o{ DENTAL_CLAIM_TOOTH : ""
+    EXTERNAL_CLAIM_CRIME_REPORT_TYPE ||--o{ EXTERNALLY_REPORTED_VEHICLE_CLAIM : ""
+    EXTERNAL_CLAIM_FAULT_TYPE ||--o{ EXTERNALLY_REPORTED_VEHICLE_CLAIM : ""
+    EXTERNAL_CLAIM_POLICY_TYPE ||--o{ EXTERNALLY_REPORTED_CLAIM : ""
+    EXTERNAL_CLAIM_SUBTYPE ||--o{ EXTERNALLY_REPORTED_CLAIM : ""
+    HEALTH_CLAIM ||--o{ HEALTH_CLAIM_NUBC_CONDITION_CODE : ""
+    HEALTH_CLAIM_FORMAT_CATEGORY ||--o{ HEALTH_CLAIM_SERVICE : ""
+    HEALTH_CLAIM_FORMAT_CATEGORY ||--o{ HEALTH_CLAIM : ""
+    HEALTH_CLAIM_TYPE ||--o{ HEALTH_CLAIM : ""
+    INCIDENT ||--o{ INCIDENT_PERIL_TYPE : ""
+    INCIDENT ||--o{ CLAIM : ""
+    INSTITUTIONAL_CLAIM ||--o{ INSTITUTIONAL_CLAIM_PROCEDURE_CODE : ""
+    INSTITUTIONAL_CLAIM_SERVICE ||--o{ INSTITUTIONAL_CLAIM_SERVICE_DRUG : ""
+    INSURABLE_INTEREST ||--o{ POLICY_INSURABLE_INTEREST : ""
+    INSURABLE_INTEREST ||--o{ CLAIM_INSURABLE_INTEREST : ""
+    INSURABLE_INTEREST ||--o{ CLAIM_COVERAGE_INSURABLE_INTEREST : ""
+    INSURABLE_INTEREST ||--o{ INSURABLE_INTEREST_METRIC : ""
+    INSURABLE_INTEREST_CATEGORY ||--o{ INSURABLE_INTEREST : ""
+    INSURABLE_INTEREST_METRIC_TYPE ||--o{ INSURABLE_INTEREST_METRIC : ""
+    MEDICAID_STATISTICAL_INFORMATION_SYSTEM_CLAIM_TYPE ||--o{ HEALTH_CLAIM : ""
+    OUTPATIENT_INSTITUTIONAL_CLAIM ||--o{ OUTPATIENT_INSTITUTIONAL_CLAIM_APC : ""
+    PATIENT_CLAIM_AUTHORIZATION ||--o{ PATIENT_CLAIM_AUTHORIZATION_CONDITION : ""
+    PERIL_ORIGIN_TYPE ||--o{ PERIL_TYPE : ""
+    PERIL_TYPE ||--o{ PERIL_TYPE_SUBJECT : ""
+    PERIL_TYPE ||--o{ INCIDENT_PERIL_TYPE : ""
+    PERIL_TYPE ||--o{ CLAIM_SERVICE : ""
+    PERIL_TYPE ||--o{ CLAIM_AUTHORIZATION : ""
+    PERIL_TYPE ||--o{ CLAIM_PERIL : ""
+    PHARMACY_CLAIM_SERVICE ||--o{ PHARMACY_CLAIM_SERVICE_DRUG : ""
+    POLICY_INSURABLE_COVERAGE ||--o{ POLICY_INSURABLE_INTEREST_COVERAGE_STATUS : ""
+    POLICY_INSURABLE_COVERAGE ||--o{ POLICY_INSURABLE_COVERAGE_METRIC : ""
+    POLICY_INSURABLE_INTEREST ||--o{ POLICY_INSURABLE_COVERAGE : ""
+    POLICY_INSURABLE_INTEREST ||--o{ POLICY_INSURABLE_INTEREST_STATUS : ""
+    POLICY_INSURABLE_INTEREST_ROLE ||--o{ POLICY_INSURABLE_INTEREST : ""
+    PROFESSIONAL_CLAIM ||--o{ CLAIM_VISION_CONDITION : ""
+    PROFESSIONAL_CLAIM ||--o{ CLAIM_CLIA : ""
+    PROFESSIONAL_CLAIM ||--o{ PROFESSIONAL_CLAIM_APG : ""
+    PROFESSIONAL_CLAIM_SERVICE ||--o{ PROFESSIONAL_CLAIM_SERVICE_DRUG : ""
+    INSURABLE_INTEREST ||--|| ASSET_INSURABLE_INTEREST : "inherits"
+    CLAIM_INSURABLE_INTEREST ||--|| CLAIM_ASSET : "inherits"
+    CLAIM_ASSET ||--|| CLAIM_MOTOR_VEHICLE : "inherits"
+    HEALTH_CLAIM ||--|| DENTAL_CLAIM : "inherits"
+    HEALTH_CLAIM_SERVICE ||--|| DENTAL_CLAIM_SERVICE : "inherits"
+    EXTERNALLY_REPORTED_CLAIM ||--|| EXTERNALLY_REPORTED_VEHICLE_CLAIM : "inherits"
+    CLAIM ||--|| HEALTH_CLAIM : "inherits"
+    CLAIM_SERVICE ||--|| HEALTH_CLAIM_SERVICE : "inherits"
+    INSTITUTIONAL_CLAIM ||--|| INPATIENT_INSTITUTIONAL_CLAIM : "inherits"
+    HEALTH_CLAIM ||--|| INSTITUTIONAL_CLAIM : "inherits"
+    HEALTH_CLAIM_SERVICE ||--|| INSTITUTIONAL_CLAIM_SERVICE : "inherits"
+    CLAIM_ADJUDICATION ||--|| INTERNAL_CLAIM_ADJUDICATION : "inherits"
+    CLAIM ||--|| LIFE_CLAIM : "inherits"
+    INSTITUTIONAL_CLAIM ||--|| OUTPATIENT_INSTITUTIONAL_CLAIM : "inherits"
+    HEALTH_CLAIM ||--|| PHARMACY_CLAIM : "inherits"
+    HEALTH_CLAIM_SERVICE ||--|| PHARMACY_CLAIM_SERVICE : "inherits"
+    HEALTH_CLAIM ||--|| PROFESSIONAL_CLAIM : "inherits"
+    HEALTH_CLAIM_SERVICE ||--|| PROFESSIONAL_CLAIM_SERVICE : "inherits"
+    CLAIM ||--|| PROPERTY_AND_CASUALTY_CLAIM : "inherits"

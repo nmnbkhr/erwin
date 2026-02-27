@@ -1,0 +1,461 @@
+erDiagram
+    ACCESS_DEVICE_EVENT_RISK_REASON_TYPE {
+        Code Access_Device_Event_Risk_Reason_Type_Cd "PK"
+        Description Access_Device_Event_Risk_Reason_Type_Desc ""
+    }
+    ANALYTICAL_MODEL_RISK_FACTOR {
+        Identifier Model_Id "PK"
+        Identifier Risk_Factor_Id "PK"
+        Code Analytical_Model_Risk_Role_Cd "PK"
+        Datetime Analytical_Model_Risk_Start_Dttm "PK"
+        Datetime Analytical_Model_Risk_End_Dttm ""
+    }
+    ANALYTICAL_MODEL_RISK_FACTOR_ROLE {
+        Code Analytical_Model_Risk_Role_Cd "PK"
+        Description Analytical_Model_Risk_Role_Desc ""
+    }
+    ANALYTICAL_MODEL_TO_RISK_GRADE {
+        Identifier Model_Id "PK"
+        Identifier Analytical_Model_Value_Id "PK"
+        Identifier Risk_Grade_Scheme_Id "PK"
+        Identifier Risk_Grade_Id "PK"
+        Datetime Analytical_Model_Start_Dttm "PK"
+        string more "2 more"
+    }
+    APPLICATION_INSURANCE_RISK_CATEGORY {
+        Identifier Application_Id "PK"
+        Date Application_Risk_Category_Start_Dt "PK"
+        Code Insurance_Risk_Category_Cd "PK"
+        Date Application_Risk_Category_End_Dt ""
+    }
+    ASSET_CLASS_MATURITY_RISK_GRADE {
+        Code Party_Asset_Value_Cd "PK"
+        Code Party_Asset_Class_Cd "PK"
+        Identifier Time_Band_Scheme_Id "PK"
+        Identifier Time_Band_Id "PK"
+        Identifier Risk_Grade_Scheme_Id "PK"
+        string more "4 more"
+    }
+    ASSET_INSURANCE_RISK_CATEGORY {
+        Identifier Party_Asset_Id "PK"
+        Code Insurance_Risk_Category_Cd "PK"
+    }
+    ASSET_INSURANCE_RISK_FACTOR {
+        Identifier Party_Asset_Id "PK"
+        Code Insurance_Risk_Factor_Cd "PK"
+        Date Asset_Risk_Factor_Start_Dt "PK"
+        Date Asset_Risk_Factor_End_Dt ""
+    }
+    ASSET_RISK_GRADE {
+        Identifier Risk_Grade_Scheme_Id "PK"
+        Identifier Party_Asset_Id "PK"
+        Datetime Asset_Risk_Grade_Start_Dttm "PK"
+        Identifier Risk_Grade_Id "PK"
+        Datetime Asset_Risk_Grade_End_Dttm ""
+        string more "1 more"
+    }
+    ASSET_RISK_GRADE_RELATED {
+        Identifier Party_Asset_Id "PK"
+        Identifier Risk_Grade_Scheme_Id "PK"
+        Datetime Asset_Risk_Grade_Start_Dttm "PK"
+        Identifier Related_Risk_Grade_Scheme_Id "PK"
+        Datetime Related_Risk_Grade_Start_Dttm "PK"
+        string more "5 more"
+    }
+    BANK_ACTUAL_RISK_LOSS {
+        Identifier Bank_Actual_Loss_Id "PK"
+        Code Risk_Type_Cd ""
+        Code Financial_Risk_Factor_Type_Cd ""
+        Date Bank_Loss_Reporting_Start_Dt ""
+        Date Bank_Loss_Reporting_End_Dt ""
+        string more "2 more"
+    }
+    BANK_CAPITAL_SUMMARY {
+        Identifier Party_Id "PK"
+        Date Period_Start_Dt "PK"
+        Identifier Risk_Scenario_Id "PK"
+        Date Period_End_Dt ""
+        Amount Share_Capital_Amt ""
+        string more "22 more"
+    }
+    BANK_LOSS_TYPE {
+        Code Bank_Loss_Type_Cd "PK"
+        Description Bank_Loss_Type_Desc ""
+    }
+    BASEL_1_WEIGHT {
+        Code Basel_1_Type_Cd "PK"
+        Rate Basel_1_Weight_Rate "PK"
+        Description Basel_1_Type_Desc "PK"
+    }
+    BASEL_DEFAULT_STATUS_PARAMETER {
+        Code Agreement_Status_Cd "PK"
+        Code Party_Class_Cd "PK"
+        Code Basel_II_Approach_Type_Cd "PK"
+        Code Basel_Function_Type_Cd "PK"
+        Code Agreement_Status_Scheme_Cd "PK"
+        string more "5 more"
+    }
+    BASEL_EQUITY_RISK_WEIGHT_PARAMETER {
+        Identifier Product_Group_Id "PK"
+        Datetime Basel_Equity_Parameter_Start_Dttm "PK"
+        Datetime Basel_Equity_Parameter_End_Dttm ""
+        Rate Basel_Equity_Simple_RW_Rate ""
+        Rate Basel_Equity_Internal_RW_Rate ""
+        string more "1 more"
+    }
+    BASEL_EXPOSURE_HAIRCUT_PARAMETER {
+        Identifier Risk_Grade_Scheme_Id "PK"
+        Identifier Product_Group_Id "PK"
+        Code Party_Class_Cd "PK"
+        Identifier Maturity_Time_Band_Id "PK"
+        Identifier Maturity_Time_Band_Scheme_Id "PK"
+        string more "8 more"
+    }
+    BASEL_FUNCTION_TYPE {
+        Code Basel_Function_Type_Cd "PK"
+        Description Basel_Function_Type_Desc ""
+    }
+    BASEL_III_CAPITAL_TYPE {
+        Code Basel_III_Capital_Type_Cd "PK"
+        Description Basel_III_Capital_Type_Desc ""
+    }
+    BASEL_II_APPROACH {
+        Code Basel_II_Approach_Type_Cd "PK"
+        Code Basel_Function_Type_Cd "PK"
+        Description Basel_II_Approach_Desc ""
+    }
+    BASEL_II_ASSET_CLASS {
+        Identifier Basel_II_Asset_Class_Id "PK"
+        Identifier Parent_Basel_II_Asset_Class_Id ""
+        Description Basel_II_Asset_Class_Desc ""
+        Name Basel_II_Asset_Class_Name ""
+        Code Haircut_Adjusted_Formula_Type_Cd ""
+    }
+    BASEL_II_MINIMUM_LGD_PARAMETER {
+        Code Party_Asset_Class_Cd "PK"
+        Code Party_Asset_Value_Cd "PK"
+        Date Minimum_LGD_Parameter_Start_Dt "PK"
+        Date Minimum_LGD_Parameter_End_Dt ""
+        Rate Minimum_Threshold_LGD_Rate ""
+        string more "2 more"
+    }
+    BASEL_IRB_RISK_MITIGANT_TYPE {
+        Code Basel_IRB_Risk_Mitigant_Cd "PK"
+        Description Basel_IRB_Risk_Mitigant_Desc ""
+    }
+    BASEL_MARKET_PARTICIPANT_TYPE {
+        Code Basel_Market_Participant_Cd "PK"
+        Description Basel_Market_Participant_Desc ""
+    }
+    BASEL_OPERATIONAL_RISK_BETA_PARAMETER {
+        Datetime Basel_Operational_Risk_Beta_Start_Dttm "PK"
+        Identifier Internal_Organization_Party_Id "PK"
+        Datetime Basel_Operational_Risk_Beta_End_Dttm ""
+        Rate Basel_Operational_Risk_Beta_Rate ""
+    }
+    BASEL_PARAMETER {
+        Identifier Basel_Parameter_Id "PK"
+        Date Basel_Parameter_Start_Dt "PK"
+        Description Basel_Parameter_Desc ""
+        Rate Basel_Parameter_Rate ""
+        Amount Basel_Parameter_Amt ""
+        string more "1 more"
+    }
+    BASEL_RETAIL_DEFAULT_PARAMETER {
+        Code Agreement_Status_Cd "PK"
+        Identifier Product_Group_Id "PK"
+        Datetime Basel_Retail_Default_Start_Dttm "PK"
+        Code Agreement_Status_Scheme_Cd "PK"
+        Datetime Basel_Retail_Default_End_Dttm ""
+        string more "1 more"
+    }
+    CAPITAL_REQUIREMENTS_SUMMARY {
+        Identifier Party_Id "PK"
+        Code Basel_II_Approach_Type_Cd "PK"
+        Code Basel_Function_Type_Cd "PK"
+        Identifier Basel_Portfolio_Product_Group_Id "PK"
+        Identifier Risk_Scenario_Id "PK"
+        string more "13 more"
+    }
+    CHANNEL_RISK_GRADE {
+        Identifier Channel_Instance_Id "PK"
+        Identifier Risk_Grade_Scheme_Id "PK"
+        Datetime Channel_Risk_Grade_Start_Dttm "PK"
+        Identifier Risk_Grade_Id "PK"
+        Datetime Channel_Risk_Grade_End_Dttm ""
+        string more "1 more"
+    }
+    CHANNEL_TYPE_RISK_GRADE {
+        Code Channel_Type_Cd "PK"
+        Identifier Risk_Grade_Id "PK"
+        Identifier Risk_Grade_Scheme_Id "PK"
+        Datetime Channel_Type_Risk_Grade_Start_Dttm "PK"
+        Datetime Channel_Type_Risk_Grade_End_Dttm ""
+        string more "1 more"
+    }
+    CLAIM_EXPOSURE {
+        Identifier Claim_Id "PK"
+        Identifier Claim_Exposure_Id "PK"
+        Identifier Coverage_Feature_Id ""
+        Identifier Insurable_Interest_Id ""
+        Identifier Claimant_Party_Id ""
+    }
+    CLAIM_EXPOSURE_ACTIVITY {
+        Identifier Claim_Exposure_Id "PK"
+        Identifier Claim_Exposure_Activity_Id "PK"
+        Code Claim_Exposure_Activity_Type_Cd ""
+        Code Claim_Exposure_Cost_Recovery_Type_Cd ""
+        Code Claim_Exposure_Cost_Type_Cd ""
+        string more "8 more"
+    }
+    CLAIM_EXPOSURE_ACTIVITY_AMOUNT {
+        Identifier Claim_Exposure_Id "PK"
+        Identifier Claim_Exposure_Activity_Id "PK"
+        Identifier Claim_Exposure_Activity_Amount_Id "PK"
+        Datetime Claim_Exposure_Amount_Dttm ""
+        Amount Claim_Exposure_Activity_Amt ""
+        string more "3 more"
+    }
+    CLAIM_EXPOSURE_ACTIVITY_TYPE {
+        Code Claim_Exposure_Activity_Type_Cd "PK"
+        Description Claim_Exposure_Activity_Type_Desc ""
+    }
+    CLAIM_EXPOSURE_COST_CATEGORY {
+        Code Claim_Exposure_Cost_Category_Cd "PK"
+        Description Claim_Exposure_Cost_Category_Desc ""
+    }
+    CLAIM_EXPOSURE_COST_RECOVERY_TYPE {
+        Code Claim_Exposure_Cost_Recovery_Type_Cd "PK"
+        Description Claim_Exposure_Cost_Recovery_Type_Desc ""
+    }
+    CLAIM_EXPOSURE_EVENT {
+        Identifier Event_Id "PK"
+        Identifier Claim_Exposure_Id "PK"
+        Identifier Claim_Exposure_Activity_Id "PK"
+    }
+    CLAIM_EXPOSURE_STATUS {
+        Identifier Claim_Exposure_Id "PK"
+        Date Claim_Exposure_Status_Dt "PK"
+        Code Claim_Exposure_Status_Type_Cd ""
+    }
+    CLAIM_EXPOSURE_STATUS_TYPE {
+        Code Claim_Exposure_Status_Type_Cd "PK"
+        Description Claim_Exposure_Status_Type_Desc ""
+    }
+    CLAIM_RISK_GRADE {
+        Identifier Risk_Grade_Scheme_Id ""
+        Identifier Claim_Id "PK"
+        Datetime Claim_Risk_Grade_Start_Dttm "PK"
+        Identifier Risk_Grade_Id ""
+        Datetime Claim_Risk_Grade_End_Dttm ""
+    }
+    CURRENCY_EXCHANGE_RISK_FACTOR {
+        Code Financial_Risk_Factor_Type_Cd "PK"
+        Code Source_Currency_Cd "PK"
+        Code Target_Currency_Cd "PK"
+        Datetime Currency_Exchange_Risk_Factor_Dttm "PK"
+        Measure Currency_Exchange_Risk_Factor_Meas ""
+    }
+    CURRENCY_RISK_FACTOR {
+        Code Financial_Risk_Factor_Type_Cd "PK"
+        Datetime Currency_Risk_Factor_Dttm "PK"
+        Code Currency_Cd "PK"
+        Measure Currency_Risk_Factor_Meas ""
+    }
+    DEBT_ISSUE_DEFAULT {
+        Date Debt_Issue_Default_Announce_Dt ""
+    }
+    DEFAULT_OCCURRENCE {
+        Identifier Agreement_Id "PK"
+        Datetime Default_Dttm "PK"
+        Code Default_Outcome_Type_Cd ""
+        Code Default_Reason_Type_Cd "PK"
+        Amount Default_Exposure_Amt ""
+        string more "1 more"
+    }
+    DEFAULT_OUTCOME_TYPE {
+        Code Default_Outcome_Type_Cd "PK"
+        Description Default_Outcome_Type_Desc ""
+    }
+    DEFAULT_REASON_TYPE {
+        Code Default_Reason_Type_Cd "PK"
+        Description Default_Reason_Type_Desc ""
+    }
+    DEFAULT_RECOVERY {
+        Identifier Agreement_Id "PK"
+        Datetime Default_Dttm "PK"
+        Identifier Event_Id ""
+    }
+    DEFAULT_RECOVERY_ITEM {
+        Identifier Agreement_Id "PK"
+        Identifier Party_Asset_Id "PK"
+        Datetime Default_Dttm "PK"
+        Indicator Deed_In_Lieu_Of_Foreclosure_Ind ""
+    }
+    DEFAULT_RECOVERY_ITEM_STATUS {
+        Identifier Agreement_Id "PK"
+        Identifier Party_Asset_Id "PK"
+        Datetime Default_Dttm "PK"
+        Datetime Default_Recovery_Status_Dttm "PK"
+        Code Recovery_Status_Change_Reason_Cd "PK"
+        string more "1 more"
+    }
+    DEFAULT_RECOVERY_METRIC {
+        Identifier Agreement_Id "PK"
+        Identifier Party_Asset_Id "PK"
+        Datetime Default_Dttm "PK"
+        Code Default_Recovery_Item_Metric_Type_Cd "PK"
+        Amount Default_Recovery_Amt ""
+        string more "6 more"
+    }
+    DEFAULT_RECOVERY_METRIC_TYPE {
+        Code Default_Recovery_Item_Metric_Type_Cd "PK"
+        Description Default_Recovery_Item_Metric_Desc ""
+    }
+    ELIGIBLE_RISK_MITIGANT_TYPE {
+        Code Eligible_Risk_Mitigant_Cd "PK"
+        Description Eligible_Risk_Mitigant_Desc ""
+    }
+    EQUITY_BASEL_TYPE {
+        Code Equity_Basel_Type_Cd "PK"
+        Description Equity_Basel_Type_Desc ""
+    }
+    EQUITY_NETTED_GROUP_RISK {
+        Identifier Risk_Scenario_Id "PK"
+        Identifier Agreement_Group_Id "PK"
+        Amount Equity_Netted_Position_Amt ""
+        Code Position_Type_Cd ""
+    }
+    EVENT_RISK_GRADE {
+        Identifier Risk_Grade_Scheme_Id ""
+        Identifier Event_Id "PK"
+        Identifier Risk_Grade_Id ""
+    }
+    EXTERNAL_CLAIM_LOSS_DETAIL {
+        Identifier External_Claim_Id "PK"
+        Number External_Claim_Id_Loss_Num "PK"
+        Amount External_Claim_Loss_Paid_Amt ""
+        Name External_Claim_Payment_Insurer_Name ""
+        Code External_Claim_Loss_Type_Cd ""
+        string more "1 more"
+    }
+    EXTERNAL_CLAIM_LOSS_STATUS_TYPE {
+        Code External_Claim_Loss_Status_Cd "PK"
+        Description External_Claim_Loss_Status_Desc ""
+    }
+    EXTERNAL_CLAIM_LOSS_TYPE {
+        Code External_Claim_Loss_Type_Cd "PK"
+        Description External_Claim_Loss_Type_Desc ""
+    }
+    ANALYTICAL_MODEL_RISK_FACTOR_ROLE ||--o{ ANALYTICAL_MODEL_RISK_FACTOR : ""
+    BANK_LOSS_TYPE ||--o{ BANK_ACTUAL_RISK_LOSS : ""
+    BASEL_FUNCTION_TYPE ||--o{ RISK_CALCULATION_SCENARIO_BASEL_APPROACH : ""
+    BASEL_FUNCTION_TYPE ||--o{ BASEL_II_APPROACH : ""
+    BASEL_II_APPROACH ||--o{ BASEL_DEFAULT_STATUS_PARAMETER : ""
+    BASEL_II_APPROACH ||--o{ CAPITAL_REQUIREMENTS_SUMMARY : ""
+    BASEL_II_APPROACH ||--o{ RISK_MITIGATION_SUMMARY : ""
+    BASEL_II_APPROACH ||--o{ NON_IRB_EXPOSURE_SUMMARY : ""
+    BASEL_II_APPROACH ||--o{ RISK_CALCULATION_SCENARIO_BASEL_APPROACH : ""
+    BASEL_II_ASSET_CLASS ||--o{ BASEL_II_ASSET_CLASS : ""
+    CLAIM_EXPOSURE ||--o{ CLAIM_EXPOSURE_ACTIVITY : ""
+    CLAIM_EXPOSURE ||--o{ CLAIM_EXPOSURE_STATUS : ""
+    CLAIM_EXPOSURE_ACTIVITY ||--o{ CLAIM_EXPOSURE_ACTIVITY_AMOUNT : ""
+    CLAIM_EXPOSURE_ACTIVITY ||--o{ CLAIM_EXPOSURE_EVENT : ""
+    CLAIM_EXPOSURE_ACTIVITY_TYPE ||--o{ CLAIM_EXPOSURE_ACTIVITY : ""
+    CLAIM_EXPOSURE_COST_CATEGORY ||--o{ CLAIM_EXPOSURE_ACTIVITY : ""
+    CLAIM_EXPOSURE_COST_RECOVERY_TYPE ||--o{ CLAIM_EXPOSURE_ACTIVITY : ""
+    CLAIM_EXPOSURE_STATUS_TYPE ||--o{ CLAIM_EXPOSURE_STATUS : ""
+    DEFAULT_OCCURRENCE ||--o{ DEFAULT_RECOVERY_ITEM : ""
+    DEFAULT_OCCURRENCE ||--o{ DEFAULT_RECOVERY : ""
+    DEFAULT_OUTCOME_TYPE ||--o{ DEFAULT_OCCURRENCE : ""
+    DEFAULT_REASON_TYPE ||--o{ DEFAULT_OCCURRENCE : ""
+    DEFAULT_RECOVERY_ITEM ||--o{ DEFAULT_RECOVERY_METRIC : ""
+    DEFAULT_RECOVERY_ITEM ||--o{ DEFAULT_RECOVERY_ITEM_STATUS : ""
+    DEFAULT_RECOVERY_METRIC_TYPE ||--o{ DEFAULT_RECOVERY_METRIC : ""
+    EQUITY_RISK_NETTED_GROUP ||--o{ EQUITY_NETTED_GROUP_RISK : ""
+    EXTERNAL_CLAIM_LOSS_STATUS_TYPE ||--o{ EXTERNAL_CLAIM_LOSS_DETAIL : ""
+    EXTERNAL_CLAIM_LOSS_TYPE ||--o{ EXTERNAL_CLAIM_LOSS_DETAIL : ""
+    FINANCIAL_RISK_FACTOR ||--o{ CURRENCY_RISK_FACTOR : ""
+    FINANCIAL_RISK_FACTOR ||--o{ FINANCIAL_RISK_FACTOR : ""
+    FINANCIAL_RISK_FACTOR ||--o{ STRESS_TEST_RESULT : ""
+    FINANCIAL_RISK_FACTOR ||--o{ BANK_ACTUAL_RISK_LOSS : ""
+    FINANCIAL_RISK_FACTOR ||--o{ YIELD_CURVE_MATURITY_RISK_FACTOR : ""
+    FINANCIAL_RISK_FACTOR ||--o{ CURRENCY_EXCHANGE_RISK_FACTOR : ""
+    FINANCIAL_RISK_FACTOR ||--o{ INTEREST_INDEX_RISK_FACTOR : ""
+    GENERAL_MARKET_RISK_CHARGE_TYPE ||--o{ MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER : ""
+    GEOGRAPHIC_AREA_RISK_TYPE ||--o{ GEOGRAPHIC_AREA_RISK : ""
+    INSURABLE_INTEREST_EXPOSURE_TYPE ||--o{ INSURABLE_INTEREST_TO_EXPOSURE_TYPE : ""
+    INSURANCE_RISK_CATEGORY ||--o{ INSURANCE_RISK_FACTOR_RISK_CATEGORY : ""
+    INSURANCE_RISK_CATEGORY ||--o{ INSURANCE_RISK_CATEGORY : ""
+    INSURANCE_RISK_CATEGORY ||--o{ ASSET_INSURANCE_RISK_CATEGORY : ""
+    INSURANCE_RISK_CATEGORY ||--o{ APPLICATION_INSURANCE_RISK_CATEGORY : ""
+    INSURANCE_RISK_FACTOR_RELATIONSHIP_TYPE ||--o{ INSURANCE_RISK_FACTOR_RELATED : ""
+    INSURANCE_RISK_FACTOR_TYPE ||--o{ MORTALITY_TABLE_RISK_FACTOR : ""
+    INSURANCE_RISK_FACTOR_TYPE ||--o{ INSURANCE_RISK_FACTOR_RISK_CATEGORY : ""
+    INSURANCE_RISK_FACTOR_TYPE ||--o{ ASSET_INSURANCE_RISK_FACTOR : ""
+    INSURANCE_RISK_FACTOR_TYPE ||--o{ INSURANCE_RISK_UNDERWRITE_CLASS : ""
+    NETTED_MARKET_RISK_GROUP_TYPE ||--o{ NETTED_MARKET_RISK_GROUP : ""
+    RISK_ASSESS_OVERRIDE_TYPE ||--o{ ASSET_RISK_GRADE_RELATED : ""
+    RISK_ASSESSMENT_RELATED_TYPE ||--o{ ASSET_RISK_GRADE_RELATED : ""
+    RISK_CALCULATION_SCENARIO ||--o{ MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION : ""
+    RISK_CALCULATION_SCENARIO ||--o{ INTEREST_RATE_RISK_CALCULATION : ""
+    RISK_CALCULATION_SCENARIO ||--o{ PURCHASED_RECEIVABLE_POOL_RISK : ""
+    RISK_CALCULATION_SCENARIO ||--o{ CAPITAL_REQUIREMENTS_SUMMARY : ""
+    RISK_CALCULATION_SCENARIO ||--o{ RETAIL_RISK_ASSESSMENT_SUMMARY : ""
+    RISK_CALCULATION_SCENARIO ||--o{ RISK_MITIGATION_SUMMARY : ""
+    RISK_CALCULATION_SCENARIO ||--o{ VOLATILITY_RISK_CALCULATION : ""
+    RISK_CALCULATION_SCENARIO ||--o{ HOLDING_VALUE_AT_RISK : ""
+    RISK_CALCULATION_SCENARIO ||--o{ NON_IRB_EXPOSURE_SUMMARY : ""
+    RISK_CALCULATION_SCENARIO ||--o{ NONRETAIL_RISK_ASSESSMENT_SUMMARY : ""
+    RISK_CALCULATION_SCENARIO ||--o{ PORTFOLIO_VALUE_AT_RISK : ""
+    RISK_CALCULATION_SCENARIO ||--o{ BANK_CAPITAL_SUMMARY : ""
+    RISK_CALCULATION_SCENARIO ||--o{ RISK_CALCULATION_SCENARIO_BASEL_APPROACH : ""
+    RISK_CALCULATION_SCENARIO ||--o{ TRANCHE_RISK_METRIC : ""
+    RISK_CALCULATION_SCENARIO ||--o{ EQUITY_NETTED_GROUP_RISK : ""
+    RISK_FACTOR_INSTRUMENT ||--o{ RISK_FACTOR_INSTRUMENT : ""
+    RISK_FACTOR_INSTRUMENT ||--o{ ANALYTICAL_MODEL_RISK_FACTOR : ""
+    RISK_GRADE_RELATION_TYPE ||--o{ RISK_GRADE_VALUE_RELATED : ""
+    RISK_GRADE_SCHEME ||--o{ CLAIM_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ NONRETAIL_RISK_ASSESSMENT_SUMMARY : ""
+    RISK_GRADE_SCHEME ||--o{ ASSET_CLASS_MATURITY_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ INVESTMENT_SECURITY_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ ASSET_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ OPPORTUNITY_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ NON_IRB_EXPOSURE_SUMMARY : ""
+    RISK_GRADE_SCHEME ||--o{ RETAIL_RISK_ASSESSMENT_SUMMARY : ""
+    RISK_GRADE_SCHEME ||--o{ EVENT_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ ROADWAY_SEGMENT_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ GEOGRAPHY_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ BASEL_EXPOSURE_HAIRCUT_PARAMETER : ""
+    RISK_GRADE_SCHEME ||--o{ CHANNEL_RISK_GRADE : ""
+    RISK_GRADE_SCHEME ||--o{ RISK_GRADE_VALUE : ""
+    RISK_GRADE_VALUE ||--o{ OPPORTUNITY_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ CHANNEL_TYPE_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ BASEL_EXPOSURE_HAIRCUT_PARAMETER : ""
+    RISK_GRADE_VALUE ||--o{ EVENT_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ ASSET_CLASS_MATURITY_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ CHANNEL_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ ROADWAY_SEGMENT_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ CLAIM_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ GEOGRAPHY_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ ASSET_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ INVESTMENT_SECURITY_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ ANALYTICAL_MODEL_TO_RISK_GRADE : ""
+    RISK_GRADE_VALUE ||--o{ NON_IRB_EXPOSURE_SUMMARY : ""
+    RISK_GRADE_VALUE ||--o{ NONRETAIL_RISK_ASSESSMENT_SUMMARY : ""
+    RISK_GRADE_VALUE ||--o{ RETAIL_RISK_ASSESSMENT_SUMMARY : ""
+    RISK_METRIC_TYPE ||--o{ VOLATILITY_RISK_CALCULATION : ""
+    RISK_RATING_METHOD ||--o{ RISK_GRADE_SCHEME : ""
+    RISK_RATING_PURPOSE_TYPE ||--o{ RISK_RATING_PURPOSE_TYPE : ""
+    RISK_RATING_PURPOSE_TYPE ||--o{ RISK_GRADE_SCHEME : ""
+    RISK_TYPE ||--o{ FINANCIAL_RISK_FACTOR : ""
+    RISK_TYPE ||--o{ BANK_ACTUAL_RISK_LOSS : ""
+    RISK_TYPE ||--o{ RISK_CALCULATION_SCENARIO : ""
+    RISK_TYPE ||--o{ FINANCE_EXPOSURE_RISK_TYPE : ""
+    SENIORITY_LEVEL_TYPE ||--o{ SENIORITY_LEVEL_PARAMETER : ""
+    STRESS_TEST_CALCULATION_SCENARIO ||--o{ STRESS_TEST_CRITERION : ""
+    STRESS_TEST_CALCULATION_SCENARIO ||--o{ STRESS_TEST_RESULT : ""
+    STRESS_TEST_TYPE ||--o{ STRESS_TEST_CALCULATION_SCENARIO : ""
+    NETTED_MARKET_RISK_GROUP ||--|| EQUITY_RISK_NETTED_GROUP : "inherits"
+    RISK_GRADE_VALUE ||--|| LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE : "inherits"
+    RISK_CALCULATION_SCENARIO ||--|| STRESS_TEST_CALCULATION_SCENARIO : "inherits"

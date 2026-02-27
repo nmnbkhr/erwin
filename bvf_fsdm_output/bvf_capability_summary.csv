@@ -1,0 +1,113 @@
+Theme,Capability_Group,Sub_Capability,Data_Requirements_Count
+Marketing and Customer Experience,Customer Insight,Transaction Classification,5
+Marketing and Customer Experience,Customer Insight,Predictive Models,30
+Marketing and Customer Experience,Customer Insight,Event Detection,52
+Marketing and Customer Experience,Customer Insight,Customer Value,26
+Marketing and Customer Experience,Customer Insight,"Customer, Product & Channel  insight",55
+Marketing and Customer Experience,Customer Insight,Conduct  Risk Monitoring,44
+Marketing and Customer Experience,Customer Insight,Insight Led Customer Strategy,49
+Marketing and Customer Experience,Customer Insight,Customer Segmentation,29
+Marketing and Customer Experience,Customer Insight,Big Data Analytics,113
+Marketing and Customer Experience,Customer Insight,Customer Managed Relationships,10
+Marketing and Customer Experience,Define & Deploy Business Rules,Scope of Contact,20
+Marketing and Customer Experience,Define & Deploy Business Rules,Customer Contact Policy,32
+Marketing and Customer Experience,Define & Deploy Business Rules,Campaign Business Cases,21
+Marketing and Customer Experience,Define & Deploy Business Rules,Omni Channel Campaign Management,39
+Marketing and Customer Experience,Define & Deploy Business Rules,Creation & Management of Offers and Content,14
+Marketing and Customer Experience,Define & Deploy Business Rules,Multi-Step Dialogue,14
+Marketing and Customer Experience,Define & Deploy Business Rules,Personalisation,31
+Marketing and Customer Experience,Define & Deploy Business Rules,Rapid Prototyping supports Test & Learn,21
+Marketing and Customer Experience,Define & Deploy Business Rules,Regulatory & Audit Compliance,27
+Marketing and Customer Experience,Delivery of Insight to Channels,Channel Coverage,30
+Marketing and Customer Experience,Delivery of Insight to Channels,Real Time Omni-Channel  Integration,24
+Marketing and Customer Experience,Delivery of Insight to Channels,Next Best Action Arbitration,48
+Marketing and Customer Experience,Delivery of Insight to Channels,Contextual Decisioning,18
+Marketing and Customer Experience,Delivery of Insight to Channels,Recycle Unused Leads into alternative channels,10
+Marketing and Customer Experience,Delivery of Insight to Channels,Lead & Contact Management,16
+Marketing and Customer Experience,Delivery of Insight to Channels,Single Interaction View of Customer,23
+Marketing and Customer Experience,Delivery of Insight to Channels,Channel Support & Engagement,19
+Marketing and Customer Experience,Delivery of Insight to Channels,Direct Customer Access to Information Products,15
+Marketing and Customer Experience,Delivery of Insight to Channels,Auto processing of  Channel Feedback,4
+Marketing and Customer Experience,Reporting & Continuous Improvement,Campaign ROI Reporting by Channel,12
+Marketing and Customer Experience,Reporting & Continuous Improvement,Lead/Sales Funnel Analytics  & Reporting,2
+Marketing and Customer Experience,Reporting & Continuous Improvement,Marketing Attribution MI across all channels,26
+Marketing and Customer Experience,Reporting & Continuous Improvement,Marketing Asset Evaluation,15
+Marketing and Customer Experience,Reporting & Continuous Improvement,"Earned, Paid & Owned media analysis",11
+Marketing and Customer Experience,Reporting & Continuous Improvement,NPS MI & Drill Down,36
+Marketing and Customer Experience,Reporting & Continuous Improvement,Strategy Monitoring,39
+Marketing and Customer Experience,Reporting & Continuous Improvement,Contact Frequency Monitoring,9
+Marketing and Customer Experience,Reporting & Continuous Improvement,Complaints Root Cause Analysis MI,14
+Marketing and Customer Experience,Reporting & Continuous Improvement,Attrition Root Cause Analysis MI,20
+Risk Management & Regulation,Risk Insight,Application and New Business Written,65
+Risk Management & Regulation,Risk Insight,Single Customer View from a Risk Perspective,33
+Risk Management & Regulation,Risk Insight,"Policy, Forensics and Underwriter Rules",65
+Risk Management & Regulation,Risk Insight,"Can’t Pay, Won’t Pay and Collusion",65
+Risk Management & Regulation,Risk Insight,Roll and Rehabilitation Rates,25
+Risk Management & Regulation,Risk Insight,Capital Management (Planning and Allocation),36
+Risk Management & Regulation,Risk Insight,Capital Consumption,36
+Risk Management & Regulation,Risk Insight,Risk Appetite,37
+Risk Management & Regulation,Risk Insight,Pre-Default Transaction Analytics,56
+Risk Management & Regulation,Modelling and Predictiions,Credit Risk Scoring (Underwriting Likelihood Model),60
+Risk Management & Regulation,Modelling and Predictiions,Credit Risk Expected Loss Model,61
+Risk Management & Regulation,Modelling and Predictiions,Credit Risk Underwriting/Monitoring Strategy Model,60
+Risk Management & Regulation,Modelling and Predictiions,"Credit Risk Capital, CVaR Modelling",36
+Risk Management & Regulation,Modelling and Predictiions,Credit Risk Based Pricing Model,83
+Risk Management & Regulation,Modelling and Predictiions,Collection Score (Likelihood Model),64
+Risk Management & Regulation,Modelling and Predictiions,Expected Collection Amount,65
+Risk Management & Regulation,Modelling and Predictiions,Collection Strategy Model,64
+Risk Management & Regulation,Modelling and Predictiions,Fraud and Money Laundering Likelihood Model,88
+Risk Management & Regulation,Modelling and Predictiions,Fraud and Money Laundering Loss Modelling,89
+Risk Management & Regulation,Modelling and Predictiions,Fraud and Money Laundering Strategy Modelling,88
+Risk Management & Regulation,Modelling and Predictiions,Operational Risk / Cybercrime Likelihood,89
+Risk Management & Regulation,Modelling and Predictiions,Operational Risk / Cybercrime Expected Loss,89
+Risk Management & Regulation,Modelling and Predictiions,Operational Risk / Cybercrime Strategy Model,89
+Risk Management & Regulation,Modelling and Predictiions,Operational Risk Capital and OPVaR,26
+Risk Management & Regulation,Modelling and Predictiions,Market & Liquidity Risk Likelihood Modelling,36
+Risk Management & Regulation,Modelling and Predictiions,Market & Liquidity Risk Strategy Modelling,36
+Risk Management & Regulation,Modelling and Predictiions,Market & Liquidity Value at Risk (M-VaR) Modelling,38
+Risk Management & Regulation,Execution & Delivery,Business Rules Directory,113
+Risk Management & Regulation,Execution & Delivery,Regulatory Threshold Calculation,34
+Risk Management & Regulation,Execution & Delivery,Risk Based Price Calculation,83
+Risk Management & Regulation,Execution & Delivery,Active Portfolio Management,83
+Risk Management & Regulation,Execution & Delivery,Dynamic Datastore,105
+Risk Management & Regulation,Execution & Delivery,Credit Risk model Deployment,60
+Risk Management & Regulation,Execution & Delivery,Risk Weighted Assets and Regulatory Capital,34
+Risk Management & Regulation,Execution & Delivery,A/B and Test and Learn Deployment,105
+Risk Management & Regulation,Execution & Delivery,Real Time Threat Detection,105
+Risk Management & Regulation,Reporting & BI,New Business MI & Reporting,64
+Risk Management & Regulation,Reporting & BI,Model Performance Analytics,95
+Risk Management & Regulation,Reporting & BI,Portfolio MI & Portfolio Performance Analytics,84
+Risk Management & Regulation,Reporting & BI,Collections MI,65
+Risk Management & Regulation,Reporting & BI,Regulatory Reporting and Information Sharing,80
+Risk Management & Regulation,Reporting & BI,Strategy (Rules) Performance MI,61
+Finance & Peformance Management,Financial Accounting,Financial Accounting / Accounting Hub,40
+Finance & Peformance Management,Financial Accounting,Financial Consolidation,6
+Finance & Peformance Management,Financial Accounting,Functional Profit & Loss Statement (P&L),40
+Finance & Peformance Management,Financial Accounting,Fair Value & Hedge Accounting,38
+Finance & Peformance Management,Financial Accounting,"Reconciliation, Validation & Adjustments",30
+Finance & Peformance Management,Financial Accounting,Tax Management & Optimisation,42
+Finance & Peformance Management,Financial Accounting,Third Party Settlement Controls,10
+Finance & Peformance Management,Financial Accounting,Fixed Assets Management,11
+Finance & Peformance Management,Financial Planning & Controlling,Activity Based Costing,61
+Finance & Peformance Management,Financial Planning & Controlling,Profitability Modelling,67
+Finance & Peformance Management,Financial Planning & Controlling,Future / Lifetime Value,64
+Finance & Peformance Management,Financial Planning & Controlling,Profitability Analytics and Optimisation,78
+Finance & Peformance Management,Financial Planning & Controlling,Performance Management and KPIs,78
+Finance & Peformance Management,Financial Planning & Controlling,Pricing Analysis & Optimisation,75
+Finance & Peformance Management,Financial Planning & Controlling,"Financial Budgeting, Planning & Forecasting",80
+Finance & Peformance Management,Financial Planning & Controlling,"GL, AP, HR, Expense Analytics & Optimisation",6
+Finance & Peformance Management,Financial Planning & Controlling,Business Process Analytics & Optimisation,47
+Finance & Peformance Management,Treasury Mgmt & Insight,Funds Transfer Pricing,14
+Finance & Peformance Management,Treasury Mgmt & Insight,Asset & Liability Management,34
+Finance & Peformance Management,Treasury Mgmt & Insight,Capital Planning and Management,32
+Finance & Peformance Management,Treasury Mgmt & Insight,Cashflow Generation,37
+Finance & Peformance Management,Treasury Mgmt & Insight,Liquidity Management,31
+Finance & Peformance Management,Treasury Mgmt & Insight,FX & Trading Book Management,20
+Finance & Peformance Management,Treasury Mgmt & Insight,Interest Rate Management,7
+Finance & Peformance Management,MIS & Reporting,Statutory Financial Reporting,17
+Finance & Peformance Management,MIS & Reporting,Regulatory & Compliance Reporting,80
+Finance & Peformance Management,MIS & Reporting,Sales Reporting,29
+Finance & Peformance Management,MIS & Reporting,Performance Reporting,96
+Finance & Peformance Management,MIS & Reporting,Exception Reporting,96
+Finance & Peformance Management,MIS & Reporting,Executive Dashboards,96
+Finance & Peformance Management,MIS & Reporting,Operational Dashboard & Decisioning,83

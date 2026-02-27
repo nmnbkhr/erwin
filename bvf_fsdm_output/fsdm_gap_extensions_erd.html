@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<title>FSDM Gap Extensions - Architecture</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f1923; color: #e0e0e0; padding: 20px; }
+  .container { max-width: 1500px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 22px; margin-bottom: 4px; color: #fff; }
+  .subtitle { text-align: center; color: #888; font-size: 13px; margin-bottom: 20px; }
+  .legend { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+  .legend-color { width: 16px; height: 16px; border-radius: 3px; }
+  svg text { font-family: 'Segoe UI', Arial, sans-serif; }
+  .gap-label { font-size: 11px; font-weight: 600; fill: #fff; }
+  .table-name { font-size: 10px; font-weight: 600; fill: #fff; }
+  .table-detail { font-size: 8px; fill: #aaa; }
+  .fsdm-label { font-size: 9px; fill: #7cb5ec; font-style: italic; }
+  .arrow { stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+  .arrow-rev { stroke-width: 1.5; fill: none; marker-end: url(#arr2); }
+</style>
+</head><body>
+<div class="container">
+  <h1>FSDM Gap Extension Architecture</h1>
+  <p class="subtitle">5 extension modules plugging into existing FSDM v16.00.00 + Profitability Star Schema</p>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-color" style="background:#e74c3c"></div>GAP 1: ABC Costing (6 tables)</div>
+    <div class="legend-item"><div class="legend-color" style="background:#f39c12"></div>GAP 2: Customer CLV (3 tables)</div>
+    <div class="legend-item"><div class="legend-color" style="background:#2ecc71"></div>GAP 3: Budgets &amp; Forecasts (4 tables)</div>
+    <div class="legend-item"><div class="legend-color" style="background:#3498db"></div>GAP 4: Business Process (4 tables)</div>
+    <div class="legend-item"><div class="legend-color" style="background:#9b59b6"></div>GAP 5: Operational Metrics (4 tables)</div>
+    <div class="legend-item"><div class="legend-color" style="background:#34495e"></div>Existing FSDM / Star Schema</div>
+  </div>
+
+<svg viewBox="0 0 1400 1050" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#667"/>
+    </marker>
+    <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a6fa5"/>
+    </marker>
+  </defs>
+
+  <!-- ═══ CENTRAL: Existing FSDM + Star Schema ═══ -->
+  <rect x="480" y="380" width="440" height="280" rx="10" fill="#1a2332" stroke="#34495e" stroke-width="2"/>
+  <text x="700" y="400" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">EXISTING FSDM + STAR SCHEMA</text>
+
+  <!-- FSDM hub entities -->
+  <rect x="500" y="415" width="130" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="565" y="431" text-anchor="middle" class="table-name">PARTY</text>
+  <rect x="640" y="415" width="130" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="705" y="431" text-anchor="middle" class="table-name">AGREEMENT</text>
+  <rect x="780" y="415" width="120" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="840" y="431" text-anchor="middle" class="table-name">PRODUCT</text>
+
+  <rect x="500" y="450" width="130" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="565" y="466" text-anchor="middle" class="table-name">ORGANIZATION</text>
+  <rect x="640" y="450" width="130" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="705" y="466" text-anchor="middle" class="table-name">GL_MAIN_ACCOUNT</text>
+  <rect x="780" y="450" width="120" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="840" y="466" text-anchor="middle" class="table-name">EVENT</text>
+
+  <rect x="500" y="485" width="130" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="565" y="501" text-anchor="middle" class="table-name">CHANNEL_INSTANCE</text>
+  <rect x="640" y="485" width="130" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="705" y="501" text-anchor="middle" class="table-name">FINANCIAL_PLAN</text>
+  <rect x="780" y="485" width="120" height="24" rx="4" fill="#2c3e50" stroke="#5d6d7e"/>
+  <text x="840" y="501" text-anchor="middle" class="table-name">ANALYTICAL_MODEL</text>
+
+  <!-- Star schema -->
+  <rect x="520" y="530" width="360" height="50" rx="6" fill="#1c2833" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="700" y="550" text-anchor="middle" font-size="11" font-weight="bold" fill="#e74c3c">FACT_CUSTOMER_PROFITABILITY</text>
+  <text x="700" y="568" text-anchor="middle" class="table-detail">Revenue | FTP | Cost | Risk | Profit | Balances</text>
+
+  <rect x="520" y="590" width="160" height="28" rx="4" fill="#1c2833" stroke="#2980b9"/>
+  <text x="600" y="608" text-anchor="middle" class="table-name" style="fill:#5dade2">DIM_CUSTOMER</text>
+  <rect x="690" y="590" width="190" height="28" rx="4" fill="#1c2833" stroke="#27ae60"/>
+  <text x="785" y="608" text-anchor="middle" class="table-name" style="fill:#58d68d">DIM_PRODUCT / DIM_BRANCH</text>
+
+  <rect x="520" y="626" width="160" height="28" rx="4" fill="#1c2833" stroke="#8e44ad"/>
+  <text x="600" y="644" text-anchor="middle" class="table-name" style="fill:#bb8fce">DIM_TIME / DIM_CHANNEL</text>
+  <rect x="690" y="626" width="190" height="28" rx="4" fill="#1c2833" stroke="#d35400"/>
+  <text x="785" y="644" text-anchor="middle" class="table-name" style="fill:#eb984e">DIM_AGREEMENT / DIM_SEGMENT</text>
+
+  <!-- ═══ GAP 1: ABC (top-left) ═══ -->
+  <rect x="20" y="20" width="380" height="310" rx="10" fill="rgba(231,76,60,0.08)" stroke="#e74c3c" stroke-width="2"/>
+  <text x="30" y="44" class="gap-label" style="fill:#e74c3c; font-size:14px">GAP 1: Activity Based Costing</text>
+  <text x="30" y="60" class="table-detail">BVF: "Activity Based Costing" capability</text>
+
+  <rect x="40" y="75" width="160" height="40" rx="5" fill="#2c1010" stroke="#e74c3c"/>
+  <text x="120" y="93" text-anchor="middle" class="table-name">COST_POOL</text>
+  <text x="120" y="107" text-anchor="middle" class="table-detail">Type | Category | GL link</text>
+
+  <rect x="220" y="75" width="160" height="40" rx="5" fill="#2c1010" stroke="#e74c3c"/>
+  <text x="300" y="93" text-anchor="middle" class="table-name">ACTIVITY</text>
+  <text x="300" y="107" text-anchor="middle" class="table-detail">Type | Channel | Product</text>
+
+  <rect x="40" y="130" width="160" height="40" rx="5" fill="#2c1010" stroke="#e74c3c"/>
+  <text x="120" y="148" text-anchor="middle" class="table-name">COST_DRIVER</text>
+  <text x="120" y="162" text-anchor="middle" class="table-detail">Volume | Duration | FTE</text>
+
+  <rect x="220" y="130" width="160" height="40" rx="5" fill="#2c1010" stroke="#e74c3c"/>
+  <text x="300" y="148" text-anchor="middle" class="table-name">COST_ALLOCATION_RULE</text>
+  <text x="300" y="162" text-anchor="middle" class="table-detail">Method | Weight | Target</text>
+
+  <rect x="40" y="195" width="340" height="50" rx="5" fill="#3c1010" stroke="#e74c3c" stroke-width="2"/>
+  <text x="210" y="215" text-anchor="middle" class="table-name" style="font-size:12px">COST_ALLOCATION_RESULT</text>
+  <text x="210" y="233" text-anchor="middle" class="table-detail">Per customer/product/branch per month -> feeds FACT table costs</text>
+
+  <rect x="40" y="260" width="160" height="40" rx="5" fill="#2c1010" stroke="#e74c3c"/>
+  <text x="120" y="278" text-anchor="middle" class="table-name">ACTIVITY_RATE</text>
+  <text x="120" y="292" text-anchor="middle" class="table-detail">Unit cost per activity</text>
+
+  <!-- ABC -> FSDM arrows -->
+  <path d="M380,220 C430,220 430,555 520,555" class="arrow" stroke="#e74c3c" stroke-dasharray="4,3"/>
+  <text x="415" y="390" class="fsdm-label" transform="rotate(-75 415 390)">-> FACT costs</text>
+
+  <path d="M200,115 C440,115 440,430 500,430" class="arrow" stroke="#e74c3c" stroke-opacity="0.5" stroke-dasharray="4,3"/>
+  <text x="405" y="310" class="fsdm-label" style="font-size:8px">FK GL_MAIN_ACCOUNT</text>
+
+  <!-- ═══ GAP 2: CLV (top-right) ═══ -->
+  <rect x="1000" y="20" width="380" height="260" rx="10" fill="rgba(243,156,18,0.08)" stroke="#f39c12" stroke-width="2"/>
+  <text x="1010" y="44" class="gap-label" style="fill:#f39c12; font-size:14px">GAP 2: Customer Lifetime Value</text>
+  <text x="1010" y="60" class="table-detail">BVF: "Future / Lifetime Value" capability</text>
+
+  <rect x="1020" y="75" width="340" height="50" rx="5" fill="#2c2010" stroke="#f39c12" stroke-width="2"/>
+  <text x="1190" y="95" text-anchor="middle" class="table-name" style="font-size:12px">CUSTOMER_LIFETIME_VALUE</text>
+  <text x="1190" y="113" text-anchor="middle" class="table-detail">Historical + Predicted CLV | Tier | Trend | Decomposition</text>
+
+  <rect x="1020" y="140" width="160" height="40" rx="5" fill="#2c2010" stroke="#f39c12"/>
+  <text x="1100" y="158" text-anchor="middle" class="table-name">CLV_MODEL</text>
+  <text x="1100" y="172" text-anchor="middle" class="table-detail">Params | Discount rate</text>
+
+  <rect x="1200" y="140" width="160" height="40" rx="5" fill="#2c2010" stroke="#f39c12"/>
+  <text x="1280" y="158" text-anchor="middle" class="table-name">CLV_SCENARIO</text>
+  <text x="1280" y="172" text-anchor="middle" class="table-detail">What-if analysis</text>
+
+  <text x="1020" y="210" class="fsdm-label">Feeds DIM_CUSTOMER.Profitability_Tier_Cd</text>
+  <text x="1020" y="225" class="fsdm-label">FK -> PARTY (customer), ANALYTICAL_MODEL</text>
+  <text x="1020" y="240" class="fsdm-label">CLV_Tier enriches customer segmentation</text>
+  <text x="1020" y="255" class="fsdm-label">Drives retention & cross-sell strategy</text>
+
+  <!-- CLV -> FSDM arrows -->
+  <path d="M1000,100 C960,100 920,600 690,600" class="arrow" stroke="#f39c12" stroke-dasharray="4,3"/>
+  <text x="920" y="360" class="fsdm-label" style="fill:#f39c12" transform="rotate(-70 920 360)">-> DIM_CUSTOMER</text>
+
+  <!-- ═══ GAP 3: Budgets (bottom-left) ═══ -->
+  <rect x="20" y="700" width="420" height="330" rx="10" fill="rgba(46,204,113,0.08)" stroke="#2ecc71" stroke-width="2"/>
+  <text x="30" y="724" class="gap-label" style="fill:#2ecc71; font-size:14px">GAP 3: Budgets, Plans & Forecasts</text>
+  <text x="30" y="740" class="table-detail">BVF: "Financial Budgeting, Planning & Forecasting"</text>
+
+  <rect x="40" y="755" width="180" height="50" rx="5" fill="#102c10" stroke="#2ecc71" stroke-width="2"/>
+  <text x="130" y="775" text-anchor="middle" class="table-name" style="font-size:12px">BUDGET</text>
+  <text x="130" y="793" text-anchor="middle" class="table-detail">Annual/Quarterly | Segment | FY</text>
+
+  <rect x="240" y="755" width="180" height="50" rx="5" fill="#102c10" stroke="#2ecc71"/>
+  <text x="330" y="775" text-anchor="middle" class="table-name">BUDGET_LINE_ITEM</text>
+  <text x="330" y="793" text-anchor="middle" class="table-detail">Budget vs Actual vs Forecast</text>
+
+  <rect x="40" y="820" width="180" height="40" rx="5" fill="#102c10" stroke="#2ecc71"/>
+  <text x="130" y="838" text-anchor="middle" class="table-name">FORECAST_VERSION</text>
+  <text x="130" y="852" text-anchor="middle" class="table-detail">Rolling forecast snapshots</text>
+
+  <rect x="240" y="820" width="180" height="40" rx="5" fill="#102c10" stroke="#2ecc71"/>
+  <text x="330" y="838" text-anchor="middle" class="table-name">KPI_TARGET</text>
+  <text x="330" y="852" text-anchor="middle" class="table-detail">RAROC | CIR | NIM | NPL targets</text>
+
+  <text x="40" y="890" class="fsdm-label" style="fill:#2ecc71">Extends FSDM: FINANCIAL_PLAN (already 8 cols, 6 rels)</text>
+  <text x="40" y="905" class="fsdm-label" style="fill:#2ecc71">FK -> GL_MAIN_ACCOUNT, COA_CODE, ORGANIZATION</text>
+  <text x="40" y="920" class="fsdm-label" style="fill:#2ecc71">Links to COST_POOL (Gap 1) for budget-to-ABC reconciliation</text>
+  <text x="40" y="935" class="fsdm-label" style="fill:#2ecc71">VW_BUDGET_VS_ACTUAL provides variance analysis</text>
+  <text x="40" y="950" class="fsdm-label" style="fill:#2ecc71">Pakistan: Fiscal Year Jul-Jun, SBP reporting alignment</text>
+
+  <!-- Budget -> FSDM arrows -->
+  <path d="M330,755 C400,700 450,660 520,640" class="arrow" stroke="#2ecc71" stroke-dasharray="4,3"/>
+
+  <!-- ═══ GAP 4: BPM (bottom-center) ═══ -->
+  <rect x="470" y="700" width="440" height="330" rx="10" fill="rgba(52,152,219,0.08)" stroke="#3498db" stroke-width="2"/>
+  <text x="480" y="724" class="gap-label" style="fill:#3498db; font-size:14px">GAP 4: Business Process Management</text>
+  <text x="480" y="740" class="table-detail">BVF: "Business Process Analytics & Optimisation"</text>
+
+  <rect x="490" y="755" width="200" height="50" rx="5" fill="#101c2c" stroke="#3498db" stroke-width="2"/>
+  <text x="590" y="775" text-anchor="middle" class="table-name" style="font-size:11px">BUSINESS_PROCESS</text>
+  <text x="590" y="793" text-anchor="middle" class="table-detail">Category | SLA | Cost | Owner</text>
+
+  <rect x="700" y="755" width="190" height="50" rx="5" fill="#101c2c" stroke="#3498db"/>
+  <text x="795" y="775" text-anchor="middle" class="table-name">PROCESS_STEP</text>
+  <text x="795" y="793" text-anchor="middle" class="table-detail">Sequence | Type | Duration</text>
+
+  <rect x="490" y="820" width="200" height="50" rx="5" fill="#101c2c" stroke="#3498db" stroke-width="2"/>
+  <text x="590" y="840" text-anchor="middle" class="table-name" style="font-size:11px">PROCESS_INSTANCE</text>
+  <text x="590" y="858" text-anchor="middle" class="table-detail">Execution | Duration | SLA | Cost</text>
+
+  <rect x="700" y="820" width="190" height="50" rx="5" fill="#101c2c" stroke="#3498db"/>
+  <text x="795" y="840" text-anchor="middle" class="table-name">PROCESS_STEP_INSTANCE</text>
+  <text x="795" y="858" text-anchor="middle" class="table-detail">Step execution | Queue wait</text>
+
+  <text x="490" y="900" class="fsdm-label" style="fill:#3498db">FK -> EVENT, PARTY, AGREEMENT, APPLICATION</text>
+  <text x="490" y="915" class="fsdm-label" style="fill:#3498db">Process cost feeds ABC allocation (Gap 1 link)</text>
+  <text x="490" y="930" class="fsdm-label" style="fill:#3498db">SLA tracking drives operational cost optimization</text>
+  <text x="490" y="945" class="fsdm-label" style="fill:#3498db">Key processes: Loan Origination, Account Opening,</text>
+  <text x="490" y="960" class="fsdm-label" style="fill:#3498db">KYC Review, Complaint Handling, Trade Finance</text>
+
+  <!-- BPM -> FSDM arrows -->
+  <path d="M690,700 C690,670 700,670 700,660" class="arrow" stroke="#3498db" stroke-dasharray="4,3"/>
+
+  <!-- ═══ GAP 5: Operational Metrics (bottom-right) ═══ -->
+  <rect x="940" y="700" width="440" height="330" rx="10" fill="rgba(155,89,182,0.08)" stroke="#9b59b6" stroke-width="2"/>
+  <text x="950" y="724" class="gap-label" style="fill:#9b59b6; font-size:14px">GAP 5: Operational Metrics</text>
+  <text x="950" y="740" class="table-detail">BVF: "Operational metrics (wait times, queue length)"</text>
+
+  <rect x="960" y="755" width="200" height="40" rx="5" fill="#1c102c" stroke="#9b59b6"/>
+  <text x="1060" y="775" text-anchor="middle" class="table-name">OPERATIONAL_METRIC_TYPE</text>
+  <text x="1060" y="788" text-anchor="middle" class="table-detail">KPI catalogue | SLA thresholds</text>
+
+  <rect x="1170" y="755" width="190" height="40" rx="5" fill="#1c102c" stroke="#9b59b6"/>
+  <text x="1265" y="775" text-anchor="middle" class="table-name">OPERATIONAL_METRIC_VALUE</text>
+  <text x="1265" y="788" text-anchor="middle" class="table-detail">Time-series | RAG status</text>
+
+  <rect x="960" y="810" width="200" height="40" rx="5" fill="#1c102c" stroke="#9b59b6"/>
+  <text x="1060" y="830" text-anchor="middle" class="table-name">CHANNEL_OPERATIONAL_METRIC</text>
+  <text x="1060" y="843" text-anchor="middle" class="table-detail">Wait | Queue | Throughput</text>
+
+  <rect x="1170" y="810" width="190" height="40" rx="5" fill="#1c102c" stroke="#9b59b6"/>
+  <text x="1265" y="830" text-anchor="middle" class="table-name">BRANCH_OPERATIONAL_METRIC</text>
+  <text x="1265" y="843" text-anchor="middle" class="table-detail">Footfall | Cash | Staff</text>
+
+  <text x="960" y="880" class="fsdm-label" style="fill:#9b59b6">FK -> CHANNEL_INSTANCE, ORGANIZATION</text>
+  <text x="960" y="895" class="fsdm-label" style="fill:#9b59b6">Links to BUSINESS_PROCESS (Gap 4) for process KPIs</text>
+  <text x="960" y="910" class="fsdm-label" style="fill:#9b59b6">Channel cost metrics feed DIM_CHANNEL.Cost_Per_Txn</text>
+  <text x="960" y="925" class="fsdm-label" style="fill:#9b59b6">Branch metrics drive branch profitability analysis</text>
+  <text x="960" y="940" class="fsdm-label" style="fill:#9b59b6">Pakistan: Cash handling, security, branchless banking</text>
+
+  <!-- Op Metrics -> FSDM arrows -->
+  <path d="M1060,700 C1000,670 920,640 895,625" class="arrow" stroke="#9b59b6" stroke-dasharray="4,3"/>
+
+  <!-- ═══ Cross-gap integration arrows ═══ -->
+  <!-- Gap 1 (ABC) <-> Gap 3 (Budget): cost pool reconciliation -->
+  <path d="M210,330 L210,700" class="arrow" stroke="#85929e" stroke-dasharray="6,3" stroke-width="1"/>
+  <text x="215" y="520" class="table-detail" style="fill:#85929e">Cost Pool &lt;-&gt; Budget</text>
+
+  <!-- Gap 4 (BPM) <-> Gap 1 (ABC): process cost allocation -->
+  <path d="M490,840 C460,840 430,250 380,240" class="arrow" stroke="#85929e" stroke-dasharray="6,3" stroke-width="1"/>
+  <text x="430" y="540" class="table-detail" style="fill:#85929e; font-size:7px" transform="rotate(-80 430 540)">Process cost -> ABC</text>
+
+  <!-- Gap 5 (Ops) <-> Gap 4 (BPM): process metrics -->
+  <path d="M960,825 L910,835" class="arrow" stroke="#85929e" stroke-dasharray="6,3" stroke-width="1"/>
+
+  <!-- Summary box -->
+  <rect x="20" y="990" width="1360" height="50" rx="8" fill="#1a2332" stroke="#34495e"/>
+  <text x="700" y="1010" text-anchor="middle" font-size="12" fill="#95a5a6">
+    21 new extension tables | 6 integration views | Links to 9+ existing FSDM entities | Follows FSDM naming conventions
+  </text>
+  <text x="700" y="1030" text-anchor="middle" font-size="11" fill="#666">
+    All extensions use FSDM classword types (Identifier=BIGINT, Amount=DECIMAL(18,2), Date=DATE, Code=VARCHAR(50), etc.)
+  </text>
+</svg>
+</div>
+</body></html>

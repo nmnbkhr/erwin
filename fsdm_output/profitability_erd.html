@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html><head>
+<title>Customer Profitability Star Schema</title>
+<style>
+body { font-family: Arial, sans-serif; background: #0d1117; color: #c9d1d9; display: flex; justify-content: center; padding: 40px; }
+.schema { position: relative; width: 1000px; height: 800px; }
+.table { position: absolute; background: #161b22; border: 2px solid #30363d; border-radius: 8px; padding: 12px; min-width: 200px; font-size: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+.table h3 { margin: 0 0 8px 0; font-size: 14px; padding-bottom: 6px; border-bottom: 1px solid #30363d; }
+.fact { border-color: #f0883e; }
+.fact h3 { color: #f0883e; }
+.dim { border-color: #58a6ff; }
+.dim h3 { color: #58a6ff; }
+.col { margin: 2px 0; color: #8b949e; }
+.pk { color: #f0883e; font-weight: bold; }
+.measure { color: #7ee787; }
+.connector { position: absolute; border-top: 2px dashed #30363d; }
+svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+svg line { stroke: #30363d; stroke-width: 2; stroke-dasharray: 6,4; }
+</style>
+</head><body>
+<div class="schema">
+<svg>
+<line x1="500" y1="300" x2="100" y2="50"/>
+<line x1="500" y1="300" x2="500" y2="30"/>
+<line x1="500" y1="300" x2="850" y2="50"/>
+<line x1="500" y1="300" x2="100" y2="550"/>
+<line x1="500" y1="300" x2="500" y2="650"/>
+<line x1="500" y1="300" x2="850" y2="400"/>
+<line x1="500" y1="300" x2="850" y2="600"/>
+</svg>
+
+<div class="table dim" style="left:10px;top:20px;">
+<h3>DIM_CUSTOMER</h3>
+<div class="col pk">Customer_SK (PK)</div>
+<div class="col">Customer_Id (PARTY.Party_Id)</div>
+<div class="col">Customer_Name</div>
+<div class="col">Customer_Type_Cd</div>
+<div class="col">Customer_Segment_Cd</div>
+<div class="col">Risk_Rating_Cd</div>
+</div>
+
+<div class="table dim" style="left:380px;top:0px;">
+<h3>DIM_PRODUCT</h3>
+<div class="col pk">Product_SK (PK)</div>
+<div class="col">Product_Id (PRODUCT.Product_Id)</div>
+<div class="col">Product_Name</div>
+<div class="col">Product_Type_Cd</div>
+<div class="col">Product_Category_Cd</div>
+</div>
+
+<div class="table dim" style="left:730px;top:20px;">
+<h3>DIM_BRANCH</h3>
+<div class="col pk">Branch_SK (PK)</div>
+<div class="col">Branch_Id (ORGANIZATION.Party_Id)</div>
+<div class="col">Branch_Name</div>
+<div class="col">Region_Cd</div>
+<div class="col">City_Name</div>
+</div>
+
+<div class="table fact" style="left:330px;top:220px;min-width:340px;">
+<h3>FACT_CUSTOMER_PROFITABILITY</h3>
+<div class="col pk">Customer_SK, Product_SK, Branch_SK</div>
+<div class="col pk">Segment_SK, Channel_SK, Time_SK</div>
+<div class="col measure">Interest_Income_Amt</div>
+<div class="col measure">Fee_Income_Amt</div>
+<div class="col measure">Total_Revenue_Amt</div>
+<div class="col measure">Net_FTP_Amt</div>
+<div class="col measure">Total_Cost_Amt</div>
+<div class="col measure">Provision_Expense_Amt</div>
+<div class="col measure">Net_Profit_Amt</div>
+<div class="col measure">RAROC_Pct</div>
+<div class="col measure">Risk_Weighted_Asset_Amt</div>
+</div>
+
+<div class="table dim" style="left:10px;top:500px;">
+<h3>DIM_BUSINESS_SEGMENT</h3>
+<div class="col pk">Segment_SK (PK)</div>
+<div class="col">Segment_Cd</div>
+<div class="col">Segment_Name</div>
+<div class="col">Parent_Segment_Cd</div>
+</div>
+
+<div class="table dim" style="left:380px;top:600px;">
+<h3>DIM_TIME</h3>
+<div class="col pk">Time_SK (PK)</div>
+<div class="col">Calendar_Dt</div>
+<div class="col">Month_Name</div>
+<div class="col">Quarter_Name</div>
+<div class="col">Year_Num</div>
+</div>
+
+<div class="table dim" style="left:730px;top:350px;">
+<h3>DIM_CHANNEL</h3>
+<div class="col pk">Channel_SK (PK)</div>
+<div class="col">Channel_Type_Cd</div>
+<div class="col">Channel_Name</div>
+<div class="col">Channel_Category</div>
+</div>
+
+<div class="table dim" style="left:730px;top:550px;">
+<h3>DIM_GEOGRAPHY</h3>
+<div class="col pk">Geography_SK (PK)</div>
+<div class="col">Geography_Cd</div>
+<div class="col">Country_Name</div>
+<div class="col">City_Name</div>
+</div>
+</div>
+</body></html>

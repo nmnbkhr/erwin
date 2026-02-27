@@ -1,0 +1,434 @@
+erDiagram
+    ASSET_VALUATION_PURPOSE_TYPE {
+        Code Asset_Valuation_Purpose_Cd "PK"
+        Description Asset_Valuation_Purpose_Desc ""
+    }
+    ATM_CHANNEL_INSTANCE {
+        Identifier ATM_Channel_Instance_Id "PK"
+        Identifier Model_Id ""
+        Identifier ATM_Id ""
+        Number ATM_Software_Release_Num ""
+        Number ATM_Serial_Num ""
+        string more "2 more"
+    }
+    BENEFIT_PLAN_OPTION_POSITION {
+        Identifier HR_Position_Id "PK"
+        Code Position_Grade_Type_Cd "PK"
+        Date Position_Grade_Start_Dt "PK"
+        Identifier Benefit_Plan_Id "PK"
+        Identifier Benefit_Plan_Option_Id "PK"
+        string more "2 more"
+    }
+    BILLBOARD_CHANNEL_INSTANCE {
+        Identifier Billboard_Channel_Instance_Id "PK"
+    }
+    BOND_ISSUE_PURPOSE_TYPE {
+        Code Bond_Issue_Purpose_Cd "PK"
+        Description Bond_Issue_Purpose_Desc ""
+    }
+    CALL_CENTER_TERMINAL_CHANNEL_INSTANCE {
+        Identifier Call_Center_Channel_Instance_Id "PK"
+        Code Call_Center_Type_Cd "PK"
+        Number Terminal_Num ""
+    }
+    CALL_CENTER_TYPE {
+        Code Call_Center_Type_Cd "PK"
+        Description Call_Center_Type_Desc ""
+    }
+    CAMPAIGN_CHANNEL_TYPE_MULTIMEDIA_OBJECT {
+        Identifier Campaign_Id "PK"
+        Code Channel_Type_Cd "PK"
+        Identifier MM_Object_Id "PK"
+    }
+    CAMPAIGN_CHANNEL_TYPE_XREF {
+        Identifier Campaign_Id "PK"
+        Code Channel_Type_Cd "PK"
+    }
+    CAMPAIGN_OBJECTIVE_POSITION_TYPE {
+        Code Campaign_Objective_Position_Cd "PK"
+        Description Campaign_Objective_Position_Desc ""
+    }
+    CELL_TARGET_CHANNEL_INSTANCE {
+        Identifier Campaign_Cell_Id "PK"
+        Identifier Campaign_Id "PK"
+        Identifier Channel_Instance_Id "PK"
+        Date Target_Channel_Instance_Dt ""
+    }
+    CHANNEL_CAPACITY {
+        Code Time_Period_Cd "PK"
+        Code Capacity_Type_Cd "PK"
+        Identifier Channel_Instance_Id "PK"
+        Date Channel_Capacity_Start_Dt "PK"
+        Number Channel_Capacity_Num ""
+        string more "1 more"
+    }
+    CHANNEL_CHANNEL_CLASS_XREF {
+        Identifier Channel_Instance_Id "PK"
+        Code Channel_Class_Cd "PK"
+        Date Channel_Class_Start_Dt "PK"
+        Code Channel_Class_Value_Cd "PK"
+        Date Channel_Class_End_Dt ""
+    }
+    CHANNEL_CLASS_SCHEME_TYPE {
+        Code Channel_Class_Cd "PK"
+        Description Channel_Class_Desc ""
+        Code Parent_Channel_Class_Cd ""
+        Datetime Channel_Class_Scheme_Start_Dttm ""
+        Datetime Channel_Class_Scheme_End_Dttm ""
+    }
+    CHANNEL_CLASS_VALUE {
+        Code Channel_Class_Value_Cd "PK"
+        Code Channel_Class_Cd "PK"
+        Code Parent_Channel_Class_Value_Cd ""
+        Description Channel_Class_Value_Desc "PK"
+        Measure Channel_Class_From_Meas ""
+        string more "5 more"
+    }
+    CHANNEL_COST {
+        Identifier Channel_Instance_Id "PK"
+        Code Cost_Type_Cd "PK"
+        Datetime Channel_Cost_Start_Dttm "PK"
+        Datetime Channel_Cost_End_Dttm ""
+        Code Channel_Cost_Time_Period_Cd "PK"
+        string more "1 more"
+    }
+    CHANNEL_EVENT {
+        Identifier Channel_Instance_Id "PK"
+        Date Channel_Event_Start_Dt "PK"
+        Code Channel_Event_Reason_Cd "PK"
+        Time Channel_Event_Start_Tm ""
+        Date Channel_Event_End_Dt ""
+        string more "1 more"
+    }
+    CHANNEL_EVENT_REASON_TYPE {
+        Code Channel_Event_Reason_Cd "PK"
+        Description Channel_Event_Reason_Desc ""
+    }
+    CHANNEL_INSTANCE {
+        Identifier Channel_Instance_Id "PK"
+        Code Channel_Type_Cd "PK"
+        Code Channel_Instance_Subtype_Cd ""
+        Name Channel_Instance_Name ""
+        Date Channel_Instance_Start_Dt ""
+        string more "2 more"
+    }
+    CHANNEL_INSTANCE_RELATED {
+        Identifier Channel_Instance_Id "PK"
+        Identifier Related_Channel_Instance_Id "PK"
+        Code Channel_Instance_Related_Reason_Cd "PK"
+        Date Channel_Instance_Related_Start_Dt "PK"
+        Date Channel_Instance_Related_End_Dt ""
+    }
+    CHANNEL_INSTANCE_RELATED_REASON {
+        Code Channel_Instance_Related_Reason_Cd "PK"
+        Description Channel_Instance_Related_Reason_Desc ""
+    }
+    CHANNEL_INSTANCE_SITE_XREF {
+        Identifier Channel_Instance_Id "PK"
+        Identifier Site_Id "PK"
+        Date Channel_Instance_Site_Start_Dt "PK"
+        Date Channel_Instance_Site_End_Dt ""
+    }
+    CHANNEL_INSTANCE_STATUS {
+        Identifier Channel_Instance_Id "PK"
+        Datetime Channel_Instance_Status_Dttm "PK"
+        Code Channel_Status_Cd ""
+    }
+    CHANNEL_INSTANCE_SUBTYPE {
+        Code Channel_Instance_Subtype_Cd "PK"
+        Description Channel_Instance_Subtype_Desc ""
+    }
+    CHANNEL_NETWORK {
+        Identifier Channel_Instance_Id "PK"
+        Code Network_Cd "PK"
+    }
+    CHANNEL_OPERATING_HOURS {
+        Identifier Channel_Instance_Id "PK"
+        Code Hours_Cd "PK"
+        Code Days_Cd "PK"
+        Date Channel_Hours_Change_Dt "PK"
+    }
+    CHANNEL_PROCESSING_TYPE {
+        Code Channel_Processing_Cd "PK"
+        Description Channel_Processing_Desc ""
+    }
+    CHANNEL_PROFIT {
+        Code Profit_Type_Cd "PK"
+        Identifier Channel_Instance_Id "PK"
+        Datetime Channel_Profit_Start_Dttm "PK"
+        Code Time_Period_Cd "PK"
+        Datetime Channel_Profit_End_Dttm ""
+        string more "1 more"
+    }
+    CHANNEL_REPLENISHMENT {
+        Code Replenish_Medium_Type_Cd ""
+        Amount Replenishment_Amt ""
+        Code Currency_Cd ""
+    }
+    CHANNEL_STATUS_TYPE {
+        Code Channel_Status_Cd "PK"
+        Description Channel_Status_Desc ""
+    }
+    CHANNEL_TYPE {
+        Code Channel_Type_Cd "PK"
+        Code Channel_Processing_Cd ""
+        Name Channel_Type_Name ""
+        Description Channel_Type_Desc ""
+        Date Channel_Type_Start_Dt ""
+        string more "3 more"
+    }
+    CHANNEL_TYPE_CAPACITY {
+        Code Time_Period_Cd "PK"
+        Code Capacity_Type_Cd "PK"
+        Code Channel_Type_Cd "PK"
+        Date Channel_Type_Capacity_Start_Dt "PK"
+        Number Channel_Type_Capacity_Num ""
+        string more "1 more"
+    }
+    CHANNEL_TYPE_GROUP {
+        Code Channel_Type_Group_Cd "PK"
+        Description Channel_Type_Group_Desc ""
+    }
+    CHANNEL_TYPE_GROUP_XREF {
+        Code Channel_Type_Group_Cd "PK"
+        Code Channel_Type_Cd "PK"
+        Date Channel_Type_Group_Xref_Start_Dt "PK"
+        Date Channel_Type_Group_Xref_End_Dt ""
+    }
+    CHANNEL_TYPE_SITE {
+        Code Channel_Type_Cd "PK"
+        Identifier Site_Id "PK"
+        Date Channel_Type_Site_Start_Dt "PK"
+        Date Channel_Type_Site_End_Dt ""
+    }
+    CHANNEL_TYPE_STATUS {
+        Code Channel_Type_Cd "PK"
+        Datetime Channel_Type_Status_Dttm "PK"
+        Code Channel_Status_Cd ""
+    }
+    CHANNEL_TYPE_SUBTYPE {
+        Code Channel_Type_Subtype_Cd "PK"
+        Description Channel_Type_Subtype_Desc ""
+    }
+    CHANNEL_TYPE_SURVEY_RESPONSE {
+        Code Channel_Type_Cd ""
+    }
+    CHANNEL_TYPE_USAGE {
+        Code Channel_Type_Cd "PK"
+        Code Channel_Usage_Type_Cd "PK"
+    }
+    CHANNEL_USAGE_TYPE {
+        Code Channel_Usage_Type_Cd "PK"
+        Description Channel_Usage_Type_Desc ""
+    }
+    CURRENCY_POSITION_METRIC {
+        Identifier Currency_Investment_Product_Id "PK"
+        Code Position_Type_Cd "PK"
+        Identifier Risk_Scenario_Id "PK"
+        Code Risk_Metric_Type_Cd "PK"
+        Amount FX_Position_Currency_Amt ""
+    }
+    ELECTRONIC_CHANNEL_INSTANCE {
+        Identifier Electronic_Address_Channel_Instance_Id "PK"
+        Identifier Electronic_Address_Id ""
+    }
+    EVENT_CHANNEL_INSTANCE {
+        Identifier Channel_Instance_Id "PK"
+        Identifier Event_Id "PK"
+        Code Event_Channel_Reason_Cd "PK"
+        Datetime Event_Channel_Start_Dttm "PK"
+        Datetime Event_Channel_End_Dttm ""
+    }
+    EVENT_CHANNEL_REASON {
+        Code Event_Channel_Reason_Cd "PK"
+        Description Event_Channel_Reason_Desc ""
+    }
+    EXTERNAL_CLAIM_VEHICLE_DISPOSITION_STATUS_TYPE {
+        Code External_Claim_Vehicle_Disposition_Status_Cd "PK"
+        Description External_Claim_Vehicle_Disposition_Status_Desc ""
+    }
+    FINANCIAL_RULE_PURPOSE_TYPE {
+        Code Financial_Rule_Purpose_Type_Cd "PK"
+        Description Financial_Rule_Purpose_Type_Desc ""
+    }
+    HR_POSITION {
+        Identifier HR_Position_Id "PK"
+        Text HR_Position_Title_Txt ""
+        Description HR_Position_Desc ""
+        Code HR_Position_Type_Cd ""
+        Quantity HR_Position_Probation_Qty ""
+        string more "2 more"
+    }
+    HR_POSITION_RELATED {
+        Identifier HR_Position_Id "PK"
+        Identifier Related_HR_Position_Id "PK"
+        Code HR_Position_Related_Role_Cd "PK"
+        Datetime HR_Position_Related_Start_Dttm "PK"
+        Datetime HR_Position_Related_End_Dttm ""
+    }
+    HR_POSITION_RELATED_ROLE {
+        Code HR_Position_Related_Role_Cd "PK"
+        Description HR_Position_Related_Role_Desc ""
+    }
+    HR_POSITION_SITE {
+        Identifier HR_Position_Id "PK"
+        Identifier Site_Id "PK"
+        Datetime HR_Position_Site_Start_Dttm "PK"
+        Code HR_Position_Site_Reason_Cd "PK"
+        Datetime HR_Position_Site_End_Dttm ""
+    }
+    HR_POSITION_SITE_REASON {
+        Code HR_Position_Site_Reason_Cd "PK"
+        Description HR_Position_Site_Reason_Desc ""
+    }
+    HR_POSITION_TYPE {
+        Code HR_Position_Type_Cd "PK"
+        Description HR_Position_Type_Desc ""
+    }
+    INSTITUTIONAL_TREATMENT {
+        Code Treatment_Type_Cd "PK"
+        Identifier Institutional_Claim_Id "PK"
+    }
+    INVESTMENT_PORTFOLIO_POSITION_SUMMARY {
+        Identifier Product_Id "PK"
+        Identifier Agreement_Group_Id "PK"
+        Code Investment_Value_Type_Cd "PK"
+        Date Investment_Portfolio_Position_Start_Dt "PK"
+        Amount Investment_Portfolio_Position_Amt ""
+        string more "2 more"
+    }
+    INVESTMENT_POSITION {
+        Identifier Agreement_Id "PK"
+        Code Investment_Value_Type_Cd "PK"
+        Datetime Investment_Position_Start_Dttm "PK"
+        Datetime Investment_Position_Calculation_Dttm "PK"
+        Datetime Investment_Position_End_Dttm ""
+        string more "4 more"
+    }
+    CALL_CENTER_TYPE ||--o{ CALL_CENTER_TERMINAL_CHANNEL_INSTANCE : ""
+    CAMPAIGN_CHANNEL_TYPE_XREF ||--o{ CAMPAIGN_CHANNEL_TYPE_MULTIMEDIA_OBJECT : ""
+    CHANNEL_CLASS_SCHEME_TYPE ||--o{ CHANNEL_CHANNEL_CLASS_XREF : ""
+    CHANNEL_CLASS_SCHEME_TYPE ||--o{ CHANNEL_CLASS_VALUE : ""
+    CHANNEL_CLASS_SCHEME_TYPE ||--o{ CHANNEL_CLASS_SCHEME_TYPE : ""
+    CHANNEL_CLASS_VALUE ||--o{ CHANNEL_CHANNEL_CLASS_XREF : ""
+    CHANNEL_CLASS_VALUE ||--o{ CHANNEL_CLASS_VALUE : ""
+    CHANNEL_EVENT_REASON_TYPE ||--o{ CHANNEL_EVENT : ""
+    CHANNEL_INSTANCE ||--o{ EVENT_CHANNEL_INSTANCE : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_INSTANCE_STATUS : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_INSTANCE_SITE_XREF : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_CHANNEL_CLASS_XREF : ""
+    CHANNEL_INSTANCE ||--o{ CELL_TARGET_CHANNEL_INSTANCE : ""
+    CHANNEL_INSTANCE ||--o{ ONLINE_APPLICATION_ACCESS : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_CAPACITY : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_EVENT : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_OPERATING_HOURS : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_NETWORK : ""
+    CHANNEL_INSTANCE ||--o{ PROMOTION_CHANNEL : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_COST : ""
+    CHANNEL_INSTANCE ||--o{ CHANNEL_PROFIT : ""
+    CHANNEL_INSTANCE_RELATED_REASON ||--o{ CHANNEL_INSTANCE_RELATED : ""
+    CHANNEL_INSTANCE_SUBTYPE ||--o{ CHANNEL_INSTANCE : ""
+    CHANNEL_PROCESSING_TYPE ||--o{ CHANNEL_TYPE : ""
+    CHANNEL_STATUS_TYPE ||--o{ CHANNEL_TYPE_STATUS : ""
+    CHANNEL_STATUS_TYPE ||--o{ CHANNEL_INSTANCE_STATUS : ""
+    CHANNEL_TYPE ||--o{ CHANNEL_TYPE_STATUS : ""
+    CHANNEL_TYPE ||--o{ CHANNEL_TYPE_USAGE : ""
+    CHANNEL_TYPE ||--o{ CHANNEL_TYPE_SITE : ""
+    CHANNEL_TYPE ||--o{ CHANNEL_TYPE : ""
+    CHANNEL_TYPE ||--o{ CHANNEL_TYPE_SURVEY_RESPONSE : ""
+    CHANNEL_TYPE ||--o{ CHANNEL_TYPE_GROUP_XREF : ""
+    CHANNEL_TYPE ||--o{ CHANNEL_TYPE_CAPACITY : ""
+    CHANNEL_TYPE ||--o{ CAMPAIGN_CHANNEL_TYPE_XREF : ""
+    CHANNEL_TYPE ||--o{ CHANNEL_INSTANCE : ""
+    CHANNEL_TYPE_GROUP ||--o{ CHANNEL_TYPE_GROUP_XREF : ""
+    CHANNEL_TYPE_SUBTYPE ||--o{ CHANNEL_TYPE : ""
+    CHANNEL_USAGE_TYPE ||--o{ CHANNEL_TYPE_USAGE : ""
+    EVENT_CHANNEL_REASON ||--o{ EVENT_CHANNEL_INSTANCE : ""
+    HR_POSITION ||--o{ POSITION_GRADE : ""
+    HR_POSITION ||--o{ HR_POSITION_SITE : ""
+    HR_POSITION_RELATED_ROLE ||--o{ HR_POSITION_RELATED : ""
+    HR_POSITION_SITE_REASON ||--o{ HR_POSITION_SITE : ""
+    HR_POSITION_TRAIT ||--o{ POSITION_TRAIT_VALUE : ""
+    HR_POSITION_TYPE ||--o{ HR_POSITION : ""
+    IVR_ACTION ||--o{ IVR_LEG : ""
+    IVR_LEG ||--o{ IVR_STEP_NAVIGATION : ""
+    IVR_LEG_ACTION_TYPE ||--o{ IVR_LEG : ""
+    IVR_TERMINATION_TYPE ||--o{ IVR_LEG : ""
+    ONLINE_APPLICATION_ACCESS ||--o{ ONLINE_APPLICATION_PROGRAM_METRIC : ""
+    ONLINE_APPLICATION_ACCESS ||--o{ ONLINE_APPLICATION_ACCESS_AD_XREF : ""
+    ONLINE_APPLICATION_ACCESS_SUBTYPE ||--o{ ONLINE_APPLICATION_ACCESS : ""
+    ONLINE_APPLICATION_PROGRAM ||--o{ ONLINE_APPLICATION_PROGRAM_STATUS : ""
+    ONLINE_APPLICATION_PROGRAM ||--o{ ONLINE_APPLICATION_PROGRAM_TRAIT_XREF : ""
+    ONLINE_APPLICATION_PROGRAM ||--o{ ONLINE_APPLICATION_PROGRAM_GENRE : ""
+    ONLINE_APPLICATION_PROGRAM ||--o{ ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF : ""
+    ONLINE_APPLICATION_PROGRAM ||--o{ ONLINE_APPLICATION_PROGRAM_DEVICE_XREF : ""
+    ONLINE_APPLICATION_PROGRAM ||--o{ ONLINE_APPLICATION_PROGRAM_VERSION : ""
+    ONLINE_APPLICATION_PROGRAM_CATEGORY ||--o{ ONLINE_APPLICATION_PROGRAM : ""
+    ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP ||--o{ ONLINE_APPLICATION_PROGRAM_RATING_XREF : ""
+    ONLINE_APPLICATION_PROGRAM_GENRE ||--o{ ONLINE_APPLICATION_PROGRAM_GENRE : ""
+    ONLINE_APPLICATION_PROGRAM_RATING ||--o{ ONLINE_APPLICATION_PROGRAM_RATING_XREF : ""
+    ONLINE_APPLICATION_PROGRAM_RATING_REASON ||--o{ ONLINE_APPLICATION_PROGRAM_RATING_XREF : ""
+    ONLINE_APPLICATION_PROGRAM_STATUS_TYPE ||--o{ ONLINE_APPLICATION_PROGRAM_STATUS : ""
+    ONLINE_APPLICATION_PROGRAM_TRAIT ||--o{ ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE : ""
+    ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE ||--o{ ONLINE_APPLICATION_PROGRAM_TRAIT_XREF : ""
+    ONLINE_APPLICATION_PROGRAM_TYPE ||--o{ ONLINE_APPLICATION_PROGRAM : ""
+    ONLINE_APPLICATION_PROGRAM_TYPE ||--o{ ONLINE_APPLICATION_PROGRAM_GENRE : ""
+    ONLINE_APPLICATION_PROGRAM_VERSION ||--o{ ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP : ""
+    ONLINE_APPLICATION_PROGRAM_VERSION ||--o{ ONLINE_APPLICATION_DEVELOPER_XREF : ""
+    ONLINE_APPLICATION_PROGRAM_VERSION ||--o{ ONLINE_APPLICATION_ACCESS : ""
+    ONLINE_APPLICATION_RELATED_ROLE ||--o{ ONLINE_APPLICATION_PROGRAM_RELATED : ""
+    ONLINE_APPLICATION_SUBCATEGORY ||--o{ ONLINE_APPLICATION_PROGRAM_CATEGORY : ""
+    ONLINE_CHANNEL_TYPE_2 ||--o{ ONLINE_CHANNEL_TYPE : ""
+    ONLINE_CHANNEL_TYPE_3 ||--o{ ONLINE_CHANNEL_TYPE_2 : ""
+    ONLINE_DOCUMENT_INFORMATION ||--o{ ONLINE_APPLICATION_ACCESS : ""
+    ONLINE_PROMOTION ||--o{ ONLINE_PROMOTION_VISIT_XREF : ""
+    ONLINE_PROMOTION ||--o{ ONLINE_PROMOTION_SUMMARY : ""
+    ONLINE_PROMOTION_TYPE ||--o{ ONLINE_PROMOTION : ""
+    ONLINE_PROMOTION_VISIT_XREF ||--o{ ONLINE_PROMOTION_ATTRIBUTE : ""
+    OTC_POST_TRADE_TYPE ||--o{ TRADE_EXECUTION_OTC_POST_TRADE : ""
+    POSITION_APPLICANT_STATUS_TYPE ||--o{ POSITION_POSTING_APPLICANT_STATUS : ""
+    POSITION_GRADE ||--o{ BENEFIT_PLAN_OPTION_POSITION : ""
+    POSITION_GRADE_TYPE ||--o{ POSITION_GRADE : ""
+    POSITION_POSTING ||--o{ POSITION_POSTING_APPLICANT : ""
+    POSITION_POSTING_APPLICANT ||--o{ POSITION_POSTING_APPLICANT_STATUS : ""
+    POSITION_POSTING_APPLICANT ||--o{ POSITION_APPLICANT_INTERVIEW : ""
+    POSITION_TYPE ||--o{ CURRENCY_POSITION_METRIC : ""
+    POSITION_TYPE ||--o{ POSITION_FX_METRIC : ""
+    POSSIBLE_ANSWER ||--o{ QUESTION_POSSIBLE_ANSWER : ""
+    POST_OFFICE_BOX_ADDRESS ||--o{ LOCK_BOX_CHANNEL_INSTANCE : ""
+    POSTAL_CODE ||--o{ ONLINE_APPLICATION_ACCESS : ""
+    POSTAL_CODE ||--o{ POST_OFFICE_BOX_ADDRESS : ""
+    PROGRAMMING_CHANNEL_GROUP_TYPE ||--o{ PACKAGE_CHANNEL_LINEUP : ""
+    PROMOTION_CHANNEL ||--o{ PROMOTION_CHANNEL_MM_OBJECT : ""
+    PROPOSAL ||--o{ PROPOSAL_STATUS : ""
+    PROPOSAL ||--o{ PROPOSAL_FINANCE : ""
+    PROPOSAL ||--o{ OPPORTUNITY_PROPOSAL : ""
+    PROPOSAL_FINANCE_TYPE ||--o{ PROPOSAL_FINANCE : ""
+    PROPOSAL_STATUS_REASON_TYPE ||--o{ PROPOSAL_STATUS : ""
+    PROPOSAL_STATUS_TYPE ||--o{ PROPOSAL_STATUS : ""
+    TREATMENT_TYPE ||--o{ INSTITUTIONAL_TREATMENT : ""
+    CHANNEL_INSTANCE ||--|| ATM_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_TYPE ||--|| ATM_CHANNEL_TYPE : "inherits"
+    CHANNEL_INSTANCE ||--|| BILLBOARD_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_TYPE ||--|| CALL_CENTER_CHANNEL_TYPE : "inherits"
+    CHANNEL_INSTANCE ||--|| CALL_CENTER_TERMINAL_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_EVENT ||--|| CHANNEL_REPLENISHMENT : "inherits"
+    CHANNEL_TYPE ||--|| DIRECT_MAIL_CHANNEL_TYPE : "inherits"
+    CHANNEL_INSTANCE ||--|| ELECTRONIC_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_TYPE ||--|| JOB_TITLE_CHANNEL_TYPE : "inherits"
+    CHANNEL_INSTANCE ||--|| KIOSK_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_INSTANCE ||--|| LOCK_BOX_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_TYPE ||--|| MULTIMEDIA_MESSAGE_CHANNEL_TYPE : "inherits"
+    CHANNEL_TYPE ||--|| ONLINE_CHANNEL_TYPE : "inherits"
+    CHANNEL_TYPE ||--|| ONLINE_CHANNEL_TYPE_2 : "inherits"
+    CHANNEL_TYPE ||--|| ONLINE_CHANNEL_TYPE_3 : "inherits"
+    CHANNEL_TYPE ||--|| OVER_THE_COUNTER_CHANNEL_TYPE : "inherits"
+    CHANNEL_INSTANCE ||--|| OVER_THE_COUNTER_TERMINAL_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_INSTANCE ||--|| PHYSICAL_MAIL_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_INSTANCE ||--|| POINT_OF_SALE_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_INSTANCE ||--|| PRINT_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_INSTANCE ||--|| RADIO_STATION_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_INSTANCE ||--|| SITE_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_INSTANCE ||--|| TELEVISION_CHANNEL_INSTANCE : "inherits"
+    CHANNEL_TYPE ||--|| TEXT_MESSAGE_CHANNEL_TYPE : "inherits"
+    CHANNEL_TYPE ||--|| WIRELESS_PROTOCOL_CHANNEL_TYPE : "inherits"

@@ -1,0 +1,169 @@
+erDiagram
+    ADJUSTED_EARNING {
+        Code Adjusted_Earning_Subtype_Cd ""
+    }
+    ADJUSTED_EARNING_SUBTYPE {
+        Code Adjusted_Earning_Subtype_Cd "PK"
+        Description Adjusted_Earning_Subtype_Desc ""
+    }
+    AFTER_TAX_DEDUCTION {
+        Code After_Tax_Deduction_Subtype_Cd ""
+    }
+    AFTER_TAX_DEDUCTION_SUBTYPE {
+        Code After_Tax_Deduction_Subtype_Cd "PK"
+        Description After_Tax_Deduction_Subtype_Desc ""
+    }
+    BEFORE_TAX_DEDUCTION {
+        Code Before_Tax_Deduction_Subtype_Cd ""
+    }
+    BEFORE_TAX_DEDUCTION_SUBTYPE {
+        Code Before_Tax_Deduction_Subtype_Cd "PK"
+        Description Before_Tax_Deduction_Subtype_Desc ""
+    }
+    BENEFIT_PLAN {
+        Identifier Benefit_Plan_Id "PK"
+        Name Benefit_Plan_Name ""
+        Description Benefit_Plan_Desc ""
+    }
+    BENEFIT_PLAN_ELIGIBILITY_TERM_TYPE {
+        Code Benefit_Plan_Eligibility_Term_Cd "PK"
+        Description Benefit_Plan_Eligibility_Term_Desc ""
+    }
+    BENEFIT_RULE_TYPE {
+        Code Benefit_Rule_Cd "PK"
+        Description Benefit_Rule_Desc ""
+    }
+    DIRECT_EARNING {
+        Code Direct_Earning_Subtype_Cd ""
+        Code Form_Of_Payment_Type_Cd ""
+    }
+    DIRECT_EARNINGS_FINANCIAL_INSTRUMENT {
+        Identifier Investment_Product_Id ""
+    }
+    DIRECT_EARNING_SUBTYPE {
+        Code Direct_Earning_Subtype_Cd "PK"
+        Description Direct_Earning_Subtype_Desc "PK"
+    }
+    INDIRECT_EARNING {
+        Identifier Benefit_Plan_Id ""
+        Identifier Benefit_Plan_Option_Id ""
+        Date Associate_Benefit_Period_Start_Dt ""
+        Code Indirect_Earning_Subtype_Cd ""
+        Percent Indirect_Earning_Pct ""
+    }
+    INDIRECT_EARNING_SUBTYPE {
+        Code Indirect_Earning_Subtype_Cd "PK"
+        Description Indirect_Earning_Subtype_Desc ""
+    }
+    JOB_CLASSIFICATION {
+        Code Job_Classification_Cd "PK"
+        Description Job_Classification_Desc ""
+    }
+    JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE {
+        Identifier Site_Id "PK"
+        Code Work_Shift_Cd "PK"
+        Code Job_Classification_Cd "PK"
+        Date Labor_Dt "PK"
+        Quantity Job_Classification_Schedule_Hours_Qty ""
+        string more "3 more"
+    }
+    JOB_LABOR_TASK_CROSS_REFERENCE {
+        Identifier Labor_Task_Type_Id "PK"
+        Code Job_Classification_Cd "PK"
+    }
+    LEAVE_PLAN {
+        Code Holiday_Cd ""
+        Identifier Geographical_Area_Id ""
+    }
+    PAYROLL_BALANCE_TYPE {
+        Code Payroll_Balance_Type_Cd "PK"
+        Description Payroll_Balance_Type_Desc ""
+    }
+    PAYROLL_PAY_PERIOD {
+        Identifier Payroll_Register_Id "PK"
+        Date Payroll_Pay_Period_Start_Dt "PK"
+        Date Payroll_Pay_Period_End_Dt ""
+    }
+    PAYROLL_REGISTER {
+        Identifier Payroll_Register_Id "PK"
+        Datetime Payroll_Register_Dttm "PK"
+        Name Payroll_Register_Name ""
+        Code Payroll_Register_Set_Of_Books_Cd "PK"
+        Identifier Payroll_Register_COA_Code_Id "PK"
+        string more "2 more"
+    }
+    REGULAR_EARNING {
+        Code Regular_Earning_Subtype_Cd ""
+    }
+    REGULAR_EARNING_SUBTYPE {
+        Code Regular_Earning_Subtype_Cd "PK"
+        Description Regular_Earning_Subtype_Desc ""
+    }
+    REGULATED_BENEFIT {
+        Identifier Benefit_Plan_Id "PK"
+        Code Regulated_Benefit_Type_Cd "PK"
+        Date Regulated_Benefit_Start_Dt "PK"
+        Date Regulated_Benefit_End_Dt ""
+        Amount Regulated_Benefit_Amt ""
+        string more "1 more"
+    }
+    REGULATED_BENEFIT_TYPE {
+        Code Regulated_Benefit_Type_Cd "PK"
+        Description Regulated_Benefit_Type_Desc ""
+    }
+    VARIABLE_EARNING {
+        Code Variable_Earning_Subtype_Cd ""
+    }
+    VARIABLE_EARNING_SUBTYPE {
+        Code Variable_Earning_Subtype_Cd "PK"
+        Description Variable_Earning_Subtype_Desc ""
+    }
+    WITHHOLDING_TAX {
+        Code Withholding_Tax_Subtype_Cd ""
+        Identifier Tax_Authority_Party_Id ""
+    }
+    WITHHOLDING_TAX_SUBTYPE {
+        Code Withholding_Tax_Subtype_Cd "PK"
+        Description Withholding_Tax_Subtype_Desc ""
+    }
+    WORK_SHIFT_DAILY_HOURS {
+        Date Gregorian_Dt "PK"
+        Code Site_Schedule_Group_Cd "PK"
+        Code Work_Shift_Cd "PK"
+        Time Work_Shift_Start_Tm ""
+        Time Work_Shift_Duration_Tm ""
+    }
+    WORK_SHIFT_DAY_OF_WEEK_HOURS {
+        Code Site_Schedule_Group_Cd "PK"
+        Number Day_Of_Week_Num "PK"
+        Code Work_Shift_Cd "PK"
+        Time Work_Shift_Start_Tm ""
+        Time Work_Shift_Duration_Tm ""
+    }
+    WORK_SHIFT_TYPE {
+        Code Work_Shift_Cd "PK"
+        Description Work_Shift_Desc ""
+    }
+    ADJUSTED_EARNING_SUBTYPE ||--o{ ADJUSTED_EARNING : ""
+    AFTER_TAX_DEDUCTION_SUBTYPE ||--o{ AFTER_TAX_DEDUCTION : ""
+    BEFORE_TAX_DEDUCTION_SUBTYPE ||--o{ BEFORE_TAX_DEDUCTION : ""
+    BENEFIT_PLAN ||--o{ REGULATED_BENEFIT : ""
+    DIRECT_EARNING_SUBTYPE ||--o{ DIRECT_EARNING : ""
+    INDIRECT_EARNING_SUBTYPE ||--o{ INDIRECT_EARNING : ""
+    JOB_CLASSIFICATION ||--o{ JOB_LABOR_TASK_CROSS_REFERENCE : ""
+    JOB_CLASSIFICATION ||--o{ JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE : ""
+    PAYROLL_REGISTER ||--o{ PAYROLL_PAY_PERIOD : ""
+    REGULAR_EARNING_SUBTYPE ||--o{ REGULAR_EARNING : ""
+    REGULATED_BENEFIT_TYPE ||--o{ REGULATED_BENEFIT : ""
+    VARIABLE_EARNING_SUBTYPE ||--o{ VARIABLE_EARNING : ""
+    WITHHOLDING_TAX_SUBTYPE ||--o{ WITHHOLDING_TAX : ""
+    WORK_SHIFT_TYPE ||--o{ JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE : ""
+    WORK_SHIFT_TYPE ||--o{ WORK_SHIFT_DAILY_HOURS : ""
+    WORK_SHIFT_TYPE ||--o{ WORK_SHIFT_DAY_OF_WEEK_HOURS : ""
+    DIRECT_EARNING ||--|| ADJUSTED_EARNING : "inherits"
+    DIRECT_EARNING ||--|| DIRECT_EARNINGS_FINANCIAL_INSTRUMENT : "inherits"
+    INDIRECT_EARNING ||--|| HEALTH_INSURANCE_INDIRECT_EARNING : "inherits"
+    INDIRECT_EARNING ||--|| LEAVE_INDIRECT_EARNING : "inherits"
+    INDIRECT_EARNING ||--|| PENSION_INDIRECT_EARNING : "inherits"
+    DIRECT_EARNING ||--|| REGULAR_EARNING : "inherits"
+    DIRECT_EARNING ||--|| VARIABLE_EARNING : "inherits"

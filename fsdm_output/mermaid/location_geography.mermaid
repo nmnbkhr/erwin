@@ -1,0 +1,223 @@
+erDiagram
+    ADDRESS {
+        Identifier Address_Id "PK"
+        Code Address_Subtype_Cd ""
+    }
+    ADDRESS_DELIVERY_STATUS {
+        Identifier Address_Id "PK"
+        Datetime Delivery_Status_Dttm "PK"
+        Code Delivery_Status_Cd ""
+        Identifier Source_Organization_Party_Id ""
+        Code Party_Address_Usage_Type_Cd ""
+        string more "2 more"
+    }
+    ADDRESS_SUBTYPE {
+        Code Address_Subtype_Cd "PK"
+        Description Address_Subtype_Desc ""
+    }
+    COUNTRY {
+        Identifier Country_Id "PK"
+        Code Calendar_Type_Cd "PK"
+        Identifier Country_Group_Id ""
+    }
+    COUNTRY_CODE_STANDARD {
+        Identifier Country_Id "PK"
+        Code Country_Code_Standard_Type_Cd "PK"
+    }
+    COUNTRY_CODE_STANDARD_TYPE {
+        Code Country_Code_Standard_Type_Cd "PK"
+        Description Country_Code_Standard_Type_Desc ""
+        Identifier Standard_Source_Organization_Party_Id ""
+    }
+    COUNTRY_GROUP {
+        Identifier Country_Group_Id "PK"
+    }
+    COUNTRY_TO_COUNTRY_GROUP {
+        Identifier Country_Group_Id "PK"
+        Identifier Country_Id "PK"
+    }
+    ELECTRONIC_ADDRESS {
+        Identifier Electronic_Address_Id "PK"
+        Code Electronic_Address_Subtype_Cd ""
+        Text Electronic_Address_Txt ""
+        Name Electronic_Address_Domain_Name ""
+        Code Domain_Root_Cd ""
+    }
+    ELECTRONIC_ADDRESS_SUBTYPE {
+        Code Electronic_Address_Subtype_Cd "PK"
+        Description Electronic_Address_Subtype_Desc ""
+    }
+    INTERNET_PROTOCOL_ADDRESS {
+        Identifier Internet_Protocol_Address_Id "PK"
+        Number Internet_Protocol_Address_Num "PK"
+        Identifier Internet_Protocol_Registered_By_Party_Id ""
+        Name Internet_Protocol_Network_Name ""
+    }
+    INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP {
+        Identifier To_Internet_Protocol_Address_Id "PK"
+        Identifier From_Internet_Protocol_Address_Id "PK"
+        Identifier Source_Party_Id "PK"
+        Identifier Postal_Code_Id ""
+        Identifier City_Id ""
+        string more "9 more"
+    }
+    ISO_3166_ALPHA_2_COUNTRY {
+        string ISO_3166_Country_Alpha_2_Cd "PK"
+    }
+    ISO_3166_ALPHA_3_COUNTRY {
+        string ISO_3166_Country_Alpha_3_Cd "PK"
+    }
+    ISO_3166_COUNTRY_STANDARD {
+        string ISO_3166_Country_3_Num ""
+    }
+    ISO_3166_COUNTRY_SUBDIVISION {
+        string ISO_3166_Country_Alpha_2_Cd "PK"
+        string ISO_3166_Country_Subdivision_Cd "PK"
+        Name ISO_3166_Subdivision_Name ""
+        Code ISO_3166_Country_Subdivision_Type_Cd ""
+        string Parent_Subdivision_Cd ""
+    }
+    ISO_3166_COUNTRY_SUBDIVISION_STANDARD {
+        string ISO_3166_Country_Alpha_2_Cd ""
+        string ISO_3166_Country_Subdivision_Cd ""
+    }
+    ISO_3166_COUNTRY_SUBDIVISION_TYPE {
+        Code ISO_3166_Country_Subdivision_Type_Cd "PK"
+        Description ISO_3166_Country_Subdivision_Type_Desc ""
+    }
+    ISO_3166_NUMERIC_COUNTRY {
+        string ISO_3166_Country_3_Num "PK"
+        Description ISO_Country_Long_Desc ""
+        string ISO_3166_Country_Alpha_2_Cd ""
+        string ISO_3166_Country_Alpha_3_Cd ""
+    }
+    ISO_4217_COUNTRY_CURRENCY {
+        Identifier Country_Id "PK"
+        string ISO_4217_Currency_Alpha_3_Cd "PK"
+        Code ISO_4217_Country_Currency_Role_Cd "PK"
+        Date ISO_4217_Country_Currency_Start_Dt "PK"
+        Date ISO_4217_Country_Currency_End_Dt ""
+    }
+    ISO_4217_COUNTRY_CURRENCY_ROLE {
+        Code ISO_4217_Country_Currency_Role_Cd "PK"
+        Description ISO_4217_Country_Currency_Role_Desc ""
+    }
+    OVERSEAS_MILITARY_ADDRESS {
+        Identifier Overseas_Military_Postal_Code_Id "PK"
+        Identifier Overseas_Military_City_Id "PK"
+        Identifier Overseas_Military_Territory_Id "PK"
+    }
+    PARCEL_ADDRESS {
+        Identifier Parcel_Address_Id "PK"
+        Number Page_Num ""
+        Number Map_Num ""
+        Number Parcel_Num ""
+        Identifier City_Id ""
+        string more "4 more"
+    }
+    REGION {
+        Identifier Region_Id "PK"
+        Identifier Country_Id ""
+    }
+    ROUTING_TRANSIT_NUMBER_ADDRESS {
+        Value Routing_Transit_Number_Val ""
+    }
+    STREET_ADDRESS {
+        Identifier Street_Address_Id "PK"
+        Text Address_Line_1_Txt ""
+        Text Address_Line_2_Txt ""
+        Text Address_Line_3_Txt ""
+        Code Dwelling_Type_Cd ""
+        string more "7 more"
+    }
+    STREET_ADDRESS_DETAIL {
+        Identifier Street_Address_Id "PK"
+        Number Street_Address_Num "PK"
+        Value Street_Address_Number_Modifier_Val ""
+        Code Street_Direction_Type_Cd "PK"
+        Number Street_Num ""
+        string more "11 more"
+    }
+    STREET_ADDRESS_JAPAN {
+        Identifier Street_Address_Japan_Id "PK"
+        Number Street_Building_Num ""
+        Number Building_Unit_Num ""
+        Code Dwelling_Type_Cd "PK"
+        Text Japan_Address_Line_1_Txt ""
+        string more "6 more"
+    }
+    STREET_ADDRESS_LINE {
+        Identifier Street_Address_Id "PK"
+        Number Street_Line_Text_Sequence_Num "PK"
+        Text Street_Address_Line_Txt ""
+    }
+    STREET_SUFFIX_TYPE {
+        Code Street_Suffix_Cd "PK"
+        Description Street_Suffix_Desc ""
+    }
+    TERRITORY {
+        Identifier Territory_Id "PK"
+        Code Territory_Type_Cd ""
+        Identifier Country_Id "PK"
+        Identifier Region_Id ""
+    }
+    TERRITORY_STANDARD {
+        Identifier Territory_Id "PK"
+        Code Territory_Standard_Type_Cd "PK"
+    }
+    TERRITORY_STANDARD_TYPE {
+        Code Territory_Standard_Type_Cd "PK"
+        Description Territory_Standard_Type_Desc ""
+        Identifier Standard_Source_Organization_Party_Id ""
+    }
+    TERRITORY_TYPE {
+        Code Territory_Type_Cd "PK"
+        Description Territory_Type_Desc ""
+    }
+    WMO_COUNTRY_STANDARD {
+        Code WMO_Country_Cd ""
+        Name WMO_Country_Name ""
+    }
+    ADDRESS ||--o{ ADDRESS_DELIVERY_STATUS : ""
+    ADDRESS_SUBTYPE ||--o{ ADDRESS : ""
+    COUNTRY ||--o{ STREET_ADDRESS : ""
+    COUNTRY ||--o{ ISO_4217_COUNTRY_CURRENCY : ""
+    COUNTRY ||--o{ REGION : ""
+    COUNTRY ||--o{ TERRITORY : ""
+    COUNTRY ||--o{ PARCEL_ADDRESS : ""
+    COUNTRY ||--o{ COUNTRY_CODE_STANDARD : ""
+    COUNTRY ||--o{ INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP : ""
+    COUNTRY ||--o{ COUNTRY_TO_COUNTRY_GROUP : ""
+    COUNTRY_CODE_STANDARD_TYPE ||--o{ COUNTRY_CODE_STANDARD : ""
+    COUNTRY_GROUP ||--o{ COUNTRY_TO_COUNTRY_GROUP : ""
+    COUNTRY_GROUP ||--o{ COUNTRY : ""
+    ELECTRONIC_ADDRESS_SUBTYPE ||--o{ ELECTRONIC_ADDRESS : ""
+    ISO_3166_ALPHA_2_COUNTRY ||--o{ ISO_3166_NUMERIC_COUNTRY : ""
+    ISO_3166_ALPHA_2_COUNTRY ||--o{ ISO_3166_COUNTRY_SUBDIVISION : ""
+    ISO_3166_ALPHA_3_COUNTRY ||--o{ ISO_3166_NUMERIC_COUNTRY : ""
+    ISO_3166_COUNTRY_SUBDIVISION ||--o{ ISO_3166_COUNTRY_SUBDIVISION : ""
+    ISO_3166_COUNTRY_SUBDIVISION ||--o{ ISO_3166_COUNTRY_SUBDIVISION_STANDARD : ""
+    ISO_3166_COUNTRY_SUBDIVISION_TYPE ||--o{ ISO_3166_COUNTRY_SUBDIVISION : ""
+    ISO_3166_NUMERIC_COUNTRY ||--o{ ISO_3166_COUNTRY_STANDARD : ""
+    ISO_4217_COUNTRY_CURRENCY_ROLE ||--o{ ISO_4217_COUNTRY_CURRENCY : ""
+    REGION ||--o{ TERRITORY : ""
+    STREET_ADDRESS ||--o{ STREET_ADDRESS_DETAIL : ""
+    STREET_ADDRESS ||--o{ STREET_ADDRESS_LINE : ""
+    STREET_SUFFIX_TYPE ||--o{ STREET_ADDRESS_DETAIL : ""
+    TERRITORY ||--o{ PARCEL_ADDRESS : ""
+    TERRITORY ||--o{ OVERSEAS_MILITARY_ADDRESS : ""
+    TERRITORY ||--o{ INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP : ""
+    TERRITORY ||--o{ STREET_ADDRESS : ""
+    TERRITORY ||--o{ TERRITORY_STANDARD : ""
+    TERRITORY_STANDARD_TYPE ||--o{ TERRITORY_STANDARD : ""
+    TERRITORY_TYPE ||--o{ TERRITORY : ""
+    ADDRESS ||--|| ELECTRONIC_ADDRESS : "inherits"
+    ELECTRONIC_ADDRESS ||--|| INTERNET_PROTOCOL_ADDRESS : "inherits"
+    COUNTRY_CODE_STANDARD ||--|| ISO_3166_COUNTRY_STANDARD : "inherits"
+    TERRITORY_STANDARD ||--|| ISO_3166_COUNTRY_SUBDIVISION_STANDARD : "inherits"
+    ADDRESS ||--|| OVERSEAS_MILITARY_ADDRESS : "inherits"
+    ADDRESS ||--|| PARCEL_ADDRESS : "inherits"
+    ADDRESS ||--|| ROUTING_TRANSIT_NUMBER_ADDRESS : "inherits"
+    ADDRESS ||--|| STREET_ADDRESS : "inherits"
+    ADDRESS ||--|| STREET_ADDRESS_JAPAN : "inherits"
+    COUNTRY_CODE_STANDARD ||--|| WMO_COUNTRY_STANDARD : "inherits"
