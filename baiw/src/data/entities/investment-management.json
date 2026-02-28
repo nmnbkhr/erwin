@@ -1,0 +1,1339 @@
+[
+  {
+    "id": 1415,
+    "name": "AGENT_COMMISSION_OPTION_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity translates the agent commission option code into a description.  Examples: - Monthly payment - Separate check - Include with base pay",
+    "attributeCount": 2
+  },
+  {
+    "id": 1416,
+    "name": "AMERICAN_EXERCISE_OPTION",
+    "domain": "Investment Management",
+    "description": "A type of option that is exercisable at any time during the life of the option.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1417,
+    "name": "APPLICATION_INVESTMENT_DETAIL",
+    "domain": "Investment Management",
+    "description": "This entity contains the investment products of the application  For each investment product, the attribute Application Detail Investment Pct specifies the percentage of the total available amount of money that should be used for this investment product.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1418,
+    "name": "ASIAN_OPTION",
+    "domain": "Investment Management",
+    "description": "Asian options include European average price and average strike options.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1419,
+    "name": "ASIAN_OPTION_TYPE",
+    "domain": "Investment Management",
+    "description": "A code for the type of Asian Option such as Average Price Option and Average Strike Option.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1420,
+    "name": "ASSET-BACKED_SECURITY_PRINCIPAL",
+    "domain": "Investment Management",
+    "description": "This entity tracks the principal for an asset-backed security over time.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1421,
+    "name": "ASSET-BACKED_SECURITY_TYPE",
+    "domain": "Investment Management",
+    "description": "A code for the type of asset-backed security such as mortgage-backed securities (MBS's), collateralized mortgage obligations (CMOs), and collateralized debt obligations (CDOs).",
+    "attributeCount": 2
+  },
+  {
+    "id": 1422,
+    "name": "AVERAGE_PRICE_OPTION",
+    "domain": "Investment Management",
+    "description": "An average price option is an option whose payoff is the difference between the strike price and the average price of the underlying asset during the averaging period.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1423,
+    "name": "AVERAGE_STRIKE_OPTION",
+    "domain": "Investment Management",
+    "description": "An average strike option is an option whose strike price is set to the average price of the underlying asset at the end of the averaging period.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1424,
+    "name": "BANK_TRADE_BOOK_TYPE",
+    "domain": "Investment Management",
+    "description": "A code that indicates which accounting \"book\" this agreement appears in.  Examples: - Banking book - Trading book (internal) - Equity investment (internal) - Neither (is not an accounting agreement)",
+    "attributeCount": 2
+  },
+  {
+    "id": 1425,
+    "name": "BARRIER_OPTION_TYPE",
+    "domain": "Investment Management",
+    "description": "A classification of a barrier option. The four main types of barrier options are: - Up-and-out: spot price starts below the barrier level and has to move up for the option to be knocked out. - Down-and-out: spot price starts above the barrier level and has to move down for the option to become null",
+    "attributeCount": 2
+  },
+  {
+    "id": 1426,
+    "name": "BENEFIT_PLAN_OPTION",
+    "domain": "Investment Management",
+    "description": "Captures the components of an organization's benefit plan. Generally, benefit plans are the parts of the total compensation package, other than for pay for time worked, provided to ASSOCIATEs in whole or in part by employer payments. Examples include life insurance, pension, and vacation.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1427,
+    "name": "BENEFIT_PLAN_OPTION_ELIGIBILITY",
+    "domain": "Investment Management",
+    "description": "This entity captures eligibility terms associated with a position's benefit plan options. For example, eligibility for vacation time or profit-sharing benefits offered with a position may require a certain length of service.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1428,
+    "name": "BENEFIT_PLAN_OPTION_STATUS_TYPE",
+    "domain": "Investment Management",
+    "description": "The status or conditions that can be assigned to a BENEFIT PLAN OPTION such as active, inactive, pending, or canceled.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1429,
+    "name": "BENEFIT_PLAN_OPTION_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "The entity that holds information about elective or discretionary parts of an employer's benefit plan offered to associates. Examples include medical insurance, life insurance, pension, and vacation. This is used as a subtype discriminator.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1430,
+    "name": "BERMUDA_EXERCISE_OPTION",
+    "domain": "Investment Management",
+    "description": "A type of option that is exercisable at specified periods during the life of the option. In concept, it is between an American and a European option, where the analogy is the island of Bermuda is between Europe and America.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1431,
+    "name": "BEST_OF_OPTION",
+    "domain": "Investment Management",
+    "description": "A put or call option on the best or worst return of two or more securities or indexes for a given measurement period.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1432,
+    "name": "BINARY_OPTION",
+    "domain": "Investment Management",
+    "description": "A binary option is a type of option where the payoff is either some fixed amount of some asset or nothing at all. The two main types of binary options are the cash-or-nothing binary option and the asset-or-nothing binary option. The cash-or-nothing binary option pays some fixed amount of cash if the",
+    "attributeCount": 0
+  },
+  {
+    "id": 1433,
+    "name": "BOND",
+    "domain": "Investment Management",
+    "description": "A bond is a debt security, in which the authorized issuer owes the holders a debt and is obliged to repay the principal and interest (the coupon) at a later date, termed maturity. Other stipulations may also be attached to the bond issue, such as the obligation for the issuer to provide certain info",
+    "attributeCount": 19
+  },
+  {
+    "id": 1434,
+    "name": "BOND_AMORTIZATION_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "A complete schedule of periodic blended loan payments, showing the amount of principal and the amount of interest that comprise each payment so that the loan will be paid off at the end of its term. Early in the schedule, the majority of each periodic payment is interest. Later in the schedule, the",
+    "attributeCount": 3
+  },
+  {
+    "id": 1435,
+    "name": "BOND_CALL_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "A list specifying dates on which the issuer of the bond can call back the bond. The list includes dates and prices.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1436,
+    "name": "BOND_CALL_TYPE",
+    "domain": "Investment Management",
+    "description": "Three types of call provisions are commonly encountered: - Optional redemption allows the issuer to call the security for any reason. - Extraordinary redemption primarily applies to bonds. It provides for redemption if certain specified events occur. One such event might be the destruction of facili",
+    "attributeCount": 2
+  },
+  {
+    "id": 1437,
+    "name": "BOND_CONVERSION_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "List specifying the conversion ratio. This is the number of shares of stock the holder will receive for each unit of the notional principal in the bond. It is expressed as a ratio of number of stock shares to number of bond units.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1438,
+    "name": "BOND_CONVERSION_STYLE_TYPE",
+    "domain": "Investment Management",
+    "description": "Convertibles can have American, European, or Bermuda conversion types.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1439,
+    "name": "BOND_DELIVERY_FORM_TYPE",
+    "domain": "Investment Management",
+    "description": "Categorization of delivery forms.  Examples: - Book entry - Registered - Bearer",
+    "attributeCount": 2
+  },
+  {
+    "id": 1440,
+    "name": "BOND_FIXED_INTEREST_RATE",
+    "domain": "Investment Management",
+    "description": "A percentage of the face or principal amount that remains fixed over the entire investment period.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1441,
+    "name": "BOND_FLOATING_INTEREST_RATE",
+    "domain": "Investment Management",
+    "description": "A bond interest type that is adjusted periodically based upon on a predefined formula, which is typically linked to an index.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1442,
+    "name": "BOND_FUTURES",
+    "domain": "Investment Management",
+    "description": "A bond future is a contractual obligation for the contract holder to purchase or sell a bond on a specified date at a predetermined price. A bond future can be bought in a futures exchange market and the prices and dates are determined at the time the future is purchased.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1443,
+    "name": "BOND_INTEREST_PAY_AT_MATURITY",
+    "domain": "Investment Management",
+    "description": "Bonds that have no periodic interest payments and the investor receives a single payment at maturity equal to the purchase price + interest earned, compounded semiannually at the original interest rate.  These are known as zero coupon bonds.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1444,
+    "name": "BOND_PUT_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "This is a list of dates on which the holder of the bond can sell it back to the issuer. The list includes dates and prices.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1445,
+    "name": "BOND_REDEMPTION",
+    "domain": "Investment Management",
+    "description": "The return of an investor's principal in a fixed income security, such as a preferred stock or bond, or the sale of units in a mutual fund. Redemption occurs in a fixed income security at par or at a premium price upon maturity or cancelation by the issuer. With mutual funds, the time of the redempt",
+    "attributeCount": 3
+  },
+  {
+    "id": 1446,
+    "name": "BOND_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "A code for the classification of the bond such as fixed rate bond, floating rate bond (FRN), high yield bond, zero coupon bond, inflation linked bond, indexed bond, equity linked note, subordinated bond, perpetual bond, bearer bond, registered bond, municipal bond, book-entry bond, lottery bond, and",
+    "attributeCount": 2
+  },
+  {
+    "id": 1447,
+    "name": "BOND_TO_EQUITY_CONVERSION",
+    "domain": "Investment Management",
+    "description": "Event involving conversion of a convertible bond from bond to equity.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1448,
+    "name": "CAP_AND_FLOOR_OPTION",
+    "domain": "Investment Management",
+    "description": "Caps and floors are forms of option contracts, conferring potential benefits to the purchaser and potential obligations on the seller. When purchasing a cap or floor, the buyer pays a premium – typically up-front. The premium amount depends on the specified cap or floor rate and time period covered,",
+    "attributeCount": 0
+  },
+  {
+    "id": 1449,
+    "name": "CASH_DIVIDEND_EVENT",
+    "domain": "Investment Management",
+    "description": "This entity contains all dividends that are cash dividends.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1450,
+    "name": "CELL_TARGET_MARKET",
+    "domain": "Investment Management",
+    "description": "This entity includes the geography designations included in a specific campaign cell. This structure would be especially useful for indirect marketing campaigns.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1451,
+    "name": "CHOOSER_OPTION",
+    "domain": "Investment Management",
+    "description": "A chooser option (or preference option) is a path dependent option for which the purchaser pays an up-front premium and has the choice of having the derivative be a vanilla put or call on a given underlier. The investor has a fixed period of time to make that choice. There is usually a single strike",
+    "attributeCount": 0
+  },
+  {
+    "id": 1452,
+    "name": "CLIQUET_OPTION",
+    "domain": "Investment Management",
+    "description": "A Cliquet Option (also known as Ratchet Option) is an exotic option consisting of a series of consecutive forward start options. The first is active immediately. The second becomes active when the first expires. Each option is struck at-the-money when it becomes active.  A cliquet is, therefore, a s",
+    "attributeCount": 0
+  },
+  {
+    "id": 1453,
+    "name": "COMMODITY_FUTURES",
+    "domain": "Investment Management",
+    "description": "An agreement to buy or sell a set amount of a commodity at a predetermined price and date. Buyers use these to avoid the risks associated with the price fluctuations of the product or raw material, while sellers try to lock in a price for their products. Like in all financial markets, others use suc",
+    "attributeCount": 1
+  },
+  {
+    "id": 1454,
+    "name": "COMMODITY_SWAP",
+    "domain": "Investment Management",
+    "description": "A conventional swap agreement where the underlying is a commodity price.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1455,
+    "name": "CONTINGENT_OPTION",
+    "domain": "Investment Management",
+    "description": "An option for which the holder only pays the premium if the option is exercised. Contingent options are zero-cost unless exercised.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1456,
+    "name": "CONVERTIBLE_BOND",
+    "domain": "Investment Management",
+    "description": "A bond that can be converted into a predetermined amount of the company's equity at certain times during its life, usually at the discretion of the bondholder.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1457,
+    "name": "CORPORATE_BOND",
+    "domain": "Investment Management",
+    "description": "A bond issued by a corporation.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1458,
+    "name": "CORPORATE_BOND_TYPE",
+    "domain": "Investment Management",
+    "description": "Corporate bonds come in a variety of formats. Examples include collateral trust bonds, equipment trust certificates, debenture bonds, and guaranteed bonds.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1459,
+    "name": "COUPON_TYPE",
+    "domain": "Investment Management",
+    "description": "Indicates the type of coupon.  Examples: - Price discount - Free product - Other",
+    "attributeCount": 2
+  },
+  {
+    "id": 1460,
+    "name": "CURRENCY_EXCHANGE_QUOTATION",
+    "domain": "Investment Management",
+    "description": "This is a subtype to quotation and contains quotes for currency exchange such as the offered rate and fee that may apply.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1461,
+    "name": "CURRENCY_FORWARD",
+    "domain": "Investment Management",
+    "description": "A forward contract in the foreign exchange market that locks in the price at which an entity can buy or sell a currency on a future date. Also known as \"outright forward currency transaction,\" \"forward outright,\" or \"FX forward.\"",
+    "attributeCount": 5
+  },
+  {
+    "id": 1462,
+    "name": "CURRENCY_SWAP",
+    "domain": "Investment Management",
+    "description": "This entity is for currency swap agreements only and contains information about the currency being swapped.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1463,
+    "name": "CURRENCY_SWAP_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code for the type of currency swap. Below are examples from MiFID II: - FXCR = foreign exchange cross rates - FXEM = foreign exchange emerging markets - FXMJ = foreign exchange majors",
+    "attributeCount": 2
+  },
+  {
+    "id": 1464,
+    "name": "DERIVATIVE_NOTIONAL_CHANGE_TYPE",
+    "domain": "Investment Management",
+    "description": "This indicates whether the transaction is an increase or decrease of notional of a derivative contract. This field only applies when there is a change in notional for a derivative contract. This is a MiFID II requirement for field number 32.  Possible values: - \"INCR\" = increase - \"DECR\" = decrease",
+    "attributeCount": 2
+  },
+  {
+    "id": 1465,
+    "name": "DERIVATIVE_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "This is a classification for the type of derivative such as future (exchange traded), option (puts and calls), forwards (not exchange traded), caps/floors, and swaptions (option of a swap).",
+    "attributeCount": 2
+  },
+  {
+    "id": 1466,
+    "name": "DESIGNATED_MARKET_AREA__GEO",
+    "domain": "Investment Management",
+    "description": "* USA centric – replace with appropriate localized content as needed.  Designated Market Area is a Nielsen trademarked demographic grouping mainly used for television audience measure that is geographically based.  In 2008, it contained 209 distinct groupings of USA counties defining television audi",
+    "attributeCount": 1
+  },
+  {
+    "id": 1467,
+    "name": "DIFFERENTIAL_SWAP",
+    "domain": "Investment Management",
+    "description": "A differential swap is a swap with two floating legs.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1468,
+    "name": "DIVIDEND_DECLARE_EVENT",
+    "domain": "Investment Management",
+    "description": "This entity contains all investment product events that are declarations of dividend. The date/time in EVENT is the date/time of the declaration of the dividend. The record date, ex- dividend date and the payable date are attributes in this entity. These details can vary by market exchange for each",
+    "attributeCount": 7
+  },
+  {
+    "id": 1469,
+    "name": "DIVIDEND_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code for the form of dividend such as: - Cash dividend - Stock dividend - Property",
+    "attributeCount": 2
+  },
+  {
+    "id": 1470,
+    "name": "EQUITY_FUTURES",
+    "domain": "Investment Management",
+    "description": "A futures contract on a stock or financial index. For each index, there may be a different multiple for determining the price of the futures contract.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1471,
+    "name": "EQUITY_FUTURES_DIVIDEND_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "List specifying the expected dividends during life of futures contract.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1472,
+    "name": "EQUITY_HOLDING_SUMMARY",
+    "domain": "Investment Management",
+    "description": "This entity tracks various metrics related to the equity holdings of the Bank or a subsidiary. It is intended to support Basel II market disclosure requirements (Pillar 3), specifically Table 12.",
+    "attributeCount": 17
+  },
+  {
+    "id": 1473,
+    "name": "EUROCURRENCY_FUTURES",
+    "domain": "Investment Management",
+    "description": "This is a type of futures contract that deals with futures in the Euro currency.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1474,
+    "name": "EUROPEAN_EXERCISE_OPTION",
+    "domain": "Investment Management",
+    "description": "A type of option that is exercisable only at the expiration of the option.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1475,
+    "name": "EXTERNAL_COUPON",
+    "domain": "Investment Management",
+    "description": "An external (third-party) (manufacturer's or competitor's) coupon redeemed during a purchase.  Note: A unique coupon may be received and used by many customers (say a coupon in a box of cereal). For purposes of the identification, all of these identical coupons are given the same, unique External Co",
+    "attributeCount": 5
+  },
+  {
+    "id": 1476,
+    "name": "FIXED_FIXED_INTEREST_RATE_SWAP",
+    "domain": "Investment Management",
+    "description": "This is a type of interest rate swap where a fixed interest rate is exchanged for another fixed interest rate.  Example: - Party P pays/receives fixed interest in currency A to receive/pay fixed rate in currency B for a term of T years. For example, you pay JPY 1.6% on a JPY notional of 1.2 billion",
+    "attributeCount": 0
+  },
+  {
+    "id": 1477,
+    "name": "FIXED_FLOATING_INTEREST_RATE_SWAP",
+    "domain": "Investment Management",
+    "description": "An interest rate swap where a fixed interest rate is exchanged for a floating interest rate.  Fixed-for-floating swaps in same currency are used to convert a fixed rate asset/liability to a floating rate asset/liability or vice versa. For example, if a company has a fixed rate USD 10 million loan at",
+    "attributeCount": 3
+  },
+  {
+    "id": 1478,
+    "name": "FLOAT_FLOAT_INTEREST_RATE_SWAP",
+    "domain": "Investment Management",
+    "description": "This is a type of interest rate swap where a floating interest rate is exchanged for a fixed interest rate.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1479,
+    "name": "FORWARD_START_OPTION",
+    "domain": "Investment Management",
+    "description": "A forward start option is an option that commences at some specified future date with an expiration date further in the future. It is essentially a forward on an option, only the premium is paid in advance. Since the asset price at the start of this option is not known a priori, it is common to spec",
+    "attributeCount": 0
+  },
+  {
+    "id": 1480,
+    "name": "FORWARD_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity describes if this is a currency type of forward contract.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1481,
+    "name": "FUND",
+    "domain": "Investment Management",
+    "description": "A mutual fund is a form of collective investments that pools money from many investors and invests their money in stocks, bonds, short-term money market instruments, and/or other securities.  In a mutual fund, the fund manager who is also known as the portfolio manager, trades the fund's underlying",
+    "attributeCount": 1
+  },
+  {
+    "id": 1482,
+    "name": "FUNDING_AMOUNT_TYPE",
+    "domain": "Investment Management",
+    "description": "A code for the type of amount being funded such as deposit, loan down payment, and capital markets buy order.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1483,
+    "name": "FUND_SOURCE_TYPE",
+    "domain": "Investment Management",
+    "description": "The unique code for the type of source that provided the funds or agreement for the account such as cash, other bank's check, transferred from an existing account, and refinance.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1484,
+    "name": "FUND_TYPE",
+    "domain": "Investment Management",
+    "description": "A code for the classification of funds such as equity fund, mid cap fund, large cap fund, growth fund, value fund, index fund, bond fund, money market fund, hedge fund, fund of funds, balanced fund, clone fund, capital appreciation fund, and crossover fund.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1485,
+    "name": "INSURANCE_QUOTATION",
+    "domain": "Investment Management",
+    "description": "This is a subtype to QUOTATION and contains those quotations that are for insurance.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1486,
+    "name": "INTEREST_RATE_QUOTATION",
+    "domain": "Investment Management",
+    "description": "This entity contains market quotes for interest rates such as Treasurys or money market based on a term for a given currency.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1487,
+    "name": "INTEREST_RATE_SWAP",
+    "domain": "Investment Management",
+    "description": "An interest rate swap is an agreement to exchange net future cash flows. In fixed for floating swaps, one counterparty pays a fixed rate and the other pays a floating rate based on a reference rate such as Libor. There is no exchange of principal. The interest payments are made on a notional amount.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1488,
+    "name": "INTEREST_RATE_SWAP_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "A classification of an interest rate swap as either a fixed-fixed interest rate swap, a fixed-floating interest rate swap, or a floating-floating interest rate swap.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1489,
+    "name": "INVESTMENT_CORPORATE_ACTION",
+    "domain": "Investment Management",
+    "description": "This entity contains all externally originated events that are related to an investment product. These events are usually initiated by the investment product issuer or by an exchange and are referred to as \"corporate actions.\"  Examples are: - Declaration of dividend - Distribution of units, such as",
+    "attributeCount": 2
+  },
+  {
+    "id": 1490,
+    "name": "INVESTMENT_COST_BASIS",
+    "domain": "Investment Management",
+    "description": "This tracks the cost basis for this investment over time.  The cost basis of any investment is the original value of an asset adjusted for stock splits, dividends and capital distributions. It is used to calculate the capital gain or loss on an investment for tax purposes. The original value may be",
+    "attributeCount": 5
+  },
+  {
+    "id": 1491,
+    "name": "INVESTMENT_COST_BASIS_CHANGE_REASON",
+    "domain": "Investment Management",
+    "description": "This is a code for the reason the cost basis changed such as correction, corporate action, or original value.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1492,
+    "name": "INVESTMENT_EVENT_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity translates the code for the type of investment event that affects positions into a description. Used as a category discriminator.  Examples are: - 1 = financial settlement of trade, fee, cost, commission, and tax - 2 = trade order - 3 = trade execution - 4 = transfer to/from anothe",
+    "attributeCount": 2
+  },
+  {
+    "id": 1493,
+    "name": "INVESTMENT_GRADE_PARAMETER",
+    "domain": "Investment Management",
+    "description": "This entity will identify whether a class of industries with a give risk grade are considered investment grade.  An investment grade security is an investment instrument, other than an insurance policy or fixed annuity, which offers evidence of debt or equity and is issued by an organization that ha",
+    "attributeCount": 7
+  },
+  {
+    "id": 1494,
+    "name": "INVESTMENT_HOLDING",
+    "domain": "Investment Management",
+    "description": "This entity keeps track of the number of units for the investment products (holdings) that are outside of a portfolio. These investments may include your institution's investments or your customer's investments where you are a party to the investment. There is one instance for each homogenous holdin",
+    "attributeCount": 4
+  },
+  {
+    "id": 1495,
+    "name": "INVESTMENT_OBJECTIVE_TYPE",
+    "domain": "Investment Management",
+    "description": "A code for the type of investment objective such as capital appreciation or income.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1496,
+    "name": "INVESTMENT_SERVICE",
+    "domain": "Investment Management",
+    "description": "This type of product is an investment service such as financial analysis or brokerage service. It does not include the financial instruments.  For investment banking, examples of services include investment banking advisory services like mergers and acquisition advice and capital raising advice, and",
+    "attributeCount": 2
+  },
+  {
+    "id": 1497,
+    "name": "INVESTMENT_SERVICE_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "A classification of the type of investment service offered such as: - Brokerage service - Financial analysis service - Investment portfolio management - Merger and acquisition service - Investment underwriting service",
+    "attributeCount": 2
+  },
+  {
+    "id": 1498,
+    "name": "INVESTMENT_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "Used as a subtype discriminator to distinguish the types of investments such as: - Foreign exchange (e.g., nostra accounts) - Securities finance (including repos) - Derivative - Cash at other banks - Security holding  Note that credit derivatives are a subtype to RISK MITIGANT AGREEMENT.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1499,
+    "name": "INVESTMENT_VALUE_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code for the type of value or metric of the investment.  Examples of types of values include: - Fair market value - Fair value or book value as presented on balance sheet – internal investment - Actual return – internal investments - Predicted return – internal investments - Cost basis",
+    "attributeCount": 3
+  },
+  {
+    "id": 1500,
+    "name": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "domain": "Investment Management",
+    "description": "This is an International Standard (ISO 10383) Market Identifier Code, which specifies a universal method for identifying exchanges, trading platforms, regulated and nonregulated markets and trade reporting facilities as sources of prices and related information in order to facilitate automated proce",
+    "attributeCount": 7
+  },
+  {
+    "id": 1501,
+    "name": "ISO_10383_MARKET_IDENTIFIER_CODE_STATUS",
+    "domain": "Investment Management",
+    "description": "This is a code for the status of the Market Identifier Code such as active, inactive, or pending approval.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1502,
+    "name": "LIFE_LINE_QUOTATION",
+    "domain": "Investment Management",
+    "description": "This is a subtype to INSURANCE QUOTATION and contains the details of those quotations that are for the line of life insurance.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1503,
+    "name": "LOOKBACK_OPTION",
+    "domain": "Investment Management",
+    "description": "An exotic option that allows investors to \"look back\" at the underlying prices occurring over the life of the option, and then exercise based on the underlying asset's optimal value.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1504,
+    "name": "MARKETING_GOAL_TYPE",
+    "domain": "Investment Management",
+    "description": "A code for the commercial marketing target such as expand portfolio or retain portfolio.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1505,
+    "name": "MARKETING_SUPPORT_TYPE",
+    "domain": "Investment Management",
+    "description": "A code for the type of marketing support that the insurance company provides its agent to market themselves such as brochures, gifts to give their customers, advertisements, and mailings.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1506,
+    "name": "MARKET_INDEX",
+    "domain": "Investment Management",
+    "description": "This entity tracks the value of a collection of stocks or other securities over time such as the U.S. Dow Jones 30 Industrial, the FTSE 500, and Tokyo Nikkei 300.  The index is usually published by a party, such as the Wall Street Journal publishes the Dow Jones Industrial Average index of 30 indust",
+    "attributeCount": 4
+  },
+  {
+    "id": 1507,
+    "name": "MARKET_INDEX_VALUE",
+    "domain": "Investment Management",
+    "description": "The closing price for this index. The value of the index may be an average expressed relative to a predetermined market value. The algorithm for the computation of the index value differs from one index to another.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1508,
+    "name": "MARKET_PARTICIPANT_PARAMETER",
+    "domain": "Investment Management",
+    "description": "This table is a list of market participant types and parameters as listed in the Basel Accord.  Market participant types as listed in the Basel Accord: - Corporate - Bank - Sovereign - Small medium enterprise (SME) corporate - Small medium enterprise (SME) retail - Retail",
+    "attributeCount": 8
+  },
+  {
+    "id": 1509,
+    "name": "MARKET_PLAN",
+    "domain": "Investment Management",
+    "description": "This entity contains market and planning information when first creating a market strategy for a product. Some of the information in this entity is based on market research. For example, if the product is a home equity line of credit, then the following analysis could be done:  For each market segme",
+    "attributeCount": 9
+  },
+  {
+    "id": 1510,
+    "name": "MARKET_QUOTATION",
+    "domain": "Investment Management",
+    "description": "This entity contains the value of the investment product, in a specified currency, at a specified date and time, at a specified stock exchange, and as reported by a party (such as Reuters). If the time is 24:00, the value represents the final value of that day.  This is the market feed or market quo",
+    "attributeCount": 8
+  },
+  {
+    "id": 1511,
+    "name": "MARKET_QUOTATION_METRIC",
+    "domain": "Investment Management",
+    "description": "This entity contains the various metrics that are reported about this investment product at a point-in-time.  Examples of metrics include: - Last bid price - Last ask price - Earnings per share - Average earnings per share - Average earnings per share four weeks ago - Beta (correlation with benchmar",
+    "attributeCount": 6
+  },
+  {
+    "id": 1512,
+    "name": "MARKET_QUOTATION_METRIC_TYPE",
+    "domain": "Investment Management",
+    "description": "A code for the type of metric that is reported by the information reporting company such as Reuters or Bloomberg. The metrics can vary.  Examples: - Last bid price - Last ask price - Earnings per share - Average earnings per share - Average earnings per share four weeks ago - Beta (correlation with",
+    "attributeCount": 2
+  },
+  {
+    "id": 1513,
+    "name": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "domain": "Investment Management",
+    "description": "This entity contains the market feeds that report metrics about an instrument (e.g., stock, bond, or their derivative) over a period of time. It gives information such as high and low for the day, and high and low for a time period (e.g., 52 week high and low).  The metrics reported can vary by repo",
+    "attributeCount": 8
+  },
+  {
+    "id": 1514,
+    "name": "MARKET_SEGMENT",
+    "domain": "Investment Management",
+    "description": "A grouping of parties for marketing or analysis purposes. A market segment can be reused, can receive multiple offers, serve as a control group, or be used for customer and product analysis purposes.  A market segment is different from a party group in that a market segment is created from an intern",
+    "attributeCount": 10
+  },
+  {
+    "id": 1515,
+    "name": "MARKET_SEGMENT_GROUP",
+    "domain": "Investment Management",
+    "description": "Allows related market segments to be grouped together.  Example: - To segment top spenders into 10 segments, these 10 segments can now all be grouped together by relating them to the same MARKET SEGMENT GROUP, for example, \"Top spenders by decile.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 1516,
+    "name": "MARKET_SEGMENT_SCHEME",
+    "domain": "Investment Management",
+    "description": "This entity describes the method for segmentation such as income, location, or age. A scheme can result in many segments.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1517,
+    "name": "MARK_TO_MARKET",
+    "domain": "Investment Management",
+    "description": "Mark to market is the updating of the value of a financial product position based on market data, and depending on the financial product, a valuation model.  The position that is updated is the agreement found in AGREEMENT EVENT.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1518,
+    "name": "MENU_OPTION_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity translates the calling option to a description. This entity would only be used during a session with a Voice Response Unit or other automatic device that directs the customer through a series of options before they get to the one they want.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1519,
+    "name": "MUNICIPAL_BOND",
+    "domain": "Investment Management",
+    "description": "A debt security issued by a state, municipality, or county to finance its capital expenditures. Municipal bonds are exempt from federal taxes and from most state and local taxes, especially if you live in the state in which the bond is issued.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1520,
+    "name": "OPTION_EXERCISE",
+    "domain": "Investment Management",
+    "description": "Discretionary exercise of a long call/put option by the owner.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1521,
+    "name": "OPTION_EXERCISE_TYPE",
+    "domain": "Investment Management",
+    "description": "The exercise dates define when the option can be exercised. There are three main excise styles: American, European, and Bermudan.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1522,
+    "name": "OPTION_PUT_CALL_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity describes whether this option is a put or a call type of option.  A put option gives the holder the right but not the obligation to sell the underlying instrument for a specified period of time at a specified price (strike price). Puts are bought by investors who believe the price",
+    "attributeCount": 2
+  },
+  {
+    "id": 1523,
+    "name": "OPTION_STYLE_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "A code that classifies the type of option based on its family or style.  In finance, the style or family of an option is a general term denoting the class into which the option falls, usually defined by the dates on which the option may be exercised. The vast majority of options are either European",
+    "attributeCount": 2
+  },
+  {
+    "id": 1524,
+    "name": "OVERNIGHT_INDEX_SWAP",
+    "domain": "Investment Management",
+    "description": "An overnight index swap is an interest rate swap involving the overnight rate being exchanged for some fixed interest rate. Generally short-term, the interest of the overnight rate portion of the swap is compounded and paid at maturity.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1525,
+    "name": "PORTFOLIO",
+    "domain": "Investment Management",
+    "description": "A portfolio, from the perspective of the financial institution as a broker/dealer, has a specific operational meaning. For administrative reasons, investment products belonging to a single party, or jointly owned by multiple parties, are grouped into one or more portfolios. A PORTFOLIO may represent",
+    "attributeCount": 5
+  },
+  {
+    "id": 1526,
+    "name": "PORTFOLIO_INVESTMENT_ALLOCATION",
+    "domain": "Investment Management",
+    "description": "This entity keeps track of investment allocation objectives for this investment portfolio. It varies by asset class or product group such as stock, bonds, and cash.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1527,
+    "name": "PORTFOLIO_METRIC_TYPE",
+    "domain": "Investment Management",
+    "description": "This entity classifies the types of metrics for investment product amount, such as interest earned, and dividends earned.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1528,
+    "name": "PRIVATE_INVESTMENT_FUND_MANAGER",
+    "domain": "Investment Management",
+    "description": "The management of private investment funds that include mutual funds, hedge funds, and venture funds. Private investment funds gather capital from individuals and organizations and invest it on their behalf.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1529,
+    "name": "QUOTATION",
+    "domain": "Investment Management",
+    "description": "This entity contains information about a quotation made by the financial institution to one or more parties involving a specific product.",
+    "attributeCount": 16
+  },
+  {
+    "id": 1530,
+    "name": "QUOTATION_ASSET",
+    "domain": "Investment Management",
+    "description": "This associative entity relates a quotation to an asset along with the role that the asset has with the quotation. An example of a role of an asset to a quotation is a collateral role.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1531,
+    "name": "QUOTATION_ASSET_ROLE_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "This code contains the role of the asset to the quotation and is used as a subtype code. Roles can include is collateral for, is insured asset for, or is subject of a lease.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1532,
+    "name": "QUOTATION_CLOSE_REASON_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity converts the quotation close reason code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1533,
+    "name": "QUOTATION_EVENT",
+    "domain": "Investment Management",
+    "description": "This entity is a subtype to EVENT and contains those contacts that involve a quotation made by the financial institution.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1534,
+    "name": "QUOTATION_INSURED_ASSET",
+    "domain": "Investment Management",
+    "description": "This is a subtype to entity QUOTATION ASSET and contains details of the asset in relation to the quotation in the role of to be insured.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1535,
+    "name": "QUOTATION_METRIC",
+    "domain": "Investment Management",
+    "description": "This entity contains the various metrics that are associated with a quotation such as the premium amount for an insurance quotation.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1536,
+    "name": "QUOTATION_METRIC_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code for the type of metric such as annual premium for an insurance quotation.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1537,
+    "name": "QUOTATION_ORIGIN_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity converts the origin for quotation code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1538,
+    "name": "QUOTATION_RELATED",
+    "domain": "Investment Management",
+    "description": "This entity tracks the relationships between quotations, such as one quotation replacing another quotation, or quotations having been submitted together.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1539,
+    "name": "QUOTATION_RELATIONSHIP_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity converts the quotation relationship code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1540,
+    "name": "QUOTATION_STATUS",
+    "domain": "Investment Management",
+    "description": "This entity tracks the history of the status of a quotation.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1541,
+    "name": "QUOTATION_STATUS_REASON",
+    "domain": "Investment Management",
+    "description": "This associative entity allows one or more status reasons to be valid for one quotation status.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1542,
+    "name": "QUOTATION_STATUS_REASON_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity describes the reasons for the status of a quotation.  Examples: - New quotation requested - Too highly priced",
+    "attributeCount": 2
+  },
+  {
+    "id": 1543,
+    "name": "QUOTATION_STATUS_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity converts the quotation status type code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1544,
+    "name": "QUOTATION_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "A classification of the quotation such as the major line of business or product being quoted, and which is used as a subtype category discriminator such as insurance quotation or foreign exchange quotation.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1545,
+    "name": "REAL_ESTATE_INVESTMENT_TRUST",
+    "domain": "Investment Management",
+    "description": "A security that sells like a stock on the major exchanges and invests in real estate directly, either through properties or mortgages.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1546,
+    "name": "REGULATORY_INVESTMENT_TYPE",
+    "domain": "Investment Management",
+    "description": "A classification of the regulatory support of the equity holdings, for example, under legislated programs, equity participation, and equity in well-diversified portfolio.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1547,
+    "name": "REIT_DIVIDEND_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "Dividends schedule for REIT.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1548,
+    "name": "SALES_MARKET",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding a market that is based on geography. This area is defined by the business can be as large as North America, Europe, or Asia.  Note: The REGION or TERRITORY entity in the Geography module may be used as a replacement for this entity if the business markets c",
+    "attributeCount": 2
+  },
+  {
+    "id": 1549,
+    "name": "SALES_MARKETING_ACTIVITY",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding the various activities that a salesperson performs.  Examples: - Tasks - Events - Email messages - Appointments - Phone calls",
+    "attributeCount": 12
+  },
+  {
+    "id": 1550,
+    "name": "SALES_MARKETING_ACTIVITY_RELATED",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding the relationship between sales activities.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1551,
+    "name": "SALES_MARKETING_ACTIVITY_RELATED_ROLE",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding the relationship of one sales marketing activity to another sales marketing activity. This role code can represent both sides of the relationship.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1552,
+    "name": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "domain": "Investment Management",
+    "description": "This entity tracks the history of status changes for the relationship between sales marketing activities.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1553,
+    "name": "SALES_MARKETING_ACTIVITY_RELATED_STATUS_REASON",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding the reason why a particular sales marketing activity status type may be assigned to a sales marketing activity relationship.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1554,
+    "name": "SALES_MARKETING_ACTIVITY_RELATED_STATUS_TYPE",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding the classifications tracked to the relationship role for a sales marketing activity.  Examples: - Active - Inactive - Prospective - Unmarketable customer (i.e., deceased)",
+    "attributeCount": 2
+  },
+  {
+    "id": 1555,
+    "name": "SALES_MARKETING_ACTIVITY_STATUS",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding the status of a sales activity over time.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1556,
+    "name": "SALES_MARKETING_ACTIVITY_STATUS_TYPE",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding the type of statuses a sales marketing activity may have.  Examples: - Open - Completed",
+    "attributeCount": 2
+  },
+  {
+    "id": 1557,
+    "name": "SALES_MARKETING_ACTIVITY_TEXT_COMMENT",
+    "domain": "Investment Management",
+    "description": "This entity captures information regarding textual notes concerning a sales marketing activity.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1558,
+    "name": "SECONDARY_MARKET_STATUS_TYPE",
+    "domain": "Investment Management",
+    "description": "A code that describes the status of this asset in the secondary market and your involvement with the buy or sale of this asset.  Examples: - Bought – direct sale - Sold – direct sale - Sold – as part of a securitization pool - Not bought or sold on secondary market - In process of direct sale - In p",
+    "attributeCount": 2
+  },
+  {
+    "id": 1559,
+    "name": "SECURITY_ASSET",
+    "domain": "Investment Management",
+    "description": "This entity contains information about issuances of specific security instruments, which could include the actual certificate number range. Security certificates may be pledged as collateral or part of a collateral agreement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1560,
+    "name": "SECURITY_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity indicates whether this loan (including credit cards and current accounts) has any kind of collateral or third-party guarantee or other risk mitigant that will compensate your institution if the obligor defaults.  Examples: - Collateral - Third-party guarantee - Credit derivative",
+    "attributeCount": 2
+  },
+  {
+    "id": 1561,
+    "name": "SHOUT_OPTION",
+    "domain": "Investment Management",
+    "description": "A shout option is an exotic option that allows the holder to lock in a defined profit while maintaining the right to continue participating in gains without a loss of locked in monies. Shout options can be structured so that holders of this contract have more than one opportunity to \"shout\" or lock",
+    "attributeCount": 0
+  },
+  {
+    "id": 1562,
+    "name": "SINKING_FUND_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "List of dates and prices when the issuer can redeem outstanding bonds.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1563,
+    "name": "SOVEREIGN_WEALTH_FUND_MANAGER",
+    "domain": "Investment Management",
+    "description": "The management of pools of money derived from a country's reserves, which are set aside for investment purposes that will benefit the country's economy and citizens. The funding for a Sovereign Wealth Fund (SWF) comes from central bank reserves that accumulate as a result of budget and trade surplus",
+    "attributeCount": 1
+  },
+  {
+    "id": 1564,
+    "name": "STOCK_BOND_HOLDING",
+    "domain": "Investment Management",
+    "description": "This entity represents holdings in securities such as stocks, bonds, or funds that are not part of a brokerage portfolio. It does not include derivative or swap agreements. This would include holdings by your financial institution or holdings by other parties outside of a portfolio.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1565,
+    "name": "STOCK_DIVIDEND_EVENT",
+    "domain": "Investment Management",
+    "description": "This entity contains all dividends that are stock dividends.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1566,
+    "name": "SWAP_DIRECTION_TYPE",
+    "domain": "Investment Management",
+    "description": "This reference entity is the code indicates whether the direction of the swap payment is outbound (from your institution to an outside party) or inbound (from outside party to your institution).  Examples: - Inbound - Outbound",
+    "attributeCount": 2
+  },
+  {
+    "id": 1567,
+    "name": "SWAP_LEG_AMORTIZATION_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "The schedule of dates on which the swap's underlying principal declines by a predefined amount. Each date on the schedule has a corresponding amount.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1568,
+    "name": "SWAP_LEG_CALL_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "The schedule of dates on which the swap may be called back with corresponding strike prices.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1569,
+    "name": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "domain": "Investment Management",
+    "description": "This entity contains the results of a projection of the cash flow for this swap leg.",
+    "attributeCount": 13
+  },
+  {
+    "id": 1570,
+    "name": "SWAP_LEG_RESET_SCHEDULE",
+    "domain": "Investment Management",
+    "description": "A schedule of dates when recalculations are made to determine the amount of payments.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1571,
+    "name": "SWAP_LEG_TYPE",
+    "domain": "Investment Management",
+    "description": "A classification of the type of leg for a swap.  Examples of types of legs can be flat, amortizing, zero coupon, and capped/floored.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1572,
+    "name": "SWAP_METRIC_TYPE",
+    "domain": "Investment Management",
+    "description": "This entity identifies the types of metrics that could be tracked for a swap leg such as exposure and duration. This can contain any calculated metric at the swap leg level.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1573,
+    "name": "SWAP_OBLIGATION_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "A classification of the type of swap such as: - Interest rate swap    o Coupon swap – fixed for floating in same currency    o Basis swap –- floating for floating in same currency    o Cross-currency swap – fixed rate in one currency for floating rate in another - Currency swap - Bond swap - Commodi",
+    "attributeCount": 2
+  },
+  {
+    "id": 1574,
+    "name": "SWAP_OPTION",
+    "domain": "Investment Management",
+    "description": "A swap option is an option to enter into an interest rate swap. In exchange for an option premium, the buyer gains the right but not the obligation to enter into a specified swap agreement with the issuer on a specified future date. The agreement will specify whether the buyer of the swaption will b",
+    "attributeCount": 0
+  },
+  {
+    "id": 1575,
+    "name": "TOTAL_RATE_OF_RETURN_SWAP",
+    "domain": "Investment Management",
+    "description": "A total rate of return swap is a derivative that simulates the purchase of an instrument (e.g., note, bond, or equity) with 100% financing, which is typically floating rate.  For example, the protector receives the interest and principal and pays the bank a fixed stream; the protector takes on the r",
+    "attributeCount": 0
+  },
+  {
+    "id": 1576,
+    "name": "TRADE_CANCEL_TYPE",
+    "domain": "Investment Management",
+    "description": "This conde indicates whether this trade is a new trade or a cancelation of an existing trade order.  Values per MiFID/MiFIR: - NEWT = new trade - CANC = cancelation of an existing trade.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1577,
+    "name": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "domain": "Investment Management",
+    "description": "This entity contains only those instructions at the trade execution level.",
+    "attributeCount": 17
+  },
+  {
+    "id": 1578,
+    "name": "TRADE_EXECUTION",
+    "domain": "Investment Management",
+    "description": "This entity contains additional information about the execution of a trade where your firm is operationally involved as the buyer, the seller, or the agent to the trade. Settlements (the actual exchange of money and shares/units) for this trade execution are handled in another entity.",
+    "attributeCount": 30
+  },
+  {
+    "id": 1579,
+    "name": "TRADE_EXECUTION_STATUS_TYPE",
+    "domain": "Investment Management",
+    "description": "This entity has codes for the trade confirmation status such as:  Examples: - Issued - Confirmed - Not confirmed",
+    "attributeCount": 2
+  },
+  {
+    "id": 1580,
+    "name": "TRADE_EXECUTION_WAIVER",
+    "domain": "Investment Management",
+    "description": "This entity associates the trade execution with the waiver type. There can be one or more waiver types for a given trade execution.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1581,
+    "name": "TRADE_EXECUTION_WAIVER_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code that indicates whether the transaction was executed under a pretrade waiver. This field is only populated for the market side of a transaction executed under a waiver on a trading venue. This is MiFID field 61. Possible values include: For all instruments: - LRGS = large in scale  For",
+    "attributeCount": 2
+  },
+  {
+    "id": 1582,
+    "name": "TRADE_METHOD_TYPE",
+    "domain": "Investment Management",
+    "description": "Counterparties have trade order confirmation transmission preferences including the following: - Swift - Email - Fax",
+    "attributeCount": 2
+  },
+  {
+    "id": 1583,
+    "name": "TRADE_ORDER",
+    "domain": "Investment Management",
+    "description": "This entity tracks all events related to investment trade orders. This includes all events related to the order including creating the order, modifying the order, filling the order, and canceling the order.",
+    "attributeCount": 47
+  },
+  {
+    "id": 1584,
+    "name": "TRADE_ORDER_BUY_SELL_TYPE",
+    "domain": "Investment Management",
+    "description": "This minor entity translates the code for the category of order into a description. This complies with MiFID field 62.  Examples: - Buy - Sell long - Sell short with no exemption - Sell short with exemption - Information not available",
+    "attributeCount": 2
+  },
+  {
+    "id": 1585,
+    "name": "TRADE_ORDER_EVENT_TYPE",
+    "domain": "Investment Management",
+    "description": "This classifies the trade order event as either a new order, an order modification, a cancelation, a rejection, partial fill or fill exception. The codes are per the MiFID II requirements. The code value would be one of the following for each event related to the order.  Examples: - NEWO = new order",
+    "attributeCount": 2
+  },
+  {
+    "id": 1586,
+    "name": "TRADE_ORDER_INVESTMENT_DECIDER_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code for whether the investment decision was made by a person or by a model algorithm as required for MiFID II or by neither.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1587,
+    "name": "TRADE_ORDER_PHASE_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code for the trading phase that an order is present according to the trading venue order book. Possible values include trading halt, circuit breaker and suspension.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1588,
+    "name": "TRADE_ORDER_PRICE_NOTATION_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code for how the price is expressed as an amount, percent or yield rate. Possible values are: - \"MONE\" = monetary amount - \"PERC\" = percent - \"YIEL\" = yield",
+    "attributeCount": 2
+  },
+  {
+    "id": 1589,
+    "name": "TRADE_ORDER_RESTRICTION",
+    "domain": "Investment Management",
+    "description": "This entity identifies trade order restrictions such as valid for auction, good for closing price crossing session, valid for continuous trading only and other. A trade order can have more than one restriction. This is needed for MiFID II compliance.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1590,
+    "name": "TRADE_ORDER_RESTRICTION_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a code for restrictions for a trade order as required for MiFID II.  Example values are: - SESR – Good for closing price crossing session. This is when an order qualifies for the closing price crossing session. - VFAR – Valid for auction. The order is only active and can be executed only at",
+    "attributeCount": 2
+  },
+  {
+    "id": 1591,
+    "name": "TRADE_ORDER_STATUS",
+    "domain": "Investment Management",
+    "description": "This entity tracks the status of a trade order:  Examples: - Trade orders can have the following status: - Settled - Fail to receive - Fail to deliver - Partial delivery - Filled - Open  Status values per MiFID II include: - Active - Inactive - Firm quote - Indicative quote - Routed order",
+    "attributeCount": 3
+  },
+  {
+    "id": 1592,
+    "name": "TRADE_ORDER_STATUS_TYPE",
+    "domain": "Investment Management",
+    "description": "This contains the codes for trade order status such as: - Settled - Fail to receive - Fail to deliver - Partial delivery - Filled - Open  Status values per MiFID II include: - Active - Inactive - Firm quote - Indicative quote - Routed order",
+    "attributeCount": 2
+  },
+  {
+    "id": 1593,
+    "name": "TRADE_ORDER_TYPE",
+    "domain": "Investment Management",
+    "description": "The code for the type of trade order.  Examples: - 1 = Stop order - 2 = Stop limit - 3 = Fill or Kill (FOK) - 4 = Immediate or Cancel (IOC) - 5 = All or None (AON) - 6 = Spread order - 7 = Straddle order - 8 = Combination order - 9 = One Cancels Other (OCO) - 10 = Market order - 11 = Pegged limit or",
+    "attributeCount": 2
+  },
+  {
+    "id": 1594,
+    "name": "TRADE_ORDER_VENUE_PRIORITY",
+    "domain": "Investment Management",
+    "description": "This entity contains information about the trade order that would be supplied by the trading venue such as the exchange such as order book code and priority numbers.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1595,
+    "name": "TRADE_ORDER_VENUE_TYPE",
+    "domain": "Investment Management",
+    "description": "This is a classification of the order according to the classification system of the trading venue.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1596,
+    "name": "TRADE_SETTLE_BOOK_DELIVERY",
+    "domain": "Investment Management",
+    "description": "This entity contains settlement instruction information when the security is electronically (book) delivered to the destination through a depository.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1597,
+    "name": "TRADE_SETTLE_FOREIGN_DELIVERY",
+    "domain": "Investment Management",
+    "description": "This entity contains settlement instruction information when the delivery type is foreign local where securities are traded on a foreign exchange and settled in the local currency and by a local settlement agent.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1598,
+    "name": "TRADE_SETTLE_PHYSICAL_DELIVERY",
+    "domain": "Investment Management",
+    "description": "This entity contains settlement instruction information when the product is physically delivered to the destination.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1599,
+    "name": "TREASURY_BOND_SUBTYPE",
+    "domain": "Investment Management",
+    "description": "A classification of a U.S. Treasury bond in to inflation protected and not inflation protected.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1600,
+    "name": "U.S._TREASURY_BOND",
+    "domain": "Investment Management",
+    "description": "Treasury bills, notes, and bonds are marketable securities the U.S. government sells in order to pay off maturing debt and raise the cash needed to run the federal government.  When you buy one of these securities, you are lending your money to the U.S. government.  Although Treasurys are considered",
+    "attributeCount": 1
+  },
+  {
+    "id": 1601,
+    "name": "UNSETTLED_TRADE_PARAMETER",
+    "domain": "Investment Management",
+    "description": "This table is used to lookup the risk multiplier for calculating the capital charge for non-DvP (delivery versus payment) transaction.  Reference Annex 3 of the Nov 2005 Accord.  Transactions where cash is paid without receipt of the security or vice versa expose firms to a risk of loss of the amoun",
+    "attributeCount": 6
+  },
+  {
+    "id": 1602,
+    "name": "WHISPER_OPTION",
+    "domain": "Investment Management",
+    "description": "A whisper option gives the owner the right to fix the strike price of an option at any time during the life of the option.  A whisper option benefits from the potential volatility of a company that is likely to see a positive price reaction when they report earnings that beat a \"whisper number\" and",
+    "attributeCount": 0
+  },
+  {
+    "id": 1603,
+    "name": "YIELD_CURVE_MATURITY_SEGMENT_TYPE",
+    "domain": "Investment Management",
+    "description": "For market risk calculation for interest rates using the internal model's approach, the yield curve is divided into maturity segments to capture the volatility of rates along the yield curve.  Example of a segment is LIBOR 1-10 years.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1604,
+    "name": "YIELD_TO_MATURITY_PARAMETER",
+    "domain": "Investment Management",
+    "description": "This entity contains the yield to maturity for an instrument type (e.g., zero coupon bonds).",
+    "attributeCount": 5
+  },
+  {
+    "id": 1605,
+    "name": "Z_BOND",
+    "domain": "Investment Management",
+    "description": "Z-bonds are tranches where the bond coupon is accrued by adding the interest to the face value of the bond. The interest that normally would be paid to the parent bond during the lockout period is deferred and added to the Z-bond's principal value in a process called accretion.",
+    "attributeCount": 0
+  }
+]

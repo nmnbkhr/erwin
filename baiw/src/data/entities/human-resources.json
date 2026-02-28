@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1379,
+    "name": "ADJUSTED_EARNING",
+    "domain": "Human Resources",
+    "description": "Adjustments made to an Associate's earnings. Adjustments can be for retroactive pay, reimbursement for overwithheld taxes, or other corrections to include negative adjustments.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1380,
+    "name": "ADJUSTED_EARNING_SUBTYPE",
+    "domain": "Human Resources",
+    "description": "This is a code for the types of adjusted earnings.  Examples: - Retroactive pay - Reimbursement for overwithheld taxes - Other corrections including negative adjustments",
+    "attributeCount": 2
+  },
+  {
+    "id": 1381,
+    "name": "AFTER_TAX_DEDUCTION",
+    "domain": "Human Resources",
+    "description": "For an ASSOCIATE PAYROLL TRANSACTION, deductions from earnings reduce amounts paid to an ASSOCIATE. AFTER TAX DEDUCTIONs are types of reductions made from payroll payments after income taxes are calculated.  Examples of AFTER TAX DEDUCTIONs include: - Savings plan – after-tax contributions - Charita",
+    "attributeCount": 1
+  },
+  {
+    "id": 1382,
+    "name": "AFTER_TAX_DEDUCTION_SUBTYPE",
+    "domain": "Human Resources",
+    "description": "This is a code for the types and descriptions of after-tax deductions.  Examples: - Savings plan – after-tax contributions - Charitable contributions (i.e., United Way)",
+    "attributeCount": 2
+  },
+  {
+    "id": 1383,
+    "name": "BEFORE_TAX_DEDUCTION",
+    "domain": "Human Resources",
+    "description": "For an ASSOCIATE PAYROLL TRANSACTION, deductions from earnings reduce amounts paid to an ASSOCIATE. BEFORE TAX DEDUCTIONs are types of reductions made from payroll payments before income taxes are calculated. BEFORE TAX DEDUCTIONs may not be subject to income taxes, as in medical insurance costs, or",
+    "attributeCount": 1
+  },
+  {
+    "id": 1384,
+    "name": "BEFORE_TAX_DEDUCTION_SUBTYPE",
+    "domain": "Human Resources",
+    "description": "The types and descriptions of before-tax deductions.  Examples of BEFORE TAX DEDUCTIONs include: - Savings plan – before-tax contributions - Health insurance – associate portion - Dental insurance – associate portion",
+    "attributeCount": 2
+  },
+  {
+    "id": 1385,
+    "name": "BENEFIT_PLAN",
+    "domain": "Human Resources",
+    "description": "Benefit plans are the parts of the total compensation package, other than for pay for time worked, provided to ASSOCIATEs in whole or in part by employer payments.  Benefit plans may be composed of regulated benefits such as social security and unemployment insurance as well as components sponsored",
+    "attributeCount": 3
+  },
+  {
+    "id": 1386,
+    "name": "BENEFIT_PLAN_ELIGIBILITY_TERM_TYPE",
+    "domain": "Human Resources",
+    "description": "This contains the various terms that can be used to determine whether an ASSOCIATE is eligible for benefits. Examples of eligibility terms include six months service and immediate.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1387,
+    "name": "BENEFIT_RULE_TYPE",
+    "domain": "Human Resources",
+    "description": "The algorithm that is used by the Claim Settlement System when determining the claim adjudication amounts.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1388,
+    "name": "DIRECT_EARNING",
+    "domain": "Human Resources",
+    "description": "For an ASSOCIATE PAYROLL TRANSACTION, direct earnings refer to various types of compensation that are paid directly in the form of cash or financial instrument. Examples of direct earnings include regular earnings (e.g., standard wages, and overtime), variable earnings (e.g., bonus, and commission),",
+    "attributeCount": 2
+  },
+  {
+    "id": 1389,
+    "name": "DIRECT_EARNINGS_FINANCIAL_INSTRUMENT",
+    "domain": "Human Resources",
+    "description": "If an employee is paid via a financial instrument that is not cash then this entity identifies the financial instrument. This would include payments to associates in the form of stock options. This is a subtype of DIRECT EARNING so that regular and variable compensation can be in different forms of",
+    "attributeCount": 1
+  },
+  {
+    "id": 1390,
+    "name": "DIRECT_EARNING_SUBTYPE",
+    "domain": "Human Resources",
+    "description": "This entity further classifies direct earnings or pay received directly in the form of cash. Examples of types of direct earnings include wages, bonuses, and incentives.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1391,
+    "name": "HEALTH_INSURANCE_INDIRECT_EARNING",
+    "domain": "Human Resources",
+    "description": "The employer portion of health insurance paid indirectly as a noncash benefit.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1392,
+    "name": "INDIRECT_EARNING",
+    "domain": "Human Resources",
+    "description": "For an ASSOCIATE PAYROLL TRANSACTION, indirect earning refers to various types of compensation that are paid indirectly through benefits. Examples include pensions, health insurance, and leave.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1393,
+    "name": "INDIRECT_EARNING_SUBTYPE",
+    "domain": "Human Resources",
+    "description": "Classifies indirect earnings into types of compensation that are paid indirectly through benefits.  Examples include pensions, health insurance, and leave.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1394,
+    "name": "JOB_CLASSIFICATION",
+    "domain": "Human Resources",
+    "description": "Describes the general job title or classification of a position. Examples would be teller, customer service rep, branch manager, senior VP, marketing analyst, and product manager.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1395,
+    "name": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "domain": "Human Resources",
+    "description": "This entity specifies for a given location, date, work shift and job classification code, how many regular and overtime hours will be scheduled. A complete schedule for a location can be created by building an entry for each job classification code at that location for a particular date.  Note: Once",
+    "attributeCount": 8
+  },
+  {
+    "id": 1396,
+    "name": "JOB_LABOR_TASK_CROSS-REFERENCE",
+    "domain": "Human Resources",
+    "description": "Specifies all the labor task types than can (or may) be performed by someone within a given job classification.  Example: Bill's job classification code of 25 (Sr. Housekeeper) can have the following labor tasks associated with it: - Housekeeping inspection task - Housekeeping supervision task - Lig",
+    "attributeCount": 2
+  },
+  {
+    "id": 1397,
+    "name": "LEAVE_INDIRECT_EARNING",
+    "domain": "Human Resources",
+    "description": "Earned leave paid indirectly as a noncash benefit.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1398,
+    "name": "LEAVE_PLAN",
+    "domain": "Human Resources",
+    "description": "Describes the various different leave plans that may be offered to associates as part of a benefit plan.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1399,
+    "name": "MISCELLANEOUS_BENEFIT_PLAN",
+    "domain": "Human Resources",
+    "description": "A subtype of BENEFIT PLAN OPTION for various benefits that may not fit in traditional benefit categories. An example might be an employee discount.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1400,
+    "name": "PAYROLL_BALANCE_TYPE",
+    "domain": "Human Resources",
+    "description": "A code that qualifies the PAY STUB BALANCE values.  Examples: - Gross pay - Net pay - Vacation - Sick leave",
+    "attributeCount": 2
+  },
+  {
+    "id": 1401,
+    "name": "PAYROLL_PAY_PERIOD",
+    "domain": "Human Resources",
+    "description": "This entity defines the period of time related to the ASSOCIATE PAYROLL TRANSACTION. For example, there is a two-week pay period associated with a biweekly payroll with 26 paydays.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1402,
+    "name": "PAYROLL_REGISTER",
+    "domain": "Human Resources",
+    "description": "Aggregate record of the monetary amounts for salaries, wages, bonuses, net pay, and deductions paid on a periodic basis by an enterprise to its associates.  Transaction information includes earnings and deduction details, payroll tax obligations, and leave accrual.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1403,
+    "name": "PENSION_INDIRECT_EARNING",
+    "domain": "Human Resources",
+    "description": "An employer pension paid indirectly as a noncash benefit.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1404,
+    "name": "REGULAR_EARNING",
+    "domain": "Human Resources",
+    "description": "This entity captures information related to associate's regular or direct fixed pay received in the form of cash, for example, salary.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1405,
+    "name": "REGULAR_EARNING_SUBTYPE",
+    "domain": "Human Resources",
+    "description": "This is a code for the types of regular earnings, such as: - Standard pay: wage based on a per hour rate or a salary that is paid at regular intervals. - Overtime pay: extra pay that is provided for working more than the standard number of hours or when working holidays or other unique situations.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1406,
+    "name": "REGULATED_BENEFIT",
+    "domain": "Human Resources",
+    "description": "This entity holds information about benefits available to associates in accordance with statutory requirements and government insurance programs. Examples include social security, workers' compensation, and unemployment benefits. In some jurisdictions, these programs require compulsory employer cont",
+    "attributeCount": 6
+  },
+  {
+    "id": 1407,
+    "name": "REGULATED_BENEFIT_TYPE",
+    "domain": "Human Resources",
+    "description": "Defines type codes assigned to REGULATED BENEFITs, for example, Workers' Compensation or State Unemployment Insurance.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1408,
+    "name": "VARIABLE_EARNING",
+    "domain": "Human Resources",
+    "description": "This entity contains information about an associate's variable earnings, or pay received in the form of cash that is tied to productivity or other measure that varies with an organization's profitability. Examples of variable earnings include bonus and incentives.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1409,
+    "name": "VARIABLE_EARNING_SUBTYPE",
+    "domain": "Human Resources",
+    "description": "This is a code for the types of variable earnings such as bonus and commission.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1410,
+    "name": "WITHHOLDING_TAX",
+    "domain": "Human Resources",
+    "description": "This entity holds information about taxes that employers are required to withhold from associates' pay. Types of withholding taxes vary depending on the employer's tax jurisdiction. Examples of withholding taxes include federal income tax, state income tax, and local tax.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1411,
+    "name": "WITHHOLDING_TAX_SUBTYPE",
+    "domain": "Human Resources",
+    "description": "This entity holds information about the types and descriptions of withholding taxes, which vary depending on the employer's tax jurisdiction. Examples of withholding taxes include federal income tax, state income tax, and local tax.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1412,
+    "name": "WORK_SHIFT_DAILY_HOURS",
+    "domain": "Human Resources",
+    "description": "Details the start and duration of a WORK SHIFT TYPE for a group of SITEs by calendar date.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1413,
+    "name": "WORK_SHIFT_DAY_OF_WEEK_HOURS",
+    "domain": "Human Resources",
+    "description": "Details the start and duration of a WORK SHIFT TYPE for a group of SITEs by DAY OF WEEK.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1414,
+    "name": "WORK_SHIFT_TYPE",
+    "domain": "Human Resources",
+    "description": "Denotes the shift a PARTY works at a SITE, for example, day, night, weekdays, and weekends nights.",
+    "attributeCount": 2
+  }
+]

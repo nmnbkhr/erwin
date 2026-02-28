@@ -1,0 +1,1052 @@
+[
+  {
+    "parentId": 1238,
+    "parentName": "AP_INVOICE",
+    "childId": 1240,
+    "childName": "AP_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1240,
+    "parentName": "AP_INVOICE_LINE",
+    "childId": 1241,
+    "childName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1240,
+    "parentName": "AP_INVOICE_LINE",
+    "childId": 1242,
+    "childName": "AP_INVOICE_LINE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1240,
+    "parentName": "AP_INVOICE_LINE",
+    "childId": 1243,
+    "childName": "AP_INVOICE_LINE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1240,
+    "parentName": "AP_INVOICE_LINE",
+    "childId": 1244,
+    "childName": "AP_INVOICE_LINE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1240,
+    "parentName": "AP_INVOICE_LINE",
+    "childId": 1245,
+    "childName": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1240,
+    "parentName": "AP_INVOICE_LINE",
+    "childId": 1246,
+    "childName": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1240,
+    "parentName": "AP_INVOICE_LINE",
+    "childId": 3041,
+    "childName": "INVOICE_LINE_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 1247,
+    "parentName": "AP_INVOICE_SUBTYPE",
+    "childId": 1238,
+    "childName": "AP_INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1248,
+    "parentName": "AR_INVOICE",
+    "childId": 1249,
+    "childName": "AR_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1249,
+    "parentName": "AR_INVOICE_LINE",
+    "childId": 1250,
+    "childName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1249,
+    "parentName": "AR_INVOICE_LINE",
+    "childId": 1251,
+    "childName": "AR_INVOICE_LINE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1249,
+    "parentName": "AR_INVOICE_LINE",
+    "childId": 1252,
+    "childName": "AR_INVOICE_LINE_QUANTITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1249,
+    "parentName": "AR_INVOICE_LINE",
+    "childId": 1253,
+    "childName": "AR_INVOICE_LINE_RECEIPT",
+    "type": "association"
+  },
+  {
+    "parentId": 1254,
+    "parentName": "AR_INVOICE_LINE_TYPE",
+    "childId": 1249,
+    "childName": "AR_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1255,
+    "parentName": "AR_INVOICE_REASON_TYPE",
+    "childId": 1248,
+    "childName": "AR_INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1256,
+    "parentName": "AR_INVOICE_TYPE",
+    "childId": 1248,
+    "childName": "AR_INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1257,
+    "parentName": "BANK_TRANSFER_EVENT_TYPE",
+    "childId": 1280,
+    "childName": "FUNDS_TRANSFER_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1259,
+    "parentName": "CARD_STATEMENT",
+    "childId": 1261,
+    "childName": "CARD_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1262,
+    "parentName": "CHECK_TRANSACTION_TYPE",
+    "childId": 2106,
+    "childName": "HOME_BANK_CHECK_IMAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 1263,
+    "parentName": "CLAIM_EXPOSURE_ACTIVITY_PAYMENT_TYPE",
+    "childId": 3739,
+    "childName": "CLAIM_EXPOSURE_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1265,
+    "parentName": "CLAIM_PAYMENT_TYPE",
+    "childId": 3273,
+    "childName": "PARTY_INSURABLE_INTEREST_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1268,
+    "parentName": "COMMODITY_TRANSACTION_TYPE",
+    "childId": 213,
+    "childName": "COMMODITY_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1269,
+    "parentName": "CONSOLIDATED_INVOICE",
+    "childId": 1270,
+    "childName": "CONSOLIDATED_INVOICE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1269,
+    "parentName": "CONSOLIDATED_INVOICE",
+    "childId": 1271,
+    "childName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 1269,
+    "parentName": "CONSOLIDATED_INVOICE",
+    "childId": 1293,
+    "childName": "INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1269,
+    "parentName": "CONSOLIDATED_INVOICE",
+    "childId": 1336,
+    "childName": "PAYMENT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1273,
+    "parentName": "EARNING_STATEMENT_TYPE",
+    "childId": 2781,
+    "childName": "VENDOR",
+    "type": "association"
+  },
+  {
+    "parentId": 1278,
+    "parentName": "FORM_OF_PAYMENT_TYPE",
+    "childId": 1388,
+    "childName": "DIRECT_EARNING",
+    "type": "association"
+  },
+  {
+    "parentId": 1280,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 3754,
+    "childName": "DEFAULT_RECOVERY",
+    "type": "association"
+  },
+  {
+    "parentId": 1280,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 1300,
+    "childName": "INVOICE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1280,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 1323,
+    "childName": "PAYMENT_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1280,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 1325,
+    "childName": "PAYMENT_BANK_DRAFT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1280,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 1339,
+    "childName": "PAYMENT_SCHEDULE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1280,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 1342,
+    "childName": "PAYMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1280,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 1348,
+    "childName": "PAYROLL_REGISTER_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1281,
+    "parentName": "FUNDS_TRANSFER_METHOD_TYPE",
+    "childId": 1280,
+    "childName": "FUNDS_TRANSFER_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1282,
+    "parentName": "FUNDS_TRANSFER_TYPE",
+    "childId": 1280,
+    "childName": "FUNDS_TRANSFER_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1283,
+    "parentName": "GL_PROJECT_SEGMENT",
+    "childId": 2488,
+    "childName": "REPORTING_PROJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 1284,
+    "parentName": "GL_ROLL-UP_TYPE",
+    "childId": 281,
+    "childName": "EXPENSE_ACCOUNT_COST_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1284,
+    "parentName": "GL_ROLL-UP_TYPE",
+    "childId": 456,
+    "childName": "REVENUE_ACCOUNT_REVENUE_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1285,
+    "parentName": "HEALTH_BILLING_CATEGORY",
+    "childId": 1286,
+    "childName": "HEALTH_BILLING_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1286,
+    "parentName": "HEALTH_BILLING_CODE",
+    "childId": 1090,
+    "childName": "HEALTH_CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1287,
+    "parentName": "HEALTH_BILLING_TYPE",
+    "childId": 1285,
+    "childName": "HEALTH_BILLING_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 1288,
+    "parentName": "INTEREST_PAYMENT_METHOD_TYPE_JAPAN",
+    "childId": 298,
+    "childName": "FINANCIAL_AGREEMENT_JAPAN",
+    "type": "association"
+  },
+  {
+    "parentId": 1289,
+    "parentName": "INVESTMENT_HOLDING_STATEMENT",
+    "childId": 1290,
+    "childName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1289,
+    "parentName": "INVESTMENT_HOLDING_STATEMENT",
+    "childId": 1291,
+    "childName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 1291,
+    "parentName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "childId": 1292,
+    "childName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 1279,
+    "childName": "FREIGHT_TERM_TYPE_INVOICE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 1294,
+    "childName": "INVOICE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 1295,
+    "childName": "INVOICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 1297,
+    "childName": "INVOICE_CHARGE",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 3537,
+    "childName": "INVOICE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 3043,
+    "childName": "INVOICE_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 1300,
+    "childName": "INVOICE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 0,
+    "childName": "INVOICE_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 0,
+    "childName": "INVOICE_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 1307,
+    "childName": "INVOICE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 1336,
+    "childName": "PAYMENT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1293,
+    "parentName": "INVOICE",
+    "childId": 1346,
+    "childName": "PAYMENT_TERM_TYPE_INVOICE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1296,
+    "parentName": "INVOICE_AMOUNT_TYPE",
+    "childId": 1251,
+    "childName": "AR_INVOICE_LINE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1296,
+    "parentName": "INVOICE_AMOUNT_TYPE",
+    "childId": 1295,
+    "childName": "INVOICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1296,
+    "parentName": "INVOICE_AMOUNT_TYPE",
+    "childId": 1352,
+    "childName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1298,
+    "parentName": "INVOICE_LINE_PAYMENT",
+    "childId": 1299,
+    "childName": "INVOICE_LINE_PAYMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1300,
+    "parentName": "INVOICE_PAYMENT",
+    "childId": 1298,
+    "childName": "INVOICE_LINE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1301,
+    "parentName": "INVOICE_PAYMENT_METHOD_TYPE",
+    "childId": 1300,
+    "childName": "INVOICE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1302,
+    "parentName": "INVOICE_PAYMENT_SUBTYPE",
+    "childId": 1298,
+    "childName": "INVOICE_LINE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1303,
+    "parentName": "INVOICE_QUANTITY_TYPE",
+    "childId": 1252,
+    "childName": "AR_INVOICE_LINE_QUANTITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1305,
+    "parentName": "INVOICE_RELATIONSHIP_TYPE",
+    "childId": 1304,
+    "childName": "INVOICE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 1306,
+    "parentName": "INVOICE_SOURCE_TYPE",
+    "childId": 1293,
+    "childName": "INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1308,
+    "parentName": "INVOICE_STATUS_REASON_TYPE",
+    "childId": 1244,
+    "childName": "AP_INVOICE_LINE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1308,
+    "parentName": "INVOICE_STATUS_REASON_TYPE",
+    "childId": 1307,
+    "childName": "INVOICE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1309,
+    "parentName": "INVOICE_STATUS_TYPE",
+    "childId": 1244,
+    "childName": "AP_INVOICE_LINE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1309,
+    "parentName": "INVOICE_STATUS_TYPE",
+    "childId": 1270,
+    "childName": "CONSOLIDATED_INVOICE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1309,
+    "parentName": "INVOICE_STATUS_TYPE",
+    "childId": 1307,
+    "childName": "INVOICE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1310,
+    "parentName": "INVOICE_SUBTYPE",
+    "childId": 1293,
+    "childName": "INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1312,
+    "parentName": "ITEM_TRANSFER_DIRECTION_TYPE",
+    "childId": 1311,
+    "childName": "ITEM_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 1314,
+    "parentName": "IVR_STEP_TRANSACTION_SUBTYPE",
+    "childId": 1313,
+    "childName": "IVR_STEP_TRANSACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1315,
+    "parentName": "JOURNAL_ENTRY_HEADER",
+    "childId": 1316,
+    "childName": "JOURNAL_ENTRY_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1316,
+    "parentName": "JOURNAL_ENTRY_LINE",
+    "childId": 1276,
+    "childName": "FINANCIAL_EVENT_JOURNAL_ENTRY_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1318,
+    "parentName": "NATIONAL_UNIFORM_BILLING_COMMITTEE_CONDITION_CODE",
+    "childId": 1089,
+    "childName": "HEALTH_CLAIM_NUBC_CONDITION_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1319,
+    "parentName": "NONCASH_PAYMENT_APPROVAL_TYPE",
+    "childId": 1300,
+    "childName": "INVOICE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1322,
+    "parentName": "PAYMENT_ACTION_TYPE",
+    "childId": 2735,
+    "childName": "TRADITIONAL_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1322,
+    "parentName": "PAYMENT_ACTION_TYPE",
+    "childId": 2737,
+    "childName": "TRADITIONAL_REQUEST_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1324,
+    "parentName": "PAYMENT_ADJUSTMENT_TYPE",
+    "childId": 1323,
+    "childName": "PAYMENT_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1326,
+    "parentName": "PAYMENT_INSTRUCTION",
+    "childId": 1274,
+    "childName": "EVENT_PAYMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1326,
+    "parentName": "PAYMENT_INSTRUCTION",
+    "childId": 415,
+    "childName": "PAYMENT_INSTRUCTION_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1326,
+    "parentName": "PAYMENT_INSTRUCTION",
+    "childId": 416,
+    "childName": "PAYMENT_INSTRUCTION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1326,
+    "parentName": "PAYMENT_INSTRUCTION",
+    "childId": 3357,
+    "childName": "PAYMENT_INSTRUCTION_IDENTIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1326,
+    "parentName": "PAYMENT_INSTRUCTION",
+    "childId": 3359,
+    "childName": "PAYMENT_INSTRUCTION_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 1326,
+    "parentName": "PAYMENT_INSTRUCTION",
+    "childId": 1328,
+    "childName": "PAYMENT_INSTRUCTION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1326,
+    "parentName": "PAYMENT_INSTRUCTION",
+    "childId": 1331,
+    "childName": "PAYMENT_INSTRUCTION_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 1327,
+    "parentName": "PAYMENT_INSTRUCTION_EVENT_ROLE",
+    "childId": 1274,
+    "childName": "EVENT_PAYMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1329,
+    "parentName": "PAYMENT_INSTRUCTION_STATUS_REASON_TYPE",
+    "childId": 1328,
+    "childName": "PAYMENT_INSTRUCTION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1330,
+    "parentName": "PAYMENT_INSTRUCTION_STATUS_TYPE",
+    "childId": 1328,
+    "childName": "PAYMENT_INSTRUCTION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1332,
+    "parentName": "PAYMENT_INSTRUCTION_TYPE",
+    "childId": 1326,
+    "childName": "PAYMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1333,
+    "parentName": "PAYMENT_MODE",
+    "childId": 1675,
+    "childName": "AGENT_REPORT",
+    "type": "association"
+  },
+  {
+    "parentId": 1333,
+    "parentName": "PAYMENT_MODE",
+    "childId": 976,
+    "childName": "CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1333,
+    "parentName": "PAYMENT_MODE",
+    "childId": 1485,
+    "childName": "INSURANCE_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1334,
+    "parentName": "PAYMENT_OPTION_TYPE",
+    "childId": 112,
+    "childName": "AGREEMENT_PAYMENT_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1334,
+    "parentName": "PAYMENT_OPTION_TYPE",
+    "childId": 3616,
+    "childName": "PRODUCT_PAYMENT_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1335,
+    "parentName": "PAYMENT_PRIORITY_TYPE",
+    "childId": 2781,
+    "childName": "VENDOR",
+    "type": "association"
+  },
+  {
+    "parentId": 1336,
+    "parentName": "PAYMENT_SCHEDULE",
+    "childId": 1739,
+    "childName": "AR_COLLECTION_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1336,
+    "parentName": "PAYMENT_SCHEDULE",
+    "childId": 1337,
+    "childName": "PAYMENT_SCHEDULE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1336,
+    "parentName": "PAYMENT_SCHEDULE",
+    "childId": 1339,
+    "childName": "PAYMENT_SCHEDULE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1336,
+    "parentName": "PAYMENT_SCHEDULE",
+    "childId": 1340,
+    "childName": "PAYMENT_SCHEDULE_TERM",
+    "type": "association"
+  },
+  {
+    "parentId": 1338,
+    "parentName": "PAYMENT_SCHEDULE_AMOUNT_TYPE",
+    "childId": 1337,
+    "childName": "PAYMENT_SCHEDULE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1341,
+    "parentName": "PAYMENT_SCHEDULE_TYPE",
+    "childId": 1336,
+    "childName": "PAYMENT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1343,
+    "parentName": "PAYMENT_STATUS_REASON_TYPE",
+    "childId": 1299,
+    "childName": "INVOICE_LINE_PAYMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1343,
+    "parentName": "PAYMENT_STATUS_REASON_TYPE",
+    "childId": 1342,
+    "childName": "PAYMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1344,
+    "parentName": "PAYMENT_STATUS_TYPE",
+    "childId": 1299,
+    "childName": "INVOICE_LINE_PAYMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1344,
+    "parentName": "PAYMENT_STATUS_TYPE",
+    "childId": 1342,
+    "childName": "PAYMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1345,
+    "parentName": "PAYMENT_TERM_TYPE",
+    "childId": 1336,
+    "childName": "PAYMENT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1345,
+    "parentName": "PAYMENT_TERM_TYPE",
+    "childId": 1346,
+    "childName": "PAYMENT_TERM_TYPE_INVOICE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1347,
+    "parentName": "PAYMENT_TIMING_TYPE",
+    "childId": 343,
+    "childName": "INVESTMENT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1347,
+    "parentName": "PAYMENT_TIMING_TYPE",
+    "childId": 1577,
+    "childName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1347,
+    "parentName": "PAYMENT_TIMING_TYPE",
+    "childId": 493,
+    "childName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1347,
+    "parentName": "PAYMENT_TIMING_TYPE",
+    "childId": 494,
+    "childName": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 1347,
+    "parentName": "PAYMENT_TIMING_TYPE",
+    "childId": 1601,
+    "childName": "UNSETTLED_TRADE_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 1349,
+    "parentName": "PAYROLL_TRANSACTION_SUBTYPE",
+    "childId": 2876,
+    "childName": "ASSOCIATE_PAYROLL_TRANSACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1350,
+    "parentName": "PA_DRAFT_INVOICE",
+    "childId": 1351,
+    "childName": "PA_DRAFT_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1351,
+    "parentName": "PA_DRAFT_INVOICE_LINE",
+    "childId": 1352,
+    "childName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1356,
+    "parentName": "PURCHASED_RECEIVABLE_INVOICE_TYPE",
+    "childId": 1355,
+    "childName": "PURCHASED_RECEIVABLE_INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1357,
+    "parentName": "REPAYMENT_METHOD_TYPE",
+    "childId": 441,
+    "childName": "PURCHASED_RECEIVABLE_ISSUER_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1361,
+    "parentName": "STATEMENT",
+    "childId": 147,
+    "childName": "AGREEMENT_STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1361,
+    "parentName": "STATEMENT",
+    "childId": 1362,
+    "childName": "STATEMENT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1361,
+    "parentName": "STATEMENT",
+    "childId": 1366,
+    "childName": "STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1363,
+    "parentName": "STATEMENT_EVENT_TYPE",
+    "childId": 1362,
+    "childName": "STATEMENT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1365,
+    "parentName": "STATEMENT_MAIL_TYPE",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1365,
+    "parentName": "STATEMENT_MAIL_TYPE",
+    "childId": 1361,
+    "childName": "STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1367,
+    "parentName": "STATEMENT_METRIC_TYPE",
+    "childId": 151,
+    "childName": "AGREEMENT_STATEMENT_LINE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1367,
+    "parentName": "STATEMENT_METRIC_TYPE",
+    "childId": 152,
+    "childName": "AGREEMENT_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1367,
+    "parentName": "STATEMENT_METRIC_TYPE",
+    "childId": 1261,
+    "childName": "CARD_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1367,
+    "parentName": "STATEMENT_METRIC_TYPE",
+    "childId": 1290,
+    "childName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1367,
+    "parentName": "STATEMENT_METRIC_TYPE",
+    "childId": 1292,
+    "childName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1367,
+    "parentName": "STATEMENT_METRIC_TYPE",
+    "childId": 1366,
+    "childName": "STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1368,
+    "parentName": "STATEMENT_TYPE",
+    "childId": 1361,
+    "childName": "STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1370,
+    "parentName": "SWAP_PAYMENT_TYPE",
+    "childId": 3659,
+    "childName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 1372,
+    "parentName": "TRANSACTION_FRAUD_TYPE",
+    "childId": 1371,
+    "childName": "TRANSACTION_FRAUD_CASE",
+    "type": "association"
+  },
+  {
+    "parentId": 1374,
+    "parentName": "TRANSFER_EVENT_SUBTYPE",
+    "childId": 1359,
+    "childName": "SOCIAL_MEDIA_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 1374,
+    "parentName": "TRANSFER_EVENT_SUBTYPE",
+    "childId": 1373,
+    "childName": "TRANSFER_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1375,
+    "parentName": "TRANSFER_FAILURE_REASON",
+    "childId": 1275,
+    "childName": "FILE_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 1375,
+    "parentName": "TRANSFER_FAILURE_REASON",
+    "childId": 1359,
+    "childName": "SOCIAL_MEDIA_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 1375,
+    "parentName": "TRANSFER_FAILURE_REASON",
+    "childId": 1373,
+    "childName": "TRANSFER_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1376,
+    "parentName": "TRANSFER_PROTOCOL_TYPE",
+    "childId": 1275,
+    "childName": "FILE_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 1376,
+    "parentName": "TRANSFER_PROTOCOL_TYPE",
+    "childId": 1359,
+    "childName": "SOCIAL_MEDIA_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 1376,
+    "parentName": "TRANSFER_PROTOCOL_TYPE",
+    "childId": 1373,
+    "childName": "TRANSFER_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1377,
+    "parentName": "USSGL_TRANSACTION_TYPE",
+    "childId": 424,
+    "childName": "PO_DELIVERY_RELEASE",
+    "type": "association"
+  },
+  {
+    "parentId": 1378,
+    "parentName": "WATERFALL_PAYMENT_TYPE",
+    "childId": 165,
+    "childName": "AGREEMENT_TO_SECURITIZATION_POOL",
+    "type": "association"
+  },
+  {
+    "parentId": 1378,
+    "parentName": "WATERFALL_PAYMENT_TYPE",
+    "childId": 3835,
+    "childName": "TRANCHE_RISK_METRIC",
+    "type": "association"
+  }
+]

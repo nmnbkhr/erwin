@@ -1,0 +1,1857 @@
+[
+  {
+    "parentId": 3708,
+    "parentName": "ACCESS_DEVICE_EVENT_RISK_REASON_TYPE",
+    "childId": 228,
+    "childName": "CREDIT_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3710,
+    "parentName": "ANALYTICAL_MODEL_RISK_FACTOR_ROLE",
+    "childId": 3709,
+    "childName": "ANALYTICAL_MODEL_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3716,
+    "parentName": "ASSET_RISK_GRADE",
+    "childId": 0,
+    "childName": "ASSET_RISK_GRADE_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3716,
+    "parentName": "ASSET_RISK_GRADE",
+    "childId": 0,
+    "childName": "ASSET_RISK_GRADE_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 3720,
+    "parentName": "BANK_LOSS_TYPE",
+    "childId": 3718,
+    "childName": "BANK_ACTUAL_RISK_LOSS",
+    "type": "association"
+  },
+  {
+    "parentId": 3721,
+    "parentName": "BASEL_1_WEIGHT",
+    "childId": 3596,
+    "childName": "PRODUCT_GROUP_BASEL_1_WEIGHT",
+    "type": "association"
+  },
+  {
+    "parentId": 3725,
+    "parentName": "BASEL_FUNCTION_TYPE",
+    "childId": 3727,
+    "childName": "BASEL_II_APPROACH",
+    "type": "association"
+  },
+  {
+    "parentId": 3725,
+    "parentName": "BASEL_FUNCTION_TYPE",
+    "childId": 3814,
+    "childName": "RISK_CALCULATION_SCENARIO_BASEL_APPROACH",
+    "type": "association"
+  },
+  {
+    "parentId": 3726,
+    "parentName": "BASEL_III_CAPITAL_TYPE",
+    "childId": 3525,
+    "childName": "INVESTMENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 3722,
+    "childName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 181,
+    "childName": "BASEL_ELIGIBLE_COLLATERAL_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 182,
+    "childName": "BASEL_ELIGIBLE_GUARANTEE_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 3735,
+    "childName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 246,
+    "childName": "CREDIT_RISK_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 1472,
+    "childName": "EQUITY_HOLDING_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 296,
+    "childName": "FINANCIAL_AGREEMENT_BASEL_II_APPROACH",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 3798,
+    "childName": "NON-IRB_EXPOSURE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 3086,
+    "childName": "ORGANIZATION_BASEL_APPROACH",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 3814,
+    "childName": "RISK_CALCULATION_SCENARIO_BASEL_APPROACH",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 3823,
+    "childName": "RISK_MITIGATION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3727,
+    "parentName": "BASEL_II_APPROACH",
+    "childId": 2744,
+    "childName": "TRANSITIONAL_ARRANGEMENT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3728,
+    "parentName": "BASEL_II_ASSET_CLASS",
+    "childId": 512,
+    "childName": "ASSET_CLASS_TO_OBLIGOR_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3728,
+    "parentName": "BASEL_II_ASSET_CLASS",
+    "childId": 3728,
+    "childName": "BASEL_II_ASSET_CLASS",
+    "type": "association"
+  },
+  {
+    "parentId": 3728,
+    "parentName": "BASEL_II_ASSET_CLASS",
+    "childId": 242,
+    "childName": "CREDIT_MATURITY_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3728,
+    "parentName": "BASEL_II_ASSET_CLASS",
+    "childId": 246,
+    "childName": "CREDIT_RISK_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3728,
+    "parentName": "BASEL_II_ASSET_CLASS",
+    "childId": 293,
+    "childName": "FINANCE_EXPOSURE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3730,
+    "parentName": "BASEL_IRB_RISK_MITIGANT_TYPE",
+    "childId": 458,
+    "childName": "RISK_MITIGANT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3731,
+    "parentName": "BASEL_MARKET_PARTICIPANT_TYPE",
+    "childId": 3085,
+    "childName": "ORGANIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3738,
+    "parentName": "CLAIM_EXPOSURE",
+    "childId": 3739,
+    "childName": "CLAIM_EXPOSURE_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3738,
+    "parentName": "CLAIM_EXPOSURE",
+    "childId": 3745,
+    "childName": "CLAIM_EXPOSURE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3738,
+    "parentName": "CLAIM_EXPOSURE",
+    "childId": 3211,
+    "childName": "PARTY_CLAIM_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3739,
+    "parentName": "CLAIM_EXPOSURE_ACTIVITY",
+    "childId": 3740,
+    "childName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3739,
+    "parentName": "CLAIM_EXPOSURE_ACTIVITY",
+    "childId": 3744,
+    "childName": "CLAIM_EXPOSURE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3741,
+    "parentName": "CLAIM_EXPOSURE_ACTIVITY_TYPE",
+    "childId": 3739,
+    "childName": "CLAIM_EXPOSURE_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3742,
+    "parentName": "CLAIM_EXPOSURE_COST_CATEGORY",
+    "childId": 3739,
+    "childName": "CLAIM_EXPOSURE_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3743,
+    "parentName": "CLAIM_EXPOSURE_COST_RECOVERY_TYPE",
+    "childId": 3739,
+    "childName": "CLAIM_EXPOSURE_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3746,
+    "parentName": "CLAIM_EXPOSURE_STATUS_TYPE",
+    "childId": 3745,
+    "childName": "CLAIM_EXPOSURE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3751,
+    "parentName": "DEFAULT_OCCURRENCE",
+    "childId": 3754,
+    "childName": "DEFAULT_RECOVERY",
+    "type": "association"
+  },
+  {
+    "parentId": 3751,
+    "parentName": "DEFAULT_OCCURRENCE",
+    "childId": 3755,
+    "childName": "DEFAULT_RECOVERY_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3752,
+    "parentName": "DEFAULT_OUTCOME_TYPE",
+    "childId": 3751,
+    "childName": "DEFAULT_OCCURRENCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3753,
+    "parentName": "DEFAULT_REASON_TYPE",
+    "childId": 3751,
+    "childName": "DEFAULT_OCCURRENCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3755,
+    "parentName": "DEFAULT_RECOVERY_ITEM",
+    "childId": 3756,
+    "childName": "DEFAULT_RECOVERY_ITEM_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3755,
+    "parentName": "DEFAULT_RECOVERY_ITEM",
+    "childId": 3757,
+    "childName": "DEFAULT_RECOVERY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3758,
+    "parentName": "DEFAULT_RECOVERY_METRIC_TYPE",
+    "childId": 3757,
+    "childName": "DEFAULT_RECOVERY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3759,
+    "parentName": "ELIGIBLE_RISK_MITIGANT_TYPE",
+    "childId": 201,
+    "childName": "COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3760,
+    "parentName": "EQUITY_BASEL_TYPE",
+    "childId": 1564,
+    "childName": "STOCK_BOND_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 3762,
+    "parentName": "EQUITY_RISK_NETTED_GROUP",
+    "childId": 3761,
+    "childName": "EQUITY_NETTED_GROUP_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3766,
+    "parentName": "EXTERNAL_CLAIM_LOSS_STATUS_TYPE",
+    "childId": 3765,
+    "childName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 3767,
+    "parentName": "EXTERNAL_CLAIM_LOSS_TYPE",
+    "childId": 3765,
+    "childName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 105,
+    "childName": "AGREEMENT_MARKET_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3718,
+    "childName": "BANK_ACTUAL_RISK_LOSS",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 2909,
+    "childName": "BUSINESS_TYPE_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3748,
+    "childName": "CURRENCY_EXCHANGE_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3749,
+    "childName": "CURRENCY_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3769,
+    "childName": "FINANCIAL_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 2134,
+    "childName": "INSURANCE_METRIC_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3783,
+    "childName": "INTEREST_INDEX_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3529,
+    "childName": "INVESTMENT_PRODUCT_GROUP_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3532,
+    "childName": "INVESTMENT_PRODUCT_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3833,
+    "childName": "STRESS_TEST_RESULT",
+    "type": "association"
+  },
+  {
+    "parentId": 3769,
+    "parentName": "FINANCIAL_RISK_FACTOR",
+    "childId": 3840,
+    "childName": "YIELD_CURVE_MATURITY_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3770,
+    "parentName": "GENERAL_MARKET_RISK_CHARGE_TYPE",
+    "childId": 3790,
+    "childName": "MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3772,
+    "parentName": "GEOGRAPHIC_AREA_RISK_TYPE",
+    "childId": 3771,
+    "childName": "GEOGRAPHIC_AREA_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3775,
+    "parentName": "INSURABLE_INTEREST_EXPOSURE_TYPE",
+    "childId": 3776,
+    "childName": "INSURABLE_INTEREST_TO_EXPOSURE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3777,
+    "parentName": "INSURANCE_RISK_CATEGORY",
+    "childId": 93,
+    "childName": "AGREEMENT_INSURANCE_RISK_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 3777,
+    "parentName": "INSURANCE_RISK_CATEGORY",
+    "childId": 3712,
+    "childName": "APPLICATION_INSURANCE_RISK_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 3777,
+    "parentName": "INSURANCE_RISK_CATEGORY",
+    "childId": 3714,
+    "childName": "ASSET_INSURANCE_RISK_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 3777,
+    "parentName": "INSURANCE_RISK_CATEGORY",
+    "childId": 3777,
+    "childName": "INSURANCE_RISK_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 3777,
+    "parentName": "INSURANCE_RISK_CATEGORY",
+    "childId": 3780,
+    "childName": "INSURANCE_RISK_FACTOR_RISK_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 3777,
+    "parentName": "INSURANCE_RISK_CATEGORY",
+    "childId": 3274,
+    "childName": "PARTY_INSURANCE_RISK_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 3777,
+    "parentName": "INSURANCE_RISK_CATEGORY",
+    "childId": 2764,
+    "childName": "UNDERWRITE_CLASS",
+    "type": "association"
+  },
+  {
+    "parentId": 3779,
+    "parentName": "INSURANCE_RISK_FACTOR_RELATIONSHIP_TYPE",
+    "childId": 3778,
+    "childName": "INSURANCE_RISK_FACTOR_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3781,
+    "parentName": "INSURANCE_RISK_FACTOR_TYPE",
+    "childId": 3715,
+    "childName": "ASSET_INSURANCE_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3781,
+    "parentName": "INSURANCE_RISK_FACTOR_TYPE",
+    "childId": 0,
+    "childName": "INSURANCE_RISK_FACTOR_RELATED_relates_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3781,
+    "parentName": "INSURANCE_RISK_FACTOR_TYPE",
+    "childId": 0,
+    "childName": "INSURANCE_RISK_FACTOR_RELATED_relates_with",
+    "type": "association"
+  },
+  {
+    "parentId": 3781,
+    "parentName": "INSURANCE_RISK_FACTOR_TYPE",
+    "childId": 3780,
+    "childName": "INSURANCE_RISK_FACTOR_RISK_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 3781,
+    "parentName": "INSURANCE_RISK_FACTOR_TYPE",
+    "childId": 3782,
+    "childName": "INSURANCE_RISK_UNDERWRITE_CLASS",
+    "type": "association"
+  },
+  {
+    "parentId": 3781,
+    "parentName": "INSURANCE_RISK_FACTOR_TYPE",
+    "childId": 3794,
+    "childName": "MORTALITY_TABLE_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3781,
+    "parentName": "INSURANCE_RISK_FACTOR_TYPE",
+    "childId": 3275,
+    "childName": "PARTY_INSURANCE_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3786,
+    "parentName": "INVESTMENT_RISK_TOLERANCE_TYPE",
+    "childId": 3277,
+    "childName": "PARTY_INVESTMENT_RISK_TOLERANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3788,
+    "parentName": "LOCATION_OF_LOSS_TYPE",
+    "childId": 2984,
+    "childName": "EXTERNALLY_REPORTED_PERSONAL_PROPERTY_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 3793,
+    "parentName": "MARKET_RISK_TYPE",
+    "childId": 294,
+    "childName": "FINANCIAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3796,
+    "parentName": "NETTED_MARKET_RISK_GROUP_TYPE",
+    "childId": 3795,
+    "childName": "NETTED_MARKET_RISK_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3800,
+    "parentName": "OPERATIONAL_LOSS_TYPE",
+    "childId": 2906,
+    "childName": "BUSINESS_LINE_LOSS_TYPE_MEASURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3801,
+    "parentName": "OPERATIONAL_RISK_MEASURE",
+    "childId": 2906,
+    "childName": "BUSINESS_LINE_LOSS_TYPE_MEASURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3801,
+    "parentName": "OPERATIONAL_RISK_MEASURE",
+    "childId": 2907,
+    "childName": "BUSINESS_LINE_RISK_MEASURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3804,
+    "parentName": "PROBABILITY_DEFAULT_FLOOR_TYPE",
+    "childId": 1508,
+    "childName": "MARKET_PARTICIPANT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3806,
+    "parentName": "PROVISION_TYPE",
+    "childId": 127,
+    "childName": "AGREEMENT_PROVISION",
+    "type": "association"
+  },
+  {
+    "parentId": 3806,
+    "parentName": "PROVISION_TYPE",
+    "childId": 359,
+    "childName": "LOAN_PROVISION_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3809,
+    "parentName": "RISK_ADJUSTMENT_METRIC_TYPE",
+    "childId": 37,
+    "childName": "AGREEMENT_CLASS_ADJUSTMENT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3809,
+    "parentName": "RISK_ADJUSTMENT_METRIC_TYPE",
+    "childId": 196,
+    "childName": "COLLATERALIZED_EXPOSURE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3809,
+    "parentName": "RISK_ADJUSTMENT_METRIC_TYPE",
+    "childId": 202,
+    "childName": "COLLATERAL_ITEM_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3809,
+    "parentName": "RISK_ADJUSTMENT_METRIC_TYPE",
+    "childId": 284,
+    "childName": "EXPOSURE_AGREEMENT_ASSET_VALUE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3809,
+    "parentName": "RISK_ADJUSTMENT_METRIC_TYPE",
+    "childId": 295,
+    "childName": "FINANCIAL_AGREEMENT_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3810,
+    "parentName": "RISK_ADJUSTMENT_REASON_TYPE",
+    "childId": 196,
+    "childName": "COLLATERALIZED_EXPOSURE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3810,
+    "parentName": "RISK_ADJUSTMENT_REASON_TYPE",
+    "childId": 202,
+    "childName": "COLLATERAL_ITEM_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3810,
+    "parentName": "RISK_ADJUSTMENT_REASON_TYPE",
+    "childId": 284,
+    "childName": "EXPOSURE_AGREEMENT_ASSET_VALUE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3810,
+    "parentName": "RISK_ADJUSTMENT_REASON_TYPE",
+    "childId": 295,
+    "childName": "FINANCIAL_AGREEMENT_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3811,
+    "parentName": "RISK_ASSESSMENT_RELATED_TYPE",
+    "childId": 137,
+    "childName": "AGREEMENT_RISK_GRADE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3811,
+    "parentName": "RISK_ASSESSMENT_RELATED_TYPE",
+    "childId": 145,
+    "childName": "AGREEMENT_SCORE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3811,
+    "parentName": "RISK_ASSESSMENT_RELATED_TYPE",
+    "childId": 3717,
+    "childName": "ASSET_RISK_GRADE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3811,
+    "parentName": "RISK_ASSESSMENT_RELATED_TYPE",
+    "childId": 3319,
+    "childName": "PARTY_RISK_GRADE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3811,
+    "parentName": "RISK_ASSESSMENT_RELATED_TYPE",
+    "childId": 3327,
+    "childName": "PARTY_SCORE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3811,
+    "parentName": "RISK_ASSESSMENT_RELATED_TYPE",
+    "childId": 3624,
+    "childName": "PRODUCT_RISK_GRADE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3812,
+    "parentName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "childId": 137,
+    "childName": "AGREEMENT_RISK_GRADE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3812,
+    "parentName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "childId": 145,
+    "childName": "AGREEMENT_SCORE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3812,
+    "parentName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "childId": 3717,
+    "childName": "ASSET_RISK_GRADE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3812,
+    "parentName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "childId": 2271,
+    "childName": "MODEL_RELATIONSHIP",
+    "type": "association"
+  },
+  {
+    "parentId": 3812,
+    "parentName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "childId": 3319,
+    "childName": "PARTY_RISK_GRADE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3812,
+    "parentName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "childId": 3327,
+    "childName": "PARTY_SCORE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3812,
+    "parentName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "childId": 3624,
+    "childName": "PRODUCT_RISK_GRADE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 50,
+    "childName": "AGREEMENT_CREDIT_RISK_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 82,
+    "childName": "AGREEMENT_GROUP_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 84,
+    "childName": "AGREEMENT_GROUP_RISK_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 106,
+    "childName": "AGREEMENT_MARKET_RISK_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 138,
+    "childName": "AGREEMENT_RISK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3719,
+    "childName": "BANK_CAPITAL_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 2904,
+    "childName": "BUSINESS_INTEREST_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 2910,
+    "childName": "BUSINESS_UNIT_OPERATIONAL_RISK_ADVANCED",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 2911,
+    "childName": "BUSINESS_UNIT_OPERATIONAL_RISK_STANDARDIZED",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3735,
+    "childName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 195,
+    "childName": "COLLATERALIZED_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 210,
+    "childName": "COLLATERAL_ITEM_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 242,
+    "childName": "CREDIT_MATURITY_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 246,
+    "childName": "CREDIT_RISK_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 851,
+    "childName": "CURRENCY_POSITION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 1472,
+    "childName": "EQUITY_HOLDING_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3761,
+    "childName": "EQUITY_NETTED_GROUP_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 283,
+    "childName": "EXPOSURE_AGREEMENT_ASSET_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 295,
+    "childName": "FINANCIAL_AGREEMENT_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3774,
+    "childName": "HOLDING_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 2128,
+    "childName": "INSTRUMENT_METRIC_TYPE_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 2154,
+    "childName": "INTEREST_RATE_BANKING_BOOK_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3785,
+    "childName": "INTEREST_RATE_RISK_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 2160,
+    "childName": "INTERNAL_MODEL_APPROACH_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3533,
+    "childName": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3055,
+    "childName": "LINE_OF_BUSINESS_RISK_SCENARIO_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 359,
+    "childName": "LOAN_PROVISION_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3791,
+    "childName": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3798,
+    "childName": "NON-IRB_EXPOSURE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3799,
+    "childName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3287,
+    "childName": "PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3803,
+    "childName": "PORTFOLIO_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 937,
+    "childName": "POSITION_FX_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3635,
+    "childName": "PRODUCT_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3807,
+    "childName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3808,
+    "childName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3814,
+    "childName": "RISK_CALCULATION_SCENARIO_BASEL_APPROACH",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3823,
+    "childName": "RISK_MITIGATION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 470,
+    "childName": "SECURITIZATION_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 472,
+    "childName": "SECURITIZATION_POOL_OBLIGOR_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 473,
+    "childName": "SECURITIZATION_POOL_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 2719,
+    "childName": "TIME_BAND_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3835,
+    "childName": "TRANCHE_RISK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3813,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 3838,
+    "childName": "VOLATILITY_RISK_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3815,
+    "parentName": "RISK_EXPOSURE_MITIGANT_SUBTYPE",
+    "childId": 294,
+    "childName": "FINANCIAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3816,
+    "parentName": "RISK_FACTOR_INSTRUMENT",
+    "childId": 3709,
+    "childName": "ANALYTICAL_MODEL_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3816,
+    "parentName": "RISK_FACTOR_INSTRUMENT",
+    "childId": 3816,
+    "childName": "RISK_FACTOR_INSTRUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3816,
+    "parentName": "RISK_FACTOR_INSTRUMENT",
+    "childId": 0,
+    "childName": "RISK_POSITION_has_risk_position_of",
+    "type": "association"
+  },
+  {
+    "parentId": 3816,
+    "parentName": "RISK_FACTOR_INSTRUMENT",
+    "childId": 0,
+    "childName": "RISK_POSITION_has_secondary_risk_of",
+    "type": "association"
+  },
+  {
+    "parentId": 3817,
+    "parentName": "RISK_GRADE_CHANGE_REASON",
+    "childId": 136,
+    "childName": "AGREEMENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3817,
+    "parentName": "RISK_GRADE_CHANGE_REASON",
+    "childId": 3318,
+    "childName": "PARTY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3818,
+    "parentName": "RISK_GRADE_RELATION_TYPE",
+    "childId": 3821,
+    "childName": "RISK_GRADE_VALUE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 38,
+    "childName": "AGREEMENT_CLASS_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 83,
+    "childName": "AGREEMENT_GROUP_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 136,
+    "childName": "AGREEMENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3713,
+    "childName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3716,
+    "childName": "ASSET_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 180,
+    "childName": "BASEL_COLLATERAL_HAIRCUT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 181,
+    "childName": "BASEL_ELIGIBLE_COLLATERAL_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 182,
+    "childName": "BASEL_ELIGIBLE_GUARANTEE_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3724,
+    "childName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3736,
+    "childName": "CHANNEL_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3747,
+    "childName": "CLAIM_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3763,
+    "childName": "EVENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3508,
+    "childName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3773,
+    "childName": "GEOGRAPHY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 1493,
+    "childName": "INVESTMENT_GRADE_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3787,
+    "childName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3798,
+    "childName": "NON-IRB_EXPOSURE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3799,
+    "childName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3802,
+    "childName": "OPPORTUNITY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3139,
+    "childName": "PARTY_ASSET_CLASS_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3218,
+    "childName": "PARTY_CLASS_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3252,
+    "childName": "PARTY_GROUP_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3318,
+    "childName": "PARTY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3589,
+    "childName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3602,
+    "childName": "PRODUCT_GROUP_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3622,
+    "childName": "PRODUCT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3623,
+    "childName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3808,
+    "childName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3820,
+    "childName": "RISK_GRADE_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 3828,
+    "childName": "ROADWAY_SEGMENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 470,
+    "childName": "SECURITIZATION_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3819,
+    "parentName": "RISK_GRADE_SCHEME",
+    "childId": 2632,
+    "childName": "SPECIAL_LENDING_SLOTTING_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 38,
+    "childName": "AGREEMENT_CLASS_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 83,
+    "childName": "AGREEMENT_GROUP_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 136,
+    "childName": "AGREEMENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3711,
+    "childName": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3713,
+    "childName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3716,
+    "childName": "ASSET_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 180,
+    "childName": "BASEL_COLLATERAL_HAIRCUT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 181,
+    "childName": "BASEL_ELIGIBLE_COLLATERAL_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 182,
+    "childName": "BASEL_ELIGIBLE_GUARANTEE_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3724,
+    "childName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3736,
+    "childName": "CHANNEL_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3737,
+    "childName": "CHANNEL_TYPE_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3747,
+    "childName": "CLAIM_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 195,
+    "childName": "COLLATERALIZED_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3763,
+    "childName": "EVENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3508,
+    "childName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3773,
+    "childName": "GEOGRAPHY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 1493,
+    "childName": "INVESTMENT_GRADE_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3787,
+    "childName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3798,
+    "childName": "NON-IRB_EXPOSURE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3799,
+    "childName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3802,
+    "childName": "OPPORTUNITY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3139,
+    "childName": "PARTY_ASSET_CLASS_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3218,
+    "childName": "PARTY_CLASS_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3252,
+    "childName": "PARTY_GROUP_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3318,
+    "childName": "PARTY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3589,
+    "childName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3602,
+    "childName": "PRODUCT_GROUP_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3622,
+    "childName": "PRODUCT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3623,
+    "childName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3808,
+    "childName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 0,
+    "childName": "RISK_GRADE_VALUE_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 0,
+    "childName": "RISK_GRADE_VALUE_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 3828,
+    "childName": "ROADWAY_SEGMENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 470,
+    "childName": "SECURITIZATION_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 2632,
+    "childName": "SPECIAL_LENDING_SLOTTING_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 1577,
+    "childName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 493,
+    "childName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3820,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 494,
+    "childName": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3822,
+    "parentName": "RISK_METRIC_TYPE",
+    "childId": 50,
+    "childName": "AGREEMENT_CREDIT_RISK_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3822,
+    "parentName": "RISK_METRIC_TYPE",
+    "childId": 84,
+    "childName": "AGREEMENT_GROUP_RISK_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3822,
+    "parentName": "RISK_METRIC_TYPE",
+    "childId": 106,
+    "childName": "AGREEMENT_MARKET_RISK_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3822,
+    "parentName": "RISK_METRIC_TYPE",
+    "childId": 851,
+    "childName": "CURRENCY_POSITION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3822,
+    "parentName": "RISK_METRIC_TYPE",
+    "childId": 2128,
+    "childName": "INSTRUMENT_METRIC_TYPE_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3822,
+    "parentName": "RISK_METRIC_TYPE",
+    "childId": 3055,
+    "childName": "LINE_OF_BUSINESS_RISK_SCENARIO_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3822,
+    "parentName": "RISK_METRIC_TYPE",
+    "childId": 937,
+    "childName": "POSITION_FX_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3822,
+    "parentName": "RISK_METRIC_TYPE",
+    "childId": 3838,
+    "childName": "VOLATILITY_RISK_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3825,
+    "parentName": "RISK_RATING_METHOD",
+    "childId": 3819,
+    "childName": "RISK_GRADE_SCHEME",
+    "type": "association"
+  },
+  {
+    "parentId": 3826,
+    "parentName": "RISK_RATING_PURPOSE_TYPE",
+    "childId": 3819,
+    "childName": "RISK_GRADE_SCHEME",
+    "type": "association"
+  },
+  {
+    "parentId": 3826,
+    "parentName": "RISK_RATING_PURPOSE_TYPE",
+    "childId": 3826,
+    "childName": "RISK_RATING_PURPOSE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3827,
+    "parentName": "RISK_TYPE",
+    "childId": 3718,
+    "childName": "BANK_ACTUAL_RISK_LOSS",
+    "type": "association"
+  },
+  {
+    "parentId": 3827,
+    "parentName": "RISK_TYPE",
+    "childId": 286,
+    "childName": "EXPOSURE_AGREEMENT_RISK_MITIGANT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3827,
+    "parentName": "RISK_TYPE",
+    "childId": 3768,
+    "childName": "FINANCE_EXPOSURE_RISK_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3827,
+    "parentName": "RISK_TYPE",
+    "childId": 3769,
+    "childName": "FINANCIAL_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3827,
+    "parentName": "RISK_TYPE",
+    "childId": 2134,
+    "childName": "INSURANCE_METRIC_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3827,
+    "parentName": "RISK_TYPE",
+    "childId": 1499,
+    "childName": "INVESTMENT_VALUE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3827,
+    "parentName": "RISK_TYPE",
+    "childId": 3289,
+    "childName": "PARTY_METRIC_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3827,
+    "parentName": "RISK_TYPE",
+    "childId": 3813,
+    "childName": "RISK_CALCULATION_SCENARIO",
+    "type": "association"
+  },
+  {
+    "parentId": 3830,
+    "parentName": "SENIORITY_LEVEL_TYPE",
+    "childId": 98,
+    "childName": "AGREEMENT_INVESTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3830,
+    "parentName": "SENIORITY_LEVEL_TYPE",
+    "childId": 165,
+    "childName": "AGREEMENT_TO_SECURITIZATION_POOL",
+    "type": "association"
+  },
+  {
+    "parentId": 3830,
+    "parentName": "SENIORITY_LEVEL_TYPE",
+    "childId": 223,
+    "childName": "CREDIT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3830,
+    "parentName": "SENIORITY_LEVEL_TYPE",
+    "childId": 3525,
+    "childName": "INVESTMENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3830,
+    "parentName": "SENIORITY_LEVEL_TYPE",
+    "childId": 461,
+    "childName": "RISK_MITIGANT_AGREEMENT_SENIORITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3830,
+    "parentName": "SENIORITY_LEVEL_TYPE",
+    "childId": 3829,
+    "childName": "SENIORITY_LEVEL_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3830,
+    "parentName": "SENIORITY_LEVEL_TYPE",
+    "childId": 2742,
+    "childName": "TRANCHE",
+    "type": "association"
+  },
+  {
+    "parentId": 3831,
+    "parentName": "STRESS_TEST_CALCULATION_SCENARIO",
+    "childId": 485,
+    "childName": "STRESS_TEST_AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3831,
+    "parentName": "STRESS_TEST_CALCULATION_SCENARIO",
+    "childId": 3832,
+    "childName": "STRESS_TEST_CRITERION",
+    "type": "association"
+  },
+  {
+    "parentId": 3831,
+    "parentName": "STRESS_TEST_CALCULATION_SCENARIO",
+    "childId": 3833,
+    "childName": "STRESS_TEST_RESULT",
+    "type": "association"
+  },
+  {
+    "parentId": 3834,
+    "parentName": "STRESS_TEST_TYPE",
+    "childId": 3831,
+    "childName": "STRESS_TEST_CALCULATION_SCENARIO",
+    "type": "association"
+  },
+  {
+    "parentId": 3839,
+    "parentName": "WATCH_LIST_RISK_TYPE",
+    "childId": 2809,
+    "childName": "WATCH_LIST",
+    "type": "association"
+  }
+]

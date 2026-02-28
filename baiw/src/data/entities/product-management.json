@@ -1,0 +1,1465 @@
+[
+  {
+    "id": 3460,
+    "name": "ACCESS_DEVICE_DESCRIPTIVE_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a type of descriptive feature that indicates that an access device such as credit, debit, or ATM card is an available feature for an account.",
+    "attributeCount": 0
+  },
+  {
+    "id": 3461,
+    "name": "ACCESS_DEVICE_FEATURE",
+    "domain": "Product Management",
+    "description": "Identifies characteristics associated with an ACCESS DEVICE such as color, shape, size, and image of the device.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3462,
+    "name": "AD_PRODUCT_XREF",
+    "domain": "Product Management",
+    "description": "This entity captures information regarding the linkages of ads to items.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3463,
+    "name": "AMOUNT_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a subtype entity to FEATURE. The AMOUNT FEATURE entity contains all features that have an amount attribute. It defines an amount to be associated with a financial product, for example, a fee amount.  For banking, this could be the beginning or minimum balance amount. For example, a certifica",
+    "attributeCount": 5
+  },
+  {
+    "id": 3464,
+    "name": "APPLICATION_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity associates the application with features that are specific to the application. Examples could be to defer interest charges until account closes, or mail interest to account holder. This would include those features that are fees and where the fees for the account are different from the f",
+    "attributeCount": 12
+  },
+  {
+    "id": 3465,
+    "name": "APPLICATION_FEATURE_RELATED",
+    "domain": "Product Management",
+    "description": "This associative entity is used to describe the second level of feature.  Insurance example: - The application has as feature \"personal liability\" (coverage) and that coverage has a limit of U.S. $5,000,000.00 and a deductible of U.S. $500.00. The coverage is specified by APPLICATION FEATURE and bot",
+    "attributeCount": 15
+  },
+  {
+    "id": 3466,
+    "name": "APPLICATION_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity tracks the products associated with an application.  It is possible for an application to be associated with more than one product at one time.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3467,
+    "name": "ASSET-BACKED_SECURITY_PRODUCT",
+    "domain": "Product Management",
+    "description": "Asset-backed securities are bonds whose interest and principal payments are backed by underlying cash flows from other assets. Examples of asset-backed securities are mortgage-backed securities (MBS's), collateralized mortgage obligations (CMOs), and collateralized debt obligations (CDOs).",
+    "attributeCount": 7
+  },
+  {
+    "id": 3468,
+    "name": "ASSET_FEATURE",
+    "domain": "Product Management",
+    "description": "This associative entity describes the terms and conditions of the asset such as the interest rate and the term for a time deposit.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3469,
+    "name": "BANKING_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity contains those products that support the banking function and is not an investment product or an insurance product.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3470,
+    "name": "BANKING_PRODUCT_TYPE",
+    "domain": "Product Management",
+    "description": "A major classification of the banking product such as: - Deposit - Mortgage - Loan - Credit card",
+    "attributeCount": 2
+  },
+  {
+    "id": 3471,
+    "name": "BARRIER_OPTION_PRODUCT",
+    "domain": "Product Management",
+    "description": "A type of option whose payoff depends on whether or not the underlying asset has reached or exceeded a predetermined price.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3472,
+    "name": "CAMPAIGN_PRODUCT",
+    "domain": "Product Management",
+    "description": "This associative entity relates a campaign to products that are marketed in the campaign. A campaign can market to more than one product, and a product can be marketed by many campaigns. Products may also have different roles with the campaign such as the product being offered and the product requir",
+    "attributeCount": 3
+  },
+  {
+    "id": 3473,
+    "name": "CAMPAIGN_PRODUCT_ROLE",
+    "domain": "Product Management",
+    "description": "Products may have different roles with the campaign such as the product being offered and the product required (e.g., in order to qualify for the higher time deposit interest rate, you must have a checking/current account).",
+    "attributeCount": 2
+  },
+  {
+    "id": 3474,
+    "name": "CHANNEL_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity associates the channel with features that are specific to the channel. For example, payment orders via a branch assess a fee of $3.50, whereas via internet banking it is $0.75.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3475,
+    "name": "CLAIM_PRICING_RULE_TYPE",
+    "domain": "Product Management",
+    "description": "This is a list of codes indicating the pricing rule type that was used in the adjudication process.  Examples: - Capitated - Noncapitated",
+    "attributeCount": 2
+  },
+  {
+    "id": 3476,
+    "name": "CLAIM_SERVICE_FEATURE_STATUS",
+    "domain": "Product Management",
+    "description": "This entity contains the history of status of a claim service, which is the lowest level detail for a claim.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3477,
+    "name": "COVERAGE_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity identifies those features that are coverages such as bodily injury, property damage, dental, or medical coverages.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3478,
+    "name": "CURRENCY_PRODUCT",
+    "domain": "Product Management",
+    "description": "This is a type of product that is a currency. For example, USD and Yen would each be an instance of this entity. Because swaps and derivatives involve currencies as instruments, each currency type is included in the domain of INVESTMENT PRODUCT and PRODUCT.  The currency code is in the supertype INV",
+    "attributeCount": 1
+  },
+  {
+    "id": 3479,
+    "name": "CURRENCY_PRODUCT_PAIR",
+    "domain": "Product Management",
+    "description": "This represents a pair of currencies such as USD-EUR. This is used to represent a risk factor for risk management purposes.",
+    "attributeCount": 0
+  },
+  {
+    "id": 3480,
+    "name": "CUSIP_PRODUCT_IDENTIFIER",
+    "domain": "Product Management",
+    "description": "Committee on Uniform Securities Identification Procedures (CUSIP). This nine-digit number identifies all stocks and registered bonds that trade in the U.S.  The number consists of nine characters (including letters and numbers) that uniquely identify a company or issuer and the type of security. A s",
+    "attributeCount": 1
+  },
+  {
+    "id": 3481,
+    "name": "DATE_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity contains specific dates associated with this product. There is one instance for each date value.  For example, for a bond instrument issuance there are specific dates associated with this instrument such as the call date. The maturity date for the bond would be the end date in the PRODUC",
+    "attributeCount": 1
+  },
+  {
+    "id": 3482,
+    "name": "DERIVATIVE_UNDERLYING_PRODUCT_TYPE",
+    "domain": "Product Management",
+    "description": "This is a code for the type of underlying product such as stock, bond, commodity or currency.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3483,
+    "name": "DESCRIPTIVE_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a subtype entity to FEATURE and contains those conditions that could be indicators or descriptors such as, ATM card included, interest compounded, simple interest, prepayment penalty applies, or no withdrawals.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3484,
+    "name": "DESCRIPTIVE_FEATURE_TYPE",
+    "domain": "Product Management",
+    "description": "A classification of the descriptive feature such as the type of access device that may be included with a credit card or deposit account, or the type of underwriting exception such as a company policy exception or a pricing exception.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3485,
+    "name": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "domain": "Product Management",
+    "description": "This minor entity describes how often the document will be generated such as monthly, bimonthly or quarterly and the day of the month for transaction cut-off.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3486,
+    "name": "EVENT_FEATURE",
+    "domain": "Product Management",
+    "description": "This associative entity relates EVENTs to FEATUREs to be able to specify to which balance component a payment is to be applied.  It can also be used if the subject of a communication is for a product feature such as a debit card or online bill pay.  For insurance payments to a health provider as a r",
+    "attributeCount": 3
+  },
+  {
+    "id": 3487,
+    "name": "EVENT_FEATURE_ROLE",
+    "domain": "Product Management",
+    "description": "This entity contains the role that the feature had in the event if it cannot be derived from the account such as was payment for.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3488,
+    "name": "EVENT_PRODUCT",
+    "domain": "Product Management",
+    "description": "This associative entity relates events to products.  Examples: - An event may involve the inquiry about many products and a product can be associated with many contact events. There is one instance for each event-product combination. - For derivative agreements where the agreement is for the derivat",
+    "attributeCount": 3
+  },
+  {
+    "id": 3489,
+    "name": "EVENT_PRODUCT_ROLE",
+    "domain": "Product Management",
+    "description": "This entity contains the role that the product played in the event if it cannot be derived from the account such as: - Subject of inquiry - Was investment product sold - Was investment product bought",
+    "attributeCount": 2
+  },
+  {
+    "id": 3490,
+    "name": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "domain": "Product Management",
+    "description": "This entity relates one listed investment product to another listed investment product. This entity was necessary for options where the listed exchange for the option may be different from the listed exchange for the underlying product.  Example: - An example of a relationship is investment product",
+    "attributeCount": 8
+  },
+  {
+    "id": 3491,
+    "name": "FEATURE",
+    "domain": "Product Management",
+    "description": "This entity consists of those valid characteristics, terms and conditions that might apply to marketable products and/or terms offered by the financial institution. The 'feature' identifies constraints that allow the financial institution to contract their products. There is one instance for each fe",
+    "attributeCount": 8
+  },
+  {
+    "id": 3492,
+    "name": "FEATURE-TO-FEATURE_GROUP",
+    "domain": "Product Management",
+    "description": "This entity associates features to groups of features. There is one instance for each feature-to-feature group association.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3493,
+    "name": "FEATURE_CLASSIFICATION_TYPE",
+    "domain": "Product Management",
+    "description": "This minor entity defines the various descriptive classifications that can be used to classify further features of the same Feature Classification Cd such as an amount can be classified as a balance, a limit, or a deductible, and a term can be classified into a grace period, or a loan term.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3494,
+    "name": "FEATURE_CLASS_SCHEME_TYPE",
+    "domain": "Product Management",
+    "description": "This entity contains the various schemes for classifying features. It allows an unlimited number of classification schemes. Examples of classification schemes for features include interest rate features, banking product features, insurance product features, or investment product features. Features a",
+    "attributeCount": 5
+  },
+  {
+    "id": 3495,
+    "name": "FEATURE_CLASS_VALUE",
+    "domain": "Product Management",
+    "description": "This is a code for the value of a classification scheme. For example, if the classification scheme is banking product then values could be credit card, checking, time deposit, residential loan, or commercial loan.",
+    "attributeCount": 10
+  },
+  {
+    "id": 3496,
+    "name": "FEATURE_CLASS_VALUE_XREF",
+    "domain": "Product Management",
+    "description": "This entity relates the feature classification value to the feature.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3497,
+    "name": "FEATURE_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts features by eligibility type. This can make the feature available to these eligibility types or make it unavailable for these eligibility types.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3498,
+    "name": "FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts features by an event activity type. This can make the feature available for these event activity types or make it unavailable for these event activity types. For example, liability insurance is not available if the customer had a DUI incident.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3499,
+    "name": "FEATURE_GEOGRAPHICAL_AREA",
+    "domain": "Product Management",
+    "description": "This entity allows you to restrict features offered to certain geographical areas such as for insurance a coverage (e.g., collision) may be required in one state and not the other. The role will tell you if it is required or voluntary.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3500,
+    "name": "FEATURE_GEOGRAPHICAL_AREA_ROLE",
+    "domain": "Product Management",
+    "description": "This is the role that a feature has with a geographical area such as \"is required\" or \"is voluntary\" as in the case where certain coverages are required for a given geographical area.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3501,
+    "name": "FEATURE_GROUP",
+    "domain": "Product Management",
+    "description": "This independent recursive entity represents the financial institution's feature groups in a hierarchical structure. A feature group is a grouping of features. An example would be to group the setup fee, maintenance fee, collection fee, and transaction fee into a 'fee' group. Groups of features can",
+    "attributeCount": 8
+  },
+  {
+    "id": 3502,
+    "name": "FEATURE_GROUP_METRIC",
+    "domain": "Product Management",
+    "description": "This entity contains metrics for a group of features. For example, for insurance Solvency II when calculating capital requirements for surety ship insurance risk, it is necessary to group homogeneous risks (coverages) and then apply the calculation to that group. Examples of metrics for coverage gro",
+    "attributeCount": 7
+  },
+  {
+    "id": 3503,
+    "name": "FEATURE_GROUP_TYPE",
+    "domain": "Product Management",
+    "description": "This minor entity describes how features are grouped. Examples of groupings could be tier, balance, rate, and term.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3504,
+    "name": "FEATURE_INSURANCE_SUBTYPE",
+    "domain": "Product Management",
+    "description": "This entity specifies categories for the feature such as coverages and services for insurance.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3505,
+    "name": "FEATURE_OCCUPATION_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts features by an occupation code. This can make the feature available to these occupation codes or make it unavailable for these occupation codes.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3506,
+    "name": "FEATURE_RELATED",
+    "domain": "Product Management",
+    "description": "This associative entity relates features to other features over time and identifies the type of relationship with a relationship type code. There is one instance for each relationship. A feature can have many relationships with many other features.  This entity allows one to define a hierarchy of fe",
+    "attributeCount": 5
+  },
+  {
+    "id": 3507,
+    "name": "FEATURE_RELATIONSHIP_TYPE",
+    "domain": "Product Management",
+    "description": "This minor entity identifies the relationship between two features such as 'replaces.'",
+    "attributeCount": 2
+  },
+  {
+    "id": 3508,
+    "name": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "domain": "Product Management",
+    "description": "This entity restricts features to parties with certain risk grades. This can make the feature available to parties with these risk grades or make it unavailable to parties with these risk grades.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3509,
+    "name": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts features by score model values. This can make the feature available to these score model values or make it unavailable for these score model values.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3510,
+    "name": "FEATURE_SUBJECT",
+    "domain": "Product Management",
+    "description": "This entity contains those subjects that are terms and conditions of a contract such as bodily injury coverage.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3511,
+    "name": "FEATURE_SUBTYPE",
+    "domain": "Product Management",
+    "description": "This minor entity classifies feature into types such as term, amount, quantity, date, descriptive, and rate feature types.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3512,
+    "name": "FEATURE_UNIFIED_COVERAGE",
+    "domain": "Product Management",
+    "description": "This associative entity links features, as defined by the financial institution, with Unified Coverage Codes, as used in the USA.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3513,
+    "name": "FINANCIAL_EVENT_AMOUNT_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity links financial event amounts to features. This structure is used for credit card balance segments when a payment amount is split up and applied to the proper balance segment. Usually, the source system will determine how payment amounts are split up between balance segments for credit c",
+    "attributeCount": 4
+  },
+  {
+    "id": 3514,
+    "name": "FINANCIAL_PRODUCT",
+    "domain": "Product Management",
+    "description": "This is a type of product that is financial in nature and will appear as an asset and/or a liability on the enterprise books from the enterprise perspective.  For example, for banks, a deposit is a liability and a loan is an asset.  Current accounts can be either depending on the balance of the cust",
+    "attributeCount": 2
+  },
+  {
+    "id": 3515,
+    "name": "FISN_PRODUCT_IDENTIFIER",
+    "domain": "Product Management",
+    "description": "The FISN (Financial Instrument Short Name) is the ISO 18774 standardized description of a financial instrument. The name is composed of the issuer name and the name of the financial instrument in the following format: - The issuer short name with a maximum of fifteen alphanumeric characters - A sepa",
+    "attributeCount": 2
+  },
+  {
+    "id": 3516,
+    "name": "FIXED_INTEREST_RATE_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a subtype to RATE FEATURE. This entity contains those interest rates that are fixed and do not depend on the fluctuation of an index. This is the rate that is charged to the customer. The periodicity (daily, annual) is specified in the Time Period Cd attribute. Since the customer rate is fix",
+    "attributeCount": 1
+  },
+  {
+    "id": 3517,
+    "name": "GL_NONSERVICE_PRODUCT_TYPE",
+    "domain": "Product Management",
+    "description": "This entity defines the type of nonservice product, for example, hardware, software, and equipment.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3518,
+    "name": "GL_PRODUCT_GROUP_SEGMENT",
+    "domain": "Product Management",
+    "description": "This is the chart of account segment that represents a grouping of products such as commercial loans.",
+    "attributeCount": 0
+  },
+  {
+    "id": 3519,
+    "name": "GL_PRODUCT_SEGMENT",
+    "domain": "Product Management",
+    "description": "The entity that indicates the product segment of the accounts used in financial reporting for a company.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3520,
+    "name": "GL_REPORTING_NONSERVICE_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity identifies a GL nonservice product as a physical product (as opposed to a service).",
+    "attributeCount": 1
+  },
+  {
+    "id": 3521,
+    "name": "GL_REPORTING_SERVICE_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity identifies a GL service product as a service (as opposed to a physical product).",
+    "attributeCount": 1
+  },
+  {
+    "id": 3522,
+    "name": "GL_SERVICE_PRODUCT_TYPE",
+    "domain": "Product Management",
+    "description": "This entity defines the type of service product, for example, customer service, professional service, and data service.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3523,
+    "name": "INSURANCE_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity contains those products that provide insurance for your customers. Examples are automobile insurance, homeowners insurance, life insurance, and property insurance.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3524,
+    "name": "INTEREST_INDEX_PRODUCT",
+    "domain": "Product Management",
+    "description": "This is a type of product that is an interest index such as LIBOR. Interest indexes can be the subject of an investment and traded betting on how the index will fluctuate over time.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3525,
+    "name": "INVESTMENT_PRODUCT",
+    "domain": "Product Management",
+    "description": "An INVESTMENT PRODUCT is a financial instrument including securities that are usually but not always listed on an exchange or other tradable network, and which can be traded for investment purposes. One instance of INVESTMENT PRODUCT can represent a debt or equity offering or issue including funds,",
+    "attributeCount": 11
+  },
+  {
+    "id": 3526,
+    "name": "INVESTMENT_PRODUCT_CFI",
+    "domain": "Product Management",
+    "description": "This entity relates an investment product to a CFI, which is the ISO 10962 Classification of Financial Instruments.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3527,
+    "name": "INVESTMENT_PRODUCT_EVENT",
+    "domain": "Product Management",
+    "description": "This entity contains those activities that affect either your customer's investments or your own internal investments. This includes events where your customer is the investor and you are the broker, and it includes those events where you are the investor.  The majority of investment events will inv",
+    "attributeCount": 7
+  },
+  {
+    "id": 3528,
+    "name": "INVESTMENT_PRODUCT_EXTERNAL_EVENT_SUBTYPE",
+    "domain": "Product Management",
+    "description": "This entity classifies events that affect investment products where those events originated external to your enterprise, usually by the investment product issuer or by an exchange.  Examples: - Suspension of trading - Restarting of trading - Rights issue - Stock split - Bond redemption - Bond to equ",
+    "attributeCount": 2
+  },
+  {
+    "id": 3529,
+    "name": "INVESTMENT_PRODUCT_GROUP_RISK_FACTOR",
+    "domain": "Product Management",
+    "description": "This entity contains the market risk factors associated with a group of investment products, such as all oil commodities, or all stocks in a given country, or all stocks in a given industry.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3530,
+    "name": "INVESTMENT_PRODUCT_INDEX",
+    "domain": "Product Management",
+    "description": "This entity associates an interest rate index, such as 10 year LIBOR, with an investment product and the purpose of the relationship such as for funds transfer pricing or for liquidity premium calculation.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3531,
+    "name": "INVESTMENT_PRODUCT_INDEX_PURPOSE_TYPE",
+    "domain": "Product Management",
+    "description": "This is a code for the reason the index is associated with the product such as for base funds transfer pricing and for liquidity premium calculations.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3532,
+    "name": "INVESTMENT_PRODUCT_RISK_FACTOR",
+    "domain": "Product Management",
+    "description": "This entity contains risk factors associated with the value of this investment product/instrument. Commodities are included in investment product.  Investment product can contain each individual issue/instrument or it can contain an index or grouping of issues too represent a given market (e.g., oil",
+    "attributeCount": 4
+  },
+  {
+    "id": 3533,
+    "name": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "domain": "Product Management",
+    "description": "This entity contains risk related metrics used for calculating exposures to risk where an investment is made in this security. Many of these are per the Basel II Accord.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3534,
+    "name": "INVESTMENT_PRODUCT_SUBTYPE",
+    "domain": "Product Management",
+    "description": "This minor entity converts Investment Product Subtype Cd into a description.  Examples: - Stock - Bond - Fund - Option - Future - Commodity - Currency - Interest rate index - Group or basket of products (other than fund) - Swap - Securities index - Forward",
+    "attributeCount": 2
+  },
+  {
+    "id": 3535,
+    "name": "INVESTMENT_PRODUCT_TRADE_SUBTYPE",
+    "domain": "Product Management",
+    "description": "This minor entity identifies whether this investment product is traded over an exchange.  Examples: - Nontraded investment products - Traded security",
+    "attributeCount": 2
+  },
+  {
+    "id": 3536,
+    "name": "INVESTMENT_PRODUCT_TRADING_SUSPENSION",
+    "domain": "Product Management",
+    "description": "This is an event to stop or start trading for a given financial instrument.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3537,
+    "name": "INVOICE_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity specifies the terms and conditions for the invoice. In the below example there are two feature instances associated with the invoice. One feature is the 2% discount and the other feature is payment in 20 days.  Example: - An invoice could be associated with a term group that states that",
+    "attributeCount": 4
+  },
+  {
+    "id": 3538,
+    "name": "ISIN_PRODUCT_IDENTIFIER",
+    "domain": "Product Management",
+    "description": "An International Securities Identification Number (ISIN) uniquely identifies a security. Its structure is defined in ISO 6166. Securities for which ISINs are issued include bonds, commercial paper, equities, and warrants. The ISIN code is a 12-character alphanumeric code that does not contain inform",
+    "attributeCount": 3
+  },
+  {
+    "id": 3539,
+    "name": "LIABILITY_FEATURE",
+    "domain": "Product Management",
+    "description": "This associative entity identifies the features for this liability such as the terms and conditions for a loan.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3540,
+    "name": "LISTED_PRODUCT_RELATED_ROLE_TYPE",
+    "domain": "Product Management",
+    "description": "A code for the reason one exchange listed product is related to another. For example, Product 1 is an \"underlying\" product for Product 2 as in the case where a stock issue is an underlying product for a stock option. The role in this case is \"underlying.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 3541,
+    "name": "MONEY_MARKET_PRODUCT",
+    "domain": "Product Management",
+    "description": "Debt instruments issued by private organizations, governments, governmental agencies, and which generally mature in less than a year. They are highly liquid and include Treasury bills, banker's acceptance, commercial paper, short-term tax-exempt municipal securities, and negotiable bank certificate",
+    "attributeCount": 1
+  },
+  {
+    "id": 3542,
+    "name": "MONEY_MARKET_PRODUCT_TYPE",
+    "domain": "Product Management",
+    "description": "A classification of money market products into the following  Examples: - Treasury bills - Banker's acceptance - Commercial paper - Short-term tax-exempt municipal securities and negotiable bank certificate of deposits (CDs)",
+    "attributeCount": 2
+  },
+  {
+    "id": 3543,
+    "name": "NEXT_OFFER_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity contains the features that are part of this next offer. It can include a special price/rate and special terms and conditions for this party for this product for this offer.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3544,
+    "name": "NONTRADED_INVESTMENT_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity contains all nontraded investment products, such as pension funds, that are created by the investment provider for their own customers.",
+    "attributeCount": 0
+  },
+  {
+    "id": 3545,
+    "name": "NSIN_PRODUCT_IDENTIFIER",
+    "domain": "Product Management",
+    "description": "A National Securities Identifying Number or NSIN is a generic nine-digit alphanumeric code that identifies a fungible security. The NSIN is issued by a national numbering agency (NNA) designated for that country. Regional substitute NNAs have been allocated the task of functioning as NNAs in those c",
+    "attributeCount": 2
+  },
+  {
+    "id": 3546,
+    "name": "OFFER_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity contains the terms and conditions for the OFFER. For example, open a home equity loan account via the web and receive $50. For the next 60 days, any charges to this credit line account for purchases at select merchants will have 0% interest rate.  The codification of the conditions could",
+    "attributeCount": 2
+  },
+  {
+    "id": 3547,
+    "name": "OPPORTUNITY_FEATURE",
+    "domain": "Product Management",
+    "description": "The terms and conditions that are under play as part of this deal.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3548,
+    "name": "OPPORTUNITY_PRODUCT",
+    "domain": "Product Management",
+    "description": "The products of the enterprise that are potentially of interest for this opportunity. It could represent a financing need.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3549,
+    "name": "OPPORTUNITY_PRODUCT_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity contains those features for a given product that are of interest with this opportunity.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3550,
+    "name": "OPTION_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity contains all financial products that are options including swaptions that are an option on a swap.  An option product is a tradable instrument with its own symbol. The underlying product is the subject of the option.  An option is a financial instrument that offers the buyer the right, b",
+    "attributeCount": 13
+  },
+  {
+    "id": 3551,
+    "name": "OTHER_PRODUCT_IDENTIFIER",
+    "domain": "Product Management",
+    "description": "This entity contains identifiers other than the ones specifically identified in the other subtypes.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3552,
+    "name": "OTHER_RATE_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a subtype to RATE FEATURE. This entity includes rates that are not interest based and are not fees, such as the percent coverage for health insurance. The rate may be a range of rates.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3553,
+    "name": "PACKAGE_OFFERING",
+    "domain": "Product Management",
+    "description": "This is a subtype entity to PRODUCT. A product may be a package, which is a grouping of products that can be offered. A package is also a marketable product in PRODUCT. This entity has no attributes other than the primary key but was created to show relationships that packages have specifically.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3554,
+    "name": "PATH_ANALYSIS_PRODUCT_XREF",
+    "domain": "Product Management",
+    "description": "This entity captures information regarding the relationship of items to the pages in the visitor's path analysis.  Examples: - Item added to shopping cart - Item purchased - Item removed from shopping cart - Item added to wish list - Item removed from wish list",
+    "attributeCount": 7
+  },
+  {
+    "id": 3555,
+    "name": "PAYMENT_CARD_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity contains those products that are credit cards or purchase cards. Debit cards are considered features since it is not a standalone product but could alternately be modeled as a payment card product.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3556,
+    "name": "PLANNED_PRODUCT_REVENUE",
+    "domain": "Product Management",
+    "description": "This entity tracks the planned revenue for a given product for a given time period.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3557,
+    "name": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "domain": "Product Management",
+    "description": "This entity contains those features that describe other features for a given insurable interest for a given policy.  For example, bodily injury (feature) with limit of $500,000 (feature) covers a specific car (insurable interest) for a given policy (agreement).",
+    "attributeCount": 9
+  },
+  {
+    "id": 3558,
+    "name": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "domain": "Product Management",
+    "description": "This entity tracks the cost basis for this investment product within this portfolio.  The cost basis of any investment is the original value of an asset adjusted for stock splits, dividends and capital distributions. It can be used to calculate the capital gains or loss for tax reporting purposes.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3559,
+    "name": "PORTFOLIO_PRODUCT_HOLDING",
+    "domain": "Product Management",
+    "description": "This entity contains investment products that are part of a portfolio.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3560,
+    "name": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "domain": "Product Management",
+    "description": "This entity contains the value of the investment that is part of this portfolio.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3561,
+    "name": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "domain": "Product Management",
+    "description": "This entity keeps track of the margin percentages of each Investment product in the portfolio.",
+    "attributeCount": 9
+  },
+  {
+    "id": 3562,
+    "name": "PORTFOLIO_PRODUCT_QUANTITY",
+    "domain": "Product Management",
+    "description": "This entity contains then number of units for this investment product for this portfolio.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3563,
+    "name": "PORTFOLIO_PRODUCT_TO_COA",
+    "domain": "Product Management",
+    "description": "If this financial instrument within this customer portfolio is being used as collateral for a loan and if that loan has gone into default then this financial instrument may be claimed by the bank to cover that loan. This may cause that financial instrument position to be reported on the bank's books",
+    "attributeCount": 10
+  },
+  {
+    "id": 3564,
+    "name": "PRICING_METHODOLOGY_TYPE",
+    "domain": "Product Management",
+    "description": "Specifies pricing methodology at which the claim or line item has been priced or repriced.  Examples include: - Zero pricing (not covered under contract) - Priced as billed at 100% - Priced at the standard fee schedule - Priced at a contractual percentage - Bundled pricing - Peer review pricing - Fl",
+    "attributeCount": 2
+  },
+  {
+    "id": 3565,
+    "name": "PRICING_METHOD_SUBTYPE",
+    "domain": "Product Management",
+    "description": "This minor entity identifies the types of method to price an agreement.  Examples: - Interest based - Fee based - Not applicable",
+    "attributeCount": 2
+  },
+  {
+    "id": 3566,
+    "name": "PRIMARY_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity contains those features that are at the first level. This level may or may not be further described by other features. In the model, they are represented as \"Features.\"  Examples: - No withdrawals - Seven withdrawals per month - Balance transfer offer 1 Conditions - Cash advance offer 2",
+    "attributeCount": 0
+  },
+  {
+    "id": 3567,
+    "name": "PRODUCT",
+    "domain": "Product Management",
+    "description": "This independent entity contains information about any marketable product, package, or service that you or your competitor offers that you are interested in tracking. This entity contains marketable products and packages that were, are, or will be offered. One instance is one marketable product, pac",
+    "attributeCount": 12
+  },
+  {
+    "id": 3568,
+    "name": "PRODUCT_CHANNEL_ROLE_TYPE",
+    "domain": "Product Management",
+    "description": "This is a code describing the relationship between a channel and a product such as a channel is used to market a product.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3569,
+    "name": "PRODUCT_CHANNEL_TYPE_XREF",
+    "domain": "Product Management",
+    "description": "This associative entity tracks over time those channel types that have a relationship with specific products.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3570,
+    "name": "PRODUCT_CLASS_SCHEME_TYPE",
+    "domain": "Product Management",
+    "description": "This is a generic classification scheme for products. It allows an unlimited number of ways to classify products. For example, for a bank a product could be classified based on whether it is an asset or a liability. Another classification would be if it is designed for students or seniors. Another c",
+    "attributeCount": 5
+  },
+  {
+    "id": 3571,
+    "name": "PRODUCT_CLASS_VALUE",
+    "domain": "Product Management",
+    "description": "This entity represents the various values for a given classification scheme. For example, if the classification scheme is instrument type then the values could be stock, bond, derivative, foreign exchange, or commodity. If the classification is asset or liability type then the values could be asset,",
+    "attributeCount": 10
+  },
+  {
+    "id": 3572,
+    "name": "PRODUCT_CLASS_VALUE_XREF",
+    "domain": "Product Management",
+    "description": "This entity assigns a classification value to the product that is being classified.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3573,
+    "name": "PRODUCT_COMPONENT_SHARE",
+    "domain": "Product Management",
+    "description": "If the relationship type code is \"contains\" then this subtype entity has a count and percent (representing a \"share\") that one product has with another product. For example, if the product is an investment fund (or fund of funds), which is composed of other products, then the count and percent attri",
+    "attributeCount": 2
+  },
+  {
+    "id": 3574,
+    "name": "PRODUCT_COST",
+    "domain": "Product Management",
+    "description": "This entity tracks the changes to the financial institution's product cost over time. Types of cost include cost of sale, startup costs, servicing costs, collection costs, and closing costs.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3575,
+    "name": "PRODUCT_DOCUMENT",
+    "domain": "Product Management",
+    "description": "This entity relates all the relevant documentation to a product.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3576,
+    "name": "PRODUCT_DOCUMENT_ROLE_TYPE",
+    "domain": "Product Management",
+    "description": "A code that describes the role a document has with a product such as a prospectus filed with the government for the issuance of equity or a bond.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3577,
+    "name": "PRODUCT_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This associative entity relates products to eligibilities. An eligibility characteristic is a characteristic that a customer must possess to obtain the product such as length of employment or a certain net worth.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3578,
+    "name": "PRODUCT_EVENT_ACTIVITY_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts products by an event activity type. This can make the product available for these event activity types or make it unavailable for these event activity types.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3579,
+    "name": "PRODUCT_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity associates the marketable products with features. A product can have many features and the feature can apply to various products. There is one instance for each product-feature association. Specific values for features can be in this entity if the values are not contained in one of the f",
+    "attributeCount": 11
+  },
+  {
+    "id": 3580,
+    "name": "PRODUCT_FEATURE_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity associates the product feature eligibilities with product features.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3581,
+    "name": "PRODUCT_FEATURE_ELIGIBILITY_CATEGORY_TYPE",
+    "domain": "Product Management",
+    "description": "Describes the categories of eligibilities that can be imposed for a product or feature, for example, demographic eligibility, event eligibility, or occupation eligibility.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3582,
+    "name": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "domain": "Product Management",
+    "description": "This entity identifies the customer characteristics to eligible for a product or feature. For example, income, net worth, and length employed may be eligibility criteria.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3583,
+    "name": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts product features by an event activity type. This can make the product feature available for these event activity types or make it unavailable for these event activity types.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3584,
+    "name": "PRODUCT_FEATURE_GROUP",
+    "domain": "Product Management",
+    "description": "This entity shows how a feature can be dependent on a group of features for a given product, as in the case where an interest rate is dependent on the combination of term and minimum balance for a deposit product. The balance and term features are grouped together in feature group, and the rate is a",
+    "attributeCount": 5
+  },
+  {
+    "id": 3585,
+    "name": "PRODUCT_FEATURE_LEEWAY",
+    "domain": "Product Management",
+    "description": "This associative entity defines the negotiating leeway that a job function has when deciding the terms and conditions for a product. For example, the job function may have the leeway to reduce or increase the interest rate margin by a certain percentage point or to eliminate a condition altogether.",
+    "attributeCount": 9
+  },
+  {
+    "id": 3586,
+    "name": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This associative entity restricts product features by occupation types. This can make the product feature available to these occupation codes or make it unavailable for these occupation codes.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3587,
+    "name": "PRODUCT_FEATURE_PERIL",
+    "domain": "Product Management",
+    "description": "This entity combines a product, a feature, and a cause of loss reason. Such a combination can be included in claim payments or excluded from claim payments.  Examples of exclusion are: - Accidental death benefit when the cause is not an accident - Cosmetic surgery - Self-inflicted injuries",
+    "attributeCount": 7
+  },
+  {
+    "id": 3588,
+    "name": "PRODUCT_FEATURE_RELATED",
+    "domain": "Product Management",
+    "description": "This associative entity allows for a feature-to-feature relationship on the level of product.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3589,
+    "name": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "domain": "Product Management",
+    "description": "This entity restricts product feature availability to parties with certain risk grades. This can make the product feature available to parties with these risk grades or make it unavailable to parties with these risk grades.",
+    "attributeCount": 9
+  },
+  {
+    "id": 3590,
+    "name": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts product features by score model values. This can make the product available to these score model values or make it unavailable for these score model values.",
+    "attributeCount": 10
+  },
+  {
+    "id": 3591,
+    "name": "PRODUCT_FEATURE_STATUS",
+    "domain": "Product Management",
+    "description": "This entity contains the history of the status of the relationship between product and feature, such as active, inactive, or pending closure.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3592,
+    "name": "PRODUCT_FEATURE_STATUS_TYPE",
+    "domain": "Product Management",
+    "description": "This minor entity describes the type of product feature relationship status such as active and inactive.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3593,
+    "name": "PRODUCT_FEATURE_TYPE",
+    "domain": "Product Management",
+    "description": "This minor entity contains the codes and descriptions of types of relationship between products or product packages and features.  Examples: - Mandatory features - Optional features - Descriptive features - Guideline features - Conditional features - Mandatory choice by the customer - Alternative ch",
+    "attributeCount": 2
+  },
+  {
+    "id": 3594,
+    "name": "PRODUCT_FINANCIAL_RULE",
+    "domain": "Product Management",
+    "description": "This entity relates a financial rule to a specific product to identify a rule that governs this product.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3595,
+    "name": "PRODUCT_GROUP",
+    "domain": "Product Management",
+    "description": "This independent recursive entity represents the financial institution's internal product groups in a hierarchical structure. A product group is a grouping of products or services. The grouping of product is usually organized by the financial institution to manage their many products and services in",
+    "attributeCount": 8
+  },
+  {
+    "id": 3596,
+    "name": "PRODUCT_GROUP_BASEL_1_WEIGHT",
+    "domain": "Product Management",
+    "description": "This entity contains the BIS weights for a given product group/asset balance type/combination.  Basel I Accord",
+    "attributeCount": 3
+  },
+  {
+    "id": 3597,
+    "name": "PRODUCT_GROUP_LIMIT",
+    "domain": "Product Management",
+    "description": "This entity contains limits at the product group level such as the enterprise has a limit on the amount they can loan for this product as a percent of capital in support of its risk appetite.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3598,
+    "name": "PRODUCT_GROUP_MARGIN",
+    "domain": "Product Management",
+    "description": "This entity contains the history of margin percentages that have been determined for a product group.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3599,
+    "name": "PRODUCT_GROUP_METRIC",
+    "domain": "Product Management",
+    "description": "This entity contains the various metrics that are reported about this product group at a point-in-time. Examples of metrics include market share for a line of business, and how many commercial loans closed.",
+    "attributeCount": 11
+  },
+  {
+    "id": 3600,
+    "name": "PRODUCT_GROUP_METRIC_TYPE",
+    "domain": "Product Management",
+    "description": "This entity classifies the types of product group metric, for example, market share for a line of business.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3601,
+    "name": "PRODUCT_GROUP_REASON_TYPE",
+    "domain": "Product Management",
+    "description": "The reason this grouping of products was created such as for risk management, for Basel II, or for marketing analysis.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3602,
+    "name": "PRODUCT_GROUP_RISK_GRADE",
+    "domain": "Product Management",
+    "description": "This entity contains risk grade for this product group.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3603,
+    "name": "PRODUCT_GROUP_SUBJECT",
+    "domain": "Product Management",
+    "description": "This entity contains those subjects that are product types or groups such as automobile insurance. There is one instance for each grouping of products.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3604,
+    "name": "PRODUCT_LIMIT",
+    "domain": "Product Management",
+    "description": "This entity contains limits at the product level such as the enterprise has a limit on the amount they can loan for this product as a percent of capital in support of its risk appetite.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3605,
+    "name": "PRODUCT_MARKET_SEGMENT",
+    "domain": "Product Management",
+    "description": "This entity contains information about the market segment that can be targeted for this product such as low income with good credit, senior citizens, and families with young children. The product can be related to many market segments.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3606,
+    "name": "PRODUCT_METRIC",
+    "domain": "Product Management",
+    "description": "This entity tracks any kind of metric for a product. These metrics can include amounts, counts, and rates.",
+    "attributeCount": 12
+  },
+  {
+    "id": 3607,
+    "name": "PRODUCT_METRIC_TYPE",
+    "domain": "Product Management",
+    "description": "This is the code for the type of metric such as the calculated duration for a bond.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3608,
+    "name": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER",
+    "domain": "Product Management",
+    "description": "This entity contains the minimum holding period for a group of products such as repurchase (repos) deals, other capital market transactions, and secured lending. The minimum holding period is the time that this type of instrument is to be held from the time it is bought until it is sold.  Reference",
+    "attributeCount": 6
+  },
+  {
+    "id": 3609,
+    "name": "PRODUCT_OCCUPATION_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts products by the occupation code. This can make the product available to these occupation codes or make it unavailable for these occupation codes.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3610,
+    "name": "PRODUCT_OFFER",
+    "domain": "Product Management",
+    "description": "A mapping of which PRODUCTs are involved in a specific OFFER. A PRODUCT can participate in an OFFER in two ways: (a.) something to be \"bought\" to receive an incentive (open checking and CD) and/or (b.) it forms part of the incentive (get a safe deposit box for 50%).  Note: Attributes can be added to",
+    "attributeCount": 2
+  },
+  {
+    "id": 3611,
+    "name": "PRODUCT_PACKAGE",
+    "domain": "Product Management",
+    "description": "This entity associates a marketable product with a package and shows the marketable products that make up the package. Any combination of products can be packaged into a marketable package. A marketable product can be in many packages and a package can contain many products.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3612,
+    "name": "PRODUCT_PACKAGE_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity associates a marketable product that is part of a specific product package with a feature. A product that is part of a package can have many features and the feature can apply to many products that are part of packages. There is one instance for each product-feature association.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3613,
+    "name": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "domain": "Product Management",
+    "description": "This entity contains the leeway that a job function has when negotiating a product that is part of a package.",
+    "attributeCount": 10
+  },
+  {
+    "id": 3614,
+    "name": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "domain": "Product Management",
+    "description": "This associative entity allows for a feature-to-feature relationship on the level on product package.",
+    "attributeCount": 9
+  },
+  {
+    "id": 3615,
+    "name": "PRODUCT_PACKAGE_TYPE",
+    "domain": "Product Management",
+    "description": "Classifies this product as a package (group of products as the offering) or an individual product as the offering.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3616,
+    "name": "PRODUCT_PAYMENT_OPTION",
+    "domain": "Product Management",
+    "description": "This entity identifies the payment options that are available for this product. For example, if the account/product is a credit card, then the type of payment could be minimum or full. If the account/product is for a loan, then the customer could have several choices of payment type based on repayme",
+    "attributeCount": 2
+  },
+  {
+    "id": 3617,
+    "name": "PRODUCT_PROFIT",
+    "domain": "Product Management",
+    "description": "This entity tracks the product's profit amount over time. This is a derivable result and technically should not be in a logical model. It is included here if the cost and revenue components in the model are not populated.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3618,
+    "name": "PRODUCT_RELATED",
+    "domain": "Product Management",
+    "description": "This associative entity relates products to other products. There is one instance for each relationship. A product can have many relationships with many other products, for example, product competes with product, product is an alternative to product, and product replaces product.  This structure can",
+    "attributeCount": 8
+  },
+  {
+    "id": 3619,
+    "name": "PRODUCT_RELATIONSHIP_TYPE",
+    "domain": "Product Management",
+    "description": "This minor entity identifies the relationship between two products such as competes with, alternative to, replaces, enhancement of, or marketed with.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3620,
+    "name": "PRODUCT_REVENUE",
+    "domain": "Product Management",
+    "description": "This entity identifies the revenue for a product for a time period. Types of revenue include revenue not allocated to accounts and transactions such as resale of loans to secondary market. This is a component in calculating profitability.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3621,
+    "name": "PRODUCT_REVIEW_EVENT",
+    "domain": "Product Management",
+    "description": "This entity captures information specific to product review events.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3622,
+    "name": "PRODUCT_RISK_GRADE",
+    "domain": "Product Management",
+    "description": "This entity contains risk grade assigned to product for a certain period of time.  For example, if the product offering is a home mortgage 30-year fixed interest then this is the risk grade associated with that offering.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3623,
+    "name": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "domain": "Product Management",
+    "description": "This entity restricts product availability to parties with certain risk grades. This can make the product available to parties with these risk grades or make it unavailable to parties with these risk grades.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3624,
+    "name": "PRODUCT_RISK_GRADE_RELATED",
+    "domain": "Product Management",
+    "description": "This entity relates one risk grade assessment to another risk grade assessment to identify when one risk assessment replaces or overrides another risk assessment for a product. Risk assessments done by different methods or parties can result in different assessments.  This structure allows for one a",
+    "attributeCount": 10
+  },
+  {
+    "id": 3625,
+    "name": "PRODUCT_SCORE",
+    "domain": "Product Management",
+    "description": "This entity contains the result of predictive modeling at the product level.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3626,
+    "name": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "domain": "Product Management",
+    "description": "This entity restricts products by score model values. This can make the product available to these score values or make it unavailable for these score values.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3627,
+    "name": "PRODUCT_STATUS",
+    "domain": "Product Management",
+    "description": "This entity contains the history of the status of the product.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3628,
+    "name": "PRODUCT_STATUS_TYPE",
+    "domain": "Product Management",
+    "description": "This is a code for the life cycle of this product.  Examples: - Not yet a product - Active product - Inactive/discontinued product",
+    "attributeCount": 2
+  },
+  {
+    "id": 3629,
+    "name": "PRODUCT_STRUCTURE_TYPE",
+    "domain": "Product Management",
+    "description": "This code entity identifies the point of view structure that this relationship between products represents. For example, one point of view could be a marketing structure of products, another point of view could be a finance view of the product structure and a different product structure could be for",
+    "attributeCount": 2
+  },
+  {
+    "id": 3630,
+    "name": "PRODUCT_SUBTYPE",
+    "domain": "Product Management",
+    "description": "A code used as a category discriminator to classify products.  Examples: - 1 = financial banking product - 2 = financial instrument - 3 = insurance product - 4 = investment service",
+    "attributeCount": 2
+  },
+  {
+    "id": 3631,
+    "name": "PRODUCT_TAX_STATUS",
+    "domain": "Product Management",
+    "description": "Product tax status based on country and state such as taxable or not taxable.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3632,
+    "name": "PRODUCT_TO_PRODUCT_GROUP",
+    "domain": "Product Management",
+    "description": "This associative entity relates the marketable products with the lowest level in the product grouping hierarchy. A marketable product can associate with multiple product groups and a product group can contain multiple marketable products. An example of product grouping would be to associate the mark",
+    "attributeCount": 5
+  },
+  {
+    "id": 3633,
+    "name": "PRODUCT_TO_PRODUCT_GROUP_ROLE_TYPE",
+    "domain": "Product Management",
+    "description": "The role that a product has with a grouping such as \"belongs to\" or \"is benchmark for.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 3634,
+    "name": "PRODUCT_TO_PRODUCT_IDENTIFIER",
+    "domain": "Product Management",
+    "description": "If it is know, this entity relates the product to the product identifier.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3635,
+    "name": "PRODUCT_VALUE_AT_RISK",
+    "domain": "Product Management",
+    "description": "This entity contains the calculated Value at Risk (VAR) for this instrument. For example, this would be the VAR for a stock issuance.  Value at risk (VAR) is a measure of how the market value of an asset or of a portfolio of assets is likely to decrease over a certain time period (usually over 1 day",
+    "attributeCount": 7
+  },
+  {
+    "id": 3636,
+    "name": "PRODUCT_VIEW_WEB_EVENT",
+    "domain": "Product Management",
+    "description": "This entity contains information about the product that was viewed during this web event.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3637,
+    "name": "PROJECT_TASK_RESOURCE_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity lists groups of fixed assets related to a PROJECT TASK.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3638,
+    "name": "PROMOTED_PRODUCT_EVENT",
+    "domain": "Product Management",
+    "description": "This entity captures information regarding the selection of a promoted product by the visitors.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3639,
+    "name": "PROMOTION_PRODUCT_OFFER",
+    "domain": "Product Management",
+    "description": "This entity contains information about promotion offers that are directed towards a product.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3640,
+    "name": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity contains the features that are offered as part of this product promotion offer.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3641,
+    "name": "PROPOSAL_FEATURE",
+    "domain": "Product Management",
+    "description": "Terms and conditions for this proposal that are independent of any product or service.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3642,
+    "name": "PROPOSAL_PRODUCT",
+    "domain": "Product Management",
+    "description": "The products or services being proposed.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3643,
+    "name": "PROPOSAL_PRODUCT_FEATURE",
+    "domain": "Product Management",
+    "description": "The product features, terms, and conditions that are being proposed.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3644,
+    "name": "QUANTITY_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a subtype entity to FEATURE. It contains the quantities of the unit of measure that may be assessed over a period of time.  For banking, this entity identifies the number of free teller visits that you can have over a period of time.  For insurance, this entity could identify number of denta",
+    "attributeCount": 4
+  },
+  {
+    "id": 3645,
+    "name": "QUOTATION_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity associates the quotation with features that are specific to the quotation. Examples could be to defer interest charges until account closes, or mail interest to account holder. This would include those features that are fees and where the fees for the account are different from the fees",
+    "attributeCount": 12
+  },
+  {
+    "id": 3646,
+    "name": "QUOTATION_FEATURE_RELATED",
+    "domain": "Product Management",
+    "description": "This associative entity is used to describe the second level of Feature.  Insurance example: - The quotation has as feature \"personal liability\" (Coverage) and that coverage has a limit of U.S. $5,000,000.00 and a deductible of U.S. $500.00. The coverage is specified by QUOTATION FEATURE and both li",
+    "attributeCount": 15
+  },
+  {
+    "id": 3647,
+    "name": "QUOTATION_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity tracks the products associated with a quotation.  It is possible for a quotation to be associated with more than one product/package at one time.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3648,
+    "name": "RATE_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a subtype entity to FEATURE. It consists of interest rates, fee rates, and other rates.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3649,
+    "name": "RATE_FEATURE_TYPE",
+    "domain": "Product Management",
+    "description": "A classification for the type of rate such as fixed interest rate, variable interest rate, or other rate (e.g., insurance coverage).",
+    "attributeCount": 2
+  },
+  {
+    "id": 3650,
+    "name": "REFERRAL_WEB_SITE_FEATURE_SUBTYPE",
+    "domain": "Product Management",
+    "description": "An entity used to classify referral web site features. It is used specifically to classify web site features that are distinguished from email referrals.  See EMAIL REFERRAL entity for its definition.  Examples: - Referral directory - Referral web ad",
+    "attributeCount": 2
+  },
+  {
+    "id": 3651,
+    "name": "REPORTING_PRODUCT",
+    "domain": "Product Management",
+    "description": "An aggregate PRODUCT used for reporting purposes that is different than the PRODUCT identifier that is commonly used in the enterprise",
+    "attributeCount": 2
+  },
+  {
+    "id": 3652,
+    "name": "REPORTING_PRODUCT_GROUP",
+    "domain": "Product Management",
+    "description": "The entity that indicates the product segment of the GL accounts used in financial reporting for a company.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3653,
+    "name": "SEARCH_PRODUCT_XREF",
+    "domain": "Product Management",
+    "description": "This entity captures information that provides a cross-reference between search events and the products being searched for.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3654,
+    "name": "SECONDARY_FEATURE",
+    "domain": "Product Management",
+    "description": "These are features that describe other features such as: - Spread rate of 3% - Spread rate of 3.5% - Spread rate of 4% - Coverage limit of $100,000 - Coverage limit of $150,000 - Deductible of $1000 - Deductible of $2000  In the model they are usually the second feature in the phrase \"Feature Relate",
+    "attributeCount": 0
+  },
+  {
+    "id": 3655,
+    "name": "SECURITIES_INDEX_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity represents a collection of investment products that can be used as an indicator for market performance or as a pricing index for commodities. Examples are Dow Jones Industrial Average or the S&P 500 Index.  The index itself can be traded and reported and is represented as a type of Inves",
+    "attributeCount": 0
+  },
+  {
+    "id": 3656,
+    "name": "SERVICE_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity identifies those features that are also services, for example, medical procedures, or services performed on damaged property such as car repair, towing service, or vehicle damage assessment.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3657,
+    "name": "SITE_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity contains those products that have a relationship with this site such as: - Product is sold at - Product is created at - Product is not sold at",
+    "attributeCount": 5
+  },
+  {
+    "id": 3658,
+    "name": "SITE_PRODUCT_ROLE",
+    "domain": "Product Management",
+    "description": "The role that this product has with this site such as: - Product is sold at - Product is created at - Product is not sold at",
+    "attributeCount": 2
+  },
+  {
+    "id": 3659,
+    "name": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "domain": "Product Management",
+    "description": "This entity contains the rules for generating the cash flow payments for this leg of the swap. Each leg and payment type combination refers to a set of rules that is used to generate the projected cash flow for that leg. The rules are represented as instances of Features.  A calculation engine would",
+    "attributeCount": 6
+  },
+  {
+    "id": 3660,
+    "name": "SWAP_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity contains those offers where cash flows from underlying instruments are exchanged or swapped with an agreement to reverse the exchange at a future date.  A swap is a derivative, where two counterparties exchange one stream of cash flows against another stream. These streams are called the",
+    "attributeCount": 3
+  },
+  {
+    "id": 3661,
+    "name": "TERM_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a subtype entity to FEATURE.  For banking, term is the time between the commencement and termination dates of a note, term deposit, or mortgage. This entity identifies the term values and handles a range of terms. For example, a grace period feature could be the term value of seven days. For",
+    "attributeCount": 7
+  },
+  {
+    "id": 3662,
+    "name": "TRADED_INVESTMENT_PRODUCT",
+    "domain": "Product Management",
+    "description": "This entity contains all investment products, such as securities, that are traded at OTC markets and/or stock exchanges. A security is a financial instrument (not cash or foreign exchange) that has a negotiable document backing it. This represents one financial instrument that is traded on one excha",
+    "attributeCount": 4
+  },
+  {
+    "id": 3663,
+    "name": "VARIABLE_INTEREST_RATE_FEATURE",
+    "domain": "Product Management",
+    "description": "This is a subtype entity to RATE FEATURE. This entity contains those interest rates that are tied to an index. This entity specifies the total interest, consisting of a fixed percentage (the attribute Spread Pct) plus a variable percentage (the foreign key attribute Interest Index Cd) that is tied t",
+    "attributeCount": 4
+  },
+  {
+    "id": 3664,
+    "name": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "domain": "Product Management",
+    "description": "This entity captures summary information regarding the product features associated with visitor session activities.",
+    "attributeCount": 9
+  },
+  {
+    "id": 3665,
+    "name": "WEB_PAGE_PRODUCT_XREF",
+    "domain": "Product Management",
+    "description": "This entity captures information specific to linking products to web pages. It supports environments where pages are directly connected to web pages independent of visitors or their sessions.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3666,
+    "name": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "domain": "Product Management",
+    "description": "This entity provides a cross-reference between items and the shopping experience events they are utilized in.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3667,
+    "name": "WORK_PRODUCT",
+    "domain": "Product Management",
+    "description": "This is the input or output of a step of a process. It can be a document, a phone call, an email, or a decision to take some action.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3668,
+    "name": "WORK_PRODUCT_TYPE",
+    "domain": "Product Management",
+    "description": "This is a classification of the work product such as a white paper, a process description, a product description, a product design, a phone call, an email, a decision, and more.",
+    "attributeCount": 2
+  }
+]

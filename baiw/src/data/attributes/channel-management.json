@@ -1,0 +1,4237 @@
+[
+  {
+    "entityId": 808,
+    "entityName": "ASSET_VALUATION_PURPOSE_TYPE",
+    "name": "Asset_Valuation_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 808,
+    "entityName": "ASSET_VALUATION_PURPOSE_TYPE",
+    "name": "Asset_Valuation_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 809,
+    "entityName": "ATM_CHANNEL_INSTANCE",
+    "name": "ATM_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 809,
+    "entityName": "ATM_CHANNEL_INSTANCE",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 809,
+    "entityName": "ATM_CHANNEL_INSTANCE",
+    "name": "ATM_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 809,
+    "entityName": "ATM_CHANNEL_INSTANCE",
+    "name": "ATM_Software_Release_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 809,
+    "entityName": "ATM_CHANNEL_INSTANCE",
+    "name": "ATM_Serial_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 809,
+    "entityName": "ATM_CHANNEL_INSTANCE",
+    "name": "Network_Unit_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 809,
+    "entityName": "ATM_CHANNEL_INSTANCE",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 811,
+    "entityName": "BENEFIT_PLAN_OPTION_POSITION",
+    "name": "HR_Position_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 811,
+    "entityName": "BENEFIT_PLAN_OPTION_POSITION",
+    "name": "Position_Grade_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 811,
+    "entityName": "BENEFIT_PLAN_OPTION_POSITION",
+    "name": "Position_Grade_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 811,
+    "entityName": "BENEFIT_PLAN_OPTION_POSITION",
+    "name": "Benefit_Plan_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 811,
+    "entityName": "BENEFIT_PLAN_OPTION_POSITION",
+    "name": "Benefit_Plan_Option_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 811,
+    "entityName": "BENEFIT_PLAN_OPTION_POSITION",
+    "name": "Plan_Option_Position_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 811,
+    "entityName": "BENEFIT_PLAN_OPTION_POSITION",
+    "name": "Plan_Option_Position_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 812,
+    "entityName": "BILLBOARD_CHANNEL_INSTANCE",
+    "name": "Billboard_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 813,
+    "entityName": "BOND_ISSUE_PURPOSE_TYPE",
+    "name": "Bond_Issue_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 813,
+    "entityName": "BOND_ISSUE_PURPOSE_TYPE",
+    "name": "Bond_Issue_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 816,
+    "entityName": "CALL_CENTER_TERMINAL_CHANNEL_INSTANCE",
+    "name": "Call_Center_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 816,
+    "entityName": "CALL_CENTER_TERMINAL_CHANNEL_INSTANCE",
+    "name": "Call_Center_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 816,
+    "entityName": "CALL_CENTER_TERMINAL_CHANNEL_INSTANCE",
+    "name": "Terminal_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 817,
+    "entityName": "CALL_CENTER_TYPE",
+    "name": "Call_Center_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 817,
+    "entityName": "CALL_CENTER_TYPE",
+    "name": "Call_Center_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 818,
+    "entityName": "CAMPAIGN_CHANNEL_TYPE_MULTIMEDIA_OBJECT",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 818,
+    "entityName": "CAMPAIGN_CHANNEL_TYPE_MULTIMEDIA_OBJECT",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 818,
+    "entityName": "CAMPAIGN_CHANNEL_TYPE_MULTIMEDIA_OBJECT",
+    "name": "MM_Object_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 819,
+    "entityName": "CAMPAIGN_CHANNEL_TYPE_XREF",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 819,
+    "entityName": "CAMPAIGN_CHANNEL_TYPE_XREF",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 820,
+    "entityName": "CAMPAIGN_OBJECTIVE_POSITION_TYPE",
+    "name": "Campaign_Objective_Position_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 820,
+    "entityName": "CAMPAIGN_OBJECTIVE_POSITION_TYPE",
+    "name": "Campaign_Objective_Position_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 821,
+    "entityName": "CELL_TARGET_CHANNEL_INSTANCE",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 821,
+    "entityName": "CELL_TARGET_CHANNEL_INSTANCE",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 821,
+    "entityName": "CELL_TARGET_CHANNEL_INSTANCE",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 821,
+    "entityName": "CELL_TARGET_CHANNEL_INSTANCE",
+    "name": "Target_Channel_Instance_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 822,
+    "entityName": "CHANNEL_CAPACITY",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 822,
+    "entityName": "CHANNEL_CAPACITY",
+    "name": "Capacity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 822,
+    "entityName": "CHANNEL_CAPACITY",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 822,
+    "entityName": "CHANNEL_CAPACITY",
+    "name": "Channel_Capacity_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 822,
+    "entityName": "CHANNEL_CAPACITY",
+    "name": "Channel_Capacity_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 822,
+    "entityName": "CHANNEL_CAPACITY",
+    "name": "Channel_Capacity_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 823,
+    "entityName": "CHANNEL_CHANNEL_CLASS_XREF",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 823,
+    "entityName": "CHANNEL_CHANNEL_CLASS_XREF",
+    "name": "Channel_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 823,
+    "entityName": "CHANNEL_CHANNEL_CLASS_XREF",
+    "name": "Channel_Class_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 823,
+    "entityName": "CHANNEL_CHANNEL_CLASS_XREF",
+    "name": "Channel_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 823,
+    "entityName": "CHANNEL_CHANNEL_CLASS_XREF",
+    "name": "Channel_Class_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 824,
+    "entityName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "name": "Channel_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 824,
+    "entityName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "name": "Channel_Class_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 824,
+    "entityName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "name": "Parent_Channel_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 824,
+    "entityName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "name": "Channel_Class_Scheme_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 824,
+    "entityName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "name": "Channel_Class_Scheme_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Channel_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Channel_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Parent_Channel_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Channel_Class_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Channel_Class_From_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Channel_Class_To_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Channel_Class_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Channel_Class_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 825,
+    "entityName": "CHANNEL_CLASS_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 826,
+    "entityName": "CHANNEL_COST",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 826,
+    "entityName": "CHANNEL_COST",
+    "name": "Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 826,
+    "entityName": "CHANNEL_COST",
+    "name": "Channel_Cost_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 826,
+    "entityName": "CHANNEL_COST",
+    "name": "Channel_Cost_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 826,
+    "entityName": "CHANNEL_COST",
+    "name": "Channel_Cost_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 826,
+    "entityName": "CHANNEL_COST",
+    "name": "Channel_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 827,
+    "entityName": "CHANNEL_EVENT",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 827,
+    "entityName": "CHANNEL_EVENT",
+    "name": "Channel_Event_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 827,
+    "entityName": "CHANNEL_EVENT",
+    "name": "Channel_Event_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 827,
+    "entityName": "CHANNEL_EVENT",
+    "name": "Channel_Event_Start_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 827,
+    "entityName": "CHANNEL_EVENT",
+    "name": "Channel_Event_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 827,
+    "entityName": "CHANNEL_EVENT",
+    "name": "Channel_Event_End_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 828,
+    "entityName": "CHANNEL_EVENT_REASON_TYPE",
+    "name": "Channel_Event_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 828,
+    "entityName": "CHANNEL_EVENT_REASON_TYPE",
+    "name": "Channel_Event_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 829,
+    "entityName": "CHANNEL_INSTANCE",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 829,
+    "entityName": "CHANNEL_INSTANCE",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 829,
+    "entityName": "CHANNEL_INSTANCE",
+    "name": "Channel_Instance_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 829,
+    "entityName": "CHANNEL_INSTANCE",
+    "name": "Channel_Instance_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 829,
+    "entityName": "CHANNEL_INSTANCE",
+    "name": "Channel_Instance_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 829,
+    "entityName": "CHANNEL_INSTANCE",
+    "name": "Channel_Instance_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 829,
+    "entityName": "CHANNEL_INSTANCE",
+    "name": "Convenience_Factor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 830,
+    "entityName": "CHANNEL_INSTANCE_RELATED",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 830,
+    "entityName": "CHANNEL_INSTANCE_RELATED",
+    "name": "Related_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 830,
+    "entityName": "CHANNEL_INSTANCE_RELATED",
+    "name": "Channel_Instance_Related_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 830,
+    "entityName": "CHANNEL_INSTANCE_RELATED",
+    "name": "Channel_Instance_Related_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 830,
+    "entityName": "CHANNEL_INSTANCE_RELATED",
+    "name": "Channel_Instance_Related_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 831,
+    "entityName": "CHANNEL_INSTANCE_RELATED_REASON",
+    "name": "Channel_Instance_Related_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 831,
+    "entityName": "CHANNEL_INSTANCE_RELATED_REASON",
+    "name": "Channel_Instance_Related_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 832,
+    "entityName": "CHANNEL_INSTANCE_SITE_XREF",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 832,
+    "entityName": "CHANNEL_INSTANCE_SITE_XREF",
+    "name": "Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 832,
+    "entityName": "CHANNEL_INSTANCE_SITE_XREF",
+    "name": "Channel_Instance_Site_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 832,
+    "entityName": "CHANNEL_INSTANCE_SITE_XREF",
+    "name": "Channel_Instance_Site_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 833,
+    "entityName": "CHANNEL_INSTANCE_STATUS",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 833,
+    "entityName": "CHANNEL_INSTANCE_STATUS",
+    "name": "Channel_Instance_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 833,
+    "entityName": "CHANNEL_INSTANCE_STATUS",
+    "name": "Channel_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 834,
+    "entityName": "CHANNEL_INSTANCE_SUBTYPE",
+    "name": "Channel_Instance_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 834,
+    "entityName": "CHANNEL_INSTANCE_SUBTYPE",
+    "name": "Channel_Instance_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 835,
+    "entityName": "CHANNEL_NETWORK",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 835,
+    "entityName": "CHANNEL_NETWORK",
+    "name": "Network_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 836,
+    "entityName": "CHANNEL_OPERATING_HOURS",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 836,
+    "entityName": "CHANNEL_OPERATING_HOURS",
+    "name": "Hours_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 836,
+    "entityName": "CHANNEL_OPERATING_HOURS",
+    "name": "Days_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 836,
+    "entityName": "CHANNEL_OPERATING_HOURS",
+    "name": "Channel_Hours_Change_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 837,
+    "entityName": "CHANNEL_PROCESSING_TYPE",
+    "name": "Channel_Processing_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 837,
+    "entityName": "CHANNEL_PROCESSING_TYPE",
+    "name": "Channel_Processing_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 838,
+    "entityName": "CHANNEL_PROFIT",
+    "name": "Profit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 838,
+    "entityName": "CHANNEL_PROFIT",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 838,
+    "entityName": "CHANNEL_PROFIT",
+    "name": "Channel_Profit_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 838,
+    "entityName": "CHANNEL_PROFIT",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 838,
+    "entityName": "CHANNEL_PROFIT",
+    "name": "Channel_Profit_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 838,
+    "entityName": "CHANNEL_PROFIT",
+    "name": "Channel_Profit_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 839,
+    "entityName": "CHANNEL_REPLENISHMENT",
+    "name": "Replenish_Medium_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 839,
+    "entityName": "CHANNEL_REPLENISHMENT",
+    "name": "Replenishment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 839,
+    "entityName": "CHANNEL_REPLENISHMENT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 840,
+    "entityName": "CHANNEL_STATUS_TYPE",
+    "name": "Channel_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 840,
+    "entityName": "CHANNEL_STATUS_TYPE",
+    "name": "Channel_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "name": "Channel_Processing_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "name": "Channel_Type_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "name": "Channel_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "name": "Channel_Type_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "name": "Channel_Type_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "name": "Parent_Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "name": "Channel_Type_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 842,
+    "entityName": "CHANNEL_TYPE_CAPACITY",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 842,
+    "entityName": "CHANNEL_TYPE_CAPACITY",
+    "name": "Capacity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 842,
+    "entityName": "CHANNEL_TYPE_CAPACITY",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 842,
+    "entityName": "CHANNEL_TYPE_CAPACITY",
+    "name": "Channel_Type_Capacity_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 842,
+    "entityName": "CHANNEL_TYPE_CAPACITY",
+    "name": "Channel_Type_Capacity_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 842,
+    "entityName": "CHANNEL_TYPE_CAPACITY",
+    "name": "Channel_Type_Capacity_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 843,
+    "entityName": "CHANNEL_TYPE_GROUP",
+    "name": "Channel_Type_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 843,
+    "entityName": "CHANNEL_TYPE_GROUP",
+    "name": "Channel_Type_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 844,
+    "entityName": "CHANNEL_TYPE_GROUP_XREF",
+    "name": "Channel_Type_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 844,
+    "entityName": "CHANNEL_TYPE_GROUP_XREF",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 844,
+    "entityName": "CHANNEL_TYPE_GROUP_XREF",
+    "name": "Channel_Type_Group_Xref_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 844,
+    "entityName": "CHANNEL_TYPE_GROUP_XREF",
+    "name": "Channel_Type_Group_Xref_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 845,
+    "entityName": "CHANNEL_TYPE_SITE",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 845,
+    "entityName": "CHANNEL_TYPE_SITE",
+    "name": "Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 845,
+    "entityName": "CHANNEL_TYPE_SITE",
+    "name": "Channel_Type_Site_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 845,
+    "entityName": "CHANNEL_TYPE_SITE",
+    "name": "Channel_Type_Site_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 846,
+    "entityName": "CHANNEL_TYPE_STATUS",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 846,
+    "entityName": "CHANNEL_TYPE_STATUS",
+    "name": "Channel_Type_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 846,
+    "entityName": "CHANNEL_TYPE_STATUS",
+    "name": "Channel_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 847,
+    "entityName": "CHANNEL_TYPE_SUBTYPE",
+    "name": "Channel_Type_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 847,
+    "entityName": "CHANNEL_TYPE_SUBTYPE",
+    "name": "Channel_Type_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 848,
+    "entityName": "CHANNEL_TYPE_SURVEY_RESPONSE",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 849,
+    "entityName": "CHANNEL_TYPE_USAGE",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 849,
+    "entityName": "CHANNEL_TYPE_USAGE",
+    "name": "Channel_Usage_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 850,
+    "entityName": "CHANNEL_USAGE_TYPE",
+    "name": "Channel_Usage_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 850,
+    "entityName": "CHANNEL_USAGE_TYPE",
+    "name": "Channel_Usage_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 851,
+    "entityName": "CURRENCY_POSITION_METRIC",
+    "name": "Currency_Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 851,
+    "entityName": "CURRENCY_POSITION_METRIC",
+    "name": "Position_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 851,
+    "entityName": "CURRENCY_POSITION_METRIC",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 851,
+    "entityName": "CURRENCY_POSITION_METRIC",
+    "name": "Risk_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 851,
+    "entityName": "CURRENCY_POSITION_METRIC",
+    "name": "FX_Position_Currency_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 853,
+    "entityName": "ELECTRONIC_CHANNEL_INSTANCE",
+    "name": "Electronic_Address_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 853,
+    "entityName": "ELECTRONIC_CHANNEL_INSTANCE",
+    "name": "Electronic_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 854,
+    "entityName": "EVENT_CHANNEL_INSTANCE",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 854,
+    "entityName": "EVENT_CHANNEL_INSTANCE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 854,
+    "entityName": "EVENT_CHANNEL_INSTANCE",
+    "name": "Event_Channel_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 854,
+    "entityName": "EVENT_CHANNEL_INSTANCE",
+    "name": "Event_Channel_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 854,
+    "entityName": "EVENT_CHANNEL_INSTANCE",
+    "name": "Event_Channel_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 855,
+    "entityName": "EVENT_CHANNEL_REASON",
+    "name": "Event_Channel_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 855,
+    "entityName": "EVENT_CHANNEL_REASON",
+    "name": "Event_Channel_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 856,
+    "entityName": "EXTERNAL_CLAIM_VEHICLE_DISPOSITION_STATUS_TYPE",
+    "name": "External_Claim_Vehicle_Disposition_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 856,
+    "entityName": "EXTERNAL_CLAIM_VEHICLE_DISPOSITION_STATUS_TYPE",
+    "name": "External_Claim_Vehicle_Disposition_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 857,
+    "entityName": "FINANCIAL_RULE_PURPOSE_TYPE",
+    "name": "Financial_Rule_Purpose_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 857,
+    "entityName": "FINANCIAL_RULE_PURPOSE_TYPE",
+    "name": "Financial_Rule_Purpose_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 858,
+    "entityName": "HR_POSITION",
+    "name": "HR_Position_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 858,
+    "entityName": "HR_POSITION",
+    "name": "HR_Position_Title_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 858,
+    "entityName": "HR_POSITION",
+    "name": "HR_Position_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 858,
+    "entityName": "HR_POSITION",
+    "name": "HR_Position_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 858,
+    "entityName": "HR_POSITION",
+    "name": "HR_Position_Probation_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 858,
+    "entityName": "HR_POSITION",
+    "name": "HR_Position_FLSA_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 858,
+    "entityName": "HR_POSITION",
+    "name": "Job_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 859,
+    "entityName": "HR_POSITION_RELATED",
+    "name": "HR_Position_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 859,
+    "entityName": "HR_POSITION_RELATED",
+    "name": "Related_HR_Position_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 859,
+    "entityName": "HR_POSITION_RELATED",
+    "name": "HR_Position_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 859,
+    "entityName": "HR_POSITION_RELATED",
+    "name": "HR_Position_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 859,
+    "entityName": "HR_POSITION_RELATED",
+    "name": "HR_Position_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 860,
+    "entityName": "HR_POSITION_RELATED_ROLE",
+    "name": "HR_Position_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 860,
+    "entityName": "HR_POSITION_RELATED_ROLE",
+    "name": "HR_Position_Related_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 861,
+    "entityName": "HR_POSITION_SITE",
+    "name": "HR_Position_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 861,
+    "entityName": "HR_POSITION_SITE",
+    "name": "Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 861,
+    "entityName": "HR_POSITION_SITE",
+    "name": "HR_Position_Site_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 861,
+    "entityName": "HR_POSITION_SITE",
+    "name": "HR_Position_Site_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 861,
+    "entityName": "HR_POSITION_SITE",
+    "name": "HR_Position_Site_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 862,
+    "entityName": "HR_POSITION_SITE_REASON",
+    "name": "HR_Position_Site_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 862,
+    "entityName": "HR_POSITION_SITE_REASON",
+    "name": "HR_Position_Site_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 864,
+    "entityName": "HR_POSITION_TYPE",
+    "name": "HR_Position_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 864,
+    "entityName": "HR_POSITION_TYPE",
+    "name": "HR_Position_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 865,
+    "entityName": "INSTITUTIONAL_TREATMENT",
+    "name": "Treatment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 865,
+    "entityName": "INSTITUTIONAL_TREATMENT",
+    "name": "Institutional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 866,
+    "entityName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 866,
+    "entityName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "name": "Agreement_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 866,
+    "entityName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "name": "Investment_Value_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 866,
+    "entityName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "name": "Investment_Portfolio_Position_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 866,
+    "entityName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "name": "Investment_Portfolio_Position_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 866,
+    "entityName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "name": "Investment_Portfolio_Position_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 866,
+    "entityName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Investment_Value_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Investment_Position_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Investment_Position_Calculation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Investment_Position_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Investment_Position_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Data_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 867,
+    "entityName": "INVESTMENT_POSITION",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Projected_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": false
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Investment_Position_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Investment_Position_Specific_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Investment_Position_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Start_Of_Day_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Intraday_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "End_Of_Day_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Data_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Investment_Position_Accrued_Interest_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 868,
+    "entityName": "INVESTMENT_POSITION_SPECIFIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 869,
+    "entityName": "INVESTMENT_PURPOSE_TYPE",
+    "name": "Investment_Purpose_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 869,
+    "entityName": "INVESTMENT_PURPOSE_TYPE",
+    "name": "Investment_Purpose_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 870,
+    "entityName": "IVR_ACTION",
+    "name": "IVR_Action_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 870,
+    "entityName": "IVR_ACTION",
+    "name": "IVR_Action_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 870,
+    "entityName": "IVR_ACTION",
+    "name": "IVR_Action_Route_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 870,
+    "entityName": "IVR_ACTION",
+    "name": "IVR_Action_Option_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 870,
+    "entityName": "IVR_ACTION",
+    "name": "IVR_Action_Design_Maintenance_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 870,
+    "entityName": "IVR_ACTION",
+    "name": "IVR_Action_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 870,
+    "entityName": "IVR_ACTION",
+    "name": "IVR_Action_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 871,
+    "entityName": "IVR_LEG",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 871,
+    "entityName": "IVR_LEG",
+    "name": "IVR_Leg_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 871,
+    "entityName": "IVR_LEG",
+    "name": "IVR_Transfer_Action_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 871,
+    "entityName": "IVR_LEG",
+    "name": "IVR_Leg_Router_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 871,
+    "entityName": "IVR_LEG",
+    "name": "IVR_Leg_Router_Key_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 871,
+    "entityName": "IVR_LEG",
+    "name": "IVR_Gateway_Call_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 871,
+    "entityName": "IVR_LEG",
+    "name": "IVR_Leg_Start_Action_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 871,
+    "entityName": "IVR_LEG",
+    "name": "IVR_Leg_Termination_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 872,
+    "entityName": "IVR_LEG_ACTION_TYPE",
+    "name": "IVR_Leg_Start_Action_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 872,
+    "entityName": "IVR_LEG_ACTION_TYPE",
+    "name": "IVR_Leg_Start_Action_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Leg_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Step_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Step_Start_Action_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Transfer_Action_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Termination_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Termination_Result_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Step_Transfer_Route_Label_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Step_Retry_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 873,
+    "entityName": "IVR_STEP_NAVIGATION",
+    "name": "IVR_Step_Caller_Entry_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 874,
+    "entityName": "IVR_TERMINATION_TYPE",
+    "name": "IVR_Termination_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 874,
+    "entityName": "IVR_TERMINATION_TYPE",
+    "name": "IVR_Termination_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 874,
+    "entityName": "IVR_TERMINATION_TYPE",
+    "name": "IVR_Termination_Type_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 874,
+    "entityName": "IVR_TERMINATION_TYPE",
+    "name": "IVR_Termination_Type_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 875,
+    "entityName": "JOB_TITLE_CHANNEL_TYPE",
+    "name": "Job_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 876,
+    "entityName": "KIOSK_CHANNEL_INSTANCE",
+    "name": "Kiosk_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 876,
+    "entityName": "KIOSK_CHANNEL_INSTANCE",
+    "name": "Kiosk_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 876,
+    "entityName": "KIOSK_CHANNEL_INSTANCE",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 877,
+    "entityName": "LEDGER_POSTING_STATUS",
+    "name": "Ledger_Posting_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 877,
+    "entityName": "LEDGER_POSTING_STATUS",
+    "name": "Ledger_Posting_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 878,
+    "entityName": "LIENHOLDER_POSITION_TYPE",
+    "name": "Lienholder_Position_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 878,
+    "entityName": "LIENHOLDER_POSITION_TYPE",
+    "name": "Lienholder_Position_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 879,
+    "entityName": "LOCK_BOX_CHANNEL_INSTANCE",
+    "name": "Lock_Box_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 879,
+    "entityName": "LOCK_BOX_CHANNEL_INSTANCE",
+    "name": "Post_Office_Box_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 880,
+    "entityName": "MEASUREMENT_EVENT_PURPOSE",
+    "name": "Measurement_Event_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 880,
+    "entityName": "MEASUREMENT_EVENT_PURPOSE",
+    "name": "Measurement_Event_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 881,
+    "entityName": "METRIC_PURPOSE_TYPE",
+    "name": "Metric_Purpose_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 881,
+    "entityName": "METRIC_PURPOSE_TYPE",
+    "name": "Metric_Purpose_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 882,
+    "entityName": "MODEL_PURPOSE_TYPE",
+    "name": "Model_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 882,
+    "entityName": "MODEL_PURPOSE_TYPE",
+    "name": "Model_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 883,
+    "entityName": "MODEL_RUN_PURPOSE_TYPE",
+    "name": "Model_Run_Purpose_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 883,
+    "entityName": "MODEL_RUN_PURPOSE_TYPE",
+    "name": "Model_Run_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 884,
+    "entityName": "MORTALITY_TABLE_PURPOSE",
+    "name": "Mortality_Table_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 884,
+    "entityName": "MORTALITY_TABLE_PURPOSE",
+    "name": "Mortality_Table_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 886,
+    "entityName": "OBLIGOR_BORROWING_PURPOSE_TYPE",
+    "name": "Obligor_Borrowing_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 886,
+    "entityName": "OBLIGOR_BORROWING_PURPOSE_TYPE",
+    "name": "Obligor_Borrowing_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Visitor_User_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Access_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Access_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Access_Device_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Visitor_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Language_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Geospatial_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Access_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Visitor_Alias_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Visitor_Request_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Online_Application_Response_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Mobile_Device_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "MSA_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "DMA_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "name": "Telephone_Number_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 888,
+    "entityName": "ONLINE_APPLICATION_ACCESS_AD_XREF",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 888,
+    "entityName": "ONLINE_APPLICATION_ACCESS_AD_XREF",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 888,
+    "entityName": "ONLINE_APPLICATION_ACCESS_AD_XREF",
+    "name": "Online_Application_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 888,
+    "entityName": "ONLINE_APPLICATION_ACCESS_AD_XREF",
+    "name": "Online_Application_Visitor_User_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 888,
+    "entityName": "ONLINE_APPLICATION_ACCESS_AD_XREF",
+    "name": "Online_Application_Access_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 889,
+    "entityName": "ONLINE_APPLICATION_ACCESS_SUBTYPE",
+    "name": "Online_Application_Access_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 889,
+    "entityName": "ONLINE_APPLICATION_ACCESS_SUBTYPE",
+    "name": "Online_Application_Access_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 890,
+    "entityName": "ONLINE_APPLICATION_DEVELOPER_XREF",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 890,
+    "entityName": "ONLINE_APPLICATION_DEVELOPER_XREF",
+    "name": "Online_Application_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 890,
+    "entityName": "ONLINE_APPLICATION_DEVELOPER_XREF",
+    "name": "Online_Application_Program_Developer_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 891,
+    "entityName": "ONLINE_APPLICATION_GAME_TYPE",
+    "name": "Online_Application_Game_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 891,
+    "entityName": "ONLINE_APPLICATION_GAME_TYPE",
+    "name": "Online_Application_Game_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 891,
+    "entityName": "ONLINE_APPLICATION_GAME_TYPE",
+    "name": "Online_Application_Game_Type_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 892,
+    "entityName": "ONLINE_APPLICATION_PROGRAM",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 892,
+    "entityName": "ONLINE_APPLICATION_PROGRAM",
+    "name": "Online_Application_Program_Creation_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 892,
+    "entityName": "ONLINE_APPLICATION_PROGRAM",
+    "name": "Online_Application_Program_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 892,
+    "entityName": "ONLINE_APPLICATION_PROGRAM",
+    "name": "Online_Application_Program_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 892,
+    "entityName": "ONLINE_APPLICATION_PROGRAM",
+    "name": "Online_Application_Program_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 892,
+    "entityName": "ONLINE_APPLICATION_PROGRAM",
+    "name": "Online_Application_Program_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 892,
+    "entityName": "ONLINE_APPLICATION_PROGRAM",
+    "name": "Intellectual_Property_Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 893,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_CATEGORY",
+    "name": "Online_Application_Program_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 893,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_CATEGORY",
+    "name": "Online_Application_Program_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 893,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_CATEGORY",
+    "name": "Online_Application_Subcategory_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 894,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 894,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "name": "Online_Application_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 894,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 894,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "name": "Online_Application_Program_First_Release_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 895,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_DEVICE_XREF",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 895,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_DEVICE_XREF",
+    "name": "Interactive_Device_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Genre_Source_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Online_Application_Program_Genre_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Parent_Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Parent_Genre_Source_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Parent_Program_Genre_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Online_Application_Program_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Online_Application_Program_Genre_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 896,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "name": "Program_Primary_Genre_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 897,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_METRIC",
+    "name": "Measurement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 897,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_METRIC",
+    "name": "Measurement_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 897,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_METRIC",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 897,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_METRIC",
+    "name": "Online_Application_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 897,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_METRIC",
+    "name": "Online_Application_Visitor_User_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 897,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_METRIC",
+    "name": "Online_Application_Access_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 898,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 898,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 898,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 898,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF",
+    "name": "Online_Application_Program_Page_Link_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 898,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF",
+    "name": "Online_Application_Program_Page_Link_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 899,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING",
+    "name": "Online_Application_Program_Rating_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 899,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING",
+    "name": "Online_Application_Program_Rating_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 900,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_REASON",
+    "name": "Online_Application_Program_Rating_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 900,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_REASON",
+    "name": "Online_Application_Program_Rating_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 901,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 901,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "name": "Online_Application_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 901,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 901,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "name": "Online_Application_Program_Rating_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 901,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "name": "Online_Application_Program_Rating_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 901,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "name": "Online_Application_Program_Rating_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 901,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "name": "Online_Application_Program_Rating_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 902,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RELATED",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 902,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RELATED",
+    "name": "Online_Application_Program_Related_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 902,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RELATED",
+    "name": "Online_Application_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 902,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RELATED",
+    "name": "Program_Related_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 902,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_RELATED",
+    "name": "Program_Related_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 903,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_STATUS",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 903,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_STATUS",
+    "name": "Online_Application_Program_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 903,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_STATUS",
+    "name": "Online_Application_Program_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 904,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_STATUS_TYPE",
+    "name": "Online_Application_Program_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 904,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_STATUS_TYPE",
+    "name": "Online_Application_Program_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 906,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "name": "Trait_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 906,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "name": "Online_Application_Program_Trait_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 906,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "name": "Online_Application_Program_Trait_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 906,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "name": "Online_Application_Trait_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 906,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "name": "Online_Application_Trait_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 906,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "name": "Online_Application_Trait_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 906,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 906,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 907,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_XREF",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 907,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_XREF",
+    "name": "Trait_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 907,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_XREF",
+    "name": "Program_Trait_Xref_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 907,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_XREF",
+    "name": "Online_Application_Program_Trait_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 907,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TRAIT_XREF",
+    "name": "Program_Trait_Xref_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 908,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TYPE",
+    "name": "Online_Application_Program_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 908,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_TYPE",
+    "name": "Online_Application_Program_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 909,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 909,
+    "entityName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "name": "Online_Application_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 910,
+    "entityName": "ONLINE_APPLICATION_RATING_DAYPART",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 910,
+    "entityName": "ONLINE_APPLICATION_RATING_DAYPART",
+    "name": "Online_Application_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 910,
+    "entityName": "ONLINE_APPLICATION_RATING_DAYPART",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 910,
+    "entityName": "ONLINE_APPLICATION_RATING_DAYPART",
+    "name": "Day_Of_Week_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 910,
+    "entityName": "ONLINE_APPLICATION_RATING_DAYPART",
+    "name": "Daypart_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 910,
+    "entityName": "ONLINE_APPLICATION_RATING_DAYPART",
+    "name": "Rating_Source_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 911,
+    "entityName": "ONLINE_APPLICATION_RELATED_ROLE",
+    "name": "Online_Application_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 911,
+    "entityName": "ONLINE_APPLICATION_RELATED_ROLE",
+    "name": "Online_Application_Related_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 912,
+    "entityName": "ONLINE_APPLICATION_SUBCATEGORY",
+    "name": "Online_Application_Subcategory_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 912,
+    "entityName": "ONLINE_APPLICATION_SUBCATEGORY",
+    "name": "Online_Application_Subcategory_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 913,
+    "entityName": "ONLINE_CAMPAIGN_CHARACTERISTIC",
+    "name": "Online_Campaign_Characteristic_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 913,
+    "entityName": "ONLINE_CAMPAIGN_CHARACTERISTIC",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 913,
+    "entityName": "ONLINE_CAMPAIGN_CHARACTERISTIC",
+    "name": "Online_Campaign_Characteristic_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 914,
+    "entityName": "ONLINE_CHANNEL_TYPE",
+    "name": "Online_Channel_Type_2_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 914,
+    "entityName": "ONLINE_CHANNEL_TYPE",
+    "name": "Online_Channel_Model_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 914,
+    "entityName": "ONLINE_CHANNEL_TYPE",
+    "name": "Business_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 915,
+    "entityName": "ONLINE_CHANNEL_TYPE_2",
+    "name": "Online_Channel_Type_3_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 917,
+    "entityName": "ONLINE_DOCUMENT_INFORMATION",
+    "name": "Online_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 917,
+    "entityName": "ONLINE_DOCUMENT_INFORMATION",
+    "name": "Online_Document_Title_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 917,
+    "entityName": "ONLINE_DOCUMENT_INFORMATION",
+    "name": "Online_Document_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 917,
+    "entityName": "ONLINE_DOCUMENT_INFORMATION",
+    "name": "Online_Author_Label_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 917,
+    "entityName": "ONLINE_DOCUMENT_INFORMATION",
+    "name": "Online_Document_URL_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 917,
+    "entityName": "ONLINE_DOCUMENT_INFORMATION",
+    "name": "Online_Document_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 917,
+    "entityName": "ONLINE_DOCUMENT_INFORMATION",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 917,
+    "entityName": "ONLINE_DOCUMENT_INFORMATION",
+    "name": "Compression_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 918,
+    "entityName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "name": "Online_Impression_Experienced_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 918,
+    "entityName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "name": "Recommendation_Activity_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 918,
+    "entityName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "name": "Impression_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 918,
+    "entityName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "name": "Recommendation_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 918,
+    "entityName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "name": "Impression_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 918,
+    "entityName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "name": "First_On_Page_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 918,
+    "entityName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Online_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Keyword_Phrase_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Paid_Search_Locator_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Paid_Search_Promotion_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Online_Promotion_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Online_Placement_Information_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Online_Promotion_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Online_Tracking_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Promotion_Source_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Online_Content_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 919,
+    "entityName": "ONLINE_PROMOTION",
+    "name": "Promotion_Medium_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 920,
+    "entityName": "ONLINE_PROMOTION_ATTRIBUTE",
+    "name": "Online_Promotion_Attribute_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 920,
+    "entityName": "ONLINE_PROMOTION_ATTRIBUTE",
+    "name": "Online_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 920,
+    "entityName": "ONLINE_PROMOTION_ATTRIBUTE",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 920,
+    "entityName": "ONLINE_PROMOTION_ATTRIBUTE",
+    "name": "Online_Promotion_Attribute_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 921,
+    "entityName": "ONLINE_PROMOTION_SUMMARY",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 921,
+    "entityName": "ONLINE_PROMOTION_SUMMARY",
+    "name": "Online_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 921,
+    "entityName": "ONLINE_PROMOTION_SUMMARY",
+    "name": "Web_Visit_Summary_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 921,
+    "entityName": "ONLINE_PROMOTION_SUMMARY",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 921,
+    "entityName": "ONLINE_PROMOTION_SUMMARY",
+    "name": "Online_Promotion_Summary_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 921,
+    "entityName": "ONLINE_PROMOTION_SUMMARY",
+    "name": "Total_Online_Promotion_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 921,
+    "entityName": "ONLINE_PROMOTION_SUMMARY",
+    "name": "Total_Online_Promotion_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 922,
+    "entityName": "ONLINE_PROMOTION_TYPE",
+    "name": "Online_Promotion_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 922,
+    "entityName": "ONLINE_PROMOTION_TYPE",
+    "name": "Online_Promotion_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 923,
+    "entityName": "ONLINE_PROMOTION_VISIT_XREF",
+    "name": "Online_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 923,
+    "entityName": "ONLINE_PROMOTION_VISIT_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 924,
+    "entityName": "ONLINE_RADIO_STATION",
+    "name": "Online_Radio_Station_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 924,
+    "entityName": "ONLINE_RADIO_STATION",
+    "name": "Online_Station_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 924,
+    "entityName": "ONLINE_RADIO_STATION",
+    "name": "Online_Station_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 924,
+    "entityName": "ONLINE_RADIO_STATION",
+    "name": "Broadcast_Station_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 925,
+    "entityName": "ONLINE_VISITOR_AFFILIATION_TYPE",
+    "name": "Online_Visitor_Affiliation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 925,
+    "entityName": "ONLINE_VISITOR_AFFILIATION_TYPE",
+    "name": "Online_Visitor_Affiliation_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 926,
+    "entityName": "OPPORTUNITY_PROPOSAL",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 926,
+    "entityName": "OPPORTUNITY_PROPOSAL",
+    "name": "Proposal_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 926,
+    "entityName": "OPPORTUNITY_PROPOSAL",
+    "name": "Opportunity_Proposal_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 927,
+    "entityName": "OTC_POST-TRADE_TYPE",
+    "name": "OTC_Post-trade_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 927,
+    "entityName": "OTC_POST-TRADE_TYPE",
+    "name": "OTC_Post-trade_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 929,
+    "entityName": "OVER-THE-COUNTER_TERMINAL_CHANNEL_INSTANCE",
+    "name": "Over-The-Counter_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 929,
+    "entityName": "OVER-THE-COUNTER_TERMINAL_CHANNEL_INSTANCE",
+    "name": "Terminal_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 930,
+    "entityName": "PACKAGE_CHANNEL_LINEUP",
+    "name": "Programming_Package_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 930,
+    "entityName": "PACKAGE_CHANNEL_LINEUP",
+    "name": "Package_Channel_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": false
+  },
+  {
+    "entityId": 930,
+    "entityName": "PACKAGE_CHANNEL_LINEUP",
+    "name": "Local_Access_Channel_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 930,
+    "entityName": "PACKAGE_CHANNEL_LINEUP",
+    "name": "Programming_Channel_Group_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 930,
+    "entityName": "PACKAGE_CHANNEL_LINEUP",
+    "name": "Package_Channel_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 930,
+    "entityName": "PACKAGE_CHANNEL_LINEUP",
+    "name": "Package_Channel_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 930,
+    "entityName": "PACKAGE_CHANNEL_LINEUP",
+    "name": "Multicast_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 930,
+    "entityName": "PACKAGE_CHANNEL_LINEUP",
+    "name": "Video_On_Demand_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 931,
+    "entityName": "PAGE_POSITION_TYPE",
+    "name": "Page_Position_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 931,
+    "entityName": "PAGE_POSITION_TYPE",
+    "name": "Page_Position_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 932,
+    "entityName": "PHYSICAL_MAIL_CHANNEL_INSTANCE",
+    "name": "Physical_Mail_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 932,
+    "entityName": "PHYSICAL_MAIL_CHANNEL_INSTANCE",
+    "name": "Physical_Mail_Service_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 933,
+    "entityName": "POINT-OF-SALE_CHANNEL_INSTANCE",
+    "name": "Point-of-sale_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 934,
+    "entityName": "POSITION_APPLICANT_INTERVIEW",
+    "name": "Position_Posting_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 934,
+    "entityName": "POSITION_APPLICANT_INTERVIEW",
+    "name": "Applicant_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 934,
+    "entityName": "POSITION_APPLICANT_INTERVIEW",
+    "name": "Applicant_Interview_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 934,
+    "entityName": "POSITION_APPLICANT_INTERVIEW",
+    "name": "Applicant_Interview_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 934,
+    "entityName": "POSITION_APPLICANT_INTERVIEW",
+    "name": "Applicant_Interview_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 934,
+    "entityName": "POSITION_APPLICANT_INTERVIEW",
+    "name": "Applicant_Interview_Result_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 934,
+    "entityName": "POSITION_APPLICANT_INTERVIEW",
+    "name": "Interview_Locator_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 935,
+    "entityName": "POSITION_APPLICANT_STATUS_TYPE",
+    "name": "Position_Applicant_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 935,
+    "entityName": "POSITION_APPLICANT_STATUS_TYPE",
+    "name": "Position_Applicant_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 936,
+    "entityName": "POSITION_ASSIGNMENT_STATUS",
+    "name": "Position_Assignment_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 936,
+    "entityName": "POSITION_ASSIGNMENT_STATUS",
+    "name": "Position_Assignment_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 937,
+    "entityName": "POSITION_FX_METRIC",
+    "name": "Position_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 937,
+    "entityName": "POSITION_FX_METRIC",
+    "name": "Risk_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 937,
+    "entityName": "POSITION_FX_METRIC",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 937,
+    "entityName": "POSITION_FX_METRIC",
+    "name": "FX_Position_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "HR_Position_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Position_Grade_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Position_Grade_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Position_Grade_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Position_Grade_Effective_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Position_Grade_Minimum_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Position_Grade_Midrange_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Position_Grade_Maximum_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Position_Grade_Incentive_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 938,
+    "entityName": "POSITION_GRADE",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 939,
+    "entityName": "POSITION_GRADE_TYPE",
+    "name": "Position_Grade_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 939,
+    "entityName": "POSITION_GRADE_TYPE",
+    "name": "Position_Grade_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "Position_Posting_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "Position_Posting_Open_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "Position_Posting_Close_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "Internal_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "HR_Position_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "Position_Grade_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "Position_Grade_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "Organization_Position_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 940,
+    "entityName": "POSITION_POSTING",
+    "name": "Posting_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 941,
+    "entityName": "POSITION_POSTING_APPLICANT",
+    "name": "Position_Posting_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 941,
+    "entityName": "POSITION_POSTING_APPLICANT",
+    "name": "Applicant_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 941,
+    "entityName": "POSITION_POSTING_APPLICANT",
+    "name": "Position_Application_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 941,
+    "entityName": "POSITION_POSTING_APPLICANT",
+    "name": "Referring_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 942,
+    "entityName": "POSITION_POSTING_APPLICANT_STATUS",
+    "name": "Position_Posting_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 942,
+    "entityName": "POSITION_POSTING_APPLICANT_STATUS",
+    "name": "Applicant_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 942,
+    "entityName": "POSITION_POSTING_APPLICANT_STATUS",
+    "name": "Position_Posting_Applicant_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 942,
+    "entityName": "POSITION_POSTING_APPLICANT_STATUS",
+    "name": "Position_Posting_Applicant_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 942,
+    "entityName": "POSITION_POSTING_APPLICANT_STATUS",
+    "name": "Position_Applicant_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 943,
+    "entityName": "POSITION_TRAIT_VALUE",
+    "name": "Trait_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 943,
+    "entityName": "POSITION_TRAIT_VALUE",
+    "name": "Position_Trait_Val_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 943,
+    "entityName": "POSITION_TRAIT_VALUE",
+    "name": "Position_Trait_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 943,
+    "entityName": "POSITION_TRAIT_VALUE",
+    "name": "Position_Trait_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 943,
+    "entityName": "POSITION_TRAIT_VALUE",
+    "name": "Position_Trait_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 943,
+    "entityName": "POSITION_TRAIT_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 943,
+    "entityName": "POSITION_TRAIT_VALUE",
+    "name": "Position_Trait_Value_Unit_of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 944,
+    "entityName": "POSITION_TYPE",
+    "name": "Position_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 944,
+    "entityName": "POSITION_TYPE",
+    "name": "Position_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 945,
+    "entityName": "POSSIBLE_ANSWER",
+    "name": "Answer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 945,
+    "entityName": "POSSIBLE_ANSWER",
+    "name": "Answer_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 945,
+    "entityName": "POSSIBLE_ANSWER",
+    "name": "Answer_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 945,
+    "entityName": "POSSIBLE_ANSWER",
+    "name": "Answer_Low_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 945,
+    "entityName": "POSSIBLE_ANSWER",
+    "name": "Answer_High_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 945,
+    "entityName": "POSSIBLE_ANSWER",
+    "name": "Answer_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 946,
+    "entityName": "POSTAL_CODE",
+    "name": "Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 946,
+    "entityName": "POSTAL_CODE",
+    "name": "County_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 946,
+    "entityName": "POSTAL_CODE",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 946,
+    "entityName": "POSTAL_CODE",
+    "name": "Postal_Code_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 946,
+    "entityName": "POSTAL_CODE",
+    "name": "Time_Zone_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 947,
+    "entityName": "POSTAL_CODE_JAPAN",
+    "name": "Japan_Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 947,
+    "entityName": "POSTAL_CODE_JAPAN",
+    "name": "Japan_City_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 948,
+    "entityName": "POST_OFFICE_BOX_ADDRESS",
+    "name": "Post_Office_Box_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 948,
+    "entityName": "POST_OFFICE_BOX_ADDRESS",
+    "name": "Post_Office_Box_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 948,
+    "entityName": "POST_OFFICE_BOX_ADDRESS",
+    "name": "City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 948,
+    "entityName": "POST_OFFICE_BOX_ADDRESS",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 948,
+    "entityName": "POST_OFFICE_BOX_ADDRESS",
+    "name": "Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 948,
+    "entityName": "POST_OFFICE_BOX_ADDRESS",
+    "name": "Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 948,
+    "entityName": "POST_OFFICE_BOX_ADDRESS",
+    "name": "County_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 949,
+    "entityName": "PRINT_CHANNEL_INSTANCE",
+    "name": "Print_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 950,
+    "entityName": "PROGRAMMING_CHANNEL_GROUP_TYPE",
+    "name": "Programming_Channel_Group_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 950,
+    "entityName": "PROGRAMMING_CHANNEL_GROUP_TYPE",
+    "name": "Programming_Channel_Group_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 951,
+    "entityName": "PROMOTION_CHANNEL",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 951,
+    "entityName": "PROMOTION_CHANNEL",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 952,
+    "entityName": "PROMOTION_CHANNEL_MM_OBJECT",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 952,
+    "entityName": "PROMOTION_CHANNEL_MM_OBJECT",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 952,
+    "entityName": "PROMOTION_CHANNEL_MM_OBJECT",
+    "name": "MM_Object_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 953,
+    "entityName": "PROPOSAL",
+    "name": "Proposal_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 953,
+    "entityName": "PROPOSAL",
+    "name": "Proposal_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 953,
+    "entityName": "PROPOSAL",
+    "name": "Proposal_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 953,
+    "entityName": "PROPOSAL",
+    "name": "Proposal_Submission_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 953,
+    "entityName": "PROPOSAL",
+    "name": "Proposal_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 954,
+    "entityName": "PROPOSAL_FINANCE",
+    "name": "Proposal_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 954,
+    "entityName": "PROPOSAL_FINANCE",
+    "name": "Proposal_Finance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 954,
+    "entityName": "PROPOSAL_FINANCE",
+    "name": "Proposal_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 954,
+    "entityName": "PROPOSAL_FINANCE",
+    "name": "Proposal_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 954,
+    "entityName": "PROPOSAL_FINANCE",
+    "name": "Proposal_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 954,
+    "entityName": "PROPOSAL_FINANCE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 955,
+    "entityName": "PROPOSAL_FINANCE_TYPE",
+    "name": "Proposal_Finance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 955,
+    "entityName": "PROPOSAL_FINANCE_TYPE",
+    "name": "Proposal_Finance_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 956,
+    "entityName": "PROPOSAL_STATUS",
+    "name": "Proposal_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 956,
+    "entityName": "PROPOSAL_STATUS",
+    "name": "Proposal_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 956,
+    "entityName": "PROPOSAL_STATUS",
+    "name": "Proposal_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 956,
+    "entityName": "PROPOSAL_STATUS",
+    "name": "Proposal_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 956,
+    "entityName": "PROPOSAL_STATUS",
+    "name": "Proposal_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 957,
+    "entityName": "PROPOSAL_STATUS_REASON_TYPE",
+    "name": "Proposal_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 957,
+    "entityName": "PROPOSAL_STATUS_REASON_TYPE",
+    "name": "Proposal_Status_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 958,
+    "entityName": "PROPOSAL_STATUS_TYPE",
+    "name": "Proposal_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 958,
+    "entityName": "PROPOSAL_STATUS_TYPE",
+    "name": "Proposal_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 959,
+    "entityName": "QUESTION_POSSIBLE_ANSWER",
+    "name": "Question_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 959,
+    "entityName": "QUESTION_POSSIBLE_ANSWER",
+    "name": "Answer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 959,
+    "entityName": "QUESTION_POSSIBLE_ANSWER",
+    "name": "Answer_Ranking_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 960,
+    "entityName": "RADIO_STATION_CHANNEL_INSTANCE",
+    "name": "Radio_Station_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 961,
+    "entityName": "SCENARIO_PURPOSE_TYPE",
+    "name": "Scenario_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 961,
+    "entityName": "SCENARIO_PURPOSE_TYPE",
+    "name": "Scenario_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 962,
+    "entityName": "SITE_CHANNEL_INSTANCE",
+    "name": "Site_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 962,
+    "entityName": "SITE_CHANNEL_INSTANCE",
+    "name": "Site_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 963,
+    "entityName": "SITE_PURPOSE_TYPE",
+    "name": "Site_Purpose_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 963,
+    "entityName": "SITE_PURPOSE_TYPE",
+    "name": "Site_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Social_Media_Access_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Social_Media_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Social_Media_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Social_Media_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Social_Media_Visitor_User_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Social_Media_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Social_Media_Post_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Assigned_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Post_Title_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Post_URL_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "name": "Social_Media_Post_Content_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 965,
+    "entityName": "TELEVISION_CHANNEL_INSTANCE",
+    "name": "Television_Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 967,
+    "entityName": "TIME_BAND_SCHEME_PURPOSE_TYPE",
+    "name": "Time_Band_Scheme_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 967,
+    "entityName": "TIME_BAND_SCHEME_PURPOSE_TYPE",
+    "name": "Time_Band_Scheme_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 968,
+    "entityName": "TRADE_EXECUTION_OTC_POST-TRADE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 968,
+    "entityName": "TRADE_EXECUTION_OTC_POST-TRADE",
+    "name": "OTC_Post-trade_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 969,
+    "entityName": "TRADE_PURPOSE_TYPE",
+    "name": "Trade_Purpose_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 969,
+    "entityName": "TRADE_PURPOSE_TYPE",
+    "name": "Trade_Purpose_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 970,
+    "entityName": "TREATMENT_TYPE",
+    "name": "Treatment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 970,
+    "entityName": "TREATMENT_TYPE",
+    "name": "Treatment_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 971,
+    "entityName": "WEB_SITE_DATABASE_REPOSITORY",
+    "name": "Web_Site_Database_Repository_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 971,
+    "entityName": "WEB_SITE_DATABASE_REPOSITORY",
+    "name": "Web_Site_Database_Repository_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  }
+]

@@ -1,0 +1,765 @@
+[
+  {
+    "id": 1129,
+    "name": "ACCESS_DEVICE_ACTIVATE_EVENT",
+    "domain": "Event Management",
+    "description": "A type of CONTACT EVENT whereby an ACCESS DEVICE such as a CREDIT CARD is activated using a channel such as a telephone.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1130,
+    "name": "ACCESS_DEVICE_EVENT",
+    "domain": "Event Management",
+    "description": "This entity is a subtype to EVENT and contains only those events that involve an account ACCESS DEVICE (e.g., credit, ATM, debit, smart, and mobile phone).  For purchase events using an access device such as a credit or debit card, the events could include the authorization event and the response ev",
+    "attributeCount": 5
+  },
+  {
+    "id": 1131,
+    "name": "ALERT_EVENT",
+    "domain": "Event Management",
+    "description": "This entity contains alerts to you about your customer based on other events or changes in external or internal information about your customer or their account at another institution. These alerts can come to you from an external data provider or can be from internal analysis.  These alerts can als",
+    "attributeCount": 10
+  },
+  {
+    "id": 1132,
+    "name": "ALERT_EVENT_CATEGORY",
+    "domain": "Event Management",
+    "description": "A code for the type of alert such as: - Marketing – acquisition alert - Marketing – cross-sell or up sell alert - Risk – lien filed - Risk – court legal action - Risk – bankruptcy filing - Risk – credit score change above threshold - Retention – external credit inquiry - Online banking set by custom",
+    "attributeCount": 2
+  },
+  {
+    "id": 1133,
+    "name": "ALERT_EVENT_SUBTYPE",
+    "domain": "Event Management",
+    "description": "A subtype code for the type of alert such as: - Maturity event alert - Administrative event alert - Warning alert",
+    "attributeCount": 2
+  },
+  {
+    "id": 1134,
+    "name": "ALERT_EVENT_WEIGHTING",
+    "domain": "Event Management",
+    "description": "This entity assists in tracking the weighting of an ALERT EVENT by assigning a currency amount.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1135,
+    "name": "APPLICATION_EVENT",
+    "domain": "Event Management",
+    "description": "This entity is a type of EVENT and contains those activities that involve the application for a product or service such as a loan, credit card, insurance policy, or investment account.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1136,
+    "name": "ASTRONOMICAL_EVENT_TYPE",
+    "domain": "Event Management",
+    "description": "This is a table of astronomical events of interest to the enterprise.  Examples: - Sunrise - Sunset - Twilight (civil, nautical, and astronomical) start and end",
+    "attributeCount": 2
+  },
+  {
+    "id": 1137,
+    "name": "BACK_OFFICE_EVENT",
+    "domain": "Event Management",
+    "description": "This entity contains information about financial events that occur within the enterprise and that do not enter or leave the enterprise. Examples include posting of interest, charging of fees, transferring of amounts from one customer account to another, retirement account distribution, recording of",
+    "attributeCount": 1
+  },
+  {
+    "id": 1138,
+    "name": "BANK_EVENT",
+    "domain": "Event Management",
+    "description": "This is a subtype entity to FINANCIAL EVENT and contains those events that involve only the institution's customer and the institution. An example is a cash withdrawal from a customer's account. The accounts involved are the customer's account and the institution's cash account in the general ledger",
+    "attributeCount": 1
+  },
+  {
+    "id": 1139,
+    "name": "BOFD_CHECK_EVENT",
+    "domain": "Event Management",
+    "description": "This entity is a subtype to CHECK EVENT, and contains attributes that apply only to checks received at the BOFD (Bank of First Deposit).",
+    "attributeCount": 1
+  },
+  {
+    "id": 1140,
+    "name": "CASE_EVENT",
+    "domain": "Event Management",
+    "description": "This entity contains the various events related to the case. This can include the event that triggered the case to be created (e.g., the credit card transaction that is suspect). It can also include the research events related to the case such as phone calls and email messages that support the resea",
+    "attributeCount": 3
+  },
+  {
+    "id": 1141,
+    "name": "CASE_EVENT_ROLE_TYPE",
+    "domain": "Event Management",
+    "description": "The role of the event to this case such as 'the fraudulent event,' 'research event,' and 'corrective action event.'",
+    "attributeCount": 2
+  },
+  {
+    "id": 1142,
+    "name": "CAUSAL_EVENT",
+    "domain": "Event Management",
+    "description": "This entity is a subtype to EVENT and contains those events that usually originate external to the enterprise that can cause another event. Examples of causal events are earthquake, hurricane, political uprising, and stock market crash. A causal event can be an event that will happen or has happened",
+    "attributeCount": 3
+  },
+  {
+    "id": 1143,
+    "name": "CAUSAL_EVENT_METRIC_TYPE",
+    "domain": "Event Management",
+    "description": "This describes the metric being measured such as number of casualties, number injured, and number of houses destroyed, or number of acres burned.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1144,
+    "name": "CAUSAL_EVENT_SEVERITY",
+    "domain": "Event Management",
+    "description": "This entity provides a list of possible severity codes for each causal event type being used.  Example: - Hurricane = class 1 through 5",
+    "attributeCount": 3
+  },
+  {
+    "id": 1145,
+    "name": "CAUSAL_EVENT_SUBTYPE",
+    "domain": "Event Management",
+    "description": "This is a subtype discriminator for causal events as either man-made or natural.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1146,
+    "name": "CAUSAL_EVENT_TYPE",
+    "domain": "Event Management",
+    "description": "This is a code for the type of causal event such as weather, war, stock market crash, or terrorist attack. In this context, a causal event is an external event that has an impact to the operation of the enterprise.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1147,
+    "name": "CHECK_EVENT",
+    "domain": "Event Management",
+    "description": "This entity is a subtype to FINANCIAL EVENT and contains only those events that involve checks. A check event relates to a transaction between two financial institutions.  The account number in this entity is the customer account involved for BOFD banks, or will be involved for home banks. This is t",
+    "attributeCount": 3
+  },
+  {
+    "id": 1148,
+    "name": "CHECK_EVENT_TYPE",
+    "domain": "Event Management",
+    "description": "This minor entity identifies the different types of check events.  Examples: - 1 = check at BOFD event (Bank of First Deposit) - 2 = check at home bank event",
+    "attributeCount": 2
+  },
+  {
+    "id": 1149,
+    "name": "CLAIM_AUTHORIZATION_EVENT",
+    "domain": "Event Management",
+    "description": "This entity relates the claim authorizations to the health care services review request for review and response events that it is related to.  An example is the incident event that caused the need for the authorization of services.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1150,
+    "name": "CLAIM_AUTHORIZATION_EVENT_ROLE",
+    "domain": "Event Management",
+    "description": "This entity identifies the role that an event can play with the claim authorization, for example, \"is the causing event.\" The code for the type of association between the claim and the asset, such as the object of the claim, or replacement asset while the damaged asset is being repaired.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1151,
+    "name": "CLAIM_EVENT",
+    "domain": "Event Management",
+    "description": "This entity contains those events that are related to claims. Although many events will be related to only one claim, some events may be related to multiple claims.  For example, in health care, one payout event can be associated with many claims.  This entity will relate events such as the payout m",
+    "attributeCount": 3
+  },
+  {
+    "id": 1152,
+    "name": "CLAIM_EVENT_ROLE",
+    "domain": "Event Management",
+    "description": "Identifies the role that an event can have with the claim.  Examples: - Is payment for - Is status request for",
+    "attributeCount": 2
+  },
+  {
+    "id": 1153,
+    "name": "CONSENT_EVENT",
+    "domain": "Event Management",
+    "description": "A type of customer-initiated EVENT that caused a privacy preference to change for a customer or a customer's account. This Event could be a response to a request initiated by the enterprise to understand a customer's preference for how information is to be used about them or their accounts.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1154,
+    "name": "CUSTOM_EVENT_INFORMATION",
+    "domain": "Event Management",
+    "description": "This entity captures information specific to system defined custom events. These are events configured by the web site to capture information unique to specific visitor event types.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1155,
+    "name": "CUSTOM_PAGE_VIEW_EVENT",
+    "domain": "Event Management",
+    "description": "More detailed information regarding a user-defined event is captured in this entity.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1156,
+    "name": "EVENT",
+    "domain": "Event Management",
+    "description": "A history of internal or external situations that are of business significance to the enterprise. Examples of events may be a contact with a party, the issuance of a statement, or even a geographic occurrence such as a hurricane or earthquake. Events will be used for such purposes as tracking custom",
+    "attributeCount": 10
+  },
+  {
+    "id": 1157,
+    "name": "EVENT_ACTIVITY_TYPE",
+    "domain": "Event Management",
+    "description": "This minor entity describes the event activity type at the lowest level such as deposit, withdrawal, balance inquiry, stamp purchases, and credit card payment. Income and interest expenses can be derived from the events in the model. Noninterest expenses are allocated and are not derivable from even",
+    "attributeCount": 3
+  },
+  {
+    "id": 1158,
+    "name": "EVENT_CLASS_SCHEME_TYPE",
+    "domain": "Event Management",
+    "description": "This minor entity describes the schemes for classifying events. Examples of schemes include: - Channel transacted - Product the transaction applies to - Time of day - Location of transaction - Owner of channel – on us or not on us - Financial or not financial - Purpose of transaction - Line of busin",
+    "attributeCount": 5
+  },
+  {
+    "id": 1159,
+    "name": "EVENT_CLASS_VALUE",
+    "domain": "Event Management",
+    "description": "This is a code for the value for a given scheme.  For example, if the scheme is to classify the transaction by banking transactions then some possible values could be withdrawal and deposit.  This entity also allows you to create a hierarchy of values where one is at a higher level than another.",
+    "attributeCount": 10
+  },
+  {
+    "id": 1160,
+    "name": "EVENT_CONTENT",
+    "domain": "Event Management",
+    "description": "This entity identifies the type of medium that was passed from the customer to the financial institution and back from the financial institution to the customer.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1161,
+    "name": "EVENT_CONTENT_ITEM",
+    "domain": "Event Management",
+    "description": "This entity identifies the cash denomination for a given event and medium. For example, if the customer deposited $100 in cash consisting of three $20 bills and four $10 bills, this would identify the total amount of each denomination. One instance would be the $20 denomination and the other instanc",
+    "attributeCount": 5
+  },
+  {
+    "id": 1162,
+    "name": "EVENT_COST",
+    "domain": "Event Management",
+    "description": "This entity identifies costs at the activity level. An activity may have more than one cost associated with it. These are fully burdened costs that are used to calculate profitability.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1163,
+    "name": "EVENT_DOCUMENT",
+    "domain": "Event Management",
+    "description": "This entity identifies the documents involved in an event such as a check, a claim submittal form, a deposit slip, and an application form.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1164,
+    "name": "EVENT_DOCUMENT_ROLE",
+    "domain": "Event Management",
+    "description": "This entity contains the role that the document has in the event such as the document is attached to this event or the document is the subject of this event.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1165,
+    "name": "EVENT_EVENT_CLASS_XREF",
+    "domain": "Event Management",
+    "description": "This entity relates a classification value for a given classification scheme to the event that is being classified.  For a given classification scheme an event can have only one value at one point-in-time.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1166,
+    "name": "EVENT_FORECAST_METRIC",
+    "domain": "Event Management",
+    "description": "This entity contains forecasted metrics about an event. For example, if the event is a weather alert or a major incident then the forecast would be amount of rainfall, wind speed, barometric pressure, and snowfall amount.",
+    "attributeCount": 11
+  },
+  {
+    "id": 1167,
+    "name": "EVENT_GROUP",
+    "domain": "Event Management",
+    "description": "This entity identifies a group of events that have some meaning for the financial institution such as session, transaction, or issue. All these are ways of grouping events together for different purposes.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1168,
+    "name": "EVENT_GROUP_TYPE",
+    "domain": "Event Management",
+    "description": "This minor entity defines the different ways that events can be grouped together. Events can be grouped into transactions, sessions, and issues.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1169,
+    "name": "EVENT_GROUP_XREF",
+    "domain": "Event Management",
+    "description": "This associative entity relates an event to groups of events. An event can be a part of many groups, and a group consists of many events.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1170,
+    "name": "EVENT_MEDIUM_TYPE",
+    "domain": "Event Management",
+    "description": "A code for the type of medium involved in the exchange such as base currency cash, nonbase currency cash, check, money order, and electronic.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1171,
+    "name": "EVENT_METRIC",
+    "domain": "Event Management",
+    "description": "This entity contains a further breakdown of the various amounts, counts, rates, and percents associated with an event such as an amount that applies to the principal component of an account or the amount that applies to the income component of the account.  If you do detailed activity-based costing,",
+    "attributeCount": 8
+  },
+  {
+    "id": 1172,
+    "name": "EVENT_METRIC_TYPE",
+    "domain": "Event Management",
+    "description": "A code for the types of metrics at the event level.  For account events, this could include fees, taxes, and commission associated with a transaction.  For back office, this can include principal amount or income amount.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1173,
+    "name": "EVENT_MULTIMEDIA_OBJECT",
+    "domain": "Event Management",
+    "description": "This entity relates multimedia objects to events. It associates such objects as letters, brochures and other material sent or received from the customer to be associated with the event.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1174,
+    "name": "EVENT_MULTIMEDIA_REASON",
+    "domain": "Event Management",
+    "description": "This is the role that a MULTIMEDIA OBJECT fills when related to an EVENT such as a photo obtained during a claim event or transmitted as part of a claim, a video received from a satellite, or video from a street camera or car dashboard camera.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1175,
+    "name": "EVENT_REASON",
+    "domain": "Event Management",
+    "description": "The reason an event occurred.  Examples: - A call center contact event occurred because of a customer billing inquiry, or a fee charge can happen to a bank account because of an overdrawn account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1176,
+    "name": "EVENT_RELATED",
+    "domain": "Event Management",
+    "description": "A history of the relationships that exist between separate events. For example, one event is the follow-up to another event.  This associative entity relates events to other events. There is one instance for each relationship. The Event Related Reason Cd describes the relationship type between event",
+    "attributeCount": 6
+  },
+  {
+    "id": 1177,
+    "name": "EVENT_RELATED_REASON",
+    "domain": "Event Management",
+    "description": "This minor entity describes the type of relationship between the two events such as one contact that is followed up by another contact.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1178,
+    "name": "EVENT_SCORE",
+    "domain": "Event Management",
+    "description": "This entity contains score information based on a calculation that was triggered by this event. For example, if a customer is withdrawing money at an ATM and has an overdraft situation, a score may be calculated while the customer is at the ATM to determine the response that could vary by customer a",
+    "attributeCount": 4
+  },
+  {
+    "id": 1179,
+    "name": "EVENT_SITE",
+    "domain": "Event Management",
+    "description": "This entity associates an event such as an incident or a claim with a site.  For example, if the event is an earthquake then these might be the sites affected.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1180,
+    "name": "EVENT_SITE_REASON",
+    "domain": "Event Management",
+    "description": "The role this site has with this event such as \"occurred at\" or \"affected.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 1181,
+    "name": "EVENT_STATUS",
+    "domain": "Event Management",
+    "description": "A history of the status of this event over time.  Examples: - A credit card charge request event may be pending approval, approved, rejected, and accepted.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1182,
+    "name": "EVENT_STATUS_REASON",
+    "domain": "Event Management",
+    "description": "This minor entity describes the reason for the event status. For example, if the event status is rejected, the event status reason will describe the reason the event was rejected. Reasons include insufficient funds, credit limit exceeded, and card reported as stolen.  Other examples are: - The ATM w",
+    "attributeCount": 2
+  },
+  {
+    "id": 1183,
+    "name": "EVENT_STATUS_TYPE",
+    "domain": "Event Management",
+    "description": "This minor entity describes the event status such as completed, not completed, pending, in progress, suspended, canceled, abandoned, and refused.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1184,
+    "name": "EVENT_SUBTYPE",
+    "domain": "Event Management",
+    "description": "This is the discriminator that identifies the subtype of EVENT. For example, an event many be an agreement event, or an agreement group event, or an application event, or a quotation event, or a causal event. An event may also be none of these types.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1185,
+    "name": "EVENT_TEXT",
+    "domain": "Event Management",
+    "description": "This entity contains textual messages associated with this event. These can include bank-to-bank instructions, person-to-person instructions, and call center notes. One event can have many types of text messages.  For events, we allow more than one text message for the same event for the same type o",
+    "attributeCount": 5
+  },
+  {
+    "id": 1186,
+    "name": "EVENT_TEXT_SECTION",
+    "domain": "Event Management",
+    "description": "This entity is the link to event text unstructured data.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1187,
+    "name": "FINANCIAL_EVENT",
+    "domain": "Event Management",
+    "description": "This is a subtype entity of EVENT. This entity contains all events involved with the financial institution that are of a financial nature regardless of whether an account is involved. It includes maintenance transactions such as interest charges or fee assessments. The involved customer is either th",
+    "attributeCount": 8
+  },
+  {
+    "id": 1188,
+    "name": "FINANCIAL_EVENT_AMOUNT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding the monetary amount information associated with a financial event. There is one instance for each amount for each amount type for each amount date.",
+    "attributeCount": 10
+  },
+  {
+    "id": 1189,
+    "name": "FINANCIAL_EVENT_AMOUNT_TYPE",
+    "domain": "Event Management",
+    "description": "This entity captures information that classifies the types of financial event amounts.  Examples: - Adjusted amount – the amount adjusted against this collection - Applied amount – the amount applied against this collection - Credited amount – the amount credited against this collection - In dispute",
+    "attributeCount": 2
+  },
+  {
+    "id": 1190,
+    "name": "FINANCIAL_EVENT_TYPE",
+    "domain": "Event Management",
+    "description": "A code for the type of financial event such as deposit, withdrawal, funds transfer, payment, settlement, and cashing a check.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1191,
+    "name": "FOREIGN_EXCHANGE_EVENT",
+    "domain": "Event Management",
+    "description": "This entity contains the destination currency for a foreign exchange event. The source currency is in INVESTMENT PRODUCT EVENT.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1192,
+    "name": "FORM_FIELD_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding visitor access to specific fields within a form while visiting the web site.",
+    "attributeCount": 14
+  },
+  {
+    "id": 1193,
+    "name": "GEOSPATIAL_POINT_MEASUREMENT_EVENT",
+    "domain": "Event Management",
+    "description": "This entity tracks the movement of things. For example, it can track the various locations where a motor vehicle or vessel is driving through as reported by the on-board monitoring device or a sensor device. It contains both places through which it is driven and where it is parked. One instance is o",
+    "attributeCount": 3
+  },
+  {
+    "id": 1194,
+    "name": "HOME_BANK_CHECK_EVENT",
+    "domain": "Event Management",
+    "description": "This entity is a subtype to CHECK EVENT, and contains attributes that apply only to checks received at the home bank. These would typically be withdrawal events against the payer's account associated with this event.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1195,
+    "name": "INTERACTION_EVENT",
+    "domain": "Event Management",
+    "description": "Captures information regarding the visitor interaction activities. Activities include things such as posting messages on web pages.",
+    "attributeCount": 12
+  },
+  {
+    "id": 1196,
+    "name": "INTERACTION_EVENT_IMPRESSION_XREF",
+    "domain": "Event Management",
+    "description": "This entity links delivered ads to interactive events. It captures information regarding ads delivered during interaction events.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1197,
+    "name": "INTERBANK_EVENT",
+    "domain": "Event Management",
+    "description": "This is a subentity to FINANCIAL EVENT and contains information about a money transfer between an account at your financial institution and an account in a different financial institution. Possibly a clearinghouse account is involved.  If you are using the ACCOUNT entity to contain accounts outside",
+    "attributeCount": 2
+  },
+  {
+    "id": 1198,
+    "name": "INTERNAL_SEARCH_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding internal web site searches.",
+    "attributeCount": 13
+  },
+  {
+    "id": 1199,
+    "name": "INTERNAL_SEARCH_EVENT_XREF",
+    "domain": "Event Management",
+    "description": "This entity captures information linking search events to the search fields being referenced by the search event.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1200,
+    "name": "INTRABANK_EVENT",
+    "domain": "Event Management",
+    "description": "This is a subentity to FINANCIAL EVENT and contains information about money being transferred from a customer's account to an account within the same financial institution.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1201,
+    "name": "LEGAL_ACTION_EVENT",
+    "domain": "Event Management",
+    "description": "This entity contains any activities related to a legal action such as its creation, closure, court appearances, and settlement activities.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1202,
+    "name": "MAN-MADE_EVENT",
+    "domain": "Event Management",
+    "description": "This includes all causal events that are man-made events.  Examples: - Sporting events - Car accidents - Vandalism - Riots - Political events - Economic events (country credit default, stock market crash) - Parades - Oil spill",
+    "attributeCount": 1
+  },
+  {
+    "id": 1203,
+    "name": "MATURITY_EVENT_ALERT",
+    "domain": "Event Management",
+    "description": "This entity is an alert that an instrument or investment transaction/agreement has matured. This can include bonds issued by your organization that are due for principal payment. It can include maturing of time deposit accounts. There is one instance for each maturing contract. This is used for Trea",
+    "attributeCount": 1
+  },
+  {
+    "id": 1204,
+    "name": "MEASUREMENT_EVENT",
+    "domain": "Event Management",
+    "description": "This entity identifies an EVENT that captures the results of taking a MEASUREMENT. Planned MEASUREMENT EVENTs can be used to schedule such activities as monitoring, maintenance, and/or repair. Examples of MEASUREMENT EVENTs can happen at goods receipt inspection, production batch quality testing, ne",
+    "attributeCount": 3
+  },
+  {
+    "id": 1205,
+    "name": "MEASUREMENT_EVENT_MEASURE",
+    "domain": "Event Management",
+    "description": "This entity identifies all of the MEASUREMENTs that were obtained during a MEASUREMENT EVENT.  This could be the value for a reading or test or the actual conditions at the time of the reading or test.  Examples for measurements that are vehicle movement related: - Speed: The speed of the motor vehi",
+    "attributeCount": 7
+  },
+  {
+    "id": 1206,
+    "name": "MEASUREMENT_EVENT_MEASURE_TYPE",
+    "domain": "Event Management",
+    "description": "MEASUREMENT EVENT MEASURE TYPE identifies whether the MEASUREMENT EVENT MEASURE represents a test/reading or the actual conditions at the time of the MEASUREMENT EVENT such as actual humidity or temperature.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1207,
+    "name": "MEASUREMENT_EVENT_RESULT",
+    "domain": "Event Management",
+    "description": "This entity captures the actual STANDARD RESULT SET(s) attained during a MEASUREMENT EVENT.  Examples: - A blood test could result in readings of white blood cell count and a platelet count. - When an inspection is taken, the results could be both the actual cube measurement and the actual weight.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1208,
+    "name": "MEASUREMENT_EVENT_RESULT_TYPE",
+    "domain": "Event Management",
+    "description": "This entity allows for the classification of a result from a MEASUREMENT EVENT. For example, in semiconductor manufacturing, typical types could include bin or parametric. For a given item instance, thousands of parametric results are collected – one result for each unique parameter. Based on these",
+    "attributeCount": 2
+  },
+  {
+    "id": 1209,
+    "name": "MEASUREMENT_EVENT_TYPE",
+    "domain": "Event Management",
+    "description": "This entity defines the types of MEASUREMENT EVENT.  Examples: - Goods receipt inspection - Production batch quality testing - New product introduction experiments - Truckload examination - Customer diagnostic testing - Reseller receipt inspections  For on board diagnostic codes/reading, examples co",
+    "attributeCount": 2
+  },
+  {
+    "id": 1210,
+    "name": "NATURAL_EVENT",
+    "domain": "Event Management",
+    "description": "This is an event that occurs naturally and can include weather, astronomical, animal, or geographic events such as: - Hurricane - Tornado - Solar flare - Rain - Snow - Wind - Earthquake - Fire - Landslide - Animals or insects",
+    "attributeCount": 0
+  },
+  {
+    "id": 1211,
+    "name": "NETWORK_ACCESS_DEVICE_EVENT",
+    "domain": "Event Management",
+    "description": "This associative entity identifies the networks that were used during access device-initiated event. An access device event may involve many networks between the times the access device is inserted until a response is received.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1212,
+    "name": "NETWORK_SERVICE_EVENT",
+    "domain": "Event Management",
+    "description": "NETWORK SERVICE EVENT defines the EVENTs that involve using a network service for activities such as card validation, fraud checking, and interchange usage. For fraud checking, there is a response from the network provider that the transaction is or is not fraudulent. The response will be a differen",
+    "attributeCount": 2
+  },
+  {
+    "id": 1213,
+    "name": "PAGE_EVENT_STATUS_TYPE",
+    "domain": "Event Management",
+    "description": "The status of an interaction task, for example, success, or failure.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1214,
+    "name": "PROJECT_TASK_TRAINING_EVENT",
+    "domain": "Event Management",
+    "description": "Contains project task training events when a training event is caused by a project request.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1215,
+    "name": "PURCHASE_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding purchases made by visitors during their shopping experience.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1216,
+    "name": "REBATE_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding visitor rebate events.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1217,
+    "name": "RECOMMENDATION_EVENT",
+    "domain": "Event Management",
+    "description": "This entity contains a record for each recommendation that was made by the recommendation engine. (This entity is present to support integration with recommendation engines and does not imply that internal functions will serve as a recommendation engine.) The information contained in this entity is",
+    "attributeCount": 3
+  },
+  {
+    "id": 1218,
+    "name": "SEARCH_EVENT_FIELD",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding the fields utilized during searches.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1219,
+    "name": "SERVICE_REQUEST_EVENT",
+    "domain": "Event Management",
+    "description": "This entity relates a service request to events such as submitting the request and closing the request.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1220,
+    "name": "SESSION_EVENT_INFORMATION",
+    "domain": "Event Management",
+    "description": "This entity captures visitor event information linked to a web page that is different from the one being viewed at the time of the event. This enables capturing session event information tied to a specific web page but not necessarily one that was viewed during the visitor's session.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1221,
+    "name": "SHOPPING_CART_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information specific to shopping experience product view events.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1222,
+    "name": "TAX_LOT_EVENT",
+    "domain": "Event Management",
+    "description": "These are the events that affect the creation or the metrics of a tax lot. This can include buy orders, sell orders, and corporate actions that change the quantity of shares such as a stock split.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1223,
+    "name": "TRAINING_EVENT",
+    "domain": "Event Management",
+    "description": "The delivery of a COURSE SCHEDULED to one or more individuals.  Note: The training event may be a formally scheduled class offered to multiple students with one or more Instructors or may be \"at will\" and self-guided by a single student.  Examples: - Part 1 of a data warehousing course offered to 30",
+    "attributeCount": 3
+  },
+  {
+    "id": 1224,
+    "name": "TRAVEL_EVENT",
+    "domain": "Event Management",
+    "description": "This is a subtype entity of EVENT. This entity contains additional information about a TRAVEL EVENT that is commonly needed by credit card issuers.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1225,
+    "name": "TRAVEL_PLAN_EVENT",
+    "domain": "Event Management",
+    "description": "This contains the events related to the travel plan such as setting it up, changing it, and deleting it.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1226,
+    "name": "UNIT_DISTRIBUTION_EVENT",
+    "domain": "Event Management",
+    "description": "This entity contains all investment product events that cause a distribution or redistribution of investment product units within a customer's portfolio or within your financial institution's holdings.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1227,
+    "name": "VISITOR_INTERACTION_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding an event being experienced by the visitor. Interaction events can be either session based or web page view based.  Session based events are: - Web campaign - Media player - Web custom - Web product view - Web purchase - Web Shopping cart - Conversion - Reco",
+    "attributeCount": 8
+  },
+  {
+    "id": 1228,
+    "name": "VISITOR_INTERACTION_EVENT_SUBTYPE",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding the various types of visitor interaction events. Visitor interaction events can be either session based or web page view based.  Session based events are: - Audio play - Web campaign - Media player - Web custom - Web product view - Web purchase - Game play",
+    "attributeCount": 2
+  },
+  {
+    "id": 1229,
+    "name": "WEB_DOCUMENT_EVENT",
+    "domain": "Event Management",
+    "description": "This entity identifies documents or forms that were accessed during the web page view.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1230,
+    "name": "WEB_EVENT_DETAIL",
+    "domain": "Event Management",
+    "description": "Links name/value pairs to the events associated with the name/value pair entry.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1231,
+    "name": "WEB_FORM_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding visitor access to forms while visiting the web site.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1232,
+    "name": "WEB_PAGE_EVENT_INFORMATION",
+    "domain": "Event Management",
+    "description": "This entity captures visitor event information associated with the page being viewed. It captures information common to all page events.  Possible page events are: - Normal - Forms - Forms field - Download - Custom - Internal search",
+    "attributeCount": 12
+  },
+  {
+    "id": 1233,
+    "name": "WEB_SCENARIO_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding custom scenario events. Scenario events capture information regarding procedural steps exercised by visitors.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1234,
+    "name": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding visitor shopping experiences; these include shopping cart activity, wish list, product view, and purchase events.  Possible shopping experience events types are: - Shopping cart - Product view - Purchase - Wish list  Possible functions performed for the abo",
+    "attributeCount": 12
+  },
+  {
+    "id": 1235,
+    "name": "WEB_SHOPPING_EXPERIENCE_EVENT_SUBTYPE",
+    "domain": "Event Management",
+    "description": "This entity captures information regarding the type of shopping cart event the visitor experienced.  Possible shopping experience events types are: - Shopping cart - Product view - Purchase - Wish list",
+    "attributeCount": 2
+  },
+  {
+    "id": 1236,
+    "name": "WISH_LIST_EVENT",
+    "domain": "Event Management",
+    "description": "This entity captures information specific to shopping experience wish list events.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1237,
+    "name": "WORK_PROCESS_EVENT",
+    "domain": "Event Management",
+    "description": "These are the events that are related to the work process such as the event that triggered the work process (such as the filing of a claim or the default on a loan). An event could trigger many processes.",
+    "attributeCount": 2
+  }
+]

@@ -1,0 +1,5875 @@
+[
+  {
+    "entityId": 578,
+    "entityName": "ADVERTISEMENT_SPOT_TYPE",
+    "name": "Advertisement_Spot_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 578,
+    "entityName": "ADVERTISEMENT_SPOT_TYPE",
+    "name": "Advertisement_Spot_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 579,
+    "entityName": "ADVERTISEMENT_USAGE_INFORMATION",
+    "name": "Programming_Package_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 579,
+    "entityName": "ADVERTISEMENT_USAGE_INFORMATION",
+    "name": "Package_Channel_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": false
+  },
+  {
+    "entityId": 579,
+    "entityName": "ADVERTISEMENT_USAGE_INFORMATION",
+    "name": "Online_Impression_Experienced_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 579,
+    "entityName": "ADVERTISEMENT_USAGE_INFORMATION",
+    "name": "Receiver_Usage_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Ad_Campaign_Objective_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Interest_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Audience_Reach_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Ad_Dimension_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Unit_Size_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Display_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Unit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Media_Mix_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Research_Source_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Ad_Sponsorship_Program_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Ad_Sponsorship_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Ad_Color_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Position_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Objective_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Objective_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Objective_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Objective_Day_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Positioning_Offered_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Objective_Target_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Program_Dependent_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Total_Budget_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "name": "Campaign_Monthly_Budget_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 581,
+    "entityName": "AD_CREATIVE",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 581,
+    "entityName": "AD_CREATIVE",
+    "name": "MM_Object_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 582,
+    "entityName": "AD_DELIVERY_TYPE",
+    "name": "Ad_Delivery_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 582,
+    "entityName": "AD_DELIVERY_TYPE",
+    "name": "Ad_Delivery_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 583,
+    "entityName": "AD_EVENT",
+    "name": "Page_Ad_Displayed_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 583,
+    "entityName": "AD_EVENT",
+    "name": "Ad_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 583,
+    "entityName": "AD_EVENT",
+    "name": "Web_Site_Breadcrumb_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 583,
+    "entityName": "AD_EVENT",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 583,
+    "entityName": "AD_EVENT",
+    "name": "Online_Impression_Experienced_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 584,
+    "entityName": "AD_EVENT_TYPE",
+    "name": "Ad_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 584,
+    "entityName": "AD_EVENT_TYPE",
+    "name": "Ad_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 585,
+    "entityName": "AD_GROUP_PROMOTION_XREF",
+    "name": "Ad_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 585,
+    "entityName": "AD_GROUP_PROMOTION_XREF",
+    "name": "Online_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 586,
+    "entityName": "AD_IDENTIFIER",
+    "name": "Ad_Identifier_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 586,
+    "entityName": "AD_IDENTIFIER",
+    "name": "Ad_Identifier_Definition_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 586,
+    "entityName": "AD_IDENTIFIER",
+    "name": "Ad_Identifier_Prefix_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 586,
+    "entityName": "AD_IDENTIFIER",
+    "name": "Ad_Identifier_Locked_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 586,
+    "entityName": "AD_IDENTIFIER",
+    "name": "Ad_Identifier_Sequence_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 586,
+    "entityName": "AD_IDENTIFIER",
+    "name": "Ad_Identifier_Overflow_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 586,
+    "entityName": "AD_IDENTIFIER",
+    "name": "Ad_Identifier_Creation_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 586,
+    "entityName": "AD_IDENTIFIER",
+    "name": "Ad_Identifier_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 587,
+    "entityName": "AD_IDENTIFIER_DEFINITION_TYPE",
+    "name": "Ad_Identifier_Definition_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 587,
+    "entityName": "AD_IDENTIFIER_DEFINITION_TYPE",
+    "name": "Ad_Identifier_Definition_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 588,
+    "entityName": "AD_IDENTIFIER_PREFIX_TYPE",
+    "name": "Ad_Identifier_Prefix_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 588,
+    "entityName": "AD_IDENTIFIER_PREFIX_TYPE",
+    "name": "Ad_Identifier_Prefix_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 589,
+    "entityName": "AD_IMPRESSION_SUMMARY",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 589,
+    "entityName": "AD_IMPRESSION_SUMMARY",
+    "name": "Ad_Impression_Summary_Statistics_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 589,
+    "entityName": "AD_IMPRESSION_SUMMARY",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 589,
+    "entityName": "AD_IMPRESSION_SUMMARY",
+    "name": "Impressions_Viewed_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 589,
+    "entityName": "AD_IMPRESSION_SUMMARY",
+    "name": "Impression_Click-through_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 589,
+    "entityName": "AD_IMPRESSION_SUMMARY",
+    "name": "Impression_Statistics_Provider_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 590,
+    "entityName": "AD_NETWORK",
+    "name": "Ad_Network_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 590,
+    "entityName": "AD_NETWORK",
+    "name": "Ad_Network_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 590,
+    "entityName": "AD_NETWORK",
+    "name": "Controlling_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 591,
+    "entityName": "AD_NETWORK_WEB_SITE",
+    "name": "Ad_Network_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 591,
+    "entityName": "AD_NETWORK_WEB_SITE",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 592,
+    "entityName": "AD_OFFER",
+    "name": "Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 592,
+    "entityName": "AD_OFFER",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 593,
+    "entityName": "AD_ORDER_COMMISSION",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 593,
+    "entityName": "AD_ORDER_COMMISSION",
+    "name": "Sales_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 593,
+    "entityName": "AD_ORDER_COMMISSION",
+    "name": "Ad_Order_Commission_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 593,
+    "entityName": "AD_ORDER_COMMISSION",
+    "name": "Ad_Order_Commission_Fixed_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 594,
+    "entityName": "AD_ORDER_DIGITAL_TYPE",
+    "name": "Ad_Order_Digital_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 594,
+    "entityName": "AD_ORDER_DIGITAL_TYPE",
+    "name": "Ad_Order_Digital_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 595,
+    "entityName": "AD_ORDER_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 595,
+    "entityName": "AD_ORDER_EVENT",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 596,
+    "entityName": "AD_ORDER_EXPENSE_FORECAST",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 596,
+    "entityName": "AD_ORDER_EXPENSE_FORECAST",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 596,
+    "entityName": "AD_ORDER_EXPENSE_FORECAST",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 596,
+    "entityName": "AD_ORDER_EXPENSE_FORECAST",
+    "name": "Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 596,
+    "entityName": "AD_ORDER_EXPENSE_FORECAST",
+    "name": "Ad_Order_Expense_Forecast_End_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 596,
+    "entityName": "AD_ORDER_EXPENSE_FORECAST",
+    "name": "Ad_Order_Expense_Forecast_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 596,
+    "entityName": "AD_ORDER_EXPENSE_FORECAST",
+    "name": "Ad_Order_Expense_Actual_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 597,
+    "entityName": "AD_ORDER_HEADER",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 597,
+    "entityName": "AD_ORDER_HEADER",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 597,
+    "entityName": "AD_ORDER_HEADER",
+    "name": "Ad_Order_Header_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 597,
+    "entityName": "AD_ORDER_HEADER",
+    "name": "Ad_Order_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 597,
+    "entityName": "AD_ORDER_HEADER",
+    "name": "Ad_Order_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 597,
+    "entityName": "AD_ORDER_HEADER",
+    "name": "Ad_Order_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Order_Header_Detail_Update_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Order_Header_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Order_Header_Revenue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Placement_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Placement_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Space_Item_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Space_Item_Unit_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 598,
+    "entityName": "AD_ORDER_HEADER_DETAIL",
+    "name": "Ad_Order_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 599,
+    "entityName": "AD_ORDER_HEADER_PLATFORM_XREF",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 599,
+    "entityName": "AD_ORDER_HEADER_PLATFORM_XREF",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 599,
+    "entityName": "AD_ORDER_HEADER_PLATFORM_XREF",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 600,
+    "entityName": "AD_ORDER_HEADER_REVENUE_TYPE",
+    "name": "Ad_Order_Header_Revenue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 600,
+    "entityName": "AD_ORDER_HEADER_REVENUE_TYPE",
+    "name": "Ad_Order_Header_Revenue_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 601,
+    "entityName": "AD_ORDER_HEADER_SUBTYPE",
+    "name": "Ad_Order_Header_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 601,
+    "entityName": "AD_ORDER_HEADER_SUBTYPE",
+    "name": "Ad_Order_Header_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 602,
+    "entityName": "AD_ORDER_HEADER_VALUE",
+    "name": "Ad_Order_Header_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 602,
+    "entityName": "AD_ORDER_HEADER_VALUE",
+    "name": "Ad_Order_Header_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 603,
+    "entityName": "AD_ORDER_LINE",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 603,
+    "entityName": "AD_ORDER_LINE",
+    "name": "Ad_Order_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 603,
+    "entityName": "AD_ORDER_LINE",
+    "name": "Ad_Order_Line_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 603,
+    "entityName": "AD_ORDER_LINE",
+    "name": "Ad_Order_Line_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 603,
+    "entityName": "AD_ORDER_LINE",
+    "name": "Ad_Order_Line_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 604,
+    "entityName": "AD_ORDER_LINE_CATEGORY",
+    "name": "Ad_Order_Line_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 604,
+    "entityName": "AD_ORDER_LINE_CATEGORY",
+    "name": "Ad_Order_Line_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Order_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Order_Line_Detail_Update_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Order_Line_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Order_Line_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Order_Line_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Agency_Discount_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Unit_Rate_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Spot_Unit_Net_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Spot_Unit_Gross_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Spot_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Order_Line_Average_Unit_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 605,
+    "entityName": "AD_ORDER_LINE_DETAIL",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 606,
+    "entityName": "AD_ORDER_LINE_STATUS",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 606,
+    "entityName": "AD_ORDER_LINE_STATUS",
+    "name": "Ad_Order_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 606,
+    "entityName": "AD_ORDER_LINE_STATUS",
+    "name": "Ad_Order_Line_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 606,
+    "entityName": "AD_ORDER_LINE_STATUS",
+    "name": "Ad_Order_Line_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 606,
+    "entityName": "AD_ORDER_LINE_STATUS",
+    "name": "Ad_Order_Line_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 607,
+    "entityName": "AD_ORDER_LINE_STATUS_TYPE",
+    "name": "Ad_Order_Line_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 607,
+    "entityName": "AD_ORDER_LINE_STATUS_TYPE",
+    "name": "Ad_Order_Line_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 608,
+    "entityName": "AD_ORDER_LINE_TYPE",
+    "name": "Ad_Order_Line_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 608,
+    "entityName": "AD_ORDER_LINE_TYPE",
+    "name": "Ad_Order_Line_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 610,
+    "entityName": "AD_ORDER_MAKE_GOOD_REASON_TYPE",
+    "name": "Make_Good_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 610,
+    "entityName": "AD_ORDER_MAKE_GOOD_REASON_TYPE",
+    "name": "Make_Good_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 611,
+    "entityName": "AD_ORDER_MAKE_GOOD_REFUND",
+    "name": "Refund_Item_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 611,
+    "entityName": "AD_ORDER_MAKE_GOOD_REFUND",
+    "name": "Refund_Item_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 612,
+    "entityName": "AD_ORDER_MAKE_GOOD_SUBTYPE",
+    "name": "Ad_Order_Make_Good_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 612,
+    "entityName": "AD_ORDER_MAKE_GOOD_SUBTYPE",
+    "name": "Ad_Order_Make_Good_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 613,
+    "entityName": "AD_ORDER_REVENUE_FORECAST",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 613,
+    "entityName": "AD_ORDER_REVENUE_FORECAST",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 613,
+    "entityName": "AD_ORDER_REVENUE_FORECAST",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 613,
+    "entityName": "AD_ORDER_REVENUE_FORECAST",
+    "name": "Revenue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 613,
+    "entityName": "AD_ORDER_REVENUE_FORECAST",
+    "name": "Ad_Order_Revenue_Forecast_End_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 613,
+    "entityName": "AD_ORDER_REVENUE_FORECAST",
+    "name": "Ad_Order_Revenue_Forecast_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 613,
+    "entityName": "AD_ORDER_REVENUE_FORECAST",
+    "name": "Ad_Order_Revenue_Actual_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 614,
+    "entityName": "AD_ORDER_STATUS",
+    "name": "Ad_Order_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 614,
+    "entityName": "AD_ORDER_STATUS",
+    "name": "Ad_Order_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 614,
+    "entityName": "AD_ORDER_STATUS",
+    "name": "Ad_Order_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 614,
+    "entityName": "AD_ORDER_STATUS",
+    "name": "Ad_Order_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 615,
+    "entityName": "AD_ORDER_STATUS_TYPE",
+    "name": "Ad_Order_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 615,
+    "entityName": "AD_ORDER_STATUS_TYPE",
+    "name": "Ad_Order_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 616,
+    "entityName": "AD_ORDER_TRADITIONAL_TYPE",
+    "name": "Ad_Order_Traditional_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 616,
+    "entityName": "AD_ORDER_TRADITIONAL_TYPE",
+    "name": "Ad_Order_Traditional_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 617,
+    "entityName": "AD_ORDER_TYPE",
+    "name": "Ad_Order_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 617,
+    "entityName": "AD_ORDER_TYPE",
+    "name": "Ad_Order_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 618,
+    "entityName": "AD_PERFORMANCE_RATING",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 618,
+    "entityName": "AD_PERFORMANCE_RATING",
+    "name": "Rating_Source_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 618,
+    "entityName": "AD_PERFORMANCE_RATING",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 618,
+    "entityName": "AD_PERFORMANCE_RATING",
+    "name": "Ad_Performance_Rating_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 618,
+    "entityName": "AD_PERFORMANCE_RATING",
+    "name": "Ad_Performance_Rating_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 619,
+    "entityName": "AD_PERFORMANCE_RATING_DAYPART",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 619,
+    "entityName": "AD_PERFORMANCE_RATING_DAYPART",
+    "name": "Rating_Source_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 619,
+    "entityName": "AD_PERFORMANCE_RATING_DAYPART",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 619,
+    "entityName": "AD_PERFORMANCE_RATING_DAYPART",
+    "name": "Day_Of_Week_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 619,
+    "entityName": "AD_PERFORMANCE_RATING_DAYPART",
+    "name": "Daypart_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Ad_Placement_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Spot_Display_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Spot_Duration_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Spot_Experienced_Percentage_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Spot_Make_Good_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "name": "Ad_Placement_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 621,
+    "entityName": "AD_PLACEMENT_BROADCAST_PLATFORM",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 621,
+    "entityName": "AD_PLACEMENT_BROADCAST_PLATFORM",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 621,
+    "entityName": "AD_PLACEMENT_BROADCAST_PLATFORM",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 621,
+    "entityName": "AD_PLACEMENT_BROADCAST_PLATFORM",
+    "name": "Ad_Placement_Broadcast_Channel_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 621,
+    "entityName": "AD_PLACEMENT_BROADCAST_PLATFORM",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 622,
+    "entityName": "AD_PLACEMENT_DISPLAY_TIME",
+    "name": "Site_Schedule_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 622,
+    "entityName": "AD_PLACEMENT_DISPLAY_TIME",
+    "name": "Daypart_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 622,
+    "entityName": "AD_PLACEMENT_DISPLAY_TIME",
+    "name": "Day_Of_Week_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 622,
+    "entityName": "AD_PLACEMENT_DISPLAY_TIME",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 622,
+    "entityName": "AD_PLACEMENT_DISPLAY_TIME",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 622,
+    "entityName": "AD_PLACEMENT_DISPLAY_TIME",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 623,
+    "entityName": "AD_PLACEMENT_OUTDOOR_PLATFORM",
+    "name": "Geospatial_Point_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 624,
+    "entityName": "AD_PLACEMENT_PRINT_PLATFORM",
+    "name": "Ad_Placement_Page_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 624,
+    "entityName": "AD_PLACEMENT_PRINT_PLATFORM",
+    "name": "Print_Ad_Placement_Page_Position_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 624,
+    "entityName": "AD_PLACEMENT_PRINT_PLATFORM",
+    "name": "Print_Ad_Placement_Page_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 625,
+    "entityName": "AD_PLACEMENT_SUBTYPE",
+    "name": "Ad_Placement_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 625,
+    "entityName": "AD_PLACEMENT_SUBTYPE",
+    "name": "Ad_Placement_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 626,
+    "entityName": "AD_RATING",
+    "name": "Ad_Rating_System_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 626,
+    "entityName": "AD_RATING",
+    "name": "Ad_Rating_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 626,
+    "entityName": "AD_RATING",
+    "name": "Ad_Rating_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 627,
+    "entityName": "AD_RATING_REASON",
+    "name": "Ad_Rating_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 627,
+    "entityName": "AD_RATING_REASON",
+    "name": "Ad_Rating_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 628,
+    "entityName": "AD_RATING_REASON_XREF",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 628,
+    "entityName": "AD_RATING_REASON_XREF",
+    "name": "Ad_Rating_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 628,
+    "entityName": "AD_RATING_REASON_XREF",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 629,
+    "entityName": "AD_RATING_SYSTEM",
+    "name": "Ad_Rating_System_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 629,
+    "entityName": "AD_RATING_SYSTEM",
+    "name": "Owner_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 629,
+    "entityName": "AD_RATING_SYSTEM",
+    "name": "Ad_Rating_System_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 630,
+    "entityName": "AD_RATING_XREF",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 630,
+    "entityName": "AD_RATING_XREF",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 630,
+    "entityName": "AD_RATING_XREF",
+    "name": "Ad_Rating_System_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 630,
+    "entityName": "AD_RATING_XREF",
+    "name": "Ad_Rating_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 631,
+    "entityName": "AD_RELATED",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 631,
+    "entityName": "AD_RELATED",
+    "name": "Related_Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 631,
+    "entityName": "AD_RELATED",
+    "name": "Ad_Related_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 631,
+    "entityName": "AD_RELATED",
+    "name": "Ad_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 631,
+    "entityName": "AD_RELATED",
+    "name": "Ad_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 632,
+    "entityName": "AD_RELATED_TYPE",
+    "name": "Ad_Related_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 632,
+    "entityName": "AD_RELATED_TYPE",
+    "name": "Ad_Related_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 633,
+    "entityName": "AD_SPONSORSHIP_CATEGORY_TYPE",
+    "name": "Ad_Sponsorship_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 633,
+    "entityName": "AD_SPONSORSHIP_CATEGORY_TYPE",
+    "name": "Ad_Sponsorship_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 634,
+    "entityName": "AD_SPONSORSHIP_PROGRAM_TYPE",
+    "name": "Ad_Sponsorship_Program_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 634,
+    "entityName": "AD_SPONSORSHIP_PROGRAM_TYPE",
+    "name": "Ad_Sponsorship_Program_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 635,
+    "entityName": "AD_SPOT",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 635,
+    "entityName": "AD_SPOT",
+    "name": "Ad_Spot_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 635,
+    "entityName": "AD_SPOT",
+    "name": "Ad_Spot_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 636,
+    "entityName": "AD_SPOT_GROUP",
+    "name": "Ad_Spot_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 636,
+    "entityName": "AD_SPOT_GROUP",
+    "name": "Ad_Spot_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 637,
+    "entityName": "AD_SPOT_GROUP_XREF",
+    "name": "Ad_Spot_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 637,
+    "entityName": "AD_SPOT_GROUP_XREF",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 638,
+    "entityName": "AD_SPOT_PLACEMENT_XREF",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 638,
+    "entityName": "AD_SPOT_PLACEMENT_XREF",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 638,
+    "entityName": "AD_SPOT_PLACEMENT_XREF",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 638,
+    "entityName": "AD_SPOT_PLACEMENT_XREF",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 639,
+    "entityName": "AD_STATUS",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 639,
+    "entityName": "AD_STATUS",
+    "name": "Ad_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 639,
+    "entityName": "AD_STATUS",
+    "name": "Ad_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 639,
+    "entityName": "AD_STATUS",
+    "name": "Ad_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 640,
+    "entityName": "AD_STATUS_TYPE",
+    "name": "Ad_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 640,
+    "entityName": "AD_STATUS_TYPE",
+    "name": "Ad_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 641,
+    "entityName": "AD_SUBCATEGORY",
+    "name": "Ad_Subcategory_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 641,
+    "entityName": "AD_SUBCATEGORY",
+    "name": "Ad_Subcategory_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 642,
+    "entityName": "AD_SUBTYPE",
+    "name": "Ad_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 642,
+    "entityName": "AD_SUBTYPE",
+    "name": "Ad_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 642,
+    "entityName": "AD_SUBTYPE",
+    "name": "Ad_Subcategory_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 643,
+    "entityName": "AD_TRACKING_TYPE",
+    "name": "Ad_Tracking_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 643,
+    "entityName": "AD_TRACKING_TYPE",
+    "name": "Ad_Tracking_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 644,
+    "entityName": "AD_TRAIT",
+    "name": "Online_Application_Program_Trait_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 644,
+    "entityName": "AD_TRAIT",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 644,
+    "entityName": "AD_TRAIT",
+    "name": "Trait_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Strategy_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Parent_Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Level_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Funding_GL_Main_Account_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Estimated_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Estimated_Revenue_Gain_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Estimated_Base_Customer_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Estimated_Customer_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Estimated_Positive_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Estimated_Contact_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "name": "Campaign_Creation_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 647,
+    "entityName": "CAMPAIGN_AUDIENCE_REACH_TYPE",
+    "name": "Campaign_Audience_Reach_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 647,
+    "entityName": "CAMPAIGN_AUDIENCE_REACH_TYPE",
+    "name": "Campaign_Audience_Reach_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Target_Cell_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Campaign_Cell_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Incentive_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Promotion_Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Campaign_Cell_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Campaign_Cell_Target_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Campaign_Cell_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 648,
+    "entityName": "CAMPAIGN_CELL",
+    "name": "Campaign_Cell_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 649,
+    "entityName": "CAMPAIGN_CELL_AD",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 649,
+    "entityName": "CAMPAIGN_CELL_AD",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 649,
+    "entityName": "CAMPAIGN_CELL_AD",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 650,
+    "entityName": "CAMPAIGN_CELL_CLASSIFICATION",
+    "name": "Campaign_Cell_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 650,
+    "entityName": "CAMPAIGN_CELL_CLASSIFICATION",
+    "name": "Campaign_Cell_Class_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 651,
+    "entityName": "CAMPAIGN_CELL_COST",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 651,
+    "entityName": "CAMPAIGN_CELL_COST",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 651,
+    "entityName": "CAMPAIGN_CELL_COST",
+    "name": "Campaign_Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 651,
+    "entityName": "CAMPAIGN_CELL_COST",
+    "name": "Campaign_Cell_Cost_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 651,
+    "entityName": "CAMPAIGN_CELL_COST",
+    "name": "Campaign_Cell_Cost_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 651,
+    "entityName": "CAMPAIGN_CELL_COST",
+    "name": "Campaign_Cell_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 652,
+    "entityName": "CAMPAIGN_CELL_MANAGEMENT",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 652,
+    "entityName": "CAMPAIGN_CELL_MANAGEMENT",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 652,
+    "entityName": "CAMPAIGN_CELL_MANAGEMENT",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 652,
+    "entityName": "CAMPAIGN_CELL_MANAGEMENT",
+    "name": "Campaign_Party_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 652,
+    "entityName": "CAMPAIGN_CELL_MANAGEMENT",
+    "name": "Campaign_Cell_Management_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 652,
+    "entityName": "CAMPAIGN_CELL_MANAGEMENT",
+    "name": "Campaign_Cell_Management_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 653,
+    "entityName": "CAMPAIGN_CELL_RESPONSE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 653,
+    "entityName": "CAMPAIGN_CELL_RESPONSE",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 653,
+    "entityName": "CAMPAIGN_CELL_RESPONSE",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 653,
+    "entityName": "CAMPAIGN_CELL_RESPONSE",
+    "name": "Primary_Target_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 653,
+    "entityName": "CAMPAIGN_CELL_RESPONSE",
+    "name": "Campaign_Response_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 654,
+    "entityName": "CAMPAIGN_CELL_WEB_SITE_SECTION",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 654,
+    "entityName": "CAMPAIGN_CELL_WEB_SITE_SECTION",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 654,
+    "entityName": "CAMPAIGN_CELL_WEB_SITE_SECTION",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 654,
+    "entityName": "CAMPAIGN_CELL_WEB_SITE_SECTION",
+    "name": "Web_Site_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 655,
+    "entityName": "CAMPAIGN_CLASSIFICATION",
+    "name": "Campaign_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 655,
+    "entityName": "CAMPAIGN_CLASSIFICATION",
+    "name": "Campaign_Classification_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 656,
+    "entityName": "CAMPAIGN_CONDITION",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 656,
+    "entityName": "CAMPAIGN_CONDITION",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 656,
+    "entityName": "CAMPAIGN_CONDITION",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 657,
+    "entityName": "CAMPAIGN_COST",
+    "name": "Campaign_Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 657,
+    "entityName": "CAMPAIGN_COST",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 657,
+    "entityName": "CAMPAIGN_COST",
+    "name": "Campaign_Cost_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 657,
+    "entityName": "CAMPAIGN_COST",
+    "name": "Campaign_Cost_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 657,
+    "entityName": "CAMPAIGN_COST",
+    "name": "Campaign_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 658,
+    "entityName": "CAMPAIGN_COST_CATEGORY",
+    "name": "Campaign_Cost_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 658,
+    "entityName": "CAMPAIGN_COST_CATEGORY",
+    "name": "Campaign_Cost_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 659,
+    "entityName": "CAMPAIGN_COST_TYPE",
+    "name": "Campaign_Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 659,
+    "entityName": "CAMPAIGN_COST_TYPE",
+    "name": "Campaign_Cost_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 659,
+    "entityName": "CAMPAIGN_COST_TYPE",
+    "name": "Campaign_Cost_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 660,
+    "entityName": "CAMPAIGN_INTEREST_TYPE",
+    "name": "Campaign_Interest_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 660,
+    "entityName": "CAMPAIGN_INTEREST_TYPE",
+    "name": "Campaign_Interest_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 661,
+    "entityName": "CAMPAIGN_LEVEL_TYPE",
+    "name": "Campaign_Level_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 661,
+    "entityName": "CAMPAIGN_LEVEL_TYPE",
+    "name": "Campaign_Level_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 662,
+    "entityName": "CAMPAIGN_LOYALTY_PROGRAM",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 662,
+    "entityName": "CAMPAIGN_LOYALTY_PROGRAM",
+    "name": "Loyalty_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 663,
+    "entityName": "CAMPAIGN_MANAGEMENT",
+    "name": "Campaign_Management_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 664,
+    "entityName": "CAMPAIGN_MEDIA_MIX_TYPE",
+    "name": "Campaign_Media_Mix_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 664,
+    "entityName": "CAMPAIGN_MEDIA_MIX_TYPE",
+    "name": "Campaign_Media_Mix_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 665,
+    "entityName": "CAMPAIGN_OBJECTIVE_AD_COLOR_TYPE",
+    "name": "Campaign_Objective_Ad_Color_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 665,
+    "entityName": "CAMPAIGN_OBJECTIVE_AD_COLOR_TYPE",
+    "name": "Campaign_Objective_Ad_Color_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 666,
+    "entityName": "CAMPAIGN_OBJECTIVE_AD_DIMENSION_TYPE",
+    "name": "Campaign_Objective_Ad_Dimension_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 666,
+    "entityName": "CAMPAIGN_OBJECTIVE_AD_DIMENSION_TYPE",
+    "name": "Campaign_Objective_Ad_Dimension_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 667,
+    "entityName": "CAMPAIGN_OBJECTIVE_CATEGORY",
+    "name": "Campaign_Objective_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 667,
+    "entityName": "CAMPAIGN_OBJECTIVE_CATEGORY",
+    "name": "Campaign_Objective_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 668,
+    "entityName": "CAMPAIGN_OBJECTIVE_DISPLAY_TYPE",
+    "name": "Campaign_Objective_Display_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 668,
+    "entityName": "CAMPAIGN_OBJECTIVE_DISPLAY_TYPE",
+    "name": "Campaign_Objective_Display_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 669,
+    "entityName": "CAMPAIGN_OBJECTIVE_RESEARCH_SOURCE_TYPE",
+    "name": "Campaign_Objective_Research_Source_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 669,
+    "entityName": "CAMPAIGN_OBJECTIVE_RESEARCH_SOURCE_TYPE",
+    "name": "Campaign_Objective_Research_Source_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 670,
+    "entityName": "CAMPAIGN_OBJECTIVE_UNIT_SIZE_TYPE",
+    "name": "Campaign_Objective_Unit_Size_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 670,
+    "entityName": "CAMPAIGN_OBJECTIVE_UNIT_SIZE_TYPE",
+    "name": "Campaign_Objective_Unit_Size_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 671,
+    "entityName": "CAMPAIGN_OBJECTIVE_UNIT_TYPE",
+    "name": "Campaign_Objective_Unit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 671,
+    "entityName": "CAMPAIGN_OBJECTIVE_UNIT_TYPE",
+    "name": "Campaign_Objective_Unit_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 672,
+    "entityName": "CAMPAIGN_RELATED",
+    "name": "Related_Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 672,
+    "entityName": "CAMPAIGN_RELATED",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 672,
+    "entityName": "CAMPAIGN_RELATED",
+    "name": "Campaign_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 672,
+    "entityName": "CAMPAIGN_RELATED",
+    "name": "Campaign_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 672,
+    "entityName": "CAMPAIGN_RELATED",
+    "name": "Campaign_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 673,
+    "entityName": "CAMPAIGN_RELATED_ROLE",
+    "name": "Campaign_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 673,
+    "entityName": "CAMPAIGN_RELATED_ROLE",
+    "name": "Campaign_Related_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 674,
+    "entityName": "CAMPAIGN_RELATED_STATUS",
+    "name": "Related_Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 674,
+    "entityName": "CAMPAIGN_RELATED_STATUS",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 674,
+    "entityName": "CAMPAIGN_RELATED_STATUS",
+    "name": "Campaign_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 674,
+    "entityName": "CAMPAIGN_RELATED_STATUS",
+    "name": "Campaign_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 674,
+    "entityName": "CAMPAIGN_RELATED_STATUS",
+    "name": "Campaign_Related_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 674,
+    "entityName": "CAMPAIGN_RELATED_STATUS",
+    "name": "Campaign_Related_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 674,
+    "entityName": "CAMPAIGN_RELATED_STATUS",
+    "name": "Campaign_Related_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 675,
+    "entityName": "CAMPAIGN_RELATED_STATUS_REASON",
+    "name": "Campaign_Related_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 675,
+    "entityName": "CAMPAIGN_RELATED_STATUS_REASON",
+    "name": "Campaign_Related_Status_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 676,
+    "entityName": "CAMPAIGN_RELATED_STATUS_TYPE",
+    "name": "Campaign_Related_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 676,
+    "entityName": "CAMPAIGN_RELATED_STATUS_TYPE",
+    "name": "Campaign_Related_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 677,
+    "entityName": "CAMPAIGN_RESPONSE_TYPE",
+    "name": "Campaign_Response_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 677,
+    "entityName": "CAMPAIGN_RESPONSE_TYPE",
+    "name": "Campaign_Response_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 678,
+    "entityName": "CAMPAIGN_SEGMENT",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 678,
+    "entityName": "CAMPAIGN_SEGMENT",
+    "name": "Market_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 679,
+    "entityName": "CAMPAIGN_STATUS",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 679,
+    "entityName": "CAMPAIGN_STATUS",
+    "name": "Campaign_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 679,
+    "entityName": "CAMPAIGN_STATUS",
+    "name": "Campaign_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 680,
+    "entityName": "CAMPAIGN_STATUS_TYPE",
+    "name": "Campaign_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 680,
+    "entityName": "CAMPAIGN_STATUS_TYPE",
+    "name": "Campaign_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 681,
+    "entityName": "CAMPAIGN_STEP",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 681,
+    "entityName": "CAMPAIGN_STEP",
+    "name": "Campaign_Step_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 681,
+    "entityName": "CAMPAIGN_STEP",
+    "name": "Campaign_Step_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 681,
+    "entityName": "CAMPAIGN_STEP",
+    "name": "Campaign_Step_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 682,
+    "entityName": "CAMPAIGN_STEP_RESPONSE",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 682,
+    "entityName": "CAMPAIGN_STEP_RESPONSE",
+    "name": "Promotion_Step_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 682,
+    "entityName": "CAMPAIGN_STEP_RESPONSE",
+    "name": "Response_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 682,
+    "entityName": "CAMPAIGN_STEP_RESPONSE",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 682,
+    "entityName": "CAMPAIGN_STEP_RESPONSE",
+    "name": "Next_Step_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 683,
+    "entityName": "CAMPAIGN_STEP_TYPE",
+    "name": "Campaign_Step_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 683,
+    "entityName": "CAMPAIGN_STEP_TYPE",
+    "name": "Campaign_Step_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 684,
+    "entityName": "CAMPAIGN_STRATEGY_TYPE",
+    "name": "Campaign_Strategy_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 684,
+    "entityName": "CAMPAIGN_STRATEGY_TYPE",
+    "name": "Campaign_Strategy_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 685,
+    "entityName": "CAMPAIGN_TARGET_MARKET",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 685,
+    "entityName": "CAMPAIGN_TARGET_MARKET",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 685,
+    "entityName": "CAMPAIGN_TARGET_MARKET",
+    "name": "Locator_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 685,
+    "entityName": "CAMPAIGN_TARGET_MARKET",
+    "name": "Campaign_Target_Market_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 687,
+    "entityName": "CAMPAIGN_TRAIT_VALUE",
+    "name": "Trait_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 687,
+    "entityName": "CAMPAIGN_TRAIT_VALUE",
+    "name": "Campaign_Trait_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 687,
+    "entityName": "CAMPAIGN_TRAIT_VALUE",
+    "name": "Campaign_Trait_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 687,
+    "entityName": "CAMPAIGN_TRAIT_VALUE",
+    "name": "Campaign_Trait_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 687,
+    "entityName": "CAMPAIGN_TRAIT_VALUE",
+    "name": "Campaign_Trait_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 687,
+    "entityName": "CAMPAIGN_TRAIT_VALUE",
+    "name": "Campaign_Trait_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 687,
+    "entityName": "CAMPAIGN_TRAIT_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 687,
+    "entityName": "CAMPAIGN_TRAIT_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 688,
+    "entityName": "CAMPAIGN_TRAIT_VALUE_XREF",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 688,
+    "entityName": "CAMPAIGN_TRAIT_VALUE_XREF",
+    "name": "Trait_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 688,
+    "entityName": "CAMPAIGN_TRAIT_VALUE_XREF",
+    "name": "Campaign_Trait_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 688,
+    "entityName": "CAMPAIGN_TRAIT_VALUE_XREF",
+    "name": "Campaign_Trait_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 688,
+    "entityName": "CAMPAIGN_TRAIT_VALUE_XREF",
+    "name": "Campaign_Trait_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 689,
+    "entityName": "CAMPAIGN_TYPE",
+    "name": "Campaign_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 689,
+    "entityName": "CAMPAIGN_TYPE",
+    "name": "Campaign_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 691,
+    "entityName": "CLAIM_PROVIDER_SURVEY_RESPONSE",
+    "name": "Provider_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 691,
+    "entityName": "CLAIM_PROVIDER_SURVEY_RESPONSE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 692,
+    "entityName": "CLAIM_SURVEY_RESPONSE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 694,
+    "entityName": "COMPENSATORY_OFFER",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 694,
+    "entityName": "COMPENSATORY_OFFER",
+    "name": "Promotion_Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Download_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Download_Successful_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Download_Retry_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Download_Object_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 696,
+    "entityName": "DOWNLOAD_EVENT",
+    "name": "Download_Failure_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 697,
+    "entityName": "DOWNLOAD_FAILURE_REASON_TYPE",
+    "name": "Download_Failure_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 697,
+    "entityName": "DOWNLOAD_FAILURE_REASON_TYPE",
+    "name": "Download_Failure_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 698,
+    "entityName": "DOWNLOAD_ITEM",
+    "name": "Source_URL_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 698,
+    "entityName": "DOWNLOAD_ITEM",
+    "name": "Destination_Path_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 699,
+    "entityName": "EVENT_SURVEY_RESPONSE",
+    "name": "Survey_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 700,
+    "entityName": "GROUP_SURVEY",
+    "name": "Group_Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 700,
+    "entityName": "GROUP_SURVEY",
+    "name": "Survey_Conducted_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 700,
+    "entityName": "GROUP_SURVEY",
+    "name": "Survey_Conducted_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 700,
+    "entityName": "GROUP_SURVEY",
+    "name": "Survey_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 700,
+    "entityName": "GROUP_SURVEY",
+    "name": "Market_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 700,
+    "entityName": "GROUP_SURVEY",
+    "name": "Questionnaire_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 701,
+    "entityName": "KEYWORD_PLACEMENT_AD_GROUP_XREF",
+    "name": "Keyword_Placement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 701,
+    "entityName": "KEYWORD_PLACEMENT_AD_GROUP_XREF",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 702,
+    "entityName": "LEAD_STATUS",
+    "name": "Lead_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 702,
+    "entityName": "LEAD_STATUS",
+    "name": "Lead_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 702,
+    "entityName": "LEAD_STATUS",
+    "name": "Lead_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 702,
+    "entityName": "LEAD_STATUS",
+    "name": "Lead_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 703,
+    "entityName": "LEAD_STATUS_TYPE",
+    "name": "Lead_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 703,
+    "entityName": "LEAD_STATUS_TYPE",
+    "name": "Lead_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 704,
+    "entityName": "LEAD_STEP",
+    "name": "Lead_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 704,
+    "entityName": "LEAD_STEP",
+    "name": "Lead_Step_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 704,
+    "entityName": "LEAD_STEP",
+    "name": "Lead_Step_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 704,
+    "entityName": "LEAD_STEP",
+    "name": "Lead_Step_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 705,
+    "entityName": "LEAD_STEP_TYPE",
+    "name": "Lead_Step_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 705,
+    "entityName": "LEAD_STEP_TYPE",
+    "name": "Lead_Step_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 706,
+    "entityName": "LEAD_TEXT_COMMENT",
+    "name": "Lead_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 706,
+    "entityName": "LEAD_TEXT_COMMENT",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 706,
+    "entityName": "LEAD_TEXT_COMMENT",
+    "name": "Lead_Text_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 706,
+    "entityName": "LEAD_TEXT_COMMENT",
+    "name": "Lead_Text_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 706,
+    "entityName": "LEAD_TEXT_COMMENT",
+    "name": "Text_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 708,
+    "entityName": "LEAD_TRAIT_VALUE",
+    "name": "Trait_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 708,
+    "entityName": "LEAD_TRAIT_VALUE",
+    "name": "Lead_Trait_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 708,
+    "entityName": "LEAD_TRAIT_VALUE",
+    "name": "Lead_Trait_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 708,
+    "entityName": "LEAD_TRAIT_VALUE",
+    "name": "Lead_Trait_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 708,
+    "entityName": "LEAD_TRAIT_VALUE",
+    "name": "Lead_Trait_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 708,
+    "entityName": "LEAD_TRAIT_VALUE",
+    "name": "Lead_Trait_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 708,
+    "entityName": "LEAD_TRAIT_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 708,
+    "entityName": "LEAD_TRAIT_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 709,
+    "entityName": "LEAD_TRAIT_VALUE_XREF",
+    "name": "Trait_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 709,
+    "entityName": "LEAD_TRAIT_VALUE_XREF",
+    "name": "Lead_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 709,
+    "entityName": "LEAD_TRAIT_VALUE_XREF",
+    "name": "Lead_Trait_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 709,
+    "entityName": "LEAD_TRAIT_VALUE_XREF",
+    "name": "Lead_Trait_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 709,
+    "entityName": "LEAD_TRAIT_VALUE_XREF",
+    "name": "Lead_Trait_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 710,
+    "entityName": "LOYALTY_CONVERSION",
+    "name": "From_Loyalty_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 710,
+    "entityName": "LOYALTY_CONVERSION",
+    "name": "To_Loyalty_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 710,
+    "entityName": "LOYALTY_CONVERSION",
+    "name": "Loyalty_Unit_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 710,
+    "entityName": "LOYALTY_CONVERSION",
+    "name": "Loyalty_Program_Conversion_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 711,
+    "entityName": "LOYALTY_LEVEL",
+    "name": "Loyalty_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 711,
+    "entityName": "LOYALTY_LEVEL",
+    "name": "Loyalty_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 711,
+    "entityName": "LOYALTY_LEVEL",
+    "name": "Loyalty_Level_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 711,
+    "entityName": "LOYALTY_LEVEL",
+    "name": "Loyalty_Level_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 712,
+    "entityName": "LOYALTY_LEVEL_QUALIFYING_UNIT",
+    "name": "Loyalty_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 712,
+    "entityName": "LOYALTY_LEVEL_QUALIFYING_UNIT",
+    "name": "Loyalty_Unit_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 712,
+    "entityName": "LOYALTY_LEVEL_QUALIFYING_UNIT",
+    "name": "Loyalty_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 712,
+    "entityName": "LOYALTY_LEVEL_QUALIFYING_UNIT",
+    "name": "Level_Qualifying_Unit_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 712,
+    "entityName": "LOYALTY_LEVEL_QUALIFYING_UNIT",
+    "name": "Level_Qualifying_Unit_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 712,
+    "entityName": "LOYALTY_LEVEL_QUALIFYING_UNIT",
+    "name": "Loyalty_Program_Unit_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 713,
+    "entityName": "LOYALTY_PROGRAM",
+    "name": "Loyalty_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 714,
+    "entityName": "LOYALTY_PROGRAM_UNIT",
+    "name": "Loyalty_Unit_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 714,
+    "entityName": "LOYALTY_PROGRAM_UNIT",
+    "name": "Loyalty_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 714,
+    "entityName": "LOYALTY_PROGRAM_UNIT",
+    "name": "Loyalty_Program_Unit_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 714,
+    "entityName": "LOYALTY_PROGRAM_UNIT",
+    "name": "Loyalty_Program_Unit_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 715,
+    "entityName": "LOYALTY_UNIT",
+    "name": "Loyalty_Unit_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 715,
+    "entityName": "LOYALTY_UNIT",
+    "name": "Loyalty_Unit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 715,
+    "entityName": "LOYALTY_UNIT",
+    "name": "Loyalty_Unit_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 715,
+    "entityName": "LOYALTY_UNIT",
+    "name": "Loyalty_Unit_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 715,
+    "entityName": "LOYALTY_UNIT",
+    "name": "Loyalty_Unit_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 715,
+    "entityName": "LOYALTY_UNIT",
+    "name": "Loyalty_Unit_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 715,
+    "entityName": "LOYALTY_UNIT",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 716,
+    "entityName": "LOYALTY_UNIT_TYPE",
+    "name": "Loyalty_Unit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 716,
+    "entityName": "LOYALTY_UNIT_TYPE",
+    "name": "Loyalty_Unit_Type_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 716,
+    "entityName": "LOYALTY_UNIT_TYPE",
+    "name": "Loyalty_Unit_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 717,
+    "entityName": "MASS_PROMOTION",
+    "name": "Mass_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 718,
+    "entityName": "NEXT_COMMUNICATION",
+    "name": "Next_Communication_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 718,
+    "entityName": "NEXT_COMMUNICATION",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 718,
+    "entityName": "NEXT_COMMUNICATION",
+    "name": "Next_Communication_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 718,
+    "entityName": "NEXT_COMMUNICATION",
+    "name": "Next_Communicate_Priority_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 718,
+    "entityName": "NEXT_COMMUNICATION",
+    "name": "Next_Communication_Delivery_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 719,
+    "entityName": "NEXT_OFFER",
+    "name": "Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 719,
+    "entityName": "NEXT_OFFER",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "name": "Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "name": "Offer_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "name": "Offer_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "name": "Offer_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "name": "Offer_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "name": "Offer_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "name": "Offer_Perceived_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "name": "Offer_Perceived_Value_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 721,
+    "entityName": "OFFER_TYPE",
+    "name": "Offer_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 721,
+    "entityName": "OFFER_TYPE",
+    "name": "Offer_Type_Cd_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Parent_Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Open_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Close_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Visibility_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Deal_Complete_Day_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Decision_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Sales_Method_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Lead_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Committed_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Probability_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Revenue_Size_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Revenue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "name": "Opportunity_Strategic_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 723,
+    "entityName": "OPPORTUNITY_ASSET",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 723,
+    "entityName": "OPPORTUNITY_ASSET",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 723,
+    "entityName": "OPPORTUNITY_ASSET",
+    "name": "Opportunity_Asset_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 724,
+    "entityName": "OPPORTUNITY_ASSET_ROLE_TYPE",
+    "name": "Opportunity_Asset_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 724,
+    "entityName": "OPPORTUNITY_ASSET_ROLE_TYPE",
+    "name": "Opportunity_Asset_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 725,
+    "entityName": "OPPORTUNITY_COMPETITOR",
+    "name": "Competitor_Outcome_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 725,
+    "entityName": "OPPORTUNITY_COMPETITOR",
+    "name": "Compete_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 725,
+    "entityName": "OPPORTUNITY_COMPETITOR",
+    "name": "Opportunity_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Party_Opportunity_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Opportunity_Party_Role_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Opportunity_Finance_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Opportunity_Competitor_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Opportunity_Competitor_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Opportunity_Competitor_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 726,
+    "entityName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 727,
+    "entityName": "OPPORTUNITY_COMPETITOR_TEXT",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 727,
+    "entityName": "OPPORTUNITY_COMPETITOR_TEXT",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 727,
+    "entityName": "OPPORTUNITY_COMPETITOR_TEXT",
+    "name": "Party_Opportunity_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 727,
+    "entityName": "OPPORTUNITY_COMPETITOR_TEXT",
+    "name": "Opportunity_Party_Role_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 727,
+    "entityName": "OPPORTUNITY_COMPETITOR_TEXT",
+    "name": "Opportunity_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 727,
+    "entityName": "OPPORTUNITY_COMPETITOR_TEXT",
+    "name": "Opportunity_Competitor_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 728,
+    "entityName": "OPPORTUNITY_DOCUMENT",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 728,
+    "entityName": "OPPORTUNITY_DOCUMENT",
+    "name": "Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 728,
+    "entityName": "OPPORTUNITY_DOCUMENT",
+    "name": "Opportunity_Document_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 728,
+    "entityName": "OPPORTUNITY_DOCUMENT",
+    "name": "Opportunity_Document_Receive_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 729,
+    "entityName": "OPPORTUNITY_DOCUMENT_ROLE_TYPE",
+    "name": "Opportunity_Document_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 729,
+    "entityName": "OPPORTUNITY_DOCUMENT_ROLE_TYPE",
+    "name": "Opportunity_Document_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 730,
+    "entityName": "OPPORTUNITY_EVENT",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 731,
+    "entityName": "OPPORTUNITY_FINANCE",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 731,
+    "entityName": "OPPORTUNITY_FINANCE",
+    "name": "Opportunity_Finance_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 731,
+    "entityName": "OPPORTUNITY_FINANCE",
+    "name": "Opportunity_Financial_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 731,
+    "entityName": "OPPORTUNITY_FINANCE",
+    "name": "Opportunity_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 731,
+    "entityName": "OPPORTUNITY_FINANCE",
+    "name": "Opportunity_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 731,
+    "entityName": "OPPORTUNITY_FINANCE",
+    "name": "Opportunity_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 731,
+    "entityName": "OPPORTUNITY_FINANCE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 732,
+    "entityName": "OPPORTUNITY_FINANCE_TYPE",
+    "name": "Opportunity_Finance_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 732,
+    "entityName": "OPPORTUNITY_FINANCE_TYPE",
+    "name": "Opportunity_Finance_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 733,
+    "entityName": "OPPORTUNITY_ISSUE",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 733,
+    "entityName": "OPPORTUNITY_ISSUE",
+    "name": "Opportunity_Issue_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 733,
+    "entityName": "OPPORTUNITY_ISSUE",
+    "name": "Opportunity_Issue_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 733,
+    "entityName": "OPPORTUNITY_ISSUE",
+    "name": "Opportunity_Issue_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 733,
+    "entityName": "OPPORTUNITY_ISSUE",
+    "name": "Opportunity_Issue_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 733,
+    "entityName": "OPPORTUNITY_ISSUE",
+    "name": "Opportunity_Issue_Resolve_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 734,
+    "entityName": "OPPORTUNITY_ISSUE_RESOLVE_TYPE",
+    "name": "Opportunity_Issue_Resolve_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 734,
+    "entityName": "OPPORTUNITY_ISSUE_RESOLVE_TYPE",
+    "name": "Opportunity_Issue_Resolve_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 735,
+    "entityName": "OPPORTUNITY_ISSUE_TYPE",
+    "name": "Opportunity_Issue_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 735,
+    "entityName": "OPPORTUNITY_ISSUE_TYPE",
+    "name": "Opportunity_Issue_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 736,
+    "entityName": "OPPORTUNITY_LEAD_TYPE",
+    "name": "Opportunity_Lead_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 736,
+    "entityName": "OPPORTUNITY_LEAD_TYPE",
+    "name": "Opportunity_Lead_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 737,
+    "entityName": "OPPORTUNITY_PROMOTION",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 737,
+    "entityName": "OPPORTUNITY_PROMOTION",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 738,
+    "entityName": "OPPORTUNITY_QUOTATION",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 738,
+    "entityName": "OPPORTUNITY_QUOTATION",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 738,
+    "entityName": "OPPORTUNITY_QUOTATION",
+    "name": "Opportunity_Quotation_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 739,
+    "entityName": "OPPORTUNITY_REVENUE_SIZE_TYPE",
+    "name": "Opportunity_Revenue_Size_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 739,
+    "entityName": "OPPORTUNITY_REVENUE_SIZE_TYPE",
+    "name": "Opportunity_Revenue_Size_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 740,
+    "entityName": "OPPORTUNITY_REVENUE_TYPE",
+    "name": "Opportunity_Revenue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 740,
+    "entityName": "OPPORTUNITY_REVENUE_TYPE",
+    "name": "Opportunity_Revenue_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 741,
+    "entityName": "OPPORTUNITY_SALES_STAGE",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 741,
+    "entityName": "OPPORTUNITY_SALES_STAGE",
+    "name": "Sales_Stage_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 741,
+    "entityName": "OPPORTUNITY_SALES_STAGE",
+    "name": "Opportunity_Sales_Stage_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 741,
+    "entityName": "OPPORTUNITY_SALES_STAGE",
+    "name": "Opportunity_Sales_Stage_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 741,
+    "entityName": "OPPORTUNITY_SALES_STAGE",
+    "name": "Opportunity_Maximum_Sales_Day_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 742,
+    "entityName": "OPPORTUNITY_SALES_STAGE_STATUS",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 742,
+    "entityName": "OPPORTUNITY_SALES_STAGE_STATUS",
+    "name": "Sales_Stage_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 742,
+    "entityName": "OPPORTUNITY_SALES_STAGE_STATUS",
+    "name": "Opportunity_Sales_Stage_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 742,
+    "entityName": "OPPORTUNITY_SALES_STAGE_STATUS",
+    "name": "Sales_Stage_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 742,
+    "entityName": "OPPORTUNITY_SALES_STAGE_STATUS",
+    "name": "Sales_Stage_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 743,
+    "entityName": "OPPORTUNITY_SEGMENT",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 743,
+    "entityName": "OPPORTUNITY_SEGMENT",
+    "name": "Market_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 743,
+    "entityName": "OPPORTUNITY_SEGMENT",
+    "name": "Opportunity_Segment_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 743,
+    "entityName": "OPPORTUNITY_SEGMENT",
+    "name": "Opportunity_Segment_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 744,
+    "entityName": "OPPORTUNITY_STATUS",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 744,
+    "entityName": "OPPORTUNITY_STATUS",
+    "name": "Opportunity_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 744,
+    "entityName": "OPPORTUNITY_STATUS",
+    "name": "Opportunity_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 745,
+    "entityName": "OPPORTUNITY_STATUS_REASON",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 745,
+    "entityName": "OPPORTUNITY_STATUS_REASON",
+    "name": "Opportunity_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 745,
+    "entityName": "OPPORTUNITY_STATUS_REASON",
+    "name": "Opportunity_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 746,
+    "entityName": "OPPORTUNITY_STATUS_REASON_TYPE",
+    "name": "Opportunity_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 746,
+    "entityName": "OPPORTUNITY_STATUS_REASON_TYPE",
+    "name": "Opportunity_Status_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 747,
+    "entityName": "OPPORTUNITY_STATUS_TYPE",
+    "name": "Opportunity_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 747,
+    "entityName": "OPPORTUNITY_STATUS_TYPE",
+    "name": "Opportunity_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 748,
+    "entityName": "OPPORTUNITY_STEP",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 748,
+    "entityName": "OPPORTUNITY_STEP",
+    "name": "Opportunity_Step_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 748,
+    "entityName": "OPPORTUNITY_STEP",
+    "name": "Opportunity_Step_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 748,
+    "entityName": "OPPORTUNITY_STEP",
+    "name": "Opportunity_Step_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 749,
+    "entityName": "OPPORTUNITY_STEP_TYPE",
+    "name": "Opportunity_Step_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 749,
+    "entityName": "OPPORTUNITY_STEP_TYPE",
+    "name": "Opportunity_Step_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 750,
+    "entityName": "OPPORTUNITY_STRATEGIC_VALUE_TYPE",
+    "name": "Opportunity_Strategic_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 750,
+    "entityName": "OPPORTUNITY_STRATEGIC_VALUE_TYPE",
+    "name": "Opportunity_Strategic_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 751,
+    "entityName": "OPPORTUNITY_TEXT",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 751,
+    "entityName": "OPPORTUNITY_TEXT",
+    "name": "Opportunity_Text_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 751,
+    "entityName": "OPPORTUNITY_TEXT",
+    "name": "Opportunity_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 751,
+    "entityName": "OPPORTUNITY_TEXT",
+    "name": "Opportunity_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 751,
+    "entityName": "OPPORTUNITY_TEXT",
+    "name": "Originating_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 752,
+    "entityName": "OPPORTUNITY_TEXT_SECTION",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 752,
+    "entityName": "OPPORTUNITY_TEXT_SECTION",
+    "name": "Opportunity_Text_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 752,
+    "entityName": "OPPORTUNITY_TEXT_SECTION",
+    "name": "Opportunity_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 752,
+    "entityName": "OPPORTUNITY_TEXT_SECTION",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 753,
+    "entityName": "OPPORTUNITY_TEXT_TYPE",
+    "name": "Opportunity_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 753,
+    "entityName": "OPPORTUNITY_TEXT_TYPE",
+    "name": "Opportunity_Text_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 754,
+    "entityName": "OPPORTUNITY_TYPE",
+    "name": "Opportunity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 754,
+    "entityName": "OPPORTUNITY_TYPE",
+    "name": "Opportunity_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 755,
+    "entityName": "OPPORTUNITY_VISIBLE_TYPE",
+    "name": "Opportunity_Visibility_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 755,
+    "entityName": "OPPORTUNITY_VISIBLE_TYPE",
+    "name": "Opportunity_Visibility_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 756,
+    "entityName": "PAID_SEARCH_PROMOTION_STATUS_TYPE",
+    "name": "Paid_Search_Promotion_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 756,
+    "entityName": "PAID_SEARCH_PROMOTION_STATUS_TYPE",
+    "name": "Paid_Search_Promotion_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Internal_Promotion_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Objective_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Actual_Unit_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Goal_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Actual_Unit_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Promotion_Break_Even_Order_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 757,
+    "entityName": "PROMOTION",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 758,
+    "entityName": "PROMOTION_CELL",
+    "name": "Promotion_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 758,
+    "entityName": "PROMOTION_CELL",
+    "name": "Target_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 758,
+    "entityName": "PROMOTION_CELL",
+    "name": "Promotion_Cell_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 758,
+    "entityName": "PROMOTION_CELL",
+    "name": "Promotion_Cell_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 759,
+    "entityName": "PROMOTION_CLASSIFICATION",
+    "name": "Promotion_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 759,
+    "entityName": "PROMOTION_CLASSIFICATION",
+    "name": "Promotion_Classification_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 760,
+    "entityName": "PROMOTION_EXPENSE_TYPE",
+    "name": "Promotion_Expense_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 760,
+    "entityName": "PROMOTION_EXPENSE_TYPE",
+    "name": "Promotion_Expense_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 761,
+    "entityName": "PROMOTION_EXPENSE_XREF",
+    "name": "Promotion_Expense_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 761,
+    "entityName": "PROMOTION_EXPENSE_XREF",
+    "name": "Promotion_Expense_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 761,
+    "entityName": "PROMOTION_EXPENSE_XREF",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 761,
+    "entityName": "PROMOTION_EXPENSE_XREF",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 761,
+    "entityName": "PROMOTION_EXPENSE_XREF",
+    "name": "Promotion_Budget_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 761,
+    "entityName": "PROMOTION_EXPENSE_XREF",
+    "name": "Promotion_Actual_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 761,
+    "entityName": "PROMOTION_EXPENSE_XREF",
+    "name": "Promotion_Expense_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 762,
+    "entityName": "PROMOTION_METRIC",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 762,
+    "entityName": "PROMOTION_METRIC",
+    "name": "Promotion_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 762,
+    "entityName": "PROMOTION_METRIC",
+    "name": "Promotion_Metric_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 762,
+    "entityName": "PROMOTION_METRIC",
+    "name": "Promotion_Metric_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 762,
+    "entityName": "PROMOTION_METRIC",
+    "name": "Promotion_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 762,
+    "entityName": "PROMOTION_METRIC",
+    "name": "Promotion_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 762,
+    "entityName": "PROMOTION_METRIC",
+    "name": "Promotion_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 762,
+    "entityName": "PROMOTION_METRIC",
+    "name": "Promotion_Metric_Quantity_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 763,
+    "entityName": "PROMOTION_METRIC_TYPE",
+    "name": "Promotion_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 763,
+    "entityName": "PROMOTION_METRIC_TYPE",
+    "name": "Promotion_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Promotion_Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Promotion_Offer_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Promotion_Offer_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Distribution_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Distribution_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Redemption_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 764,
+    "entityName": "PROMOTION_OFFER",
+    "name": "Redemption_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 765,
+    "entityName": "PROMOTION_OFFER_SEGMENT",
+    "name": "Market_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 765,
+    "entityName": "PROMOTION_OFFER_SEGMENT",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 765,
+    "entityName": "PROMOTION_OFFER_SEGMENT",
+    "name": "Promotion_Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 766,
+    "entityName": "PROMOTION_OFFER_TYPE",
+    "name": "Promotion_Offer_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 766,
+    "entityName": "PROMOTION_OFFER_TYPE",
+    "name": "Promotion_Offer_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 767,
+    "entityName": "PROMOTION_PROSPECT",
+    "name": "Promotion_Threshold_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 768,
+    "entityName": "PROMOTION_RESPONSE_SCORE",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 768,
+    "entityName": "PROMOTION_RESPONSE_SCORE",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 768,
+    "entityName": "PROMOTION_RESPONSE_SCORE",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 768,
+    "entityName": "PROMOTION_RESPONSE_SCORE",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 768,
+    "entityName": "PROMOTION_RESPONSE_SCORE",
+    "name": "Response_Probability_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 769,
+    "entityName": "PROMOTION_SCRIPTED_MESSAGE_XREF",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 769,
+    "entityName": "PROMOTION_SCRIPTED_MESSAGE_XREF",
+    "name": "Scripted_Message_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 770,
+    "entityName": "PROMOTION_SEGMENT",
+    "name": "Market_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 770,
+    "entityName": "PROMOTION_SEGMENT",
+    "name": "Target_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 771,
+    "entityName": "PROMOTION_STATUS",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 771,
+    "entityName": "PROMOTION_STATUS",
+    "name": "Promotion_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 771,
+    "entityName": "PROMOTION_STATUS",
+    "name": "Promotion_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 772,
+    "entityName": "PROMOTION_STATUS_TYPE",
+    "name": "Promotion_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 772,
+    "entityName": "PROMOTION_STATUS_TYPE",
+    "name": "Promotion_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 773,
+    "entityName": "PROMOTION_STEP",
+    "name": "Promotion_Step_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 773,
+    "entityName": "PROMOTION_STEP",
+    "name": "Promotion_Step_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 773,
+    "entityName": "PROMOTION_STEP",
+    "name": "Scripted_Message_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 773,
+    "entityName": "PROMOTION_STEP",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 773,
+    "entityName": "PROMOTION_STEP",
+    "name": "Promotion_Step_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 774,
+    "entityName": "PROMOTION_STEP_RESPONSE",
+    "name": "Promotion_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 774,
+    "entityName": "PROMOTION_STEP_RESPONSE",
+    "name": "Target_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 774,
+    "entityName": "PROMOTION_STEP_RESPONSE",
+    "name": "Response_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 774,
+    "entityName": "PROMOTION_STEP_RESPONSE",
+    "name": "Promotion_Step_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 774,
+    "entityName": "PROMOTION_STEP_RESPONSE",
+    "name": "Next_Step_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 775,
+    "entityName": "PROMOTION_STEP_TYPE",
+    "name": "Promotion_Step_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 775,
+    "entityName": "PROMOTION_STEP_TYPE",
+    "name": "Promotion_Step_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 776,
+    "entityName": "PROMOTION_TYPE",
+    "name": "Promotion_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 776,
+    "entityName": "PROMOTION_TYPE",
+    "name": "Promotion_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 777,
+    "entityName": "REWARD_EVENT",
+    "name": "Reward_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 777,
+    "entityName": "REWARD_EVENT",
+    "name": "Loyalty_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 777,
+    "entityName": "REWARD_EVENT",
+    "name": "Loyalty_Unit_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 777,
+    "entityName": "REWARD_EVENT",
+    "name": "Loyalty_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 777,
+    "entityName": "REWARD_EVENT",
+    "name": "Reward_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 778,
+    "entityName": "REWARD_EVENT_SUBTYPE",
+    "name": "Reward_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 778,
+    "entityName": "REWARD_EVENT_SUBTYPE",
+    "name": "Reward_Event_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 779,
+    "entityName": "REWARD_EVENT_TYPE",
+    "name": "Reward_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 779,
+    "entityName": "REWARD_EVENT_TYPE",
+    "name": "Reward_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 780,
+    "entityName": "ROAD_TYPE",
+    "name": "Road_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 780,
+    "entityName": "ROAD_TYPE",
+    "name": "Road_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 781,
+    "entityName": "SPREAD_OPTION",
+    "name": "Second_Underlying_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 781,
+    "entityName": "SPREAD_OPTION",
+    "name": "Underlying_Product_1_Weight_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 781,
+    "entityName": "SPREAD_OPTION",
+    "name": "Underlying_Product_2_Weight_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 782,
+    "entityName": "SURVEY_COST",
+    "name": "Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 782,
+    "entityName": "SURVEY_COST",
+    "name": "Questionnaire_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 782,
+    "entityName": "SURVEY_COST",
+    "name": "Survey_Cost_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 782,
+    "entityName": "SURVEY_COST",
+    "name": "Survey_Cost_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 782,
+    "entityName": "SURVEY_COST",
+    "name": "Survey_Cost_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 782,
+    "entityName": "SURVEY_COST",
+    "name": "Survey_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 783,
+    "entityName": "SURVEY_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 783,
+    "entityName": "SURVEY_EVENT",
+    "name": "Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 783,
+    "entityName": "SURVEY_EVENT",
+    "name": "Event_Survey_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 784,
+    "entityName": "SURVEY_EVENT_REASON_TYPE",
+    "name": "Event_Survey_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 784,
+    "entityName": "SURVEY_EVENT_REASON_TYPE",
+    "name": "Event_Survey_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 785,
+    "entityName": "SURVEY_FEEDBACK",
+    "name": "Group_Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 785,
+    "entityName": "SURVEY_FEEDBACK",
+    "name": "Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 786,
+    "entityName": "SURVEY_FEEDBACK_SURVEY_RESPONSE",
+    "name": "Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 786,
+    "entityName": "SURVEY_FEEDBACK_SURVEY_RESPONSE",
+    "name": "Questionnaire_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 786,
+    "entityName": "SURVEY_FEEDBACK_SURVEY_RESPONSE",
+    "name": "Question_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 786,
+    "entityName": "SURVEY_FEEDBACK_SURVEY_RESPONSE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 787,
+    "entityName": "SURVEY_QUESTION_RESPONSE",
+    "name": "Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 787,
+    "entityName": "SURVEY_QUESTION_RESPONSE",
+    "name": "Questionnaire_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 787,
+    "entityName": "SURVEY_QUESTION_RESPONSE",
+    "name": "Question_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 787,
+    "entityName": "SURVEY_QUESTION_RESPONSE",
+    "name": "Survey_Response_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 787,
+    "entityName": "SURVEY_QUESTION_RESPONSE",
+    "name": "Survey_Subject_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 788,
+    "entityName": "SURVEY_RESOLUTION",
+    "name": "Survey_Resolution_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 788,
+    "entityName": "SURVEY_RESOLUTION",
+    "name": "Group_Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 788,
+    "entityName": "SURVEY_RESOLUTION",
+    "name": "Resolution_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 789,
+    "entityName": "SURVEY_RESOLUTION_TYPE",
+    "name": "Survey_Resolution_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 789,
+    "entityName": "SURVEY_RESOLUTION_TYPE",
+    "name": "Survey_Resolution_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 790,
+    "entityName": "SURVEY_RESPONSE",
+    "name": "Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 790,
+    "entityName": "SURVEY_RESPONSE",
+    "name": "Survey_Recorded_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 790,
+    "entityName": "SURVEY_RESPONSE",
+    "name": "Responding_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 790,
+    "entityName": "SURVEY_RESPONSE",
+    "name": "Questionnaire_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 790,
+    "entityName": "SURVEY_RESPONSE",
+    "name": "Site_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 790,
+    "entityName": "SURVEY_RESPONSE",
+    "name": "Group_Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 791,
+    "entityName": "SURVEY_RESPONSE_ANSWER",
+    "name": "Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 791,
+    "entityName": "SURVEY_RESPONSE_ANSWER",
+    "name": "Questionnaire_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 791,
+    "entityName": "SURVEY_RESPONSE_ANSWER",
+    "name": "Question_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 791,
+    "entityName": "SURVEY_RESPONSE_ANSWER",
+    "name": "Answer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 792,
+    "entityName": "SURVEY_RESPONSE_TEXT",
+    "name": "Survey_Response_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 792,
+    "entityName": "SURVEY_RESPONSE_TEXT",
+    "name": "Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 792,
+    "entityName": "SURVEY_RESPONSE_TEXT",
+    "name": "Questionnaire_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 792,
+    "entityName": "SURVEY_RESPONSE_TEXT",
+    "name": "Question_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 792,
+    "entityName": "SURVEY_RESPONSE_TEXT",
+    "name": "Survey_Response_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 793,
+    "entityName": "SURVEY_RESPONSE_TEXT_SECTION",
+    "name": "Survey_Response_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 793,
+    "entityName": "SURVEY_RESPONSE_TEXT_SECTION",
+    "name": "Survey_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 793,
+    "entityName": "SURVEY_RESPONSE_TEXT_SECTION",
+    "name": "Questionnaire_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 793,
+    "entityName": "SURVEY_RESPONSE_TEXT_SECTION",
+    "name": "Question_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 793,
+    "entityName": "SURVEY_RESPONSE_TEXT_SECTION",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 794,
+    "entityName": "SURVEY_SUBJECT_SUBTYPE",
+    "name": "Survey_Subject_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 794,
+    "entityName": "SURVEY_SUBJECT_SUBTYPE",
+    "name": "Survey_Subject_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 795,
+    "entityName": "TARGET_PROMOTION",
+    "name": "Target_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 796,
+    "entityName": "TENDER_OFFER",
+    "name": "Tender_Offer_Share_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 796,
+    "entityName": "TENDER_OFFER",
+    "name": "Tender_Offer_Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 796,
+    "entityName": "TENDER_OFFER",
+    "name": "Tender_Offer_Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 796,
+    "entityName": "TENDER_OFFER",
+    "name": "Tender_Offer_Announcement_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 796,
+    "entityName": "TENDER_OFFER",
+    "name": "Tender_Offer_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 796,
+    "entityName": "TENDER_OFFER",
+    "name": "Tender_Offer_Source_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 797,
+    "entityName": "TRAILER_AD_SUBTYPE",
+    "name": "Trailer_Ad_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 797,
+    "entityName": "TRAILER_AD_SUBTYPE",
+    "name": "Trailer_Ad_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 798,
+    "entityName": "UPLOAD_ITEM",
+    "name": "Source_Path_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 798,
+    "entityName": "UPLOAD_ITEM",
+    "name": "Destination_URL_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 799,
+    "entityName": "VISIT_PROMOTION_XREF",
+    "name": "Online_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 799,
+    "entityName": "VISIT_PROMOTION_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 800,
+    "entityName": "WARRANT_OFFER",
+    "name": "Warrant_Offer_Per_Share_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 800,
+    "entityName": "WARRANT_OFFER",
+    "name": "Warrant_Strike_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 800,
+    "entityName": "WARRANT_OFFER",
+    "name": "Warrant_Issue_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 800,
+    "entityName": "WARRANT_OFFER",
+    "name": "Warrant_Expiration_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 801,
+    "entityName": "WEB_AD_PLACEMENT_SUMMARY",
+    "name": "Web_Ad_Statistics_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 801,
+    "entityName": "WEB_AD_PLACEMENT_SUMMARY",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 801,
+    "entityName": "WEB_AD_PLACEMENT_SUMMARY",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 801,
+    "entityName": "WEB_AD_PLACEMENT_SUMMARY",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 801,
+    "entityName": "WEB_AD_PLACEMENT_SUMMARY",
+    "name": "Web_Ad_Statistics_Impressions_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 801,
+    "entityName": "WEB_AD_PLACEMENT_SUMMARY",
+    "name": "Web_Ad_Statistics_Click-through_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 801,
+    "entityName": "WEB_AD_PLACEMENT_SUMMARY",
+    "name": "Web_Ad_Statistics_Provider_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 802,
+    "entityName": "WEB_AD_PLACEMENT_TEXT",
+    "name": "Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 802,
+    "entityName": "WEB_AD_PLACEMENT_TEXT",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 802,
+    "entityName": "WEB_AD_PLACEMENT_TEXT",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 802,
+    "entityName": "WEB_AD_PLACEMENT_TEXT",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 802,
+    "entityName": "WEB_AD_PLACEMENT_TEXT",
+    "name": "Web_Ad_Placement_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 803,
+    "entityName": "WEB_AD_PLACEMENT_TEXT_SECTION",
+    "name": "Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 803,
+    "entityName": "WEB_AD_PLACEMENT_TEXT_SECTION",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 803,
+    "entityName": "WEB_AD_PLACEMENT_TEXT_SECTION",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 803,
+    "entityName": "WEB_AD_PLACEMENT_TEXT_SECTION",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 803,
+    "entityName": "WEB_AD_PLACEMENT_TEXT_SECTION",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 804,
+    "entityName": "WEB_AD_TYPE",
+    "name": "Web_Ad_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 804,
+    "entityName": "WEB_AD_TYPE",
+    "name": "Web_Ad_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 805,
+    "entityName": "WEB_CAMPAIGN_EVENT",
+    "name": "Web_Campaign_Event_Attribute_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 805,
+    "entityName": "WEB_CAMPAIGN_EVENT",
+    "name": "Web_Campaign_Event_Segment_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 805,
+    "entityName": "WEB_CAMPAIGN_EVENT",
+    "name": "Web_Campaign_Event_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 805,
+    "entityName": "WEB_CAMPAIGN_EVENT",
+    "name": "Web_Campaign_Event_Channel_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 805,
+    "entityName": "WEB_CAMPAIGN_EVENT",
+    "name": "Online_Impression_Experienced_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 805,
+    "entityName": "WEB_CAMPAIGN_EVENT",
+    "name": "Web_Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 806,
+    "entityName": "WEB_PAGE_AD_VIEW_XREF",
+    "name": "Viewed_Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 806,
+    "entityName": "WEB_PAGE_AD_VIEW_XREF",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 806,
+    "entityName": "WEB_PAGE_AD_VIEW_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 807,
+    "entityName": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 807,
+    "entityName": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 807,
+    "entityName": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "name": "Web_Page_View_Summary_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 807,
+    "entityName": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 807,
+    "entityName": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 807,
+    "entityName": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "name": "Total_Ad_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 807,
+    "entityName": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "name": "Total_Ad_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  }
+]

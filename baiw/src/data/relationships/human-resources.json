@@ -1,0 +1,240 @@
+[
+  {
+    "parentId": 1380,
+    "parentName": "ADJUSTED_EARNING_SUBTYPE",
+    "childId": 1379,
+    "childName": "ADJUSTED_EARNING",
+    "type": "association"
+  },
+  {
+    "parentId": 1382,
+    "parentName": "AFTER_TAX_DEDUCTION_SUBTYPE",
+    "childId": 1381,
+    "childName": "AFTER_TAX_DEDUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1384,
+    "parentName": "BEFORE_TAX_DEDUCTION_SUBTYPE",
+    "childId": 1383,
+    "childName": "BEFORE_TAX_DEDUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1385,
+    "parentName": "BENEFIT_PLAN",
+    "childId": 1426,
+    "childName": "BENEFIT_PLAN_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1385,
+    "parentName": "BENEFIT_PLAN",
+    "childId": 1406,
+    "childName": "REGULATED_BENEFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 1386,
+    "parentName": "BENEFIT_PLAN_ELIGIBILITY_TERM_TYPE",
+    "childId": 1427,
+    "childName": "BENEFIT_PLAN_OPTION_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1387,
+    "parentName": "BENEFIT_RULE_TYPE",
+    "childId": 979,
+    "childName": "CLAIM_ADJUDICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1390,
+    "parentName": "DIRECT_EARNING_SUBTYPE",
+    "childId": 1388,
+    "childName": "DIRECT_EARNING",
+    "type": "association"
+  },
+  {
+    "parentId": 1393,
+    "parentName": "INDIRECT_EARNING_SUBTYPE",
+    "childId": 1392,
+    "childName": "INDIRECT_EARNING",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 2866,
+    "childName": "ASSOCIATE_JOB_CLASSIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 2867,
+    "childName": "ASSOCIATE_JOB_CLASSIFICATION_LABOR_ACTUAL",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 858,
+    "childName": "HR_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 1395,
+    "childName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 1396,
+    "childName": "JOB_LABOR_TASK_CROSS-REFERENCE",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 875,
+    "childName": "JOB_TITLE_CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 2179,
+    "childName": "LABOR_FINANCIAL_PLAN",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 3585,
+    "childName": "PRODUCT_FEATURE_LEEWAY",
+    "type": "association"
+  },
+  {
+    "parentId": 1394,
+    "parentName": "JOB_CLASSIFICATION",
+    "childId": 3613,
+    "childName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "type": "association"
+  },
+  {
+    "parentId": 1395,
+    "parentName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "childId": 2868,
+    "childName": "ASSOCIATE_JOB_CLASSIFICATION_SHIFT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1400,
+    "parentName": "PAYROLL_BALANCE_TYPE",
+    "childId": 2356,
+    "childName": "PAY_STUB_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 1401,
+    "parentName": "PAYROLL_PAY_PERIOD",
+    "childId": 2355,
+    "childName": "PAY_STUB",
+    "type": "association"
+  },
+  {
+    "parentId": 1402,
+    "parentName": "PAYROLL_REGISTER",
+    "childId": 2873,
+    "childName": "ASSOCIATE_LEAVE_TAKEN",
+    "type": "association"
+  },
+  {
+    "parentId": 1402,
+    "parentName": "PAYROLL_REGISTER",
+    "childId": 2876,
+    "childName": "ASSOCIATE_PAYROLL_TRANSACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1402,
+    "parentName": "PAYROLL_REGISTER",
+    "childId": 1401,
+    "childName": "PAYROLL_PAY_PERIOD",
+    "type": "association"
+  },
+  {
+    "parentId": 1402,
+    "parentName": "PAYROLL_REGISTER",
+    "childId": 1348,
+    "childName": "PAYROLL_REGISTER_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1405,
+    "parentName": "REGULAR_EARNING_SUBTYPE",
+    "childId": 1404,
+    "childName": "REGULAR_EARNING",
+    "type": "association"
+  },
+  {
+    "parentId": 1407,
+    "parentName": "REGULATED_BENEFIT_TYPE",
+    "childId": 1406,
+    "childName": "REGULATED_BENEFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 1409,
+    "parentName": "VARIABLE_EARNING_SUBTYPE",
+    "childId": 1408,
+    "childName": "VARIABLE_EARNING",
+    "type": "association"
+  },
+  {
+    "parentId": 1411,
+    "parentName": "WITHHOLDING_TAX_SUBTYPE",
+    "childId": 1410,
+    "childName": "WITHHOLDING_TAX",
+    "type": "association"
+  },
+  {
+    "parentId": 1414,
+    "parentName": "WORK_SHIFT_TYPE",
+    "childId": 2867,
+    "childName": "ASSOCIATE_JOB_CLASSIFICATION_LABOR_ACTUAL",
+    "type": "association"
+  },
+  {
+    "parentId": 1414,
+    "parentName": "WORK_SHIFT_TYPE",
+    "childId": 1395,
+    "childName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1414,
+    "parentName": "WORK_SHIFT_TYPE",
+    "childId": 2179,
+    "childName": "LABOR_FINANCIAL_PLAN",
+    "type": "association"
+  },
+  {
+    "parentId": 1414,
+    "parentName": "WORK_SHIFT_TYPE",
+    "childId": 1412,
+    "childName": "WORK_SHIFT_DAILY_HOURS",
+    "type": "association"
+  },
+  {
+    "parentId": 1414,
+    "parentName": "WORK_SHIFT_TYPE",
+    "childId": 1413,
+    "childName": "WORK_SHIFT_DAY_OF_WEEK_HOURS",
+    "type": "association"
+  }
+]

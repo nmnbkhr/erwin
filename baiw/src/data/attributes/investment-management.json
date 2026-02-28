@@ -1,0 +1,4412 @@
+[
+  {
+    "entityId": 1415,
+    "entityName": "AGENT_COMMISSION_OPTION_TYPE",
+    "name": "Agent_Commission_Option_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1415,
+    "entityName": "AGENT_COMMISSION_OPTION_TYPE",
+    "name": "Agent_Commission_Option_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1417,
+    "entityName": "APPLICATION_INVESTMENT_DETAIL",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1417,
+    "entityName": "APPLICATION_INVESTMENT_DETAIL",
+    "name": "Application_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1417,
+    "entityName": "APPLICATION_INVESTMENT_DETAIL",
+    "name": "Application_Detail_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1417,
+    "entityName": "APPLICATION_INVESTMENT_DETAIL",
+    "name": "Application_Detail_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1417,
+    "entityName": "APPLICATION_INVESTMENT_DETAIL",
+    "name": "Application_Detail_Investment_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1418,
+    "entityName": "ASIAN_OPTION",
+    "name": "Asian_Option_Average_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1418,
+    "entityName": "ASIAN_OPTION",
+    "name": "Asian_Option_Average_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1418,
+    "entityName": "ASIAN_OPTION",
+    "name": "Asian_Option_Running_Average_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1418,
+    "entityName": "ASIAN_OPTION",
+    "name": "Asian_Option_Strike_Multiply_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1418,
+    "entityName": "ASIAN_OPTION",
+    "name": "Asian_Option_Day_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1418,
+    "entityName": "ASIAN_OPTION",
+    "name": "Asian_Option_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1419,
+    "entityName": "ASIAN_OPTION_TYPE",
+    "name": "Asian_Option_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1419,
+    "entityName": "ASIAN_OPTION_TYPE",
+    "name": "Asian_Option_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1420,
+    "entityName": "ASSET-BACKED_SECURITY_PRINCIPAL",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1420,
+    "entityName": "ASSET-BACKED_SECURITY_PRINCIPAL",
+    "name": "ABS_Principal_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1420,
+    "entityName": "ASSET-BACKED_SECURITY_PRINCIPAL",
+    "name": "ABS_Outstanding_Principal_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1421,
+    "entityName": "ASSET-BACKED_SECURITY_TYPE",
+    "name": "Asset-backed_Security_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1421,
+    "entityName": "ASSET-BACKED_SECURITY_TYPE",
+    "name": "Asset-backed_Security_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1424,
+    "entityName": "BANK_TRADE_BOOK_TYPE",
+    "name": "Bank_Trade_Book_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1424,
+    "entityName": "BANK_TRADE_BOOK_TYPE",
+    "name": "Bank_Trade_Book_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1425,
+    "entityName": "BARRIER_OPTION_TYPE",
+    "name": "Barrier_Option_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1425,
+    "entityName": "BARRIER_OPTION_TYPE",
+    "name": "Barrier_Option_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1426,
+    "entityName": "BENEFIT_PLAN_OPTION",
+    "name": "Benefit_Plan_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1426,
+    "entityName": "BENEFIT_PLAN_OPTION",
+    "name": "Benefit_Plan_Option_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1426,
+    "entityName": "BENEFIT_PLAN_OPTION",
+    "name": "Benefit_Plan_Option_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1426,
+    "entityName": "BENEFIT_PLAN_OPTION",
+    "name": "Benefit_Plan_Option_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1426,
+    "entityName": "BENEFIT_PLAN_OPTION",
+    "name": "Benefit_Plan_Option_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1426,
+    "entityName": "BENEFIT_PLAN_OPTION",
+    "name": "Benefit_Plan_Option_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1426,
+    "entityName": "BENEFIT_PLAN_OPTION",
+    "name": "Benefit_Plan_Option_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1426,
+    "entityName": "BENEFIT_PLAN_OPTION",
+    "name": "Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1427,
+    "entityName": "BENEFIT_PLAN_OPTION_ELIGIBILITY",
+    "name": "Benefit_Plan_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1427,
+    "entityName": "BENEFIT_PLAN_OPTION_ELIGIBILITY",
+    "name": "Benefit_Plan_Option_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1427,
+    "entityName": "BENEFIT_PLAN_OPTION_ELIGIBILITY",
+    "name": "Benefit_Plan_Eligibility_Term_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1427,
+    "entityName": "BENEFIT_PLAN_OPTION_ELIGIBILITY",
+    "name": "Plan_Option_Eligibility_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1427,
+    "entityName": "BENEFIT_PLAN_OPTION_ELIGIBILITY",
+    "name": "Plan_Option_Eligibility_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1428,
+    "entityName": "BENEFIT_PLAN_OPTION_STATUS_TYPE",
+    "name": "Benefit_Plan_Option_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1428,
+    "entityName": "BENEFIT_PLAN_OPTION_STATUS_TYPE",
+    "name": "Benefit_Plan_Option_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1429,
+    "entityName": "BENEFIT_PLAN_OPTION_SUBTYPE",
+    "name": "Benefit_Plan_Option_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1429,
+    "entityName": "BENEFIT_PLAN_OPTION_SUBTYPE",
+    "name": "Benefit_Plan_Option_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Interest_Payment_Month_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Interest_Payment_Day_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Unit_Issued_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Coupon_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Issue_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Coupon_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Face_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Issue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Principal_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Discount_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Call_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Interest_Rate_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_First_Coupon_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Last_Coupon_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Delivery_Form_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Specialized_Lending_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Yield_To_Maturity_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1433,
+    "entityName": "BOND",
+    "name": "Bond_Maturity_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1434,
+    "entityName": "BOND_AMORTIZATION_SCHEDULE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1434,
+    "entityName": "BOND_AMORTIZATION_SCHEDULE",
+    "name": "Bond_Amortization_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1434,
+    "entityName": "BOND_AMORTIZATION_SCHEDULE",
+    "name": "Bond_Principal_Change_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1435,
+    "entityName": "BOND_CALL_SCHEDULE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1435,
+    "entityName": "BOND_CALL_SCHEDULE",
+    "name": "Bond_Call_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1435,
+    "entityName": "BOND_CALL_SCHEDULE",
+    "name": "Bond_Call_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1436,
+    "entityName": "BOND_CALL_TYPE",
+    "name": "Bond_Call_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1436,
+    "entityName": "BOND_CALL_TYPE",
+    "name": "Bond_Call_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1437,
+    "entityName": "BOND_CONVERSION_SCHEDULE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1437,
+    "entityName": "BOND_CONVERSION_SCHEDULE",
+    "name": "Bond_Conversion_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1437,
+    "entityName": "BOND_CONVERSION_SCHEDULE",
+    "name": "Convertible_Bond_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1438,
+    "entityName": "BOND_CONVERSION_STYLE_TYPE",
+    "name": "Bond_Conversion_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1438,
+    "entityName": "BOND_CONVERSION_STYLE_TYPE",
+    "name": "Bond_Conversion_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1439,
+    "entityName": "BOND_DELIVERY_FORM_TYPE",
+    "name": "Bond_Delivery_Form_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1439,
+    "entityName": "BOND_DELIVERY_FORM_TYPE",
+    "name": "Bond_Delivery_Form_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1442,
+    "entityName": "BOND_FUTURES",
+    "name": "Bond_Future_Conversion_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1444,
+    "entityName": "BOND_PUT_SCHEDULE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1444,
+    "entityName": "BOND_PUT_SCHEDULE",
+    "name": "Bond_Put_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1444,
+    "entityName": "BOND_PUT_SCHEDULE",
+    "name": "Bond_Put_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1445,
+    "entityName": "BOND_REDEMPTION",
+    "name": "Bond_Redemption_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1445,
+    "entityName": "BOND_REDEMPTION",
+    "name": "Bond_Redemption_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1445,
+    "entityName": "BOND_REDEMPTION",
+    "name": "Redemption_Announcement_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1446,
+    "entityName": "BOND_SUBTYPE",
+    "name": "Bond_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1446,
+    "entityName": "BOND_SUBTYPE",
+    "name": "Bond_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1447,
+    "entityName": "BOND_TO_EQUITY_CONVERSION",
+    "name": "Per_Share_Conversion_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1447,
+    "entityName": "BOND_TO_EQUITY_CONVERSION",
+    "name": "Bond_To_Equity_Conversion_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1447,
+    "entityName": "BOND_TO_EQUITY_CONVERSION",
+    "name": "Equity_Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1449,
+    "entityName": "CASH_DIVIDEND_EVENT",
+    "name": "Per_Share_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1449,
+    "entityName": "CASH_DIVIDEND_EVENT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1450,
+    "entityName": "CELL_TARGET_MARKET",
+    "name": "Locator_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1450,
+    "entityName": "CELL_TARGET_MARKET",
+    "name": "Campaign_Cell_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1450,
+    "entityName": "CELL_TARGET_MARKET",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1450,
+    "entityName": "CELL_TARGET_MARKET",
+    "name": "Target_Market_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1453,
+    "entityName": "COMMODITY_FUTURES",
+    "name": "EU_Commodities_Derivative_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1456,
+    "entityName": "CONVERTIBLE_BOND",
+    "name": "Bond_Conversion_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1457,
+    "entityName": "CORPORATE_BOND",
+    "name": "Corporate_Bond_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1458,
+    "entityName": "CORPORATE_BOND_TYPE",
+    "name": "Corporate_Bond_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1458,
+    "entityName": "CORPORATE_BOND_TYPE",
+    "name": "Corporate_Bond_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1459,
+    "entityName": "COUPON_TYPE",
+    "name": "Coupon_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1459,
+    "entityName": "COUPON_TYPE",
+    "name": "Coupon_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1460,
+    "entityName": "CURRENCY_EXCHANGE_QUOTATION",
+    "name": "From_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1460,
+    "entityName": "CURRENCY_EXCHANGE_QUOTATION",
+    "name": "To_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1460,
+    "entityName": "CURRENCY_EXCHANGE_QUOTATION",
+    "name": "Quoted_Currency_Exchange_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1460,
+    "entityName": "CURRENCY_EXCHANGE_QUOTATION",
+    "name": "Quoted_Currency_Exchange_Fee_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1461,
+    "entityName": "CURRENCY_FORWARD",
+    "name": "Currency_Forward_Exchange_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1461,
+    "entityName": "CURRENCY_FORWARD",
+    "name": "Currency_Forward_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1461,
+    "entityName": "CURRENCY_FORWARD",
+    "name": "Currency_Forward_Value_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1461,
+    "entityName": "CURRENCY_FORWARD",
+    "name": "Forward_Buy_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1461,
+    "entityName": "CURRENCY_FORWARD",
+    "name": "Forward_Sell_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1462,
+    "entityName": "CURRENCY_SWAP",
+    "name": "Swap_In_Currency_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1462,
+    "entityName": "CURRENCY_SWAP",
+    "name": "Swap_Out_Currency_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1462,
+    "entityName": "CURRENCY_SWAP",
+    "name": "Swap_In_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1462,
+    "entityName": "CURRENCY_SWAP",
+    "name": "Swap_Out_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1462,
+    "entityName": "CURRENCY_SWAP",
+    "name": "Currency_Swap_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1463,
+    "entityName": "CURRENCY_SWAP_TYPE",
+    "name": "Currency_Swap_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1463,
+    "entityName": "CURRENCY_SWAP_TYPE",
+    "name": "Currency_Swap_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1464,
+    "entityName": "DERIVATIVE_NOTIONAL_CHANGE_TYPE",
+    "name": "Derivative_Notional_Change_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1464,
+    "entityName": "DERIVATIVE_NOTIONAL_CHANGE_TYPE",
+    "name": "Derivative_Notional_Change_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1465,
+    "entityName": "DERIVATIVE_SUBTYPE",
+    "name": "Derivative_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1465,
+    "entityName": "DERIVATIVE_SUBTYPE",
+    "name": "Derivative_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1466,
+    "entityName": "DESIGNATED_MARKET_AREA__GEO",
+    "name": "DMA_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1468,
+    "entityName": "DIVIDEND_DECLARE_EVENT",
+    "name": "Dividend_Declare_Exchange_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1468,
+    "entityName": "DIVIDEND_DECLARE_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1468,
+    "entityName": "DIVIDEND_DECLARE_EVENT",
+    "name": "Dividend_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1468,
+    "entityName": "DIVIDEND_DECLARE_EVENT",
+    "name": "Dividend_Record_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1468,
+    "entityName": "DIVIDEND_DECLARE_EVENT",
+    "name": "Dividend_Payable_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1468,
+    "entityName": "DIVIDEND_DECLARE_EVENT",
+    "name": "Ex_Dividend_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1468,
+    "entityName": "DIVIDEND_DECLARE_EVENT",
+    "name": "Dividend_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1469,
+    "entityName": "DIVIDEND_TYPE",
+    "name": "Dividend_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1469,
+    "entityName": "DIVIDEND_TYPE",
+    "name": "Dividend_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1470,
+    "entityName": "EQUITY_FUTURES",
+    "name": "Equity_Future_Dividend_Yield_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1471,
+    "entityName": "EQUITY_FUTURES_DIVIDEND_SCHEDULE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1471,
+    "entityName": "EQUITY_FUTURES_DIVIDEND_SCHEDULE",
+    "name": "Equity_Future_Dividend_Payment_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1471,
+    "entityName": "EQUITY_FUTURES_DIVIDEND_SCHEDULE",
+    "name": "Equity_Future_Dividend_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Basel_II_Approach_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Basel_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Equity_Type_Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Public_Private_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": false
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Balance_Sheet_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Fair_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Publicly_Quoted_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Gain_Loss_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Total_Unrealized_Gain_Loss_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Total_Latent_Revaluation_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Capital_Requirement_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Supervisory_Transition_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1472,
+    "entityName": "EQUITY_HOLDING_SUMMARY",
+    "name": "Grandfathered_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1473,
+    "entityName": "EUROCURRENCY_FUTURES",
+    "name": "Euro_Future_Rate_Month_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1475,
+    "entityName": "EXTERNAL_COUPON",
+    "name": "External_Coupon_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1475,
+    "entityName": "EXTERNAL_COUPON",
+    "name": "External_Coupon_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1475,
+    "entityName": "EXTERNAL_COUPON",
+    "name": "Coupon_Issuing_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1475,
+    "entityName": "EXTERNAL_COUPON",
+    "name": "External_Coupon_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1475,
+    "entityName": "EXTERNAL_COUPON",
+    "name": "Coupon_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1477,
+    "entityName": "FIXED_FLOATING_INTEREST_RATE_SWAP",
+    "name": "Swap_Floating_Rate_Index_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1477,
+    "entityName": "FIXED_FLOATING_INTEREST_RATE_SWAP",
+    "name": "Swap_Float_First_Reset_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1477,
+    "entityName": "FIXED_FLOATING_INTEREST_RATE_SWAP",
+    "name": "Swap_Fixed_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1480,
+    "entityName": "FORWARD_SUBTYPE",
+    "name": "Forward_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1480,
+    "entityName": "FORWARD_SUBTYPE",
+    "name": "Forward_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1481,
+    "entityName": "FUND",
+    "name": "Fund_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1482,
+    "entityName": "FUNDING_AMOUNT_TYPE",
+    "name": "Funding_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1482,
+    "entityName": "FUNDING_AMOUNT_TYPE",
+    "name": "Funding_Amount_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1483,
+    "entityName": "FUND_SOURCE_TYPE",
+    "name": "Fund_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1483,
+    "entityName": "FUND_SOURCE_TYPE",
+    "name": "Fund_Source_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1484,
+    "entityName": "FUND_TYPE",
+    "name": "Fund_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1484,
+    "entityName": "FUND_TYPE",
+    "name": "Fund_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1485,
+    "entityName": "INSURANCE_QUOTATION",
+    "name": "Regular_Premium_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1485,
+    "entityName": "INSURANCE_QUOTATION",
+    "name": "Insurance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1485,
+    "entityName": "INSURANCE_QUOTATION",
+    "name": "Payment_Mode_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1485,
+    "entityName": "INSURANCE_QUOTATION",
+    "name": "Deviation_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1485,
+    "entityName": "INSURANCE_QUOTATION",
+    "name": "Discount_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1485,
+    "entityName": "INSURANCE_QUOTATION",
+    "name": "Discount_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1485,
+    "entityName": "INSURANCE_QUOTATION",
+    "name": "Premium_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1485,
+    "entityName": "INSURANCE_QUOTATION",
+    "name": "Regular_Premium_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Interest_Rate_Quotation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Quoting_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Market_Quotation_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Interest_Rate_Quotation_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Interest_Rate_Quotation_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Interest_Rate_Volatility_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1486,
+    "entityName": "INTEREST_RATE_QUOTATION",
+    "name": "Risk_Factor_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1487,
+    "entityName": "INTEREST_RATE_SWAP",
+    "name": "Interest_Rate_Swap_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1488,
+    "entityName": "INTEREST_RATE_SWAP_SUBTYPE",
+    "name": "Interest_Rate_Swap_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1488,
+    "entityName": "INTEREST_RATE_SWAP_SUBTYPE",
+    "name": "Interest_Rate_Swap_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1489,
+    "entityName": "INVESTMENT_CORPORATE_ACTION",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1489,
+    "entityName": "INVESTMENT_CORPORATE_ACTION",
+    "name": "Investment_Product_External_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1490,
+    "entityName": "INVESTMENT_COST_BASIS",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1490,
+    "entityName": "INVESTMENT_COST_BASIS",
+    "name": "Investment_Cost_Basis_Effective_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1490,
+    "entityName": "INVESTMENT_COST_BASIS",
+    "name": "Investment_Cost_Basis_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1490,
+    "entityName": "INVESTMENT_COST_BASIS",
+    "name": "Investment_Cost_Basis_Change_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1490,
+    "entityName": "INVESTMENT_COST_BASIS",
+    "name": "Data_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1491,
+    "entityName": "INVESTMENT_COST_BASIS_CHANGE_REASON",
+    "name": "Investment_Cost_Basis_Change_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1491,
+    "entityName": "INVESTMENT_COST_BASIS_CHANGE_REASON",
+    "name": "Investment_Cost_Basis_Change_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1492,
+    "entityName": "INVESTMENT_EVENT_SUBTYPE",
+    "name": "Investment_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1492,
+    "entityName": "INVESTMENT_EVENT_SUBTYPE",
+    "name": "Investment_Event_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1493,
+    "entityName": "INVESTMENT_GRADE_PARAMETER",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1493,
+    "entityName": "INVESTMENT_GRADE_PARAMETER",
+    "name": "Party_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1493,
+    "entityName": "INVESTMENT_GRADE_PARAMETER",
+    "name": "Investment_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1493,
+    "entityName": "INVESTMENT_GRADE_PARAMETER",
+    "name": "Investment_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1493,
+    "entityName": "INVESTMENT_GRADE_PARAMETER",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1493,
+    "entityName": "INVESTMENT_GRADE_PARAMETER",
+    "name": "Party_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1493,
+    "entityName": "INVESTMENT_GRADE_PARAMETER",
+    "name": "Investment_Grade_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1494,
+    "entityName": "INVESTMENT_HOLDING",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1494,
+    "entityName": "INVESTMENT_HOLDING",
+    "name": "Investment_Holding_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1494,
+    "entityName": "INVESTMENT_HOLDING",
+    "name": "Investment_Holding_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1494,
+    "entityName": "INVESTMENT_HOLDING",
+    "name": "Investment_Holding_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1495,
+    "entityName": "INVESTMENT_OBJECTIVE_TYPE",
+    "name": "Investment_Objective_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1495,
+    "entityName": "INVESTMENT_OBJECTIVE_TYPE",
+    "name": "Investment_Objective_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1496,
+    "entityName": "INVESTMENT_SERVICE",
+    "name": "Service_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1496,
+    "entityName": "INVESTMENT_SERVICE",
+    "name": "Investment_Service_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1497,
+    "entityName": "INVESTMENT_SERVICE_SUBTYPE",
+    "name": "Investment_Service_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1497,
+    "entityName": "INVESTMENT_SERVICE_SUBTYPE",
+    "name": "Investment_Service_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1498,
+    "entityName": "INVESTMENT_SUBTYPE",
+    "name": "Investment_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1498,
+    "entityName": "INVESTMENT_SUBTYPE",
+    "name": "Investment_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1499,
+    "entityName": "INVESTMENT_VALUE_TYPE",
+    "name": "Investment_Value_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1499,
+    "entityName": "INVESTMENT_VALUE_TYPE",
+    "name": "Investment_Value_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1499,
+    "entityName": "INVESTMENT_VALUE_TYPE",
+    "name": "Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1500,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "name": "Market_Identifier_Code_4_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 1500,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "name": "Parent_Market_Identifier_Code_4_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1500,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "name": "Market_Identifier_Code_Created_Month_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1500,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "name": "Market_Identifier_Code_Created_Year_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1500,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "name": "Market_Identifier_Code_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1500,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "name": "Market_Identifier_Code_Current_Status_Month_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1500,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "name": "Market_Identifier_Code_Current_Status_Year_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1501,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE_STATUS",
+    "name": "Market_Identifier_Code_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1501,
+    "entityName": "ISO_10383_MARKET_IDENTIFIER_CODE_STATUS",
+    "name": "Market_Identifier_Code_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1502,
+    "entityName": "LIFE_LINE_QUOTATION",
+    "name": "Fund_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1502,
+    "entityName": "LIFE_LINE_QUOTATION",
+    "name": "Life_Line_Strategy_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1502,
+    "entityName": "LIFE_LINE_QUOTATION",
+    "name": "Lump_Sum_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1502,
+    "entityName": "LIFE_LINE_QUOTATION",
+    "name": "Maturity_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1502,
+    "entityName": "LIFE_LINE_QUOTATION",
+    "name": "Policy_Initial_Payment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1504,
+    "entityName": "MARKETING_GOAL_TYPE",
+    "name": "Marketing_Goal_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1504,
+    "entityName": "MARKETING_GOAL_TYPE",
+    "name": "Marketing_Goal_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1505,
+    "entityName": "MARKETING_SUPPORT_TYPE",
+    "name": "Marketing_Support_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1505,
+    "entityName": "MARKETING_SUPPORT_TYPE",
+    "name": "Marketing_Support_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1506,
+    "entityName": "MARKET_INDEX",
+    "name": "Stock_Index_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1506,
+    "entityName": "MARKET_INDEX",
+    "name": "Stock_Index_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1506,
+    "entityName": "MARKET_INDEX",
+    "name": "Publishing_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1506,
+    "entityName": "MARKET_INDEX",
+    "name": "Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1507,
+    "entityName": "MARKET_INDEX_VALUE",
+    "name": "Stock_Index_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1507,
+    "entityName": "MARKET_INDEX_VALUE",
+    "name": "Stock_Index_Value_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1507,
+    "entityName": "MARKET_INDEX_VALUE",
+    "name": "Close_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1507,
+    "entityName": "MARKET_INDEX_VALUE",
+    "name": "Net_Change_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1507,
+    "entityName": "MARKET_INDEX_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1508,
+    "entityName": "MARKET_PARTICIPANT_PARAMETER",
+    "name": "Party_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1508,
+    "entityName": "MARKET_PARTICIPANT_PARAMETER",
+    "name": "Market_Participant_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1508,
+    "entityName": "MARKET_PARTICIPANT_PARAMETER",
+    "name": "Party_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1508,
+    "entityName": "MARKET_PARTICIPANT_PARAMETER",
+    "name": "Market_Participant_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1508,
+    "entityName": "MARKET_PARTICIPANT_PARAMETER",
+    "name": "Obligor_Double_Default_Eligibility_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1508,
+    "entityName": "MARKET_PARTICIPANT_PARAMETER",
+    "name": "Guarantor_Double_Default_Eligibility_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1508,
+    "entityName": "MARKET_PARTICIPANT_PARAMETER",
+    "name": "Market_Participant_Preference_RW_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1508,
+    "entityName": "MARKET_PARTICIPANT_PARAMETER",
+    "name": "PD_Floor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Market_Plan_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Party_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Market_Product_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Usage_Index_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Household_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Desired_Market_Share_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1509,
+    "entityName": "MARKET_PLAN",
+    "name": "Estimated_Profit_Household_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1510,
+    "entityName": "MARKET_QUOTATION",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1510,
+    "entityName": "MARKET_QUOTATION",
+    "name": "Market_Quotation_Dttm",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1510,
+    "entityName": "MARKET_QUOTATION",
+    "name": "Quoting_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1510,
+    "entityName": "MARKET_QUOTATION",
+    "name": "Reporting_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1510,
+    "entityName": "MARKET_QUOTATION",
+    "name": "Market_Quotation_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1510,
+    "entityName": "MARKET_QUOTATION",
+    "name": "Investment_Product_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1510,
+    "entityName": "MARKET_QUOTATION",
+    "name": "Market_Quotation_Volatility_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1510,
+    "entityName": "MARKET_QUOTATION",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1511,
+    "entityName": "MARKET_QUOTATION_METRIC",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1511,
+    "entityName": "MARKET_QUOTATION_METRIC",
+    "name": "Market_Quotation_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1511,
+    "entityName": "MARKET_QUOTATION_METRIC",
+    "name": "Market_Quotation_Dttm",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1511,
+    "entityName": "MARKET_QUOTATION_METRIC",
+    "name": "Market_Quotation_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1511,
+    "entityName": "MARKET_QUOTATION_METRIC",
+    "name": "Market_Quotation_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1511,
+    "entityName": "MARKET_QUOTATION_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1512,
+    "entityName": "MARKET_QUOTATION_METRIC_TYPE",
+    "name": "Market_Quotation_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1512,
+    "entityName": "MARKET_QUOTATION_METRIC_TYPE",
+    "name": "Market_Quotation_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1513,
+    "entityName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1513,
+    "entityName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "name": "Market_Quotation_Dttm",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1513,
+    "entityName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "name": "Market_Quotation_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1513,
+    "entityName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1513,
+    "entityName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "name": "Investment_Product_Time_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1513,
+    "entityName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "name": "Market_Quotation_Time_Period_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1513,
+    "entityName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "name": "Market_Quotation_Time_Period_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1513,
+    "entityName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Market_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Segment_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Segment_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Segment_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Segment_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Segment_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Segment_Creator_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1514,
+    "entityName": "MARKET_SEGMENT",
+    "name": "Market_Segment_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1515,
+    "entityName": "MARKET_SEGMENT_GROUP",
+    "name": "Segment_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1515,
+    "entityName": "MARKET_SEGMENT_GROUP",
+    "name": "Segment_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1516,
+    "entityName": "MARKET_SEGMENT_SCHEME",
+    "name": "Market_Segment_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1516,
+    "entityName": "MARKET_SEGMENT_SCHEME",
+    "name": "Market_Segment_Scheme_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1516,
+    "entityName": "MARKET_SEGMENT_SCHEME",
+    "name": "Market_Segment_Scheme_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1516,
+    "entityName": "MARKET_SEGMENT_SCHEME",
+    "name": "Market_Segment_Scheme_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1517,
+    "entityName": "MARK_TO_MARKET",
+    "name": "Mark_To_Market_Value_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1517,
+    "entityName": "MARK_TO_MARKET",
+    "name": "Market_Data_Source_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1517,
+    "entityName": "MARK_TO_MARKET",
+    "name": "Model_Source_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1518,
+    "entityName": "MENU_OPTION_TYPE",
+    "name": "Menu_Option_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1518,
+    "entityName": "MENU_OPTION_TYPE",
+    "name": "Menu_Option_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1520,
+    "entityName": "OPTION_EXERCISE",
+    "name": "Option_Exercise_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1521,
+    "entityName": "OPTION_EXERCISE_TYPE",
+    "name": "Option_Exercise_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1521,
+    "entityName": "OPTION_EXERCISE_TYPE",
+    "name": "Option_Exercise_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1522,
+    "entityName": "OPTION_PUT_CALL_TYPE",
+    "name": "Option_Put_Call_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1522,
+    "entityName": "OPTION_PUT_CALL_TYPE",
+    "name": "Option_Put_Call_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1523,
+    "entityName": "OPTION_STYLE_SUBTYPE",
+    "name": "Option_Style_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1523,
+    "entityName": "OPTION_STYLE_SUBTYPE",
+    "name": "Option_Style_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1525,
+    "entityName": "PORTFOLIO",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1525,
+    "entityName": "PORTFOLIO",
+    "name": "Portfolio_Open_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1525,
+    "entityName": "PORTFOLIO",
+    "name": "Portfolio_Close_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1525,
+    "entityName": "PORTFOLIO",
+    "name": "Host_Portfolio_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1525,
+    "entityName": "PORTFOLIO",
+    "name": "Portfolio_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1526,
+    "entityName": "PORTFOLIO_INVESTMENT_ALLOCATION",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1526,
+    "entityName": "PORTFOLIO_INVESTMENT_ALLOCATION",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1526,
+    "entityName": "PORTFOLIO_INVESTMENT_ALLOCATION",
+    "name": "Portfolio_Strategy_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1526,
+    "entityName": "PORTFOLIO_INVESTMENT_ALLOCATION",
+    "name": "Portfolio_Strategy_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1526,
+    "entityName": "PORTFOLIO_INVESTMENT_ALLOCATION",
+    "name": "Portfolio_Strategy_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1527,
+    "entityName": "PORTFOLIO_METRIC_TYPE",
+    "name": "Portfolio_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1527,
+    "entityName": "PORTFOLIO_METRIC_TYPE",
+    "name": "Portfolio_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Close_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Origin_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Application_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Open_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Expiration_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Close_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Ceiling_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Agreement_Currency_Quotation_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Agreement_Currency_Ceiling_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Planned_Agreement_Open_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Quotation_Planned_Agreement_Close_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1529,
+    "entityName": "QUOTATION",
+    "name": "Agreement_Objective_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1530,
+    "entityName": "QUOTATION_ASSET",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1530,
+    "entityName": "QUOTATION_ASSET",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1530,
+    "entityName": "QUOTATION_ASSET",
+    "name": "Quotation_Asset_Role_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1530,
+    "entityName": "QUOTATION_ASSET",
+    "name": "Quotation_Asset_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1531,
+    "entityName": "QUOTATION_ASSET_ROLE_SUBTYPE",
+    "name": "Quotation_Asset_Role_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1531,
+    "entityName": "QUOTATION_ASSET_ROLE_SUBTYPE",
+    "name": "Quotation_Asset_Role_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1532,
+    "entityName": "QUOTATION_CLOSE_REASON_TYPE",
+    "name": "Quotation_Close_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1532,
+    "entityName": "QUOTATION_CLOSE_REASON_TYPE",
+    "name": "Quotation_Close_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1533,
+    "entityName": "QUOTATION_EVENT",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1534,
+    "entityName": "QUOTATION_INSURED_ASSET",
+    "name": "Quotation_Insured_Asset_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1534,
+    "entityName": "QUOTATION_INSURED_ASSET",
+    "name": "Quotation_Currency_Insured_Asset_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Quotation_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Quotation_Metric_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Quotation_Metric_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Quotation_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Quotation_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Quotation_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1535,
+    "entityName": "QUOTATION_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1536,
+    "entityName": "QUOTATION_METRIC_TYPE",
+    "name": "Quotation_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1536,
+    "entityName": "QUOTATION_METRIC_TYPE",
+    "name": "Quotation_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1537,
+    "entityName": "QUOTATION_ORIGIN_TYPE",
+    "name": "Quotation_Origin_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1537,
+    "entityName": "QUOTATION_ORIGIN_TYPE",
+    "name": "Quotation_Origin_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1538,
+    "entityName": "QUOTATION_RELATED",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1538,
+    "entityName": "QUOTATION_RELATED",
+    "name": "Related_Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1538,
+    "entityName": "QUOTATION_RELATED",
+    "name": "Quotation_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1538,
+    "entityName": "QUOTATION_RELATED",
+    "name": "Quotation_Relationship_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1538,
+    "entityName": "QUOTATION_RELATED",
+    "name": "Quotation_Relationship_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1539,
+    "entityName": "QUOTATION_RELATIONSHIP_TYPE",
+    "name": "Quotation_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1539,
+    "entityName": "QUOTATION_RELATIONSHIP_TYPE",
+    "name": "Quotation_Relationship_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1540,
+    "entityName": "QUOTATION_STATUS",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1540,
+    "entityName": "QUOTATION_STATUS",
+    "name": "Quotation_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1540,
+    "entityName": "QUOTATION_STATUS",
+    "name": "Quotation_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1541,
+    "entityName": "QUOTATION_STATUS_REASON",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1541,
+    "entityName": "QUOTATION_STATUS_REASON",
+    "name": "Quotation_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1541,
+    "entityName": "QUOTATION_STATUS_REASON",
+    "name": "Quotation_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1542,
+    "entityName": "QUOTATION_STATUS_REASON_TYPE",
+    "name": "Quotation_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1542,
+    "entityName": "QUOTATION_STATUS_REASON_TYPE",
+    "name": "Quotation_Status_Reason_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1543,
+    "entityName": "QUOTATION_STATUS_TYPE",
+    "name": "Quotation_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1543,
+    "entityName": "QUOTATION_STATUS_TYPE",
+    "name": "Quotation_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1544,
+    "entityName": "QUOTATION_SUBTYPE",
+    "name": "Quotation_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1544,
+    "entityName": "QUOTATION_SUBTYPE",
+    "name": "Quotation_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1546,
+    "entityName": "REGULATORY_INVESTMENT_TYPE",
+    "name": "Regulatory_Investment_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1546,
+    "entityName": "REGULATORY_INVESTMENT_TYPE",
+    "name": "Regulatory_Investment_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1547,
+    "entityName": "REIT_DIVIDEND_SCHEDULE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1547,
+    "entityName": "REIT_DIVIDEND_SCHEDULE",
+    "name": "REIT_Announcement_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1547,
+    "entityName": "REIT_DIVIDEND_SCHEDULE",
+    "name": "REIT_Ex_Dividend_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1547,
+    "entityName": "REIT_DIVIDEND_SCHEDULE",
+    "name": "REIT_Pay_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1547,
+    "entityName": "REIT_DIVIDEND_SCHEDULE",
+    "name": "REIT_Dividend_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1548,
+    "entityName": "SALES_MARKET",
+    "name": "Sales_Market_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1548,
+    "entityName": "SALES_MARKET",
+    "name": "Market_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Sales_Marketing_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Sales_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Related_Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Related_Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Sales_Market_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Target_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Sales_Marketing_Activity_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Sales_Marketing_Activity_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Sales_Marketing_Activity_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Sales_Activity_Due_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Marketing_Activity_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1549,
+    "entityName": "SALES_MARKETING_ACTIVITY",
+    "name": "Sales_Marketing_Activity_Last_Update_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1550,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED",
+    "name": "Related_Sales_Marketing_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1550,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED",
+    "name": "Sales_Marketing_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1550,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED",
+    "name": "Sales_Marketing_Activity_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1550,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED",
+    "name": "Sales_Marketing_Activity_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1550,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED",
+    "name": "Sales_Marketing_Activity_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1551,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_ROLE",
+    "name": "Sales_Marketing_Activity_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1551,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_ROLE",
+    "name": "Sales_Marketing_Activity_Related_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1552,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "name": "Related_Sales_Marketing_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1552,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "name": "Sales_Marketing_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1552,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "name": "Sales_Marketing_Activity_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1552,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "name": "Sales_Marketing_Activity_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1552,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "name": "Sales_Marketing_Activity_Related_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1552,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "name": "Sales_Marketing_Activity_Related_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1552,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "name": "Sales_Marketing_Activity_Related_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1553,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS_REASON",
+    "name": "Sales_Marketing_Activity_Related_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1553,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS_REASON",
+    "name": "Sales_Marketing_Activity_Related_Status_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1554,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS_TYPE",
+    "name": "Sales_Marketing_Activity_Related_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1554,
+    "entityName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS_TYPE",
+    "name": "Sales_Marketing_Activity_Related_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1555,
+    "entityName": "SALES_MARKETING_ACTIVITY_STATUS",
+    "name": "Sales_Marketing_Activity_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1555,
+    "entityName": "SALES_MARKETING_ACTIVITY_STATUS",
+    "name": "Sales_Marketing_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1555,
+    "entityName": "SALES_MARKETING_ACTIVITY_STATUS",
+    "name": "Sales_Marketing_Activity_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1555,
+    "entityName": "SALES_MARKETING_ACTIVITY_STATUS",
+    "name": "Sales_Marketing_Activity_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1556,
+    "entityName": "SALES_MARKETING_ACTIVITY_STATUS_TYPE",
+    "name": "Sales_Marketing_Activity_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1556,
+    "entityName": "SALES_MARKETING_ACTIVITY_STATUS_TYPE",
+    "name": "Sales_Marketing_Activity_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1557,
+    "entityName": "SALES_MARKETING_ACTIVITY_TEXT_COMMENT",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1557,
+    "entityName": "SALES_MARKETING_ACTIVITY_TEXT_COMMENT",
+    "name": "Sales_Marketing_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1557,
+    "entityName": "SALES_MARKETING_ACTIVITY_TEXT_COMMENT",
+    "name": "Sales_Marketing_Activity_Text_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1557,
+    "entityName": "SALES_MARKETING_ACTIVITY_TEXT_COMMENT",
+    "name": "Text_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1557,
+    "entityName": "SALES_MARKETING_ACTIVITY_TEXT_COMMENT",
+    "name": "Sales_Marketing_Activity_Text_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1558,
+    "entityName": "SECONDARY_MARKET_STATUS_TYPE",
+    "name": "Secondary_Market_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1558,
+    "entityName": "SECONDARY_MARKET_STATUS_TYPE",
+    "name": "Secondary_Market_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1559,
+    "entityName": "SECURITY_ASSET",
+    "name": "Security_Unit_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1559,
+    "entityName": "SECURITY_ASSET",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1560,
+    "entityName": "SECURITY_TYPE",
+    "name": "Security_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1560,
+    "entityName": "SECURITY_TYPE",
+    "name": "Security_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1562,
+    "entityName": "SINKING_FUND_SCHEDULE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1562,
+    "entityName": "SINKING_FUND_SCHEDULE",
+    "name": "Sinking_Fund_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1563,
+    "entityName": "SOVEREIGN_WEALTH_FUND_MANAGER",
+    "name": "Government_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1564,
+    "entityName": "STOCK_BOND_HOLDING",
+    "name": "Equity_Basel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1565,
+    "entityName": "STOCK_DIVIDEND_EVENT",
+    "name": "Stock_Dividend_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1566,
+    "entityName": "SWAP_DIRECTION_TYPE",
+    "name": "Swap_Direction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1566,
+    "entityName": "SWAP_DIRECTION_TYPE",
+    "name": "Swap_Direction_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1567,
+    "entityName": "SWAP_LEG_AMORTIZATION_SCHEDULE",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1567,
+    "entityName": "SWAP_LEG_AMORTIZATION_SCHEDULE",
+    "name": "Swap_Leg_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1567,
+    "entityName": "SWAP_LEG_AMORTIZATION_SCHEDULE",
+    "name": "Swap_Amortization_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1567,
+    "entityName": "SWAP_LEG_AMORTIZATION_SCHEDULE",
+    "name": "Swap_Leg_Amortization_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1568,
+    "entityName": "SWAP_LEG_CALL_SCHEDULE",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1568,
+    "entityName": "SWAP_LEG_CALL_SCHEDULE",
+    "name": "Swap_Leg_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1568,
+    "entityName": "SWAP_LEG_CALL_SCHEDULE",
+    "name": "Swap_Call_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1568,
+    "entityName": "SWAP_LEG_CALL_SCHEDULE",
+    "name": "Swap_Leg_Call_Strike_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Calculation_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Interest_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Interest_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Rate_Redefinition_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Cash_Flow_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Interest_Period_Day_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Period_Interest_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Notional_Outstanding_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Cash_Flow_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Present_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1569,
+    "entityName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "name": "Swap_Leg_Discount_Factor_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1570,
+    "entityName": "SWAP_LEG_RESET_SCHEDULE",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1570,
+    "entityName": "SWAP_LEG_RESET_SCHEDULE",
+    "name": "Swap_Leg_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1570,
+    "entityName": "SWAP_LEG_RESET_SCHEDULE",
+    "name": "Swap_Leg_Reset_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1571,
+    "entityName": "SWAP_LEG_TYPE",
+    "name": "Swap_Leg_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1571,
+    "entityName": "SWAP_LEG_TYPE",
+    "name": "Swap_Leg_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1572,
+    "entityName": "SWAP_METRIC_TYPE",
+    "name": "Swap_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1572,
+    "entityName": "SWAP_METRIC_TYPE",
+    "name": "Swap_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1573,
+    "entityName": "SWAP_OBLIGATION_SUBTYPE",
+    "name": "Swap_Obligation_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1573,
+    "entityName": "SWAP_OBLIGATION_SUBTYPE",
+    "name": "Swap_Obligation_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1576,
+    "entityName": "TRADE_CANCEL_TYPE",
+    "name": "Trade_Cancel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1576,
+    "entityName": "TRADE_CANCEL_TYPE",
+    "name": "Trade_Cancel_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Event_Trade_Settle_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Event_Trade_Settle_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Destination_Custodian_Account_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Destination_Agent_Account_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Source_Custodian_Account_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Source_Agent_Account_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Destination_Customer_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Destination_Financial_Institution_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Channel_Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Payment_Timing_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Settlement_Delivery_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Settlement_Direction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Domestic_Foreign_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Split_Settlement_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1577,
+    "entityName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "name": "Destination_Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Settlement_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Value_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Nominal_Amt",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Nominal_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Unit_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Unit_Accrual_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Unit_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Unit_Price_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Debt_Net_Amt",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Up-front_Payment_Amt",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Up-front_Payment_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Amt",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Accrued_Interest_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Trade_Execution_Exchange_Fee_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Trade_Execution_Tax_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Accrual_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Inverse_Traded_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Traded_Price_Not_Available_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Commodity_Derivative_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Securities_Financing_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Trade_Confirmation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Trade_Execution_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Derivative_Notional_Change_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Trade_Order_Buy_Sell_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "name": "Trading_Capacity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1579,
+    "entityName": "TRADE_EXECUTION_STATUS_TYPE",
+    "name": "Trade_Execution_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1579,
+    "entityName": "TRADE_EXECUTION_STATUS_TYPE",
+    "name": "Trade_Execution_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1580,
+    "entityName": "TRADE_EXECUTION_WAIVER",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1580,
+    "entityName": "TRADE_EXECUTION_WAIVER",
+    "name": "Trade_Execution_Waiver_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1581,
+    "entityName": "TRADE_EXECUTION_WAIVER_TYPE",
+    "name": "Trade_Execution_Waiver_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1581,
+    "entityName": "TRADE_EXECUTION_WAIVER_TYPE",
+    "name": "Trade_Execution_Waiver_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1582,
+    "entityName": "TRADE_METHOD_TYPE",
+    "name": "Trade_Confirmation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1582,
+    "entityName": "TRADE_METHOD_TYPE",
+    "name": "Trade_Confirmation_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Buy_Sell_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Purpose_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Cancel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Client_Identification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Investment_Decider_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trading_Capacity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Phase_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Venue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Price_Notation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Sell_Tax_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Period_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Period_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Conditional_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Additional_Limit_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Market_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Average_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Indicative_Auction_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Indicative_Volume_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Initial_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Remaining_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Displayed_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Traded_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Minimum_Executable_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Minimum_Acceptable_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Minimum_Executable_First_Execution_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Passive_Only_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Price_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Price_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Settlement_Plan_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Original_Receipt_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Expected_Value_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Execution_Plan_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Agreement_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Direct_Electronic_Access_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Liquidity_Provision_Activity_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Passive_Or_Aggressive_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Self-Execution_Prevention_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Strategy_Linked_Identification_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Venue_Identification_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Routing_Strategy_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Book_Code_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Original_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Venue_Sequence_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Trade_Order_Venue_Order_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1584,
+    "entityName": "TRADE_ORDER_BUY_SELL_TYPE",
+    "name": "Trade_Order_Buy_Sell_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1584,
+    "entityName": "TRADE_ORDER_BUY_SELL_TYPE",
+    "name": "Trade_Order_Buy_Sell_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1585,
+    "entityName": "TRADE_ORDER_EVENT_TYPE",
+    "name": "Trade_Order_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1585,
+    "entityName": "TRADE_ORDER_EVENT_TYPE",
+    "name": "Trade_Order_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1586,
+    "entityName": "TRADE_ORDER_INVESTMENT_DECIDER_TYPE",
+    "name": "Trade_Order_Investment_Decider_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1586,
+    "entityName": "TRADE_ORDER_INVESTMENT_DECIDER_TYPE",
+    "name": "Trade_Order_Investment_Decider_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1587,
+    "entityName": "TRADE_ORDER_PHASE_TYPE",
+    "name": "Trade_Order_Phase_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1587,
+    "entityName": "TRADE_ORDER_PHASE_TYPE",
+    "name": "Trade_Order_Phase_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1588,
+    "entityName": "TRADE_ORDER_PRICE_NOTATION_TYPE",
+    "name": "Trade_Order_Price_Notation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1588,
+    "entityName": "TRADE_ORDER_PRICE_NOTATION_TYPE",
+    "name": "Trade_Order_Price_Notation_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1589,
+    "entityName": "TRADE_ORDER_RESTRICTION",
+    "name": "Trade_Order_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1589,
+    "entityName": "TRADE_ORDER_RESTRICTION",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1590,
+    "entityName": "TRADE_ORDER_RESTRICTION_TYPE",
+    "name": "Trade_Order_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1590,
+    "entityName": "TRADE_ORDER_RESTRICTION_TYPE",
+    "name": "Trade_Order_Restriction_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1591,
+    "entityName": "TRADE_ORDER_STATUS",
+    "name": "Trade_Order_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1591,
+    "entityName": "TRADE_ORDER_STATUS",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1591,
+    "entityName": "TRADE_ORDER_STATUS",
+    "name": "Trade_Order_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1592,
+    "entityName": "TRADE_ORDER_STATUS_TYPE",
+    "name": "Trade_Order_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1592,
+    "entityName": "TRADE_ORDER_STATUS_TYPE",
+    "name": "Trade_Order_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1593,
+    "entityName": "TRADE_ORDER_TYPE",
+    "name": "Trade_Order_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1593,
+    "entityName": "TRADE_ORDER_TYPE",
+    "name": "Trade_Order_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1594,
+    "entityName": "TRADE_ORDER_VENUE_PRIORITY",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1594,
+    "entityName": "TRADE_ORDER_VENUE_PRIORITY",
+    "name": "Trade_Order_Priority_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1594,
+    "entityName": "TRADE_ORDER_VENUE_PRIORITY",
+    "name": "Trade_Order_Priority_Size_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1595,
+    "entityName": "TRADE_ORDER_VENUE_TYPE",
+    "name": "Trade_Order_Venue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1595,
+    "entityName": "TRADE_ORDER_VENUE_TYPE",
+    "name": "Trade_Order_Venue_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1598,
+    "entityName": "TRADE_SETTLE_PHYSICAL_DELIVERY",
+    "name": "Physical_Delivery_Agreement_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1598,
+    "entityName": "TRADE_SETTLE_PHYSICAL_DELIVERY",
+    "name": "Financial_Institution_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1599,
+    "entityName": "TREASURY_BOND_SUBTYPE",
+    "name": "Treasury_Bond_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1599,
+    "entityName": "TREASURY_BOND_SUBTYPE",
+    "name": "Treasury_Bond_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1600,
+    "entityName": "U.S._TREASURY_BOND",
+    "name": "Treasury_Bond_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1601,
+    "entityName": "UNSETTLED_TRADE_PARAMETER",
+    "name": "Time_Band_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1601,
+    "entityName": "UNSETTLED_TRADE_PARAMETER",
+    "name": "Time_Band_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1601,
+    "entityName": "UNSETTLED_TRADE_PARAMETER",
+    "name": "Unsettled_Trade_Parameter_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1601,
+    "entityName": "UNSETTLED_TRADE_PARAMETER",
+    "name": "Payment_Timing_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1601,
+    "entityName": "UNSETTLED_TRADE_PARAMETER",
+    "name": "Unsettled_Trade_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1601,
+    "entityName": "UNSETTLED_TRADE_PARAMETER",
+    "name": "Unsettled_Trade_Parameter_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1603,
+    "entityName": "YIELD_CURVE_MATURITY_SEGMENT_TYPE",
+    "name": "Yield_Curve_Maturity_Segment_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1603,
+    "entityName": "YIELD_CURVE_MATURITY_SEGMENT_TYPE",
+    "name": "Yield_Curve_Maturity_Segment_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1604,
+    "entityName": "YIELD_TO_MATURITY_PARAMETER",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1604,
+    "entityName": "YIELD_TO_MATURITY_PARAMETER",
+    "name": "Maturity_Remaining_Year_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": false
+  },
+  {
+    "entityId": 1604,
+    "entityName": "YIELD_TO_MATURITY_PARAMETER",
+    "name": "Yield_To_Maturity_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1604,
+    "entityName": "YIELD_TO_MATURITY_PARAMETER",
+    "name": "Yield_To_Maturity_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1604,
+    "entityName": "YIELD_TO_MATURITY_PARAMETER",
+    "name": "Yield_To_Maturity_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  }
+]

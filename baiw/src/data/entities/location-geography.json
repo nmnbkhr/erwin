@@ -1,0 +1,247 @@
+[
+  {
+    "id": 1606,
+    "name": "ADDRESS",
+    "domain": "Location & Geography",
+    "description": "This entity contains all locators that are addresses of point locations where no further decomposition of the address is desired.  Currently, the entity does not carry any non-key attributes. It might carry a common short name for a locator. A short name would typically be derived from the detailed",
+    "attributeCount": 2
+  },
+  {
+    "id": 1607,
+    "name": "ADDRESS_DELIVERY_STATUS",
+    "domain": "Location & Geography",
+    "description": "This entity contains information about potential problems in delivery of content to addresses. Different sources can provide information such as: - Post office providing change of address notifications - Third-party vendors providing address cleanup information - Information known internally, such a",
+    "attributeCount": 7
+  },
+  {
+    "id": 1608,
+    "name": "ADDRESS_SUBTYPE",
+    "domain": "Location & Geography",
+    "description": "A code that uniquely identifies the ADDRESS SUBTYPE.  Examples: - Street address - Electronic address - Geospatial locator - Parcel address - Post office box address - Military address",
+    "attributeCount": 2
+  },
+  {
+    "id": 1609,
+    "name": "COUNTRY",
+    "domain": "Location & Geography",
+    "description": "A geopolitical region with sovereign governing.  Examples: - USA - Canada - Denmark",
+    "attributeCount": 3
+  },
+  {
+    "id": 1610,
+    "name": "COUNTRY_CODE_STANDARD",
+    "domain": "Location & Geography",
+    "description": "This entity is a link between the generic country identifier and the various international standards for country codes such as ISO.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1611,
+    "name": "COUNTRY_CODE_STANDARD_TYPE",
+    "domain": "Location & Geography",
+    "description": "This is a code for the type of coding standard for countries.  For example, for country codes there are the following (www.unc.edu): - International Organization for Standardization (ISO) - World Meteorological Organization (WMO)  Note: If needed, more standards can be added, for example: - Internet",
+    "attributeCount": 3
+  },
+  {
+    "id": 1612,
+    "name": "COUNTRY_GROUP",
+    "domain": "Location & Geography",
+    "description": "A grouping of countries.  Examples: - Europe - Asia - Middle East",
+    "attributeCount": 1
+  },
+  {
+    "id": 1613,
+    "name": "COUNTRY_TO_COUNTRY_GROUP",
+    "domain": "Location & Geography",
+    "description": "This entity allows for a country to be in many country groups. For example, groupings could be European Union, Nordics and Baltics. Sweden and Estonia can below to two of these groups.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1614,
+    "name": "ELECTRONIC_ADDRESS",
+    "domain": "Location & Geography",
+    "description": "A nonphysical/virtual ADDRESS. Could be an email, FTP, or URL.  Examples: - clark@kryptonite.com - FTP.att.net/bob",
+    "attributeCount": 5
+  },
+  {
+    "id": 1615,
+    "name": "ELECTRONIC_ADDRESS_SUBTYPE",
+    "domain": "Location & Geography",
+    "description": "Specifies the type of ELECTRONIC ADDRESS such as email, FTP, URL, or internet protocol address.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1616,
+    "name": "INTERNET_PROTOCOL_ADDRESS",
+    "domain": "Location & Geography",
+    "description": "Internet Protocol (IP) addresses are assigned to every computer or device on a TCP/IP network such as the Internet. They may be assigned statically, where a computer/device is assigned an IP Address and it will always use that address. They may also be assigned dynamically where at the point a compu",
+    "attributeCount": 4
+  },
+  {
+    "id": 1617,
+    "name": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "domain": "Location & Geography",
+    "description": "Maps ranges of Internet Protocol Addresses to their geographical origin.  Note: Since this information is typically provided by a third party, all the geo information listed are not considered derivable. Typically, (almost) all that would be needed would be the Postal Code, after which everything el",
+    "attributeCount": 14
+  },
+  {
+    "id": 1618,
+    "name": "ISO_3166_ALPHA-2_COUNTRY",
+    "domain": "Location & Geography",
+    "description": "This is the ISO 3166-1 alpha-2 code that is a two-letter country code and which is the most widely used of the three country code sets, and which is used most prominently for the Internet's country code top level domains (with a few exceptions).  These codes include countries, territories and geogra",
+    "attributeCount": 1
+  },
+  {
+    "id": 1619,
+    "name": "ISO_3166_ALPHA-3_COUNTRY",
+    "domain": "Location & Geography",
+    "description": "This is the ISO 3166-1 alpha-3 code that is the three-letter country code set, which allows a better visual association between the codes and the country names than the alpha-2 codes.  The description can be found when you link with the ISO 3166 NUMERIC COUNTRY entity.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1620,
+    "name": "ISO_3166_COUNTRY_STANDARD",
+    "domain": "Location & Geography",
+    "description": "This is a type of country code standard that is the ISO 3166 three-digit numeric standard for country code. It links to the independent entity for country codes, which also contains the alpha-2 and alpha-3 ISO standard codes.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1621,
+    "name": "ISO_3166_COUNTRY_SUBDIVISION",
+    "domain": "Location & Geography",
+    "description": "This is the ISO 3166-2 standard code set that defines codes for identifying the principal subdivisions (e.g., states or provinces) of all countries that have ISO 3166-1 codes. The purpose is to establish an international standard of short and unique alphanumeric codes to represent the relevant admin",
+    "attributeCount": 5
+  },
+  {
+    "id": 1622,
+    "name": "ISO_3166_COUNTRY_SUBDIVISION_STANDARD",
+    "domain": "Location & Geography",
+    "description": "This entity contains the code values for the territory according to the ISO 3166-2 Country Subdivision coding scheme.  Each ISO 3166-2 code consists of two parts: - The first part is the ISO 3166 Alpha-2 code of the country - The second part is a string of up to three alphanumeric characters assigne",
+    "attributeCount": 2
+  },
+  {
+    "id": 1623,
+    "name": "ISO_3166_COUNTRY_SUBDIVISION_TYPE",
+    "domain": "Location & Geography",
+    "description": "This is a code for the type of subdivision such as province, state, prefecture.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1624,
+    "name": "ISO_3166_NUMERIC_COUNTRY",
+    "domain": "Location & Geography",
+    "description": "ISO 3166-1 is part of the ISO 3166 standard published by the International Organization for Standardization (ISO), and defines codes for the names of countries, dependent territories, and special areas of geographical interest.  Part 1: Country codes defines three sets of country codes: - ISO 3166-1",
+    "attributeCount": 4
+  },
+  {
+    "id": 1625,
+    "name": "ISO_4217_COUNTRY_CURRENCY",
+    "domain": "Location & Geography",
+    "description": "A currency can be used by many countries (e.g., Euro) and a country can have many currencies (e.g., Switzerland). This entity provides for that.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1626,
+    "name": "ISO_4217_COUNTRY_CURRENCY_ROLE",
+    "domain": "Location & Geography",
+    "description": "This is the role that a currency might have with a country such as in Switzerland it might be the official country standard of Swiss Franc or the WIR Franc with the role of private currency.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1627,
+    "name": "OVERSEAS_MILITARY_ADDRESS",
+    "domain": "Location & Geography",
+    "description": "The concept of getting mail to and from military personnel stationed overseas dates back many years. In formalizing this activity, the U.S. Postal Service (USPS) and the Department of Defense (DoD) negotiated an agreement called Overseas Military Mail, which exists to this day.  For mail routing pur",
+    "attributeCount": 3
+  },
+  {
+    "id": 1628,
+    "name": "PARCEL_ADDRESS",
+    "domain": "Location & Geography",
+    "description": "The legal representation of an address as recorded in the county/parish records.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1629,
+    "name": "REGION",
+    "domain": "Location & Geography",
+    "description": "This entity represents an intermediate geographical grouping level within the geographic hierarchy that groups TERRITORYs into a REGION.  Examples: - Northwest region - Southwest region - Tri-state region",
+    "attributeCount": 2
+  },
+  {
+    "id": 1630,
+    "name": "ROUTING_TRANSIT_NUMBER_ADDRESS",
+    "domain": "Location & Geography",
+    "description": "A routing transit number (RTN) or ABA number is a nine-digit code, used in the United States, which, for instance, appears on the bottom of negotiable instruments such as a check that identifies which financial institution it is drawn upon. This code is also used by the automated clearinghouse to pr",
+    "attributeCount": 1
+  },
+  {
+    "id": 1631,
+    "name": "STREET_ADDRESS",
+    "domain": "Location & Geography",
+    "description": "A STREET ADDRESS that represents a physical mailing address.",
+    "attributeCount": 12
+  },
+  {
+    "id": 1632,
+    "name": "STREET_ADDRESS_DETAIL",
+    "domain": "Location & Geography",
+    "description": "The separate components of a physical address, for example, street direction and street number.",
+    "attributeCount": 16
+  },
+  {
+    "id": 1633,
+    "name": "STREET_ADDRESS_JAPAN",
+    "domain": "Location & Geography",
+    "description": "The street address in Japan is a combination of the district, the block, and a building number.",
+    "attributeCount": 11
+  },
+  {
+    "id": 1634,
+    "name": "STREET_ADDRESS_LINE",
+    "domain": "Location & Geography",
+    "description": "This entity contains additional text lines for a street address.  How these lines are used can vary by country.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1635,
+    "name": "STREET_SUFFIX_TYPE",
+    "domain": "Location & Geography",
+    "description": "This minor entity defines the type of street such as street, lane, or road as used for addresses.  Examples: - AVE = avenue - RD = road - LN = lane",
+    "attributeCount": 2
+  },
+  {
+    "id": 1636,
+    "name": "TERRITORY",
+    "domain": "Location & Geography",
+    "description": "A geographic region within a COUNTRY. Can be a state, province, Bundesland, capital area or overseas military area.  This entity can be customized to include the coding scheme relevant to the country. For example, in the United States each state has a two-digit alphabetic code per ISO 3166-1 standar",
+    "attributeCount": 4
+  },
+  {
+    "id": 1637,
+    "name": "TERRITORY_STANDARD",
+    "domain": "Location & Geography",
+    "description": "This entity associates a territory with standard codes for territories or country subdivisions. Examples of standard coding schemes include the ISO 3166-2 Country Subdivision standard and the United States Postal Service standard.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1638,
+    "name": "TERRITORY_STANDARD_TYPE",
+    "domain": "Location & Geography",
+    "description": "This is a code for the type of territory standard such as ISO 3166-2 Country Subdivision standard or the United States Postal System coding standard.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1639,
+    "name": "TERRITORY_TYPE",
+    "domain": "Location & Geography",
+    "description": "This is a classification of territory.  A territory could be a political area such as a state or province. It could also be a military area such as in the United States where three areas are treated as states for mail routing purposes. These military states are AA (Armed Forces Americas), AE (Armed",
+    "attributeCount": 2
+  },
+  {
+    "id": 1640,
+    "name": "WMO_COUNTRY_STANDARD",
+    "domain": "Location & Geography",
+    "description": "This is the country code standard created, owned, and maintained by the World Meteorological Organization (WMO), which is frequently seen and used in weather-related data sources. It is currently defined as a two-character alpha code.",
+    "attributeCount": 2
+  }
+]

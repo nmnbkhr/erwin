@@ -1,0 +1,2522 @@
+[
+  {
+    "requirement": "Single Customer View (Master Record)",
+    "entity": "PARTY",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Core party/customer master record entities"
+  },
+  {
+    "requirement": "Single Customer View (Master Record)",
+    "entity": "INDIVIDUAL",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Core party/customer master record entities"
+  },
+  {
+    "requirement": "Single Customer View (Master Record)",
+    "entity": "ORGANIZATION",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Core party/customer master record entities"
+  },
+  {
+    "requirement": "Single Customer View (Master Record)",
+    "entity": "HOUSEHOLD",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Core party/customer master record entities"
+  },
+  {
+    "requirement": "Single Customer View (Master Record)",
+    "entity": "PARTY_RELATIONSHIP",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Core party/customer master record entities"
+  },
+  {
+    "requirement": "Single Customer View (Master Record)",
+    "entity": "PARTY_IDENTIFICATION",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Core party/customer master record entities"
+  },
+  {
+    "requirement": "KYC Data",
+    "entity": "PARTY_IDENTIFICATION",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Know-Your-Customer regulatory data"
+  },
+  {
+    "requirement": "KYC Data",
+    "entity": "PARTY_CLASSIFICATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Know-Your-Customer regulatory data"
+  },
+  {
+    "requirement": "KYC Data",
+    "entity": "PARTY_IDENTITY_DOCUMENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Know-Your-Customer regulatory data"
+  },
+  {
+    "requirement": "KYC Data",
+    "entity": "PARTY_COMPLIANCE_VERIFICATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Know-Your-Customer regulatory data"
+  },
+  {
+    "requirement": "Customer Demographics",
+    "entity": "INDIVIDUAL",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Individual/demographic attributes"
+  },
+  {
+    "requirement": "Customer Demographics",
+    "entity": "PARTY_DEMOGRAPHIC",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Individual/demographic attributes"
+  },
+  {
+    "requirement": "Customer Demographics",
+    "entity": "PARTY_CLASSIFICATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Individual/demographic attributes"
+  },
+  {
+    "requirement": "Customer Demographics",
+    "entity": "PARTY_PREFERENCE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Individual/demographic attributes"
+  },
+  {
+    "requirement": "Customer Attitudinal Data",
+    "entity": "PARTY_PREFERENCE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Attitudinal/behavioral data - partial FSDM coverage"
+  },
+  {
+    "requirement": "Customer Attitudinal Data",
+    "entity": "PARTY_CLASSIFICATION",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Attitudinal/behavioral data - partial FSDM coverage"
+  },
+  {
+    "requirement": "Customer Attitudinal Data",
+    "entity": "PARTY_SURVEY_RESPONSE",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "Attitudinal/behavioral data - partial FSDM coverage"
+  },
+  {
+    "requirement": "Customer Segments",
+    "entity": "PARTY_CLASSIFICATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Customer segmentation classifications"
+  },
+  {
+    "requirement": "Customer Segments",
+    "entity": "PARTY_SEGMENT",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Customer segmentation classifications"
+  },
+  {
+    "requirement": "Customer Segments",
+    "entity": "PARTY_CLASSIFICATION_VALUE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Customer segmentation classifications"
+  },
+  {
+    "requirement": "Customer Contact Preferences",
+    "entity": "PARTY_PREFERENCE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Contact channel preferences"
+  },
+  {
+    "requirement": "Customer Contact Preferences",
+    "entity": "PARTY_CONTACT_POINT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Contact channel preferences"
+  },
+  {
+    "requirement": "Customer Contact Preferences",
+    "entity": "ELECTRONIC_ADDRESS",
+    "domain": "Location & Geography",
+    "confidence": "High",
+    "notes": "Contact channel preferences"
+  },
+  {
+    "requirement": "Customer Contact Preferences",
+    "entity": "POSTAL_ADDRESS",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Contact channel preferences"
+  },
+  {
+    "requirement": "Customer Marketing Preferences",
+    "entity": "PARTY_PREFERENCE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Marketing opt-in/opt-out preferences"
+  },
+  {
+    "requirement": "Customer Marketing Preferences",
+    "entity": "PARTY_MARKETING_PREFERENCE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Marketing opt-in/opt-out preferences"
+  },
+  {
+    "requirement": "Customer Marketing Preferences",
+    "entity": "PARTY_CONSENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Marketing opt-in/opt-out preferences"
+  },
+  {
+    "requirement": "Customer Satisfaction Measurement (E.g. NPS)",
+    "entity": "PARTY_SURVEY_RESPONSE",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "NPS/CSAT via survey entities"
+  },
+  {
+    "requirement": "Customer Satisfaction Measurement (E.g. NPS)",
+    "entity": "SURVEY",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "NPS/CSAT via survey entities"
+  },
+  {
+    "requirement": "Customer Satisfaction Measurement (E.g. NPS)",
+    "entity": "SURVEY_QUESTION_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "confidence": "Medium",
+    "notes": "NPS/CSAT via survey entities"
+  },
+  {
+    "requirement": "Economic Forecast Data",
+    "entity": "ECONOMIC_INDEX",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "External economic indicators - may need extension"
+  },
+  {
+    "requirement": "Economic Forecast Data",
+    "entity": "ECONOMIC_INDEX_VALUE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "External economic indicators - may need extension"
+  },
+  {
+    "requirement": "Economic Forecast Data",
+    "entity": "MARKET_INDEX",
+    "domain": "Investment Management",
+    "confidence": "Medium",
+    "notes": "External economic indicators - may need extension"
+  },
+  {
+    "requirement": "Legal Actions",
+    "entity": "PARTY_LEGAL_ACTION",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "Legal proceedings involving parties"
+  },
+  {
+    "requirement": "Legal Actions",
+    "entity": "LEGAL_ACTION",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Legal proceedings involving parties"
+  },
+  {
+    "requirement": "Legal Actions",
+    "entity": "PARTY_LITIGATION",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Legal proceedings involving parties"
+  },
+  {
+    "requirement": "External Prospect Data / Lists",
+    "entity": "PARTY",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "External prospect/lead data"
+  },
+  {
+    "requirement": "External Prospect Data / Lists",
+    "entity": "PROSPECT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "External prospect/lead data"
+  },
+  {
+    "requirement": "External Prospect Data / Lists",
+    "entity": "PARTY_LIST",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "External prospect/lead data"
+  },
+  {
+    "requirement": "External Prospect Data / Lists",
+    "entity": "PARTY_LIST_MEMBERSHIP",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "External prospect/lead data"
+  },
+  {
+    "requirement": "External Data - Social Media Data",
+    "entity": "SOCIAL_MEDIA_ACCOUNT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Social media interaction entities"
+  },
+  {
+    "requirement": "External Data - Social Media Data",
+    "entity": "SOCIAL_MEDIA_TRANSFER",
+    "domain": "Financial Transaction",
+    "confidence": "High",
+    "notes": "Social media interaction entities"
+  },
+  {
+    "requirement": "External Data - Social Media Data",
+    "entity": "SOCIAL_MEDIA_POST",
+    "domain": "Channel Management",
+    "confidence": "High",
+    "notes": "Social media interaction entities"
+  },
+  {
+    "requirement": "External Data - Bureau data",
+    "entity": "PARTY_CREDIT_BUREAU_REPORT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Credit bureau reports and scores"
+  },
+  {
+    "requirement": "External Data - Bureau data",
+    "entity": "CREDIT_BUREAU_SCORE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Credit bureau reports and scores"
+  },
+  {
+    "requirement": "External Data - Bureau data",
+    "entity": "PARTY_EXTERNAL_RATING",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Credit bureau reports and scores"
+  },
+  {
+    "requirement": "External Data - Credit Rating",
+    "entity": "PARTY_EXTERNAL_RATING",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "External credit ratings"
+  },
+  {
+    "requirement": "External Data - Credit Rating",
+    "entity": "PARTY_LIABILITY_CREDIT_RATING",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "External credit ratings"
+  },
+  {
+    "requirement": "External Data - Credit Rating",
+    "entity": "CREDIT_BUREAU_SCORE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "External credit ratings"
+  },
+  {
+    "requirement": "External Economic Data (E.g. Property Prices, Salary)",
+    "entity": "ECONOMIC_INDEX",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Economic indicators and indices"
+  },
+  {
+    "requirement": "External Economic Data (E.g. Property Prices, Salary)",
+    "entity": "ECONOMIC_INDEX_VALUE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Economic indicators and indices"
+  },
+  {
+    "requirement": "External Economic Data (E.g. Property Prices, Salary)",
+    "entity": "MARKET_INDEX",
+    "domain": "Investment Management",
+    "confidence": "Medium",
+    "notes": "Economic indicators and indices"
+  },
+  {
+    "requirement": "External Economic Data (E.g. Property Prices, Salary)",
+    "entity": "MARKET_INDEX_VALUE",
+    "domain": "Investment Management",
+    "confidence": "Medium",
+    "notes": "Economic indicators and indices"
+  },
+  {
+    "requirement": "Master & Reference Data - staff / colleague",
+    "entity": "INDIVIDUAL",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Employee/staff reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - staff / colleague",
+    "entity": "ASSOCIATE",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Employee/staff reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - staff / colleague",
+    "entity": "ASSOCIATE_ASSIGNMENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Employee/staff reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - staff / colleague",
+    "entity": "INTERNAL_ORGANIZATION_UNIT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Employee/staff reference data"
+  },
+  {
+    "requirement": "Sales and Performance Forecasts, Targets & KPIs",
+    "entity": "PERFORMANCE_METRIC",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Performance management - limited FSDM coverage, needs extension"
+  },
+  {
+    "requirement": "Sales and Performance Forecasts, Targets & KPIs",
+    "entity": "PERFORMANCE_TARGET",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Performance management - limited FSDM coverage, needs extension"
+  },
+  {
+    "requirement": "Sales and Performance Forecasts, Targets & KPIs",
+    "entity": "ORGANIZATION_PERFORMANCE",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Performance management - limited FSDM coverage, needs extension"
+  },
+  {
+    "requirement": "HR Performance Data",
+    "entity": "ASSOCIATE",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "HR performance review data"
+  },
+  {
+    "requirement": "HR Performance Data",
+    "entity": "ASSOCIATE_PERFORMANCE_REVIEW",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "HR performance review data"
+  },
+  {
+    "requirement": "HR Performance Data",
+    "entity": "ASSOCIATE_ASSIGNMENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "HR performance review data"
+  },
+  {
+    "requirement": "Customer Core Contact Details",
+    "entity": "PARTY_CONTACT_POINT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Core contact information"
+  },
+  {
+    "requirement": "Customer Core Contact Details",
+    "entity": "ELECTRONIC_ADDRESS",
+    "domain": "Location & Geography",
+    "confidence": "High",
+    "notes": "Core contact information"
+  },
+  {
+    "requirement": "Customer Core Contact Details",
+    "entity": "POSTAL_ADDRESS",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Core contact information"
+  },
+  {
+    "requirement": "Customer Core Contact Details",
+    "entity": "TELEPHONE_NUMBER",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Core contact information"
+  },
+  {
+    "requirement": "Master & Reference Data - geography / location",
+    "entity": "GEOGRAPHICAL_AREA",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Geography/location reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - geography / location",
+    "entity": "GEOGRAPHICAL_UNIT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Geography/location reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - geography / location",
+    "entity": "SITE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Geography/location reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - geography / location",
+    "entity": "POSTAL_ADDRESS",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Geography/location reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - FTP rates",
+    "entity": "INTEREST_RATE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Funds Transfer Pricing rate curves"
+  },
+  {
+    "requirement": "Master & Reference Data - FTP rates",
+    "entity": "INTEREST_RATE_INDEX",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Funds Transfer Pricing rate curves"
+  },
+  {
+    "requirement": "Master & Reference Data - FTP rates",
+    "entity": "PRODUCT_INTEREST_RATE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Funds Transfer Pricing rate curves"
+  },
+  {
+    "requirement": "Master & Reference Data - exchange rates",
+    "entity": "CURRENCY",
+    "domain": "Reference Data",
+    "confidence": "High",
+    "notes": "FX exchange rate data"
+  },
+  {
+    "requirement": "Master & Reference Data - exchange rates",
+    "entity": "CURRENCY_EXCHANGE_RATE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "FX exchange rate data"
+  },
+  {
+    "requirement": "Master & Reference Data - exchange rates",
+    "entity": "CURRENCY_PAIR",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "FX exchange rate data"
+  },
+  {
+    "requirement": "Product Revenue, Cost & Margin",
+    "entity": "PRODUCT",
+    "domain": "Product Management",
+    "confidence": "High",
+    "notes": "Product-level P&L components"
+  },
+  {
+    "requirement": "Product Revenue, Cost & Margin",
+    "entity": "PRODUCT_PRICING",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Product-level P&L components"
+  },
+  {
+    "requirement": "Product Revenue, Cost & Margin",
+    "entity": "PRODUCT_COST",
+    "domain": "Product Management",
+    "confidence": "High",
+    "notes": "Product-level P&L components"
+  },
+  {
+    "requirement": "Product Revenue, Cost & Margin",
+    "entity": "AGREEMENT_SUMMARY",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Product-level P&L components"
+  },
+  {
+    "requirement": "Product NPV's",
+    "entity": "PRODUCT",
+    "domain": "Product Management",
+    "confidence": "Medium",
+    "notes": "Product net present values - may need extension"
+  },
+  {
+    "requirement": "Product NPV's",
+    "entity": "PRODUCT_VALUATION",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Product net present values - may need extension"
+  },
+  {
+    "requirement": "Product NPV's",
+    "entity": "AGREEMENT_SUMMARY",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "Product net present values - may need extension"
+  },
+  {
+    "requirement": "External Data - market interest rates",
+    "entity": "INTEREST_RATE_INDEX",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "KIBOR/market rate benchmarks"
+  },
+  {
+    "requirement": "External Data - market interest rates",
+    "entity": "INTEREST_RATE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "KIBOR/market rate benchmarks"
+  },
+  {
+    "requirement": "External Data - market interest rates",
+    "entity": "MARKET_INDEX",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "KIBOR/market rate benchmarks"
+  },
+  {
+    "requirement": "External Data - market interest rates",
+    "entity": "MARKET_INDEX_VALUE",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "KIBOR/market rate benchmarks"
+  },
+  {
+    "requirement": "External Data - market prices (E.g. equities, bonds, commodities)",
+    "entity": "MARKET_INDEX",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Market price data for traded instruments"
+  },
+  {
+    "requirement": "External Data - market prices (E.g. equities, bonds, commodities)",
+    "entity": "MARKET_INDEX_VALUE",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Market price data for traded instruments"
+  },
+  {
+    "requirement": "External Data - market prices (E.g. equities, bonds, commodities)",
+    "entity": "INVESTMENT_PRODUCT",
+    "domain": "Product Management",
+    "confidence": "High",
+    "notes": "Market price data for traded instruments"
+  },
+  {
+    "requirement": "External Data - market prices (E.g. equities, bonds, commodities)",
+    "entity": "INVESTMENT_PRODUCT_PRICE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Market price data for traded instruments"
+  },
+  {
+    "requirement": "External Data - Competitor Product & Pricing",
+    "entity": "PRODUCT",
+    "domain": "Product Management",
+    "confidence": "Low",
+    "notes": "Competitor data - needs custom extension to FSDM"
+  },
+  {
+    "requirement": "External Data - Competitor Product & Pricing",
+    "entity": "MARKET_INDEX",
+    "domain": "Investment Management",
+    "confidence": "Low",
+    "notes": "Competitor data - needs custom extension to FSDM"
+  },
+  {
+    "requirement": "Account / Policy / Service Holdings",
+    "entity": "AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Customer account/product holdings"
+  },
+  {
+    "requirement": "Account / Policy / Service Holdings",
+    "entity": "PARTY_AGREEMENT_ROLE",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Customer account/product holdings"
+  },
+  {
+    "requirement": "Account / Policy / Service Holdings",
+    "entity": "AGREEMENT_PARTY_ROLE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Customer account/product holdings"
+  },
+  {
+    "requirement": "Account / Policy / Service Holdings",
+    "entity": "AGREEMENT_RELATIONSHIP",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Customer account/product holdings"
+  },
+  {
+    "requirement": "Account / Policy / Service Detail",
+    "entity": "AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Account detail by agreement subtype"
+  },
+  {
+    "requirement": "Account / Policy / Service Detail",
+    "entity": "LOAN_TERM_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Account detail by agreement subtype"
+  },
+  {
+    "requirement": "Account / Policy / Service Detail",
+    "entity": "DEPOSIT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Account detail by agreement subtype"
+  },
+  {
+    "requirement": "Account / Policy / Service Detail",
+    "entity": "INSURANCE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Account detail by agreement subtype"
+  },
+  {
+    "requirement": "Account / Policy / Service Detail",
+    "entity": "CREDIT_CARD_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Account detail by agreement subtype"
+  },
+  {
+    "requirement": "Account Status (open closed active / domant /inactive / closure reason )",
+    "entity": "AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Account lifecycle status tracking"
+  },
+  {
+    "requirement": "Account Status (open closed active / domant /inactive / closure reason )",
+    "entity": "AGREEMENT_STATUS",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Account lifecycle status tracking"
+  },
+  {
+    "requirement": "Account Status (open closed active / domant /inactive / closure reason )",
+    "entity": "AGREEMENT_STATUS_HISTORY",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Account lifecycle status tracking"
+  },
+  {
+    "requirement": "Account Terms & Conditions",
+    "entity": "AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Contractual terms and conditions"
+  },
+  {
+    "requirement": "Account Terms & Conditions",
+    "entity": "AGREEMENT_CONDITION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Contractual terms and conditions"
+  },
+  {
+    "requirement": "Account Terms & Conditions",
+    "entity": "AGREEMENT_TERM",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Contractual terms and conditions"
+  },
+  {
+    "requirement": "Account Feature Usage",
+    "entity": "AGREEMENT_FEATURE",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Product feature opt-in and usage"
+  },
+  {
+    "requirement": "Account Feature Usage",
+    "entity": "FEATURE",
+    "domain": "Product Management",
+    "confidence": "High",
+    "notes": "Product feature opt-in and usage"
+  },
+  {
+    "requirement": "Account Feature Usage",
+    "entity": "DESCRIPTIVE_FEATURE",
+    "domain": "Product Management",
+    "confidence": "High",
+    "notes": "Product feature opt-in and usage"
+  },
+  {
+    "requirement": "Application Data (New Customer, New Product)",
+    "entity": "APPLICATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Loan/product applications"
+  },
+  {
+    "requirement": "Application Data (New Customer, New Product)",
+    "entity": "APPLICATION_STATUS",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Loan/product applications"
+  },
+  {
+    "requirement": "Application Data (New Customer, New Product)",
+    "entity": "APPLICATION_PARTY_ROLE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Loan/product applications"
+  },
+  {
+    "requirement": "Coverage (insurance)",
+    "entity": "INSURANCE_COVERAGE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Insurance coverage details"
+  },
+  {
+    "requirement": "Coverage (insurance)",
+    "entity": "INSURANCE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Insurance coverage details"
+  },
+  {
+    "requirement": "Coverage (insurance)",
+    "entity": "COVERAGE_TYPE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Insurance coverage details"
+  },
+  {
+    "requirement": "Account Balances",
+    "entity": "AGREEMENT_SUMMARY",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Account balance snapshots and summaries"
+  },
+  {
+    "requirement": "Account Balances",
+    "entity": "BALANCE_SUMMARY",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Account balance snapshots and summaries"
+  },
+  {
+    "requirement": "Account Balances",
+    "entity": "AGREEMENT_BALANCE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Account balance snapshots and summaries"
+  },
+  {
+    "requirement": "Investment Value",
+    "entity": "INVESTMENT_ACCOUNT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Investment portfolio valuations"
+  },
+  {
+    "requirement": "Investment Value",
+    "entity": "INVESTMENT_HOLDING",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Investment portfolio valuations"
+  },
+  {
+    "requirement": "Investment Value",
+    "entity": "INVESTMENT_PRODUCT_PRICE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Investment portfolio valuations"
+  },
+  {
+    "requirement": "Market / Trading Book Positions",
+    "entity": "TRADE_ORDER",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Trading book positions"
+  },
+  {
+    "requirement": "Market / Trading Book Positions",
+    "entity": "TRADE_EXECUTION",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Trading book positions"
+  },
+  {
+    "requirement": "Market / Trading Book Positions",
+    "entity": "TRADING_POSITION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Trading book positions"
+  },
+  {
+    "requirement": "Mark to market valuations",
+    "entity": "INVESTMENT_PRODUCT_PRICE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Mark-to-market valuations"
+  },
+  {
+    "requirement": "Mark to market valuations",
+    "entity": "MARKET_INDEX_VALUE",
+    "domain": "Investment Management",
+    "confidence": "Medium",
+    "notes": "Mark-to-market valuations"
+  },
+  {
+    "requirement": "Mark to market valuations",
+    "entity": "AGREEMENT_VALUATION",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Mark-to-market valuations"
+  },
+  {
+    "requirement": "Cashflow Projections",
+    "entity": "AGREEMENT_CASHFLOW",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Projected cashflows - may need extension"
+  },
+  {
+    "requirement": "Cashflow Projections",
+    "entity": "CASHFLOW_SCHEDULE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Projected cashflows - may need extension"
+  },
+  {
+    "requirement": "Cashflow Projections",
+    "entity": "AGREEMENT_SUMMARY",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "Projected cashflows - may need extension"
+  },
+  {
+    "requirement": "Account Maturity Dates & Repricing Schedules",
+    "entity": "AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Maturity and repricing dates"
+  },
+  {
+    "requirement": "Account Maturity Dates & Repricing Schedules",
+    "entity": "AGREEMENT_TERM",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Maturity and repricing dates"
+  },
+  {
+    "requirement": "Account Maturity Dates & Repricing Schedules",
+    "entity": "AGREEMENT_REPRICING_SCHEDULE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Maturity and repricing dates"
+  },
+  {
+    "requirement": "Account Repayment Schedules",
+    "entity": "AGREEMENT_REPAYMENT_SCHEDULE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Loan repayment schedules"
+  },
+  {
+    "requirement": "Account Repayment Schedules",
+    "entity": "LOAN_TERM_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Loan repayment schedules"
+  },
+  {
+    "requirement": "Amortisation Schedules",
+    "entity": "AGREEMENT_AMORTIZATION_SCHEDULE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Amortization schedules"
+  },
+  {
+    "requirement": "Amortisation Schedules",
+    "entity": "LOAN_TERM_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "Amortization schedules"
+  },
+  {
+    "requirement": "Customer Illustrations",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Customer illustration documents - generic doc entities"
+  },
+  {
+    "requirement": "Customer Illustrations",
+    "entity": "PARTY_DOCUMENT",
+    "domain": "Party Management",
+    "confidence": "Low",
+    "notes": "Customer illustration documents - generic doc entities"
+  },
+  {
+    "requirement": "Customer Quotes",
+    "entity": "APPLICATION",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Customer quotes - limited FSDM coverage"
+  },
+  {
+    "requirement": "Customer Quotes",
+    "entity": "QUOTE",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Customer quotes - limited FSDM coverage"
+  },
+  {
+    "requirement": "Customer Quotes",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Customer quotes - limited FSDM coverage"
+  },
+  {
+    "requirement": "Collateral Agreements",
+    "entity": "COLLATERAL_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Collateral and security agreements"
+  },
+  {
+    "requirement": "Collateral Agreements",
+    "entity": "COLLATERAL",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Collateral and security agreements"
+  },
+  {
+    "requirement": "Collateral Agreements",
+    "entity": "COLLATERAL_VALUATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Collateral and security agreements"
+  },
+  {
+    "requirement": "Collateral Agreements",
+    "entity": "PARTY_ASSET",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Collateral and security agreements"
+  },
+  {
+    "requirement": "Risk Exposures",
+    "entity": "AGREEMENT_RISK_METRIC",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Credit/market/operational risk exposures"
+  },
+  {
+    "requirement": "Risk Exposures",
+    "entity": "RISK_EXPOSURE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Credit/market/operational risk exposures"
+  },
+  {
+    "requirement": "Risk Exposures",
+    "entity": "CREDIT_RISK_SUMMARY",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Credit/market/operational risk exposures"
+  },
+  {
+    "requirement": "Risk Weighted Assets & Capital Results",
+    "entity": "AGREEMENT_RISK_METRIC",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Basel RWA and capital calculations"
+  },
+  {
+    "requirement": "Risk Weighted Assets & Capital Results",
+    "entity": "BANK_CAPITAL_SUMMARY",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "Basel RWA and capital calculations"
+  },
+  {
+    "requirement": "Risk Weighted Assets & Capital Results",
+    "entity": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "Basel RWA and capital calculations"
+  },
+  {
+    "requirement": "Profitability Results",
+    "entity": "AGREEMENT_SUMMARY",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Profitability metrics and results - core fact source"
+  },
+  {
+    "requirement": "Profitability Results",
+    "entity": "AGREEMENT_PROFITABILITY",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Profitability metrics and results - core fact source"
+  },
+  {
+    "requirement": "Profitability Results",
+    "entity": "PRODUCT_PROFITABILITY",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Profitability metrics and results - core fact source"
+  },
+  {
+    "requirement": "Account Limits",
+    "entity": "AGREEMENT_LIMIT",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Credit limits and facility limits"
+  },
+  {
+    "requirement": "Account Limits",
+    "entity": "LIMIT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Credit limits and facility limits"
+  },
+  {
+    "requirement": "Account Limits",
+    "entity": "PARTY_LIMIT",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Credit limits and facility limits"
+  },
+  {
+    "requirement": "Predictive Models - propensity to buy",
+    "entity": "ANALYTICAL_MODEL",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Propensity model scores"
+  },
+  {
+    "requirement": "Predictive Models - propensity to buy",
+    "entity": "MODEL_RUN",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Propensity model scores"
+  },
+  {
+    "requirement": "Predictive Models - propensity to buy",
+    "entity": "MODEL_SCORE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Propensity model scores"
+  },
+  {
+    "requirement": "Predictive Models - propensity to buy",
+    "entity": "PARTY_MODEL_SCORE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Propensity model scores"
+  },
+  {
+    "requirement": "Predictive Models - attrition",
+    "entity": "ANALYTICAL_MODEL",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Attrition/churn model scores"
+  },
+  {
+    "requirement": "Predictive Models - attrition",
+    "entity": "MODEL_RUN",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Attrition/churn model scores"
+  },
+  {
+    "requirement": "Predictive Models - attrition",
+    "entity": "MODEL_SCORE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Attrition/churn model scores"
+  },
+  {
+    "requirement": "Predictive Models - attrition",
+    "entity": "PARTY_MODEL_SCORE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Attrition/churn model scores"
+  },
+  {
+    "requirement": "Predictive Models - price elasticity",
+    "entity": "ANALYTICAL_MODEL",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Price elasticity models"
+  },
+  {
+    "requirement": "Predictive Models - price elasticity",
+    "entity": "MODEL_RUN",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Price elasticity models"
+  },
+  {
+    "requirement": "Predictive Models - price elasticity",
+    "entity": "MODEL_SCORE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Price elasticity models"
+  },
+  {
+    "requirement": "Attribution Models - response",
+    "entity": "ANALYTICAL_MODEL",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Marketing attribution models"
+  },
+  {
+    "requirement": "Attribution Models - response",
+    "entity": "MODEL_RUN",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Marketing attribution models"
+  },
+  {
+    "requirement": "Attribution Models - response",
+    "entity": "CAMPAIGN_RESPONSE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Marketing attribution models"
+  },
+  {
+    "requirement": "Lead Foodchain data",
+    "entity": "OPPORTUNITY",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Sales lead/opportunity pipeline"
+  },
+  {
+    "requirement": "Lead Foodchain data",
+    "entity": "OPPORTUNITY_STATUS",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Sales lead/opportunity pipeline"
+  },
+  {
+    "requirement": "Lead Foodchain data",
+    "entity": "OPPORTUNITY_PARTY_ROLE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Sales lead/opportunity pipeline"
+  },
+  {
+    "requirement": "Predictive Models - risk",
+    "entity": "ANALYTICAL_MODEL",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Risk scoring models (PD, LGD, EAD)"
+  },
+  {
+    "requirement": "Predictive Models - risk",
+    "entity": "MODEL_RUN",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Risk scoring models (PD, LGD, EAD)"
+  },
+  {
+    "requirement": "Predictive Models - risk",
+    "entity": "MODEL_SCORE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Risk scoring models (PD, LGD, EAD)"
+  },
+  {
+    "requirement": "Predictive Models - risk",
+    "entity": "PARTY_LIABILITY_CREDIT_RATING",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Risk scoring models (PD, LGD, EAD)"
+  },
+  {
+    "requirement": "Risk Segments, Cohorts & Groupings",
+    "entity": "PARTY_CLASSIFICATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Risk segmentation and grading"
+  },
+  {
+    "requirement": "Risk Segments, Cohorts & Groupings",
+    "entity": "RISK_GRADE_VALUE",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "Risk segmentation and grading"
+  },
+  {
+    "requirement": "Risk Segments, Cohorts & Groupings",
+    "entity": "RISK_GRADE_SCHEME",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "Risk segmentation and grading"
+  },
+  {
+    "requirement": "Provisions, Losses & Writeoffs",
+    "entity": "AGREEMENT_RISK_METRIC",
+    "domain": "Agreement & Account",
+    "confidence": "High",
+    "notes": "Credit loss provisions and write-offs (IFRS9/ECL)"
+  },
+  {
+    "requirement": "Provisions, Losses & Writeoffs",
+    "entity": "PROVISION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Credit loss provisions and write-offs (IFRS9/ECL)"
+  },
+  {
+    "requirement": "Provisions, Losses & Writeoffs",
+    "entity": "WRITE_OFF",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Credit loss provisions and write-offs (IFRS9/ECL)"
+  },
+  {
+    "requirement": "Provisions, Losses & Writeoffs",
+    "entity": "LOSS_EVENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Credit loss provisions and write-offs (IFRS9/ECL)"
+  },
+  {
+    "requirement": "Financial Transactions",
+    "entity": "MONETARY_TRANSACTION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Core financial transaction records"
+  },
+  {
+    "requirement": "Financial Transactions",
+    "entity": "TRANSACTION_TYPE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Core financial transaction records"
+  },
+  {
+    "requirement": "Financial Transactions",
+    "entity": "FINANCIAL_TRANSACTION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Core financial transaction records"
+  },
+  {
+    "requirement": "Financial Transactions",
+    "entity": "PAYMENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Core financial transaction records"
+  },
+  {
+    "requirement": "Account Fees, Commissions & Charges",
+    "entity": "MONETARY_TRANSACTION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Fee and commission income records"
+  },
+  {
+    "requirement": "Account Fees, Commissions & Charges",
+    "entity": "FEE_TRANSACTION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Fee and commission income records"
+  },
+  {
+    "requirement": "Account Fees, Commissions & Charges",
+    "entity": "COMMISSION_TRANSACTION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Fee and commission income records"
+  },
+  {
+    "requirement": "Account Fees, Commissions & Charges",
+    "entity": "AGREEMENT_FEE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Fee and commission income records"
+  },
+  {
+    "requirement": "Financial Interbank Payments",
+    "entity": "PAYMENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Interbank payment/settlement records"
+  },
+  {
+    "requirement": "Financial Interbank Payments",
+    "entity": "INTERBANK_PAYMENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Interbank payment/settlement records"
+  },
+  {
+    "requirement": "Financial Interbank Payments",
+    "entity": "FINANCIAL_TRANSACTION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Interbank payment/settlement records"
+  },
+  {
+    "requirement": "Non-Financial Transactions",
+    "entity": "EVENT",
+    "domain": "Event Management",
+    "confidence": "Medium",
+    "notes": "Non-monetary events and interactions"
+  },
+  {
+    "requirement": "Non-Financial Transactions",
+    "entity": "NON_MONETARY_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Non-monetary events and interactions"
+  },
+  {
+    "requirement": "Non-Financial Transactions",
+    "entity": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "Non-monetary events and interactions"
+  },
+  {
+    "requirement": "Service Usage",
+    "entity": "CHANNEL_USAGE_METRIC",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Service/channel usage tracking"
+  },
+  {
+    "requirement": "Service Usage",
+    "entity": "SERVICE_USAGE_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Service/channel usage tracking"
+  },
+  {
+    "requirement": "Service Usage",
+    "entity": "CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "confidence": "Medium",
+    "notes": "Service/channel usage tracking"
+  },
+  {
+    "requirement": "Complaint Data",
+    "entity": "COMPLAINT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Customer complaint management"
+  },
+  {
+    "requirement": "Complaint Data",
+    "entity": "COMPLAINT_STATUS",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Customer complaint management"
+  },
+  {
+    "requirement": "Complaint Data",
+    "entity": "COMPLAINT_RESOLUTION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Customer complaint management"
+  },
+  {
+    "requirement": "Offline Customer Interactions - Branch",
+    "entity": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "In-branch customer interactions"
+  },
+  {
+    "requirement": "Offline Customer Interactions - Branch",
+    "entity": "BRANCH_VISIT_EVENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "In-branch customer interactions"
+  },
+  {
+    "requirement": "Offline Customer Interactions - Branch",
+    "entity": "CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "confidence": "High",
+    "notes": "In-branch customer interactions"
+  },
+  {
+    "requirement": "Offline Customer Interactions - Call Centre",
+    "entity": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Call center interactions"
+  },
+  {
+    "requirement": "Offline Customer Interactions - Call Centre",
+    "entity": "CALL_EVENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Call center interactions"
+  },
+  {
+    "requirement": "Offline Customer Interactions - Call Centre",
+    "entity": "CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "confidence": "High",
+    "notes": "Call center interactions"
+  },
+  {
+    "requirement": "Offline Customer Interactions - letters",
+    "entity": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "Letter/mail correspondence"
+  },
+  {
+    "requirement": "Offline Customer Interactions - letters",
+    "entity": "CORRESPONDENCE_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Letter/mail correspondence"
+  },
+  {
+    "requirement": "Offline Customer Interactions - letters",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Letter/mail correspondence"
+  },
+  {
+    "requirement": "Offline Customer Interactions - sms text",
+    "entity": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "SMS text message interactions"
+  },
+  {
+    "requirement": "Offline Customer Interactions - sms text",
+    "entity": "SMS_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "SMS text message interactions"
+  },
+  {
+    "requirement": "Offline Customer Interactions - sms text",
+    "entity": "ELECTRONIC_ADDRESS",
+    "domain": "Location & Geography",
+    "confidence": "Medium",
+    "notes": "SMS text message interactions"
+  },
+  {
+    "requirement": "Online Interactions -  webchat (internal & external)",
+    "entity": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Web chat interaction records"
+  },
+  {
+    "requirement": "Online Interactions -  webchat (internal & external)",
+    "entity": "WEB_PAGE_VIEW",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Web chat interaction records"
+  },
+  {
+    "requirement": "Online Interactions -  webchat (internal & external)",
+    "entity": "ONLINE_INTERACTION_EVENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Web chat interaction records"
+  },
+  {
+    "requirement": "Online Interactions colleague intranet",
+    "entity": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "confidence": "Medium",
+    "notes": "Internal intranet usage"
+  },
+  {
+    "requirement": "Online Interactions colleague intranet",
+    "entity": "WEB_PAGE_VIEW",
+    "domain": "Web Analytics",
+    "confidence": "Medium",
+    "notes": "Internal intranet usage"
+  },
+  {
+    "requirement": "Online Interactions customer digital banking site (web log)",
+    "entity": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Digital banking web analytics"
+  },
+  {
+    "requirement": "Online Interactions customer digital banking site (web log)",
+    "entity": "WEB_PAGE_VIEW",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Digital banking web analytics"
+  },
+  {
+    "requirement": "Online Interactions customer digital banking site (web log)",
+    "entity": "EXTENDED_SESSION_INFORMATION",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Digital banking web analytics"
+  },
+  {
+    "requirement": "Online Interactions customer digital banking site (web log)",
+    "entity": "ONLINE_APPLICATION_ACCESS",
+    "domain": "Channel Management",
+    "confidence": "High",
+    "notes": "Digital banking web analytics"
+  },
+  {
+    "requirement": "Online Interactions customer general banking site",
+    "entity": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Public website analytics"
+  },
+  {
+    "requirement": "Online Interactions customer general banking site",
+    "entity": "WEB_PAGE_VIEW",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Public website analytics"
+  },
+  {
+    "requirement": "Online Interactions customer general banking site",
+    "entity": "ONLINE_INTERACTION_EVENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Public website analytics"
+  },
+  {
+    "requirement": "Online Interactions email - customer & employee",
+    "entity": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "Email interaction tracking"
+  },
+  {
+    "requirement": "Online Interactions email - customer & employee",
+    "entity": "EMAIL_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Email interaction tracking"
+  },
+  {
+    "requirement": "Online Interactions email - customer & employee",
+    "entity": "ELECTRONIC_ADDRESS",
+    "domain": "Location & Geography",
+    "confidence": "Medium",
+    "notes": "Email interaction tracking"
+  },
+  {
+    "requirement": "Online Interactions mobile app",
+    "entity": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Mobile app usage analytics"
+  },
+  {
+    "requirement": "Online Interactions mobile app",
+    "entity": "WEB_PAGE_VIEW",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Mobile app usage analytics"
+  },
+  {
+    "requirement": "Online Interactions mobile app",
+    "entity": "MOBILE_APP_EVENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Mobile app usage analytics"
+  },
+  {
+    "requirement": "Online Interactions mobile app",
+    "entity": "CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "confidence": "High",
+    "notes": "Mobile app usage analytics"
+  },
+  {
+    "requirement": "Online Interactions off-site - ad server",
+    "entity": "AD",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Ad server/display advertising data"
+  },
+  {
+    "requirement": "Online Interactions off-site - ad server",
+    "entity": "AD_PLACEMENT",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Ad server/display advertising data"
+  },
+  {
+    "requirement": "Online Interactions off-site - ad server",
+    "entity": "AD_IMPRESSION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Ad server/display advertising data"
+  },
+  {
+    "requirement": "Online Interactions off-site - ad server",
+    "entity": "AD_CAMPAIGN_OBJECTIVE",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Ad server/display advertising data"
+  },
+  {
+    "requirement": "Online Interactions prospect / unidentified customer (web log)",
+    "entity": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Anonymous/prospect web analytics"
+  },
+  {
+    "requirement": "Online Interactions prospect / unidentified customer (web log)",
+    "entity": "WEB_PAGE_VIEW",
+    "domain": "Web Analytics",
+    "confidence": "High",
+    "notes": "Anonymous/prospect web analytics"
+  },
+  {
+    "requirement": "Online Interactions prospect / unidentified customer (web log)",
+    "entity": "VISITOR_INTERACTION_EVENT",
+    "domain": "Event Management",
+    "confidence": "High",
+    "notes": "Anonymous/prospect web analytics"
+  },
+  {
+    "requirement": "Case History (Fraud, Money Laundering, Complaint)",
+    "entity": "CASE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Case management for fraud/AML/complaints"
+  },
+  {
+    "requirement": "Case History (Fraud, Money Laundering, Complaint)",
+    "entity": "CASE_EVENT",
+    "domain": "Event Management",
+    "confidence": "High",
+    "notes": "Case management for fraud/AML/complaints"
+  },
+  {
+    "requirement": "Case History (Fraud, Money Laundering, Complaint)",
+    "entity": "CASE_PARTY_ROLE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Case management for fraud/AML/complaints"
+  },
+  {
+    "requirement": "Case History (Fraud, Money Laundering, Complaint)",
+    "entity": "FRAUD_CASE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Case management for fraud/AML/complaints"
+  },
+  {
+    "requirement": "Claims",
+    "entity": "CLAIM",
+    "domain": "Claims Management",
+    "confidence": "High",
+    "notes": "Insurance claims management"
+  },
+  {
+    "requirement": "Claims",
+    "entity": "CLAIM_STATUS",
+    "domain": "Claims Management",
+    "confidence": "High",
+    "notes": "Insurance claims management"
+  },
+  {
+    "requirement": "Claims",
+    "entity": "CLAIM_PARTY_ROLE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Insurance claims management"
+  },
+  {
+    "requirement": "Claims",
+    "entity": "CLAIM_PAYMENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Insurance claims management"
+  },
+  {
+    "requirement": "Defaults & Limit Breaches",
+    "entity": "AGREEMENT_STATUS",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "Default and limit breach events"
+  },
+  {
+    "requirement": "Defaults & Limit Breaches",
+    "entity": "DEFAULT_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Default and limit breach events"
+  },
+  {
+    "requirement": "Defaults & Limit Breaches",
+    "entity": "LIMIT_BREACH_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Default and limit breach events"
+  },
+  {
+    "requirement": "Defaults & Limit Breaches",
+    "entity": "AGREEMENT_RISK_METRIC",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "Default and limit breach events"
+  },
+  {
+    "requirement": "Closed Loop Outcomes / Channel Responses",
+    "entity": "CAMPAIGN_RESPONSE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Campaign closed-loop response tracking"
+  },
+  {
+    "requirement": "Closed Loop Outcomes / Channel Responses",
+    "entity": "CAMPAIGN_OFFER_RESPONSE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Campaign closed-loop response tracking"
+  },
+  {
+    "requirement": "Closed Loop Outcomes / Channel Responses",
+    "entity": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Campaign closed-loop response tracking"
+  },
+  {
+    "requirement": "External Data - Corporate Actions",
+    "entity": "CORPORATE_ACTION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Corporate action events (dividends, splits)"
+  },
+  {
+    "requirement": "External Data - Corporate Actions",
+    "entity": "INVESTMENT_PRODUCT",
+    "domain": "Product Management",
+    "confidence": "High",
+    "notes": "Corporate action events (dividends, splits)"
+  },
+  {
+    "requirement": "Internal Process Activity Data",
+    "entity": "EVENT",
+    "domain": "Event Management",
+    "confidence": "Low",
+    "notes": "Business process tracking - limited FSDM coverage"
+  },
+  {
+    "requirement": "Internal Process Activity Data",
+    "entity": "PROCESS_EVENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Business process tracking - limited FSDM coverage"
+  },
+  {
+    "requirement": "Internal Process Activity Data",
+    "entity": "OPERATIONAL_EVENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Business process tracking - limited FSDM coverage"
+  },
+  {
+    "requirement": "Master & Reference Data - merchant / transaction",
+    "entity": "MERCHANT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Merchant and transaction type reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - merchant / transaction",
+    "entity": "MERCHANT_CATEGORY",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Merchant and transaction type reference data"
+  },
+  {
+    "requirement": "Master & Reference Data - merchant / transaction",
+    "entity": "TRANSACTION_TYPE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Merchant and transaction type reference data"
+  },
+  {
+    "requirement": "Customer interview / fact find",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Customer fact-find/interview documents"
+  },
+  {
+    "requirement": "Customer interview / fact find",
+    "entity": "SURVEY",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Customer fact-find/interview documents"
+  },
+  {
+    "requirement": "Customer interview / fact find",
+    "entity": "SURVEY_QUESTION_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "confidence": "Medium",
+    "notes": "Customer fact-find/interview documents"
+  },
+  {
+    "requirement": "Customer interview / fact find",
+    "entity": "PARTY_DOCUMENT",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "Customer fact-find/interview documents"
+  },
+  {
+    "requirement": "Physical Assets",
+    "entity": "PARTY_ASSET",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Physical/fixed asset records"
+  },
+  {
+    "requirement": "Physical Assets",
+    "entity": "FIXED_ASSET",
+    "domain": "Asset Management",
+    "confidence": "High",
+    "notes": "Physical/fixed asset records"
+  },
+  {
+    "requirement": "Physical Assets",
+    "entity": "REAL_PROPERTY",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Physical/fixed asset records"
+  },
+  {
+    "requirement": "Physical Asset Valuations",
+    "entity": "PARTY_ASSET_VALUATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Asset valuation records"
+  },
+  {
+    "requirement": "Physical Asset Valuations",
+    "entity": "COLLATERAL_VALUATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Asset valuation records"
+  },
+  {
+    "requirement": "Physical Asset Valuations",
+    "entity": "REAL_PROPERTY_VALUATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Asset valuation records"
+  },
+  {
+    "requirement": "Master & Reference Data - organisation hierarchy",
+    "entity": "ORGANIZATION",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Internal organization/branch hierarchy"
+  },
+  {
+    "requirement": "Master & Reference Data - organisation hierarchy",
+    "entity": "INTERNAL_ORGANIZATION_UNIT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Internal organization/branch hierarchy"
+  },
+  {
+    "requirement": "Master & Reference Data - organisation hierarchy",
+    "entity": "ORGANIZATION_UNIT_RELATIONSHIP",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Internal organization/branch hierarchy"
+  },
+  {
+    "requirement": "Master & Reference Data - organisation hierarchy",
+    "entity": "ORGANIZATION_BUSINESS_TYPE",
+    "domain": "Party Management",
+    "confidence": "High",
+    "notes": "Internal organization/branch hierarchy"
+  },
+  {
+    "requirement": "Operational metrics (E.g. Wait times, queue length)",
+    "entity": "CHANNEL_USAGE_METRIC",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Operational metrics - needs extension"
+  },
+  {
+    "requirement": "Operational metrics (E.g. Wait times, queue length)",
+    "entity": "OPERATIONAL_EVENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Operational metrics - needs extension"
+  },
+  {
+    "requirement": "Operational metrics (E.g. Wait times, queue length)",
+    "entity": "SERVICE_LEVEL_METRIC",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Operational metrics - needs extension"
+  },
+  {
+    "requirement": "Offer Catalogue",
+    "entity": "OFFER",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Marketing offer catalog"
+  },
+  {
+    "requirement": "Offer Catalogue",
+    "entity": "OFFER_TYPE",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Marketing offer catalog"
+  },
+  {
+    "requirement": "Offer Catalogue",
+    "entity": "CAMPAIGN_OFFER",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Marketing offer catalog"
+  },
+  {
+    "requirement": "Offer Catalogue",
+    "entity": "PRODUCT",
+    "domain": "Product Management",
+    "confidence": "High",
+    "notes": "Marketing offer catalog"
+  },
+  {
+    "requirement": "Master & Reference Data - Campaign",
+    "entity": "CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Campaign master data"
+  },
+  {
+    "requirement": "Master & Reference Data - Campaign",
+    "entity": "CAMPAIGN_TYPE",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Campaign master data"
+  },
+  {
+    "requirement": "Master & Reference Data - Campaign",
+    "entity": "CAMPAIGN_STATUS",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Campaign master data"
+  },
+  {
+    "requirement": "Master & Reference Data - Campaign",
+    "entity": "CAMPAIGN_WAVE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Campaign master data"
+  },
+  {
+    "requirement": "Campaign Production Costs",
+    "entity": "CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "confidence": "Medium",
+    "notes": "Campaign cost tracking"
+  },
+  {
+    "requirement": "Campaign Production Costs",
+    "entity": "CAMPAIGN_COST",
+    "domain": "Campaign & Marketing",
+    "confidence": "Medium",
+    "notes": "Campaign cost tracking"
+  },
+  {
+    "requirement": "Campaign Production Costs",
+    "entity": "CAMPAIGN_BUDGET",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Campaign cost tracking"
+  },
+  {
+    "requirement": "Campaign History Data",
+    "entity": "CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "confidence": "High",
+    "notes": "Historical campaign execution and responses"
+  },
+  {
+    "requirement": "Campaign History Data",
+    "entity": "CAMPAIGN_RESPONSE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Historical campaign execution and responses"
+  },
+  {
+    "requirement": "Campaign History Data",
+    "entity": "CAMPAIGN_OFFER_RESPONSE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Historical campaign execution and responses"
+  },
+  {
+    "requirement": "Campaign History Data",
+    "entity": "CAMPAIGN_WAVE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Historical campaign execution and responses"
+  },
+  {
+    "requirement": "Media Asset Details",
+    "entity": "MEDIA_ASSET",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Media/content assets"
+  },
+  {
+    "requirement": "Media Asset Details",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Media/content assets"
+  },
+  {
+    "requirement": "Media Asset Details",
+    "entity": "DIGITAL_CONTENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Media/content assets"
+  },
+  {
+    "requirement": "Campaign Promotional Calendar",
+    "entity": "CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "confidence": "Medium",
+    "notes": "Campaign scheduling/calendar"
+  },
+  {
+    "requirement": "Campaign Promotional Calendar",
+    "entity": "CAMPAIGN_WAVE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Campaign scheduling/calendar"
+  },
+  {
+    "requirement": "Campaign Promotional Calendar",
+    "entity": "CAMPAIGN_SCHEDULE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Campaign scheduling/calendar"
+  },
+  {
+    "requirement": "Master & Reference Data - Channel",
+    "entity": "CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "confidence": "High",
+    "notes": "Channel master data"
+  },
+  {
+    "requirement": "Master & Reference Data - Channel",
+    "entity": "CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "confidence": "High",
+    "notes": "Channel master data"
+  },
+  {
+    "requirement": "Master & Reference Data - Channel",
+    "entity": "CHANNEL_CLASSIFICATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Channel master data"
+  },
+  {
+    "requirement": "Finance Systems - ERP",
+    "entity": "GL_ACCOUNT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "ERP integration - AP/AR/inventory entities"
+  },
+  {
+    "requirement": "Finance Systems - ERP",
+    "entity": "GL_MAIN_ACCOUNT",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "ERP integration - AP/AR/inventory entities"
+  },
+  {
+    "requirement": "Finance Systems - ERP",
+    "entity": "VENDOR",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "ERP integration - AP/AR/inventory entities"
+  },
+  {
+    "requirement": "Finance Systems - ERP",
+    "entity": "VENDOR_INVOICE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "ERP integration - AP/AR/inventory entities"
+  },
+  {
+    "requirement": "Finance Systems - Budgets, Plans & Forecasts",
+    "entity": "GL_ACCOUNT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Financial planning - limited FSDM coverage, needs extension"
+  },
+  {
+    "requirement": "Finance Systems - Budgets, Plans & Forecasts",
+    "entity": "BUDGET",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Financial planning - limited FSDM coverage, needs extension"
+  },
+  {
+    "requirement": "Finance Systems - Budgets, Plans & Forecasts",
+    "entity": "FORECAST",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Financial planning - limited FSDM coverage, needs extension"
+  },
+  {
+    "requirement": "Finance Systems - Budgets, Plans & Forecasts",
+    "entity": "FINANCIAL_PLAN",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Financial planning - limited FSDM coverage, needs extension"
+  },
+  {
+    "requirement": "Model Metadata (E.g. defintion, assumptions, metrics)",
+    "entity": "ANALYTICAL_MODEL",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Analytical model metadata and governance"
+  },
+  {
+    "requirement": "Model Metadata (E.g. defintion, assumptions, metrics)",
+    "entity": "MODEL_RUN",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Analytical model metadata and governance"
+  },
+  {
+    "requirement": "Model Metadata (E.g. defintion, assumptions, metrics)",
+    "entity": "MODEL_PARAMETER",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Analytical model metadata and governance"
+  },
+  {
+    "requirement": "Risk Scenario & Stress Testing Results",
+    "entity": "RISK_CALCULATION_SCENARIO",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "Stress testing and scenario analysis results"
+  },
+  {
+    "requirement": "Risk Scenario & Stress Testing Results",
+    "entity": "RISK_SCENARIO_RESULT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Stress testing and scenario analysis results"
+  },
+  {
+    "requirement": "Risk Scenario & Stress Testing Results",
+    "entity": "STRESS_TEST_RESULT",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "Stress testing and scenario analysis results"
+  },
+  {
+    "requirement": "Documents - Structured Data Capture (Survey, Application Forms)",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Structured document capture"
+  },
+  {
+    "requirement": "Documents - Structured Data Capture (Survey, Application Forms)",
+    "entity": "DOCUMENT_TYPE",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Structured document capture"
+  },
+  {
+    "requirement": "Documents - Structured Data Capture (Survey, Application Forms)",
+    "entity": "SURVEY",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Structured document capture"
+  },
+  {
+    "requirement": "Documents - Structured Data Capture (Survey, Application Forms)",
+    "entity": "APPLICATION",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Structured document capture"
+  },
+  {
+    "requirement": "Text Data",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Unstructured text data"
+  },
+  {
+    "requirement": "Text Data",
+    "entity": "TEXT_CONTENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Unstructured text data"
+  },
+  {
+    "requirement": "Text Data",
+    "entity": "DIGITAL_CONTENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Unstructured text data"
+  },
+  {
+    "requirement": "External Data - News / Industry Feeds E.g. Reuters",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "External news/data feeds - needs extension"
+  },
+  {
+    "requirement": "External Data - News / Industry Feeds E.g. Reuters",
+    "entity": "NEWS_FEED",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "External news/data feeds - needs extension"
+  },
+  {
+    "requirement": "External Data - News / Industry Feeds E.g. Reuters",
+    "entity": "MARKET_INDEX",
+    "domain": "Investment Management",
+    "confidence": "Low",
+    "notes": "External news/data feeds - needs extension"
+  },
+  {
+    "requirement": "Master & Reference Data - Risk Policy Rules",
+    "entity": "RISK_GRADE_SCHEME",
+    "domain": "Risk Management",
+    "confidence": "Medium",
+    "notes": "Risk policy and rules framework"
+  },
+  {
+    "requirement": "Master & Reference Data - Risk Policy Rules",
+    "entity": "RISK_GRADE_VALUE",
+    "domain": "Risk Management",
+    "confidence": "Medium",
+    "notes": "Risk policy and rules framework"
+  },
+  {
+    "requirement": "Master & Reference Data - Risk Policy Rules",
+    "entity": "RISK_POLICY",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Risk policy and rules framework"
+  },
+  {
+    "requirement": "Master & Reference Data - Risk Policy Rules",
+    "entity": "BUSINESS_RULE",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Risk policy and rules framework"
+  },
+  {
+    "requirement": "Customer Research - Primary & Secondary",
+    "entity": "SURVEY",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Customer research via survey entities"
+  },
+  {
+    "requirement": "Customer Research - Primary & Secondary",
+    "entity": "SURVEY_QUESTION_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "confidence": "Medium",
+    "notes": "Customer research via survey entities"
+  },
+  {
+    "requirement": "Customer Research - Primary & Secondary",
+    "entity": "PARTY_SURVEY_RESPONSE",
+    "domain": "Party Management",
+    "confidence": "Medium",
+    "notes": "Customer research via survey entities"
+  },
+  {
+    "requirement": "Rich Media from all sources",
+    "entity": "DIGITAL_CONTENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Rich media content - generic document entities"
+  },
+  {
+    "requirement": "Rich Media from all sources",
+    "entity": "MEDIA_ASSET",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Rich media content - generic document entities"
+  },
+  {
+    "requirement": "Rich Media from all sources",
+    "entity": "DOCUMENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Rich media content - generic document entities"
+  },
+  {
+    "requirement": "Voice Recording",
+    "entity": "DIGITAL_CONTENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Voice/call recordings - needs extension"
+  },
+  {
+    "requirement": "Voice Recording",
+    "entity": "CALL_RECORDING",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Voice/call recordings - needs extension"
+  },
+  {
+    "requirement": "Voice Recording",
+    "entity": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "confidence": "Low",
+    "notes": "Voice/call recordings - needs extension"
+  },
+  {
+    "requirement": "External Data - Fraud Watch Lists",
+    "entity": "WATCH_LIST",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Fraud/sanctions watch lists"
+  },
+  {
+    "requirement": "External Data - Fraud Watch Lists",
+    "entity": "WATCH_LIST_ENTRY",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Fraud/sanctions watch lists"
+  },
+  {
+    "requirement": "External Data - Fraud Watch Lists",
+    "entity": "PARTY_WATCH_LIST_CHECK",
+    "domain": "Other",
+    "confidence": "High",
+    "notes": "Fraud/sanctions watch lists"
+  },
+  {
+    "requirement": "Compliance Approvals",
+    "entity": "COMPLIANCE_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Regulatory compliance approvals"
+  },
+  {
+    "requirement": "Compliance Approvals",
+    "entity": "APPROVAL",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Regulatory compliance approvals"
+  },
+  {
+    "requirement": "Compliance Approvals",
+    "entity": "PARTY_COMPLIANCE_VERIFICATION",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "Regulatory compliance approvals"
+  },
+  {
+    "requirement": "Business Process Definition",
+    "entity": "EVENT",
+    "domain": "Event Management",
+    "confidence": "Low",
+    "notes": "Business process definitions - not in FSDM scope"
+  },
+  {
+    "requirement": "Business Process Definition",
+    "entity": "PROCESS_EVENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "Business process definitions - not in FSDM scope"
+  },
+  {
+    "requirement": "External Data - External Loss Data",
+    "entity": "LOSS_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "External loss data for operational risk"
+  },
+  {
+    "requirement": "External Data - External Loss Data",
+    "entity": "OPERATIONAL_LOSS_EVENT",
+    "domain": "Other",
+    "confidence": "Medium",
+    "notes": "External loss data for operational risk"
+  },
+  {
+    "requirement": "System Log Files (E.g. Firewall, Webserver)",
+    "entity": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "confidence": "Low",
+    "notes": "System/security logs - outside FSDM scope"
+  },
+  {
+    "requirement": "System Log Files (E.g. Firewall, Webserver)",
+    "entity": "SYSTEM_EVENT",
+    "domain": "Other",
+    "confidence": "Low",
+    "notes": "System/security logs - outside FSDM scope"
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "regulatoryFramework": {
+    "sbpRates": [
+      { "name": "Policy Rate", "rate": "17.5%" },
+      { "name": "Overnight Repo", "rate": "16.5%" },
+      { "name": "Reverse Repo", "rate": "18.5%" },
+      { "name": "SBP Discount Rate", "rate": "17.5%" }
+    ],
+    "baselIII": [
+      { "metric": "Minimum CAR", "requirement": "11.5% (incl. CCB 2.5%)" },
+      { "metric": "CET1 Minimum", "requirement": "4.5%" },
+      { "metric": "Tier 1 Capital", "requirement": "6.0%" },
+      { "metric": "Leverage Ratio", "requirement": "3.0% minimum" },
+      { "metric": "Minimum Paid-Up Capital", "requirement": "PKR 10 Billion" },
+      { "metric": "LCR Requirement", "requirement": "100%" },
+      { "metric": "NSFR Requirement", "requirement": "100%" }
+    ],
+    "ifrs9": [
+      { "stage": "Stage 1", "description": "Performing — 12-month ECL", "criteria": "No significant increase in credit risk since initial recognition" },
+      { "stage": "Stage 2", "description": "Under-performing — Lifetime ECL", "criteria": "Significant increase in credit risk but not credit-impaired" },
+      { "stage": "Stage 3", "description": "Non-performing — Lifetime ECL", "criteria": "Credit-impaired assets, objective evidence of impairment" }
+    ],
+    "taxRates": [
+      { "type": "Corporate Tax (Banking)", "rate": "39%", "notes": "Banking company rate per Finance Act" },
+      { "type": "Super Tax", "rate": "10%", "notes": "Applicable on banking companies" },
+      { "type": "Withholding Tax (Profit on Deposits)", "rate": "15%", "notes": "Filers rate; 30% for non-filers" },
+      { "type": "Federal Excise Duty", "rate": "16%", "notes": "On banking services and commissions" },
+      { "type": "Sindh Sales Tax", "rate": "13%", "notes": "On banking services in Sindh province" },
+      { "type": "Punjab Sales Tax", "rate": "16%", "notes": "On banking services in Punjab province" }
+    ]
+  },
+  "industryMetrics": {
+    "overview": [
+      { "metric": "Total Banks", "value": "33" },
+      { "metric": "Full Islamic Banks", "value": "5" },
+      { "metric": "Islamic Banking Windows", "value": "17" },
+      { "metric": "Total Branches", "value": "16,200" },
+      { "metric": "Islamic Banking Branches", "value": "4,100" },
+      { "metric": "Total Assets", "value": "PKR 32.5T" },
+      { "metric": "Total Deposits", "value": "PKR 24.8T" },
+      { "metric": "Total Advances", "value": "PKR 12.3T" },
+      { "metric": "Islamic Banking Share", "value": "20.4%" }
+    ],
+    "ratios": [
+      { "name": "Capital Adequacy Ratio", "value": "17.2%" },
+      { "name": "Return on Assets", "value": "1.3%" },
+      { "name": "Return on Equity", "value": "22.5%" },
+      { "name": "NPL Ratio", "value": "7.4%" },
+      { "name": "Cost-to-Income Ratio", "value": "52.3%" },
+      { "name": "Advances-to-Deposits", "value": "49.6%" }
+    ]
+  },
+  "islamicBanking": {
+    "modes": [
+      { "name": "Murabaha", "type": "Sale-based", "useCase": "Trade finance, auto financing, consumer goods", "fsdmEntity": "FINANCING_FACILITY", "plTreatment": "Profit on sale recognized at inception or deferred" },
+      { "name": "Ijara", "type": "Lease-based", "useCase": "Equipment leasing, property financing", "fsdmEntity": "LEASE_CONTRACT", "plTreatment": "Rental income recognized over lease term" },
+      { "name": "Musharaka", "type": "Partnership", "useCase": "Home financing, project financing, working capital", "fsdmEntity": "INVESTMENT_ACCOUNT", "plTreatment": "Profit/loss shared per agreed ratio" },
+      { "name": "Diminishing Musharaka", "type": "Declining Partnership", "useCase": "Home financing, property acquisition", "fsdmEntity": "FINANCING_FACILITY", "plTreatment": "Rental + redemption of ownership units" },
+      { "name": "Mudaraba", "type": "Profit-sharing", "useCase": "Deposit accounts, investment accounts", "fsdmEntity": "DEPOSIT_ACCOUNT", "plTreatment": "Profit distributed per pre-agreed ratio" },
+      { "name": "Istisna", "type": "Manufacturing", "useCase": "Construction financing, manufacturing orders", "fsdmEntity": "FINANCING_FACILITY", "plTreatment": "Profit recognized on percentage-of-completion" },
+      { "name": "Salam", "type": "Forward Sale", "useCase": "Agricultural financing, commodity financing", "fsdmEntity": "FINANCING_FACILITY", "plTreatment": "Gain on parallel salam recognized at delivery" },
+      { "name": "Wakalah", "type": "Agency", "useCase": "Investment management, treasury placements", "fsdmEntity": "INVESTMENT_ACCOUNT", "plTreatment": "Fee income recognized; investment return to principal" },
+      { "name": "Sukuk", "type": "Islamic Bond", "useCase": "Capital markets, government securities", "fsdmEntity": "SECURITY_HOLDING", "plTreatment": "Periodic coupon/profit distribution" },
+      { "name": "Takaful", "type": "Islamic Insurance", "useCase": "Life and general insurance coverage", "fsdmEntity": "INSURANCE_CONTRACT", "plTreatment": "Contributions to pool; surplus shared with participants" }
+    ]
+  },
+  "paymentEcosystem": {
+    "infrastructure": [
+      { "name": "PRISM", "type": "RTGS", "description": "Pakistan Real-Time Interbank Settlement Mechanism — large-value gross settlement" },
+      { "name": "1LINK", "type": "ATM/POS Switch", "description": "National interbank ATM and POS switching network connecting all banks" },
+      { "name": "NIFT", "type": "Clearing House", "description": "National Institutional Facilitation Technologies — cheque clearing and e-commerce gateway" },
+      { "name": "Raast", "type": "Instant Payments", "description": "SBP's instant payment system for P2P, P2M, and bulk transfers via IBAN/alias" },
+      { "name": "IBFT", "type": "Fund Transfer", "description": "Interbank fund transfer via internet and mobile banking channels" }
+    ],
+    "fintechs": [
+      { "name": "JazzCash", "type": "Mobile Wallet", "users": "40M+ accounts", "description": "Jazz-operated mobile wallet — largest mobile money platform in Pakistan" },
+      { "name": "Easypaisa", "type": "Mobile Wallet", "users": "30M+ accounts", "description": "Telenor-operated mobile financial services with agent network" },
+      { "name": "SadaPay", "type": "Neobank", "users": "5M+ users", "description": "Digital-only banking with Mastercard debit and zero-fee transfers" },
+      { "name": "NayaPay", "type": "Neobank", "users": "3M+ users", "description": "Digital wallet with Visa debit, QR payments, and business accounts" }
+    ]
+  }
+}

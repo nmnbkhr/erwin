@@ -1,0 +1,499 @@
+[
+  {
+    "id": 507,
+    "name": "APPLICATION_ASSET",
+    "domain": "Asset Management",
+    "description": "This associative entity relates an application to an asset along with the role that the asset has with the application. An example of a role of an asset to an application is a collateral role.",
+    "attributeCount": 4
+  },
+  {
+    "id": 508,
+    "name": "APPLICATION_ASSET_ROLE_SUBTYPE",
+    "domain": "Asset Management",
+    "description": "This code contains the role of the asset to the application and is used as a subtype code. Roles can include is collateral for, is insured asset for, or is subject of a lease.",
+    "attributeCount": 2
+  },
+  {
+    "id": 509,
+    "name": "APPLICATION_INSURED_ASSET",
+    "domain": "Asset Management",
+    "description": "This is a subtype to entity APPLICATION ASSET and contains details of the asset in relation to the application in the role of to be insured.",
+    "attributeCount": 2
+  },
+  {
+    "id": 510,
+    "name": "ASSET_APPRAISAL_REASON_TYPE",
+    "domain": "Asset Management",
+    "description": "A code for the reason for the appraisal such as: - Applying for a loan - Estate valuation due to death of owner or joint owner - To determine cost basis at point-in-time - Insurance salvage purposes - Regular appraisal for risk management purposes",
+    "attributeCount": 2
+  },
+  {
+    "id": 511,
+    "name": "ASSET_CLASSIFICATION_SUBJECT",
+    "domain": "Asset Management",
+    "description": "This entity contains those subjects that are classifications of assets. There is one instance for each asset classification, such as houses worth over $1 million.",
+    "attributeCount": 2
+  },
+  {
+    "id": 512,
+    "name": "ASSET_CLASS_TO_OBLIGOR_TYPE",
+    "domain": "Asset Management",
+    "description": "This entity maps a Basel asset class to an obligor type (party class value) for Basel II calculation purposes.",
+    "attributeCount": 5
+  },
+  {
+    "id": 513,
+    "name": "ASSET_DETAIL_CODE_XREF",
+    "domain": "Asset Management",
+    "description": "This associative entity combines tangible objects with the detail codes and specifications that are valid for the tangible objects. An example is occupancy type (retail office, manufacturing, food processing, and hotel) for real estate.",
+    "attributeCount": 12
+  },
+  {
+    "id": 514,
+    "name": "ASSET_DETAIL_SCHEME_TYPE",
+    "domain": "Asset Management",
+    "description": "This is a higher-level classification of the asset detail type.  The code represents the coding scheme. If the asset detail scheme type is \"fuel line location\" then the asset detail type is \"front of dwelling.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 515,
+    "name": "ASSET_DETAIL_TYPE",
+    "domain": "Asset Management",
+    "description": "This entity contains codes describing details of tangible objects. Examples are given for motor vehicles and real estate.  Motor vehicles: - Vehicle passenger restrictive device codes - Vehicle anti-theft device codes - Vehicle damage codes - Vehicle performance codes  Real estate: - Construction co",
+    "attributeCount": 3
+  },
+  {
+    "id": 516,
+    "name": "ASSET_INSPECTION",
+    "domain": "Asset Management",
+    "description": "This entity keeps track of physical inspections of customer assets. This may be done to value assets such as raw materials, work-in-process goods, finished goods, dealers' inventories of autos, and equipment.  Basel II QIS paragraph 470",
+    "attributeCount": 3
+  },
+  {
+    "id": 517,
+    "name": "ASSET_INSPECTION_RESULT",
+    "domain": "Asset Management",
+    "description": "This entity tracks the results of the inspection. There can be many things to look at during the inspection such as general condition, number of rooms, presence of smoke alarm, occupied or not. Each thing being observed has a result. The result may be a code (such as poor, good, excellent) or it may",
+    "attributeCount": 6
+  },
+  {
+    "id": 518,
+    "name": "ASSET_INSURANCE_REFUSED_TYPE",
+    "domain": "Asset Management",
+    "description": "This is a code that describes whether insurance was refused for this asset.",
+    "attributeCount": 2
+  },
+  {
+    "id": 519,
+    "name": "ASSET_LIABILITY_TYPE",
+    "domain": "Asset Management",
+    "description": "Indicates whether the type is an asset or liability or both.  Examples: - Asset - Liability - Allocated capital - Neither asset nor liability - Both asset and liability – depends on balance",
+    "attributeCount": 2
+  },
+  {
+    "id": 520,
+    "name": "ASSET_MAINTENANCE_TYPE",
+    "domain": "Asset Management",
+    "description": "A code for the type of maintenance to this asset such as: - Real estate plumbing maintenance - Real estate electrical maintenance - Real estate heating maintenance - Automobile check up",
+    "attributeCount": 2
+  },
+  {
+    "id": 521,
+    "name": "ASSET_ROLE_TYPE",
+    "domain": "Asset Management",
+    "description": "This minor entity converts the asset role code into a description. Examples of asset roles could be owner, co-owner, beneficiary, or insures. There is one instance for each role code.",
+    "attributeCount": 2
+  },
+  {
+    "id": 522,
+    "name": "ASSET_SCORE",
+    "domain": "Asset Management",
+    "description": "This entity contains predictive scores that are a result of a calculation model/formula. An example of a score could be a liquidity score or a risk score. An example of a score for an asset could be probability of damage due to fire or earthquake.",
+    "attributeCount": 4
+  },
+  {
+    "id": 523,
+    "name": "ASSET_USE_TYPE",
+    "domain": "Asset Management",
+    "description": "This minor entity converts the asset use code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 524,
+    "name": "ASSET_VALUATION_AMOUNT_TYPE",
+    "domain": "Asset Management",
+    "description": "Code for the various amounts related to this valuation event. Value types include: - Valuation amount - Market value - List price - Selling price - Value prior to adjustments for Basel II - Value after adjustments (haircuts) for Basel II",
+    "attributeCount": 2
+  },
+  {
+    "id": 525,
+    "name": "ASSET_VALUATION_METHOD_TYPE",
+    "domain": "Asset Management",
+    "description": "A code for the method used to value this asset such as: - Basel II calculation rules - Fair market value - Blue Book - Geographic index",
+    "attributeCount": 2
+  },
+  {
+    "id": 526,
+    "name": "ASSET_VALUE",
+    "domain": "Asset Management",
+    "description": "This entity tracks the changes to the value of the asset over time. There is one instance for each change in value to the asset. This would include appraisal values for houses and land.  Examples of amounts include: - Market value - Listed value - Selling value - Value for risk management before adj",
+    "attributeCount": 13
+  },
+  {
+    "id": 527,
+    "name": "CASH_ASSET",
+    "domain": "Asset Management",
+    "description": "This entity contains information about cash, foreign exchange, or a deposit of money that resides at another institution. (If your institution has this asset then it would be an instance of AGREEMENT).",
+    "attributeCount": 1
+  },
+  {
+    "id": 528,
+    "name": "DEPRECIABLE_ASSET_DEPRECIATION",
+    "domain": "Asset Management",
+    "description": "This entity identifies the DEPRECIATION METHOD TYPE that can be used for a given DEPRECIABLE FIXED ASSET.",
+    "attributeCount": 4
+  },
+  {
+    "id": 529,
+    "name": "DEPRECIABLE_ASSET_TYPE",
+    "domain": "Asset Management",
+    "description": "This entity identifies the type of depreciable asset like property, equipment, or plant.",
+    "attributeCount": 2
+  },
+  {
+    "id": 530,
+    "name": "DEPRECIABLE_FIXED_ASSET",
+    "domain": "Asset Management",
+    "description": "The entity that identifies a DEPRECIABLE FIXED ASSET.",
+    "attributeCount": 2
+  },
+  {
+    "id": 531,
+    "name": "DEPRECIABLE_PROPERTY",
+    "domain": "Asset Management",
+    "description": "The entity that provides details for the property accounts. DEPRECIABLE PROPERTY is a type of a DEPRECIABLE FIXED ASSET.",
+    "attributeCount": 1
+  },
+  {
+    "id": 532,
+    "name": "DWELLING_TYPE",
+    "domain": "Asset Management",
+    "description": "This is a code that identifies a type dwelling.  Examples: - Single family - Multifamily",
+    "attributeCount": 2
+  },
+  {
+    "id": 533,
+    "name": "EQUIPMENT_ASSET",
+    "domain": "Asset Management",
+    "description": "This entity is a subtype of PARTY ASSET and describes the equipment asset.",
+    "attributeCount": 1
+  },
+  {
+    "id": 534,
+    "name": "FINANCIAL_ASSET",
+    "domain": "Asset Management",
+    "description": "This entity contains information about assets of a financial nature. These types of assets include cash, stocks, bonds, futures, options, and commodities.",
+    "attributeCount": 4
+  },
+  {
+    "id": 535,
+    "name": "FINANCIAL_ASSET_SUBTYPE",
+    "domain": "Asset Management",
+    "description": "A code used as a category discriminator for party assets.",
+    "attributeCount": 2
+  },
+  {
+    "id": 536,
+    "name": "FIXED_ASSET",
+    "domain": "Asset Management",
+    "description": "This entity identifies all the known FIXED ASSETs of the organization. FIXED ASSETs are tangible property used in the operation of the business. Examples of FIXED ASSETs are land, plant, machinery and equipment, furniture, and fixtures.",
+    "attributeCount": 14
+  },
+  {
+    "id": 537,
+    "name": "FIXED_ASSET_AMOUNT",
+    "domain": "Asset Management",
+    "description": "This entity identifies the monetary amounts associated with a FIXED ASSET.  Types of amount that are tracked for a FIXED ASSET include: - Salvage value - Predicted salvage value - Original cost - Adjusted cost - Depreciation amount",
+    "attributeCount": 10
+  },
+  {
+    "id": 538,
+    "name": "FIXED_ASSET_AMOUNT_TYPE",
+    "domain": "Asset Management",
+    "description": "This entity contains monetary amount types and descriptions that can be associated with a FIXED ASSET.  Examples: - Historical cost - Gain on disposal - Loss on disposal - Rental income - Capital appreciation - Impairment loss - Refurbishment cost - Present value minimum lease payments - Salvage val",
+    "attributeCount": 2
+  },
+  {
+    "id": 539,
+    "name": "FIXED_ASSET_BOOK",
+    "domain": "Asset Management",
+    "description": "This entity is a book or collection of assets, along with a record of the transactions performed on those assets, including addition, and depreciation.",
+    "attributeCount": 2
+  },
+  {
+    "id": 540,
+    "name": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "domain": "Asset Management",
+    "description": "This entity contains the various schemes or ways that a fixed asset can be classified. An example of a scheme would be Solvency II Complementary Industry Classification (CIC). Another scheme might be for internal reporting purposes.",
+    "attributeCount": 5
+  },
+  {
+    "id": 541,
+    "name": "FIXED_ASSET_CLASS_VALUE",
+    "domain": "Asset Management",
+    "description": "This is the value of the code. For example, if the scheme is Solvency II Complementary Industry Code then possible values are commercial property, residential property, property for own use, property under construction, plant and equipment for own use, and other. One instance is one value of the cod",
+    "attributeCount": 9
+  },
+  {
+    "id": 542,
+    "name": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "domain": "Asset Management",
+    "description": "This relates the fixed asset to the code value.",
+    "attributeCount": 5
+  },
+  {
+    "id": 543,
+    "name": "FIXED_ASSET_GROUP",
+    "domain": "Asset Management",
+    "description": "This entity defines a category into which assets may be classified for tracking and reporting.  An example is asset classes that group assets together based on depreciation method and the asset's estimated useful life.",
+    "attributeCount": 3
+  },
+  {
+    "id": 544,
+    "name": "FIXED_ASSET_GROUP_XREF",
+    "domain": "Asset Management",
+    "description": "This entity tracks the group to which a FIXED ASSET is assigned. For example, FIXED ASSETs may be grouped by asset classes for depreciation tracking and reporting purposes.",
+    "attributeCount": 4
+  },
+  {
+    "id": 545,
+    "name": "FIXED_ASSET_OWNERSHIP_TYPE",
+    "domain": "Asset Management",
+    "description": "FIXED ASSET OWNERSHIP TYPE describes whether a FIXED ASSET is leased or purchased.  Examples: - Purchased - Leased – capital lease - Reclassed from owner-occupied to investment property - Investment property under finance lease - Investment property owned",
+    "attributeCount": 2
+  },
+  {
+    "id": 546,
+    "name": "FIXED_ASSET_PO",
+    "domain": "Asset Management",
+    "description": "This entity tracks the purchase orders associated with a fixed asset.",
+    "attributeCount": 3
+  },
+  {
+    "id": 547,
+    "name": "FIXED_ASSET_STATUS",
+    "domain": "Asset Management",
+    "description": "This entity tracks the status of a FIXED ASSET such as in use, retired, idle, or disposed.",
+    "attributeCount": 4
+  },
+  {
+    "id": 548,
+    "name": "FIXED_ASSET_STATUS_TYPE",
+    "domain": "Asset Management",
+    "description": "The status or conditions that can be assigned to a fixed asset.  Examples are: - In use - Retire - Idle - In repair - Disposal – withdrawn from use - Disposal – sale - Disposal – finance lease to third-party",
+    "attributeCount": 2
+  },
+  {
+    "id": 549,
+    "name": "FIXED_ASSET_TYPE",
+    "domain": "Asset Management",
+    "description": "The entity that identifies the type of internal FIXED ASSET like depreciable asset or nondepreciable asset.",
+    "attributeCount": 2
+  },
+  {
+    "id": 550,
+    "name": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "domain": "Asset Management",
+    "description": "This entity relates an insured asset to the underwriting class codes.",
+    "attributeCount": 7
+  },
+  {
+    "id": 551,
+    "name": "INTELLECTUAL_PROPERTY",
+    "domain": "Asset Management",
+    "description": "This entity includes intellectual property that is considered a corporate asset such as patents and copyrights.",
+    "attributeCount": 1
+  },
+  {
+    "id": 552,
+    "name": "INTELLECTUAL_PROPERTY_TYPE",
+    "domain": "Asset Management",
+    "description": "A code for the type of intellectual property such as patent or copyright.",
+    "attributeCount": 2
+  },
+  {
+    "id": 553,
+    "name": "INTERNAL_ASSET_SUBTYPE",
+    "domain": "Asset Management",
+    "description": "This entity further classifies an internal asset as either fixed or consumable.",
+    "attributeCount": 2
+  },
+  {
+    "id": 554,
+    "name": "INTERNAL_ASSET_TYPE",
+    "domain": "Asset Management",
+    "description": "This is the list of types of items or assets that your business purchases to conduct operations. It is related to purchase orders, invoices, receipts, and returns.  Examples include supplies, desks, chairs, and personal computer. This is a classification of the asset and not the asset instance.  Thi",
+    "attributeCount": 4
+  },
+  {
+    "id": 555,
+    "name": "INTERNAL_CONSUMABLE_ASSET_TYPE",
+    "domain": "Asset Management",
+    "description": "This is an internal asset that is consumable such as supplies.",
+    "attributeCount": 0
+  },
+  {
+    "id": 556,
+    "name": "INTERNAL_FIXED_ASSET_TYPE",
+    "domain": "Asset Management",
+    "description": "This is an internal asset that classified as a fixed asset such as buildings.",
+    "attributeCount": 1
+  },
+  {
+    "id": 557,
+    "name": "JEWELRY",
+    "domain": "Asset Management",
+    "description": "This entity is a subtype of PARTY ASSET and describes the jewelry.",
+    "attributeCount": 3
+  },
+  {
+    "id": 558,
+    "name": "JEWELRY_GEM_TYPE",
+    "domain": "Asset Management",
+    "description": "This minor entity converts the jewelry gem code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 559,
+    "name": "JEWELRY_METAL_TYPE",
+    "domain": "Asset Management",
+    "description": "This minor entity converts the jewelry metal code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 560,
+    "name": "JEWELRY_TYPE",
+    "domain": "Asset Management",
+    "description": "This minor entity converts the jewelry type code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 561,
+    "name": "MOTOR_VEHICLE",
+    "domain": "Asset Management",
+    "description": "This entity is a subtype of PARTY ASSET and describes the motor vehicle. Motor vehicles include passenger cars, busses, ambulances, trucks, and vans.",
+    "attributeCount": 8
+  },
+  {
+    "id": 562,
+    "name": "MOTOR_VEHICLE_DETAIL",
+    "domain": "Asset Management",
+    "description": "This entity represents the motor vehicle attributes that may change over time.",
+    "attributeCount": 14
+  },
+  {
+    "id": 563,
+    "name": "MOTOR_VEHICLE_SPECIFICATION",
+    "domain": "Asset Management",
+    "description": "These are the motor vehicle specifications that are unique to this specific vehicle and cannot be derived from the make/model/year standard specifications.",
+    "attributeCount": 6
+  },
+  {
+    "id": 564,
+    "name": "MOTOR_VEHICLE_TYPE",
+    "domain": "Asset Management",
+    "description": "This minor entity converts the motor vehicle type code into a description. Examples include passenger car, motorcycle, pickup truck, van, recreational vehicle, taxicab, and bus.",
+    "attributeCount": 2
+  },
+  {
+    "id": 565,
+    "name": "MOTOR_VEHICLE_USAGE_METRIC",
+    "domain": "Asset Management",
+    "description": "This entity tracks various measurements reported for this vehicle at a point-in-time such as odometer reading, oil level, brake fluid level, and tire pressure. This is different from valuation and code specifications. These metrics can change over time based on the usage of the vehicle.",
+    "attributeCount": 5
+  },
+  {
+    "id": 566,
+    "name": "MOTOR_VEHICLE_USAGE_METRIC_TYPE",
+    "domain": "Asset Management",
+    "description": "This is a code for the type of metric such as odometer reading, oil level, brake fluid level, and tire pressure",
+    "attributeCount": 2
+  },
+  {
+    "id": 567,
+    "name": "NONDEPRECIABLE_ASSET_TYPE",
+    "domain": "Asset Management",
+    "description": "This entity identifies the type of nondepreciable asset like raw land.",
+    "attributeCount": 2
+  },
+  {
+    "id": 568,
+    "name": "NONDEPRECIABLE_FIXED_ASSET",
+    "domain": "Asset Management",
+    "description": "The entity that identifies the FIXED ASSET is nondepreciable. NONDEPRECIABLE FIXED ASSETs include things like raw land.",
+    "attributeCount": 2
+  },
+  {
+    "id": 569,
+    "name": "OTHER_ASSET",
+    "domain": "Asset Management",
+    "description": "This entity is a subtype of PARTY ASSET and describes assets other than real estate, motor vehicles, jewelry, or boats.",
+    "attributeCount": 0
+  },
+  {
+    "id": 570,
+    "name": "POLICY_ASSET_COVERAGE_METRIC",
+    "domain": "Asset Management",
+    "description": "This entity tracks various insurance metrics over time for this policy for this coverage for this insured asset. For example, it tracks written and earned premium, and discount amounts.  The time period will specify whether this is point-in-time or a time range, which starts from the start date.",
+    "attributeCount": 16
+  },
+  {
+    "id": 571,
+    "name": "PROJECT_RESOURCE_FIXED_ASSET",
+    "domain": "Asset Management",
+    "description": "This entity lists a specific FIXED ASSET assigned to a PROJECT TASK.",
+    "attributeCount": 1
+  },
+  {
+    "id": 572,
+    "name": "VEHICLE_MAKE_MODEL",
+    "domain": "Asset Management",
+    "description": "This is the vehicle model for a given vehicle make. For example, if the make is Toyota then the model could be Corolla, Land Cruiser, and Prius. If the make is Ford then the models could be Mustang, Taurus, and Focus.",
+    "attributeCount": 3
+  },
+  {
+    "id": 573,
+    "name": "VEHICLE_MAKE_MODEL_YEAR",
+    "domain": "Asset Management",
+    "description": "This entity contains the vehicle make, model and year for those years where this model was produced.",
+    "attributeCount": 4
+  },
+  {
+    "id": 574,
+    "name": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "domain": "Asset Management",
+    "description": "These are the specification metrics that are associated with a vehicle make, model and year combination. Examples include car engine position (e.g., front), car engine size (cubic inches or cubic centimeters), and top speed (km/h or mph).  There may be more specification type values other than fuel",
+    "attributeCount": 9
+  },
+  {
+    "id": 575,
+    "name": "VEHICLE_MAKE_TYPE",
+    "domain": "Asset Management",
+    "description": "This is the make of the vehicle such as Toyota, Mazda, Ford, General Motors, Dodge, and Mercedes Benz. It is produced by one primary manufacturer.",
+    "attributeCount": 3
+  },
+  {
+    "id": 576,
+    "name": "VEHICLE_SERIES_TYPE",
+    "domain": "Asset Management",
+    "description": "The series represents a grouping of models into a higher level of classification such as the BMW 500 Series.",
+    "attributeCount": 2
+  },
+  {
+    "id": 577,
+    "name": "VEHICLE_SPECIFICATION_TYPE",
+    "domain": "Asset Management",
+    "description": "This is a code for the type of specification such as car engine position (e.g., front), car engine size (cubic inches or cubic centimeters), and top speed (km/h or mph). If the specification is in both metric and nonmetric units of measure then both are stated.",
+    "attributeCount": 2
+  }
+]

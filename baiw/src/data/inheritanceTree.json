@@ -1,0 +1,5875 @@
+[
+  {
+    "parentId": 1,
+    "parentName": "ACCESS_DEVICE",
+    "childId": 2,
+    "childName": "CARD",
+    "depth": 1
+  },
+  {
+    "parentId": 2,
+    "parentName": "CARD",
+    "childId": 3,
+    "childName": "CREDIT_CARD",
+    "depth": 2
+  },
+  {
+    "parentId": 3,
+    "parentName": "CREDIT_CARD",
+    "childId": 4,
+    "childName": "PURCHASE_CARD",
+    "depth": 3
+  },
+  {
+    "parentId": 4,
+    "parentName": "CARD",
+    "childId": 5,
+    "childName": "DEBIT_CARD",
+    "depth": 2
+  },
+  {
+    "parentId": 5,
+    "parentName": "ACCESS_DEVICE",
+    "childId": 6,
+    "childName": "MOBILE_PHONE",
+    "depth": 1
+  },
+  {
+    "parentId": 6,
+    "parentName": "ACCOUNT",
+    "childId": 7,
+    "childName": "EXTERNAL_ACCOUNT",
+    "depth": 1
+  },
+  {
+    "parentId": 7,
+    "parentName": "ACCOUNT",
+    "childId": 8,
+    "childName": "INTERNAL_ACCOUNT",
+    "depth": 1
+  },
+  {
+    "parentId": 8,
+    "parentName": "ACCOUNT",
+    "childId": 9,
+    "childName": "TRANSACTION_ACCOUNT",
+    "depth": 1
+  },
+  {
+    "parentId": 9,
+    "parentName": "AD",
+    "childId": 10,
+    "childName": "DIRECT_MAIL_AD",
+    "depth": 1
+  },
+  {
+    "parentId": 10,
+    "parentName": "AD",
+    "childId": 11,
+    "childName": "EMAIL_AD",
+    "depth": 1
+  },
+  {
+    "parentId": 11,
+    "parentName": "AD",
+    "childId": 12,
+    "childName": "PRINT_AD",
+    "depth": 1
+  },
+  {
+    "parentId": 12,
+    "parentName": "AD",
+    "childId": 13,
+    "childName": "TRAILER_AD",
+    "depth": 1
+  },
+  {
+    "parentId": 13,
+    "parentName": "AD",
+    "childId": 14,
+    "childName": "TV_AD",
+    "depth": 1
+  },
+  {
+    "parentId": 14,
+    "parentName": "AD",
+    "childId": 15,
+    "childName": "WEB_AD",
+    "depth": 1
+  },
+  {
+    "parentId": 15,
+    "parentName": "WEB_AD",
+    "childId": 16,
+    "childName": "WEB_BANNER_AD",
+    "depth": 2
+  },
+  {
+    "parentId": 16,
+    "parentName": "WEB_AD",
+    "childId": 17,
+    "childName": "WEB_TEXT_AD",
+    "depth": 2
+  },
+  {
+    "parentId": 17,
+    "parentName": "AD_ORDER_HEADER",
+    "childId": 18,
+    "childName": "DIGITAL_ORDER",
+    "depth": 1
+  },
+  {
+    "parentId": 18,
+    "parentName": "AD_ORDER_HEADER",
+    "childId": 19,
+    "childName": "MAKE_GOOD_ORDER",
+    "depth": 1
+  },
+  {
+    "parentId": 19,
+    "parentName": "MAKE_GOOD_ORDER",
+    "childId": 20,
+    "childName": "AD_ORDER_MAKE_GOOD_PLACEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 20,
+    "parentName": "MAKE_GOOD_ORDER",
+    "childId": 21,
+    "childName": "AD_ORDER_MAKE_GOOD_REFUND",
+    "depth": 2
+  },
+  {
+    "parentId": 21,
+    "parentName": "AD_ORDER_HEADER",
+    "childId": 22,
+    "childName": "TRADITIONAL_ORDER",
+    "depth": 1
+  },
+  {
+    "parentId": 22,
+    "parentName": "AD_PLACEMENT",
+    "childId": 23,
+    "childName": "DIGITAL_PLACEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 23,
+    "parentName": "DIGITAL_PLACEMENT",
+    "childId": 24,
+    "childName": "WEB_PLATFORM",
+    "depth": 2
+  },
+  {
+    "parentId": 24,
+    "parentName": "AD_PLACEMENT",
+    "childId": 25,
+    "childName": "DIGITAL_REQUEST_PLACEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 25,
+    "parentName": "DIGITAL_REQUEST_PLACEMENT",
+    "childId": 26,
+    "childName": "REQUEST_PLACEMENT_INTERACTIVE",
+    "depth": 2
+  },
+  {
+    "parentId": 26,
+    "parentName": "DIGITAL_REQUEST_PLACEMENT",
+    "childId": 27,
+    "childName": "REQUEST_PLACEMENT_WEB",
+    "depth": 2
+  },
+  {
+    "parentId": 27,
+    "parentName": "AD_PLACEMENT",
+    "childId": 28,
+    "childName": "TRADITIONAL_PLACEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 28,
+    "parentName": "TRADITIONAL_PLACEMENT",
+    "childId": 29,
+    "childName": "AD_PLACEMENT_OUTDOOR_PLATFORM",
+    "depth": 2
+  },
+  {
+    "parentId": 29,
+    "parentName": "TRADITIONAL_PLACEMENT",
+    "childId": 30,
+    "childName": "AD_PLACEMENT_PRINT_PLATFORM",
+    "depth": 2
+  },
+  {
+    "parentId": 30,
+    "parentName": "AD_PLACEMENT",
+    "childId": 31,
+    "childName": "TRADITIONAL_REQUEST_PLACEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 31,
+    "parentName": "TRADITIONAL_REQUEST_PLACEMENT",
+    "childId": 32,
+    "childName": "REQUEST_PLACEMENT_BROADCAST",
+    "depth": 2
+  },
+  {
+    "parentId": 32,
+    "parentName": "TRADITIONAL_REQUEST_PLACEMENT",
+    "childId": 33,
+    "childName": "REQUEST_PLACEMENT_OUTDOOR",
+    "depth": 2
+  },
+  {
+    "parentId": 33,
+    "parentName": "TRADITIONAL_REQUEST_PLACEMENT",
+    "childId": 34,
+    "childName": "REQUEST_PLACEMENT_PRINT",
+    "depth": 2
+  },
+  {
+    "parentId": 34,
+    "parentName": "AGREEMENT",
+    "childId": 35,
+    "childName": "COLLECTION_PAYMENT_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 35,
+    "parentName": "AGREEMENT",
+    "childId": 36,
+    "childName": "EXTERNAL_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 36,
+    "parentName": "AGREEMENT",
+    "childId": 37,
+    "childName": "FINANCIAL_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 37,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 38,
+    "childName": "CASH_MANAGEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 38,
+    "parentName": "CASH_MANAGEMENT",
+    "childId": 39,
+    "childName": "CASH_HANDLING",
+    "depth": 3
+  },
+  {
+    "parentId": 39,
+    "parentName": "CASH_MANAGEMENT",
+    "childId": 40,
+    "childName": "DEPOSIT_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 40,
+    "parentName": "DEPOSIT_AGREEMENT",
+    "childId": 41,
+    "childName": "DEPOSIT_TERM_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 41,
+    "parentName": "DEPOSIT_AGREEMENT",
+    "childId": 42,
+    "childName": "DEPOSIT_TRANSACTION_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 42,
+    "parentName": "CASH_MANAGEMENT",
+    "childId": 43,
+    "childName": "DEPOSIT_AGREEMENT_JAPAN",
+    "depth": 3
+  },
+  {
+    "parentId": 43,
+    "parentName": "CASH_MANAGEMENT",
+    "childId": 44,
+    "childName": "DOCUMENT_PAYMENT_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 44,
+    "parentName": "CASH_MANAGEMENT",
+    "childId": 45,
+    "childName": "STORED_VALUE_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 45,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 46,
+    "childName": "CREDIT_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 46,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 47,
+    "childName": "CURRENT_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 47,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 48,
+    "childName": "FACILITY_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 48,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 49,
+    "childName": "LETTER_OF_CREDIT_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 49,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 50,
+    "childName": "LOAN_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 50,
+    "parentName": "LOAN_AGREEMENT",
+    "childId": 51,
+    "childName": "LOAN_TERM_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 51,
+    "parentName": "LOAN_TERM_AGREEMENT",
+    "childId": 52,
+    "childName": "CONSTRUCTION_LOAN",
+    "depth": 5
+  },
+  {
+    "parentId": 52,
+    "parentName": "LOAN_TERM_AGREEMENT",
+    "childId": 53,
+    "childName": "LEASE_AGREEMENT",
+    "depth": 5
+  },
+  {
+    "parentId": 53,
+    "parentName": "LOAN_TERM_AGREEMENT",
+    "childId": 54,
+    "childName": "MORTGAGE_AGREEMENT",
+    "depth": 5
+  },
+  {
+    "parentId": 54,
+    "parentName": "LOAN_TERM_AGREEMENT",
+    "childId": 55,
+    "childName": "MOTOR_VEHICLE_LOAN_AGREEMENT",
+    "depth": 5
+  },
+  {
+    "parentId": 55,
+    "parentName": "LOAN_AGREEMENT",
+    "childId": 56,
+    "childName": "LOAN_TRANSACTION_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 56,
+    "parentName": "LOAN_TRANSACTION_AGREEMENT",
+    "childId": 57,
+    "childName": "CREDIT_CARD_AGREEMENT",
+    "depth": 5
+  },
+  {
+    "parentId": 57,
+    "parentName": "CREDIT_CARD_AGREEMENT",
+    "childId": 58,
+    "childName": "CORPORATE_CARD",
+    "depth": 6
+  },
+  {
+    "parentId": 58,
+    "parentName": "CREDIT_CARD_AGREEMENT",
+    "childId": 59,
+    "childName": "FAMILY_CARD",
+    "depth": 6
+  },
+  {
+    "parentId": 59,
+    "parentName": "CREDIT_CARD_AGREEMENT",
+    "childId": 60,
+    "childName": "INDIVIDUAL_CARD",
+    "depth": 6
+  },
+  {
+    "parentId": 60,
+    "parentName": "CREDIT_CARD_AGREEMENT",
+    "childId": 61,
+    "childName": "PURCHASE_TRANSACTION_AGREEMENT",
+    "depth": 6
+  },
+  {
+    "parentId": 61,
+    "parentName": "CREDIT_CARD_AGREEMENT",
+    "childId": 62,
+    "childName": "SMALL_BUSINESS_CARD",
+    "depth": 6
+  },
+  {
+    "parentId": 62,
+    "parentName": "CREDIT_CARD_AGREEMENT",
+    "childId": 63,
+    "childName": "STUDENT_CARD",
+    "depth": 6
+  },
+  {
+    "parentId": 63,
+    "parentName": "LOAN_TRANSACTION_AGREEMENT",
+    "childId": 64,
+    "childName": "HOME_EQUITY_LINE_OF_CREDIT_AGREEMENT",
+    "depth": 5
+  },
+  {
+    "parentId": 64,
+    "parentName": "LOAN_TRANSACTION_AGREEMENT",
+    "childId": 65,
+    "childName": "MARGIN_AGREEMENT",
+    "depth": 5
+  },
+  {
+    "parentId": 65,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 66,
+    "childName": "PURCHASED_RECEIVABLE_INVOICE",
+    "depth": 3
+  },
+  {
+    "parentId": 66,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 67,
+    "childName": "FINANCE_EXPOSURE_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 67,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 68,
+    "childName": "INTEREST_BASED_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 68,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 69,
+    "childName": "INVESTMENT_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 69,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 70,
+    "childName": "BANKERS_ACCEPTANCE",
+    "depth": 3
+  },
+  {
+    "parentId": 70,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 71,
+    "childName": "CASH_AT_OTHER_BANK",
+    "depth": 3
+  },
+  {
+    "parentId": 71,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 72,
+    "childName": "CASH_FROM_CENTRAL_BANK",
+    "depth": 3
+  },
+  {
+    "parentId": 72,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 73,
+    "childName": "CUSTOMER_INVESTMENT_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 73,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 74,
+    "childName": "CUSTOMER_MARGIN_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 74,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 75,
+    "childName": "DERIVATIVE_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 75,
+    "parentName": "DERIVATIVE_AGREEMENT",
+    "childId": 76,
+    "childName": "COMMODITY_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 76,
+    "parentName": "DERIVATIVE_AGREEMENT",
+    "childId": 77,
+    "childName": "FORWARD_CONTRACT",
+    "depth": 4
+  },
+  {
+    "parentId": 77,
+    "parentName": "FORWARD_CONTRACT",
+    "childId": 78,
+    "childName": "CURRENCY_FORWARD",
+    "depth": 5
+  },
+  {
+    "parentId": 78,
+    "parentName": "DERIVATIVE_AGREEMENT",
+    "childId": 79,
+    "childName": "FORWARD_RATE_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 79,
+    "parentName": "DERIVATIVE_AGREEMENT",
+    "childId": 80,
+    "childName": "FUTURES_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 80,
+    "parentName": "DERIVATIVE_AGREEMENT",
+    "childId": 81,
+    "childName": "OPTION_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 81,
+    "parentName": "OPTION_AGREEMENT",
+    "childId": 82,
+    "childName": "BARRIER_OPTION_AGREEMENT",
+    "depth": 5
+  },
+  {
+    "parentId": 82,
+    "parentName": "DERIVATIVE_AGREEMENT",
+    "childId": 83,
+    "childName": "SWAP_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 83,
+    "parentName": "SWAP_AGREEMENT",
+    "childId": 84,
+    "childName": "COMMODITY_SWAP",
+    "depth": 5
+  },
+  {
+    "parentId": 84,
+    "parentName": "SWAP_AGREEMENT",
+    "childId": 85,
+    "childName": "CURRENCY_SWAP",
+    "depth": 5
+  },
+  {
+    "parentId": 85,
+    "parentName": "SWAP_AGREEMENT",
+    "childId": 86,
+    "childName": "DIFFERENTIAL_SWAP",
+    "depth": 5
+  },
+  {
+    "parentId": 86,
+    "parentName": "SWAP_AGREEMENT",
+    "childId": 87,
+    "childName": "INTEREST_RATE_SWAP",
+    "depth": 5
+  },
+  {
+    "parentId": 87,
+    "parentName": "INTEREST_RATE_SWAP",
+    "childId": 88,
+    "childName": "FIXED_FIXED_INTEREST_RATE_SWAP",
+    "depth": 6
+  },
+  {
+    "parentId": 88,
+    "parentName": "INTEREST_RATE_SWAP",
+    "childId": 89,
+    "childName": "FIXED_FLOATING_INTEREST_RATE_SWAP",
+    "depth": 6
+  },
+  {
+    "parentId": 89,
+    "parentName": "INTEREST_RATE_SWAP",
+    "childId": 90,
+    "childName": "FLOAT_FLOAT_INTEREST_RATE_SWAP",
+    "depth": 6
+  },
+  {
+    "parentId": 90,
+    "parentName": "INTEREST_RATE_SWAP",
+    "childId": 91,
+    "childName": "OVERNIGHT_INDEX_SWAP",
+    "depth": 6
+  },
+  {
+    "parentId": 91,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 92,
+    "childName": "EXTERNAL_MARGIN_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 92,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 93,
+    "childName": "FOREIGN_EXCHANGE_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 93,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 94,
+    "childName": "NEGOTIABLE_CERTIFICATE_OF_DEPOSIT",
+    "depth": 3
+  },
+  {
+    "parentId": 94,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 95,
+    "childName": "REPURCHASE_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 95,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 96,
+    "childName": "STOCK_BOND_HOLDING",
+    "depth": 3
+  },
+  {
+    "parentId": 96,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 97,
+    "childName": "OTHER_FINANCIAL_SERVICE",
+    "depth": 2
+  },
+  {
+    "parentId": 97,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 98,
+    "childName": "AFFILIATE_PRODUCT_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 98,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 99,
+    "childName": "CLEARING_AND_SETTLEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 99,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 100,
+    "childName": "COLLECTION_DEBT_INVOICE",
+    "depth": 3
+  },
+  {
+    "parentId": 100,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 101,
+    "childName": "COLLECTION_ISSUER_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 101,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 102,
+    "childName": "CONSUMER_SERVICE_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 102,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 103,
+    "childName": "DEALER_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 103,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 104,
+    "childName": "PURCHASED_RECEIVABLE_ISSUER_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 104,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 105,
+    "childName": "PURCHASED_RECEIVABLE_ISSUER_DEBTOR_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 105,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 106,
+    "childName": "SAFE_DEPOSIT_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 106,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 107,
+    "childName": "SECURITIES_ORIGINATION",
+    "depth": 3
+  },
+  {
+    "parentId": 107,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 108,
+    "childName": "TRADE_SETTLEMENT_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 108,
+    "parentName": "OTHER_FINANCIAL_SERVICE",
+    "childId": 109,
+    "childName": "TRUST_ESTATE",
+    "depth": 3
+  },
+  {
+    "parentId": 109,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 110,
+    "childName": "RISK_MITIGANT_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 110,
+    "parentName": "RISK_MITIGANT_AGREEMENT",
+    "childId": 111,
+    "childName": "COLLATERAL_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 111,
+    "parentName": "COLLATERAL_AGREEMENT",
+    "childId": 112,
+    "childName": "CUSTOMER_AGREEMENT_AS_COLLATERAL_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 112,
+    "parentName": "COLLATERAL_AGREEMENT",
+    "childId": 113,
+    "childName": "PARTY_ASSET_AS_COLLATERAL_AGREEMENT",
+    "depth": 4
+  },
+  {
+    "parentId": 113,
+    "parentName": "RISK_MITIGANT_AGREEMENT",
+    "childId": 114,
+    "childName": "CREDIT_DERIVATIVE_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 114,
+    "parentName": "CREDIT_DERIVATIVE_AGREEMENT",
+    "childId": 115,
+    "childName": "CREDIT_DEFAULT_SWAP",
+    "depth": 4
+  },
+  {
+    "parentId": 115,
+    "parentName": "CREDIT_DERIVATIVE_AGREEMENT",
+    "childId": 116,
+    "childName": "CREDIT_LINKED_NOTE",
+    "depth": 4
+  },
+  {
+    "parentId": 116,
+    "parentName": "CREDIT_DERIVATIVE_AGREEMENT",
+    "childId": 117,
+    "childName": "TOTAL_RATE_OF_RETURN_SWAP",
+    "depth": 4
+  },
+  {
+    "parentId": 117,
+    "parentName": "RISK_MITIGANT_AGREEMENT",
+    "childId": 118,
+    "childName": "NETTING_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 118,
+    "parentName": "RISK_MITIGANT_AGREEMENT",
+    "childId": 119,
+    "childName": "SECURITIZATION_SELL_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 119,
+    "parentName": "RISK_MITIGANT_AGREEMENT",
+    "childId": 120,
+    "childName": "THIRD-PARTY_COLLATERAL_CLAIM",
+    "depth": 3
+  },
+  {
+    "parentId": 120,
+    "parentName": "RISK_MITIGANT_AGREEMENT",
+    "childId": 121,
+    "childName": "THIRD-PARTY_GUARANTEE_AGREEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 121,
+    "parentName": "AGREEMENT",
+    "childId": 122,
+    "childName": "FINANCIAL_AGREEMENT_JAPAN",
+    "depth": 1
+  },
+  {
+    "parentId": 122,
+    "parentName": "AGREEMENT",
+    "childId": 123,
+    "childName": "INSURANCE_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 123,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 124,
+    "childName": "COMMERCIAL_INSURANCE_POLICY",
+    "depth": 2
+  },
+  {
+    "parentId": 124,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 125,
+    "childName": "GROUP_INSURANCE_POLICY",
+    "depth": 2
+  },
+  {
+    "parentId": 125,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 126,
+    "childName": "GROUP_MEMBER_INSURANCE",
+    "depth": 2
+  },
+  {
+    "parentId": 126,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 127,
+    "childName": "INDIVIDUAL_INSURANCE_POLICY",
+    "depth": 2
+  },
+  {
+    "parentId": 127,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 128,
+    "childName": "LIFE_LINE_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 128,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 129,
+    "childName": "PROPERTY_CASUALTY_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 129,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 130,
+    "childName": "REINSURANCE_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 130,
+    "parentName": "AGREEMENT",
+    "childId": 131,
+    "childName": "LABOR_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 131,
+    "parentName": "AGREEMENT",
+    "childId": 132,
+    "childName": "LOYALTY_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 132,
+    "parentName": "AGREEMENT",
+    "childId": 133,
+    "childName": "NETWORK_SERVICE_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 133,
+    "parentName": "NETWORK_SERVICE_AGREEMENT",
+    "childId": 134,
+    "childName": "MERCHANT_SERVICE_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 134,
+    "parentName": "NETWORK_SERVICE_AGREEMENT",
+    "childId": 135,
+    "childName": "NETWORK_PARTNER_AGREEMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 135,
+    "parentName": "AGREEMENT",
+    "childId": 136,
+    "childName": "WEB_AD_PLACEMENT_CONTRACT",
+    "depth": 1
+  },
+  {
+    "parentId": 136,
+    "parentName": "AGREEMENT_AGREEMENT_GROUP",
+    "childId": 137,
+    "childName": "AGREEMENT_TO_AGREEMENT_GROUP_OTHER",
+    "depth": 1
+  },
+  {
+    "parentId": 137,
+    "parentName": "AGREEMENT_AGREEMENT_GROUP",
+    "childId": 138,
+    "childName": "AGREEMENT_TO_SECURITIZATION_POOL",
+    "depth": 1
+  },
+  {
+    "parentId": 138,
+    "parentName": "AGREEMENT_AGREEMENT_GROUP",
+    "childId": 139,
+    "childName": "SECURITIZATION_AGREEMENT_TO_SECURITIZATION_POOL",
+    "depth": 1
+  },
+  {
+    "parentId": 139,
+    "parentName": "AGREEMENT_ASSET",
+    "childId": 140,
+    "childName": "AGREEMENT_INSURED_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 140,
+    "parentName": "AGREEMENT_ASSET",
+    "childId": 141,
+    "childName": "AGREEMENT_LEASING_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 141,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 142,
+    "childName": "MARKET_RISK_NATIONAL_MARKET_GROUP",
+    "depth": 1
+  },
+  {
+    "parentId": 142,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 143,
+    "childName": "NETTED_MARKET_RISK_GROUP",
+    "depth": 1
+  },
+  {
+    "parentId": 143,
+    "parentName": "NETTED_MARKET_RISK_GROUP",
+    "childId": 144,
+    "childName": "EQUITY_RISK_NETTED_GROUP",
+    "depth": 2
+  },
+  {
+    "parentId": 144,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 145,
+    "childName": "NETTING_POOL",
+    "depth": 1
+  },
+  {
+    "parentId": 145,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 146,
+    "childName": "PURCHASED_RECEIVABLE_POOL",
+    "depth": 1
+  },
+  {
+    "parentId": 146,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 147,
+    "childName": "RETAIL_POOL",
+    "depth": 1
+  },
+  {
+    "parentId": 147,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 148,
+    "childName": "SECURITIZATION_POOL",
+    "depth": 1
+  },
+  {
+    "parentId": 148,
+    "parentName": "AGREEMENT_IDENTIFICATION",
+    "childId": 149,
+    "childName": "IBAN_AGREEMENT_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 149,
+    "parentName": "AGREEMENT_IDENTIFICATION",
+    "childId": 150,
+    "childName": "OTHER_AGREEMENT_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 150,
+    "parentName": "AGREEMENT_IDENTIFICATION",
+    "childId": 151,
+    "childName": "UNITED_STATES_BANK_ACCOUNT_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 151,
+    "parentName": "AGREEMENT_PRODUCT",
+    "childId": 152,
+    "childName": "EXPOSURE_RISK_FACTOR",
+    "depth": 1
+  },
+  {
+    "parentId": 152,
+    "parentName": "AGREEMENT_RELATED",
+    "childId": 153,
+    "childName": "EXPOSURE_AGREEMENT_RISK_MITIGANT_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 153,
+    "parentName": "AGREEMENT_RELATED",
+    "childId": 154,
+    "childName": "RISK_MITIGANT_AGREEMENT_RELATED",
+    "depth": 1
+  },
+  {
+    "parentId": 154,
+    "parentName": "AGREEMENT_RISK_METRIC",
+    "childId": 155,
+    "childName": "AGREEMENT_RISK_METRIC_INTERNAL_INVESTMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 155,
+    "parentName": "AGREEMENT_RISK_METRIC",
+    "childId": 156,
+    "childName": "AGREEMENT_RISK_METRIC_OFF_BALANCE_SHEET",
+    "depth": 1
+  },
+  {
+    "parentId": 156,
+    "parentName": "AGREEMENT_RISK_METRIC",
+    "childId": 157,
+    "childName": "AGREEMENT_RISK_METRIC_OTC_DERIVATIVE",
+    "depth": 1
+  },
+  {
+    "parentId": 157,
+    "parentName": "AGREEMENT_RISK_METRIC",
+    "childId": 158,
+    "childName": "AGREEMENT_RISK_METRIC_PURCHASED_RECEIVABLE",
+    "depth": 1
+  },
+  {
+    "parentId": 158,
+    "parentName": "AGREEMENT_RISK_METRIC",
+    "childId": 159,
+    "childName": "AGREEMENT_RISK_METRIC_SECURITIZATION",
+    "depth": 1
+  },
+  {
+    "parentId": 159,
+    "parentName": "AGREEMENT_STATEMENT_LINE_ITEM",
+    "childId": 160,
+    "childName": "CARD_STATEMENT_LINE_ITEM",
+    "depth": 1
+  },
+  {
+    "parentId": 160,
+    "parentName": "AGREEMENT_STATEMENT_LINE_ITEM",
+    "childId": 161,
+    "childName": "OTHER_STATEMENT_LINE_ITEM",
+    "depth": 1
+  },
+  {
+    "parentId": 161,
+    "parentName": "ALERT_SETUP",
+    "childId": 162,
+    "childName": "ALERT_SETUP_FOR_AGREEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 162,
+    "parentName": "ANALYTICAL_MODEL",
+    "childId": 163,
+    "childName": "PROBABILITY_OF_DEFAULT_MODEL",
+    "depth": 1
+  },
+  {
+    "parentId": 163,
+    "parentName": "APPLICATION",
+    "childId": 164,
+    "childName": "CREDIT_APPLICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 164,
+    "parentName": "APPLICATION_ASSET",
+    "childId": 165,
+    "childName": "APPLICATION_COLLATERAL_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 165,
+    "parentName": "APPLICATION_ASSET",
+    "childId": 166,
+    "childName": "APPLICATION_INSURED_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 166,
+    "parentName": "AR_COLLECTION_ACTIVITY",
+    "childId": 167,
+    "childName": "DUNNING_LETTER",
+    "depth": 1
+  },
+  {
+    "parentId": 167,
+    "parentName": "ASSET_VALUE",
+    "childId": 168,
+    "childName": "PARTY_ASSET_APPRAISAL",
+    "depth": 1
+  },
+  {
+    "parentId": 168,
+    "parentName": "ASSOCIATE_PAYROLL_TRANSACTION",
+    "childId": 169,
+    "childName": "ASSOCIATE_DEDUCTION",
+    "depth": 1
+  },
+  {
+    "parentId": 169,
+    "parentName": "ASSOCIATE_DEDUCTION",
+    "childId": 170,
+    "childName": "AFTER_TAX_DEDUCTION",
+    "depth": 2
+  },
+  {
+    "parentId": 170,
+    "parentName": "AFTER_TAX_DEDUCTION",
+    "childId": 171,
+    "childName": "AFTER_TAX_CHARITABLE_CONTRIBUTION",
+    "depth": 3
+  },
+  {
+    "parentId": 171,
+    "parentName": "AFTER_TAX_DEDUCTION",
+    "childId": 172,
+    "childName": "AFTER_TAX_SAVINGS_PLAN",
+    "depth": 3
+  },
+  {
+    "parentId": 172,
+    "parentName": "ASSOCIATE_DEDUCTION",
+    "childId": 173,
+    "childName": "BEFORE_TAX_DEDUCTION",
+    "depth": 2
+  },
+  {
+    "parentId": 173,
+    "parentName": "BEFORE_TAX_DEDUCTION",
+    "childId": 174,
+    "childName": "BEFORE_TAX_MEDICAL_INSURANCE",
+    "depth": 3
+  },
+  {
+    "parentId": 174,
+    "parentName": "BEFORE_TAX_DEDUCTION",
+    "childId": 175,
+    "childName": "BEFORE_TAX_SAVINGS_PLAN",
+    "depth": 3
+  },
+  {
+    "parentId": 175,
+    "parentName": "ASSOCIATE_DEDUCTION",
+    "childId": 176,
+    "childName": "WITHHOLDING_TAX",
+    "depth": 2
+  },
+  {
+    "parentId": 176,
+    "parentName": "WITHHOLDING_TAX",
+    "childId": 177,
+    "childName": "FEDERAL_TAX",
+    "depth": 3
+  },
+  {
+    "parentId": 177,
+    "parentName": "WITHHOLDING_TAX",
+    "childId": 178,
+    "childName": "LOCAL_TAX",
+    "depth": 3
+  },
+  {
+    "parentId": 178,
+    "parentName": "WITHHOLDING_TAX",
+    "childId": 179,
+    "childName": "STATE_TAX",
+    "depth": 3
+  },
+  {
+    "parentId": 179,
+    "parentName": "ASSOCIATE_PAYROLL_TRANSACTION",
+    "childId": 180,
+    "childName": "DIRECT_EARNING",
+    "depth": 1
+  },
+  {
+    "parentId": 180,
+    "parentName": "DIRECT_EARNING",
+    "childId": 181,
+    "childName": "ADJUSTED_EARNING",
+    "depth": 2
+  },
+  {
+    "parentId": 181,
+    "parentName": "ADJUSTED_EARNING",
+    "childId": 182,
+    "childName": "OVER_WITHHELD_TAX_REIMBURSEMENT",
+    "depth": 3
+  },
+  {
+    "parentId": 182,
+    "parentName": "ADJUSTED_EARNING",
+    "childId": 183,
+    "childName": "RETROACTIVE_PAY",
+    "depth": 3
+  },
+  {
+    "parentId": 183,
+    "parentName": "DIRECT_EARNING",
+    "childId": 184,
+    "childName": "DIRECT_EARNINGS_FINANCIAL_INSTRUMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 184,
+    "parentName": "DIRECT_EARNING",
+    "childId": 185,
+    "childName": "REGULAR_EARNING",
+    "depth": 2
+  },
+  {
+    "parentId": 185,
+    "parentName": "REGULAR_EARNING",
+    "childId": 186,
+    "childName": "OVERTIME_PAY",
+    "depth": 3
+  },
+  {
+    "parentId": 186,
+    "parentName": "REGULAR_EARNING",
+    "childId": 187,
+    "childName": "STANDARD_PAY",
+    "depth": 3
+  },
+  {
+    "parentId": 187,
+    "parentName": "DIRECT_EARNING",
+    "childId": 188,
+    "childName": "VARIABLE_EARNING",
+    "depth": 2
+  },
+  {
+    "parentId": 188,
+    "parentName": "VARIABLE_EARNING",
+    "childId": 189,
+    "childName": "BONUS",
+    "depth": 3
+  },
+  {
+    "parentId": 189,
+    "parentName": "VARIABLE_EARNING",
+    "childId": 190,
+    "childName": "COMMISSION",
+    "depth": 3
+  },
+  {
+    "parentId": 190,
+    "parentName": "ASSOCIATE_PAYROLL_TRANSACTION",
+    "childId": 191,
+    "childName": "INDIRECT_EARNING",
+    "depth": 1
+  },
+  {
+    "parentId": 191,
+    "parentName": "INDIRECT_EARNING",
+    "childId": 192,
+    "childName": "HEALTH_INSURANCE_INDIRECT_EARNING",
+    "depth": 2
+  },
+  {
+    "parentId": 192,
+    "parentName": "INDIRECT_EARNING",
+    "childId": 193,
+    "childName": "LEAVE_INDIRECT_EARNING",
+    "depth": 2
+  },
+  {
+    "parentId": 193,
+    "parentName": "INDIRECT_EARNING",
+    "childId": 194,
+    "childName": "PENSION_INDIRECT_EARNING",
+    "depth": 2
+  },
+  {
+    "parentId": 194,
+    "parentName": "BALANCE_CATEGORY_TYPE",
+    "childId": 195,
+    "childName": "CREDIT_CARD_BALANCE_SEGMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 195,
+    "parentName": "BENEFIT_PLAN_OPTION",
+    "childId": 196,
+    "childName": "INSURANCE_PLAN",
+    "depth": 1
+  },
+  {
+    "parentId": 196,
+    "parentName": "BENEFIT_PLAN_OPTION",
+    "childId": 197,
+    "childName": "LEAVE_PLAN",
+    "depth": 1
+  },
+  {
+    "parentId": 197,
+    "parentName": "BENEFIT_PLAN_OPTION",
+    "childId": 198,
+    "childName": "MISCELLANEOUS_BENEFIT_PLAN",
+    "depth": 1
+  },
+  {
+    "parentId": 198,
+    "parentName": "BENEFIT_PLAN_OPTION",
+    "childId": 199,
+    "childName": "RETIREMENT_PLAN",
+    "depth": 1
+  },
+  {
+    "parentId": 199,
+    "parentName": "BENEFIT_PLAN_OPTION",
+    "childId": 200,
+    "childName": "STOCK_PURCHASE_PLAN",
+    "depth": 1
+  },
+  {
+    "parentId": 200,
+    "parentName": "BROWSER_IDENTIFICATION",
+    "childId": 201,
+    "childName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "depth": 1
+  },
+  {
+    "parentId": 201,
+    "parentName": "CALENDAR_TYPE",
+    "childId": 202,
+    "childName": "ACCOUNTING_CALENDAR_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 202,
+    "parentName": "CALENDAR_TYPE",
+    "childId": 203,
+    "childName": "CROP_YEAR_CALENDAR_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 203,
+    "parentName": "CAMPAIGN",
+    "childId": 204,
+    "childName": "CARD_NETWORK_CAMPAIGN",
+    "depth": 1
+  },
+  {
+    "parentId": 204,
+    "parentName": "CAMPAIGN",
+    "childId": 205,
+    "childName": "COLLECTION_CAMPAIGN",
+    "depth": 1
+  },
+  {
+    "parentId": 205,
+    "parentName": "CAMPAIGN",
+    "childId": 206,
+    "childName": "CONSUMER_MARKETING_CAMPAIGN",
+    "depth": 1
+  },
+  {
+    "parentId": 206,
+    "parentName": "CAMPAIGN_PARTY",
+    "childId": 207,
+    "childName": "CAMPAIGN_MANAGEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 207,
+    "parentName": "CASE_DETAIL",
+    "childId": 208,
+    "childName": "APPLICATION_FRAUD_CASE",
+    "depth": 1
+  },
+  {
+    "parentId": 208,
+    "parentName": "APPLICATION_FRAUD_CASE",
+    "childId": 209,
+    "childName": "APPLICANT_FRAUD",
+    "depth": 2
+  },
+  {
+    "parentId": 209,
+    "parentName": "APPLICATION_FRAUD_CASE",
+    "childId": 210,
+    "childName": "APPLICATION_IDENTITY_THEFT",
+    "depth": 2
+  },
+  {
+    "parentId": 210,
+    "parentName": "CASE_DETAIL",
+    "childId": 211,
+    "childName": "INSURANCE_CLAIM_CASE",
+    "depth": 1
+  },
+  {
+    "parentId": 211,
+    "parentName": "CASE_DETAIL",
+    "childId": 212,
+    "childName": "TRANSACTION_FRAUD_CASE",
+    "depth": 1
+  },
+  {
+    "parentId": 212,
+    "parentName": "TRANSACTION_FRAUD_CASE",
+    "childId": 213,
+    "childName": "CUSTOMER_TRANSACTION_FRAUD",
+    "depth": 2
+  },
+  {
+    "parentId": 213,
+    "parentName": "TRANSACTION_FRAUD_CASE",
+    "childId": 214,
+    "childName": "MERCHANT_TRANSACTION_FRAUD",
+    "depth": 2
+  },
+  {
+    "parentId": 214,
+    "parentName": "TRANSACTION_FRAUD_CASE",
+    "childId": 215,
+    "childName": "PHISHING_TRANSACTION_FRAUD",
+    "depth": 2
+  },
+  {
+    "parentId": 215,
+    "parentName": "CERTIFICATION_OF_MEDICAL_NECESSITY",
+    "childId": 216,
+    "childName": "HOME_HEALTH_CERTIFICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 216,
+    "parentName": "CHANNEL_EVENT",
+    "childId": 217,
+    "childName": "CHANNEL_REPLENISHMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 217,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 218,
+    "childName": "ATM_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 218,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 219,
+    "childName": "BILLBOARD_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 219,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 220,
+    "childName": "CALL_CENTER_TERMINAL_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 220,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 221,
+    "childName": "ELECTRONIC_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 221,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 222,
+    "childName": "KIOSK_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 222,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 223,
+    "childName": "LOCK_BOX_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 223,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 224,
+    "childName": "OVER-THE-COUNTER_TERMINAL_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 224,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 225,
+    "childName": "PARTY_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 225,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 226,
+    "childName": "PHYSICAL_MAIL_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 226,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 227,
+    "childName": "POINT-OF-SALE_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 227,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 228,
+    "childName": "PRINT_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 228,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 229,
+    "childName": "RADIO_STATION_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 229,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 230,
+    "childName": "SITE_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 230,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 231,
+    "childName": "TELEPHONE_NUMBER_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 231,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 232,
+    "childName": "TELEVISION_CHANNEL_INSTANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 232,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 233,
+    "childName": "ATM_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 233,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 234,
+    "childName": "CALL_CENTER_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 234,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 235,
+    "childName": "DIRECT_MAIL_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 235,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 236,
+    "childName": "JOB_TITLE_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 236,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 237,
+    "childName": "MULTIMEDIA_MESSAGE_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 237,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 238,
+    "childName": "ONLINE_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 238,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 239,
+    "childName": "ONLINE_CHANNEL_TYPE_2",
+    "depth": 1
+  },
+  {
+    "parentId": 239,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 240,
+    "childName": "ONLINE_CHANNEL_TYPE_3",
+    "depth": 1
+  },
+  {
+    "parentId": 240,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 241,
+    "childName": "OVER-THE-COUNTER_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 241,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 242,
+    "childName": "STATEMENT_INSERT_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 242,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 243,
+    "childName": "TELEPHONE_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 243,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 244,
+    "childName": "TEXT_MESSAGE_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 244,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 245,
+    "childName": "WIRELESS_PROTOCOL_CHANNEL_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 245,
+    "parentName": "CLAIM",
+    "childId": 246,
+    "childName": "HEALTH_CLAIM",
+    "depth": 1
+  },
+  {
+    "parentId": 246,
+    "parentName": "HEALTH_CLAIM",
+    "childId": 247,
+    "childName": "DENTAL_CLAIM",
+    "depth": 2
+  },
+  {
+    "parentId": 247,
+    "parentName": "HEALTH_CLAIM",
+    "childId": 248,
+    "childName": "INSTITUTIONAL_CLAIM",
+    "depth": 2
+  },
+  {
+    "parentId": 248,
+    "parentName": "INSTITUTIONAL_CLAIM",
+    "childId": 249,
+    "childName": "INPATIENT_INSTITUTIONAL_CLAIM",
+    "depth": 3
+  },
+  {
+    "parentId": 249,
+    "parentName": "INSTITUTIONAL_CLAIM",
+    "childId": 250,
+    "childName": "OUTPATIENT_INSTITUTIONAL_CLAIM",
+    "depth": 3
+  },
+  {
+    "parentId": 250,
+    "parentName": "HEALTH_CLAIM",
+    "childId": 251,
+    "childName": "PHARMACY_CLAIM",
+    "depth": 2
+  },
+  {
+    "parentId": 251,
+    "parentName": "HEALTH_CLAIM",
+    "childId": 252,
+    "childName": "PROFESSIONAL_CLAIM",
+    "depth": 2
+  },
+  {
+    "parentId": 252,
+    "parentName": "CLAIM",
+    "childId": 253,
+    "childName": "LIFE_CLAIM",
+    "depth": 1
+  },
+  {
+    "parentId": 253,
+    "parentName": "CLAIM",
+    "childId": 254,
+    "childName": "PROPERTY_AND_CASUALTY_CLAIM",
+    "depth": 1
+  },
+  {
+    "parentId": 254,
+    "parentName": "CLAIM_ADJUDICATION",
+    "childId": 255,
+    "childName": "INTERNAL_CLAIM_ADJUDICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 255,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 256,
+    "childName": "ADMISSION_AUTHORIZATION",
+    "depth": 1
+  },
+  {
+    "parentId": 256,
+    "parentName": "CLAIM_INSURABLE_INTEREST",
+    "childId": 257,
+    "childName": "CLAIM_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 257,
+    "parentName": "CLAIM_ASSET",
+    "childId": 258,
+    "childName": "CLAIM_MOTOR_VEHICLE",
+    "depth": 2
+  },
+  {
+    "parentId": 258,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 259,
+    "childName": "HEALTH_CLAIM_SERVICE",
+    "depth": 1
+  },
+  {
+    "parentId": 259,
+    "parentName": "HEALTH_CLAIM_SERVICE",
+    "childId": 260,
+    "childName": "DENTAL_CLAIM_SERVICE",
+    "depth": 2
+  },
+  {
+    "parentId": 260,
+    "parentName": "HEALTH_CLAIM_SERVICE",
+    "childId": 261,
+    "childName": "INSTITUTIONAL_CLAIM_SERVICE",
+    "depth": 2
+  },
+  {
+    "parentId": 261,
+    "parentName": "HEALTH_CLAIM_SERVICE",
+    "childId": 262,
+    "childName": "PHARMACY_CLAIM_SERVICE",
+    "depth": 2
+  },
+  {
+    "parentId": 262,
+    "parentName": "HEALTH_CLAIM_SERVICE",
+    "childId": 263,
+    "childName": "PROFESSIONAL_CLAIM_SERVICE",
+    "depth": 2
+  },
+  {
+    "parentId": 263,
+    "parentName": "COA_CODE_BALANCE",
+    "childId": 264,
+    "childName": "COA_MONETARY_BALANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 264,
+    "parentName": "COA_CODE_BALANCE",
+    "childId": 265,
+    "childName": "COA_QUANTITATIVE_BALANCE",
+    "depth": 1
+  },
+  {
+    "parentId": 265,
+    "parentName": "COA_CODE_SEGMENT",
+    "childId": 266,
+    "childName": "CURRENCY_SEGMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 266,
+    "parentName": "COA_CODE_SEGMENT",
+    "childId": 267,
+    "childName": "GL_MAIN_ACCOUNT_SEGMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 267,
+    "parentName": "COA_CODE_SEGMENT",
+    "childId": 268,
+    "childName": "GL_ORGANIZATION_SEGMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 268,
+    "parentName": "COA_CODE_SEGMENT",
+    "childId": 269,
+    "childName": "GL_PRODUCT_GROUP_SEGMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 269,
+    "parentName": "COA_CODE_SEGMENT",
+    "childId": 270,
+    "childName": "GL_PRODUCT_SEGMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 270,
+    "parentName": "COA_CODE_SEGMENT",
+    "childId": 271,
+    "childName": "GL_PROJECT_SEGMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 271,
+    "parentName": "COA_CODE_SEGMENT",
+    "childId": 272,
+    "childName": "GL_SUBACCOUNT_SEGMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 272,
+    "parentName": "CONTACT_ACTION",
+    "childId": 273,
+    "childName": "COMPENSATORY_OFFER",
+    "depth": 1
+  },
+  {
+    "parentId": 273,
+    "parentName": "COUNTRY_CODE_STANDARD",
+    "childId": 274,
+    "childName": "ISO_3166_COUNTRY_STANDARD",
+    "depth": 1
+  },
+  {
+    "parentId": 274,
+    "parentName": "COUNTRY_CODE_STANDARD",
+    "childId": 275,
+    "childName": "WMO_COUNTRY_STANDARD",
+    "depth": 1
+  },
+  {
+    "parentId": 275,
+    "parentName": "DERIVED_WEATHER",
+    "childId": 276,
+    "childName": "DEGREE_DAYS_DAILY",
+    "depth": 1
+  },
+  {
+    "parentId": 276,
+    "parentName": "DERIVED_WEATHER",
+    "childId": 277,
+    "childName": "WEATHER_ALMANAC_DAILY",
+    "depth": 1
+  },
+  {
+    "parentId": 277,
+    "parentName": "DERIVED_WEATHER",
+    "childId": 278,
+    "childName": "WEATHER_NORMALS_DAILY",
+    "depth": 1
+  },
+  {
+    "parentId": 278,
+    "parentName": "DIVIDEND_DECLARE_EVENT",
+    "childId": 279,
+    "childName": "CASH_DIVIDEND_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 279,
+    "parentName": "DIVIDEND_DECLARE_EVENT",
+    "childId": 280,
+    "childName": "STOCK_DIVIDEND_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 280,
+    "parentName": "DOCUMENT",
+    "childId": 281,
+    "childName": "APPLICANT_RÉSUMÉ",
+    "depth": 1
+  },
+  {
+    "parentId": 281,
+    "parentName": "DOCUMENT",
+    "childId": 282,
+    "childName": "APPLICATION_FORM",
+    "depth": 1
+  },
+  {
+    "parentId": 282,
+    "parentName": "DOCUMENT",
+    "childId": 283,
+    "childName": "BANK_DRAFT",
+    "depth": 1
+  },
+  {
+    "parentId": 283,
+    "parentName": "BANK_DRAFT",
+    "childId": 284,
+    "childName": "CHECK_IMAGE",
+    "depth": 2
+  },
+  {
+    "parentId": 284,
+    "parentName": "CHECK_IMAGE",
+    "childId": 285,
+    "childName": "BOFD_CHECK_IMAGE",
+    "depth": 3
+  },
+  {
+    "parentId": 285,
+    "parentName": "CHECK_IMAGE",
+    "childId": 286,
+    "childName": "HOME_BANK_CHECK_IMAGE",
+    "depth": 3
+  },
+  {
+    "parentId": 286,
+    "parentName": "DOCUMENT",
+    "childId": 287,
+    "childName": "DEPOSIT_SLIP",
+    "depth": 1
+  },
+  {
+    "parentId": 287,
+    "parentName": "DOCUMENT",
+    "childId": 288,
+    "childName": "LEGAL_DOCUMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 288,
+    "parentName": "DOCUMENT",
+    "childId": 289,
+    "childName": "OTHER_DOCUMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 289,
+    "parentName": "DOCUMENT",
+    "childId": 290,
+    "childName": "STATEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 290,
+    "parentName": "STATEMENT",
+    "childId": 291,
+    "childName": "INVOICE",
+    "depth": 2
+  },
+  {
+    "parentId": 291,
+    "parentName": "INVOICE",
+    "childId": 292,
+    "childName": "AP_INVOICE",
+    "depth": 3
+  },
+  {
+    "parentId": 292,
+    "parentName": "AP_INVOICE",
+    "childId": 293,
+    "childName": "AP_INVOICE_EXPENSE",
+    "depth": 4
+  },
+  {
+    "parentId": 293,
+    "parentName": "AP_INVOICE",
+    "childId": 294,
+    "childName": "AP_RECURRING_EXPENSE",
+    "depth": 4
+  },
+  {
+    "parentId": 294,
+    "parentName": "AP_INVOICE",
+    "childId": 295,
+    "childName": "AP_REIMBURSABLE_EXPENSE",
+    "depth": 4
+  },
+  {
+    "parentId": 295,
+    "parentName": "AP_INVOICE",
+    "childId": 296,
+    "childName": "OTHER_INVOICE_EXPENSE",
+    "depth": 4
+  },
+  {
+    "parentId": 296,
+    "parentName": "INVOICE",
+    "childId": 297,
+    "childName": "AR_INVOICE",
+    "depth": 3
+  },
+  {
+    "parentId": 297,
+    "parentName": "INVOICE",
+    "childId": 298,
+    "childName": "PA_DRAFT_INVOICE",
+    "depth": 3
+  },
+  {
+    "parentId": 298,
+    "parentName": "DOCUMENT",
+    "childId": 299,
+    "childName": "SUSPICIOUS_ACTIVITY_REPORT",
+    "depth": 1
+  },
+  {
+    "parentId": 299,
+    "parentName": "DOCUMENT",
+    "childId": 300,
+    "childName": "THIRD-PARTY_FINANCIAL_STATEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 300,
+    "parentName": "DOCUMENT",
+    "childId": 301,
+    "childName": "WEB_FORM",
+    "depth": 1
+  },
+  {
+    "parentId": 301,
+    "parentName": "EVENT",
+    "childId": 302,
+    "childName": "ACCESS_DEVICE_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 302,
+    "parentName": "ACCESS_DEVICE_EVENT",
+    "childId": 303,
+    "childName": "CREDIT_AUTHORIZATION",
+    "depth": 2
+  },
+  {
+    "parentId": 303,
+    "parentName": "EVENT",
+    "childId": 304,
+    "childName": "AGREEMENT_COVERAGE_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 304,
+    "parentName": "EVENT",
+    "childId": 305,
+    "childName": "AGREEMENT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 305,
+    "parentName": "AGREEMENT_EVENT",
+    "childId": 306,
+    "childName": "REWARD_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 306,
+    "parentName": "REWARD_EVENT",
+    "childId": 307,
+    "childName": "LOYALTY_ACCOUNT_EARNING",
+    "depth": 3
+  },
+  {
+    "parentId": 307,
+    "parentName": "REWARD_EVENT",
+    "childId": 308,
+    "childName": "LOYALTY_ACCOUNT_REDEMPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 308,
+    "parentName": "EVENT",
+    "childId": 309,
+    "childName": "AGREEMENT_GROUP_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 309,
+    "parentName": "EVENT",
+    "childId": 310,
+    "childName": "AGREEMENT_PORTFOLIO_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 310,
+    "parentName": "EVENT",
+    "childId": 311,
+    "childName": "ALERT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 311,
+    "parentName": "ALERT_EVENT",
+    "childId": 312,
+    "childName": "ADMINISTRATIVE_ALERT",
+    "depth": 2
+  },
+  {
+    "parentId": 312,
+    "parentName": "ALERT_EVENT",
+    "childId": 313,
+    "childName": "ALERT_STANDARD_TRIGGER",
+    "depth": 2
+  },
+  {
+    "parentId": 313,
+    "parentName": "ALERT_EVENT",
+    "childId": 314,
+    "childName": "EXTERNAL_TRIGGER",
+    "depth": 2
+  },
+  {
+    "parentId": 314,
+    "parentName": "ALERT_EVENT",
+    "childId": 315,
+    "childName": "MATURITY_EVENT_ALERT",
+    "depth": 2
+  },
+  {
+    "parentId": 315,
+    "parentName": "ALERT_EVENT",
+    "childId": 316,
+    "childName": "WARNING_ALERT",
+    "depth": 2
+  },
+  {
+    "parentId": 316,
+    "parentName": "EVENT",
+    "childId": 317,
+    "childName": "APPLICATION_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 317,
+    "parentName": "EVENT",
+    "childId": 318,
+    "childName": "CAUSAL_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 318,
+    "parentName": "CAUSAL_EVENT",
+    "childId": 319,
+    "childName": "MAN-MADE_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 319,
+    "parentName": "CAUSAL_EVENT",
+    "childId": 320,
+    "childName": "NATURAL_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 320,
+    "parentName": "EVENT",
+    "childId": 321,
+    "childName": "CONSENT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 321,
+    "parentName": "EVENT",
+    "childId": 322,
+    "childName": "CONTACT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 322,
+    "parentName": "CONTACT_EVENT",
+    "childId": 323,
+    "childName": "DIRECT_CONTACT_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 323,
+    "parentName": "DIRECT_CONTACT_EVENT",
+    "childId": 324,
+    "childName": "ACCESS_DEVICE_ACTIVATE_EVENT",
+    "depth": 3
+  },
+  {
+    "parentId": 324,
+    "parentName": "DIRECT_CONTACT_EVENT",
+    "childId": 325,
+    "childName": "CALL_CENTER_CONTACT_EVENT",
+    "depth": 3
+  },
+  {
+    "parentId": 325,
+    "parentName": "CALL_CENTER_CONTACT_EVENT",
+    "childId": 326,
+    "childName": "INBOUND_CALL",
+    "depth": 4
+  },
+  {
+    "parentId": 326,
+    "parentName": "CALL_CENTER_CONTACT_EVENT",
+    "childId": 327,
+    "childName": "INBOUND_EMAIL",
+    "depth": 4
+  },
+  {
+    "parentId": 327,
+    "parentName": "CALL_CENTER_CONTACT_EVENT",
+    "childId": 328,
+    "childName": "INTERACTIVE_CHAT",
+    "depth": 4
+  },
+  {
+    "parentId": 328,
+    "parentName": "CALL_CENTER_CONTACT_EVENT",
+    "childId": 329,
+    "childName": "OUTBOUND_CALL",
+    "depth": 4
+  },
+  {
+    "parentId": 329,
+    "parentName": "CALL_CENTER_CONTACT_EVENT",
+    "childId": 330,
+    "childName": "WEB_SELF-HELP",
+    "depth": 4
+  },
+  {
+    "parentId": 330,
+    "parentName": "DIRECT_CONTACT_EVENT",
+    "childId": 331,
+    "childName": "RECOVERY_COLLECTION_CONTACT_EVENT",
+    "depth": 3
+  },
+  {
+    "parentId": 331,
+    "parentName": "DIRECT_CONTACT_EVENT",
+    "childId": 332,
+    "childName": "SURVEY_FEEDBACK",
+    "depth": 3
+  },
+  {
+    "parentId": 332,
+    "parentName": "CONTACT_EVENT",
+    "childId": 333,
+    "childName": "SELF_SERVICE_CONTACT_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 333,
+    "parentName": "EVENT",
+    "childId": 334,
+    "childName": "CUSTOMER_PORTFOLIO_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 334,
+    "parentName": "EVENT",
+    "childId": 335,
+    "childName": "FINANCIAL_AGREEMENT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 335,
+    "parentName": "FINANCIAL_AGREEMENT_EVENT",
+    "childId": 336,
+    "childName": "BACK_OFFICE_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 336,
+    "parentName": "EVENT",
+    "childId": 337,
+    "childName": "FINANCIAL_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 337,
+    "parentName": "FINANCIAL_EVENT",
+    "childId": 338,
+    "childName": "FUNDS_TRANSFER_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 338,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 339,
+    "childName": "BANK_EVENT",
+    "depth": 3
+  },
+  {
+    "parentId": 339,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 340,
+    "childName": "CHECK_EVENT",
+    "depth": 3
+  },
+  {
+    "parentId": 340,
+    "parentName": "CHECK_EVENT",
+    "childId": 341,
+    "childName": "BOFD_CHECK_EVENT",
+    "depth": 4
+  },
+  {
+    "parentId": 341,
+    "parentName": "CHECK_EVENT",
+    "childId": 342,
+    "childName": "HOME_BANK_CHECK_EVENT",
+    "depth": 4
+  },
+  {
+    "parentId": 342,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 343,
+    "childName": "INTERBANK_EVENT",
+    "depth": 3
+  },
+  {
+    "parentId": 343,
+    "parentName": "FUNDS_TRANSFER_EVENT",
+    "childId": 344,
+    "childName": "INTRABANK_EVENT",
+    "depth": 3
+  },
+  {
+    "parentId": 344,
+    "parentName": "EVENT",
+    "childId": 345,
+    "childName": "INCIDENT",
+    "depth": 1
+  },
+  {
+    "parentId": 345,
+    "parentName": "EVENT",
+    "childId": 346,
+    "childName": "INVESTMENT_CORPORATE_ACTION",
+    "depth": 1
+  },
+  {
+    "parentId": 346,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 347,
+    "childName": "BOND_REDEMPTION",
+    "depth": 2
+  },
+  {
+    "parentId": 347,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 348,
+    "childName": "BOND_TO_EQUITY_CONVERSION",
+    "depth": 2
+  },
+  {
+    "parentId": 348,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 349,
+    "childName": "DEBT_ISSUE_DEFAULT",
+    "depth": 2
+  },
+  {
+    "parentId": 349,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 350,
+    "childName": "DEBT_PRINCIPAL_REPAYMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 350,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 351,
+    "childName": "EXCHANGE_DELISTING",
+    "depth": 2
+  },
+  {
+    "parentId": 351,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 352,
+    "childName": "FIXED_INCOME_INTEREST_PAYMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 352,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 353,
+    "childName": "INVESTMENT_PRODUCT_TRADING_SUSPENSION",
+    "depth": 2
+  },
+  {
+    "parentId": 353,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 354,
+    "childName": "MERGER",
+    "depth": 2
+  },
+  {
+    "parentId": 354,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 355,
+    "childName": "OPTION_EXERCISE",
+    "depth": 2
+  },
+  {
+    "parentId": 355,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 356,
+    "childName": "RIGHTS_ISSUE",
+    "depth": 2
+  },
+  {
+    "parentId": 356,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 357,
+    "childName": "SHARE_REPURCHASE",
+    "depth": 2
+  },
+  {
+    "parentId": 357,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 358,
+    "childName": "STOCK_SPLIT",
+    "depth": 2
+  },
+  {
+    "parentId": 358,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 359,
+    "childName": "TENDER_OFFER",
+    "depth": 2
+  },
+  {
+    "parentId": 359,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 360,
+    "childName": "UNIT_DISTRIBUTION_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 360,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 361,
+    "childName": "WARRANT_OFFER",
+    "depth": 2
+  },
+  {
+    "parentId": 361,
+    "parentName": "EVENT",
+    "childId": 362,
+    "childName": "INVESTMENT_PRODUCT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 362,
+    "parentName": "INVESTMENT_PRODUCT_EVENT",
+    "childId": 363,
+    "childName": "FOREIGN_EXCHANGE_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 363,
+    "parentName": "INVESTMENT_PRODUCT_EVENT",
+    "childId": 364,
+    "childName": "MARK_TO_MARKET",
+    "depth": 2
+  },
+  {
+    "parentId": 364,
+    "parentName": "INVESTMENT_PRODUCT_EVENT",
+    "childId": 365,
+    "childName": "TRADE_EXECUTION",
+    "depth": 2
+  },
+  {
+    "parentId": 365,
+    "parentName": "INVESTMENT_PRODUCT_EVENT",
+    "childId": 366,
+    "childName": "TRADE_ORDER",
+    "depth": 2
+  },
+  {
+    "parentId": 366,
+    "parentName": "EVENT",
+    "childId": 367,
+    "childName": "LEGAL_ACTION_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 367,
+    "parentName": "EVENT",
+    "childId": 368,
+    "childName": "MEASUREMENT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 368,
+    "parentName": "MEASUREMENT_EVENT",
+    "childId": 369,
+    "childName": "GEOSPATIAL_POINT_MEASUREMENT_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 369,
+    "parentName": "EVENT",
+    "childId": 370,
+    "childName": "NETWORK_SERVICE_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 370,
+    "parentName": "EVENT",
+    "childId": 371,
+    "childName": "OPPORTUNITY_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 371,
+    "parentName": "EVENT",
+    "childId": 372,
+    "childName": "PARTY_IDENTIFICATION_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 372,
+    "parentName": "EVENT",
+    "childId": 373,
+    "childName": "PARTY_INSURABLE_INTEREST_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 373,
+    "parentName": "EVENT",
+    "childId": 374,
+    "childName": "POSITION_APPLICANT_INTERVIEW",
+    "depth": 1
+  },
+  {
+    "parentId": 374,
+    "parentName": "EVENT",
+    "childId": 375,
+    "childName": "QUOTATION_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 375,
+    "parentName": "EVENT",
+    "childId": 376,
+    "childName": "SERVICE_REQUEST_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 376,
+    "parentName": "EVENT",
+    "childId": 377,
+    "childName": "STATEMENT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 377,
+    "parentName": "EVENT",
+    "childId": 378,
+    "childName": "SWAP_LEG_AGREEMENT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 378,
+    "parentName": "EVENT",
+    "childId": 379,
+    "childName": "TRAINING_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 379,
+    "parentName": "EVENT",
+    "childId": 380,
+    "childName": "TRAVEL_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 380,
+    "parentName": "EVENT",
+    "childId": 381,
+    "childName": "TRAVEL_PLAN_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 381,
+    "parentName": "EVENT",
+    "childId": 382,
+    "childName": "VISIT",
+    "depth": 1
+  },
+  {
+    "parentId": 382,
+    "parentName": "VISIT",
+    "childId": 383,
+    "childName": "WEB_VISIT",
+    "depth": 2
+  },
+  {
+    "parentId": 383,
+    "parentName": "WEB_VISIT",
+    "childId": 384,
+    "childName": "EXTENDED_SESSION_INFORMATION",
+    "depth": 3
+  },
+  {
+    "parentId": 384,
+    "parentName": "EXTERNALLY_REPORTED_CLAIM",
+    "childId": 385,
+    "childName": "EXTERNALLY_REPORTED_PERSONAL_PROPERTY_CLAIM",
+    "depth": 1
+  },
+  {
+    "parentId": 385,
+    "parentName": "EXTERNALLY_REPORTED_CLAIM",
+    "childId": 386,
+    "childName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "depth": 1
+  },
+  {
+    "parentId": 386,
+    "parentName": "FEATURE",
+    "childId": 387,
+    "childName": "AMOUNT_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 387,
+    "parentName": "FEATURE",
+    "childId": 388,
+    "childName": "COVERAGE_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 388,
+    "parentName": "FEATURE",
+    "childId": 389,
+    "childName": "DATE_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 389,
+    "parentName": "FEATURE",
+    "childId": 390,
+    "childName": "DESCRIPTIVE_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 390,
+    "parentName": "DESCRIPTIVE_FEATURE",
+    "childId": 391,
+    "childName": "ACCESS_DEVICE_DESCRIPTIVE_FEATURE",
+    "depth": 2
+  },
+  {
+    "parentId": 391,
+    "parentName": "FEATURE",
+    "childId": 392,
+    "childName": "PRIMARY_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 392,
+    "parentName": "FEATURE",
+    "childId": 393,
+    "childName": "QUANTITY_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 393,
+    "parentName": "FEATURE",
+    "childId": 394,
+    "childName": "RATE_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 394,
+    "parentName": "RATE_FEATURE",
+    "childId": 395,
+    "childName": "FIXED_INTEREST_RATE_FEATURE",
+    "depth": 2
+  },
+  {
+    "parentId": 395,
+    "parentName": "RATE_FEATURE",
+    "childId": 396,
+    "childName": "OTHER_RATE_FEATURE",
+    "depth": 2
+  },
+  {
+    "parentId": 396,
+    "parentName": "RATE_FEATURE",
+    "childId": 397,
+    "childName": "VARIABLE_INTEREST_RATE_FEATURE",
+    "depth": 2
+  },
+  {
+    "parentId": 397,
+    "parentName": "FEATURE",
+    "childId": 398,
+    "childName": "SECONDARY_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 398,
+    "parentName": "FEATURE",
+    "childId": 399,
+    "childName": "SERVICE_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 399,
+    "parentName": "SERVICE_FEATURE",
+    "childId": 400,
+    "childName": "HEALTH_PROCEDURE",
+    "depth": 2
+  },
+  {
+    "parentId": 400,
+    "parentName": "FEATURE",
+    "childId": 401,
+    "childName": "TERM_FEATURE",
+    "depth": 1
+  },
+  {
+    "parentId": 401,
+    "parentName": "FIXED_ASSET",
+    "childId": 402,
+    "childName": "DEPRECIABLE_FIXED_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 402,
+    "parentName": "DEPRECIABLE_FIXED_ASSET",
+    "childId": 403,
+    "childName": "DEPRECIABLE_EQUIPMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 403,
+    "parentName": "DEPRECIABLE_FIXED_ASSET",
+    "childId": 404,
+    "childName": "DEPRECIABLE_PROPERTY",
+    "depth": 2
+  },
+  {
+    "parentId": 404,
+    "parentName": "FIXED_ASSET",
+    "childId": 405,
+    "childName": "NONDEPRECIABLE_FIXED_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 405,
+    "parentName": "NONDEPRECIABLE_FIXED_ASSET",
+    "childId": 406,
+    "childName": "RAW_LAND",
+    "depth": 2
+  },
+  {
+    "parentId": 406,
+    "parentName": "FIXED_ASSET_AMOUNT",
+    "childId": 407,
+    "childName": "DEPRECIATION_AMOUNT",
+    "depth": 1
+  },
+  {
+    "parentId": 407,
+    "parentName": "GL_MAIN_ACCOUNT",
+    "childId": 408,
+    "childName": "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+    "depth": 1
+  },
+  {
+    "parentId": 408,
+    "parentName": "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+    "childId": 409,
+    "childName": "ASSET_ACCOUNT",
+    "depth": 2
+  },
+  {
+    "parentId": 409,
+    "parentName": "ASSET_ACCOUNT",
+    "childId": 410,
+    "childName": "ALLOWANCE_FOR_LOAN_LOSS_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 410,
+    "parentName": "ASSET_ACCOUNT",
+    "childId": 411,
+    "childName": "CURRENT_ASSET_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 411,
+    "parentName": "CURRENT_ASSET_ACCOUNT",
+    "childId": 412,
+    "childName": "ACCOUNTS_RECEIVABLE",
+    "depth": 4
+  },
+  {
+    "parentId": 412,
+    "parentName": "CURRENT_ASSET_ACCOUNT",
+    "childId": 413,
+    "childName": "AVAILABLE_CASH_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 413,
+    "parentName": "CURRENT_ASSET_ACCOUNT",
+    "childId": 414,
+    "childName": "INTEREST_RECEIVABLE",
+    "depth": 4
+  },
+  {
+    "parentId": 414,
+    "parentName": "CURRENT_ASSET_ACCOUNT",
+    "childId": 415,
+    "childName": "OTHER_CURRENT_ASSET_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 415,
+    "parentName": "CURRENT_ASSET_ACCOUNT",
+    "childId": 416,
+    "childName": "PREMIUM_BALANCE_RECEIVABLE",
+    "depth": 4
+  },
+  {
+    "parentId": 416,
+    "parentName": "CURRENT_ASSET_ACCOUNT",
+    "childId": 417,
+    "childName": "PREPAID_EXPENSE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 417,
+    "parentName": "CURRENT_ASSET_ACCOUNT",
+    "childId": 418,
+    "childName": "SECURITIES_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 418,
+    "parentName": "ASSET_ACCOUNT",
+    "childId": 419,
+    "childName": "FIXED_ASSET_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 419,
+    "parentName": "FIXED_ASSET_ACCOUNT",
+    "childId": 420,
+    "childName": "DEPRECIABLE_ASSET_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 420,
+    "parentName": "FIXED_ASSET_ACCOUNT",
+    "childId": 421,
+    "childName": "NONDEPRECIABLE_ASSET_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 421,
+    "parentName": "ASSET_ACCOUNT",
+    "childId": 422,
+    "childName": "LOAN_GL_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 422,
+    "parentName": "ASSET_ACCOUNT",
+    "childId": 423,
+    "childName": "OTHER_ASSET_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 423,
+    "parentName": "OTHER_ASSET_ACCOUNT",
+    "childId": 424,
+    "childName": "DEFERRED_CHARGE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 424,
+    "parentName": "OTHER_ASSET_ACCOUNT",
+    "childId": 425,
+    "childName": "INTANGIBLE_ASSET_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 425,
+    "parentName": "INTANGIBLE_ASSET_ACCOUNT",
+    "childId": 426,
+    "childName": "GOODWILL_ACCOUNT",
+    "depth": 5
+  },
+  {
+    "parentId": 426,
+    "parentName": "INTANGIBLE_ASSET_ACCOUNT",
+    "childId": 427,
+    "childName": "PATENTS_ACCOUNT",
+    "depth": 5
+  },
+  {
+    "parentId": 427,
+    "parentName": "OTHER_ASSET_ACCOUNT",
+    "childId": 428,
+    "childName": "INVESTMENT_ASSET_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 428,
+    "parentName": "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+    "childId": 429,
+    "childName": "EQUITY_ACCOUNT",
+    "depth": 2
+  },
+  {
+    "parentId": 429,
+    "parentName": "EQUITY_ACCOUNT",
+    "childId": 430,
+    "childName": "DIVIDEND_EQUITY_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 430,
+    "parentName": "DIVIDEND_EQUITY_ACCOUNT",
+    "childId": 431,
+    "childName": "COMMON_STOCK_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 431,
+    "parentName": "COMMON_STOCK_ACCOUNT",
+    "childId": 432,
+    "childName": "NONVOTING_STOCK_ACCOUNT",
+    "depth": 5
+  },
+  {
+    "parentId": 432,
+    "parentName": "COMMON_STOCK_ACCOUNT",
+    "childId": 433,
+    "childName": "VOTING_STOCK_ACCOUNT",
+    "depth": 5
+  },
+  {
+    "parentId": 433,
+    "parentName": "DIVIDEND_EQUITY_ACCOUNT",
+    "childId": 434,
+    "childName": "PREFERRED_STOCK_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 434,
+    "parentName": "EQUITY_ACCOUNT",
+    "childId": 435,
+    "childName": "EQUITY_SURPLUS_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 435,
+    "parentName": "EQUITY_ACCOUNT",
+    "childId": 436,
+    "childName": "NONDIVIDEND_EQUITY_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 436,
+    "parentName": "NONDIVIDEND_EQUITY_ACCOUNT",
+    "childId": 437,
+    "childName": "FOREIGN_CURRENCY_ADJUSTMENT_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 437,
+    "parentName": "NONDIVIDEND_EQUITY_ACCOUNT",
+    "childId": 438,
+    "childName": "RETAINED_EARNING_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 438,
+    "parentName": "NONDIVIDEND_EQUITY_ACCOUNT",
+    "childId": 439,
+    "childName": "TREASURY_STOCK_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 439,
+    "parentName": "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+    "childId": 440,
+    "childName": "LIABILITY_ACCOUNT",
+    "depth": 2
+  },
+  {
+    "parentId": 440,
+    "parentName": "LIABILITY_ACCOUNT",
+    "childId": 441,
+    "childName": "CURRENT_LIABILITY_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 441,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT",
+    "childId": 442,
+    "childName": "ACCOUNTS_PAYABLE",
+    "depth": 4
+  },
+  {
+    "parentId": 442,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT",
+    "childId": 443,
+    "childName": "ACCRUED_LIABILITY_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 443,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT",
+    "childId": 444,
+    "childName": "CHANGED_UNEARNED_PREMIUM_RESERVE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 444,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT",
+    "childId": 445,
+    "childName": "CURRENT_LONG_TERM_DEBT_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 445,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT",
+    "childId": 446,
+    "childName": "DEFERRED_REVENUE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 446,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT",
+    "childId": 447,
+    "childName": "INCOME_TAX_PAYABLE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 447,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT",
+    "childId": 448,
+    "childName": "SHORT_TERM_DEBT_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 448,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT",
+    "childId": 449,
+    "childName": "UNPAID_CLAIM_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 449,
+    "parentName": "LIABILITY_ACCOUNT",
+    "childId": 450,
+    "childName": "DEPOSIT_GL_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 450,
+    "parentName": "LIABILITY_ACCOUNT",
+    "childId": 451,
+    "childName": "NONCURRENT_LIABILITY_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 451,
+    "parentName": "NONCURRENT_LIABILITY_ACCOUNT",
+    "childId": 452,
+    "childName": "DEFERRED_INCOME_TAX_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 452,
+    "parentName": "NONCURRENT_LIABILITY_ACCOUNT",
+    "childId": 453,
+    "childName": "LONG_TERM_DEBT_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 453,
+    "parentName": "NONCURRENT_LIABILITY_ACCOUNT",
+    "childId": 454,
+    "childName": "RESERVES_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 454,
+    "parentName": "LIABILITY_ACCOUNT",
+    "childId": 455,
+    "childName": "OTHER_LIABILITY_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 455,
+    "parentName": "OTHER_LIABILITY_ACCOUNT",
+    "childId": 456,
+    "childName": "LOSS_ADJUSTED_RESERVE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 456,
+    "parentName": "OTHER_LIABILITY_ACCOUNT",
+    "childId": 457,
+    "childName": "POLICY_HOLDER_FUND_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 457,
+    "parentName": "OTHER_LIABILITY_ACCOUNT",
+    "childId": 458,
+    "childName": "UNEARNED_PREMIUM_RESERVE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 458,
+    "parentName": "GL_MAIN_ACCOUNT",
+    "childId": 459,
+    "childName": "INCOME_STATEMENT_GL_MAIN_ACCOUNT",
+    "depth": 1
+  },
+  {
+    "parentId": 459,
+    "parentName": "INCOME_STATEMENT_GL_MAIN_ACCOUNT",
+    "childId": 460,
+    "childName": "EXPENSE_ACCOUNT",
+    "depth": 2
+  },
+  {
+    "parentId": 460,
+    "parentName": "EXPENSE_ACCOUNT",
+    "childId": 461,
+    "childName": "COST_OF_SALES_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 461,
+    "parentName": "EXPENSE_ACCOUNT",
+    "childId": 462,
+    "childName": "INCOME_TAX_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 462,
+    "parentName": "EXPENSE_ACCOUNT",
+    "childId": 463,
+    "childName": "INTEREST_EXPENSE_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 463,
+    "parentName": "EXPENSE_ACCOUNT",
+    "childId": 464,
+    "childName": "NONINTEREST_EXPENSE_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 464,
+    "parentName": "EXPENSE_ACCOUNT",
+    "childId": 465,
+    "childName": "OPERATING_EXPENSE_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 465,
+    "parentName": "OPERATING_EXPENSE_ACCOUNT",
+    "childId": 466,
+    "childName": "FACILITY_OPERATING_EXPENSE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 466,
+    "parentName": "OPERATING_EXPENSE_ACCOUNT",
+    "childId": 467,
+    "childName": "GENERAL_AND_ADMINISTRATIVE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 467,
+    "parentName": "OPERATING_EXPENSE_ACCOUNT",
+    "childId": 468,
+    "childName": "MARKETING_EXPENSE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 468,
+    "parentName": "OPERATING_EXPENSE_ACCOUNT",
+    "childId": 469,
+    "childName": "OTHER_OPERATING_EXPENSE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 469,
+    "parentName": "OPERATING_EXPENSE_ACCOUNT",
+    "childId": 470,
+    "childName": "RESEARCH_DEVELOPMENT_EXPENSE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 470,
+    "parentName": "OPERATING_EXPENSE_ACCOUNT",
+    "childId": 471,
+    "childName": "SELLING_EXPENSE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 471,
+    "parentName": "EXPENSE_ACCOUNT",
+    "childId": 472,
+    "childName": "OTHER_EXPENSE_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 472,
+    "parentName": "OTHER_EXPENSE_ACCOUNT",
+    "childId": 473,
+    "childName": "LOSS_ADJUSTED_EXPENSE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 473,
+    "parentName": "OTHER_EXPENSE_ACCOUNT",
+    "childId": 474,
+    "childName": "PROVISION_FOR_LOAN_LOSS_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 474,
+    "parentName": "OTHER_EXPENSE_ACCOUNT",
+    "childId": 475,
+    "childName": "UNDERWRITING_EXPENSE_ACCOUNT",
+    "depth": 4
+  },
+  {
+    "parentId": 475,
+    "parentName": "INCOME_STATEMENT_GL_MAIN_ACCOUNT",
+    "childId": 476,
+    "childName": "REVENUE_ACCOUNT",
+    "depth": 2
+  },
+  {
+    "parentId": 476,
+    "parentName": "REVENUE_ACCOUNT",
+    "childId": 477,
+    "childName": "EARNED_PREMIUM_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 477,
+    "parentName": "REVENUE_ACCOUNT",
+    "childId": 478,
+    "childName": "INTEREST_INCOME_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 478,
+    "parentName": "REVENUE_ACCOUNT",
+    "childId": 479,
+    "childName": "NONINTEREST_INCOME_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 479,
+    "parentName": "REVENUE_ACCOUNT",
+    "childId": 480,
+    "childName": "OTHER_REVENUE_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 480,
+    "parentName": "REVENUE_ACCOUNT",
+    "childId": 481,
+    "childName": "PREMIUM_WRITTEN_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 481,
+    "parentName": "REVENUE_ACCOUNT",
+    "childId": 482,
+    "childName": "SALES_REVENUE_ACCOUNT",
+    "depth": 3
+  },
+  {
+    "parentId": 482,
+    "parentName": "INSURABLE_INTEREST",
+    "childId": 483,
+    "childName": "ASSET_INSURABLE_INTEREST",
+    "depth": 1
+  },
+  {
+    "parentId": 483,
+    "parentName": "INSURABLE_INTEREST",
+    "childId": 484,
+    "childName": "PARTY_INSURABLE_INTEREST",
+    "depth": 1
+  },
+  {
+    "parentId": 484,
+    "parentName": "INTERNAL_ASSET_TYPE",
+    "childId": 485,
+    "childName": "INTERNAL_CONSUMABLE_ASSET_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 485,
+    "parentName": "INTERNAL_ASSET_TYPE",
+    "childId": 486,
+    "childName": "INTERNAL_FIXED_ASSET_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 486,
+    "parentName": "INVOICE_LINE_PAYMENT",
+    "childId": 487,
+    "childName": "AP_INVOICE_LINE_PAYMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 487,
+    "parentName": "INVOICE_LINE_PAYMENT",
+    "childId": 488,
+    "childName": "AR_INVOICE_LINE_RECEIPT",
+    "depth": 1
+  },
+  {
+    "parentId": 488,
+    "parentName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "childId": 489,
+    "childName": "ISO_3166_JAPAN_PREFECTURE",
+    "depth": 1
+  },
+  {
+    "parentId": 489,
+    "parentName": "IVR_STEP_NAVIGATION",
+    "childId": 490,
+    "childName": "IVR_STEP_TRANSACTION",
+    "depth": 1
+  },
+  {
+    "parentId": 490,
+    "parentName": "IVR_STEP_TRANSACTION",
+    "childId": 491,
+    "childName": "AGREEMENT_IVR_STEP_TRANSACTION",
+    "depth": 2
+  },
+  {
+    "parentId": 491,
+    "parentName": "IVR_STEP_TRANSACTION",
+    "childId": 492,
+    "childName": "CLAIM_IVR_STEP_TRANSACTION",
+    "depth": 2
+  },
+  {
+    "parentId": 492,
+    "parentName": "LEAD_PARTY_ROLE",
+    "childId": 493,
+    "childName": "LEAD_CONTACT",
+    "depth": 1
+  },
+  {
+    "parentId": 493,
+    "parentName": "LEGAL_ACTION",
+    "childId": 494,
+    "childName": "SUBROGATION",
+    "depth": 1
+  },
+  {
+    "parentId": 494,
+    "parentName": "LOCATOR",
+    "childId": 495,
+    "childName": "ADDRESS",
+    "depth": 1
+  },
+  {
+    "parentId": 495,
+    "parentName": "ADDRESS",
+    "childId": 496,
+    "childName": "BUSINESS_IDENTIFIER_CODE_ADDRESS",
+    "depth": 2
+  },
+  {
+    "parentId": 496,
+    "parentName": "ADDRESS",
+    "childId": 497,
+    "childName": "ELECTRONIC_ADDRESS",
+    "depth": 2
+  },
+  {
+    "parentId": 497,
+    "parentName": "ELECTRONIC_ADDRESS",
+    "childId": 498,
+    "childName": "INTERNET_PROTOCOL_ADDRESS",
+    "depth": 3
+  },
+  {
+    "parentId": 498,
+    "parentName": "ADDRESS",
+    "childId": 499,
+    "childName": "OVERSEAS_MILITARY_ADDRESS",
+    "depth": 2
+  },
+  {
+    "parentId": 499,
+    "parentName": "ADDRESS",
+    "childId": 500,
+    "childName": "PARCEL_ADDRESS",
+    "depth": 2
+  },
+  {
+    "parentId": 500,
+    "parentName": "ADDRESS",
+    "childId": 501,
+    "childName": "POST_OFFICE_BOX_ADDRESS",
+    "depth": 2
+  },
+  {
+    "parentId": 501,
+    "parentName": "ADDRESS",
+    "childId": 502,
+    "childName": "ROUTING_TRANSIT_NUMBER_ADDRESS",
+    "depth": 2
+  },
+  {
+    "parentId": 502,
+    "parentName": "ADDRESS",
+    "childId": 503,
+    "childName": "STREET_ADDRESS",
+    "depth": 2
+  },
+  {
+    "parentId": 503,
+    "parentName": "ADDRESS",
+    "childId": 504,
+    "childName": "STREET_ADDRESS_JAPAN",
+    "depth": 2
+  },
+  {
+    "parentId": 504,
+    "parentName": "ADDRESS",
+    "childId": 505,
+    "childName": "TELEPHONE_NUMBER",
+    "depth": 2
+  },
+  {
+    "parentId": 505,
+    "parentName": "LOCATOR",
+    "childId": 506,
+    "childName": "GEOGRAPHICAL_AREA",
+    "depth": 1
+  },
+  {
+    "parentId": 506,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 507,
+    "childName": "AREA_JAPAN",
+    "depth": 2
+  },
+  {
+    "parentId": 507,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 508,
+    "childName": "BLOCK_JAPAN",
+    "depth": 2
+  },
+  {
+    "parentId": 508,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 509,
+    "childName": "CENSUS_BLOCK_GROUP__GEO",
+    "depth": 2
+  },
+  {
+    "parentId": 509,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 510,
+    "childName": "CENSUS_BLOCK__GEO",
+    "depth": 2
+  },
+  {
+    "parentId": 510,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 511,
+    "childName": "CENSUS_TRACT__GEO",
+    "depth": 2
+  },
+  {
+    "parentId": 511,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 512,
+    "childName": "CITY",
+    "depth": 2
+  },
+  {
+    "parentId": 512,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 513,
+    "childName": "CITY_JAPAN",
+    "depth": 2
+  },
+  {
+    "parentId": 513,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 514,
+    "childName": "COUNTRY",
+    "depth": 2
+  },
+  {
+    "parentId": 514,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 515,
+    "childName": "COUNTRY_GROUP",
+    "depth": 2
+  },
+  {
+    "parentId": 515,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 516,
+    "childName": "COUNTY",
+    "depth": 2
+  },
+  {
+    "parentId": 516,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 517,
+    "childName": "CUSTOM_AREA",
+    "depth": 2
+  },
+  {
+    "parentId": 517,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 518,
+    "childName": "DESIGNATED_MARKET_AREA__GEO",
+    "depth": 2
+  },
+  {
+    "parentId": 518,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 519,
+    "childName": "DISTRICT_JAPAN",
+    "depth": 2
+  },
+  {
+    "parentId": 519,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 520,
+    "childName": "GEOPOLITICAL_AREA",
+    "depth": 2
+  },
+  {
+    "parentId": 520,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 521,
+    "childName": "METROPOLITAN_STATISTICAL_AREA__GEO",
+    "depth": 2
+  },
+  {
+    "parentId": 521,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 522,
+    "childName": "POSTAL_CODE",
+    "depth": 2
+  },
+  {
+    "parentId": 522,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 523,
+    "childName": "POSTAL_CODE_JAPAN",
+    "depth": 2
+  },
+  {
+    "parentId": 523,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 524,
+    "childName": "PREFECTURE_JAPAN",
+    "depth": 2
+  },
+  {
+    "parentId": 524,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 525,
+    "childName": "REGION",
+    "depth": 2
+  },
+  {
+    "parentId": 525,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 526,
+    "childName": "TERRITORY",
+    "depth": 2
+  },
+  {
+    "parentId": 526,
+    "parentName": "GEOGRAPHICAL_AREA",
+    "childId": 527,
+    "childName": "TIME_ZONE_AREA",
+    "depth": 2
+  },
+  {
+    "parentId": 527,
+    "parentName": "LOCATOR",
+    "childId": 528,
+    "childName": "GEOSPATIAL",
+    "depth": 1
+  },
+  {
+    "parentId": 528,
+    "parentName": "GEOSPATIAL",
+    "childId": 529,
+    "childName": "GEOSPATIAL_AREA",
+    "depth": 2
+  },
+  {
+    "parentId": 529,
+    "parentName": "GEOSPATIAL",
+    "childId": 530,
+    "childName": "GEOSPATIAL_LINE-CURVE",
+    "depth": 2
+  },
+  {
+    "parentId": 530,
+    "parentName": "GEOSPATIAL",
+    "childId": 531,
+    "childName": "GEOSPATIAL_POINT",
+    "depth": 2
+  },
+  {
+    "parentId": 531,
+    "parentName": "GEOSPATIAL",
+    "childId": 532,
+    "childName": "GEOSPATIAL_SET",
+    "depth": 2
+  },
+  {
+    "parentId": 532,
+    "parentName": "GEOSPATIAL",
+    "childId": 533,
+    "childName": "ROADWAY",
+    "depth": 2
+  },
+  {
+    "parentId": 533,
+    "parentName": "GEOSPATIAL",
+    "childId": 534,
+    "childName": "ROADWAY_SEGMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 534,
+    "parentName": "MEASUREMENT",
+    "childId": 535,
+    "childName": "MEASUREMENT_READING",
+    "depth": 1
+  },
+  {
+    "parentId": 535,
+    "parentName": "MEASUREMENT",
+    "childId": 536,
+    "childName": "MEASUREMENT_STANDARD_CONDITION",
+    "depth": 1
+  },
+  {
+    "parentId": 536,
+    "parentName": "MULTIMEDIA_OBJECT",
+    "childId": 537,
+    "childName": "MULTIMEDIA_AUDIO_OBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 537,
+    "parentName": "MULTIMEDIA_OBJECT",
+    "childId": 538,
+    "childName": "MULTIMEDIA_IMAGE_OBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 538,
+    "parentName": "MULTIMEDIA_OBJECT",
+    "childId": 539,
+    "childName": "MULTIMEDIA_TEXT_OBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 539,
+    "parentName": "MULTIMEDIA_OBJECT",
+    "childId": 540,
+    "childName": "MULTIMEDIA_VIDEO_OBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 540,
+    "parentName": "NEXT_ACTIVITY",
+    "childId": 541,
+    "childName": "NEXT_COMMUNICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 541,
+    "parentName": "NEXT_ACTIVITY",
+    "childId": 542,
+    "childName": "NEXT_OFFER",
+    "depth": 1
+  },
+  {
+    "parentId": 542,
+    "parentName": "OBSERVATION_TYPE",
+    "childId": 543,
+    "childName": "WEATHER_CONDITION_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 543,
+    "parentName": "OBSERVATION_TYPE",
+    "childId": 544,
+    "childName": "WEATHER_MEASURE_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 544,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 545,
+    "childName": "CUSTOM_PROGRAM",
+    "depth": 1
+  },
+  {
+    "parentId": 545,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 546,
+    "childName": "FILE_TRANSFER",
+    "depth": 1
+  },
+  {
+    "parentId": 546,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 547,
+    "childName": "GAME_PLAY",
+    "depth": 1
+  },
+  {
+    "parentId": 547,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 548,
+    "childName": "GPS_PROGRAM",
+    "depth": 1
+  },
+  {
+    "parentId": 548,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 549,
+    "childName": "MEDIA_PLAYER",
+    "depth": 1
+  },
+  {
+    "parentId": 549,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 550,
+    "childName": "READER",
+    "depth": 1
+  },
+  {
+    "parentId": 550,
+    "parentName": "OPPORTUNITY_PARTY",
+    "childId": 551,
+    "childName": "OPPORTUNITY_COMPETITOR",
+    "depth": 1
+  },
+  {
+    "parentId": 551,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 552,
+    "childName": "BANK_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 552,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 553,
+    "childName": "BROKER_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 553,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 554,
+    "childName": "CUSTODIAN_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 554,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 555,
+    "childName": "DEALER_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 555,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 556,
+    "childName": "HEALTH_PROVIDER_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 556,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 557,
+    "childName": "INTERDEALER_BROKER_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 557,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 558,
+    "childName": "MARKET_DATA_PROVIDER_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 558,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 559,
+    "childName": "MARKET_MAKER_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 559,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 560,
+    "childName": "PROVIDER_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 560,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 561,
+    "childName": "RATING_AGENCY_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 561,
+    "parentName": "ORGANIZATION_BUSINESS_TYPE",
+    "childId": 562,
+    "childName": "REGISTRAR_BUSINESS_TYPE",
+    "depth": 1
+  },
+  {
+    "parentId": 562,
+    "parentName": "PARTY",
+    "childId": 563,
+    "childName": "HOUSEHOLD",
+    "depth": 1
+  },
+  {
+    "parentId": 563,
+    "parentName": "PARTY",
+    "childId": 564,
+    "childName": "INDIVIDUAL",
+    "depth": 1
+  },
+  {
+    "parentId": 564,
+    "parentName": "INDIVIDUAL",
+    "childId": 565,
+    "childName": "ASSOCIATE",
+    "depth": 2
+  },
+  {
+    "parentId": 565,
+    "parentName": "INDIVIDUAL",
+    "childId": 566,
+    "childName": "INSURANCE_AGENT",
+    "depth": 2
+  },
+  {
+    "parentId": 566,
+    "parentName": "PARTY",
+    "childId": 567,
+    "childName": "ORGANIZATION",
+    "depth": 1
+  },
+  {
+    "parentId": 567,
+    "parentName": "ORGANIZATION",
+    "childId": 568,
+    "childName": "ASSOCIATION",
+    "depth": 2
+  },
+  {
+    "parentId": 568,
+    "parentName": "ORGANIZATION",
+    "childId": 569,
+    "childName": "BUSINESS",
+    "depth": 2
+  },
+  {
+    "parentId": 569,
+    "parentName": "BUSINESS",
+    "childId": 570,
+    "childName": "EXCHANGE",
+    "depth": 3
+  },
+  {
+    "parentId": 570,
+    "parentName": "BUSINESS",
+    "childId": 571,
+    "childName": "FINANCIAL_INSTITUTION",
+    "depth": 3
+  },
+  {
+    "parentId": 571,
+    "parentName": "BUSINESS",
+    "childId": 572,
+    "childName": "GOVERNMENT_SPONSORED_ENTITY",
+    "depth": 3
+  },
+  {
+    "parentId": 572,
+    "parentName": "BUSINESS",
+    "childId": 573,
+    "childName": "INSURANCE_AGENCY",
+    "depth": 3
+  },
+  {
+    "parentId": 573,
+    "parentName": "BUSINESS",
+    "childId": 574,
+    "childName": "INSURANCE_PROVIDER",
+    "depth": 3
+  },
+  {
+    "parentId": 574,
+    "parentName": "INSURANCE_PROVIDER",
+    "childId": 575,
+    "childName": "INSURANCE_COMPANY",
+    "depth": 4
+  },
+  {
+    "parentId": 575,
+    "parentName": "INSURANCE_PROVIDER",
+    "childId": 576,
+    "childName": "INSURANCE_POOL",
+    "depth": 4
+  },
+  {
+    "parentId": 576,
+    "parentName": "INSURANCE_PROVIDER",
+    "childId": 577,
+    "childName": "REINSURANCE_COMPANY",
+    "depth": 4
+  },
+  {
+    "parentId": 577,
+    "parentName": "BUSINESS",
+    "childId": 578,
+    "childName": "PENSION_PLAN_ORGANIZATION",
+    "depth": 3
+  },
+  {
+    "parentId": 578,
+    "parentName": "BUSINESS",
+    "childId": 579,
+    "childName": "PRIVATE_FOUNDATION",
+    "depth": 3
+  },
+  {
+    "parentId": 579,
+    "parentName": "BUSINESS",
+    "childId": 580,
+    "childName": "PRIVATE_INVESTMENT_FUND_MANAGER",
+    "depth": 3
+  },
+  {
+    "parentId": 580,
+    "parentName": "BUSINESS",
+    "childId": 581,
+    "childName": "SOVEREIGN_WEALTH_FUND_MANAGER",
+    "depth": 3
+  },
+  {
+    "parentId": 581,
+    "parentName": "ORGANIZATION",
+    "childId": 582,
+    "childName": "GOVERNMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 582,
+    "parentName": "GOVERNMENT",
+    "childId": 583,
+    "childName": "CENTRAL_BANK",
+    "depth": 3
+  },
+  {
+    "parentId": 583,
+    "parentName": "GOVERNMENT",
+    "childId": 584,
+    "childName": "FINANCIAL_REGULATOR",
+    "depth": 3
+  },
+  {
+    "parentId": 584,
+    "parentName": "ORGANIZATION",
+    "childId": 585,
+    "childName": "INTERNAL_ORGANIZATION",
+    "depth": 2
+  },
+  {
+    "parentId": 585,
+    "parentName": "INTERNAL_ORGANIZATION",
+    "childId": 586,
+    "childName": "FINANCIAL_INSTITUTION_INTERNAL_ORGANIZATION",
+    "depth": 3
+  },
+  {
+    "parentId": 586,
+    "parentName": "FINANCIAL_INSTITUTION_INTERNAL_ORGANIZATION",
+    "childId": 587,
+    "childName": "HR_INTERNAL_ORGANIZATION",
+    "depth": 4
+  },
+  {
+    "parentId": 587,
+    "parentName": "INTERNAL_ORGANIZATION",
+    "childId": 588,
+    "childName": "OTHER_INSTITUTION_INTERNAL_ORGANIZATION",
+    "depth": 3
+  },
+  {
+    "parentId": 588,
+    "parentName": "INTERNAL_ORGANIZATION",
+    "childId": 589,
+    "childName": "OTHER_INTERNAL_ORGANIZATION",
+    "depth": 3
+  },
+  {
+    "parentId": 589,
+    "parentName": "PARTY_AGREEMENT",
+    "childId": 590,
+    "childName": "AGENT_BROKER_AGREEMENT_DETAIL",
+    "depth": 1
+  },
+  {
+    "parentId": 590,
+    "parentName": "PARTY_AGREEMENT",
+    "childId": 591,
+    "childName": "AGREEMENT_HOLDER",
+    "depth": 1
+  },
+  {
+    "parentId": 591,
+    "parentName": "PARTY_AGREEMENT",
+    "childId": 592,
+    "childName": "AGREEMENT_INSURED_PARTY",
+    "depth": 1
+  },
+  {
+    "parentId": 592,
+    "parentName": "PARTY_AGREEMENT",
+    "childId": 593,
+    "childName": "AGREEMENT_INVESTOR",
+    "depth": 1
+  },
+  {
+    "parentId": 593,
+    "parentName": "PARTY_AGREEMENT",
+    "childId": 594,
+    "childName": "AGREEMENT_SELLER",
+    "depth": 1
+  },
+  {
+    "parentId": 594,
+    "parentName": "PARTY_APPLICATION",
+    "childId": 595,
+    "childName": "AGENT_APPLICATION_DETAIL",
+    "depth": 1
+  },
+  {
+    "parentId": 595,
+    "parentName": "AGENT_APPLICATION_DETAIL",
+    "childId": 596,
+    "childName": "AGENT_REPORT",
+    "depth": 2
+  },
+  {
+    "parentId": 596,
+    "parentName": "PARTY_APPLICATION",
+    "childId": 597,
+    "childName": "INSURED_PARTY_APPLICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 597,
+    "parentName": "PARTY_APPLICATION",
+    "childId": 598,
+    "childName": "UNDERWRITER_PARTY_APPLICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 598,
+    "parentName": "PARTY_ASSET",
+    "childId": 599,
+    "childName": "ANIMAL",
+    "depth": 1
+  },
+  {
+    "parentId": 599,
+    "parentName": "PARTY_ASSET",
+    "childId": 600,
+    "childName": "EQUIPMENT_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 600,
+    "parentName": "PARTY_ASSET",
+    "childId": 601,
+    "childName": "FINANCIAL_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 601,
+    "parentName": "FINANCIAL_ASSET",
+    "childId": 602,
+    "childName": "CASH_ASSET",
+    "depth": 2
+  },
+  {
+    "parentId": 602,
+    "parentName": "FINANCIAL_ASSET",
+    "childId": 603,
+    "childName": "SECURITY_ASSET",
+    "depth": 2
+  },
+  {
+    "parentId": 603,
+    "parentName": "PARTY_ASSET",
+    "childId": 604,
+    "childName": "INTELLECTUAL_PROPERTY",
+    "depth": 1
+  },
+  {
+    "parentId": 604,
+    "parentName": "PARTY_ASSET",
+    "childId": 605,
+    "childName": "INVENTORY",
+    "depth": 1
+  },
+  {
+    "parentId": 605,
+    "parentName": "PARTY_ASSET",
+    "childId": 606,
+    "childName": "JEWELRY",
+    "depth": 1
+  },
+  {
+    "parentId": 606,
+    "parentName": "PARTY_ASSET",
+    "childId": 607,
+    "childName": "MONITORING_DEVICE",
+    "depth": 1
+  },
+  {
+    "parentId": 607,
+    "parentName": "PARTY_ASSET",
+    "childId": 608,
+    "childName": "MOTOR_VEHICLE",
+    "depth": 1
+  },
+  {
+    "parentId": 608,
+    "parentName": "PARTY_ASSET",
+    "childId": 609,
+    "childName": "OTHER_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 609,
+    "parentName": "PARTY_ASSET",
+    "childId": 610,
+    "childName": "REAL_ESTATE",
+    "depth": 1
+  },
+  {
+    "parentId": 610,
+    "parentName": "PARTY_ASSET",
+    "childId": 611,
+    "childName": "RECEIVABLE",
+    "depth": 1
+  },
+  {
+    "parentId": 611,
+    "parentName": "PARTY_ASSET",
+    "childId": 612,
+    "childName": "VESSEL",
+    "depth": 1
+  },
+  {
+    "parentId": 612,
+    "parentName": "PARTY_ASSET_TITLE",
+    "childId": 613,
+    "childName": "PARTY_ASSET_JUNK_TITLE",
+    "depth": 1
+  },
+  {
+    "parentId": 613,
+    "parentName": "PARTY_ASSET_TITLE",
+    "childId": 614,
+    "childName": "PARTY_ASSET_SALVAGE_TITLE",
+    "depth": 1
+  },
+  {
+    "parentId": 614,
+    "parentName": "PARTY_CLAIM",
+    "childId": 615,
+    "childName": "CLAIM_SUBMITTING_PARTY",
+    "depth": 1
+  },
+  {
+    "parentId": 615,
+    "parentName": "PARTY_CLAIM",
+    "childId": 616,
+    "childName": "CLAIM_SUBSCRIBING_PARTY",
+    "depth": 1
+  },
+  {
+    "parentId": 616,
+    "parentName": "PARTY_CLAIM",
+    "childId": 617,
+    "childName": "CLAIM_THIRD_PARTY",
+    "depth": 1
+  },
+  {
+    "parentId": 617,
+    "parentName": "PARTY_CLAIM_AUTHORIZATION",
+    "childId": 618,
+    "childName": "PATIENT_CLAIM_AUTHORIZATION",
+    "depth": 1
+  },
+  {
+    "parentId": 618,
+    "parentName": "PARTY_CREDIT_REPORT",
+    "childId": 619,
+    "childName": "AGENCY_CREDIT_REPORT",
+    "depth": 1
+  },
+  {
+    "parentId": 619,
+    "parentName": "PARTY_CREDIT_REPORT",
+    "childId": 620,
+    "childName": "INTERNAL_CREDIT_REPORT",
+    "depth": 1
+  },
+  {
+    "parentId": 620,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 621,
+    "childName": "GLOBAL_INTERMEDIARY_IDENTIFICATION_NUMBER",
+    "depth": 1
+  },
+  {
+    "parentId": 621,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 622,
+    "childName": "INTERNAL_PARTY_IDENTIFICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 622,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 623,
+    "childName": "LEGAL_ENTITY_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 623,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 624,
+    "childName": "PARTY_BANK_IDENTIFICATION_NUMBER",
+    "depth": 1
+  },
+  {
+    "parentId": 624,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 625,
+    "childName": "PARTY_DRIVING_LICENSE",
+    "depth": 1
+  },
+  {
+    "parentId": 625,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 626,
+    "childName": "PARTY_MARKET_IDENTIFIER_CODE",
+    "depth": 1
+  },
+  {
+    "parentId": 626,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 627,
+    "childName": "PARTY_ROUTING_TRANSIT_NUMBER",
+    "depth": 1
+  },
+  {
+    "parentId": 627,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 628,
+    "childName": "PERSONAL_IDENTIFICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 628,
+    "parentName": "PARTY_IDENTIFICATION",
+    "childId": 629,
+    "childName": "PROFESSIONAL_IDENTIFICATION",
+    "depth": 1
+  },
+  {
+    "parentId": 629,
+    "parentName": "PARTY_LIABILITY",
+    "childId": 630,
+    "childName": "LENDER_PARTY_LIABILITY",
+    "depth": 1
+  },
+  {
+    "parentId": 630,
+    "parentName": "PARTY_RELATED",
+    "childId": 631,
+    "childName": "BUSINESS_OWNERSHIP",
+    "depth": 1
+  },
+  {
+    "parentId": 631,
+    "parentName": "PARTY_RELATED",
+    "childId": 632,
+    "childName": "OTHER_PARTY_INSURER",
+    "depth": 1
+  },
+  {
+    "parentId": 632,
+    "parentName": "PARTY_RELATED",
+    "childId": 633,
+    "childName": "VENDOR",
+    "depth": 1
+  },
+  {
+    "parentId": 633,
+    "parentName": "PARTY_TO_PARTY_ASSET",
+    "childId": 634,
+    "childName": "PARTY_ASSET_INSURER",
+    "depth": 1
+  },
+  {
+    "parentId": 634,
+    "parentName": "PARTY_TO_PARTY_ASSET",
+    "childId": 635,
+    "childName": "PARTY_ASSET_LESSEE",
+    "depth": 1
+  },
+  {
+    "parentId": 635,
+    "parentName": "PARTY_TO_PARTY_ASSET",
+    "childId": 636,
+    "childName": "PARTY_ASSET_OWNER",
+    "depth": 1
+  },
+  {
+    "parentId": 636,
+    "parentName": "PAY_ELEMENT",
+    "childId": 637,
+    "childName": "DIRECT_PAY_ELEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 637,
+    "parentName": "DIRECT_PAY_ELEMENT",
+    "childId": 638,
+    "childName": "DIRECT_PAY_ELEMENT_FIXED",
+    "depth": 2
+  },
+  {
+    "parentId": 638,
+    "parentName": "DIRECT_PAY_ELEMENT",
+    "childId": 639,
+    "childName": "DIRECT_PAY_ELEMENT_VARIABLE",
+    "depth": 2
+  },
+  {
+    "parentId": 639,
+    "parentName": "PAY_ELEMENT",
+    "childId": 640,
+    "childName": "INDIRECT_PAY_ELEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 640,
+    "parentName": "PERSONA",
+    "childId": 641,
+    "childName": "VISITOR",
+    "depth": 1
+  },
+  {
+    "parentId": 641,
+    "parentName": "PHARMACEUTICAL_DRUG",
+    "childId": 642,
+    "childName": "SPECIALTY_DRUG",
+    "depth": 1
+  },
+  {
+    "parentId": 642,
+    "parentName": "PRODUCT",
+    "childId": 643,
+    "childName": "BANKING_PRODUCT",
+    "depth": 1
+  },
+  {
+    "parentId": 643,
+    "parentName": "BANKING_PRODUCT",
+    "childId": 644,
+    "childName": "PAYMENT_CARD_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 644,
+    "parentName": "PRODUCT",
+    "childId": 645,
+    "childName": "FINANCIAL_PRODUCT",
+    "depth": 1
+  },
+  {
+    "parentId": 645,
+    "parentName": "PRODUCT",
+    "childId": 646,
+    "childName": "INDIVIDUAL_OFFERING",
+    "depth": 1
+  },
+  {
+    "parentId": 646,
+    "parentName": "PRODUCT",
+    "childId": 647,
+    "childName": "INSURANCE_PRODUCT",
+    "depth": 1
+  },
+  {
+    "parentId": 647,
+    "parentName": "PRODUCT",
+    "childId": 648,
+    "childName": "INVESTMENT_PRODUCT",
+    "depth": 1
+  },
+  {
+    "parentId": 648,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 649,
+    "childName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 649,
+    "parentName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "childId": 650,
+    "childName": "COLLATERALIZED_DEBT_OBLIGATION",
+    "depth": 3
+  },
+  {
+    "parentId": 650,
+    "parentName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "childId": 651,
+    "childName": "COLLATERALIZED_MORTGAGE_OBLIGATION",
+    "depth": 3
+  },
+  {
+    "parentId": 651,
+    "parentName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "childId": 652,
+    "childName": "MORTGAGE_BACKED_SECURITY",
+    "depth": 3
+  },
+  {
+    "parentId": 652,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 653,
+    "childName": "BOND",
+    "depth": 2
+  },
+  {
+    "parentId": 653,
+    "parentName": "BOND",
+    "childId": 654,
+    "childName": "BOND_FIXED_INTEREST_RATE",
+    "depth": 3
+  },
+  {
+    "parentId": 654,
+    "parentName": "BOND",
+    "childId": 655,
+    "childName": "BOND_FLOATING_INTEREST_RATE",
+    "depth": 3
+  },
+  {
+    "parentId": 655,
+    "parentName": "BOND",
+    "childId": 656,
+    "childName": "BOND_INTEREST_PAY_AT_MATURITY",
+    "depth": 3
+  },
+  {
+    "parentId": 656,
+    "parentName": "BOND",
+    "childId": 657,
+    "childName": "CONVERTIBLE_BOND",
+    "depth": 3
+  },
+  {
+    "parentId": 657,
+    "parentName": "BOND",
+    "childId": 658,
+    "childName": "CORPORATE_BOND",
+    "depth": 3
+  },
+  {
+    "parentId": 658,
+    "parentName": "BOND",
+    "childId": 659,
+    "childName": "FLOATING_RATE_NOTE",
+    "depth": 3
+  },
+  {
+    "parentId": 659,
+    "parentName": "BOND",
+    "childId": 660,
+    "childName": "MUNICIPAL_BOND",
+    "depth": 3
+  },
+  {
+    "parentId": 660,
+    "parentName": "BOND",
+    "childId": 661,
+    "childName": "TREASURY_NOTE",
+    "depth": 3
+  },
+  {
+    "parentId": 661,
+    "parentName": "BOND",
+    "childId": 662,
+    "childName": "U.S._TREASURY_BOND",
+    "depth": 3
+  },
+  {
+    "parentId": 662,
+    "parentName": "U.S._TREASURY_BOND",
+    "childId": 663,
+    "childName": "TREASURY_INFLATION_PROTECTED",
+    "depth": 4
+  },
+  {
+    "parentId": 663,
+    "parentName": "U.S._TREASURY_BOND",
+    "childId": 664,
+    "childName": "TREASURY_NOT_INFLATION_PROTECTED",
+    "depth": 4
+  },
+  {
+    "parentId": 664,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 665,
+    "childName": "COMMERCIAL_PAPER",
+    "depth": 2
+  },
+  {
+    "parentId": 665,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 666,
+    "childName": "COMMODITY",
+    "depth": 2
+  },
+  {
+    "parentId": 666,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 667,
+    "childName": "CREDIT_DERIVATIVE_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 667,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 668,
+    "childName": "CURRENCY_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 668,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 669,
+    "childName": "CURRENCY_PRODUCT_PAIR",
+    "depth": 2
+  },
+  {
+    "parentId": 669,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 670,
+    "childName": "FINANCIAL_INSTRUMENT_GROUP",
+    "depth": 2
+  },
+  {
+    "parentId": 670,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 671,
+    "childName": "FUND",
+    "depth": 2
+  },
+  {
+    "parentId": 671,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 672,
+    "childName": "FUTURES_CONTRACT_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 672,
+    "parentName": "FUTURES_CONTRACT_PRODUCT",
+    "childId": 673,
+    "childName": "BOND_FUTURES",
+    "depth": 3
+  },
+  {
+    "parentId": 673,
+    "parentName": "FUTURES_CONTRACT_PRODUCT",
+    "childId": 674,
+    "childName": "COMMODITY_FUTURES",
+    "depth": 3
+  },
+  {
+    "parentId": 674,
+    "parentName": "FUTURES_CONTRACT_PRODUCT",
+    "childId": 675,
+    "childName": "EQUITY_FUTURES",
+    "depth": 3
+  },
+  {
+    "parentId": 675,
+    "parentName": "FUTURES_CONTRACT_PRODUCT",
+    "childId": 676,
+    "childName": "EUROCURRENCY_FUTURES",
+    "depth": 3
+  },
+  {
+    "parentId": 676,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 677,
+    "childName": "INTEREST_INDEX_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 677,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 678,
+    "childName": "MEDIUM_TERM_NOTE",
+    "depth": 2
+  },
+  {
+    "parentId": 678,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 679,
+    "childName": "MONEY_MARKET_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 679,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 680,
+    "childName": "NONTRADED_INVESTMENT_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 680,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 681,
+    "childName": "OPTION_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 681,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 682,
+    "childName": "AMERICAN_EXERCISE_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 682,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 683,
+    "childName": "ASIAN_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 683,
+    "parentName": "ASIAN_OPTION",
+    "childId": 684,
+    "childName": "AVERAGE_PRICE_OPTION",
+    "depth": 4
+  },
+  {
+    "parentId": 684,
+    "parentName": "ASIAN_OPTION",
+    "childId": 685,
+    "childName": "AVERAGE_STRIKE_OPTION",
+    "depth": 4
+  },
+  {
+    "parentId": 685,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 686,
+    "childName": "BARRIER_OPTION_PRODUCT",
+    "depth": 3
+  },
+  {
+    "parentId": 686,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 687,
+    "childName": "BERMUDA_EXERCISE_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 687,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 688,
+    "childName": "BEST_OF_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 688,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 689,
+    "childName": "BINARY_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 689,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 690,
+    "childName": "CALENDAR_SPREAD_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 690,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 691,
+    "childName": "CAP_AND_FLOOR_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 691,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 692,
+    "childName": "CHOOSER_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 692,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 693,
+    "childName": "CLIQUET_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 693,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 694,
+    "childName": "CONTINGENT_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 694,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 695,
+    "childName": "EUROPEAN_EXERCISE_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 695,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 696,
+    "childName": "FORWARD_START_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 696,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 697,
+    "childName": "LOOKBACK_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 697,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 698,
+    "childName": "SHOUT_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 698,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 699,
+    "childName": "SPREAD_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 699,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 700,
+    "childName": "SWAP_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 700,
+    "parentName": "OPTION_PRODUCT",
+    "childId": 701,
+    "childName": "WHISPER_OPTION",
+    "depth": 3
+  },
+  {
+    "parentId": 701,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 702,
+    "childName": "REAL_ESTATE_INVESTMENT_TRUST",
+    "depth": 2
+  },
+  {
+    "parentId": 702,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 703,
+    "childName": "RISK_FACTOR_INSTRUMENT",
+    "depth": 2
+  },
+  {
+    "parentId": 703,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 704,
+    "childName": "SECURITIES_INDEX_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 704,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 705,
+    "childName": "STOCK",
+    "depth": 2
+  },
+  {
+    "parentId": 705,
+    "parentName": "STOCK",
+    "childId": 706,
+    "childName": "AMERICAN_DEPOSITORY_RECEIPT",
+    "depth": 3
+  },
+  {
+    "parentId": 706,
+    "parentName": "STOCK",
+    "childId": 707,
+    "childName": "COMMON_STOCK",
+    "depth": 3
+  },
+  {
+    "parentId": 707,
+    "parentName": "STOCK",
+    "childId": 708,
+    "childName": "CUMULATIVE_PREFERRED_STOCK",
+    "depth": 3
+  },
+  {
+    "parentId": 708,
+    "parentName": "STOCK",
+    "childId": 709,
+    "childName": "PAIRED_SHARE",
+    "depth": 3
+  },
+  {
+    "parentId": 709,
+    "parentName": "STOCK",
+    "childId": 710,
+    "childName": "PARTICIPATING_PREFERRED_STOCK",
+    "depth": 3
+  },
+  {
+    "parentId": 710,
+    "parentName": "STOCK",
+    "childId": 711,
+    "childName": "PREFERRED_STOCK",
+    "depth": 3
+  },
+  {
+    "parentId": 711,
+    "parentName": "STOCK",
+    "childId": 712,
+    "childName": "STOCK_ISSUE_DETAIL",
+    "depth": 3
+  },
+  {
+    "parentId": 712,
+    "parentName": "STOCK",
+    "childId": 713,
+    "childName": "SUBSCRIPTION_RIGHT",
+    "depth": 3
+  },
+  {
+    "parentId": 713,
+    "parentName": "STOCK",
+    "childId": 714,
+    "childName": "SUBSCRIPTION_WARRANT",
+    "depth": 3
+  },
+  {
+    "parentId": 714,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 715,
+    "childName": "SWAP_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 715,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 716,
+    "childName": "TRADED_INVESTMENT_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 716,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 717,
+    "childName": "TREASURY_BILL",
+    "depth": 2
+  },
+  {
+    "parentId": 717,
+    "parentName": "PRODUCT",
+    "childId": 718,
+    "childName": "INVESTMENT_SERVICE",
+    "depth": 1
+  },
+  {
+    "parentId": 718,
+    "parentName": "PRODUCT",
+    "childId": 719,
+    "childName": "LOYALTY_PROGRAM",
+    "depth": 1
+  },
+  {
+    "parentId": 719,
+    "parentName": "PRODUCT",
+    "childId": 720,
+    "childName": "PACKAGE_OFFERING",
+    "depth": 1
+  },
+  {
+    "parentId": 720,
+    "parentName": "PRODUCT_IDENTIFICATION",
+    "childId": 721,
+    "childName": "CUSIP_PRODUCT_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 721,
+    "parentName": "PRODUCT_IDENTIFICATION",
+    "childId": 722,
+    "childName": "FINANCIAL_INSTRUMENT_GLOBAL_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 722,
+    "parentName": "PRODUCT_IDENTIFICATION",
+    "childId": 723,
+    "childName": "FISN_PRODUCT_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 723,
+    "parentName": "PRODUCT_IDENTIFICATION",
+    "childId": 724,
+    "childName": "ISIN_PRODUCT_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 724,
+    "parentName": "PRODUCT_IDENTIFICATION",
+    "childId": 725,
+    "childName": "OTHER_PRODUCT_IDENTIFIER",
+    "depth": 1
+  },
+  {
+    "parentId": 725,
+    "parentName": "PRODUCT_IDENTIFICATION",
+    "childId": 726,
+    "childName": "TICKER_NAME",
+    "depth": 1
+  },
+  {
+    "parentId": 726,
+    "parentName": "PRODUCT_RELATED",
+    "childId": 727,
+    "childName": "PRODUCT_COMPONENT_SHARE",
+    "depth": 1
+  },
+  {
+    "parentId": 727,
+    "parentName": "PROJECT",
+    "childId": 728,
+    "childName": "EXTERNAL_PROJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 728,
+    "parentName": "PROJECT",
+    "childId": 729,
+    "childName": "INTERNAL_PROJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 729,
+    "parentName": "PROJECT",
+    "childId": 730,
+    "childName": "JOINT_PROJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 730,
+    "parentName": "PROJECT_TASK_RESOURCE_ASSIGNMENT",
+    "childId": 731,
+    "childName": "PROJECT_TASK_RESOURCE_INDIVIDUAL",
+    "depth": 1
+  },
+  {
+    "parentId": 731,
+    "parentName": "PROJECT_TASK_RESOURCE_ASSIGNMENT",
+    "childId": 732,
+    "childName": "PROJECT_TASK_RESOURCE_ITEM",
+    "depth": 1
+  },
+  {
+    "parentId": 732,
+    "parentName": "PROJECT_TASK_RESOURCE_ITEM",
+    "childId": 733,
+    "childName": "PROJECT_RESOURCE_FIXED_ASSET",
+    "depth": 2
+  },
+  {
+    "parentId": 733,
+    "parentName": "PROJECT_TASK_RESOURCE_ITEM",
+    "childId": 734,
+    "childName": "PROJECT_TASK_RESOURCE_PRODUCT",
+    "depth": 2
+  },
+  {
+    "parentId": 734,
+    "parentName": "PROJECT_TASK_RESOURCE_ITEM",
+    "childId": 735,
+    "childName": "PROJECT_TASK_RESOURCE_SUPPLY",
+    "depth": 2
+  },
+  {
+    "parentId": 735,
+    "parentName": "PROMOTION",
+    "childId": 736,
+    "childName": "MASS_PROMOTION",
+    "depth": 1
+  },
+  {
+    "parentId": 736,
+    "parentName": "PROMOTION",
+    "childId": 737,
+    "childName": "ONLINE_PROMOTION",
+    "depth": 1
+  },
+  {
+    "parentId": 737,
+    "parentName": "PROMOTION",
+    "childId": 738,
+    "childName": "TARGET_PROMOTION",
+    "depth": 1
+  },
+  {
+    "parentId": 738,
+    "parentName": "PROMOTION_PARTY",
+    "childId": 739,
+    "childName": "PROMOTION_PROSPECT",
+    "depth": 1
+  },
+  {
+    "parentId": 739,
+    "parentName": "QUOTATION",
+    "childId": 740,
+    "childName": "CURRENCY_EXCHANGE_QUOTATION",
+    "depth": 1
+  },
+  {
+    "parentId": 740,
+    "parentName": "QUOTATION",
+    "childId": 741,
+    "childName": "INSURANCE_QUOTATION",
+    "depth": 1
+  },
+  {
+    "parentId": 741,
+    "parentName": "INSURANCE_QUOTATION",
+    "childId": 742,
+    "childName": "LIFE_LINE_QUOTATION",
+    "depth": 2
+  },
+  {
+    "parentId": 742,
+    "parentName": "QUOTATION_ASSET",
+    "childId": 743,
+    "childName": "QUOTATION_COLLATERAL_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 743,
+    "parentName": "QUOTATION_ASSET",
+    "childId": 744,
+    "childName": "QUOTATION_INSURED_ASSET",
+    "depth": 1
+  },
+  {
+    "parentId": 744,
+    "parentName": "RECEIPT_LINE",
+    "childId": 745,
+    "childName": "VENDOR_RECEIPT_LINE",
+    "depth": 1
+  },
+  {
+    "parentId": 745,
+    "parentName": "REFERRAL",
+    "childId": 746,
+    "childName": "EMAIL_REFERRAL",
+    "depth": 1
+  },
+  {
+    "parentId": 746,
+    "parentName": "REFERRAL",
+    "childId": 747,
+    "childName": "REFERRAL_DIRECTORY",
+    "depth": 1
+  },
+  {
+    "parentId": 747,
+    "parentName": "REFERRAL",
+    "childId": 748,
+    "childName": "REFERRAL_WEB_AD",
+    "depth": 1
+  },
+  {
+    "parentId": 748,
+    "parentName": "REPORTING_PRODUCT_GROUP",
+    "childId": 749,
+    "childName": "GL_REPORTING_NONSERVICE_PRODUCT",
+    "depth": 1
+  },
+  {
+    "parentId": 749,
+    "parentName": "REPORTING_PRODUCT_GROUP",
+    "childId": 750,
+    "childName": "GL_REPORTING_SERVICE_PRODUCT",
+    "depth": 1
+  },
+  {
+    "parentId": 750,
+    "parentName": "RISK_CALCULATION_SCENARIO",
+    "childId": 751,
+    "childName": "STRESS_TEST_CALCULATION_SCENARIO",
+    "depth": 1
+  },
+  {
+    "parentId": 751,
+    "parentName": "RISK_GRADE_VALUE",
+    "childId": 752,
+    "childName": "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+    "depth": 1
+  },
+  {
+    "parentId": 752,
+    "parentName": "SERVICE_REQUEST",
+    "childId": 753,
+    "childName": "CLAIM_SERVICE_REQUEST",
+    "depth": 1
+  },
+  {
+    "parentId": 753,
+    "parentName": "SITE",
+    "childId": 754,
+    "childName": "BRANCH_SITE",
+    "depth": 1
+  },
+  {
+    "parentId": 754,
+    "parentName": "SITE",
+    "childId": 755,
+    "childName": "WEATHER_STATION",
+    "depth": 1
+  },
+  {
+    "parentId": 755,
+    "parentName": "SOCIAL_MEDIA_TRANSFER",
+    "childId": 756,
+    "childName": "SOCIAL_MEDIA_DOWNLOAD_TRANSFER",
+    "depth": 1
+  },
+  {
+    "parentId": 756,
+    "parentName": "SOCIAL_MEDIA_TRANSFER",
+    "childId": 757,
+    "childName": "SOCIAL_MEDIA_UPLOAD_TRANSFER",
+    "depth": 1
+  },
+  {
+    "parentId": 757,
+    "parentName": "SUBJECT",
+    "childId": 758,
+    "childName": "AGREEMENT_CLASS_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 758,
+    "parentName": "SUBJECT",
+    "childId": 759,
+    "childName": "AGREEMENT_GROUP_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 759,
+    "parentName": "SUBJECT",
+    "childId": 760,
+    "childName": "AGREEMENT_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 760,
+    "parentName": "SUBJECT",
+    "childId": 761,
+    "childName": "ASSET_CLASSIFICATION_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 761,
+    "parentName": "SUBJECT",
+    "childId": 762,
+    "childName": "FEATURE_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 762,
+    "parentName": "SUBJECT",
+    "childId": 763,
+    "childName": "GEOGRAPHIC_AREA_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 763,
+    "parentName": "SUBJECT",
+    "childId": 764,
+    "childName": "PARTY_CLASSIFICATION_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 764,
+    "parentName": "SUBJECT",
+    "childId": 765,
+    "childName": "PARTY_GROUP_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 765,
+    "parentName": "SUBJECT",
+    "childId": 766,
+    "childName": "PARTY_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 766,
+    "parentName": "SUBJECT",
+    "childId": 767,
+    "childName": "PERIL_TYPE_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 767,
+    "parentName": "SUBJECT",
+    "childId": 768,
+    "childName": "PRODUCT_GROUP_SUBJECT",
+    "depth": 1
+  },
+  {
+    "parentId": 768,
+    "parentName": "SURVEY_QUESTION_RESPONSE",
+    "childId": 769,
+    "childName": "AGREEMENT_SURVEY_RESPONSE",
+    "depth": 1
+  },
+  {
+    "parentId": 769,
+    "parentName": "SURVEY_QUESTION_RESPONSE",
+    "childId": 770,
+    "childName": "CHANNEL_TYPE_SURVEY_RESPONSE",
+    "depth": 1
+  },
+  {
+    "parentId": 770,
+    "parentName": "SURVEY_QUESTION_RESPONSE",
+    "childId": 771,
+    "childName": "CLAIM_PROVIDER_SURVEY_RESPONSE",
+    "depth": 1
+  },
+  {
+    "parentId": 771,
+    "parentName": "SURVEY_QUESTION_RESPONSE",
+    "childId": 772,
+    "childName": "CLAIM_SURVEY_RESPONSE",
+    "depth": 1
+  },
+  {
+    "parentId": 772,
+    "parentName": "SURVEY_QUESTION_RESPONSE",
+    "childId": 773,
+    "childName": "EVENT_SURVEY_RESPONSE",
+    "depth": 1
+  },
+  {
+    "parentId": 773,
+    "parentName": "SURVEY_QUESTION_RESPONSE",
+    "childId": 774,
+    "childName": "PARTY_SURVEY_RESPONSE",
+    "depth": 1
+  },
+  {
+    "parentId": 774,
+    "parentName": "TERRITORY_STANDARD",
+    "childId": 775,
+    "childName": "ISO_3166_COUNTRY_SUBDIVISION_STANDARD",
+    "depth": 1
+  },
+  {
+    "parentId": 775,
+    "parentName": "TERRITORY_STANDARD",
+    "childId": 776,
+    "childName": "USPS_STATE_STANDARD",
+    "depth": 1
+  },
+  {
+    "parentId": 776,
+    "parentName": "TEXT_SECTION",
+    "childId": 777,
+    "childName": "TEXT_DATASET",
+    "depth": 1
+  },
+  {
+    "parentId": 777,
+    "parentName": "TEXT_SECTION",
+    "childId": 778,
+    "childName": "TEXT_PARAGRAPH",
+    "depth": 1
+  },
+  {
+    "parentId": 778,
+    "parentName": "TEXT_SECTION",
+    "childId": 779,
+    "childName": "TEXT_PHRASE",
+    "depth": 1
+  },
+  {
+    "parentId": 779,
+    "parentName": "TEXT_SECTION",
+    "childId": 780,
+    "childName": "TEXT_SENTENCE",
+    "depth": 1
+  },
+  {
+    "parentId": 780,
+    "parentName": "TEXT_SECTION",
+    "childId": 781,
+    "childName": "TEXT_TAG",
+    "depth": 1
+  },
+  {
+    "parentId": 781,
+    "parentName": "TEXT_SECTION",
+    "childId": 782,
+    "childName": "TEXT_TERM",
+    "depth": 1
+  },
+  {
+    "parentId": 782,
+    "parentName": "TEXT_SECTION_RELATED",
+    "childId": 783,
+    "childName": "SECTION_CONTAINS_SECTION",
+    "depth": 1
+  },
+  {
+    "parentId": 783,
+    "parentName": "TIME_BAND_RELATED",
+    "childId": 784,
+    "childName": "HORIZONTAL_DISALLOWANCE_PARAMETER",
+    "depth": 1
+  },
+  {
+    "parentId": 784,
+    "parentName": "TIME_BAND_SCHEME",
+    "childId": 785,
+    "childName": "COMMODITY_TIME_BAND_SCHEME",
+    "depth": 1
+  },
+  {
+    "parentId": 785,
+    "parentName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "childId": 786,
+    "childName": "TRADE_SETTLE_BOOK_DELIVERY",
+    "depth": 1
+  },
+  {
+    "parentId": 786,
+    "parentName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "childId": 787,
+    "childName": "TRADE_SETTLE_FOREIGN_DELIVERY",
+    "depth": 1
+  },
+  {
+    "parentId": 787,
+    "parentName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "childId": 788,
+    "childName": "TRADE_SETTLE_PHYSICAL_DELIVERY",
+    "depth": 1
+  },
+  {
+    "parentId": 788,
+    "parentName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "childId": 789,
+    "childName": "CASH_SETTLEMENT",
+    "depth": 1
+  },
+  {
+    "parentId": 789,
+    "parentName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "childId": 790,
+    "childName": "PHYSICAL_DELIVERY",
+    "depth": 1
+  },
+  {
+    "parentId": 790,
+    "parentName": "TRAIT",
+    "childId": 791,
+    "childName": "CAMPAIGN_TRAIT",
+    "depth": 1
+  },
+  {
+    "parentId": 791,
+    "parentName": "TRAIT",
+    "childId": 792,
+    "childName": "GEOSEQUENCE_POINT_TRAIT",
+    "depth": 1
+  },
+  {
+    "parentId": 792,
+    "parentName": "TRAIT",
+    "childId": 793,
+    "childName": "HR_POSITION_TRAIT",
+    "depth": 1
+  },
+  {
+    "parentId": 793,
+    "parentName": "TRAIT",
+    "childId": 794,
+    "childName": "LEAD_TRAIT",
+    "depth": 1
+  },
+  {
+    "parentId": 794,
+    "parentName": "TRAIT",
+    "childId": 795,
+    "childName": "ONLINE_APPLICATION_PROGRAM_TRAIT",
+    "depth": 1
+  },
+  {
+    "parentId": 795,
+    "parentName": "TRAIT",
+    "childId": 796,
+    "childName": "PARTY_TRAIT",
+    "depth": 1
+  },
+  {
+    "parentId": 796,
+    "parentName": "TRAIT",
+    "childId": 797,
+    "childName": "SITE_TRAIT",
+    "depth": 1
+  },
+  {
+    "parentId": 797,
+    "parentName": "TRANCHE",
+    "childId": 798,
+    "childName": "INTEREST_ONLY_STRIP",
+    "depth": 1
+  },
+  {
+    "parentId": 798,
+    "parentName": "TRANCHE",
+    "childId": 799,
+    "childName": "PLANNED_AMORTIZATION_CLASS",
+    "depth": 1
+  },
+  {
+    "parentId": 799,
+    "parentName": "TRANCHE",
+    "childId": 800,
+    "childName": "TARGETED_AMORTIZATION_CLASS",
+    "depth": 1
+  },
+  {
+    "parentId": 800,
+    "parentName": "TRANCHE",
+    "childId": 801,
+    "childName": "Z_BOND",
+    "depth": 1
+  },
+  {
+    "parentId": 801,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 802,
+    "childName": "AD_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 802,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 803,
+    "childName": "BOOKMARK",
+    "depth": 1
+  },
+  {
+    "parentId": 803,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 804,
+    "childName": "CONTENT_GROUP_VIEW",
+    "depth": 1
+  },
+  {
+    "parentId": 804,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 805,
+    "childName": "CONVERSION",
+    "depth": 1
+  },
+  {
+    "parentId": 805,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 806,
+    "childName": "CUSTOM_EVENT_INFORMATION",
+    "depth": 1
+  },
+  {
+    "parentId": 806,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 807,
+    "childName": "CUSTOM_SEARCH_CLICK-THROUGH",
+    "depth": 1
+  },
+  {
+    "parentId": 807,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 808,
+    "childName": "INTERNAL_SEARCH_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 808,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 809,
+    "childName": "PROMOTED_PRODUCT_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 809,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 810,
+    "childName": "PUBLISHED_CONTENT_REVIEW",
+    "depth": 1
+  },
+  {
+    "parentId": 810,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 811,
+    "childName": "PUBLISHED_CONTENT_VIEW",
+    "depth": 1
+  },
+  {
+    "parentId": 811,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 812,
+    "childName": "RECOMMENDATION_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 812,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 813,
+    "childName": "SHOPPING_TOOL",
+    "depth": 1
+  },
+  {
+    "parentId": 813,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 814,
+    "childName": "TRANSFER_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 814,
+    "parentName": "TRANSFER_EVENT",
+    "childId": 815,
+    "childName": "ITEM_TRANSFER",
+    "depth": 2
+  },
+  {
+    "parentId": 815,
+    "parentName": "ITEM_TRANSFER",
+    "childId": 816,
+    "childName": "DOWNLOAD_ITEM",
+    "depth": 3
+  },
+  {
+    "parentId": 816,
+    "parentName": "ITEM_TRANSFER",
+    "childId": 817,
+    "childName": "UPLOAD_ITEM",
+    "depth": 3
+  },
+  {
+    "parentId": 817,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 818,
+    "childName": "WEB_CAMPAIGN_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 818,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 819,
+    "childName": "WEB_SCENARIO_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 819,
+    "parentName": "VISITOR_INTERACTION_EVENT",
+    "childId": 820,
+    "childName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "depth": 1
+  },
+  {
+    "parentId": 820,
+    "parentName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "childId": 821,
+    "childName": "PRODUCT_REVIEW_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 821,
+    "parentName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "childId": 822,
+    "childName": "PRODUCT_VIEW_WEB_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 822,
+    "parentName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "childId": 823,
+    "childName": "PURCHASE_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 823,
+    "parentName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "childId": 824,
+    "childName": "REBATE_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 824,
+    "parentName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "childId": 825,
+    "childName": "SHOPPING_CART_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 825,
+    "parentName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "childId": 826,
+    "childName": "WISH_LIST_EVENT",
+    "depth": 2
+  },
+  {
+    "parentId": 826,
+    "parentName": "VISITOR_LOGON_SYSTEM",
+    "childId": 827,
+    "childName": "SOCIAL_MEDIA_LOGON",
+    "depth": 1
+  },
+  {
+    "parentId": 827,
+    "parentName": "WATCH_LIST_MEMBER",
+    "childId": 828,
+    "childName": "MATCH_LIST_MEMBER",
+    "depth": 1
+  },
+  {
+    "parentId": 828,
+    "parentName": "WATCH_LIST_SOURCE",
+    "childId": 829,
+    "childName": "EXTERNAL_WATCH_LIST_SOURCE",
+    "depth": 1
+  },
+  {
+    "parentId": 829,
+    "parentName": "WEATHER_FORECAST",
+    "childId": 830,
+    "childName": "FORECAST_CONDITION",
+    "depth": 1
+  },
+  {
+    "parentId": 830,
+    "parentName": "WEATHER_FORECAST",
+    "childId": 831,
+    "childName": "FORECAST_OBSERVATION",
+    "depth": 1
+  },
+  {
+    "parentId": 831,
+    "parentName": "WEATHER_OBSERVATION",
+    "childId": 832,
+    "childName": "WEATHER_CONDITION_OBSERVED",
+    "depth": 1
+  },
+  {
+    "parentId": 832,
+    "parentName": "WEATHER_OBSERVATION",
+    "childId": 833,
+    "childName": "WEATHER_MEASURE",
+    "depth": 1
+  },
+  {
+    "parentId": 833,
+    "parentName": "WEATHER_OBSERVATION",
+    "childId": 834,
+    "childName": "WEATHER_MEASURE_DAILY",
+    "depth": 1
+  },
+  {
+    "parentId": 834,
+    "parentName": "WEB_SITE",
+    "childId": 835,
+    "childName": "MICROSITE",
+    "depth": 1
+  },
+  {
+    "parentId": 835,
+    "parentName": "WEB_SITE",
+    "childId": 836,
+    "childName": "REFERRING_SITE",
+    "depth": 1
+  },
+  {
+    "parentId": 836,
+    "parentName": "WEB_SITE_SECTION",
+    "childId": 837,
+    "childName": "WEB_SITE_USER_SPACE",
+    "depth": 1
+  },
+  {
+    "parentId": 837,
+    "parentName": "WORK_PROCESS",
+    "childId": 838,
+    "childName": "WORK_PROCESS_CLAIM",
+    "depth": 1
+  },
+  {
+    "parentId": 838,
+    "parentName": "WORK_PROCESS",
+    "childId": 839,
+    "childName": "WORK_PROCESS_LOAN",
+    "depth": 1
+  },
+  {
+    "parentId": 839,
+    "parentName": "WORK_PROCESS_STEP_ACTUAL",
+    "childId": 840,
+    "childName": "EMPLOYMENT_WORK_PROCESS_STEP_ACTUAL",
+    "depth": 1
+  }
+]

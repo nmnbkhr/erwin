@@ -1,0 +1,2921 @@
+[
+  {
+    "entityId": 3841,
+    "entityName": "BROWSER_APPLICATION_TYPE",
+    "name": "Browser_Application_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3841,
+    "entityName": "BROWSER_APPLICATION_TYPE",
+    "name": "Browser_Application_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "DMA_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "MSA_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "PMSA_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "MSA_City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "MSA_Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "DMA_City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "DMA_Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "DMA_Country_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "PMSA_Country_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "PMSA_City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "PMSA_Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "Telephone_Number_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "Geospatial_Point_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3842,
+    "entityName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3843,
+    "entityName": "BROWSER_PLUG-IN",
+    "name": "Browser_Plug-in_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3843,
+    "entityName": "BROWSER_PLUG-IN",
+    "name": "Browser_Plug-in_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3844,
+    "entityName": "BROWSER_PLUG-IN_XREF",
+    "name": "Browser_Identification_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3844,
+    "entityName": "BROWSER_PLUG-IN_XREF",
+    "name": "Browser_Plug-in_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3845,
+    "entityName": "BROWSER_VERSION",
+    "name": "Browser_Application_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3845,
+    "entityName": "BROWSER_VERSION",
+    "name": "Browser_Application_Version_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3846,
+    "entityName": "CLICK_ACTION_TYPE",
+    "name": "Click_Action_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3846,
+    "entityName": "CLICK_ACTION_TYPE",
+    "name": "Click_Action_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Click_Activity_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Click_Activity_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Click_Activity_Source_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Click_Activity_Tag_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Click_Context_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Click_Action_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Click_Activity_Action_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Click_Activity_Context_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3847,
+    "entityName": "CLICK_ACTIVITY",
+    "name": "Hit_Page_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3848,
+    "entityName": "CLICK_CONTEXT_TYPE",
+    "name": "Click_Context_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3848,
+    "entityName": "CLICK_CONTEXT_TYPE",
+    "name": "Click_Context_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3849,
+    "entityName": "COOKIE",
+    "name": "Cookie_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3849,
+    "entityName": "COOKIE",
+    "name": "Cookie_String_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3849,
+    "entityName": "COOKIE",
+    "name": "Cookie_Persistent_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3849,
+    "entityName": "COOKIE",
+    "name": "Cookie_Third-party_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3850,
+    "entityName": "CRAWLER",
+    "name": "Crawler_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3850,
+    "entityName": "CRAWLER",
+    "name": "Crawler_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3851,
+    "entityName": "CRAWLER_PERMISSION_TYPE",
+    "name": "Crawler_Permission_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3851,
+    "entityName": "CRAWLER_PERMISSION_TYPE",
+    "name": "Crawler_Permission_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3852,
+    "entityName": "CRAWLER_WEB_PAGE_PERMISSION",
+    "name": "Crawler_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3852,
+    "entityName": "CRAWLER_WEB_PAGE_PERMISSION",
+    "name": "Crawler_Permission_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3852,
+    "entityName": "CRAWLER_WEB_PAGE_PERMISSION",
+    "name": "Crawler_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3853,
+    "entityName": "CRAWLER_WEB_SITE_PERMISSION",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3853,
+    "entityName": "CRAWLER_WEB_SITE_PERMISSION",
+    "name": "Crawler_Permission_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3853,
+    "entityName": "CRAWLER_WEB_SITE_PERMISSION",
+    "name": "Crawler_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3854,
+    "entityName": "CUSTOM_SEARCH_CLICK-THROUGH",
+    "name": "Search_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3854,
+    "entityName": "CUSTOM_SEARCH_CLICK-THROUGH",
+    "name": "Search_Engine_System_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3854,
+    "entityName": "CUSTOM_SEARCH_CLICK-THROUGH",
+    "name": "Keyword_Phrase_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3854,
+    "entityName": "CUSTOM_SEARCH_CLICK-THROUGH",
+    "name": "Custom_Search_Page_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Visitor_First_Platform_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Visitor_Last_Platform_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Visitor_IP_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Geographical_Trend_Data_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Source_Session_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Source_Region_Code_String_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "RIA_Feature_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "RSS_Feed_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "RSS_Article_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "RIA_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "RIA_Content_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Session_Test_Variant_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "External_Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "External_Data_Source_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Last_Visit_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "New_Visitor_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "New_Session_First_Hit_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Tracked_Account_New_Visit_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Registered_Visitor_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Abandoned_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Product_Added_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Product_Failed_Add_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Product_Purchased_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Product_Purchased_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Product_Removed_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Product_Viewed_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "JavaScript_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Third-party_Server_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Third-party_Software_Version_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Visitor_First_Channel_Detail_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Visitor_First_Channel_Marketing_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Visitor_Last_Channel_Detail_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Visitor_Marketing_Channel_Click-through_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "name": "Visitor_Server_Domain_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3856,
+    "entityName": "PROGRAM_PAGE_VIEW_XREF",
+    "name": "Online_Application_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3856,
+    "entityName": "PROGRAM_PAGE_VIEW_XREF",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3856,
+    "entityName": "PROGRAM_PAGE_VIEW_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3856,
+    "entityName": "PROGRAM_PAGE_VIEW_XREF",
+    "name": "Online_Application_Program_Page_Link_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3856,
+    "entityName": "PROGRAM_PAGE_VIEW_XREF",
+    "name": "Online_Application_Program_Page_Link_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3857,
+    "entityName": "REFERRAL_WEB_AD",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3857,
+    "entityName": "REFERRAL_WEB_AD",
+    "name": "Ad_Spot_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3857,
+    "entityName": "REFERRAL_WEB_AD",
+    "name": "Ad_Placement_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3858,
+    "entityName": "SESSION_ATTRIBUTE_TYPE",
+    "name": "Session_Attribute_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3858,
+    "entityName": "SESSION_ATTRIBUTE_TYPE",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3858,
+    "entityName": "SESSION_ATTRIBUTE_TYPE",
+    "name": "Session_Attribute_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3859,
+    "entityName": "VISITOR",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3859,
+    "entityName": "VISITOR",
+    "name": "Visitor_Source_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3859,
+    "entityName": "VISITOR",
+    "name": "Visitor_Identification_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3860,
+    "entityName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3860,
+    "entityName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "name": "Behavior_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3860,
+    "entityName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "name": "Visitor_Behavior_Analysis_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3860,
+    "entityName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3860,
+    "entityName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "name": "Visitor_Score_Value_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3860,
+    "entityName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "name": "Visitor_Behavior_Result_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3860,
+    "entityName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "name": "Visitor_Score_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3861,
+    "entityName": "VISITOR_INPUT",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3861,
+    "entityName": "VISITOR_INPUT",
+    "name": "Visitor_Input_Index_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3861,
+    "entityName": "VISITOR_INPUT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3861,
+    "entityName": "VISITOR_INPUT",
+    "name": "Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3861,
+    "entityName": "VISITOR_INPUT",
+    "name": "Telephone_Number_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3861,
+    "entityName": "VISITOR_INPUT",
+    "name": "Electronic_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3861,
+    "entityName": "VISITOR_INPUT",
+    "name": "Visitor_Input_Information_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3862,
+    "entityName": "VISITOR_LOGON",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3862,
+    "entityName": "VISITOR_LOGON",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3862,
+    "entityName": "VISITOR_LOGON",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3862,
+    "entityName": "VISITOR_LOGON",
+    "name": "Visitor_Logon_System_User_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 3862,
+    "entityName": "VISITOR_LOGON",
+    "name": "Visitor_Logon_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3862,
+    "entityName": "VISITOR_LOGON",
+    "name": "Visitor_Logon_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3862,
+    "entityName": "VISITOR_LOGON",
+    "name": "Visitor_Logon_Previous_Visit_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3862,
+    "entityName": "VISITOR_LOGON",
+    "name": "Visitor_Logon_Agreement_Creation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3863,
+    "entityName": "VISITOR_LOGON_SYSTEM",
+    "name": "Visitor_Logon_System_User_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 3863,
+    "entityName": "VISITOR_LOGON_SYSTEM",
+    "name": "Online_Visitor_Affiliation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3864,
+    "entityName": "VISITOR_LOGON_SYSTEM_XREF",
+    "name": "Visitor_Logon_System_User_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 3864,
+    "entityName": "VISITOR_LOGON_SYSTEM_XREF",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3865,
+    "entityName": "VISITOR_LOGON_TYPE",
+    "name": "Visitor_Logon_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3865,
+    "entityName": "VISITOR_LOGON_TYPE",
+    "name": "Visitor_Logon_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Current_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Visitor_Path_Analysis_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Parent_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Online_Impression_Experienced_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "First_Page_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Home_Page_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Exit_Page_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Current_Page_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Page_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Path_Analysis_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Child_Page_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Parent_Page_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3866,
+    "entityName": "VISITOR_PATH_ANALYSIS",
+    "name": "Impression_Selected_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3867,
+    "entityName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3867,
+    "entityName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "name": "Current_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3867,
+    "entityName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3867,
+    "entityName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "name": "Cart_Action_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3867,
+    "entityName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "name": "Visitor_Path_Analysis_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3867,
+    "entityName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3867,
+    "entityName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "name": "Visitor_Purchased_Item_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3868,
+    "entityName": "WEB_AD",
+    "name": "Web_Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3868,
+    "entityName": "WEB_AD",
+    "name": "Web_Ad_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3870,
+    "entityName": "WEB_FORM",
+    "name": "Web_Form_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3871,
+    "entityName": "WEB_GROUP_PUBLISHER",
+    "name": "Publisher_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3871,
+    "entityName": "WEB_GROUP_PUBLISHER",
+    "name": "Web_Site_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3872,
+    "entityName": "WEB_INTERACTION_SITE_TYPE",
+    "name": "Web_Interaction_Site_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3872,
+    "entityName": "WEB_INTERACTION_SITE_TYPE",
+    "name": "Web_Interaction_Site_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Site_Navigation_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Generation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Page_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Site_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Document_Path_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Domain_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Communication_Protocol_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_URI_Stem_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_URI_Query_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Header_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Web_Page_Title_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Page_Domain_Extension_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Referring_Page_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3873,
+    "entityName": "WEB_PAGE",
+    "name": "Target_Group_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3874,
+    "entityName": "WEB_PAGE_CONTEXT",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3874,
+    "entityName": "WEB_PAGE_CONTEXT",
+    "name": "Context_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3874,
+    "entityName": "WEB_PAGE_CONTEXT",
+    "name": "Rank_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3875,
+    "entityName": "WEB_PAGE_CREATIVE",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3875,
+    "entityName": "WEB_PAGE_CREATIVE",
+    "name": "Creative_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3875,
+    "entityName": "WEB_PAGE_CREATIVE",
+    "name": "Web_Page_Creative_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3875,
+    "entityName": "WEB_PAGE_CREATIVE",
+    "name": "Link_To_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3875,
+    "entityName": "WEB_PAGE_CREATIVE",
+    "name": "Page_Position_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3875,
+    "entityName": "WEB_PAGE_CREATIVE",
+    "name": "Web_Page_Creative_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3875,
+    "entityName": "WEB_PAGE_CREATIVE",
+    "name": "Creative_URL_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3876,
+    "entityName": "WEB_PAGE_ERROR",
+    "name": "Web_Page_Error_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3876,
+    "entityName": "WEB_PAGE_ERROR",
+    "name": "Web_Page_Error_Type_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3876,
+    "entityName": "WEB_PAGE_ERROR",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3876,
+    "entityName": "WEB_PAGE_ERROR",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3876,
+    "entityName": "WEB_PAGE_ERROR",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3877,
+    "entityName": "WEB_PAGE_ERROR_TYPE",
+    "name": "Web_Page_Error_Type_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3877,
+    "entityName": "WEB_PAGE_ERROR_TYPE",
+    "name": "Web_Page_Error_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3877,
+    "entityName": "WEB_PAGE_ERROR_TYPE",
+    "name": "Web_Page_Error_Type_Attribute_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3877,
+    "entityName": "WEB_PAGE_ERROR_TYPE",
+    "name": "Web_Page_Error_Attribute_Extended_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3877,
+    "entityName": "WEB_PAGE_ERROR_TYPE",
+    "name": "Web_Page_Status_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3878,
+    "entityName": "WEB_PAGE_GENERATION_TYPE",
+    "name": "Web_Page_Generation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3878,
+    "entityName": "WEB_PAGE_GENERATION_TYPE",
+    "name": "Web_Page_Generation_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3879,
+    "entityName": "WEB_PAGE_MM_OBJECT",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3879,
+    "entityName": "WEB_PAGE_MM_OBJECT",
+    "name": "MM_Object_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3879,
+    "entityName": "WEB_PAGE_MM_OBJECT",
+    "name": "Web_Page_MM_Object_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3879,
+    "entityName": "WEB_PAGE_MM_OBJECT",
+    "name": "Page_Position_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3879,
+    "entityName": "WEB_PAGE_MM_OBJECT",
+    "name": "Web_Page_MM_Object_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3879,
+    "entityName": "WEB_PAGE_MM_OBJECT",
+    "name": "Link_To_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3879,
+    "entityName": "WEB_PAGE_MM_OBJECT",
+    "name": "Web_Page_MM_Object_URL_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3880,
+    "entityName": "WEB_PAGE_OBJECT_VIEW",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3880,
+    "entityName": "WEB_PAGE_OBJECT_VIEW",
+    "name": "MM_Object_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3880,
+    "entityName": "WEB_PAGE_OBJECT_VIEW",
+    "name": "Web_Page_Object_View_Object_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3880,
+    "entityName": "WEB_PAGE_OBJECT_VIEW",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3880,
+    "entityName": "WEB_PAGE_OBJECT_VIEW",
+    "name": "Web_Page_Object_View_Link_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3880,
+    "entityName": "WEB_PAGE_OBJECT_VIEW",
+    "name": "Web_Page_Object_View_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3881,
+    "entityName": "WEB_PAGE_STATUS_CATEGORY",
+    "name": "Web_Page_Status_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3881,
+    "entityName": "WEB_PAGE_STATUS_CATEGORY",
+    "name": "Web_Page_Status_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3882,
+    "entityName": "WEB_PAGE_TEXT",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3882,
+    "entityName": "WEB_PAGE_TEXT",
+    "name": "Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3882,
+    "entityName": "WEB_PAGE_TEXT",
+    "name": "Web_Page_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3883,
+    "entityName": "WEB_PAGE_TEXT_SECTION",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3883,
+    "entityName": "WEB_PAGE_TEXT_SECTION",
+    "name": "Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3883,
+    "entityName": "WEB_PAGE_TEXT_SECTION",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Current_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Page_View_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Page_View_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Page_Processing_Duration_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Web_Server_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Web_Server_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "HTTP_Secure_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Data_Transferred_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Data_Transferred_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Previous_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Language_Encode_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Meta_Language_Encode_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Language_Encode_Method_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Web_Page_Scroll_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Web_Server_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Page_Viewed_Duration_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Page_Active_Duration_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Page_View_Method_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "JavaScript_Truncation_Error_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Browser_Height_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Browser_Height_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Browser_Width_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Browser_Width_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Color_Depth_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Screen_Resolution_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Clicked_Advertisement_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Smart_View_Tag_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Transition_Source_Page_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Transition_Target_Page_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Duration_Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Current_Page_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "name": "Current_Page_Elapsed_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 3885,
+    "entityName": "WEB_PAGE_VIEW_SUMMARY",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3885,
+    "entityName": "WEB_PAGE_VIEW_SUMMARY",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3885,
+    "entityName": "WEB_PAGE_VIEW_SUMMARY",
+    "name": "Web_Page_View_Summary_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3885,
+    "entityName": "WEB_PAGE_VIEW_SUMMARY",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3885,
+    "entityName": "WEB_PAGE_VIEW_SUMMARY",
+    "name": "Web_Page_View_Summary_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3885,
+    "entityName": "WEB_PAGE_VIEW_SUMMARY",
+    "name": "Total_Object_Viewed_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3885,
+    "entityName": "WEB_PAGE_VIEW_SUMMARY",
+    "name": "Total_Web_Page_Viewed_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3885,
+    "entityName": "WEB_PAGE_VIEW_SUMMARY",
+    "name": "Total_Ad_Viewed_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3886,
+    "entityName": "WEB_PLATFORM",
+    "name": "Web_Page_Position_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3886,
+    "entityName": "WEB_PLATFORM",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3887,
+    "entityName": "WEB_SCENARIO_STEP",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3887,
+    "entityName": "WEB_SCENARIO_STEP",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3887,
+    "entityName": "WEB_SCENARIO_STEP",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3887,
+    "entityName": "WEB_SCENARIO_STEP",
+    "name": "Scenario_Step_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3887,
+    "entityName": "WEB_SCENARIO_STEP",
+    "name": "Web_Scenario_Event_Step_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3887,
+    "entityName": "WEB_SCENARIO_STEP",
+    "name": "Web_Scenario_Event_Step_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3888,
+    "entityName": "WEB_SECTION_SUBTYPE",
+    "name": "Web_Section_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3888,
+    "entityName": "WEB_SECTION_SUBTYPE",
+    "name": "Web_Section_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3889,
+    "entityName": "WEB_SELF-HELP",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3889,
+    "entityName": "WEB_SELF-HELP",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Secure_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Port_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Hit_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Software_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Domain_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Capacity_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Capacity_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Web_Server_Time_Zone_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3890,
+    "entityName": "WEB_SERVER",
+    "name": "Street_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Hits_Per_Minute_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Refused_Request_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Request_Aborted_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Secure_Load_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Nonsecure_Load_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Delay_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Client_Delay_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Network_Delay_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 3891,
+    "entityName": "WEB_SERVER_ACTIVITY",
+    "name": "Web_Server_Roundtrip_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 3892,
+    "entityName": "WEB_SERVER_INTERNET_PROTOCOL_ADDRESS",
+    "name": "Web_Server_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3892,
+    "entityName": "WEB_SERVER_INTERNET_PROTOCOL_ADDRESS",
+    "name": "Internet_Protocol_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3892,
+    "entityName": "WEB_SERVER_INTERNET_PROTOCOL_ADDRESS",
+    "name": "Web_Server_Internet_Protocol_Address_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3892,
+    "entityName": "WEB_SERVER_INTERNET_PROTOCOL_ADDRESS",
+    "name": "Web_Server_Internet_Protocol_Address_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3893,
+    "entityName": "WEB_SERVER_SOFTWARE",
+    "name": "Web_Server_Software_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3893,
+    "entityName": "WEB_SERVER_SOFTWARE",
+    "name": "Web_Server_Software_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3894,
+    "entityName": "WEB_SERVER_STATUS",
+    "name": "Web_Server_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3894,
+    "entityName": "WEB_SERVER_STATUS",
+    "name": "Web_Server_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3894,
+    "entityName": "WEB_SERVER_STATUS",
+    "name": "Web_Server_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3894,
+    "entityName": "WEB_SERVER_STATUS",
+    "name": "Web_Server_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3895,
+    "entityName": "WEB_SERVER_STATUS_CATEGORY",
+    "name": "Web_Server_Status_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3895,
+    "entityName": "WEB_SERVER_STATUS_CATEGORY",
+    "name": "Web_Server_Status_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3896,
+    "entityName": "WEB_SERVER_STATUS_TYPE",
+    "name": "Web_Server_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3896,
+    "entityName": "WEB_SERVER_STATUS_TYPE",
+    "name": "Web_Server_Status_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3896,
+    "entityName": "WEB_SERVER_STATUS_TYPE",
+    "name": "Web_Server_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3897,
+    "entityName": "WEB_SESSION_COOKIE",
+    "name": "Cookie_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3897,
+    "entityName": "WEB_SESSION_COOKIE",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3898,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_FUNCTION_TYPE",
+    "name": "Web_Shopping_Experience_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3898,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_FUNCTION_TYPE",
+    "name": "Web_Shopping_Experience_Function_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3899,
+    "entityName": "WEB_SITE",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3899,
+    "entityName": "WEB_SITE",
+    "name": "Web_Site_URI_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3899,
+    "entityName": "WEB_SITE",
+    "name": "Web_Site_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3899,
+    "entityName": "WEB_SITE",
+    "name": "Web_Site_Content_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3899,
+    "entityName": "WEB_SITE",
+    "name": "Web_Site_Owner_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3899,
+    "entityName": "WEB_SITE",
+    "name": "Web_Site_Database_Repository_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3899,
+    "entityName": "WEB_SITE",
+    "name": "Web_Site_Electronic_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3899,
+    "entityName": "WEB_SITE",
+    "name": "Web_Site_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3900,
+    "entityName": "WEB_SITE_BREADCRUMB",
+    "name": "Web_Site_Breadcrumb_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3900,
+    "entityName": "WEB_SITE_BREADCRUMB",
+    "name": "Web_Site_Breadcrumb_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3900,
+    "entityName": "WEB_SITE_BREADCRUMB",
+    "name": "Breadcrumb_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3901,
+    "entityName": "WEB_SITE_CONTENT_TYPE",
+    "name": "Web_Site_Content_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3901,
+    "entityName": "WEB_SITE_CONTENT_TYPE",
+    "name": "Web_Site_Content_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3902,
+    "entityName": "WEB_SITE_CRAWLER",
+    "name": "Crawler_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3902,
+    "entityName": "WEB_SITE_CRAWLER",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3902,
+    "entityName": "WEB_SITE_CRAWLER",
+    "name": "Web_Site_Crawler_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3903,
+    "entityName": "WEB_SITE_ENTRY_TYPE",
+    "name": "Web_Site_Entry_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3903,
+    "entityName": "WEB_SITE_ENTRY_TYPE",
+    "name": "Web_Site_Entry_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3904,
+    "entityName": "WEB_SITE_GROUP",
+    "name": "Web_Site_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3904,
+    "entityName": "WEB_SITE_GROUP",
+    "name": "Web_Site_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3905,
+    "entityName": "WEB_SITE_GROUP_XREF",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3905,
+    "entityName": "WEB_SITE_GROUP_XREF",
+    "name": "Web_Site_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3906,
+    "entityName": "WEB_SITE_NAVIGATION",
+    "name": "Web_Site_Navigation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3906,
+    "entityName": "WEB_SITE_NAVIGATION",
+    "name": "Web_Site_Navigation_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3906,
+    "entityName": "WEB_SITE_NAVIGATION",
+    "name": "Web_Site_Navigation_Parent_Navigation_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3906,
+    "entityName": "WEB_SITE_NAVIGATION",
+    "name": "Navigation_Level_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3907,
+    "entityName": "WEB_SITE_SECTION",
+    "name": "Web_Site_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3907,
+    "entityName": "WEB_SITE_SECTION",
+    "name": "Parent_Web_Site_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3907,
+    "entityName": "WEB_SITE_SECTION",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3907,
+    "entityName": "WEB_SITE_SECTION",
+    "name": "Web_Site_Section_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3907,
+    "entityName": "WEB_SITE_SECTION",
+    "name": "Web_Section_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3907,
+    "entityName": "WEB_SITE_SECTION",
+    "name": "Web_Site_Section_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3908,
+    "entityName": "WEB_SITE_SERVER",
+    "name": "Web_Server_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3908,
+    "entityName": "WEB_SITE_SERVER",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3908,
+    "entityName": "WEB_SITE_SERVER",
+    "name": "Web_Site_Server_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3908,
+    "entityName": "WEB_SITE_SERVER",
+    "name": "Web_Site_Server_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3909,
+    "entityName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "name": "Web_Site_Substitute_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3909,
+    "entityName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "name": "Web_Site_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3909,
+    "entityName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "name": "Web_Site_Substitute_Section_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3909,
+    "entityName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "name": "Web_Site_Substitute_Section_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3909,
+    "entityName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "name": "Web_Site_Substitute_Section_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3910,
+    "entityName": "WEB_SITE_SUBSTITUTE_SECTION_TYPE",
+    "name": "Web_Site_Substitute_Section_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3910,
+    "entityName": "WEB_SITE_SUBSTITUTE_SECTION_TYPE",
+    "name": "Web_Site_Substitute_Section_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3911,
+    "entityName": "WEB_SITE_SUBTYPE",
+    "name": "Web_Site_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3911,
+    "entityName": "WEB_SITE_SUBTYPE",
+    "name": "Web_Site_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3912,
+    "entityName": "WEB_SITE_USER_SPACE",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Referral_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Browser_Identification_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Language_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "JavaScript_Version_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Flash_Version_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "JavaScript_Session_Cookie_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "JavaScript_Enable_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Session_Visit_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Java_Enable_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Flash_Enable_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Online_Campaign_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Advertising_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Purchase_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Basket_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Visit_Duration_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Visit_Duration_Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Exit_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "UTC_Visit_Time_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Data_Collection_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Page_Pop-up_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Web_Site_Entry_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Time_Zone_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "User_Agent_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Connect_Speed_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Connect_Speed_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Web_Visit_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Web_Visit_Maximum_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Web_Visit_Maximum_Site_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Authenticated_User_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Embedded_Email_Ad_Link_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3915,
+    "entityName": "WEB_VISIT_INTERNET_PROTOCOL_XREF",
+    "name": "Visitor_Internet_Protocol_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3915,
+    "entityName": "WEB_VISIT_INTERNET_PROTOCOL_XREF",
+    "name": "Web_Visit_Internet_Protocol_Usage_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3915,
+    "entityName": "WEB_VISIT_INTERNET_PROTOCOL_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3915,
+    "entityName": "WEB_VISIT_INTERNET_PROTOCOL_XREF",
+    "name": "Web_Visit_Internet_Protocol_Usage_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3915,
+    "entityName": "WEB_VISIT_INTERNET_PROTOCOL_XREF",
+    "name": "Destination_Internet_Protocol_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3916,
+    "entityName": "WEB_VISIT_SUBTYPE",
+    "name": "Web_Visit_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3916,
+    "entityName": "WEB_VISIT_SUBTYPE",
+    "name": "Web_Visit_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3916,
+    "entityName": "WEB_VISIT_SUBTYPE",
+    "name": "Visit_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Web_Visit_Summary_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Web_Visit_Summary_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Total_Visit_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Total_Session_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Total_Campaign_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Total_Advertising_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Total_Purchase_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3917,
+    "entityName": "WEB_VISIT_SUMMARY",
+    "name": "Total_Basket_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  }
+]

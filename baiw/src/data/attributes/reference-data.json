@@ -1,0 +1,849 @@
+[
+  {
+    "entityId": 3669,
+    "entityName": "AMBULATORY_PATIENT_CLASSIFICATION",
+    "name": "Ambulatory_Patient_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3669,
+    "entityName": "AMBULATORY_PATIENT_CLASSIFICATION",
+    "name": "Ambulatory_Patient_Classification_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3670,
+    "entityName": "ASTRONOMICAL_CALENDAR",
+    "name": "Weather_Station_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3670,
+    "entityName": "ASTRONOMICAL_CALENDAR",
+    "name": "Astronomical_Event_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3670,
+    "entityName": "ASTRONOMICAL_CALENDAR",
+    "name": "Event_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3670,
+    "entityName": "ASTRONOMICAL_CALENDAR",
+    "name": "Event_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3671,
+    "entityName": "CALENDAR_TYPE",
+    "name": "Calendar_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3671,
+    "entityName": "CALENDAR_TYPE",
+    "name": "Calendar_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3673,
+    "entityName": "CURRENCY",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3673,
+    "entityName": "CURRENCY",
+    "name": "Currency_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 3673,
+    "entityName": "CURRENCY",
+    "name": "Exchange_Rate_Unit_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3673,
+    "entityName": "CURRENCY",
+    "name": "Currency_Rounding_Decimal_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3673,
+    "entityName": "CURRENCY",
+    "name": "ISO_4217_Currency_Alpha-3_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 3674,
+    "entityName": "CURRENCY_DENOMINATION_TYPE",
+    "name": "Currency_Denomination_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3674,
+    "entityName": "CURRENCY_DENOMINATION_TYPE",
+    "name": "Currency_Denomination_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3675,
+    "entityName": "CURRENCY_SEGMENT",
+    "name": "GL_Currency_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3676,
+    "entityName": "CURRENCY_TRANSLATION_RATE",
+    "name": "Source_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3676,
+    "entityName": "CURRENCY_TRANSLATION_RATE",
+    "name": "Target_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3676,
+    "entityName": "CURRENCY_TRANSLATION_RATE",
+    "name": "Currency_Translation_Rate_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3676,
+    "entityName": "CURRENCY_TRANSLATION_RATE",
+    "name": "Currency_Translation_Rate_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3676,
+    "entityName": "CURRENCY_TRANSLATION_RATE",
+    "name": "Currency_Translation_Rate_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3676,
+    "entityName": "CURRENCY_TRANSLATION_RATE",
+    "name": "Target_To_Source_Currency_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3676,
+    "entityName": "CURRENCY_TRANSLATION_RATE",
+    "name": "Source_To_Target_Currency_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3676,
+    "entityName": "CURRENCY_TRANSLATION_RATE",
+    "name": "Source_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3677,
+    "entityName": "CURRENCY_TRANSLATION_RATE_TYPE",
+    "name": "Currency_Translation_Rate_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3677,
+    "entityName": "CURRENCY_TRANSLATION_RATE_TYPE",
+    "name": "Currency_Translation_Rate_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3678,
+    "entityName": "CURRENCY_USE_TYPE",
+    "name": "Currency_Use_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3678,
+    "entityName": "CURRENCY_USE_TYPE",
+    "name": "Currency_Cd_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3679,
+    "entityName": "CUSTOM_CALENDAR",
+    "name": "Custom_Calendar_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3679,
+    "entityName": "CUSTOM_CALENDAR",
+    "name": "Calendar_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3679,
+    "entityName": "CUSTOM_CALENDAR",
+    "name": "First_Day_Of_Week_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3679,
+    "entityName": "CUSTOM_CALENDAR",
+    "name": "Custom_Calendar_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3680,
+    "entityName": "CUSTOM_CALENDAR_DAY",
+    "name": "Gregorian_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3680,
+    "entityName": "CUSTOM_CALENDAR_DAY",
+    "name": "Custom_Calendar_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3680,
+    "entityName": "CUSTOM_CALENDAR_DAY",
+    "name": "Custom_Calendar_Day_Of_Month_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3680,
+    "entityName": "CUSTOM_CALENDAR_DAY",
+    "name": "Custom_Calendar_Day_Of_Year_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3680,
+    "entityName": "CUSTOM_CALENDAR_DAY",
+    "name": "Custom_Calendar_Week_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3680,
+    "entityName": "CUSTOM_CALENDAR_DAY",
+    "name": "Custom_Calendar_Month_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3681,
+    "entityName": "CUSTOM_CALENDAR_MONTH",
+    "name": "Custom_Calendar_Month_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3681,
+    "entityName": "CUSTOM_CALENDAR_MONTH",
+    "name": "Custom_Calendar_Month_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3681,
+    "entityName": "CUSTOM_CALENDAR_MONTH",
+    "name": "Custom_Calendar_Quarter_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3682,
+    "entityName": "CUSTOM_CALENDAR_MONTH_WEEK",
+    "name": "Custom_Calendar_Week_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3682,
+    "entityName": "CUSTOM_CALENDAR_MONTH_WEEK",
+    "name": "Custom_Calendar_Month_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3683,
+    "entityName": "CUSTOM_CALENDAR_QUARTER",
+    "name": "Custom_Calendar_Quarter_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3683,
+    "entityName": "CUSTOM_CALENDAR_QUARTER",
+    "name": "Custom_Calendar_Quarter_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3683,
+    "entityName": "CUSTOM_CALENDAR_QUARTER",
+    "name": "Custom_Calendar_Year_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3684,
+    "entityName": "CUSTOM_CALENDAR_WEEK",
+    "name": "Custom_Calendar_Week_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3684,
+    "entityName": "CUSTOM_CALENDAR_WEEK",
+    "name": "Custom_Calendar_Week_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3685,
+    "entityName": "CUSTOM_CALENDAR_YEAR",
+    "name": "Custom_Calendar_Year_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3685,
+    "entityName": "CUSTOM_CALENDAR_YEAR",
+    "name": "Custom_Calendar_Year_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3685,
+    "entityName": "CUSTOM_CALENDAR_YEAR",
+    "name": "Custom_Calendar_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3686,
+    "entityName": "DEA_DRUG_CLASSIFICATION__GEO",
+    "name": "DEA_Num__Geo",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3686,
+    "entityName": "DEA_DRUG_CLASSIFICATION__GEO",
+    "name": "DEA_Schedule_Num__Geo",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3686,
+    "entityName": "DEA_DRUG_CLASSIFICATION__GEO",
+    "name": "DEA_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3686,
+    "entityName": "DEA_DRUG_CLASSIFICATION__GEO",
+    "name": "Narcotic_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3687,
+    "entityName": "DIAGNOSIS_CLASSIFICATION_TYPE",
+    "name": "Diagnosis_Classification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3687,
+    "entityName": "DIAGNOSIS_CLASSIFICATION_TYPE",
+    "name": "Diagnosis_Classification_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3688,
+    "entityName": "DOMAIN_ROOT_TYPE",
+    "name": "Domain_Root_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3688,
+    "entityName": "DOMAIN_ROOT_TYPE",
+    "name": "Domain_Root_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3689,
+    "entityName": "GEOGRAPHICAL_AREA_CURRENCY",
+    "name": "Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3689,
+    "entityName": "GEOGRAPHICAL_AREA_CURRENCY",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3689,
+    "entityName": "GEOGRAPHICAL_AREA_CURRENCY",
+    "name": "Geographical_Area_Currency_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3689,
+    "entityName": "GEOGRAPHICAL_AREA_CURRENCY",
+    "name": "Geographical_Area_Currency_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3689,
+    "entityName": "GEOGRAPHICAL_AREA_CURRENCY",
+    "name": "Geographical_Area_Currency_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3690,
+    "entityName": "GEOGRAPHICAL_AREA_CURRENCY_ROLE",
+    "name": "Geographical_Area_Currency_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3690,
+    "entityName": "GEOGRAPHICAL_AREA_CURRENCY_ROLE",
+    "name": "Geographical_Area_Currency_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3691,
+    "entityName": "HOLIDAY_CALENDAR",
+    "name": "Holiday_Calendar_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3691,
+    "entityName": "HOLIDAY_CALENDAR",
+    "name": "Holiday_Calendar_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3692,
+    "entityName": "HOLIDAY_CALENDAR_DATE",
+    "name": "Gregorian_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3692,
+    "entityName": "HOLIDAY_CALENDAR_DATE",
+    "name": "Holiday_Calendar_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3692,
+    "entityName": "HOLIDAY_CALENDAR_DATE",
+    "name": "Holiday_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3692,
+    "entityName": "HOLIDAY_CALENDAR_DATE",
+    "name": "Weekend_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3693,
+    "entityName": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "name": "CFI_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3693,
+    "entityName": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "name": "CFI_Category_Alpha-1_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3693,
+    "entityName": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "name": "CFI_Group_Alpha-1_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3693,
+    "entityName": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "name": "CFI_Group_Attribute_1_Alpha-1_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3693,
+    "entityName": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "name": "CFI_Group_Attribute_2_Alpha-1_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3693,
+    "entityName": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "name": "CFI_Group_Attribute_3_Alpha-1_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3693,
+    "entityName": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "name": "CFI_Group_Attribute_4_Alpha-1_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3694,
+    "entityName": "ISO_4217_CURRENCY_TYPE",
+    "name": "ISO_4217_Currency_Alpha-3_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 3694,
+    "entityName": "ISO_4217_CURRENCY_TYPE",
+    "name": "ISO_3166_Country_Alpha-2_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 3694,
+    "entityName": "ISO_4217_CURRENCY_TYPE",
+    "name": "Replaced_ISO_4217_Currency_Alpha-3_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3694,
+    "entityName": "ISO_4217_CURRENCY_TYPE",
+    "name": "ISO_4217_Currency_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3694,
+    "entityName": "ISO_4217_CURRENCY_TYPE",
+    "name": "ISO_4217_Currency-3_Num",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3694,
+    "entityName": "ISO_4217_CURRENCY_TYPE",
+    "name": "ISO_4217_Minor_Unit-2_Num",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3694,
+    "entityName": "ISO_4217_CURRENCY_TYPE",
+    "name": "ISO_4217_Currency_From_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3694,
+    "entityName": "ISO_4217_CURRENCY_TYPE",
+    "name": "ISO_4217_Currency_To_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3695,
+    "entityName": "ISO_LANGUAGE_TYPE",
+    "name": "ISO_Language_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3695,
+    "entityName": "ISO_LANGUAGE_TYPE",
+    "name": "ISO_Language_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3696,
+    "entityName": "LANGUAGE_PROFICIENCY_TYPE",
+    "name": "Language_Proficiency_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3696,
+    "entityName": "LANGUAGE_PROFICIENCY_TYPE",
+    "name": "Language_Proficiency_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3697,
+    "entityName": "LANGUAGE_TYPE",
+    "name": "Language_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3697,
+    "entityName": "LANGUAGE_TYPE",
+    "name": "Language_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3697,
+    "entityName": "LANGUAGE_TYPE",
+    "name": "Language_Native_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3697,
+    "entityName": "LANGUAGE_TYPE",
+    "name": "ISO_Language_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3698,
+    "entityName": "LANGUAGE_USAGE_TYPE",
+    "name": "Language_Usage_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3698,
+    "entityName": "LANGUAGE_USAGE_TYPE",
+    "name": "Language_Usage_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3699,
+    "entityName": "LEGAL_CLASSIFICATION",
+    "name": "Legal_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3699,
+    "entityName": "LEGAL_CLASSIFICATION",
+    "name": "Legal_Classification_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3700,
+    "entityName": "METRIC_DOMAIN_TYPE",
+    "name": "Metric_Domain_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3700,
+    "entityName": "METRIC_DOMAIN_TYPE",
+    "name": "Metric_Domain_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3701,
+    "entityName": "PROJECT_CLASSIFICATION_TYPE",
+    "name": "Project_Classification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3701,
+    "entityName": "PROJECT_CLASSIFICATION_TYPE",
+    "name": "Project_Classification_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3702,
+    "entityName": "SET_OF_BOOKS_CALENDAR_YEAR",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3702,
+    "entityName": "SET_OF_BOOKS_CALENDAR_YEAR",
+    "name": "Custom_Calendar_Year_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3702,
+    "entityName": "SET_OF_BOOKS_CALENDAR_YEAR",
+    "name": "Set_Of_Books_Calendar_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3702,
+    "entityName": "SET_OF_BOOKS_CALENDAR_YEAR",
+    "name": "Set_Of_Books_Calendar_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3703,
+    "entityName": "SET_OF_BOOKS_CURRENCY",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3703,
+    "entityName": "SET_OF_BOOKS_CURRENCY",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3703,
+    "entityName": "SET_OF_BOOKS_CURRENCY",
+    "name": "Set_Of_Books_Currency_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3703,
+    "entityName": "SET_OF_BOOKS_CURRENCY",
+    "name": "Set_Of_Books_Currency_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3704,
+    "entityName": "TIME_PERIOD_TYPE",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3704,
+    "entityName": "TIME_PERIOD_TYPE",
+    "name": "Time_Period_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3705,
+    "entityName": "UNIT_OF_MEASURE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3705,
+    "entityName": "UNIT_OF_MEASURE",
+    "name": "Unit_Of_Measure_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3705,
+    "entityName": "UNIT_OF_MEASURE",
+    "name": "Unit_Of_Measure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3706,
+    "entityName": "UNIT_OF_MEASURE_CONVERSION",
+    "name": "To_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3706,
+    "entityName": "UNIT_OF_MEASURE_CONVERSION",
+    "name": "From_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3706,
+    "entityName": "UNIT_OF_MEASURE_CONVERSION",
+    "name": "UOM_Conversion_Factor_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3707,
+    "entityName": "UNIT_OF_MEASURE_TYPE",
+    "name": "Unit_Of_Measure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3707,
+    "entityName": "UNIT_OF_MEASURE_TYPE",
+    "name": "Unit_Of_Measure_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  }
+]

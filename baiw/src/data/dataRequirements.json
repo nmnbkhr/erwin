@@ -1,0 +1,793 @@
+[
+  {
+    "id": "single_customer_view_master_record",
+    "capabilityId": 1,
+    "description": "Single Customer View (Master Record)",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "kyc_data",
+    "capabilityId": 3,
+    "description": "KYC Data",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "customer_demographics",
+    "capabilityId": 3,
+    "description": "Customer Demographics",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "customer_attitudinal_data",
+    "capabilityId": 5,
+    "description": "Customer Attitudinal Data",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "customer_segments",
+    "capabilityId": 2,
+    "description": "Customer Segments",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "customer_contact_preferences",
+    "capabilityId": 2,
+    "description": "Customer Contact Preferences",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "customer_marketing_preferences",
+    "capabilityId": 3,
+    "description": "Customer Marketing Preferences",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "customer_satisfaction_measurement_e_g_nps",
+    "capabilityId": 5,
+    "description": "Customer Satisfaction Measurement (E.g. NPS)",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "economic_forecast_data",
+    "capabilityId": 7,
+    "description": "Economic Forecast Data",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "legal_actions",
+    "capabilityId": 6,
+    "description": "Legal Actions",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "external_prospect_data_lists",
+    "capabilityId": 3,
+    "description": "External Prospect Data / Lists",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "external_data_social_media_data",
+    "capabilityId": 2,
+    "description": "External Data - Social Media Data",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "external_data_bureau_data",
+    "capabilityId": 3,
+    "description": "External Data - Bureau data",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "external_data_credit_rating",
+    "capabilityId": 6,
+    "description": "External Data - Credit Rating",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "external_economic_data_e_g_property_prices_salary",
+    "capabilityId": 7,
+    "description": "External Economic Data (E.g. Property Prices, Salary)",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "master_reference_data_staff_colleague",
+    "capabilityId": 6,
+    "description": "Master & Reference Data - staff / colleague",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "sales_and_performance_forecasts_targets_kpis",
+    "capabilityId": 5,
+    "description": "Sales and Performance Forecasts, Targets & KPIs",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "hr_performance_data",
+    "capabilityId": 6,
+    "description": "HR Performance Data",
+    "fsdmSubjectArea": "Party Management",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "customer_core_contact_details",
+    "capabilityId": 5,
+    "description": "Customer Core Contact Details",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "master_reference_data_geography_location",
+    "capabilityId": 5,
+    "description": "Master & Reference Data - geography / location",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "master_reference_data_product",
+    "capabilityId": 2,
+    "description": "Master & Reference Data - product",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "master_reference_data_ftp_rates",
+    "capabilityId": 9,
+    "description": "Master & Reference Data - FTP rates",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "master_reference_data_exchange_rates",
+    "capabilityId": 9,
+    "description": "Master & Reference Data - exchange rates",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "product_revenue_cost_margin",
+    "capabilityId": 4,
+    "description": "Product Revenue, Cost & Margin",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "product_npv_s",
+    "capabilityId": 5,
+    "description": "Product NPV's",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "external_data_market_interest_rates",
+    "capabilityId": 9,
+    "description": "External Data - market interest rates",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "external_data_market_prices_e_g_equities_bonds_commodities",
+    "capabilityId": 9,
+    "description": "External Data - market prices (E.g. equities, bonds, commodities)",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "external_data_competitor_product_pricing",
+    "capabilityId": 5,
+    "description": "External Data - Competitor Product & Pricing",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "account_policy_service_holdings",
+    "capabilityId": 1,
+    "description": "Account / Policy / Service Holdings",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "account_policy_service_detail",
+    "capabilityId": 2,
+    "description": "Account / Policy / Service Detail",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "account_status_open_closed_active_domant_inactive_closure_reason",
+    "capabilityId": 1,
+    "description": "Account Status (open closed active / domant /inactive / closure reason )",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "account_terms_conditions",
+    "capabilityId": 5,
+    "description": "Account Terms & Conditions",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "account_feature_usage",
+    "capabilityId": 2,
+    "description": "Account Feature Usage",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "application_data_new_customer_new_product",
+    "capabilityId": 3,
+    "description": "Application Data (New Customer, New Product)",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "coverage_insurance",
+    "capabilityId": 9,
+    "description": "Coverage (insurance)",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "account_balances",
+    "capabilityId": 2,
+    "description": "Account Balances",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "investment_value",
+    "capabilityId": 4,
+    "description": "Investment Value",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "market_trading_book_positions",
+    "capabilityId": 9,
+    "description": "Market / Trading Book Positions",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "mark_to_market_valuations",
+    "capabilityId": 9,
+    "description": "Mark to market valuations",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "cashflow_projections",
+    "capabilityId": 7,
+    "description": "Cashflow Projections",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "account_maturity_dates_repricing_schedules",
+    "capabilityId": 2,
+    "description": "Account Maturity Dates & Repricing Schedules",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "account_repayment_schedules",
+    "capabilityId": 4,
+    "description": "Account Repayment Schedules",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "amortisation_schedules",
+    "capabilityId": 9,
+    "description": "Amortisation Schedules",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "customer_illustrations",
+    "capabilityId": 3,
+    "description": "Customer Illustrations",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "customer_quotes",
+    "capabilityId": 3,
+    "description": "Customer Quotes",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "collateral_agreements",
+    "capabilityId": 9,
+    "description": "Collateral Agreements",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "risk_exposures",
+    "capabilityId": 5,
+    "description": "Risk Exposures",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "risk_weighted_assets_capital_results",
+    "capabilityId": 9,
+    "description": "Risk Weighted Assets & Capital Results",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "profitability_results",
+    "capabilityId": 2,
+    "description": "Profitability Results",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "account_limits",
+    "capabilityId": 3,
+    "description": "Account Limits",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "predictive_models_propensity_to_buy",
+    "capabilityId": 3,
+    "description": "Predictive Models - propensity to buy",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "predictive_models_attrition",
+    "capabilityId": 3,
+    "description": "Predictive Models - attrition",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "predictive_models_price_elasticity",
+    "capabilityId": 3,
+    "description": "Predictive Models - price elasticity",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "attribution_models_response",
+    "capabilityId": 9,
+    "description": "Attribution Models - response",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "lead_foodchain_data",
+    "capabilityId": 9,
+    "description": "Lead Foodchain data",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "predictive_models_risk",
+    "capabilityId": 4,
+    "description": "Predictive Models - risk",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "risk_segments_cohorts_groupings",
+    "capabilityId": 6,
+    "description": "Risk Segments, Cohorts & Groupings",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "provisions_losses_writeoffs",
+    "capabilityId": 3,
+    "description": "Provisions, Losses & Writeoffs",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "financial_transactions",
+    "capabilityId": 1,
+    "description": "Financial Transactions",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "account_fees_commissions_charges",
+    "capabilityId": 2,
+    "description": "Account Fees, Commissions & Charges",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "financial_interbank_payments",
+    "capabilityId": 9,
+    "description": "Financial Interbank Payments",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "non_financial_transactions",
+    "capabilityId": 2,
+    "description": "Non-Financial Transactions",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "service_usage",
+    "capabilityId": 2,
+    "description": "Service Usage",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "complaint_data",
+    "capabilityId": 2,
+    "description": "Complaint Data",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "offline_customer_interactions_branch",
+    "capabilityId": 2,
+    "description": "Offline Customer Interactions - Branch",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "offline_customer_interactions_call_centre",
+    "capabilityId": 2,
+    "description": "Offline Customer Interactions - Call Centre",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "offline_customer_interactions_letters",
+    "capabilityId": 2,
+    "description": "Offline Customer Interactions - letters",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "offline_customer_interactions_sms_text",
+    "capabilityId": 2,
+    "description": "Offline Customer Interactions - sms text",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "online_interactions_webchat_internal_external",
+    "capabilityId": 2,
+    "description": "Online Interactions -  webchat (internal & external)",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "online_interactions_colleague_intranet",
+    "capabilityId": 2,
+    "description": "Online Interactions colleague intranet",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "online_interactions_customer_digital_banking_site_web_log",
+    "capabilityId": 2,
+    "description": "Online Interactions customer digital banking site (web log)",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "online_interactions_customer_general_banking_site",
+    "capabilityId": 2,
+    "description": "Online Interactions customer general banking site",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "online_interactions_email_customer_employee",
+    "capabilityId": 2,
+    "description": "Online Interactions email - customer & employee",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "online_interactions_mobile_app",
+    "capabilityId": 3,
+    "description": "Online Interactions mobile app",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "online_interactions_off_site_ad_server",
+    "capabilityId": 3,
+    "description": "Online Interactions off-site - ad server",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "online_interactions_prospect_unidentified_customer_web_log",
+    "capabilityId": 2,
+    "description": "Online Interactions prospect / unidentified customer (web log)",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "case_history_fraud_money_laundering_complaint",
+    "capabilityId": 3,
+    "description": "Case History (Fraud, Money Laundering, Complaint)",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "claims",
+    "capabilityId": 2,
+    "description": "Claims",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "defaults_limit_breaches",
+    "capabilityId": 2,
+    "description": "Defaults & Limit Breaches",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "closed_loop_outcomes_channel_responses",
+    "capabilityId": 3,
+    "description": "Closed Loop Outcomes / Channel Responses",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "external_data_corporate_actions",
+    "capabilityId": 5,
+    "description": "External Data - Corporate Actions",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "internal_process_activity_data",
+    "capabilityId": 3,
+    "description": "Internal Process Activity Data",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "master_reference_data_merchant_transaction",
+    "capabilityId": 1,
+    "description": "Master & Reference Data - merchant / transaction",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "customer_interview_fact_find",
+    "capabilityId": 2,
+    "description": "Customer interview / fact find",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "physical_assets",
+    "capabilityId": 9,
+    "description": "Physical Assets",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "physical_asset_valuations",
+    "capabilityId": 9,
+    "description": "Physical Asset Valuations",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "master_reference_data_organisation_hierarchy",
+    "capabilityId": 4,
+    "description": "Master & Reference Data - organisation hierarchy",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "operational_metrics_e_g_wait_times_queue_length",
+    "capabilityId": 5,
+    "description": "Operational metrics (E.g. Wait times, queue length)",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "offer_catalogue",
+    "capabilityId": 7,
+    "description": "Offer Catalogue",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "master_reference_data_campaign",
+    "capabilityId": 9,
+    "description": "Master & Reference Data - Campaign",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "campaign_production_costs",
+    "capabilityId": 9,
+    "description": "Campaign Production Costs",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "campaign_history_data",
+    "capabilityId": 2,
+    "description": "Campaign History Data",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "media_asset_details",
+    "capabilityId": 9,
+    "description": "Media Asset Details",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "campaign_promotional_calendar",
+    "capabilityId": 7,
+    "description": "Campaign Promotional Calendar",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "master_reference_data_channel",
+    "capabilityId": 5,
+    "description": "Master & Reference Data - Channel",
+    "fsdmSubjectArea": "Channel Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "finance_systems_general_ledger",
+    "capabilityId": 9,
+    "description": "Finance Systems - General Ledger",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "finance_systems_erp",
+    "capabilityId": 4,
+    "description": "Finance Systems - ERP",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "finance_systems_budgets_plans_forecasts",
+    "capabilityId": 4,
+    "description": "Finance Systems - Budgets, Plans & Forecasts",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "model_metadata_e_g_defintion_assumptions_metrics",
+    "capabilityId": 9,
+    "description": "Model Metadata (E.g. defintion, assumptions, metrics)",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "risk_scenario_stress_testing_results",
+    "capabilityId": 6,
+    "description": "Risk Scenario & Stress Testing Results",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "documents_structured_data_capture_survey_application_forms",
+    "capabilityId": 5,
+    "description": "Documents - Structured Data Capture (Survey, Application Forms)",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "document_image",
+    "capabilityId": 6,
+    "description": "Document Image",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "text_data",
+    "capabilityId": 3,
+    "description": "Text Data",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "external_data_news_industry_feeds_e_g_reuters",
+    "capabilityId": 3,
+    "description": "External Data - News / Industry Feeds E.g. Reuters",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "master_reference_data_risk_policy_rules",
+    "capabilityId": 5,
+    "description": "Master & Reference Data - Risk Policy Rules",
+    "fsdmSubjectArea": "Other",
+    "priority": "HIGH"
+  },
+  {
+    "id": "customer_research_primary_secondary",
+    "capabilityId": 5,
+    "description": "Customer Research - Primary & Secondary",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "rich_media_from_all_sources",
+    "capabilityId": 3,
+    "description": "Rich Media from all sources",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "voice_recording",
+    "capabilityId": 3,
+    "description": "Voice Recording",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "external_data_fraud_watch_lists",
+    "capabilityId": 5,
+    "description": "External Data - Fraud Watch Lists",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "compliance_approvals",
+    "capabilityId": 6,
+    "description": "Compliance Approvals",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "business_process_definition",
+    "capabilityId": 9,
+    "description": "Business Process Definition",
+    "fsdmSubjectArea": "Other",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "external_data_external_loss_data",
+    "capabilityId": 6,
+    "description": "External Data - External Loss Data",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  },
+  {
+    "id": "system_log_files_e_g_firewall_webserver",
+    "capabilityId": 6,
+    "description": "System Log Files (E.g. Firewall, Webserver)",
+    "fsdmSubjectArea": "Other",
+    "priority": "LOW"
+  }
+]

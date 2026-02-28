@@ -1,0 +1,933 @@
+[
+  {
+    "id": 3708,
+    "name": "ACCESS_DEVICE_EVENT_RISK_REASON_TYPE",
+    "domain": "Risk Management",
+    "description": "This is the technical response code that was returned to the merchant regarding the risk of approving this transaction. This may be triggered by a rule in the authorization engine.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3709,
+    "name": "ANALYTICAL_MODEL_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This entity associates instruments that are a risk factor with the analytical model that might be used to determine the risk of that factor. This is used for banking risk management.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3710,
+    "name": "ANALYTICAL_MODEL_RISK_FACTOR_ROLE",
+    "domain": "Risk Management",
+    "description": "Code indicating the role of analytical model with respect to the risk factor, for example, a consumer, or producer.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3711,
+    "name": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity tracks the mapping of analytical model values to risk grade values. This is necessary for Risk Management for Basel II where a Probability of Default (PD) range of values maps to a Risk Grading and that mapping can change over time.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3712,
+    "name": "APPLICATION_INSURANCE_RISK_CATEGORY",
+    "domain": "Risk Management",
+    "description": "This associative entity tracks the combination of an application and risk category over time.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3713,
+    "name": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity identifies the risk grade for this classification of party assets (e.g., collateral) and this maturity time band for those assets that have a maturity (e.g., bonds).",
+    "attributeCount": 9
+  },
+  {
+    "id": 3714,
+    "name": "ASSET_INSURANCE_RISK_CATEGORY",
+    "domain": "Risk Management",
+    "description": "The association of a risk category to a customer asset.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3715,
+    "name": "ASSET_INSURANCE_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This associative entity relates the asset with any risk factors, such as airbags, sprinkler system, and theft alarm.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3716,
+    "name": "ASSET_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity contains a history of the risk grades for this customer asset item.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3717,
+    "name": "ASSET_RISK_GRADE_RELATED",
+    "domain": "Risk Management",
+    "description": "This entity relates one risk grade assessment to another risk grade assessment to identify when one risk assessment replaces or overrides another risk assessment for an asset. Risk assessments done by different methods or parties can result in different assessments.  This structure allows for one as",
+    "attributeCount": 10
+  },
+  {
+    "id": 3718,
+    "name": "BANK_ACTUAL_RISK_LOSS",
+    "domain": "Risk Management",
+    "description": "When doing stress testing banks should have a record of actual amounts for their largest losses over a reporting period. Each instance represents a loss event with a given amount.  Reference: Market Risk Amendment B5-5.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3719,
+    "name": "BANK_CAPITAL_SUMMARY",
+    "domain": "Risk Management",
+    "description": "This summary entity tracks available capital metrics for the bank or one of its subsidiaries over time. Capital metrics are defined in line with the Basel II Accord and are intended to support Basel market disclosure (Pillar 3) requirements, specifically Table 2. The Tier 1/2 Latent Equity Gain Amou",
+    "attributeCount": 27
+  },
+  {
+    "id": 3720,
+    "name": "BANK_LOSS_TYPE",
+    "domain": "Risk Management",
+    "description": "A code for the type of loss that this loss event represents such as computer outage, fraud, and data corruption.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3721,
+    "name": "BASEL_1_WEIGHT",
+    "domain": "Risk Management",
+    "description": "The setup entered BIS Weights as they relate to a BIS Type. One BIS type corresponds to each BIS Weight. The BIS Weight is used when allocating capital to accounts.  Examples: - 1 = 0 - 2 = .20 - 3 = .50 - 4 = 1.00  BIS stands for Bank for International Settlements and is an agreement between centra",
+    "attributeCount": 3
+  },
+  {
+    "id": 3722,
+    "name": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This captures whether a particular agreement status and market participant type is classified as in default (past due). It is needed since the definition of past due can vary by market participant type. This is for wholesale products.",
+    "attributeCount": 10
+  },
+  {
+    "id": 3723,
+    "name": "BASEL_EQUITY_RISK_WEIGHT_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This entity lists the risk weights to be applied to equity exposures. The risk-weights are as defined by the Basel Accord.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3724,
+    "name": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This table lists all the haircut values to be used with exposures. These haircut values can be used primarily while allocating collateral. These values are further used in the E* calculations for Basel II.",
+    "attributeCount": 13
+  },
+  {
+    "id": 3725,
+    "name": "BASEL_FUNCTION_TYPE",
+    "domain": "Risk Management",
+    "description": "The data requirements and calculation rules for Basel II depend on which banking function and banking product is being measured. This entity identifies those functions. They include: - Credit risk – corporate, sovereign, banks - Credit risk – retail and SME - Securitization - Operational risk - Mark",
+    "attributeCount": 2
+  },
+  {
+    "id": 3726,
+    "name": "BASEL_III_CAPITAL_TYPE",
+    "domain": "Risk Management",
+    "description": "This code classifies this instrument based on Basel III regulations: 1 = this is a common stock instrument issued by the enterprise, which meets the criteria for inclusion in the calculation of tier 1 capital for Basel III purposes.  2 = this is an instrument issued by the enterprise and meets the c",
+    "attributeCount": 2
+  },
+  {
+    "id": 3727,
+    "name": "BASEL_II_APPROACH",
+    "domain": "Risk Management",
+    "description": "This minor entity describes the calculation approaches for a given Basel function. There is one code value for each function/approach combination.  Examples: - Function of Retail Credit Risk: Approaches are Standardized and IRB Advanced - Functions for Corporate Credit Risk: Approaches are Standardi",
+    "attributeCount": 3
+  },
+  {
+    "id": 3728,
+    "name": "BASEL_II_ASSET_CLASS",
+    "domain": "Risk Management",
+    "description": "Basel II asset classes are classifications of exposures for purposes of calculating capital requirements per the Basel II requirements.  Basel II has identified specific asset classes, and these asset classes are then grouped into higher-level classifications.  For example, within the corporate asse",
+    "attributeCount": 5
+  },
+  {
+    "id": 3729,
+    "name": "BASEL_II_MINIMUM_LGD_PARAMETER",
+    "domain": "Risk Management",
+    "description": "For secured portions of senior exposures, this is the minimum loss given default by classification of collateral.  Reference paragraph 295 in June 2004 Basel Accord.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3730,
+    "name": "BASEL_IRB_RISK_MITIGANT_TYPE",
+    "domain": "Risk Management",
+    "description": "Code to indicate eligibility type for Internal Ratings Based, IRB, alternative treatment. For example, in Annex 8 part 3 paragraph 74 to 76 of Directive 2000/12, real estate might get 50% risk weight when certain criteria are met.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3731,
+    "name": "BASEL_MARKET_PARTICIPANT_TYPE",
+    "domain": "Risk Management",
+    "description": "A classification used in Basel II to identify whether this organization is a market participant and the type according to Basel II rules (rep paragraph 171 in Basel Accord).  Examples include: (1) Sovereign, central bank, and public sector entity (2) Bank and securities firm (3) Other financial inst",
+    "attributeCount": 2
+  },
+  {
+    "id": 3732,
+    "name": "BASEL_OPERATIONAL_RISK_BETA_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This parameter table describes the beta factors for each business lines as defined in June 2004 Accord, Paragraph 654.  In the standardized approach, bank activities are divided into eight business lines: corporate finance, trading and sales, retail banking, commercial banking, payment and settlemen",
+    "attributeCount": 4
+  },
+  {
+    "id": 3733,
+    "name": "BASEL_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This entity contains various values or constants that are used for the Basel calculations. This is not a complete list and can be expanded by adding more rules. These are parameters at the level where the only granularity is the date the parameter is effective. It is a global table of constants and",
+    "attributeCount": 6
+  },
+  {
+    "id": 3734,
+    "name": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "domain": "Risk Management",
+    "description": "The entity identifies whether this status is considered default for retail products. Mortgage products may have different criteria from other products.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3735,
+    "name": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "domain": "Risk Management",
+    "description": "This entity tracks the Basel II Capital Requirements related to various types of exposures and risks for a bank or subsidiary. It is intended to support Pillar 3 market disclosure requirements of Basel II, particularly Tables 3 and 9.",
+    "attributeCount": 18
+  },
+  {
+    "id": 3736,
+    "name": "CHANNEL_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity contains risk grades for channel instances. This may be used when determining the sensitivity of customers to certain risks when using a specific channel.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3737,
+    "name": "CHANNEL_TYPE_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity contains risk grades for types of channels. This may be used when determining the sensitivity of customers to certain risks via certain types of channels. Kiosks or ATMs may be viewed more risky than over-the-counter for certain types of transactions.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3738,
+    "name": "CLAIM_EXPOSURE",
+    "domain": "Risk Management",
+    "description": "An exposure at the claim/coverage/insurable interest/claimant level is the potential for a payment. It is linked to one claimant, one coverage, and one claim for one damaged item (insurable interest).  Note: This entity could be derived by joining CLAIM COVERAGE INSURABLE INTEREST with PARTY CLAIM I",
+    "attributeCount": 5
+  },
+  {
+    "id": 3739,
+    "name": "CLAIM_EXPOSURE_ACTIVITY",
+    "domain": "Risk Management",
+    "description": "This entity is similar to a ledger that tracks debits and credits. The activities include setting aside money to pay for the claim (reserve), allocating payments to claimants, and cost recovery activities such as salvage and subrogation. If the instance of this entity is a payment allocation then it",
+    "attributeCount": 13
+  },
+  {
+    "id": 3740,
+    "name": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "domain": "Risk Management",
+    "description": "This entity carries the various amounts that would be associated with a claim exposure activity such as the amount of reserve set aside for this exposure or the amount allocated for a payment.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3741,
+    "name": "CLAIM_EXPOSURE_ACTIVITY_TYPE",
+    "domain": "Risk Management",
+    "description": "This is a major classification of the type of activity such as reserve, recovery or payment.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3742,
+    "name": "CLAIM_EXPOSURE_COST_CATEGORY",
+    "domain": "Risk Management",
+    "description": "This offers a second means of classifying the exposure item such as expense or loss.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3743,
+    "name": "CLAIM_EXPOSURE_COST_RECOVERY_TYPE",
+    "domain": "Risk Management",
+    "description": "This is a code for the type of cost recovery such as salvage, subrogation, credit to expense or credit to loss.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3744,
+    "name": "CLAIM_EXPOSURE_EVENT",
+    "domain": "Risk Management",
+    "description": "This entity identifies the various payments that may be related to a claim exposure and it relates a claim payment event to the exposure(s) that it is paying.  This design allows for an exposure to have many payments (as in the case of workers' compensation with many medical treatments) and for a pa",
+    "attributeCount": 3
+  },
+  {
+    "id": 3745,
+    "name": "CLAIM_EXPOSURE_STATUS",
+    "domain": "Risk Management",
+    "description": "This is the status of a claim exposure such as open, closed, pending, ability to pay, or canceled.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3746,
+    "name": "CLAIM_EXPOSURE_STATUS_TYPE",
+    "domain": "Risk Management",
+    "description": "This is a code for the status of a claim exposure such as open, closed, pending, or canceled.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3747,
+    "name": "CLAIM_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity tracks the risk grade associated with this claim over time.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3748,
+    "name": "CURRENCY_EXCHANGE_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This entity tracks the risk associated with the exchange of one currency to another for spot sales, for those currencies where the institution has significant exposure to impact to currency fluctuations.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3749,
+    "name": "CURRENCY_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This entity contains adjustments that are made to the market value of this currency instrument usually due to its volatile nature when subjected to market forces.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3750,
+    "name": "DEBT_ISSUE_DEFAULT",
+    "domain": "Risk Management",
+    "description": "Default occurs when an issuer of debt fails to pay interest or principal on outstanding obligations. Default more generally can occur if certain covenants are breached.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3751,
+    "name": "DEFAULT_OCCURRENCE",
+    "domain": "Risk Management",
+    "description": "This entity tracks information each time an agreement goes into default status. Default is the failure of the obligor to meet a contractual obligation such as repayment of a loan by a borrower. Default gives the note holder rights and recourse under the terms of the contract to claim the asset or gu",
+    "attributeCount": 6
+  },
+  {
+    "id": 3752,
+    "name": "DEFAULT_OUTCOME_TYPE",
+    "domain": "Risk Management",
+    "description": "This minor entity defines how the funds will be recovered such as: - Guarantee - Collateral - Payment plan",
+    "attributeCount": 2
+  },
+  {
+    "id": 3753,
+    "name": "DEFAULT_REASON_TYPE",
+    "domain": "Risk Management",
+    "description": "This minor entity defines the reason for the default such as physical event (fire, earthquake, flood), life event (death, illness), and out of town.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3754,
+    "name": "DEFAULT_RECOVERY",
+    "domain": "Risk Management",
+    "description": "This entity tracks the recovering of funds from payments made by obligor or other parties. There is one instance for each payment that is linked to the payment event.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3755,
+    "name": "DEFAULT_RECOVERY_ITEM",
+    "domain": "Risk Management",
+    "description": "This entity identifies the collateral items that are being recovered or foreclosed as a result of this exposure going into default. Since a collateral item can be a bundle of assets, the relationship is with PARTY ASSET.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3756,
+    "name": "DEFAULT_RECOVERY_ITEM_STATUS",
+    "domain": "Risk Management",
+    "description": "This entity tracks the changes to the status of recovering the amounts from this item to pay for a defaulted loan. It tracks the status from the time this item was started to be collected until final resolution.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3757,
+    "name": "DEFAULT_RECOVERY_METRIC",
+    "domain": "Risk Management",
+    "description": "This entity tracks the metrics associated with the recovery of this asset. Metrics can include the recovery amount, recovery stop value amount, auction fee amount, repossession fee amount paid to an agency, report fee amount, driver fee amount, insurance fee amount, skip trace fee amount, storage fe",
+    "attributeCount": 11
+  },
+  {
+    "id": 3758,
+    "name": "DEFAULT_RECOVERY_METRIC_TYPE",
+    "domain": "Risk Management",
+    "description": "This is a code for the type of metric associated with the recovery of a collateral item. Metrics can include the recovery amount, recovery stop value amount, auction fee amount, repossession fee amount paid to an agency, report fee amount, driver fee amount, insurance fee amount, skip trace fee amou",
+    "attributeCount": 2
+  },
+  {
+    "id": 3759,
+    "name": "ELIGIBLE_RISK_MITIGANT_TYPE",
+    "domain": "Risk Management",
+    "description": "This is a code used for Basel II to classify the eligible ways this collateral item can be used for risk mitigation.  Examples: - Financial simple - Financial comprehensive - Standard guarantee",
+    "attributeCount": 2
+  },
+  {
+    "id": 3760,
+    "name": "EQUITY_BASEL_TYPE",
+    "domain": "Risk Management",
+    "description": "A classification of this holding based on Basel II requirements, for example, position under legislated programs, and significant minority investment in financial entity.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3761,
+    "name": "EQUITY_NETTED_GROUP_RISK",
+    "domain": "Risk Management",
+    "description": "This entity contains the market risk calculations for the equity holdings that are being netted together.  Refer to Market Risk Amendment A2.6 for equity positions.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3762,
+    "name": "EQUITY_RISK_NETTED_GROUP",
+    "domain": "Risk Management",
+    "description": "This entity contains those equity holdings that can be combined together for netting purposes when calculating market risk.  If there are multiple agreements/holdings for the same equity issue then all the positions (e.g., long and short) are offset to arrive at a single net long or net short positi",
+    "attributeCount": 0
+  },
+  {
+    "id": 3763,
+    "name": "EVENT_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This is the risk of a certain event. For example, if the event is a credit card authorization from a merchant, then the authorization analysis recorded could be a grade such as high, medium or low risk.  There are no dates or time in this entity since it is the grading of a time-based event and the",
+    "attributeCount": 3
+  },
+  {
+    "id": 3764,
+    "name": "EXPOSURE_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This entity associates the underlying risk factor(s) with exposures. A risk factor is an instrument feature (e.g., interest rate or commodity price) that can cause another instrument to fluctuate in value. This entity is also associated with embedded options where the option and underlying security",
+    "attributeCount": 0
+  },
+  {
+    "id": 3765,
+    "name": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "domain": "Risk Management",
+    "description": "This contains details about the claim loss such as type of loss, amount paid for that loss, claim status for that loss, and date of the first payment for that loss.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3766,
+    "name": "EXTERNAL_CLAIM_LOSS_STATUS_TYPE",
+    "domain": "Risk Management",
+    "description": "This is the status of the payout for this loss such as open, closed, subrogation, under deductible, peril not covered, or withdrawn.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3767,
+    "name": "EXTERNAL_CLAIM_LOSS_TYPE",
+    "domain": "Risk Management",
+    "description": "This is a code for the type of loss for vehicle claims and cause of loss for property claims.  For vehicle claims the types could be collision, bodily injury, comprehensive, glass, medical expense, medical payment, physical/property damage, personal injury protection, rental reimbursement, spousal l",
+    "attributeCount": 2
+  },
+  {
+    "id": 3768,
+    "name": "FINANCE_EXPOSURE_RISK_TYPE",
+    "domain": "Risk Management",
+    "description": "This entity identifies the kinds of risk associated with this exposure. An exposure can have many types of risk such as: - Credit risk – failure of counterparty to meet contract obligations - Market risk – risk of fluctuation of market values of financial instrument - Operational risk – failure of p",
+    "attributeCount": 2
+  },
+  {
+    "id": 3769,
+    "name": "FINANCIAL_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This is a code for the type of influences that can affect a financial institution's capital position. It is a further classification of risks associated with market, credit, operational and other major risk types.  These factors are across credit, operational and market risk.  Factors can be categor",
+    "attributeCount": 5
+  },
+  {
+    "id": 3770,
+    "name": "GENERAL_MARKET_RISK_CHARGE_TYPE",
+    "domain": "Risk Management",
+    "description": "A code indicating the type of general market risk to be applied to this group of products.  Reference Table 4 in the Market Risk Amendment  Examples: - Yes, as two positions - Yes, as one position in each currency - Carve out together with the associated hedging positions - General market risk charg",
+    "attributeCount": 2
+  },
+  {
+    "id": 3771,
+    "name": "GEOGRAPHIC_AREA_RISK",
+    "domain": "Risk Management",
+    "description": "This entity identifies any risks (e.g., natural disaster or political) associated with this geographic area such as earthquake, fire, landslides, floods, and hurricane.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3772,
+    "name": "GEOGRAPHIC_AREA_RISK_TYPE",
+    "domain": "Risk Management",
+    "description": "A code for any risks (e.g., natural disaster or political) associated with this geographic area such as earthquake, fire, landslides, floods, and hurricane.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3773,
+    "name": "GEOGRAPHY_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity represents the risk grade for this geographical area given by this agency as of this date for this type of grading.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3774,
+    "name": "HOLDING_VALUE_AT_RISK",
+    "domain": "Risk Management",
+    "description": "This entity contains the calculated Value at Risk (VAR) for this holding in one investment instrument.  Value at risk (VaR) is a measure of how the market value of an asset or of a portfolio of assets is likely to decrease over a certain time period (usually over 1 day or 10 days) under usual condit",
+    "attributeCount": 7
+  },
+  {
+    "id": 3775,
+    "name": "INSURABLE_INTEREST_EXPOSURE_TYPE",
+    "domain": "Risk Management",
+    "description": "A code for the characteristic of the insurable interest that affects the exposure. For example, if the insurable interest is a car then \"car years\" affects the exposure.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3776,
+    "name": "INSURABLE_INTEREST_TO_EXPOSURE_TYPE",
+    "domain": "Risk Management",
+    "description": "This entity allows an insurable interest to have many types of exposures. For example, if the insurable interest is a car then exposure types could be \"car years\" and \"car model.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 3777,
+    "name": "INSURANCE_RISK_CATEGORY",
+    "domain": "Risk Management",
+    "description": "This minor entity translates the risk category codes into a description.  Examples of risk categories: - Low - Medium - High - Preferred - Nonpreferred",
+    "attributeCount": 3
+  },
+  {
+    "id": 3778,
+    "name": "INSURANCE_RISK_FACTOR_RELATED",
+    "domain": "Risk Management",
+    "description": "Identifies the risk factor that has a common relationship to another risk factor for the purpose of providing an enhanced understanding of the compounding impact risk factors have on a party.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3779,
+    "name": "INSURANCE_RISK_FACTOR_RELATIONSHIP_TYPE",
+    "domain": "Risk Management",
+    "description": "This minor entity identifies the relationship between two risk factors such as caused or is part of.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3780,
+    "name": "INSURANCE_RISK_FACTOR_RISK_CATEGORY",
+    "domain": "Risk Management",
+    "description": "This is an associative entity that links the risk factors with the risk categories.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3781,
+    "name": "INSURANCE_RISK_FACTOR_TYPE",
+    "domain": "Risk Management",
+    "description": "Habits, conditions, or activities that may increase the likelihood of a loss or injury.  Examples: - 1 = smoker - 2 = skydiver - 3 = astronaut - 4 = diabetic - 5 = airbags - 6 = sprinkler system",
+    "attributeCount": 2
+  },
+  {
+    "id": 3782,
+    "name": "INSURANCE_RISK_UNDERWRITE_CLASS",
+    "domain": "Risk Management",
+    "description": "This entity associates risk factors to underwriting classes.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3783,
+    "name": "INTEREST_INDEX_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This entity contains risk factors that can affect the value of interest index rates.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3784,
+    "name": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "domain": "Risk Management",
+    "description": "When calculating interest rate risk using the standardized approach, the capital charge is a function of the type of instrument: - Government issued paper - Qualifying – issued by public sector and multilateral development banks and others with a certain investment grade - Refer to the Market Risk A",
+    "attributeCount": 6
+  },
+  {
+    "id": 3785,
+    "name": "INTEREST_RATE_RISK_CALCULATION",
+    "domain": "Risk Management",
+    "description": "This entity contains interest rate market risk metrics for each financial instrument that is part of an agreement that has market risk. For example, if the agreement is a swap then there would be two financial instruments and each instrument has its own set of market risk metrics.  When calculating",
+    "attributeCount": 11
+  },
+  {
+    "id": 3786,
+    "name": "INVESTMENT_RISK_TOLERANCE_TYPE",
+    "domain": "Risk Management",
+    "description": "A classification of how tolerant someone is to risk of losing money when it comes to investment decisions such as: - Aggressive/speculative - Moderate - Conservative - Very conservative",
+    "attributeCount": 2
+  },
+  {
+    "id": 3787,
+    "name": "INVESTMENT_SECURITY_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "Financial instruments are also graded by third parties such as Standard & Poor's.  For example, if the agency (method) is Standard & Poor's then the Risk Grade Id would represent the assessment value such as AAA to AA-, A+ to A-, BBB+ to BBB-, BB+ to B-, Below B-, and Unrated.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3788,
+    "name": "LOCATION_OF_LOSS_TYPE",
+    "domain": "Risk Management",
+    "description": "This classifies the loss as either on premises or off premises.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3789,
+    "name": "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+    "domain": "Risk Management",
+    "description": "This entity is a subtype of RISK GRADE VALUE. This entity provides for the capability to relate a specific (LGD) percentage in the entity RISK GRADE VALUE to the combination of (1) a specific type of exposure, as detailed in the entity AGREEMENT CLASS VALUE, and (2) a specific PRODUCT.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3790,
+    "name": "MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This is the Market Risk Amendment Tables 4 and 5, which show for a given group of products (e.g., government debt security) whether there is a specific risk charge and the method for general market risk charge (e.g., charge as two positions or as one position in each currency).",
+    "attributeCount": 5
+  },
+  {
+    "id": 3791,
+    "name": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "domain": "Risk Management",
+    "description": "This entity contains the horizontal disallowance that is calculated within and between banding zones when calculating interest rate market risk using the standardized approach.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3792,
+    "name": "MARKET_RISK_NATIONAL_MARKET_GROUP",
+    "domain": "Risk Management",
+    "description": "This entity contains those investments in financial instruments such as equities (e.g., stock) that are grouped according to the national market the instrument belongs for general market risk calculation purposes. For example, all equities for corporations in India may be grouped together.",
+    "attributeCount": 1
+  },
+  {
+    "id": 3793,
+    "name": "MARKET_RISK_TYPE",
+    "domain": "Risk Management",
+    "description": "The classification of market risk this banking agreement is exposed to.  Examples: - Equity market price fluctuations - Interest rate price fluctuations - Foreign exchange price fluctuations - Commodity market risk - No market risk exposure",
+    "attributeCount": 2
+  },
+  {
+    "id": 3794,
+    "name": "MORTALITY_TABLE_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This entity associates the mortality table with any risk factors that were considered when determining the mortality statistics in the mortality table. Risk factors can include smoking.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3795,
+    "name": "NETTED_MARKET_RISK_GROUP",
+    "domain": "Risk Management",
+    "description": "This entity contains those agreements/deals that are grouped together for the purpose of netting when calculating market risk.  For example, for interest rate risk specific market risk, securities owned in the same security issue may be offset if the issue has the same terms and conditions. In this",
+    "attributeCount": 1
+  },
+  {
+    "id": 3796,
+    "name": "NETTED_MARKET_RISK_GROUP_TYPE",
+    "domain": "Risk Management",
+    "description": "This minor entity describes the type of grouping of instruments when calculating market risk.  Examples: - Interest rate risk grouping based on time band and netted - Commodity risk grouping based on time band and commodity (time band scheme) and netted matched long and short - Commodity risk group",
+    "attributeCount": 2
+  },
+  {
+    "id": 3797,
+    "name": "NETTING_POOL",
+    "domain": "Risk Management",
+    "description": "This is a type of pool created for netting purposes.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3798,
+    "name": "NON-IRB_EXPOSURE_SUMMARY",
+    "domain": "Risk Management",
+    "description": "This summary entity tracks exposure amounts related to credit portfolios that are subject to the standardized approach or the supervisory risk weight calculation in the IRB approaches. It is intended to support Table 5 reporting in the Basel Accord, and Pillar 3 (market disclosure).",
+    "attributeCount": 11
+  },
+  {
+    "id": 3799,
+    "name": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "domain": "Risk Management",
+    "description": "This entity tracks risk parameters (e.g., PD, LGD) and exposure values over time for the nonretail portfolios of a bank or subsidiary. It is intended to support Basel II market disclosure requirements (Pillar 3), particularly Table 6.",
+    "attributeCount": 14
+  },
+  {
+    "id": 3800,
+    "name": "OPERATIONAL_LOSS_TYPE",
+    "domain": "Risk Management",
+    "description": "This entity classifies the possible types of operational losses that can be used to measure operational risk. See Basel II Operational Risk Consultative document Annex 4.  Examples of types of operational loss include write-downs (e.g., theft or fraud), loss of recourse (e.g., payment made to incorr",
+    "attributeCount": 2
+  },
+  {
+    "id": 3801,
+    "name": "OPERATIONAL_RISK_MEASURE",
+    "domain": "Risk Management",
+    "description": "The measure from which operational risk is based for Basel II Operational Risk Standardized Approach and Internal Measurement Approach. For example, for corporate finance the measure may be gross income. For banking, it might be annual average assets. For payment and settlement, it might be annual s",
+    "attributeCount": 2
+  },
+  {
+    "id": 3802,
+    "name": "OPPORTUNITY_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity tracks the risk of this opportunity over time.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3803,
+    "name": "PORTFOLIO_VALUE_AT_RISK",
+    "domain": "Risk Management",
+    "description": "This entity contains the calculated Value at Risk (VAR) for a group or portfolio of investment holdings.  Value at risk (VaR) is a measure of how the market value of an asset or of a portfolio of assets is likely to decrease over a certain time period (usually over one day or 10 days) under usual co",
+    "attributeCount": 7
+  },
+  {
+    "id": 3804,
+    "name": "PROBABILITY_DEFAULT_FLOOR_TYPE",
+    "domain": "Risk Management",
+    "description": "This will identify which probability of default floor should be applied such as: - Floor of 0% - Floor of 0.03%.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3805,
+    "name": "PROBABILITY_OF_DEFAULT_MODEL",
+    "domain": "Risk Management",
+    "description": "A probability of default model is a type of analytical model where the purpose is to predict the likelihood that a party will default on an agreement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3806,
+    "name": "PROVISION_TYPE",
+    "domain": "Risk Management",
+    "description": "A code describing whether this is for a general or specific provision.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3807,
+    "name": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "domain": "Risk Management",
+    "description": "This entity tracks risk related metrics for pools of purchased receivable client agreements over time.",
+    "attributeCount": 12
+  },
+  {
+    "id": 3808,
+    "name": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "domain": "Risk Management",
+    "description": "This entity tracks risk parameters (e.g., PD, and LGD) and exposure values over time for the retail portfolios of a bank or subsidiary by retail pool. It is intended to support Basel II market disclosure requirements (Pillar 3), particularly Table 6.",
+    "attributeCount": 15
+  },
+  {
+    "id": 3809,
+    "name": "RISK_ADJUSTMENT_METRIC_TYPE",
+    "domain": "Risk Management",
+    "description": "A code that identifies the types of metrics that are used in the calculation of the adjustment.  Examples: - Haircut rate - Holding period days used in haircut calculation - Calculated haircut amount",
+    "attributeCount": 2
+  },
+  {
+    "id": 3810,
+    "name": "RISK_ADJUSTMENT_REASON_TYPE",
+    "domain": "Risk Management",
+    "description": "A code for the reason for the adjustment such as Basel II Haircut Calculation.  For Basel II and enterprise risk management, adjustments are also known as \"haircuts\" and can include adjustments to the value of collateral due to currency mismatch between the currency of the account and the currency o",
+    "attributeCount": 2
+  },
+  {
+    "id": 3811,
+    "name": "RISK_ASSESSMENT_RELATED_TYPE",
+    "domain": "Risk Management",
+    "description": "This entity contains the codes for the reasons why one risk assessment is related to another assessment. Possible values include \"is overridden by.\"  For Basel paragraph 335",
+    "attributeCount": 2
+  },
+  {
+    "id": 3812,
+    "name": "RISK_ASSESS_OVERRIDE_TYPE",
+    "domain": "Risk Management",
+    "description": "This entity contains the reason why one risk assessment overrides another risk grade assessment, for example, human judgment overrides automated model.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3813,
+    "name": "RISK_CALCULATION_SCENARIO",
+    "domain": "Risk Management",
+    "description": "This entity contains information about the execution of the calculation of risk metrics. There is one instance for each calculation for a given currency regardless of whether it is a final or a trial run. Information about this scenario include whether it is final or trial, the currency, the country",
+    "attributeCount": 11
+  },
+  {
+    "id": 3814,
+    "name": "RISK_CALCULATION_SCENARIO_BASEL_APPROACH",
+    "domain": "Risk Management",
+    "description": "This entity contains the Basel II approach that was used for a given function for this scenario. This assumes that one function will only have at most one approach.  Examples of functions and approaches: - Function of Retail Credit Risk: approaches are Standardized and IRB Advanced - Functions for C",
+    "attributeCount": 3
+  },
+  {
+    "id": 3815,
+    "name": "RISK_EXPOSURE_MITIGANT_SUBTYPE",
+    "domain": "Risk Management",
+    "description": "This minor entity describes whether this agreement creates a credit risk, mitigates a credit risk, or neither.  Examples: - Creates a credit risk (e.g., loan) - Mitigates a credit risk (e.g., collateral) - Neither creates or mitigates a credit risk",
+    "attributeCount": 2
+  },
+  {
+    "id": 3816,
+    "name": "RISK_FACTOR_INSTRUMENT",
+    "domain": "Risk Management",
+    "description": "This entity contains those investment products that are considered a risk factor where the value of this instrument can affect the value of other instruments. For example, a currency, a Treasury instrument, or a commodity (e.g., wheat price) value can affect the value of other instruments such as sw",
+    "attributeCount": 5
+  },
+  {
+    "id": 3817,
+    "name": "RISK_GRADE_CHANGE_REASON",
+    "domain": "Risk Management",
+    "description": "This entity identifies the reason for changing the risk grade such as the party has declared bankruptcy, or the collateral has expired, or the business has been established long enough to have a risk grade versus a default risk grade based on the industry sector.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3818,
+    "name": "RISK_GRADE_RELATION_TYPE",
+    "domain": "Risk Management",
+    "description": "A code that explains the relationship between two risk grades such as \"has precedence over\" or \"is equivalent to.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 3819,
+    "name": "RISK_GRADE_SCHEME",
+    "domain": "Risk Management",
+    "description": "This entity contains the grading schemes when assigning a risk grade to a subject. One scheme exists for each method and purpose combination. Examples of risk grading scheme are: - Standard & Poor's – Basel II Claims on Sovereigns using Standardized Approach - Standard & Poor's – Basel II Claims on",
+    "attributeCount": 6
+  },
+  {
+    "id": 3820,
+    "name": "RISK_GRADE_VALUE",
+    "domain": "Risk Management",
+    "description": "This entity contains the values for the various risk grades or ratings. These values are expressed as a range or grading versus a continuous number. There is one instance for each scheme/value combination.  For example, if the method used is S&P and the rating category is for Basel II Option 1 Claim",
+    "attributeCount": 12
+  },
+  {
+    "id": 3821,
+    "name": "RISK_GRADE_VALUE_RELATED",
+    "domain": "Risk Management",
+    "description": "This entity specifies how one risk grade value is related to another risk grade value. Possible relationships could be \"overrides\" or \"is equivalent to.\"  For example, if one unit of the business has one calculation and another unit has a different calculation then this establishes the precedence ru",
+    "attributeCount": 7
+  },
+  {
+    "id": 3822,
+    "name": "RISK_METRIC_TYPE",
+    "domain": "Risk Management",
+    "description": "This entity classifies the types of metrics used to calculate risk.  Refer to entity AGREEMENT RISK METRIC for possible metrics at the account/exposure level for Basel II.  For Basel II at the agreement group level (e.g., risk pool, securitization pool, or tranche) the metrics could be: - Loss Given",
+    "attributeCount": 2
+  },
+  {
+    "id": 3823,
+    "name": "RISK_MITIGATION_SUMMARY",
+    "domain": "Risk Management",
+    "description": "This entity tracks the amounts of risk mitigation over time for a bank or subsidiary. That is, it records the value of exposures covered by different types of risk mitigation such as financial collateral. It is intended to support Basel II market disclosure (Pillar 3) requirements, specifically Tabl",
+    "attributeCount": 10
+  },
+  {
+    "id": 3824,
+    "name": "RISK_POSITION",
+    "domain": "Risk Management",
+    "description": "This entity is specific to Basel II Trading Book when calculating counterparty credit risk. Risk Position is a risk number that is assigned to an exposure under the Counterparty Credit Risk (CCR) standardized method using a regulatory algorithm. A risk position is associated with an instrument with",
+    "attributeCount": 9
+  },
+  {
+    "id": 3825,
+    "name": "RISK_RATING_METHOD",
+    "domain": "Risk Management",
+    "description": "This entity contains information about the method used to do risk ratings. Each instance is one method, for example, Standard & Poor's and Export Credit Agency. Can include internal and external rating methods.  If the method for rating was using an internal model then the Model Id identifies the in",
+    "attributeCount": 4
+  },
+  {
+    "id": 3826,
+    "name": "RISK_RATING_PURPOSE_TYPE",
+    "domain": "Risk Management",
+    "description": "This entity contains information about purpose for the risk rating classifications and components. This is a recursive entity, so the lowest level of rating can be grouped hierarchically into higher-level groups.  For example, one structure could be from lowest to highest level based on Basel Accord",
+    "attributeCount": 3
+  },
+  {
+    "id": 3827,
+    "name": "RISK_TYPE",
+    "domain": "Risk Management",
+    "description": "This is a code for the various types of risk such as: - Credit risk – failure of counterparty to meet contract obligations - Market risk – risk of fluctuation of market values of financial instrument - Operational risk – failure of processes, people, and systems  For insurance it would include under",
+    "attributeCount": 2
+  },
+  {
+    "id": 3828,
+    "name": "ROADWAY_SEGMENT_RISK_GRADE",
+    "domain": "Risk Management",
+    "description": "This entity tracks the risk grade for a roadway segment and also allows a roadway segment to have different ratings at the same time.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3829,
+    "name": "SENIORITY_LEVEL_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This entity contains parameters for Basel II risk calculation purposes based on seniority level.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3830,
+    "name": "SENIORITY_LEVEL_TYPE",
+    "domain": "Risk Management",
+    "description": "A classification of the seniority level that one claimant has in relation to another claimant for an asset. This is the order in which investors get paid should the obligor default.  Examples: - First - Second - Third - Junior - Senior",
+    "attributeCount": 2
+  },
+  {
+    "id": 3831,
+    "name": "STRESS_TEST_CALCULATION_SCENARIO",
+    "domain": "Risk Management",
+    "description": "This entity contains information specific to the calculation scenarios for stress testing including the time period being tested.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3832,
+    "name": "STRESS_TEST_CRITERION",
+    "domain": "Risk Management",
+    "description": "This entity contains the criterion for the sample that was used for the stress testing. For example, bond instruments that have maturity beyond 2015. Decomposing the criteria results in one instance for each criterion (bond instrument, greater than 2015 maturity date).",
+    "attributeCount": 2
+  },
+  {
+    "id": 3833,
+    "name": "STRESS_TEST_RESULT",
+    "domain": "Risk Management",
+    "description": "This entity contains the result of a stress test such as the loss amount for a given risk factor or the high and low extreme amounts for this time period.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3834,
+    "name": "STRESS_TEST_TYPE",
+    "domain": "Risk Management",
+    "description": "This minor entity classifies the type of stress test as either:  Examples: - Supervisory scenario requiring no simulation by the bank - Scenario requiring simulation by the bank - Scenario developed by the bank",
+    "attributeCount": 2
+  },
+  {
+    "id": 3835,
+    "name": "TRANCHE_RISK_METRIC",
+    "domain": "Risk Management",
+    "description": "This entity tracks risk related metrics for a securitization tranche over time.",
+    "attributeCount": 14
+  },
+  {
+    "id": 3836,
+    "name": "VALUE_AT_RISK_BACKTEST_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This entity tracks the Value at Risk (VAR) for a sample of counterparties over time.  Reference paragraph 180 in June 2004 Accord.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3837,
+    "name": "VALUE_AT_RISK_MULTIPLIER_PARAMETER",
+    "domain": "Risk Management",
+    "description": "This entity contains the multiplier factor to scale up the VAR (Value at Risk) model back test output exceptions.  Reference paragraph 180 in June 2004 Accord.  For example, for the party group that has a number of exceptions from '0' to '19,' the exception range zone is 'green,' and the multiplier",
+    "attributeCount": 7
+  },
+  {
+    "id": 3838,
+    "name": "VOLATILITY_RISK_CALCULATION",
+    "domain": "Risk Management",
+    "description": "For volatility risk, banks are required to calculate the capital charge by multiplying the sum of the vegas for all options on the same underlying by a proportional shift in volatility of plus/minus 25%.  The total capital charge for vega risk will be the sum of the absolute value for the individual",
+    "attributeCount": 3
+  },
+  {
+    "id": 3839,
+    "name": "WATCH_LIST_RISK_TYPE",
+    "domain": "Risk Management",
+    "description": "A classification of whether this list includes subjects of high risk or subjects that are trustworthy.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3840,
+    "name": "YIELD_CURVE_MATURITY_RISK_FACTOR",
+    "domain": "Risk Management",
+    "description": "This is the risk factor associated with the yield curve maturity segment when calculating market risk for interest rates using the internal model's approach.",
+    "attributeCount": 4
+  }
+]

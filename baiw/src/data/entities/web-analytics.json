@@ -1,0 +1,541 @@
+[
+  {
+    "id": 3841,
+    "name": "BROWSER_APPLICATION_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity represents the web browser application being used.  Examples: - Internet Explorer - Firefox - Safari - AOL - Playstation - iPhone - Xbox",
+    "attributeCount": 2
+  },
+  {
+    "id": 3842,
+    "name": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding geographic address information associated with the visitor's browser.",
+    "attributeCount": 17
+  },
+  {
+    "id": 3843,
+    "name": "BROWSER_PLUG-IN",
+    "domain": "Web Analytics",
+    "description": "This is a lookup table for browser plug-ins.  Examples: - Adobe Acrobat - Windows Media Player Plug-in - ZingWeb Plug-in for Netscape - Cosmo Player 2.1 - RealPlayer G2 LiveConnect 32-bit - Shockwave Flash",
+    "attributeCount": 2
+  },
+  {
+    "id": 3844,
+    "name": "BROWSER_PLUG-IN_XREF",
+    "domain": "Web Analytics",
+    "description": "This entity provides a cross-reference of a visitors browser to its plug-ins.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3845,
+    "name": "BROWSER_VERSION",
+    "domain": "Web Analytics",
+    "description": "This is the version of web browser application a being used.  Examples: - Internet Explorer 7.0 - Safari 3.1 - Firefox 2.0",
+    "attributeCount": 2
+  },
+  {
+    "id": 3846,
+    "name": "CLICK_ACTION_TYPE",
+    "domain": "Web Analytics",
+    "description": "This is a code for the page action such as paging click, scrolling click, submit click, cancel click. The enterprise will have defined codes for the various actions a user might take with a click on their web site.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3847,
+    "name": "CLICK_ACTIVITY",
+    "domain": "Web Analytics",
+    "description": "This entity captures clickmap information; it is the information contained in the address of the link the user clicked on (URL/JS function).",
+    "attributeCount": 11
+  },
+  {
+    "id": 3848,
+    "name": "CLICK_CONTEXT_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity indicates whether the page name or URL was used for the click activity (such as submitting information, requesting information, or moving around the page).",
+    "attributeCount": 2
+  },
+  {
+    "id": 3849,
+    "name": "COOKIE",
+    "domain": "Web Analytics",
+    "description": "This entity captures user cookie information. It contains the content of cookies for all cookie types.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3850,
+    "name": "CRAWLER",
+    "domain": "Web Analytics",
+    "description": "This entity contains a list of crawler sites that have visited the web site of the business entity. A crawler is a program search engine that takes information from a web site.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3851,
+    "name": "CRAWLER_PERMISSION_TYPE",
+    "domain": "Web Analytics",
+    "description": "This is a code used to specify the type of permission that a crawler is allowed when accessing a web site or web page.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3852,
+    "name": "CRAWLER_WEB_PAGE_PERMISSION",
+    "domain": "Web Analytics",
+    "description": "This entity contains the access rights granted to a crawler for a specified web page.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3853,
+    "name": "CRAWLER_WEB_SITE_PERMISSION",
+    "domain": "Web Analytics",
+    "description": "This entity contains the access rights granted to a crawler for a specified web site.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3854,
+    "name": "CUSTOM_SEARCH_CLICK-THROUGH",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding custom search click-through events. Search click-through events capture information regarding click-throughs that are a result of a visitor search action.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3855,
+    "name": "EXTENDED_SESSION_INFORMATION",
+    "domain": "Web Analytics",
+    "description": "This entity captures session-based information relating to the visitor's activities or site usage during their session.",
+    "attributeCount": 34
+  },
+  {
+    "id": 3856,
+    "name": "PROGRAM_PAGE_VIEW_XREF",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding online application programs displayed on a given web page.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3857,
+    "name": "REFERRAL_WEB_AD",
+    "domain": "Web Analytics",
+    "description": "This entity is used to capture information about web ads that were used by customers to access the web site. The entity also has a relationship to information relevant to web ads such as start and end dates and cost information.  Example: - An ad for a virus scanning application the enterprise offer",
+    "attributeCount": 3
+  },
+  {
+    "id": 3858,
+    "name": "SESSION_ATTRIBUTE_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding types of session attributes.  Examples: - Session basket activity - Maximum session metrics",
+    "attributeCount": 3
+  },
+  {
+    "id": 3859,
+    "name": "VISITOR",
+    "domain": "Web Analytics",
+    "description": "This entity contains information about anonymous/unidentified contacts that are not known to the enterprise such as web site visitors. The visitor identification is linked to the contact point's persistent cookie via this entity. This allows the tracking of repeat visits to the enterprise's web site",
+    "attributeCount": 3
+  },
+  {
+    "id": 3860,
+    "name": "VISITOR_BEHAVIOR_ANALYSIS",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding various types of analysis that can be performed on visitors with regard to their browsing behavior.  Note: The assumption here is the web data used for this analysis may or may not reside inside the warehouse. An external analysis engine provides these resu",
+    "attributeCount": 7
+  },
+  {
+    "id": 3861,
+    "name": "VISITOR_INPUT",
+    "domain": "Web Analytics",
+    "description": "This entity captures user-provided information similar to information provided in forms.  Examples: - Postal code - Email - Telephone number",
+    "attributeCount": 7
+  },
+  {
+    "id": 3862,
+    "name": "VISITOR_LOGON",
+    "domain": "Web Analytics",
+    "description": "This entity captures the login information of a visitor.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3863,
+    "name": "VISITOR_LOGON_SYSTEM",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding visitor logons to their system accounts.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3864,
+    "name": "VISITOR_LOGON_SYSTEM_XREF",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the visitor identifier associated with the system logon name.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3865,
+    "name": "VISITOR_LOGON_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding visitor logon subtypes. Visitor logons can be to system account, social network or email accounts.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3866,
+    "name": "VISITOR_PATH_ANALYSIS",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the path traversed by a visitor. The pages viewed during a visitors site traversal will be captured in this entity.  Note: The assumption here is the web data used for this analysis may or may not reside inside the warehouse. An external analysis engine pro",
+    "attributeCount": 15
+  },
+  {
+    "id": 3867,
+    "name": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the relationship of products to the pages in the visitor's path analysis.  Examples: - Product added to shopping cart - Product purchased - Product removed from shopping cart - Product added to wish list - Product removed from wish list",
+    "attributeCount": 7
+  },
+  {
+    "id": 3868,
+    "name": "WEB_AD",
+    "domain": "Web Analytics",
+    "description": "A marketing message that appears on a web site.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3869,
+    "name": "WEB_BANNER_AD",
+    "domain": "Web Analytics",
+    "description": "This entity contains marketing messages for a mix of images and text that is usually hosted by a third-party organization on a web page.  Example: - A blue sweater ad with an image of blue sweater that links to a retailer's web site",
+    "attributeCount": 0
+  },
+  {
+    "id": 3870,
+    "name": "WEB_FORM",
+    "domain": "Web Analytics",
+    "description": "This entity captures information relating to forms utilized on the web site.  This is not the HTML name of the form, but an arbitrary name under which this form is configured (e.g., 'Checkout Form' and 'Login Form').",
+    "attributeCount": 1
+  },
+  {
+    "id": 3871,
+    "name": "WEB_GROUP_PUBLISHER",
+    "domain": "Web Analytics",
+    "description": "A cross-reference of the actual publishers contained in a specific WEB SITE GROUP.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3872,
+    "name": "WEB_INTERACTION_SITE_TYPE",
+    "domain": "Web Analytics",
+    "description": "This is a code for the types of sites that the system can provide information on such as social network, blogs, and news feeds.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3873,
+    "name": "WEB_PAGE",
+    "domain": "Web Analytics",
+    "description": "This entity represents a collection of multimedia objects displayed to visitors via use of a web browsing application during visits to a web site. A web page can contain product information, marketing information, customer service information. It can also allow for interaction, in the form of the cr",
+    "attributeCount": 18
+  },
+  {
+    "id": 3874,
+    "name": "WEB_PAGE_CONTEXT",
+    "domain": "Web Analytics",
+    "description": "This entity links the context with the web page being rendered.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3875,
+    "name": "WEB_PAGE_CREATIVE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding an associative entity that tracks various objects appearing on a web page.  Examples: - Header - Logo in upper left-hand corner - Picture centered - Product link - Standard footer bar with links",
+    "attributeCount": 7
+  },
+  {
+    "id": 3876,
+    "name": "WEB_PAGE_ERROR",
+    "domain": "Web Analytics",
+    "description": "Captures information regarding errors received by visitors while viewing a web page.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3877,
+    "name": "WEB_PAGE_ERROR_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the various types of page view errors.  Example: - In page activity (credit cards not being accepted and a booking failing) as well as the standard sorts of JavaScript errors",
+    "attributeCount": 5
+  },
+  {
+    "id": 3878,
+    "name": "WEB_PAGE_GENERATION_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity is used to classify the method involved in generating a web page.  Example: - Static versus dynamic page",
+    "attributeCount": 2
+  },
+  {
+    "id": 3879,
+    "name": "WEB_PAGE_MM_OBJECT",
+    "domain": "Web Analytics",
+    "description": "This is an associative entity that tracks various objects appearing on a web page.  Example: - On web page #889243 is found the following objects: header, logo in upper left-hand corner, picture centered, product link, and standard footer bar with links.",
+    "attributeCount": 7
+  },
+  {
+    "id": 3880,
+    "name": "WEB_PAGE_OBJECT_VIEW",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding objects (images) displayed on a given web page.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3881,
+    "name": "WEB_PAGE_STATUS_CATEGORY",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the grouping domain for web page view error statuses.  Examples: - Credit card failure - JavaScript error - Specific page view error",
+    "attributeCount": 2
+  },
+  {
+    "id": 3882,
+    "name": "WEB_PAGE_TEXT",
+    "domain": "Web Analytics",
+    "description": "This entity contains the text associated with this web page other than multimedia objects such as: - URL – the uniform resource locator associated with a WEB PAGE - Communication protocol – specifies a communication protocol such as http:// and ftp://",
+    "attributeCount": 3
+  },
+  {
+    "id": 3883,
+    "name": "WEB_PAGE_TEXT_SECTION",
+    "domain": "Web Analytics",
+    "description": "This entity is the link to web page text unstructured data.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3884,
+    "name": "WEB_PAGE_VIEW",
+    "domain": "Web Analytics",
+    "description": "This entity stores the information about the actual WEB PAGEs displayed to an individual during a given WEB VISIT.  Example: - Home page - > product page - > casual wear - > sweaters -> blue sweater. Along with this chain of pages visited, information about bytes transferred, the time stamp when the",
+    "attributeCount": 34
+  },
+  {
+    "id": 3885,
+    "name": "WEB_PAGE_VIEW_SUMMARY",
+    "domain": "Web Analytics",
+    "description": "This entity captures summary information regarding visitor session activities.",
+    "attributeCount": 8
+  },
+  {
+    "id": 3886,
+    "name": "WEB_PLATFORM",
+    "domain": "Web Analytics",
+    "description": "This captures information regarding web output platform (channel instance) for ad orders.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3887,
+    "name": "WEB_SCENARIO_STEP",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the steps of a custom scenario event. This entity captures the steps processed within a visitor scenario.",
+    "attributeCount": 6
+  },
+  {
+    "id": 3888,
+    "name": "WEB_SECTION_SUBTYPE",
+    "domain": "Web Analytics",
+    "description": "This entity represents a classification of the content for a web section subtype similar to sections of a newspaper. A web section subtype may be divided into several sections based on the content of the pages.  Examples: - Sports - Finance - Current news",
+    "attributeCount": 2
+  },
+  {
+    "id": 3889,
+    "name": "WEB_SELF-HELP",
+    "domain": "Web Analytics",
+    "description": "A type of event where the customer/counterparty uses web self-help.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3890,
+    "name": "WEB_SERVER",
+    "domain": "Web Analytics",
+    "description": "This entity provides summary information about the physical server devices servicing a WEB VISIT.  Example: - Web server #3 PRIMERETAIL using port number 80 with secure connection, and running Apache software located in time zone 5 (EST)",
+    "attributeCount": 11
+  },
+  {
+    "id": 3891,
+    "name": "WEB_SERVER_ACTIVITY",
+    "domain": "Web Analytics",
+    "description": "This entity provides operational metrics for a web server.  Examples: - Hits per minute - Delay time - Number of aborted requests",
+    "attributeCount": 12
+  },
+  {
+    "id": 3892,
+    "name": "WEB_SERVER_INTERNET_PROTOCOL_ADDRESS",
+    "domain": "Web Analytics",
+    "description": "This entity captures the IP address(es) of a specific web server.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3893,
+    "name": "WEB_SERVER_SOFTWARE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information about the software being utilized by the web server.  Examples: - Apache - IIS",
+    "attributeCount": 2
+  },
+  {
+    "id": 3894,
+    "name": "WEB_SERVER_STATUS",
+    "domain": "Web Analytics",
+    "description": "This entity contains information regarding the status of the web server utilized by the enterprise.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3895,
+    "name": "WEB_SERVER_STATUS_CATEGORY",
+    "domain": "Web Analytics",
+    "description": "This is a grouping domain for web server status.  Examples: - Unknown - Informational - Successful - Redirection - Client error",
+    "attributeCount": 2
+  },
+  {
+    "id": 3896,
+    "name": "WEB_SERVER_STATUS_TYPE",
+    "domain": "Web Analytics",
+    "description": "This is an entity used to provide information about web server status. This entity contains server codes pertaining to errors and other conditions of the server.  Example: - \"401 - Page not Available\"",
+    "attributeCount": 3
+  },
+  {
+    "id": 3897,
+    "name": "WEB_SESSION_COOKIE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding cookies that are associated with visitor web visits.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3898,
+    "name": "WEB_SHOPPING_EXPERIENCE_FUNCTION_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding functions performed during shopping experience events.  Possible functions performed for shopping experience events are: - Added - Removed - View - Increased quantity - Decreased quantity - Purchase",
+    "attributeCount": 2
+  },
+  {
+    "id": 3899,
+    "name": "WEB_SITE",
+    "domain": "Web Analytics",
+    "description": "This entity represents a collection of enterprise-owned web pages under a single domain name.  Example: - Teradata.com",
+    "attributeCount": 8
+  },
+  {
+    "id": 3900,
+    "name": "WEB_SITE_BREADCRUMB",
+    "domain": "Web Analytics",
+    "description": "This entity stores information regarding web site breadcrumbs, which are the digital signals used to link pages viewed by visitors.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3901,
+    "name": "WEB_SITE_CONTENT_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity represents a classification of the content of a web site.  Examples: - Sports - News - Portal",
+    "attributeCount": 2
+  },
+  {
+    "id": 3902,
+    "name": "WEB_SITE_CRAWLER",
+    "domain": "Web Analytics",
+    "description": "This entity contains a history of the web sites that have been accessed by specified crawlers.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3903,
+    "name": "WEB_SITE_ENTRY_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the description of the area of the site that was first visited (initial visit location in short), for example, 'DVD section' or 'mortgage application.'",
+    "attributeCount": 2
+  },
+  {
+    "id": 3904,
+    "name": "WEB_SITE_GROUP",
+    "domain": "Web Analytics",
+    "description": "This entity groups web sites into classifications such as a computer and technology web site, cooking web site, and astronomy web site. A web site can be in many groups and a group contains many web sites. Also known as network.  One example of a group is a group of publisher sites that an ad or cam",
+    "attributeCount": 2
+  },
+  {
+    "id": 3905,
+    "name": "WEB_SITE_GROUP_XREF",
+    "domain": "Web Analytics",
+    "description": "This entity groups web sites into classifications such as a computer and technology web site, cooking web site, and astronomy web site. A web site can be in many groups and a group contains many web sites.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3906,
+    "name": "WEB_SITE_NAVIGATION",
+    "domain": "Web Analytics",
+    "description": "This entity provides the site map independent of the fact that the pages that instantiate this structure may change over time.  For example, \"Blue suede shoes\" page could be part of the \"Elvis collection\" class hierarchy or the \"Men's Shoes\" class hierarchy. Over time, \"Blue suede shoes\" could also",
+    "attributeCount": 4
+  },
+  {
+    "id": 3907,
+    "name": "WEB_SITE_SECTION",
+    "domain": "Web Analytics",
+    "description": "This entity represents divisions of a web site such as Yahoo Sports or Yahoo Finance in order to divide large web sites into smaller divisions of related web pages that contain similar content.  Additional examples of web site sections could be: - Online versions of print publications - Web site use",
+    "attributeCount": 6
+  },
+  {
+    "id": 3908,
+    "name": "WEB_SITE_SERVER",
+    "domain": "Web Analytics",
+    "description": "This entity associates the web sites that are supported by a web server.  Example: - Web site #25 is supported by web server #18 with a backup web server #19 - Web site #1 is supported by a server group including web server #8-15",
+    "attributeCount": 4
+  },
+  {
+    "id": 3909,
+    "name": "WEB_SITE_SUBSTITUTE_SECTION",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the subsections within a web site section.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3910,
+    "name": "WEB_SITE_SUBSTITUTE_SECTION_TYPE",
+    "domain": "Web Analytics",
+    "description": "This entity captures information regarding the various types of web site substitute sections.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3911,
+    "name": "WEB_SITE_SUBTYPE",
+    "domain": "Web Analytics",
+    "description": "This entity is used to classify a web site as referring or microsite.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3912,
+    "name": "WEB_SITE_USER_SPACE",
+    "domain": "Web Analytics",
+    "description": "This entity supports the concept of a user space within a web site.  Typically, used for social networking sites (Myspace and Facebook), and other web publishers that allow users to set up their own user space.  This entity also groups all owned pages of the user space together.  Web visitors can be",
+    "attributeCount": 1
+  },
+  {
+    "id": 3913,
+    "name": "WEB_TEXT_AD",
+    "domain": "Web Analytics",
+    "description": "This entity contains marketing messages using text descriptions intended for placement on a web page.  Example: - A text message saying 'Buy Blue Sweaters' that is linked to a retail web site's blue sweater page",
+    "attributeCount": 0
+  },
+  {
+    "id": 3914,
+    "name": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "description": "This entity represents a visit during which an internet web site is accessed by an individual using the world wide web.  Example: - An unknown visitor browsed our web site today from 12:32 through 13:47.",
+    "attributeCount": 33
+  },
+  {
+    "id": 3915,
+    "name": "WEB_VISIT_INTERNET_PROTOCOL_XREF",
+    "domain": "Web Analytics",
+    "description": "This entity provides linkage of visitor sessions to their various IP addresses used to connect to the enterprise's web site during the session. Via usage of dynamic IP address assignments, a visitor may use multiple different IP addresses to connect to the enterprise's web site during the session. T",
+    "attributeCount": 5
+  },
+  {
+    "id": 3916,
+    "name": "WEB_VISIT_SUBTYPE",
+    "domain": "Web Analytics",
+    "description": "This code is used as a subtype discriminator such as for extended session information.",
+    "attributeCount": 3
+  },
+  {
+    "id": 3917,
+    "name": "WEB_VISIT_SUMMARY",
+    "domain": "Web Analytics",
+    "description": "This entity captures derived summary information regarding visitor session activities.",
+    "attributeCount": 10
+  }
+]

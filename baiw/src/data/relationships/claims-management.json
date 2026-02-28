@@ -1,0 +1,1402 @@
+[
+  {
+    "parentId": 973,
+    "parentName": "ADJUDICATION_AMOUNT_TYPE",
+    "childId": 980,
+    "childName": "CLAIM_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 973,
+    "parentName": "ADJUDICATION_AMOUNT_TYPE",
+    "childId": 1013,
+    "childName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 973,
+    "parentName": "ADJUDICATION_AMOUNT_TYPE",
+    "childId": 1051,
+    "childName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 974,
+    "parentName": "ADJUDICATION_TYPE",
+    "childId": 979,
+    "childName": "CLAIM_ADJUDICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 35,
+    "childName": "AGREEMENT_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 979,
+    "childName": "CLAIM_ADJUDICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 981,
+    "childName": "CLAIM_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1005,
+    "childName": "CLAIM_CLAIM_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1008,
+    "childName": "CLAIM_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1011,
+    "childName": "CLAIM_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1024,
+    "childName": "CLAIM_DATE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1026,
+    "childName": "CLAIM_DIAGNOSIS_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1027,
+    "childName": "CLAIM_DOCUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1151,
+    "childName": "CLAIM_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 3738,
+    "childName": "CLAIM_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1029,
+    "childName": "CLAIM_FOLLOW-UP",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 2926,
+    "childName": "CLAIM_IDENTIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1034,
+    "childName": "CLAIM_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1264,
+    "childName": "CLAIM_IVR_STEP_TRANSACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1037,
+    "childName": "CLAIM_LEGAL_ACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 2928,
+    "childName": "CLAIM_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1042,
+    "childName": "CLAIM_PERIL",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 691,
+    "childName": "CLAIM_PROVIDER_SURVEY_RESPONSE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 0,
+    "childName": "CLAIM_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 0,
+    "childName": "CLAIM_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 3747,
+    "childName": "CLAIM_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1047,
+    "childName": "CLAIM_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1048,
+    "childName": "CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1068,
+    "childName": "CLAIM_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 692,
+    "childName": "CLAIM_SURVEY_RESPONSE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1072,
+    "childName": "CLAIM_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1075,
+    "childName": "CLAIM_TO_CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1081,
+    "childName": "EXTERNALLY_REPORTED_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1103,
+    "childName": "INSURANCE_CLAIM_CASE",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 3145,
+    "childName": "PARTY_ASSET_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 3146,
+    "childName": "PARTY_ASSET_COST_RECOVERY",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 3181,
+    "childName": "PARTY_ASSET_SALVAGE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 3206,
+    "childName": "PARTY_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 976,
+    "parentName": "CLAIM",
+    "childId": 1128,
+    "childName": "WORK_PROCESS_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 978,
+    "parentName": "CLAIMANT_INSURABLE_INTEREST_STATUS_TYPE",
+    "childId": 977,
+    "childName": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 979,
+    "parentName": "CLAIM_ADJUDICATION",
+    "childId": 980,
+    "childName": "CLAIM_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 979,
+    "parentName": "CLAIM_ADJUDICATION",
+    "childId": 1012,
+    "childName": "CLAIM_COVERAGE_ADJUDICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 979,
+    "parentName": "CLAIM_ADJUDICATION",
+    "childId": 1050,
+    "childName": "CLAIM_SERVICE_ADJUDICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 981,
+    "parentName": "CLAIM_AMOUNT",
+    "childId": 1010,
+    "childName": "CLAIM_COST_RECOVERY",
+    "type": "association"
+  },
+  {
+    "parentId": 981,
+    "parentName": "CLAIM_AMOUNT",
+    "childId": 3207,
+    "childName": "PARTY_CLAIM_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 981,
+    "childName": "CLAIM_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 1014,
+    "childName": "CLAIM_COVERAGE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 1017,
+    "childName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 3740,
+    "childName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 1044,
+    "childName": "CLAIM_REINSURANCE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 1052,
+    "childName": "CLAIM_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 1057,
+    "childName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 3215,
+    "childName": "PARTY_CLAIM_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 982,
+    "parentName": "CLAIM_AMOUNT_TYPE",
+    "childId": 3216,
+    "childName": "PARTY_CLAIM_SERVICE_DIAGNOSIS_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 984,
+    "parentName": "CLAIM_ASSET_RELATIONSHIP_TYPE",
+    "childId": 983,
+    "childName": "CLAIM_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 986,
+    "childName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 988,
+    "childName": "CLAIM_AUTHORIZATION_ATTACHMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 990,
+    "childName": "CLAIM_AUTHORIZATION_CERTIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 991,
+    "childName": "CLAIM_AUTHORIZATION_DIAGNOSIS_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 1149,
+    "childName": "CLAIM_AUTHORIZATION_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 993,
+    "childName": "CLAIM_AUTHORIZATION_IDENTIFIER",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 0,
+    "childName": "CLAIM_AUTHORIZATION_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 0,
+    "childName": "CLAIM_AUTHORIZATION_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 997,
+    "childName": "CLAIM_AUTHORIZATION_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 1000,
+    "childName": "CLAIM_AUTHORIZATION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 1075,
+    "childName": "CLAIM_TO_CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 985,
+    "parentName": "CLAIM_AUTHORIZATION",
+    "childId": 3208,
+    "childName": "PARTY_CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 987,
+    "parentName": "CLAIM_AUTHORIZATION_AMOUNT_TYPE",
+    "childId": 986,
+    "childName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 987,
+    "parentName": "CLAIM_AUTHORIZATION_AMOUNT_TYPE",
+    "childId": 998,
+    "childName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 989,
+    "parentName": "CLAIM_AUTHORIZATION_CATEGORY",
+    "childId": 985,
+    "childName": "CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 992,
+    "parentName": "CLAIM_AUTHORIZATION_END_REASON_TYPE",
+    "childId": 985,
+    "childName": "CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 994,
+    "parentName": "CLAIM_AUTHORIZATION_REASON",
+    "childId": 985,
+    "childName": "CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 996,
+    "parentName": "CLAIM_AUTHORIZATION_RELATIONSHIP_TYPE",
+    "childId": 995,
+    "childName": "CLAIM_AUTHORIZATION_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 997,
+    "parentName": "CLAIM_AUTHORIZATION_SERVICE",
+    "childId": 998,
+    "childName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 999,
+    "parentName": "CLAIM_AUTHORIZATION_SERVICE_ROLE",
+    "childId": 997,
+    "childName": "CLAIM_AUTHORIZATION_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1001,
+    "parentName": "CLAIM_AUTHORIZATION_STATUS_REASON",
+    "childId": 1000,
+    "childName": "CLAIM_AUTHORIZATION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1002,
+    "parentName": "CLAIM_AUTHORIZATION_STATUS_TYPE",
+    "childId": 1000,
+    "childName": "CLAIM_AUTHORIZATION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1003,
+    "parentName": "CLAIM_AUTHORIZATION_TYPE",
+    "childId": 985,
+    "childName": "CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1004,
+    "parentName": "CLAIM_CATEGORY_TYPE",
+    "childId": 976,
+    "childName": "CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1006,
+    "parentName": "CLAIM_CLASS_SCHEME_TYPE",
+    "childId": 1006,
+    "childName": "CLAIM_CLASS_SCHEME_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 1006,
+    "parentName": "CLAIM_CLASS_SCHEME_TYPE",
+    "childId": 1007,
+    "childName": "CLAIM_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 1006,
+    "parentName": "CLAIM_CLASS_SCHEME_TYPE",
+    "childId": 1008,
+    "childName": "CLAIM_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1007,
+    "parentName": "CLAIM_CLASS_VALUE",
+    "childId": 1007,
+    "childName": "CLAIM_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 1007,
+    "parentName": "CLAIM_CLASS_VALUE",
+    "childId": 1008,
+    "childName": "CLAIM_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1011,
+    "parentName": "CLAIM_COVERAGE",
+    "childId": 1012,
+    "childName": "CLAIM_COVERAGE_ADJUDICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1011,
+    "parentName": "CLAIM_COVERAGE",
+    "childId": 1014,
+    "childName": "CLAIM_COVERAGE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1011,
+    "parentName": "CLAIM_COVERAGE",
+    "childId": 1016,
+    "childName": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 1011,
+    "parentName": "CLAIM_COVERAGE",
+    "childId": 1019,
+    "childName": "CLAIM_COVERAGE_LEGAL_ACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1011,
+    "parentName": "CLAIM_COVERAGE",
+    "childId": 1020,
+    "childName": "CLAIM_COVERAGE_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 1011,
+    "parentName": "CLAIM_COVERAGE",
+    "childId": 1021,
+    "childName": "CLAIM_COVERAGE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1011,
+    "parentName": "CLAIM_COVERAGE",
+    "childId": 1022,
+    "childName": "CLAIM_COVERAGE_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 1012,
+    "parentName": "CLAIM_COVERAGE_ADJUDICATION",
+    "childId": 1013,
+    "childName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1014,
+    "parentName": "CLAIM_COVERAGE_AMOUNT",
+    "childId": 1015,
+    "childName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "type": "association"
+  },
+  {
+    "parentId": 1016,
+    "parentName": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "childId": 1017,
+    "childName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1016,
+    "parentName": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "childId": 1018,
+    "childName": "CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 1016,
+    "parentName": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "childId": 3738,
+    "childName": "CLAIM_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 1018,
+    "parentName": "CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE",
+    "childId": 1044,
+    "childName": "CLAIM_REINSURANCE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1022,
+    "parentName": "CLAIM_COVERAGE_TEXT",
+    "childId": 1023,
+    "childName": "CLAIM_COVERAGE_TEXT_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1025,
+    "parentName": "CLAIM_DATE_TYPE",
+    "childId": 1024,
+    "childName": "CLAIM_DATE",
+    "type": "association"
+  },
+  {
+    "parentId": 1026,
+    "parentName": "CLAIM_DIAGNOSIS_CODE",
+    "childId": 1916,
+    "childName": "DIAGNOSIS_CODE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1028,
+    "parentName": "CLAIM_FILING_TYPE",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1030,
+    "parentName": "CLAIM_FOLLOW-UP_TYPE",
+    "childId": 1029,
+    "childName": "CLAIM_FOLLOW-UP",
+    "type": "association"
+  },
+  {
+    "parentId": 1031,
+    "parentName": "CLAIM_FREQUENCY_TYPE",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1032,
+    "parentName": "CLAIM_GROUP",
+    "childId": 1005,
+    "childName": "CLAIM_CLAIM_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 1032,
+    "parentName": "CLAIM_GROUP",
+    "childId": 1032,
+    "childName": "CLAIM_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 1033,
+    "parentName": "CLAIM_GROUP_TYPE",
+    "childId": 1032,
+    "childName": "CLAIM_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 1034,
+    "parentName": "CLAIM_INSURABLE_INTEREST",
+    "childId": 1035,
+    "childName": "CLAIM_INSURABLE_INTEREST_ACCIDENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1034,
+    "parentName": "CLAIM_INSURABLE_INTEREST",
+    "childId": 1062,
+    "childName": "CLAIM_SERVICE_REQUEST",
+    "type": "association"
+  },
+  {
+    "parentId": 1034,
+    "parentName": "CLAIM_INSURABLE_INTEREST",
+    "childId": 3273,
+    "childName": "PARTY_INSURABLE_INTEREST_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1036,
+    "parentName": "CLAIM_INSURABLE_INTEREST_TYPE",
+    "childId": 1034,
+    "childName": "CLAIM_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 1038,
+    "parentName": "CLAIM_MANAGEMENT_AUTHORITY_TYPE",
+    "childId": 2130,
+    "childName": "INSURANCE_AGENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1039,
+    "parentName": "CLAIM_MEDIA_TYPE",
+    "childId": 976,
+    "childName": "CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1041,
+    "parentName": "CLAIM_OBLIGATION_TYPE",
+    "childId": 976,
+    "childName": "CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1043,
+    "parentName": "CLAIM_REFERRAL_TYPE",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1046,
+    "parentName": "CLAIM_RELATIONSHIP_TYPE",
+    "childId": 1045,
+    "childName": "CLAIM_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1050,
+    "childName": "CLAIM_SERVICE_ADJUDICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1052,
+    "childName": "CLAIM_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1053,
+    "childName": "CLAIM_SERVICE_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1056,
+    "childName": "CLAIM_SERVICE_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1058,
+    "childName": "CLAIM_SERVICE_DATE",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1060,
+    "childName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 3476,
+    "childName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1061,
+    "childName": "CLAIM_SERVICE_LEGAL_ACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1063,
+    "childName": "CLAIM_SERVICE_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 1066,
+    "childName": "CLAIM_SERVICE_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 1048,
+    "parentName": "CLAIM_SERVICE",
+    "childId": 3214,
+    "childName": "PARTY_CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1049,
+    "parentName": "CLAIM_SERVICE_ACTION_TYPE",
+    "childId": 0,
+    "childName": "CLAIM_SERVICE_is_current_action_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1049,
+    "parentName": "CLAIM_SERVICE_ACTION_TYPE",
+    "childId": 0,
+    "childName": "CLAIM_SERVICE_is_next_action_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1050,
+    "parentName": "CLAIM_SERVICE_ADJUDICATION",
+    "childId": 1051,
+    "childName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1052,
+    "parentName": "CLAIM_SERVICE_AMOUNT",
+    "childId": 1055,
+    "childName": "CLAIM_SERVICE_COST_RECOVERY",
+    "type": "association"
+  },
+  {
+    "parentId": 1054,
+    "parentName": "CLAIM_SERVICE_CATEGORY_TYPE",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1056,
+    "parentName": "CLAIM_SERVICE_COVERAGE",
+    "childId": 1057,
+    "childName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1059,
+    "parentName": "CLAIM_SERVICE_DATE_TYPE",
+    "childId": 1058,
+    "childName": "CLAIM_SERVICE_DATE",
+    "type": "association"
+  },
+  {
+    "parentId": 1060,
+    "parentName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "childId": 1915,
+    "childName": "DIAGNOSIS_CODE_SERVICE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1064,
+    "parentName": "CLAIM_SERVICE_STATUS_REASON_TYPE",
+    "childId": 3476,
+    "childName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1065,
+    "parentName": "CLAIM_SERVICE_STATUS_TYPE",
+    "childId": 3476,
+    "childName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1066,
+    "parentName": "CLAIM_SERVICE_TEXT",
+    "childId": 1067,
+    "childName": "CLAIM_SERVICE_TEXT_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1069,
+    "parentName": "CLAIM_STATUS_REASON_TYPE",
+    "childId": 1021,
+    "childName": "CLAIM_COVERAGE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1069,
+    "parentName": "CLAIM_STATUS_REASON_TYPE",
+    "childId": 1068,
+    "childName": "CLAIM_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1070,
+    "parentName": "CLAIM_STATUS_TYPE",
+    "childId": 1021,
+    "childName": "CLAIM_COVERAGE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1070,
+    "parentName": "CLAIM_STATUS_TYPE",
+    "childId": 1068,
+    "childName": "CLAIM_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1071,
+    "parentName": "CLAIM_SUBMITTAL_TYPE",
+    "childId": 976,
+    "childName": "CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1072,
+    "parentName": "CLAIM_TEXT",
+    "childId": 1073,
+    "childName": "CLAIM_TEXT_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1074,
+    "parentName": "CLAIM_TEXT_TYPE",
+    "childId": 1022,
+    "childName": "CLAIM_COVERAGE_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 1074,
+    "parentName": "CLAIM_TEXT_TYPE",
+    "childId": 1066,
+    "childName": "CLAIM_SERVICE_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 1074,
+    "parentName": "CLAIM_TEXT_TYPE",
+    "childId": 1072,
+    "childName": "CLAIM_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 1076,
+    "parentName": "CLAIM_TYPE",
+    "childId": 976,
+    "childName": "CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1076,
+    "parentName": "CLAIM_TYPE",
+    "childId": 1048,
+    "childName": "CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1078,
+    "parentName": "DENTAL_CLAIM",
+    "childId": 1080,
+    "childName": "DENTAL_CLAIM_TOOTH",
+    "type": "association"
+  },
+  {
+    "parentId": 1079,
+    "parentName": "DENTAL_CLAIM_SERVICE",
+    "childId": 1907,
+    "childName": "DENTAL_SERVICE_ORAL_CAVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1079,
+    "parentName": "DENTAL_CLAIM_SERVICE",
+    "childId": 1908,
+    "childName": "DENTAL_SERVICE_TOOTH",
+    "type": "association"
+  },
+  {
+    "parentId": 1081,
+    "parentName": "EXTERNALLY_REPORTED_CLAIM",
+    "childId": 3765,
+    "childName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 1083,
+    "parentName": "EXTERNAL_CLAIM_CRIME_REPORT_TYPE",
+    "childId": 1082,
+    "childName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1084,
+    "parentName": "EXTERNAL_CLAIM_FAULT_TYPE",
+    "childId": 1082,
+    "childName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1085,
+    "parentName": "EXTERNAL_CLAIM_POLICY_TYPE",
+    "childId": 1081,
+    "childName": "EXTERNALLY_REPORTED_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1086,
+    "parentName": "EXTERNAL_CLAIM_SUBTYPE",
+    "childId": 1081,
+    "childName": "EXTERNALLY_REPORTED_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1087,
+    "parentName": "HEALTH_CLAIM",
+    "childId": 1089,
+    "childName": "HEALTH_CLAIM_NUBC_CONDITION_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1088,
+    "parentName": "HEALTH_CLAIM_FORMAT_CATEGORY",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1088,
+    "parentName": "HEALTH_CLAIM_FORMAT_CATEGORY",
+    "childId": 1090,
+    "childName": "HEALTH_CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1091,
+    "parentName": "HEALTH_CLAIM_TYPE",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1092,
+    "parentName": "INCIDENT",
+    "childId": 976,
+    "childName": "CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1092,
+    "parentName": "INCIDENT",
+    "childId": 1093,
+    "childName": "INCIDENT_PERIL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 1095,
+    "parentName": "INSTITUTIONAL_CLAIM",
+    "childId": 1096,
+    "childName": "INSTITUTIONAL_CLAIM_PROCEDURE_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1095,
+    "parentName": "INSTITUTIONAL_CLAIM",
+    "childId": 865,
+    "childName": "INSTITUTIONAL_TREATMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1097,
+    "parentName": "INSTITUTIONAL_CLAIM_SERVICE",
+    "childId": 1098,
+    "childName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 1099,
+    "parentName": "INSURABLE_INTEREST",
+    "childId": 1016,
+    "childName": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 1099,
+    "parentName": "INSURABLE_INTEREST",
+    "childId": 1034,
+    "childName": "CLAIM_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 1099,
+    "parentName": "INSURABLE_INTEREST",
+    "childId": 1101,
+    "childName": "INSURABLE_INTEREST_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1099,
+    "parentName": "INSURABLE_INTEREST",
+    "childId": 3776,
+    "childName": "INSURABLE_INTEREST_TO_EXPOSURE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 1099,
+    "parentName": "INSURABLE_INTEREST",
+    "childId": 3212,
+    "childName": "PARTY_CLAIM_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 1099,
+    "parentName": "INSURABLE_INTEREST",
+    "childId": 1119,
+    "childName": "POLICY_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 1100,
+    "parentName": "INSURABLE_INTEREST_CATEGORY",
+    "childId": 1099,
+    "childName": "INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 1102,
+    "parentName": "INSURABLE_INTEREST_METRIC_TYPE",
+    "childId": 1101,
+    "childName": "INSURABLE_INTEREST_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1106,
+    "parentName": "MEDICAID_STATISTICAL_INFORMATION_SYSTEM_CLAIM_TYPE",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1107,
+    "parentName": "OUTPATIENT_INSTITUTIONAL_CLAIM",
+    "childId": 1108,
+    "childName": "OUTPATIENT_INSTITUTIONAL_CLAIM_APC",
+    "type": "association"
+  },
+  {
+    "parentId": 1109,
+    "parentName": "PATIENT_CLAIM_AUTHORIZATION",
+    "childId": 3209,
+    "childName": "PARTY_CLAIM_AUTHORIZATION_IDENTIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1109,
+    "parentName": "PATIENT_CLAIM_AUTHORIZATION",
+    "childId": 1110,
+    "childName": "PATIENT_CLAIM_AUTHORIZATION_CONDITION",
+    "type": "association"
+  },
+  {
+    "parentId": 1111,
+    "parentName": "PERIL_ORIGIN_TYPE",
+    "childId": 1112,
+    "childName": "PERIL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 1112,
+    "parentName": "PERIL_TYPE",
+    "childId": 985,
+    "childName": "CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1112,
+    "parentName": "PERIL_TYPE",
+    "childId": 1042,
+    "childName": "CLAIM_PERIL",
+    "type": "association"
+  },
+  {
+    "parentId": 1112,
+    "parentName": "PERIL_TYPE",
+    "childId": 1048,
+    "childName": "CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1112,
+    "parentName": "PERIL_TYPE",
+    "childId": 1093,
+    "childName": "INCIDENT_PERIL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 1112,
+    "parentName": "PERIL_TYPE",
+    "childId": 3060,
+    "childName": "LOCATOR_PERIL_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1112,
+    "parentName": "PERIL_TYPE",
+    "childId": 3183,
+    "childName": "PARTY_ASSET_SALVAGE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 1112,
+    "parentName": "PERIL_TYPE",
+    "childId": 1113,
+    "childName": "PERIL_TYPE_SUBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 1112,
+    "parentName": "PERIL_TYPE",
+    "childId": 3587,
+    "childName": "PRODUCT_FEATURE_PERIL",
+    "type": "association"
+  },
+  {
+    "parentId": 1115,
+    "parentName": "PHARMACY_CLAIM_SERVICE",
+    "childId": 1116,
+    "childName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 1117,
+    "parentName": "POLICY_INSURABLE_COVERAGE",
+    "childId": 45,
+    "childName": "AGREEMENT_COVERAGE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1117,
+    "parentName": "POLICY_INSURABLE_COVERAGE",
+    "childId": 1118,
+    "childName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1117,
+    "parentName": "POLICY_INSURABLE_COVERAGE",
+    "childId": 3364,
+    "childName": "POLICY_INSURABLE_COVERAGE_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 1117,
+    "parentName": "POLICY_INSURABLE_COVERAGE",
+    "childId": 1120,
+    "childName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1117,
+    "parentName": "POLICY_INSURABLE_COVERAGE",
+    "childId": 3557,
+    "childName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 1119,
+    "parentName": "POLICY_INSURABLE_INTEREST",
+    "childId": 1117,
+    "childName": "POLICY_INSURABLE_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 1119,
+    "parentName": "POLICY_INSURABLE_INTEREST",
+    "childId": 1122,
+    "childName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1121,
+    "parentName": "POLICY_INSURABLE_INTEREST_ROLE",
+    "childId": 1119,
+    "childName": "POLICY_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 1123,
+    "parentName": "PROFESSIONAL_CLAIM",
+    "childId": 1009,
+    "childName": "CLAIM_CLIA",
+    "type": "association"
+  },
+  {
+    "parentId": 1123,
+    "parentName": "PROFESSIONAL_CLAIM",
+    "childId": 1077,
+    "childName": "CLAIM_VISION_CONDITION",
+    "type": "association"
+  },
+  {
+    "parentId": 1123,
+    "parentName": "PROFESSIONAL_CLAIM",
+    "childId": 1124,
+    "childName": "PROFESSIONAL_CLAIM_APG",
+    "type": "association"
+  },
+  {
+    "parentId": 1125,
+    "parentName": "PROFESSIONAL_CLAIM_SERVICE",
+    "childId": 1126,
+    "childName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 1125,
+    "parentName": "PROFESSIONAL_CLAIM_SERVICE",
+    "childId": 2682,
+    "childName": "SUPPLEMENTAL_FORM_RESPONSE",
+    "type": "association"
+  }
+]

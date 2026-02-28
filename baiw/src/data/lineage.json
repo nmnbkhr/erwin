@@ -1,0 +1,186 @@
+[
+  {
+    "id": "1",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Interest_Income_Amt",
+    "transformation": "SUM(AGREEMENT_SUMMARY.Interest_Income_Amt) for period"
+  },
+  {
+    "id": "2",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Interest_Expense_Amt",
+    "transformation": "SUM(AGREEMENT_SUMMARY.Interest_Expense_Amt) for period"
+  },
+  {
+    "id": "3",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Net_Interest_Income_Amt",
+    "transformation": "Interest_Income_Amt - Interest_Expense_Amt + FTP_Credit_Amt - FTP_Debit_Amt"
+  },
+  {
+    "id": "4",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Fee_Income_Amt",
+    "transformation": "SUM(MONETARY_TRANSACTION.Transaction_Amt) WHERE type IN ('FEE','CHARGE')"
+  },
+  {
+    "id": "5",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Commission_Income_Amt",
+    "transformation": "SUM(MONETARY_TRANSACTION.Transaction_Amt) WHERE type IN ('COMMISSION','LC_FEE','GUARANTEE_FEE')"
+  },
+  {
+    "id": "6",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "FX_Income_Amt",
+    "transformation": "SUM(FX gain/loss from CURRENCY_EXCHANGE_RATE revaluation)"
+  },
+  {
+    "id": "7",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "FTP_Rate_Pct",
+    "transformation": "INTEREST_RATE.Rate_Value for product/tenor matched FTP curve"
+  },
+  {
+    "id": "8",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "FTP_Credit_Amt",
+    "transformation": "Average_Balance_Amt * FTP_Rate_Pct * Days/365 (for deposits)"
+  },
+  {
+    "id": "9",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "FTP_Debit_Amt",
+    "transformation": "Average_Balance_Amt * FTP_Rate_Pct * Days/365 (for loans)"
+  },
+  {
+    "id": "10",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Direct_Cost_Amt",
+    "transformation": "Activity cost drivers * unit cost rates (ABC allocation)"
+  },
+  {
+    "id": "11",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Transaction_Cost_Amt",
+    "transformation": "COUNT(transactions) * Channel_Cost_Per_Txn by channel type"
+  },
+  {
+    "id": "12",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Allocated_Overhead_Amt",
+    "transformation": "Branch overhead * allocation_key (balance, revenue, or headcount based)"
+  },
+  {
+    "id": "13",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Provision_Expense_Amt",
+    "transformation": "AGREEMENT_RISK_METRIC.Provision_Amt (IFRS9 ECL model)"
+  },
+  {
+    "id": "14",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Expected_Loss_Amt",
+    "transformation": "PD * LGD * EAD from AGREEMENT_RISK_METRIC"
+  },
+  {
+    "id": "15",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Risk_Weighted_Asset_Amt",
+    "transformation": "EAD * Risk_Weight from AGREEMENT_RISK_METRIC (Basel III SA/IRB)"
+  },
+  {
+    "id": "16",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "RAROC_Pct",
+    "transformation": "Net_Profit_Amt / Economic_Capital_Amt * 100"
+  },
+  {
+    "id": "17",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Cost_To_Income_Ratio",
+    "transformation": "Total_Cost_Amt / Total_Revenue_Amt"
+  },
+  {
+    "id": "18",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Average_Balance_Amt",
+    "transformation": "AVG(daily AGREEMENT_SUMMARY.Balance_Amt) over period"
+  },
+  {
+    "id": "19",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "WHT_Amount_Amt",
+    "transformation": "Profit_Amount * WHT_Rate (currently 15%/35% based on filer status)"
+  },
+  {
+    "id": "20",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "FACT_CUSTOMER_PROFITABILITY",
+    "targetColumn": "Zakat_Deduction_Amt",
+    "transformation": "Balance_Amt * 2.5% (on Zakat valuation date, 1st Ramadan)"
+  },
+  {
+    "id": "21",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "DIM_CUSTOMER",
+    "targetColumn": "Customer_Segment_Cd",
+    "transformation": "PARTY_CLASSIFICATION.Classification_Value where type='SEGMENT'"
+  },
+  {
+    "id": "22",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "DIM_CUSTOMER",
+    "targetColumn": "Risk_Segment_Cd",
+    "transformation": "RISK_GRADE_VALUE.Grade_Cd from customer risk model"
+  },
+  {
+    "id": "23",
+    "sourceEntity": "",
+    "sourceColumn": "",
+    "targetEntity": "DIM_PRODUCT",
+    "targetColumn": "FTP_Rate_Pct",
+    "transformation": "INTEREST_RATE.Rate_Value matched by product tenor to KIBOR curve"
+  }
+]

@@ -1,0 +1,1619 @@
+[
+  {
+    "parentId": 808,
+    "parentName": "ASSET_VALUATION_PURPOSE_TYPE",
+    "childId": 526,
+    "childName": "ASSET_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 813,
+    "parentName": "BOND_ISSUE_PURPOSE_TYPE",
+    "childId": 1433,
+    "childName": "BOND",
+    "type": "association"
+  },
+  {
+    "parentId": 817,
+    "parentName": "CALL_CENTER_TYPE",
+    "childId": 816,
+    "childName": "CALL_CENTER_TERMINAL_CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 819,
+    "parentName": "CAMPAIGN_CHANNEL_TYPE_XREF",
+    "childId": 818,
+    "childName": "CAMPAIGN_CHANNEL_TYPE_MULTIMEDIA_OBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 820,
+    "parentName": "CAMPAIGN_OBJECTIVE_POSITION_TYPE",
+    "childId": 580,
+    "childName": "AD_CAMPAIGN_OBJECTIVE",
+    "type": "association"
+  },
+  {
+    "parentId": 824,
+    "parentName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "childId": 823,
+    "childName": "CHANNEL_CHANNEL_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 824,
+    "parentName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "childId": 824,
+    "childName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 824,
+    "parentName": "CHANNEL_CLASS_SCHEME_TYPE",
+    "childId": 825,
+    "childName": "CHANNEL_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 825,
+    "parentName": "CHANNEL_CLASS_VALUE",
+    "childId": 823,
+    "childName": "CHANNEL_CHANNEL_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 825,
+    "parentName": "CHANNEL_CLASS_VALUE",
+    "childId": 825,
+    "childName": "CHANNEL_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 828,
+    "parentName": "CHANNEL_EVENT_REASON_TYPE",
+    "childId": 827,
+    "childName": "CHANNEL_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 599,
+    "childName": "AD_ORDER_HEADER_PLATFORM_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 620,
+    "childName": "AD_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 31,
+    "childName": "AGREEMENT_CHANNEL",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 1703,
+    "childName": "APPLICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 1139,
+    "childName": "BOFD_CHECK_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 821,
+    "childName": "CELL_TARGET_CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 822,
+    "childName": "CHANNEL_CAPACITY",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 823,
+    "childName": "CHANNEL_CHANNEL_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 826,
+    "childName": "CHANNEL_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 2923,
+    "childName": "CHANNEL_DEMOGRAPHIC",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 827,
+    "childName": "CHANNEL_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 3474,
+    "childName": "CHANNEL_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 2924,
+    "childName": "CHANNEL_INSTANCE_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 0,
+    "childName": "CHANNEL_INSTANCE_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 0,
+    "childName": "CHANNEL_INSTANCE_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 832,
+    "childName": "CHANNEL_INSTANCE_SITE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 833,
+    "childName": "CHANNEL_INSTANCE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 835,
+    "childName": "CHANNEL_NETWORK",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 836,
+    "childName": "CHANNEL_OPERATING_HOURS",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 838,
+    "childName": "CHANNEL_PROFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 3736,
+    "childName": "CHANNEL_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 854,
+    "childName": "EVENT_CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 0,
+    "childName": "EXTENDED_SESSION_INFORMATION_is_first_platform_for",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 0,
+    "childName": "EXTENDED_SESSION_INFORMATION_is_last_platform_for",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 2304,
+    "childName": "NEXT_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 3199,
+    "childName": "PARTY_CHANNEL_INSTANCE_PREFERENCE",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 3200,
+    "childName": "PARTY_CHANNEL_INSTANCE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 3328,
+    "childName": "PARTY_SCRIPT",
+    "type": "association"
+  },
+  {
+    "parentId": 829,
+    "parentName": "CHANNEL_INSTANCE",
+    "childId": 951,
+    "childName": "PROMOTION_CHANNEL",
+    "type": "association"
+  },
+  {
+    "parentId": 831,
+    "parentName": "CHANNEL_INSTANCE_RELATED_REASON",
+    "childId": 830,
+    "childName": "CHANNEL_INSTANCE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 834,
+    "parentName": "CHANNEL_INSTANCE_SUBTYPE",
+    "childId": 829,
+    "childName": "CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 834,
+    "parentName": "CHANNEL_INSTANCE_SUBTYPE",
+    "childId": 2149,
+    "childName": "INTERACTIVE_DEVICE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 837,
+    "parentName": "CHANNEL_PROCESSING_TYPE",
+    "childId": 841,
+    "childName": "CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 840,
+    "parentName": "CHANNEL_STATUS_TYPE",
+    "childId": 833,
+    "childName": "CHANNEL_INSTANCE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 840,
+    "parentName": "CHANNEL_STATUS_TYPE",
+    "childId": 846,
+    "childName": "CHANNEL_TYPE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 33,
+    "childName": "AGREEMENT_CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 819,
+    "childName": "CAMPAIGN_CHANNEL_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 829,
+    "childName": "CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 841,
+    "childName": "CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 842,
+    "childName": "CHANNEL_TYPE_CAPACITY",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 844,
+    "childName": "CHANNEL_TYPE_GROUP_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 3737,
+    "childName": "CHANNEL_TYPE_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 845,
+    "childName": "CHANNEL_TYPE_SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 846,
+    "childName": "CHANNEL_TYPE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 848,
+    "childName": "CHANNEL_TYPE_SURVEY_RESPONSE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 849,
+    "childName": "CHANNEL_TYPE_USAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 1029,
+    "childName": "CLAIM_FOLLOW-UP",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 2942,
+    "childName": "CONTACT_FOLLOW-UP",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 2304,
+    "childName": "NEXT_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 722,
+    "childName": "OPPORTUNITY",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 3201,
+    "childName": "PARTY_CHANNEL_PREFERENCE_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 3204,
+    "childName": "PARTY_CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 3205,
+    "childName": "PARTY_CHANNEL_TYPE_ACTIVITY_QUOTA",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 3331,
+    "childName": "PARTY_SOLICITATION_PREFERENCE",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 3569,
+    "childName": "PRODUCT_CHANNEL_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 757,
+    "childName": "PROMOTION",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 773,
+    "childName": "PROMOTION_STEP",
+    "type": "association"
+  },
+  {
+    "parentId": 841,
+    "parentName": "CHANNEL_TYPE",
+    "childId": 2577,
+    "childName": "SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 843,
+    "parentName": "CHANNEL_TYPE_GROUP",
+    "childId": 844,
+    "childName": "CHANNEL_TYPE_GROUP_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 847,
+    "parentName": "CHANNEL_TYPE_SUBTYPE",
+    "childId": 841,
+    "childName": "CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 850,
+    "parentName": "CHANNEL_USAGE_TYPE",
+    "childId": 849,
+    "childName": "CHANNEL_TYPE_USAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 855,
+    "parentName": "EVENT_CHANNEL_REASON",
+    "childId": 854,
+    "childName": "EVENT_CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 856,
+    "parentName": "EXTERNAL_CLAIM_VEHICLE_DISPOSITION_STATUS_TYPE",
+    "childId": 1082,
+    "childName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 857,
+    "parentName": "FINANCIAL_RULE_PURPOSE_TYPE",
+    "childId": 2012,
+    "childName": "FINANCIAL_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 858,
+    "parentName": "HR_POSITION",
+    "childId": 0,
+    "childName": "HR_POSITION_RELATED_related",
+    "type": "association"
+  },
+  {
+    "parentId": 858,
+    "parentName": "HR_POSITION",
+    "childId": 0,
+    "childName": "HR_POSITION_RELATED_relates",
+    "type": "association"
+  },
+  {
+    "parentId": 858,
+    "parentName": "HR_POSITION",
+    "childId": 861,
+    "childName": "HR_POSITION_SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 858,
+    "parentName": "HR_POSITION",
+    "childId": 938,
+    "childName": "POSITION_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 860,
+    "parentName": "HR_POSITION_RELATED_ROLE",
+    "childId": 859,
+    "childName": "HR_POSITION_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 862,
+    "parentName": "HR_POSITION_SITE_REASON",
+    "childId": 861,
+    "childName": "HR_POSITION_SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 863,
+    "parentName": "HR_POSITION_TRAIT",
+    "childId": 943,
+    "childName": "POSITION_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 864,
+    "parentName": "HR_POSITION_TYPE",
+    "childId": 858,
+    "childName": "HR_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 869,
+    "parentName": "INVESTMENT_PURPOSE_TYPE",
+    "childId": 343,
+    "childName": "INVESTMENT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 870,
+    "parentName": "IVR_ACTION",
+    "childId": 871,
+    "childName": "IVR_LEG",
+    "type": "association"
+  },
+  {
+    "parentId": 870,
+    "parentName": "IVR_ACTION",
+    "childId": 0,
+    "childName": "IVR_STEP_NAVIGATION_is_start_action_for",
+    "type": "association"
+  },
+  {
+    "parentId": 870,
+    "parentName": "IVR_ACTION",
+    "childId": 0,
+    "childName": "IVR_STEP_NAVIGATION_is_transfer_action_for",
+    "type": "association"
+  },
+  {
+    "parentId": 871,
+    "parentName": "IVR_LEG",
+    "childId": 873,
+    "childName": "IVR_STEP_NAVIGATION",
+    "type": "association"
+  },
+  {
+    "parentId": 872,
+    "parentName": "IVR_LEG_ACTION_TYPE",
+    "childId": 871,
+    "childName": "IVR_LEG",
+    "type": "association"
+  },
+  {
+    "parentId": 874,
+    "parentName": "IVR_TERMINATION_TYPE",
+    "childId": 871,
+    "childName": "IVR_LEG",
+    "type": "association"
+  },
+  {
+    "parentId": 874,
+    "parentName": "IVR_TERMINATION_TYPE",
+    "childId": 0,
+    "childName": "IVR_STEP_NAVIGATION_ends_step",
+    "type": "association"
+  },
+  {
+    "parentId": 874,
+    "parentName": "IVR_TERMINATION_TYPE",
+    "childId": 0,
+    "childName": "IVR_STEP_NAVIGATION_ends_transaction",
+    "type": "association"
+  },
+  {
+    "parentId": 874,
+    "parentName": "IVR_TERMINATION_TYPE",
+    "childId": 1313,
+    "childName": "IVR_STEP_TRANSACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 877,
+    "parentName": "LEDGER_POSTING_STATUS",
+    "childId": 2192,
+    "childName": "LEDGER_BATCH",
+    "type": "association"
+  },
+  {
+    "parentId": 878,
+    "parentName": "LIENHOLDER_POSITION_TYPE",
+    "childId": 3052,
+    "childName": "LENDER_PARTY_LIABILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 878,
+    "parentName": "LIENHOLDER_POSITION_TYPE",
+    "childId": 3348,
+    "childName": "PARTY_TO_PARTY_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 880,
+    "parentName": "MEASUREMENT_EVENT_PURPOSE",
+    "childId": 1204,
+    "childName": "MEASUREMENT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 881,
+    "parentName": "METRIC_PURPOSE_TYPE",
+    "childId": 3058,
+    "childName": "LOCATOR_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 881,
+    "parentName": "METRIC_PURPOSE_TYPE",
+    "childId": 2584,
+    "childName": "SITE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 882,
+    "parentName": "MODEL_PURPOSE_TYPE",
+    "childId": 1690,
+    "childName": "ANALYTICAL_MODEL",
+    "type": "association"
+  },
+  {
+    "parentId": 883,
+    "parentName": "MODEL_RUN_PURPOSE_TYPE",
+    "childId": 2274,
+    "childName": "MODEL_RUN",
+    "type": "association"
+  },
+  {
+    "parentId": 884,
+    "parentName": "MORTALITY_TABLE_PURPOSE",
+    "childId": 3014,
+    "childName": "INDIVIDUAL_MORTALITY",
+    "type": "association"
+  },
+  {
+    "parentId": 886,
+    "parentName": "OBLIGOR_BORROWING_PURPOSE_TYPE",
+    "childId": 223,
+    "childName": "CREDIT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 887,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 1745,
+    "childName": "AUDIO_PLAY",
+    "type": "association"
+  },
+  {
+    "parentId": 887,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 888,
+    "childName": "ONLINE_APPLICATION_ACCESS_AD_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 887,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 3081,
+    "childName": "ONLINE_APPLICATION_ACCESS_SEGMENT_DEMOGRAPHIC",
+    "type": "association"
+  },
+  {
+    "parentId": 887,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 897,
+    "childName": "ONLINE_APPLICATION_PROGRAM_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 887,
+    "parentName": "ONLINE_APPLICATION_ACCESS",
+    "childId": 2610,
+    "childName": "SOCIAL_MEDIA_INTERACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 889,
+    "parentName": "ONLINE_APPLICATION_ACCESS_SUBTYPE",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 891,
+    "parentName": "ONLINE_APPLICATION_GAME_TYPE",
+    "childId": 2040,
+    "childName": "GAME_PLAY",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 895,
+    "childName": "ONLINE_APPLICATION_PROGRAM_DEVICE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 896,
+    "childName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 898,
+    "childName": "ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 0,
+    "childName": "ONLINE_APPLICATION_PROGRAM_RELATED_is_program_for",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 0,
+    "childName": "ONLINE_APPLICATION_PROGRAM_RELATED_is_related_program",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 903,
+    "childName": "ONLINE_APPLICATION_PROGRAM_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 907,
+    "childName": "ONLINE_APPLICATION_PROGRAM_TRAIT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 909,
+    "childName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "type": "association"
+  },
+  {
+    "parentId": 892,
+    "parentName": "ONLINE_APPLICATION_PROGRAM",
+    "childId": 3856,
+    "childName": "PROGRAM_PAGE_VIEW_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 893,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_CATEGORY",
+    "childId": 892,
+    "childName": "ONLINE_APPLICATION_PROGRAM",
+    "type": "association"
+  },
+  {
+    "parentId": 894,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "childId": 1718,
+    "childName": "APPLICATION_PERFORMANCE_RATING",
+    "type": "association"
+  },
+  {
+    "parentId": 894,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "childId": 901,
+    "childName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 896,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "childId": 896,
+    "childName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "type": "association"
+  },
+  {
+    "parentId": 899,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_RATING",
+    "childId": 901,
+    "childName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 900,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_RATING_REASON",
+    "childId": 901,
+    "childName": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 904,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_STATUS_TYPE",
+    "childId": 903,
+    "childName": "ONLINE_APPLICATION_PROGRAM_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 905,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_TRAIT",
+    "childId": 906,
+    "childName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 906,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "childId": 644,
+    "childName": "AD_TRAIT",
+    "type": "association"
+  },
+  {
+    "parentId": 906,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "childId": 907,
+    "childName": "ONLINE_APPLICATION_PROGRAM_TRAIT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 908,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_TYPE",
+    "childId": 892,
+    "childName": "ONLINE_APPLICATION_PROGRAM",
+    "type": "association"
+  },
+  {
+    "parentId": 908,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_TYPE",
+    "childId": 896,
+    "childName": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "type": "association"
+  },
+  {
+    "parentId": 909,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "childId": 0,
+    "childName": "APPLICATION_SECOND_SOURCE_XREF_is_primary",
+    "type": "association"
+  },
+  {
+    "parentId": 909,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "childId": 0,
+    "childName": "APPLICATION_SECOND_SOURCE_XREF_is_secondary",
+    "type": "association"
+  },
+  {
+    "parentId": 909,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 909,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "childId": 890,
+    "childName": "ONLINE_APPLICATION_DEVELOPER_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 909,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "childId": 894,
+    "childName": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 909,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "childId": 3082,
+    "childName": "ONLINE_APPLICATION_PROGRAM_IDENTIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 909,
+    "parentName": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "childId": 2622,
+    "childName": "SOCIAL_NETWORK_MEMBER",
+    "type": "association"
+  },
+  {
+    "parentId": 911,
+    "parentName": "ONLINE_APPLICATION_RELATED_ROLE",
+    "childId": 902,
+    "childName": "ONLINE_APPLICATION_PROGRAM_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 912,
+    "parentName": "ONLINE_APPLICATION_SUBCATEGORY",
+    "childId": 893,
+    "childName": "ONLINE_APPLICATION_PROGRAM_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 914,
+    "parentName": "ONLINE_CHANNEL_TYPE",
+    "childId": 2759,
+    "childName": "TV_SIGNAL_RECEIVER",
+    "type": "association"
+  },
+  {
+    "parentId": 915,
+    "parentName": "ONLINE_CHANNEL_TYPE_2",
+    "childId": 914,
+    "childName": "ONLINE_CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 916,
+    "parentName": "ONLINE_CHANNEL_TYPE_3",
+    "childId": 915,
+    "childName": "ONLINE_CHANNEL_TYPE_2",
+    "type": "association"
+  },
+  {
+    "parentId": 917,
+    "parentName": "ONLINE_DOCUMENT_INFORMATION",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 917,
+    "parentName": "ONLINE_DOCUMENT_INFORMATION",
+    "childId": 1359,
+    "childName": "SOCIAL_MEDIA_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 917,
+    "parentName": "ONLINE_DOCUMENT_INFORMATION",
+    "childId": 1373,
+    "childName": "TRANSFER_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 579,
+    "childName": "ADVERTISEMENT_USAGE_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 583,
+    "childName": "AD_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 1920,
+    "childName": "DIGITAL_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 2112,
+    "childName": "IMPRESSION_DELIVERY_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 2114,
+    "childName": "IMPRESSION_SELECTED",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 1196,
+    "childName": "INTERACTION_EVENT_IMPRESSION_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 2601,
+    "childName": "SOCIAL_MEDIA_ACTIVITY_IMPRESSION_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 3866,
+    "childName": "VISITOR_PATH_ANALYSIS",
+    "type": "association"
+  },
+  {
+    "parentId": 918,
+    "parentName": "ONLINE_IMPRESSION_EXPERIENCED",
+    "childId": 805,
+    "childName": "WEB_CAMPAIGN_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 919,
+    "parentName": "ONLINE_PROMOTION",
+    "childId": 585,
+    "childName": "AD_GROUP_PROMOTION_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 919,
+    "parentName": "ONLINE_PROMOTION",
+    "childId": 2178,
+    "childName": "KEYWORD_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 919,
+    "parentName": "ONLINE_PROMOTION",
+    "childId": 921,
+    "childName": "ONLINE_PROMOTION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 919,
+    "parentName": "ONLINE_PROMOTION",
+    "childId": 923,
+    "childName": "ONLINE_PROMOTION_VISIT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 919,
+    "parentName": "ONLINE_PROMOTION",
+    "childId": 465,
+    "childName": "SEARCH_ENGINE_ACCOUNT_CAMPAIGN_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 919,
+    "parentName": "ONLINE_PROMOTION",
+    "childId": 1227,
+    "childName": "VISITOR_INTERACTION_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 919,
+    "parentName": "ONLINE_PROMOTION",
+    "childId": 799,
+    "childName": "VISIT_PROMOTION_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 922,
+    "parentName": "ONLINE_PROMOTION_TYPE",
+    "childId": 919,
+    "childName": "ONLINE_PROMOTION",
+    "type": "association"
+  },
+  {
+    "parentId": 923,
+    "parentName": "ONLINE_PROMOTION_VISIT_XREF",
+    "childId": 920,
+    "childName": "ONLINE_PROMOTION_ATTRIBUTE",
+    "type": "association"
+  },
+  {
+    "parentId": 924,
+    "parentName": "ONLINE_RADIO_STATION",
+    "childId": 1746,
+    "childName": "AUDIO_PLAY_RADIO_STATION_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 925,
+    "parentName": "ONLINE_VISITOR_AFFILIATION_TYPE",
+    "childId": 3863,
+    "childName": "VISITOR_LOGON_SYSTEM",
+    "type": "association"
+  },
+  {
+    "parentId": 926,
+    "parentName": "OPPORTUNITY_PROPOSAL",
+    "childId": 402,
+    "childName": "OPPORTUNITY_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 927,
+    "parentName": "OTC_POST-TRADE_TYPE",
+    "childId": 968,
+    "childName": "TRADE_EXECUTION_OTC_POST-TRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 930,
+    "parentName": "PACKAGE_CHANNEL_LINEUP",
+    "childId": 579,
+    "childName": "ADVERTISEMENT_USAGE_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 930,
+    "parentName": "PACKAGE_CHANNEL_LINEUP",
+    "childId": 2760,
+    "childName": "TV_SIGNAL_RECEIVER_USAGE_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 931,
+    "parentName": "PAGE_POSITION_TYPE",
+    "childId": 624,
+    "childName": "AD_PLACEMENT_PRINT_PLATFORM",
+    "type": "association"
+  },
+  {
+    "parentId": 931,
+    "parentName": "PAGE_POSITION_TYPE",
+    "childId": 1924,
+    "childName": "DIGITAL_REQUEST_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 931,
+    "parentName": "PAGE_POSITION_TYPE",
+    "childId": 2493,
+    "childName": "REQUEST_PLACEMENT_PRINT",
+    "type": "association"
+  },
+  {
+    "parentId": 931,
+    "parentName": "PAGE_POSITION_TYPE",
+    "childId": 3875,
+    "childName": "WEB_PAGE_CREATIVE",
+    "type": "association"
+  },
+  {
+    "parentId": 931,
+    "parentName": "PAGE_POSITION_TYPE",
+    "childId": 3879,
+    "childName": "WEB_PAGE_MM_OBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 931,
+    "parentName": "PAGE_POSITION_TYPE",
+    "childId": 3886,
+    "childName": "WEB_PLATFORM",
+    "type": "association"
+  },
+  {
+    "parentId": 935,
+    "parentName": "POSITION_APPLICANT_STATUS_TYPE",
+    "childId": 942,
+    "childName": "POSITION_POSTING_APPLICANT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 936,
+    "parentName": "POSITION_ASSIGNMENT_STATUS",
+    "childId": 3106,
+    "childName": "ORGANIZATION_POSITION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 938,
+    "parentName": "POSITION_GRADE",
+    "childId": 811,
+    "childName": "BENEFIT_PLAN_OPTION_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 938,
+    "parentName": "POSITION_GRADE",
+    "childId": 3105,
+    "childName": "ORGANIZATION_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 939,
+    "parentName": "POSITION_GRADE_TYPE",
+    "childId": 938,
+    "childName": "POSITION_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 940,
+    "parentName": "POSITION_POSTING",
+    "childId": 941,
+    "childName": "POSITION_POSTING_APPLICANT",
+    "type": "association"
+  },
+  {
+    "parentId": 941,
+    "parentName": "POSITION_POSTING_APPLICANT",
+    "childId": 1970,
+    "childName": "EMPLOYMENT_WORK_PROCESS_STEP_ACTUAL",
+    "type": "association"
+  },
+  {
+    "parentId": 941,
+    "parentName": "POSITION_POSTING_APPLICANT",
+    "childId": 934,
+    "childName": "POSITION_APPLICANT_INTERVIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 941,
+    "parentName": "POSITION_POSTING_APPLICANT",
+    "childId": 942,
+    "childName": "POSITION_POSTING_APPLICANT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 943,
+    "parentName": "POSITION_TRAIT_VALUE",
+    "childId": 3107,
+    "childName": "ORGANIZATION_POSITION_TRAIT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 851,
+    "childName": "CURRENCY_POSITION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 3761,
+    "childName": "EQUITY_NETTED_GROUP_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 0,
+    "childName": "INSTRUMENT_METRIC_TYPE_CALCULATION_is_final_position_type_for",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 0,
+    "childName": "INSTRUMENT_METRIC_TYPE_CALCULATION_is_position_type_for",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 343,
+    "childName": "INVESTMENT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 1289,
+    "childName": "INVESTMENT_HOLDING_STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 420,
+    "childName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 3559,
+    "childName": "PORTFOLIO_PRODUCT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 944,
+    "parentName": "POSITION_TYPE",
+    "childId": 937,
+    "childName": "POSITION_FX_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 945,
+    "parentName": "POSSIBLE_ANSWER",
+    "childId": 959,
+    "childName": "QUESTION_POSSIBLE_ANSWER",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 3842,
+    "childName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 1799,
+    "childName": "CENSUS_BLOCK__GEO",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 228,
+    "childName": "CREDIT_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 1617,
+    "childName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 1627,
+    "childName": "OVERSEAS_MILITARY_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 1628,
+    "childName": "PARCEL_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 948,
+    "childName": "POST_OFFICE_BOX_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 1631,
+    "childName": "STREET_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 946,
+    "parentName": "POSTAL_CODE",
+    "childId": 3861,
+    "childName": "VISITOR_INPUT",
+    "type": "association"
+  },
+  {
+    "parentId": 947,
+    "parentName": "POSTAL_CODE_JAPAN",
+    "childId": 1633,
+    "childName": "STREET_ADDRESS_JAPAN",
+    "type": "association"
+  },
+  {
+    "parentId": 948,
+    "parentName": "POST_OFFICE_BOX_ADDRESS",
+    "childId": 879,
+    "childName": "LOCK_BOX_CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 950,
+    "parentName": "PROGRAMMING_CHANNEL_GROUP_TYPE",
+    "childId": 930,
+    "childName": "PACKAGE_CHANNEL_LINEUP",
+    "type": "association"
+  },
+  {
+    "parentId": 951,
+    "parentName": "PROMOTION_CHANNEL",
+    "childId": 952,
+    "childName": "PROMOTION_CHANNEL_MM_OBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 926,
+    "childName": "OPPORTUNITY_PROPOSAL",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 438,
+    "childName": "PROPOSAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 3641,
+    "childName": "PROPOSAL_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 954,
+    "childName": "PROPOSAL_FINANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 3401,
+    "childName": "PROPOSAL_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 3642,
+    "childName": "PROPOSAL_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 3643,
+    "childName": "PROPOSAL_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 953,
+    "parentName": "PROPOSAL",
+    "childId": 956,
+    "childName": "PROPOSAL_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 955,
+    "parentName": "PROPOSAL_FINANCE_TYPE",
+    "childId": 954,
+    "childName": "PROPOSAL_FINANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 957,
+    "parentName": "PROPOSAL_STATUS_REASON_TYPE",
+    "childId": 956,
+    "childName": "PROPOSAL_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 958,
+    "parentName": "PROPOSAL_STATUS_TYPE",
+    "childId": 956,
+    "childName": "PROPOSAL_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 959,
+    "parentName": "QUESTION_POSSIBLE_ANSWER",
+    "childId": 791,
+    "childName": "SURVEY_RESPONSE_ANSWER",
+    "type": "association"
+  },
+  {
+    "parentId": 961,
+    "parentName": "SCENARIO_PURPOSE_TYPE",
+    "childId": 3813,
+    "childName": "RISK_CALCULATION_SCENARIO",
+    "type": "association"
+  },
+  {
+    "parentId": 963,
+    "parentName": "SITE_PURPOSE_TYPE",
+    "childId": 2577,
+    "childName": "SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 964,
+    "parentName": "SOCIAL_MEDIA_POST",
+    "childId": 2605,
+    "childName": "SOCIAL_MEDIA_CATEGORY_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 967,
+    "parentName": "TIME_BAND_SCHEME_PURPOSE_TYPE",
+    "childId": 2725,
+    "childName": "TIME_BAND_SCHEME",
+    "type": "association"
+  },
+  {
+    "parentId": 969,
+    "parentName": "TRADE_PURPOSE_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 970,
+    "parentName": "TREATMENT_TYPE",
+    "childId": 865,
+    "childName": "INSTITUTIONAL_TREATMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 971,
+    "parentName": "WEB_SITE_DATABASE_REPOSITORY",
+    "childId": 3899,
+    "childName": "WEB_SITE",
+    "type": "association"
+  }
+]

@@ -1,0 +1,1094 @@
+[
+  {
+    "id": 973,
+    "name": "ADJUDICATION_AMOUNT_TYPE",
+    "domain": "Claims Management",
+    "description": "The type of monetary amount on a claim resulting from adjudication.  Examples: - Noncovered amount - Paid amount - Copaid amount - Deductible amount - Withheld amount - Allowed amount - Discount amount - Per day limit amount - Tax amount",
+    "attributeCount": 2
+  },
+  {
+    "id": 974,
+    "name": "ADJUDICATION_TYPE",
+    "domain": "Claims Management",
+    "description": "This is a code used to identify uniquely the type of adjudication.  Examples: - Internal - COB (Coordination of Benefits)",
+    "attributeCount": 2
+  },
+  {
+    "id": 975,
+    "name": "ASSET_INSURABLE_INTEREST",
+    "domain": "Claims Management",
+    "description": "This entity contains those insurable interests that are party assets such as automobile, real estate, and inventory.",
+    "attributeCount": 2
+  },
+  {
+    "id": 976,
+    "name": "CLAIM",
+    "domain": "Claims Management",
+    "description": "A claim is the request to the insurance company to honor the terms and conditions of one or more coverages included in one or more policies.  A claim is usually accompanied by one or more documents, such as an invoice, accident report, or death certificate.  Parties involved in a claim might include",
+    "attributeCount": 14
+  },
+  {
+    "id": 977,
+    "name": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "domain": "Claims Management",
+    "description": "This entity contains the history of the status of the claim for each claimant for this insurable interest.  Examples would be open, closed, settled, reopened, settled again, and closed again.",
+    "attributeCount": 7
+  },
+  {
+    "id": 978,
+    "name": "CLAIMANT_INSURABLE_INTEREST_STATUS_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity identifies the status of the claim to each claimant. Examples would be open, closed, settled, reopened, settled again, and closed again.",
+    "attributeCount": 2
+  },
+  {
+    "id": 979,
+    "name": "CLAIM_ADJUDICATION",
+    "domain": "Claims Management",
+    "description": "A decision on the settlement of a claim.",
+    "attributeCount": 6
+  },
+  {
+    "id": 980,
+    "name": "CLAIM_ADJUDICATION_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This associative entity relates adjudications done at the claim level to the claim adjudication. For this combination, the adjudicated amount is included.  Examples include amounts at claim level such as: - Paid amount - Allowed amount - Approved amount",
+    "attributeCount": 4
+  },
+  {
+    "id": 981,
+    "name": "CLAIM_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This associative entity relates the claim with the amounts for the claim, such as the total claimed amount, lawyer fees, and claims adjuster fees.",
+    "attributeCount": 7
+  },
+  {
+    "id": 982,
+    "name": "CLAIM_AMOUNT_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity contains the claim amount types and descriptions that can be associated with a claim or a claim service. These types can be categorized as either indirect or direct amount types. These types include dollar amounts such as the claimed amount, adjuster fees, lawyer fees, or numbers/q",
+    "attributeCount": 2
+  },
+  {
+    "id": 983,
+    "name": "CLAIM_ASSET",
+    "domain": "Claims Management",
+    "description": "This entity demonstrates which assets were involved with the claim.",
+    "attributeCount": 6
+  },
+  {
+    "id": 984,
+    "name": "CLAIM_ASSET_RELATIONSHIP_TYPE",
+    "domain": "Claims Management",
+    "description": "This is the code for the type of association between the claim and the asset, such as the object of the claim, or the replacement asset while the damaged asset is being repaired.",
+    "attributeCount": 2
+  },
+  {
+    "id": 985,
+    "name": "CLAIM_AUTHORIZATION",
+    "domain": "Claims Management",
+    "description": "This entity describes the authorizations that have been granted for insurance purposes. This includes admission review, claim service review, and specialty care reviews.",
+    "attributeCount": 19
+  },
+  {
+    "id": 986,
+    "name": "CLAIM_AUTHORIZATION_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This entity associates authorized amounts with the claim authorization. These are for amounts at the authorization level.",
+    "attributeCount": 5
+  },
+  {
+    "id": 987,
+    "name": "CLAIM_AUTHORIZATION_AMOUNT_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity contains the claim authorization amount codes and descriptions that can be associated with a claim authorization. Examples include requested length of stay amount, requested minimum amount, and approved number of units.",
+    "attributeCount": 2
+  },
+  {
+    "id": 988,
+    "name": "CLAIM_AUTHORIZATION_ATTACHMENT",
+    "domain": "Claims Management",
+    "description": "This entity relates the attachments associated with the claim authorization.",
+    "attributeCount": 3
+  },
+  {
+    "id": 989,
+    "name": "CLAIM_AUTHORIZATION_CATEGORY",
+    "domain": "Claims Management",
+    "description": "A category for the type of claim authorization requested.  Examples: - Admission review - Claim services review - Specialty care review (referral)",
+    "attributeCount": 2
+  },
+  {
+    "id": 990,
+    "name": "CLAIM_AUTHORIZATION_CERTIFICATION",
+    "domain": "Claims Management",
+    "description": "These are the certifications related to the claim authorization.",
+    "attributeCount": 2
+  },
+  {
+    "id": 991,
+    "name": "CLAIM_AUTHORIZATION_DIAGNOSIS_CODE",
+    "domain": "Claims Management",
+    "description": "This entity identifies the diagnostic code(s) associated with a claim authorization.",
+    "attributeCount": 6
+  },
+  {
+    "id": 992,
+    "name": "CLAIM_AUTHORIZATION_END_REASON_TYPE",
+    "domain": "Claims Management",
+    "description": "The code for the reason that this authorization terminated such as maximum number of treatments exceeded or maximum amount exceeded.",
+    "attributeCount": 2
+  },
+  {
+    "id": 993,
+    "name": "CLAIM_AUTHORIZATION_IDENTIFIER",
+    "domain": "Claims Management",
+    "description": "This entity provides trace numbers assigned to the claim authorization as specified by a party.",
+    "attributeCount": 3
+  },
+  {
+    "id": 994,
+    "name": "CLAIM_AUTHORIZATION_REASON",
+    "domain": "Claims Management",
+    "description": "The reason for a prior authorization request.  Examples: - Medical exception - Plan requirement - Increase plan limitation - Medical certification - EPSDT (Early Periodic Screening Diagnosis Treatment) - Exemption from copay - Exemption from Rx - Family plan indicator - AFDC (Aid to Families with De",
+    "attributeCount": 2
+  },
+  {
+    "id": 995,
+    "name": "CLAIM_AUTHORIZATION_RELATED",
+    "domain": "Claims Management",
+    "description": "This associative entity relates one claim authorization to another.",
+    "attributeCount": 5
+  },
+  {
+    "id": 996,
+    "name": "CLAIM_AUTHORIZATION_RELATIONSHIP_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity describes the type of relationship between two claim authorizations such as one authorization replaces another, or that one authorization is a subsequent authorization.",
+    "attributeCount": 2
+  },
+  {
+    "id": 997,
+    "name": "CLAIM_AUTHORIZATION_SERVICE",
+    "domain": "Claims Management",
+    "description": "This entity identifies those procedures as requested on the authorization.  For health, one authorization can be representative of up to 11 procedures involved with the authorization.",
+    "attributeCount": 6
+  },
+  {
+    "id": 998,
+    "name": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This entity associates authorized amounts with the claim services on the claim authorization. For amounts at the authorization level. See entity CLAIM AUTHORIZATION AMOUNT.",
+    "attributeCount": 8
+  },
+  {
+    "id": 999,
+    "name": "CLAIM_AUTHORIZATION_SERVICE_ROLE",
+    "domain": "Claims Management",
+    "description": "Defines the role a service can have in relation to the authorization.  Examples: - Requested on - Relevant to  In health care, for example, the authorization may be because of a surgery procedure.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1000,
+    "name": "CLAIM_AUTHORIZATION_STATUS",
+    "domain": "Claims Management",
+    "description": "This entity provides the information of the status for a given claim authorization.  Examples include: - Delayed - Rejected - Approved",
+    "attributeCount": 4
+  },
+  {
+    "id": 1001,
+    "name": "CLAIM_AUTHORIZATION_STATUS_REASON",
+    "domain": "Claims Management",
+    "description": "This minor entity identifies the reason for a claim authorization status type.  Example: For a CLAIM AUTHORIZATION STATUS TYPE of delay, the following reasons may exist: - Proof of eligibility unknown or unavailable - Delay in certifying provider - Delay in eligibility determination",
+    "attributeCount": 2
+  },
+  {
+    "id": 1002,
+    "name": "CLAIM_AUTHORIZATION_STATUS_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity translates the claim authorization status type code into a description.  Examples include: - Delayed - Rejected - Approved",
+    "attributeCount": 2
+  },
+  {
+    "id": 1003,
+    "name": "CLAIM_AUTHORIZATION_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity describes the kind of authorizations.  Examples: - Renewal - Initial - Appeal – immediate - Appeal – standard - Revised",
+    "attributeCount": 2
+  },
+  {
+    "id": 1004,
+    "name": "CLAIM_CATEGORY_TYPE",
+    "domain": "Claims Management",
+    "description": "A high-level categorization of a claim based on type of claim, service codes, and diagnosis codes.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1005,
+    "name": "CLAIM_CLAIM_GROUP",
+    "domain": "Claims Management",
+    "description": "An associative entity that relates the claims to the claim groupings that they belong to. There is one instance for each claim/claim grouping occurrence.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1006,
+    "name": "CLAIM_CLASS_SCHEME_TYPE",
+    "domain": "Claims Management",
+    "description": "This is a code for the various ways that a claim could be classified such as weather condition at time of loss, was insured on way to work, is this a catastrophic claim, was there a fatality during the accident. This method of classification provides for numerous and variable number of type codes th",
+    "attributeCount": 5
+  },
+  {
+    "id": 1007,
+    "name": "CLAIM_CLASS_VALUE",
+    "domain": "Claims Management",
+    "description": "This code represents the classification value for a given classification scheme type. For example, if the classification scheme is \"weather condition\" then the values may be clear, cloudy, raining, snowing, heavy fog. Each value is one instance in this entity.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1008,
+    "name": "CLAIM_CLASS_VALUE_XREF",
+    "domain": "Claims Management",
+    "description": "This entity relates the claim to the classification scheme code value. For example, if the classification scheme is weather condition at time of accident then the value could be heavy fog.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1009,
+    "name": "CLAIM_CLIA",
+    "domain": "Claims Management",
+    "description": "This entity relates the claim to Clinical Laboratory Improvement Amendment (CLIA) numbers.  This is required on Medicare and Medicaid claims for any laboratory performing tests covered by the CLIA Act.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1010,
+    "name": "CLAIM_COST_RECOVERY",
+    "domain": "Claims Management",
+    "description": "This entity contains information about the recovery of costs for this claim such as recovery due to subrogation legal action.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1011,
+    "name": "CLAIM_COVERAGE",
+    "domain": "Claims Management",
+    "description": "This entity associates claims with coverages.  A claim may be associated with one or more of the coverage features that are associated by the insurance account.  A coverage feature may be associated with one or more claims.  For example, this relates the claim to the property damage coverage, bodily",
+    "attributeCount": 3
+  },
+  {
+    "id": 1012,
+    "name": "CLAIM_COVERAGE_ADJUDICATION",
+    "domain": "Claims Management",
+    "description": "This entity relates the adjudication to the coverage involved in the adjudication.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1013,
+    "name": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This entity describes the various amounts that were adjudicated for this claim for this coverage.  Examples: - Noncovered amount - Paid amount - Copaid amount - Deductible amount - Withheld amount - Allowed amount - Discount amount - Per day limit amount - Tax amount",
+    "attributeCount": 6
+  },
+  {
+    "id": 1014,
+    "name": "CLAIM_COVERAGE_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This associative entity relates the claim coverage with the amounts for the claim coverage, such as the claimed amount, the consumed amount, or subrogation amount.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1015,
+    "name": "CLAIM_COVERAGE_COST_RECOVERY",
+    "domain": "Claims Management",
+    "description": "This entity contains information about the recovery of costs for this claim coverage such as recovery due to subrogation legal action.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1016,
+    "name": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "domain": "Claims Management",
+    "description": "This entity links the claim with the coverage and the insurable interest.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1017,
+    "name": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This entity contains the various amounts associated with a claim for an insurable interest and for a coverage. Examples of amounts include the amount of the claim, the amount that has been paid, the amount under dispute, and the amount being reserved.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1018,
+    "name": "CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE",
+    "domain": "Claims Management",
+    "description": "This entity creates the association between claims, coverages being claimed, the insurable interest involved in the claim coverage and the reinsurance agreement that covers this claim coverage for this insurable interest.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1019,
+    "name": "CLAIM_COVERAGE_LEGAL_ACTION",
+    "domain": "Claims Management",
+    "description": "This entity relates legal actions to claim coverages and allows a coverage for a claim to have many legal actions against it.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1020,
+    "name": "CLAIM_COVERAGE_SCORE",
+    "domain": "Claims Management",
+    "description": "This entity contains scores related to claims on coverages such as probability of eligibility for subrogation of bodily injury coverage.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1021,
+    "name": "CLAIM_COVERAGE_STATUS",
+    "domain": "Claims Management",
+    "description": "This entity tracks the status of a coverage for a claim over time such as \"paid,\" \"not paid,\" and \"in process.\"",
+    "attributeCount": 5
+  },
+  {
+    "id": 1022,
+    "name": "CLAIM_COVERAGE_TEXT",
+    "domain": "Claims Management",
+    "description": "This entity captures any textual information related to the claim coverage such as notes prepared by an agent or adjustor.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1023,
+    "name": "CLAIM_COVERAGE_TEXT_SECTION",
+    "domain": "Claims Management",
+    "description": "This entity is the link to claim coverage text unstructured data.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1024,
+    "name": "CLAIM_DATE",
+    "domain": "Claims Management",
+    "description": "This entity relates claims to the various claim dates.  Examples: - Claim receipt date - Claim settled date - Claim occurred date - Last worked date - Returned to work date - Unable to work date - Schedule to return to work date - Unable to work start date - Unable to work end date",
+    "attributeCount": 3
+  },
+  {
+    "id": 1025,
+    "name": "CLAIM_DATE_TYPE",
+    "domain": "Claims Management",
+    "description": "This entity identifies the claim date types.  Examples: - Occurred date - Settled date - Receipt date - Reported date - Documented date - Last changed date - Unable to work start date - Unable to work end date",
+    "attributeCount": 2
+  },
+  {
+    "id": 1026,
+    "name": "CLAIM_DIAGNOSIS_CODE",
+    "domain": "Claims Management",
+    "description": "Identifies the diagnosis code(s) that are associated with a claim at the header level. This might be relevant for bodily injury claims.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1027,
+    "name": "CLAIM_DOCUMENT",
+    "domain": "Claims Management",
+    "description": "Associates the claim with the related attachments. These can include documents such as radiology films, physical therapy certifications, or death certificates.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1028,
+    "name": "CLAIM_FILING_TYPE",
+    "domain": "Claims Management",
+    "description": "Indicates the type of claim adjudicated or the expected claim adjudication process.  Examples include: - Self-pay - Central certification - Other nonfederal programs - Preferred Provider Organization (PPO) - Exclusive Provider Organization (EPO) - Automobile medical - Liability medical - Title V - C",
+    "attributeCount": 2
+  },
+  {
+    "id": 1029,
+    "name": "CLAIM_FOLLOW-UP",
+    "domain": "Claims Management",
+    "description": "This entity contains intended actions for follow up on a claim, such as sending a replacement vehicle or assessing the damage. The actual actions are instances of EVENT.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1030,
+    "name": "CLAIM_FOLLOW-UP_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity converts the claim follow-up type code into a description.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1031,
+    "name": "CLAIM_FREQUENCY_TYPE",
+    "domain": "Claims Management",
+    "description": "This entity specifies the frequency values for a claim.  For health care, this is the third position of the Uniform Billing Claim Form Bill Type  Examples include: - Original (admit thru discharge claim) - Corrected (adjustment of prior claim) - Replacement (replacement of prior claim) - Void (void/",
+    "attributeCount": 2
+  },
+  {
+    "id": 1032,
+    "name": "CLAIM_GROUP",
+    "domain": "Claims Management",
+    "description": "This entity represents the insurance institution's representation of claim groupings. Examples would be to group all claims related to the same incident or to group all claims with the same primary diagnosis code for analysis reasons.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1033,
+    "name": "CLAIM_GROUP_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity describes how claims are grouped. Examples of groupings can be diagnosis codes, incident, claim status, and services claimed.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1034,
+    "name": "CLAIM_INSURABLE_INTEREST",
+    "domain": "Claims Management",
+    "description": "This entity is the damaged item for which a claim is being sought. If the damage is physical property then the insurable interest is the asset. If the item damaged is a person and if that person is a third party then it is a liability. If the damage is to the insured then it is bodily injury under p",
+    "attributeCount": 6
+  },
+  {
+    "id": 1035,
+    "name": "CLAIM_INSURABLE_INTEREST_ACCIDENT",
+    "domain": "Claims Management",
+    "description": "This entity associates the damaged item (insurable interest) with the types of accidents that caused the damage. For example, an accident type could be house burned down or car side impact.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1036,
+    "name": "CLAIM_INSURABLE_INTEREST_TYPE",
+    "domain": "Claims Management",
+    "description": "A category discriminator that classifies the type of insurable interest for this claim. It could be an asset such as automobile, or house, or a life.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1037,
+    "name": "CLAIM_LEGAL_ACTION",
+    "domain": "Claims Management",
+    "description": "This entity tracks legal actions against this claim.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1038,
+    "name": "CLAIM_MANAGEMENT_AUTHORITY_TYPE",
+    "domain": "Claims Management",
+    "description": "A code for the degree of authority this agent has with managing claims.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1039,
+    "name": "CLAIM_MEDIA_TYPE",
+    "domain": "Claims Management",
+    "description": "The code for the type of medium sent via a channel such as disk, network, or paper.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1040,
+    "name": "CLAIM_MOTOR_VEHICLE",
+    "domain": "Claims Management",
+    "description": "This entity represents the information that is specific to the motor vehicle in relation to the claim.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1041,
+    "name": "CLAIM_OBLIGATION_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity classifies the types of claim obligations, for example, ECO (Extra Contractual Obligations), XPL (Excess of Policy Limits), no ECO, or no XPL.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1042,
+    "name": "CLAIM_PERIL",
+    "domain": "Claims Management",
+    "description": "Identifies the kinds of perils (cause of loss) associated with the claim. Property is insured in two main ways - open perils and named perils. Open perils cover all the causes of loss not specifically excluded in the policy. Common exclusions on open peril policies include damage resulting from eart",
+    "attributeCount": 2
+  },
+  {
+    "id": 1043,
+    "name": "CLAIM_REFERRAL_TYPE",
+    "domain": "Claims Management",
+    "description": "A type of claim referral.  Examples: - Surgery - Consultation - Treatment - Diagnostic testing",
+    "attributeCount": 2
+  },
+  {
+    "id": 1044,
+    "name": "CLAIM_REINSURANCE_AMOUNT",
+    "domain": "Claims Management",
+    "description": "The amount associated with the reinsurance of this claim for this coverage for this insurable interest. Amount examples include the portion of the claim paid by the reinsurer, the amount outstanding (reported), and the amount incurred (not yet reported). These are used to set up reserves.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1045,
+    "name": "CLAIM_RELATED",
+    "domain": "Claims Management",
+    "description": "This entity defines the relationship between claims such as replaces.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1046,
+    "name": "CLAIM_RELATIONSHIP_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity identifies the relationship between two claims such as replaces or caused by same incident/accident.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1047,
+    "name": "CLAIM_SCORE",
+    "domain": "Claims Management",
+    "description": "This entity contains scores related to claims such as probability of eligibility for subrogation.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1048,
+    "name": "CLAIM_SERVICE",
+    "domain": "Claims Management",
+    "description": "This entity associates claims with services or procedure features. This is the lowest level of detail on a claim.  A claim may be associated with one or more services or procedures and it may be associated with the same service type more than once, hence the sequence number in the primary key.  A se",
+    "attributeCount": 12
+  },
+  {
+    "id": 1049,
+    "name": "CLAIM_SERVICE_ACTION_TYPE",
+    "domain": "Claims Management",
+    "description": "This is a code for the action that is being taken or will be taken by a party involved with this service for this claim. Examples include approve quote, perform service, or do not perform service.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1050,
+    "name": "CLAIM_SERVICE_ADJUDICATION",
+    "domain": "Claims Management",
+    "description": "This entity relates the adjudication to the service involved in the adjudication.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1051,
+    "name": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This entity describes the various amounts that were adjudicated for this claim for this specific service.  Example: - Noncovered amount - Paid amount - Copaid amount - Deductible amount - Withheld amount - Allowed amount - Discount amount - Per day limit amount - Tax amount",
+    "attributeCount": 8
+  },
+  {
+    "id": 1052,
+    "name": "CLAIM_SERVICE_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This associative entity relates the claim service with the amounts for the claim service, such as the claimed amount or the consumed amount.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1053,
+    "name": "CLAIM_SERVICE_ASSET",
+    "domain": "Claims Management",
+    "description": "The associative entity that links claim services to assets.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1054,
+    "name": "CLAIM_SERVICE_CATEGORY_TYPE",
+    "domain": "Claims Management",
+    "description": "A high-level categorization of a claim based on type of claim, service codes, and diagnosis codes. These categories of service are typically specified for Medicaid claims.  Health care examples: - Inpatient hospital services - Mental health facility services - Nursing facilities services - ICF servi",
+    "attributeCount": 2
+  },
+  {
+    "id": 1055,
+    "name": "CLAIM_SERVICE_COST_RECOVERY",
+    "domain": "Claims Management",
+    "description": "This entity contains information about the recovery of costs for this claim service such as recovery due to subrogation legal action.",
+    "attributeCount": 10
+  },
+  {
+    "id": 1056,
+    "name": "CLAIM_SERVICE_COVERAGE",
+    "domain": "Claims Management",
+    "description": "This associative entity relates the service or procedure reported on the claim to the coverage that is associated with this service or procedure. An example is an auto repair (service) is related to collision coverage.  Examples of services include medical procedures, or services performed on damage",
+    "attributeCount": 5
+  },
+  {
+    "id": 1057,
+    "name": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "domain": "Claims Management",
+    "description": "This entity captures metrics for a service for a coverage for a claim such as the reserve amount or claim amounts paid. Loss reserves, or loss adjustment expense reserves, are set aside for this service for this coverage. Claim reserves are set aside when the claim or the adjustment is reported.",
+    "attributeCount": 10
+  },
+  {
+    "id": 1058,
+    "name": "CLAIM_SERVICE_DATE",
+    "domain": "Claims Management",
+    "description": "This entity relates the claim service to the various claim service dates.  Examples: - Settlement date - Recorded date - Shipped date",
+    "attributeCount": 7
+  },
+  {
+    "id": 1059,
+    "name": "CLAIM_SERVICE_DATE_TYPE",
+    "domain": "Claims Management",
+    "description": "This entity identifies the claim service date types.  Examples: - Settlement date - Paid date - Recorded date - Shipped date",
+    "attributeCount": 2
+  },
+  {
+    "id": 1060,
+    "name": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "domain": "Claims Management",
+    "description": "This entity contains the relationship of diagnosis codes to a service line on a claim. Multiple diagnosis codes can be specified along with their ordering such as primary, secondary, or tertiary.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1061,
+    "name": "CLAIM_SERVICE_LEGAL_ACTION",
+    "domain": "Claims Management",
+    "description": "This entity relates legal actions against a claim service and allows a service for a claim to have many legal actions against it.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1062,
+    "name": "CLAIM_SERVICE_REQUEST",
+    "domain": "Claims Management",
+    "description": "This entity tracks service requests assigned to a claim.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1063,
+    "name": "CLAIM_SERVICE_SCORE",
+    "domain": "Claims Management",
+    "description": "This entity contains scores related to services for claims such as probability of eligibility for subrogation of auto bodywork service.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1064,
+    "name": "CLAIM_SERVICE_STATUS_REASON_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity translates the claim service status reason type code into a description.  Examples: - Insufficient coverage - Insufficient evidence",
+    "attributeCount": 2
+  },
+  {
+    "id": 1065,
+    "name": "CLAIM_SERVICE_STATUS_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity translates the claim service status type code into a description.  Examples: - Paid - Rejected - Under adjudication",
+    "attributeCount": 2
+  },
+  {
+    "id": 1066,
+    "name": "CLAIM_SERVICE_TEXT",
+    "domain": "Claims Management",
+    "description": "This entity contains any textual information related to a service performed for this claim.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1067,
+    "name": "CLAIM_SERVICE_TEXT_SECTION",
+    "domain": "Claims Management",
+    "description": "This entity is the link to claim service text unstructured data.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1068,
+    "name": "CLAIM_STATUS",
+    "domain": "Claims Management",
+    "description": "This entity tracks the history of the status of a claim.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1069,
+    "name": "CLAIM_STATUS_REASON_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity translates the claim status reason type code into a description.  Examples: - Insufficient coverage - Insufficient evidence",
+    "attributeCount": 2
+  },
+  {
+    "id": 1070,
+    "name": "CLAIM_STATUS_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity translates the claim status type code into a description.  Examples: - Paid - Rejected - Under adjudication - Closed without payment - Reopened",
+    "attributeCount": 2
+  },
+  {
+    "id": 1071,
+    "name": "CLAIM_SUBMITTAL_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity identifies the types of parties that could submit the claim. Examples include insured submitted, provider submitted, and third-party submitted.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1072,
+    "name": "CLAIM_TEXT",
+    "domain": "Claims Management",
+    "description": "This entity captures any textual information related to the claim such as notes prepared by an agent or adjustor.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1073,
+    "name": "CLAIM_TEXT_SECTION",
+    "domain": "Claims Management",
+    "description": "This entity is the link to claim text unstructured data.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1074,
+    "name": "CLAIM_TEXT_TYPE",
+    "domain": "Claims Management",
+    "description": "This entity classifies the text such as report by adjustor, or agent notes.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1075,
+    "name": "CLAIM_TO_CLAIM_AUTHORIZATION",
+    "domain": "Claims Management",
+    "description": "This entity associates a claim authorization to the claims it is for. A claim can be associated to many claim authorizations and a claim authorization can be used for many claims.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1076,
+    "name": "CLAIM_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity categorizes the type of claim or claim service by line of business such as property and casualty, health, or life.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1077,
+    "name": "CLAIM_VISION_CONDITION",
+    "domain": "Claims Management",
+    "description": "This entity relates the professional claim to the associated vision condition.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1078,
+    "name": "DENTAL_CLAIM",
+    "domain": "Claims Management",
+    "description": "This is a subtype to HEALTH CLAIM and describes those claims that are related to dental care. ASC X12N Electronic Data Interchange (EDI) transaction is used to provide claim processing for health care dental services via the 837 format.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1079,
+    "name": "DENTAL_CLAIM_SERVICE",
+    "domain": "Claims Management",
+    "description": "A subtype of claim services, especially for dental claim services.",
+    "attributeCount": 11
+  },
+  {
+    "id": 1080,
+    "name": "DENTAL_CLAIM_TOOTH",
+    "domain": "Claims Management",
+    "description": "This entity identifies the relationship between a dental claim and teeth and status of the teeth.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1081,
+    "name": "EXTERNALLY_REPORTED_CLAIM",
+    "domain": "Claims Management",
+    "description": "This is third-party reported information about any claim that your customer or prospect has made to any insurance company including your own claims. The information in this entity is as it is reported from the third-party data provider such as policy holder information. The information may vary depe",
+    "attributeCount": 24
+  },
+  {
+    "id": 1082,
+    "name": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "domain": "Claims Management",
+    "description": "This entity contains those claims as a result of an incident involving a vehicle such as an automobile, motorcycle or motorhome.",
+    "attributeCount": 16
+  },
+  {
+    "id": 1083,
+    "name": "EXTERNAL_CLAIM_CRIME_REPORT_TYPE",
+    "domain": "Claims Management",
+    "description": "This is a code for the type of crime report that was ordered such as CapRisk Score. The actual score would be in the entity GEOGRAPHICAL AREA SCORE.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1084,
+    "name": "EXTERNAL_CLAIM_FAULT_TYPE",
+    "domain": "Claims Management",
+    "description": "This is a code describing who is at fault for the accident resulting in this claim such as at fault, no fault, catastrophe, undetermined, partial fault or unknown.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1085,
+    "name": "EXTERNAL_CLAIM_POLICY_TYPE",
+    "domain": "Claims Management",
+    "description": "This is a code for the type of policy for both vehicle and property insurance types.  For vehicle insurance the types are personal auto, motorcycle or motor home.  For property insurance the types are boat owners, condominium, flood, fire, homeowners, inland marine, personal umbrella, mobile home, e",
+    "attributeCount": 2
+  },
+  {
+    "id": 1086,
+    "name": "EXTERNAL_CLAIM_SUBTYPE",
+    "domain": "Claims Management",
+    "description": "This is a subtype discriminator used to classify the type of policy such as vehicle claim or property claim. The information reported is different based on this classification of claim.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1087,
+    "name": "HEALTH_CLAIM",
+    "domain": "Claims Management",
+    "description": "This subtype of CLAIM describes those claims that are related to health care.",
+    "attributeCount": 23
+  },
+  {
+    "id": 1088,
+    "name": "HEALTH_CLAIM_FORMAT_CATEGORY",
+    "domain": "Claims Management",
+    "description": "List of insurance industry standard formats used as templates for structuring the submission of a health insurance claim.  Examples: - Professional claim - Institutional claim - Dental claim - Pharmacy claim",
+    "attributeCount": 2
+  },
+  {
+    "id": 1089,
+    "name": "HEALTH_CLAIM_NUBC_CONDITION_CODE",
+    "domain": "Claims Management",
+    "description": "The National Uniform Billing Committee (NUBC) condition codes that apply to the claim.  Condition codes are designed to allow the collection of information related to the patient, particular services, service venue, and billing parameters, which impact the processing of an Institutional claim. Some",
+    "attributeCount": 2
+  },
+  {
+    "id": 1090,
+    "name": "HEALTH_CLAIM_SERVICE",
+    "domain": "Claims Management",
+    "description": "This claim line subtype describes the specific services for a claim that are health care services.  Modeling note: The relationship to PROCEDURE CODE allows the specification of a single specific procedure code and conforms to the typical structure of a received claim. However, the relationship from",
+    "attributeCount": 11
+  },
+  {
+    "id": 1091,
+    "name": "HEALTH_CLAIM_TYPE",
+    "domain": "Claims Management",
+    "description": "This entity identifies the type of health claim.  Examples: - Chargeable claim - Encounter claim",
+    "attributeCount": 2
+  },
+  {
+    "id": 1092,
+    "name": "INCIDENT",
+    "domain": "Claims Management",
+    "description": "This is a subtype entity to EVENT and describes events that are of interest to the financial institution from an insurance perspective as a potential cause of loss. This applies to events that cause (usually multiple) insurance claims, such as traffic accidents, natural disasters such as hurricanes,",
+    "attributeCount": 4
+  },
+  {
+    "id": 1093,
+    "name": "INCIDENT_PERIL_TYPE",
+    "domain": "Claims Management",
+    "description": "This entity identifies the types of perils that resulted from this incident. For example, an earthquake incident can cause perils of fire, flood, and trees falling on cars.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1094,
+    "name": "INPATIENT_INSTITUTIONAL_CLAIM",
+    "domain": "Claims Management",
+    "description": "A type of institutional claim where a patient stays overnight for treatment.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1095,
+    "name": "INSTITUTIONAL_CLAIM",
+    "domain": "Claims Management",
+    "description": "This is a subtype to HEALTH CLAIM and describes those claims that are related to institutional care. Claim forms include HCFA 1450, UB92, and UB04. ASC X12N Electronic Data Interchange (EDI) transaction is used to provide claim processing for health care Institutional services (e.g., hospital, nursi",
+    "attributeCount": 23
+  },
+  {
+    "id": 1096,
+    "name": "INSTITUTIONAL_CLAIM_PROCEDURE_CODE",
+    "domain": "Claims Management",
+    "description": "Procedure codes submitted for INSTITUTIONAL CLAIMs such as ICD-9 codes for surgery or radiology.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1097,
+    "name": "INSTITUTIONAL_CLAIM_SERVICE",
+    "domain": "Claims Management",
+    "description": "Identifies institutional claim service details. This is claim line-level information.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1098,
+    "name": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "domain": "Claims Management",
+    "description": "Provides the relationship between an institutional claim service and a drug.  Modeling note: Attribute \"Drug NDC Num *Geo\" was made nullable with the addition of RxNorm as a possible drug identifier.  Modeling note: Attributes \"Dosage Form Cd\" and \"Dosage UOM Cd\" are modeled in this entity to confor",
+    "attributeCount": 14
+  },
+  {
+    "id": 1099,
+    "name": "INSURABLE_INTEREST",
+    "domain": "Claims Management",
+    "description": "This entity is a higher-level abstraction of those things that can be the subject of an insurance claim and includes assets and people. These assets and people may or may not be insured but they may be the subject of a claim. For example, if the insured injures a third party in a car crash then the",
+    "attributeCount": 3
+  },
+  {
+    "id": 1100,
+    "name": "INSURABLE_INTEREST_CATEGORY",
+    "domain": "Claims Management",
+    "description": "This identifies type of insurable interest and is used as a category discriminator such as asset or person (life).",
+    "attributeCount": 2
+  },
+  {
+    "id": 1101,
+    "name": "INSURABLE_INTEREST_METRIC",
+    "domain": "Claims Management",
+    "description": "Risk metrics and calculations associated with an Insurable Interest such as: - Risk total insured value - Risk insured to value ratio - Exposure amount - Percent of risk insured",
+    "attributeCount": 11
+  },
+  {
+    "id": 1102,
+    "name": "INSURABLE_INTEREST_METRIC_TYPE",
+    "domain": "Claims Management",
+    "description": "A code for the type of insurable interest metric.  Examples: - Risk total insured value - Risk insured to value ratio - Exposure amount - Percent of risk insured",
+    "attributeCount": 2
+  },
+  {
+    "id": 1103,
+    "name": "INSURANCE_CLAIM_CASE",
+    "domain": "Claims Management",
+    "description": "This is a case that is set up to research a claim. If the case is for the entire claim and not specific to a coverage then the coverage will be null.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1104,
+    "name": "INTERNAL_CLAIM_ADJUDICATION",
+    "domain": "Claims Management",
+    "description": "This is an adjudication done by the Insurance company who owns the warehouse. This is when they are the destination payer on the claim.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1105,
+    "name": "LIFE_CLAIM",
+    "domain": "Claims Management",
+    "description": "This entity contains information specific to life insurance claims at the header level.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1106,
+    "name": "MEDICAID_STATISTICAL_INFORMATION_SYSTEM_CLAIM_TYPE",
+    "domain": "Claims Management",
+    "description": "The claim type as defined by the Medicaid Statistical Information System (MSIS).  Examples: - Fee-for-service claim - Capitated payment - Encounter record - Service tracking claim - Supplemental payment",
+    "attributeCount": 2
+  },
+  {
+    "id": 1107,
+    "name": "OUTPATIENT_INSTITUTIONAL_CLAIM",
+    "domain": "Claims Management",
+    "description": "A type of institutional claim where a patient's treatment is performed in the same day and does not incur an overnight stay.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1108,
+    "name": "OUTPATIENT_INSTITUTIONAL_CLAIM_APC",
+    "domain": "Claims Management",
+    "description": "An outpatient institutional claim can have multiple Ambulatory Payment Classifications (APC) submitted on the claim. Associated with each APC on the claim is the \"Submission Type\" that clarifies the submission as the original, repriced, or other.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1109,
+    "name": "PATIENT_CLAIM_AUTHORIZATION",
+    "domain": "Claims Management",
+    "description": "This is the party that the claim authorization is requested for, that is, the patient.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1110,
+    "name": "PATIENT_CLAIM_AUTHORIZATION_CONDITION",
+    "domain": "Claims Management",
+    "description": "This identifies patient conditions associated with the claim authorization.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1111,
+    "name": "PERIL_ORIGIN_TYPE",
+    "domain": "Claims Management",
+    "description": "A code indicating whether this peril is natural (e.g., earthquake) or man-made (e.g., oil spill).",
+    "attributeCount": 2
+  },
+  {
+    "id": 1112,
+    "name": "PERIL_TYPE",
+    "domain": "Claims Management",
+    "description": "This minor entity converts the peril type code into a description. Peril is often referred to as \"cause of loss\" for insurance. This is the loss that is causing the claim to be filed.  A peril is a specific risk or cause of loss covered by an insurance policy, such as a fire, windstorm, flood, or th",
+    "attributeCount": 4
+  },
+  {
+    "id": 1113,
+    "name": "PERIL_TYPE_SUBJECT",
+    "domain": "Claims Management",
+    "description": "This entity contains those subjects that are types of peril such as earthquake or oil spill. There is one instance for each peril type.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1114,
+    "name": "PHARMACY_CLAIM",
+    "domain": "Claims Management",
+    "description": "This is a subtype to HEALTH CLAIM and describes those claims that are related to pharmaceutical needs.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1115,
+    "name": "PHARMACY_CLAIM_SERVICE",
+    "domain": "Claims Management",
+    "description": "A subtype of claim service for pharmacy services.",
+    "attributeCount": 21
+  },
+  {
+    "id": 1116,
+    "name": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "domain": "Claims Management",
+    "description": "Provides the relationship between a PHARMACY CLAIM SERVICE and a drug such as the prescribed or dispensed drug.  Modeling note: Attribute \"Drug NDC Num *Geo\" was made nullable with the addition of RxNorm as a possible drug identifier. Uniqueness of the primary key is assured by the \"Pharmacy Claim D",
+    "attributeCount": 19
+  },
+  {
+    "id": 1117,
+    "name": "POLICY_INSURABLE_COVERAGE",
+    "domain": "Claims Management",
+    "description": "This entity contains the terms and conditions including coverages associated with this insurable interest for this policy.  For example, bodily injury (feature) covers a specific car (insurable interest) for a given policy.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1118,
+    "name": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "domain": "Claims Management",
+    "description": "For insurance policies, this contains metrics over time or point-in-time for this policy for this coverage for this insurable interest.  Insurable interest represents the thing being insured such as the asset, the life, the liability.  Examples: - Gross written premium - Gross earned premium - Writt",
+    "attributeCount": 16
+  },
+  {
+    "id": 1119,
+    "name": "POLICY_INSURABLE_INTEREST",
+    "domain": "Claims Management",
+    "description": "This entity relates the insurable interest to an agreement such as an insurance policy. This represents the item(s) the insurance policy covers such as an asset or a life.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1120,
+    "name": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "domain": "Claims Management",
+    "description": "This entity tracks the status of this coverage, for this insurable interest for this policy such as this coverage (e.g., collision) for this asset was canceled from the policy but the policy remains in force with other insurable interests and coverages.",
+    "attributeCount": 10
+  },
+  {
+    "id": 1121,
+    "name": "POLICY_INSURABLE_INTEREST_ROLE",
+    "domain": "Claims Management",
+    "description": "The role that the policy has with the insurable interest such as \"insures.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 1122,
+    "name": "POLICY_INSURABLE_INTEREST_STATUS",
+    "domain": "Claims Management",
+    "description": "This entity tracks the status of this insurable interest for this policy such as this asset was canceled from the policy, but the policy remains in force with other insurable interests.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1123,
+    "name": "PROFESSIONAL_CLAIM",
+    "domain": "Claims Management",
+    "description": "This is a subtype to HEALTH CLAIM and describes those claims that are related to professional care. Claim form CMS-1500 (maintained by National Uniform Claim Committee). ASC X12N Electronic Data Interchange (EDI) transaction is used to provide claim processing for health care professional services v",
+    "attributeCount": 12
+  },
+  {
+    "id": 1124,
+    "name": "PROFESSIONAL_CLAIM_APG",
+    "domain": "Claims Management",
+    "description": "A PROFESSIONAL CLAIM can have multiple Ambulatory Patient Groups (APG) submitted on the claim. Associated with each APG on the claim is the \"Submission Type\" that clarifies the submission as the original, repriced, or other.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1125,
+    "name": "PROFESSIONAL_CLAIM_SERVICE",
+    "domain": "Claims Management",
+    "description": "A subtype of claim services, especially for professional claim services.",
+    "attributeCount": 20
+  },
+  {
+    "id": 1126,
+    "name": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "domain": "Claims Management",
+    "description": "Provides the relationship between a professional claim service and a drug.  Modeling note: Attribute \"Drug NDC Num *Geo\" was made nullable with the addition of RxNorm as a possible drug identifier.  Modeling note: Attributes \"Dosage Form Cd\" and \"Dosage UOM Cd\" are modeled in this entity to conform",
+    "attributeCount": 14
+  },
+  {
+    "id": 1127,
+    "name": "PROPERTY_AND_CASUALTY_CLAIM",
+    "domain": "Claims Management",
+    "description": "This entity contains information specific to property and casualty claims at the header level.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1128,
+    "name": "WORK_PROCESS_CLAIM",
+    "domain": "Claims Management",
+    "description": "This is the work process that is necessary to process this claim for a given purpose such as approving the claim, processing a vehicle damage claim, processing a liability claim, and processing a commercial fire claim.",
+    "attributeCount": 1
+  }
+]

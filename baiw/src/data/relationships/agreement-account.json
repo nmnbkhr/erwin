@@ -1,0 +1,3222 @@
+[
+  {
+    "parentId": 1,
+    "parentName": "ACCOUNT",
+    "childId": 8,
+    "childName": "ACCOUNT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1,
+    "parentName": "ACCOUNT",
+    "childId": 11,
+    "childName": "ACCOUNT_RENEWAL",
+    "type": "association"
+  },
+  {
+    "parentId": 1,
+    "parentName": "ACCOUNT",
+    "childId": 1980,
+    "childName": "EXTERNAL_DIRECT_DEBIT",
+    "type": "association"
+  },
+  {
+    "parentId": 1,
+    "parentName": "ACCOUNT",
+    "childId": 1984,
+    "childName": "EXTERNAL_STANDING_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1,
+    "parentName": "ACCOUNT",
+    "childId": 1197,
+    "childName": "INTERBANK_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1,
+    "parentName": "ACCOUNT",
+    "childId": 3120,
+    "childName": "PARTY_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 1,
+    "parentName": "ACCOUNT",
+    "childId": 415,
+    "childName": "PAYMENT_INSTRUCTION_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 4,
+    "parentName": "ACCOUNTING_TYPE",
+    "childId": 3,
+    "childName": "ACCOUNTING_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 5,
+    "parentName": "ACCOUNTS_PAYABLE",
+    "childId": 271,
+    "childName": "DEPRECIABLE_ASSET_ACCOUNT_PAYABLE",
+    "type": "association"
+  },
+  {
+    "parentId": 7,
+    "parentName": "ACCOUNT_INVOLVEMENT_SUBTYPE",
+    "childId": 1,
+    "childName": "ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 9,
+    "parentName": "ACCOUNT_METRIC_TYPE",
+    "childId": 8,
+    "childName": "ACCOUNT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 10,
+    "parentName": "ACCOUNT_PURPOSE_SUBTYPE",
+    "childId": 1,
+    "childName": "ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 12,
+    "parentName": "ACCOUNT_TYPE",
+    "childId": 1,
+    "childName": "ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1,
+    "childName": "ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 598,
+    "childName": "AD_ORDER_HEADER_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 18,
+    "childName": "AGREEMENT_ABUSE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 19,
+    "childName": "AGREEMENT_ACCESS_DEVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 22,
+    "childName": "AGREEMENT_AGREEMENT_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 23,
+    "childName": "AGREEMENT_AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 25,
+    "childName": "AGREEMENT_APPLICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 27,
+    "childName": "AGREEMENT_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 29,
+    "childName": "AGREEMENT_BALANCE_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 30,
+    "childName": "AGREEMENT_CASE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 31,
+    "childName": "AGREEMENT_CHANNEL",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 33,
+    "childName": "AGREEMENT_CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 34,
+    "childName": "AGREEMENT_CHART_OF_ACCOUNTS",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 42,
+    "childName": "AGREEMENT_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 43,
+    "childName": "AGREEMENT_COLLECTION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 44,
+    "childName": "AGREEMENT_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 49,
+    "childName": "AGREEMENT_CREDIT_REPORT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 51,
+    "childName": "AGREEMENT_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 52,
+    "childName": "AGREEMENT_DATE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 54,
+    "childName": "AGREEMENT_DIRECT_EXPENSE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 55,
+    "childName": "AGREEMENT_DOCUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 56,
+    "childName": "AGREEMENT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 58,
+    "childName": "AGREEMENT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 59,
+    "childName": "AGREEMENT_FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 65,
+    "childName": "AGREEMENT_FINANCIAL_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 67,
+    "childName": "AGREEMENT_FUNDING_SOURCE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 2841,
+    "childName": "AGREEMENT_IDENTIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 92,
+    "childName": "AGREEMENT_INDIRECT_EXPENSE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 93,
+    "childName": "AGREEMENT_INSURANCE_RISK_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 99,
+    "childName": "AGREEMENT_IVR_STEP_TRANSACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 101,
+    "childName": "AGREEMENT_LEGAL_ACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 2845,
+    "childName": "AGREEMENT_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 107,
+    "childName": "AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 108,
+    "childName": "AGREEMENT_METRIC_PROJECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 112,
+    "childName": "AGREEMENT_PAYMENT_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 113,
+    "childName": "AGREEMENT_PORTFOLIO",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 114,
+    "childName": "AGREEMENT_PORTFOLIO_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 116,
+    "childName": "AGREEMENT_PRIVACY_PREFERENCE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 117,
+    "childName": "AGREEMENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 121,
+    "childName": "AGREEMENT_PROFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 122,
+    "childName": "AGREEMENT_PROFIT_COMPONENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 123,
+    "childName": "AGREEMENT_PROJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 125,
+    "childName": "AGREEMENT_PROMOTION_OFFER",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 127,
+    "childName": "AGREEMENT_PROVISION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 129,
+    "childName": "AGREEMENT_RATE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 0,
+    "childName": "AGREEMENT_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 0,
+    "childName": "AGREEMENT_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 132,
+    "childName": "AGREEMENT_REMEDIATION_PLAN",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 134,
+    "childName": "AGREEMENT_RENEWAL",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 135,
+    "childName": "AGREEMENT_REVENUE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 136,
+    "childName": "AGREEMENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 144,
+    "childName": "AGREEMENT_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 147,
+    "childName": "AGREEMENT_STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 153,
+    "childName": "AGREEMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 157,
+    "childName": "AGREEMENT_SUBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 159,
+    "childName": "AGREEMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 160,
+    "childName": "AGREEMENT_SURVEY_RESPONSE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 161,
+    "childName": "AGREEMENT_TAX_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 162,
+    "childName": "AGREEMENT_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 167,
+    "childName": "ALERT_SETUP_FOR_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1138,
+    "childName": "BANK_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 184,
+    "childName": "CAMPAIGN_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 188,
+    "childName": "CELL_TARGET_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1810,
+    "childName": "CHECK_BOOK",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1147,
+    "childName": "CHECK_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 985,
+    "childName": "CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1829,
+    "childName": "COLLECTION_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 3751,
+    "childName": "DEFAULT_OCCURRENCE",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1081,
+    "childName": "EXTERNALLY_REPORTED_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1980,
+    "childName": "EXTERNAL_DIRECT_DEBIT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1984,
+    "childName": "EXTERNAL_STANDING_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 3774,
+    "childName": "HOLDING_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 1197,
+    "childName": "INTERBANK_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 0,
+    "childName": "INTERNAL_DIRECT_DEBIT_is_destination_for",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 0,
+    "childName": "INTERNAL_DIRECT_DEBIT_is_source_for",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 0,
+    "childName": "INTERNAL_STANDING_ORDER_is_destination_for",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 0,
+    "childName": "INTERNAL_STANDING_ORDER_is_source_for",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 0,
+    "childName": "INTRABANK_EVENT_is_counterparty_to",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 0,
+    "childName": "INTRABANK_EVENT_is_party_to",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 344,
+    "childName": "INVESTMENT_AGREEMENT_ALLOCATION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 718,
+    "childName": "NEXT_COMMUNICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 402,
+    "childName": "OPPORTUNITY_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 3124,
+    "childName": "PARTY_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 416,
+    "childName": "PAYMENT_INSTRUCTION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 2394,
+    "childName": "PROJECTED_CASH_FLOW",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 438,
+    "childName": "PROPOSAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 444,
+    "childName": "QUOTATION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 3824,
+    "childName": "RISK_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 490,
+    "childName": "TARGET_PROMOTION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 17,
+    "parentName": "AGREEMENT",
+    "childId": 2784,
+    "childName": "VENDOR_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 19,
+    "parentName": "AGREEMENT_ACCESS_DEVICE",
+    "childId": 20,
+    "childName": "AGREEMENT_ACCESS_DEVICE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 21,
+    "parentName": "AGREEMENT_ACCESS_DEVICE_TYPE",
+    "childId": 19,
+    "childName": "AGREEMENT_ACCESS_DEVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 24,
+    "parentName": "AGREEMENT_AGREEMENT_GROUP_SUBTYPE",
+    "childId": 23,
+    "childName": "AGREEMENT_AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 26,
+    "parentName": "AGREEMENT_APPLICATION_ROLE",
+    "childId": 25,
+    "childName": "AGREEMENT_APPLICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 27,
+    "parentName": "AGREEMENT_ASSET",
+    "childId": 3125,
+    "childName": "PARTY_AGREEMENT_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 28,
+    "parentName": "AGREEMENT_ASSET_ROLE_SUBTYPE",
+    "childId": 27,
+    "childName": "AGREEMENT_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 29,
+    "parentName": "AGREEMENT_BALANCE_TYPE_METRIC",
+    "childId": 3127,
+    "childName": "PARTY_AGREEMENT_BALANCE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 32,
+    "parentName": "AGREEMENT_CHANNEL_ROLE_TYPE",
+    "childId": 31,
+    "childName": "AGREEMENT_CHANNEL",
+    "type": "association"
+  },
+  {
+    "parentId": 32,
+    "parentName": "AGREEMENT_CHANNEL_ROLE_TYPE",
+    "childId": 33,
+    "childName": "AGREEMENT_CHANNEL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 36,
+    "parentName": "AGREEMENT_CLAIM_RELATIONSHIP_TYPE",
+    "childId": 35,
+    "childName": "AGREEMENT_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 39,
+    "parentName": "AGREEMENT_CLASS_SCHEME_TYPE",
+    "childId": 22,
+    "childName": "AGREEMENT_AGREEMENT_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 39,
+    "parentName": "AGREEMENT_CLASS_SCHEME_TYPE",
+    "childId": 39,
+    "childName": "AGREEMENT_CLASS_SCHEME_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 39,
+    "parentName": "AGREEMENT_CLASS_SCHEME_TYPE",
+    "childId": 41,
+    "childName": "AGREEMENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 39,
+    "parentName": "AGREEMENT_CLASS_SCHEME_TYPE",
+    "childId": 434,
+    "childName": "PRODUCT_TO_AGREEMENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 41,
+    "parentName": "AGREEMENT_CLASS_VALUE",
+    "childId": 22,
+    "childName": "AGREEMENT_AGREEMENT_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 41,
+    "parentName": "AGREEMENT_CLASS_VALUE",
+    "childId": 37,
+    "childName": "AGREEMENT_CLASS_ADJUSTMENT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 41,
+    "parentName": "AGREEMENT_CLASS_VALUE",
+    "childId": 38,
+    "childName": "AGREEMENT_CLASS_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 41,
+    "parentName": "AGREEMENT_CLASS_VALUE",
+    "childId": 40,
+    "childName": "AGREEMENT_CLASS_SUBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 41,
+    "parentName": "AGREEMENT_CLASS_VALUE",
+    "childId": 41,
+    "childName": "AGREEMENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 41,
+    "parentName": "AGREEMENT_CLASS_VALUE",
+    "childId": 183,
+    "childName": "BASEL_II_LGD_NO_COLLATERAL_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 41,
+    "parentName": "AGREEMENT_CLASS_VALUE",
+    "childId": 3789,
+    "childName": "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 41,
+    "parentName": "AGREEMENT_CLASS_VALUE",
+    "childId": 434,
+    "childName": "PRODUCT_TO_AGREEMENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 46,
+    "parentName": "AGREEMENT_COVERAGE_EVENT_BASE_TYPE",
+    "childId": 45,
+    "childName": "AGREEMENT_COVERAGE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 47,
+    "parentName": "AGREEMENT_COVERAGE_EVENT_CATEGORY",
+    "childId": 45,
+    "childName": "AGREEMENT_COVERAGE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 48,
+    "parentName": "AGREEMENT_COVERAGE_EVENT_TYPE",
+    "childId": 45,
+    "childName": "AGREEMENT_COVERAGE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 53,
+    "parentName": "AGREEMENT_DATE_TYPE",
+    "childId": 52,
+    "childName": "AGREEMENT_DATE",
+    "type": "association"
+  },
+  {
+    "parentId": 57,
+    "parentName": "AGREEMENT_EVENT_TYPE",
+    "childId": 56,
+    "childName": "AGREEMENT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 58,
+    "parentName": "AGREEMENT_FEATURE",
+    "childId": 61,
+    "childName": "AGREEMENT_FEATURE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 58,
+    "parentName": "AGREEMENT_FEATURE",
+    "childId": 63,
+    "childName": "AGREEMENT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 58,
+    "parentName": "AGREEMENT_FEATURE",
+    "childId": 2365,
+    "childName": "POLICY_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 60,
+    "parentName": "AGREEMENT_FEATURE_GROUP_ROLE",
+    "childId": 59,
+    "childName": "AGREEMENT_FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 62,
+    "parentName": "AGREEMENT_FEATURE_METRIC_TYPE",
+    "childId": 61,
+    "childName": "AGREEMENT_FEATURE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 64,
+    "parentName": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "childId": 58,
+    "childName": "AGREEMENT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 64,
+    "parentName": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "childId": 63,
+    "childName": "AGREEMENT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 64,
+    "parentName": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "childId": 118,
+    "childName": "AGREEMENT_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 64,
+    "parentName": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "childId": 119,
+    "childName": "AGREEMENT_PRODUCT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 64,
+    "parentName": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "childId": 3464,
+    "childName": "APPLICATION_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 64,
+    "parentName": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "childId": 3465,
+    "childName": "APPLICATION_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 64,
+    "parentName": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "childId": 3645,
+    "childName": "QUOTATION_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 64,
+    "parentName": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "childId": 3646,
+    "childName": "QUOTATION_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 66,
+    "parentName": "AGREEMENT_FORMAT_TYPE",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 23,
+    "childName": "AGREEMENT_AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 68,
+    "childName": "AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 69,
+    "childName": "AGREEMENT_GROUP_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 70,
+    "childName": "AGREEMENT_GROUP_CHART_OF_ACCOUNTS",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 71,
+    "childName": "AGREEMENT_GROUP_CRITERION",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 72,
+    "childName": "AGREEMENT_GROUP_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 73,
+    "childName": "AGREEMENT_GROUP_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 75,
+    "childName": "AGREEMENT_GROUP_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 76,
+    "childName": "AGREEMENT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 0,
+    "childName": "AGREEMENT_GROUP_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 0,
+    "childName": "AGREEMENT_GROUP_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 82,
+    "childName": "AGREEMENT_GROUP_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 83,
+    "childName": "AGREEMENT_GROUP_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 84,
+    "childName": "AGREEMENT_GROUP_RISK_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 85,
+    "childName": "AGREEMENT_GROUP_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 86,
+    "childName": "AGREEMENT_GROUP_SUBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 87,
+    "childName": "AGREEMENT_GROUP_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 89,
+    "childName": "AGREEMENT_GROUP_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 866,
+    "childName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 3128,
+    "childName": "PARTY_AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 3803,
+    "childName": "PORTFOLIO_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 485,
+    "childName": "STRESS_TEST_AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 68,
+    "parentName": "AGREEMENT_GROUP",
+    "childId": 491,
+    "childName": "TARGET_PROMOTION_AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 74,
+    "parentName": "AGREEMENT_GROUP_FEATURE_ROLE",
+    "childId": 73,
+    "childName": "AGREEMENT_GROUP_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 77,
+    "parentName": "AGREEMENT_GROUP_METRIC_TYPE",
+    "childId": 76,
+    "childName": "AGREEMENT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 77,
+    "parentName": "AGREEMENT_GROUP_METRIC_TYPE",
+    "childId": 80,
+    "childName": "AGREEMENT_GROUP_RELATED_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 78,
+    "parentName": "AGREEMENT_GROUP_REASON_TYPE",
+    "childId": 68,
+    "childName": "AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 79,
+    "parentName": "AGREEMENT_GROUP_RELATED",
+    "childId": 80,
+    "childName": "AGREEMENT_GROUP_RELATED_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 81,
+    "parentName": "AGREEMENT_GROUP_RELATED_ROLE",
+    "childId": 79,
+    "childName": "AGREEMENT_GROUP_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 88,
+    "parentName": "AGREEMENT_GROUP_TYPE",
+    "childId": 89,
+    "childName": "AGREEMENT_GROUP_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 91,
+    "parentName": "AGREEMENT_ID_TYPE_JAPAN",
+    "childId": 298,
+    "childName": "FINANCIAL_AGREEMENT_JAPAN",
+    "type": "association"
+  },
+  {
+    "parentId": 94,
+    "parentName": "AGREEMENT_INSURED_ASSET",
+    "childId": 95,
+    "childName": "AGREEMENT_INSURED_ASSET_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 94,
+    "parentName": "AGREEMENT_INSURED_ASSET",
+    "childId": 96,
+    "childName": "AGREEMENT_INSURED_ASSET_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 94,
+    "parentName": "AGREEMENT_INSURED_ASSET",
+    "childId": 550,
+    "childName": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "type": "association"
+  },
+  {
+    "parentId": 96,
+    "parentName": "AGREEMENT_INSURED_ASSET_FEATURE",
+    "childId": 97,
+    "childName": "AGREEMENT_INSURED_ASSET_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 96,
+    "parentName": "AGREEMENT_INSURED_ASSET_FEATURE",
+    "childId": 570,
+    "childName": "POLICY_ASSET_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 102,
+    "parentName": "AGREEMENT_LIMIT",
+    "childId": 103,
+    "childName": "AGREEMENT_LIMIT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 102,
+    "parentName": "AGREEMENT_LIMIT",
+    "childId": 0,
+    "childName": "AGREEMENT_LIMIT_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 102,
+    "parentName": "AGREEMENT_LIMIT",
+    "childId": 0,
+    "childName": "AGREEMENT_LIMIT_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 109,
+    "parentName": "AGREEMENT_METRIC_TYPE",
+    "childId": 29,
+    "childName": "AGREEMENT_BALANCE_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 109,
+    "parentName": "AGREEMENT_METRIC_TYPE",
+    "childId": 107,
+    "childName": "AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 109,
+    "parentName": "AGREEMENT_METRIC_TYPE",
+    "childId": 108,
+    "childName": "AGREEMENT_METRIC_PROJECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 109,
+    "parentName": "AGREEMENT_METRIC_TYPE",
+    "childId": 3131,
+    "childName": "PARTY_AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 110,
+    "parentName": "AGREEMENT_OBJECTIVE_TYPE",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 110,
+    "parentName": "AGREEMENT_OBJECTIVE_TYPE",
+    "childId": 1703,
+    "childName": "APPLICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 110,
+    "parentName": "AGREEMENT_OBJECTIVE_TYPE",
+    "childId": 1529,
+    "childName": "QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 111,
+    "parentName": "AGREEMENT_OBTAINED_TYPE",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 113,
+    "parentName": "AGREEMENT_PORTFOLIO",
+    "childId": 420,
+    "childName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 115,
+    "parentName": "AGREEMENT_PORTFOLIO_RELATIONSHIP_TYPE",
+    "childId": 113,
+    "childName": "AGREEMENT_PORTFOLIO",
+    "type": "association"
+  },
+  {
+    "parentId": 117,
+    "parentName": "AGREEMENT_PRODUCT",
+    "childId": 118,
+    "childName": "AGREEMENT_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 117,
+    "parentName": "AGREEMENT_PRODUCT",
+    "childId": 2128,
+    "childName": "INSTRUMENT_METRIC_TYPE_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 117,
+    "parentName": "AGREEMENT_PRODUCT",
+    "childId": 3785,
+    "childName": "INTEREST_RATE_RISK_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 118,
+    "parentName": "AGREEMENT_PRODUCT_FEATURE",
+    "childId": 119,
+    "childName": "AGREEMENT_PRODUCT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 120,
+    "parentName": "AGREEMENT_PRODUCT_ROLE_TYPE",
+    "childId": 117,
+    "childName": "AGREEMENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 124,
+    "parentName": "AGREEMENT_PROJECT_ROLE",
+    "childId": 123,
+    "childName": "AGREEMENT_PROJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 126,
+    "parentName": "AGREEMENT_PROMOTION_OFFER_ROLE_TYPE",
+    "childId": 125,
+    "childName": "AGREEMENT_PROMOTION_OFFER",
+    "type": "association"
+  },
+  {
+    "parentId": 128,
+    "parentName": "AGREEMENT_QUOTATION_ROLE",
+    "childId": 444,
+    "childName": "QUOTATION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 131,
+    "parentName": "AGREEMENT_RELATED_REASON",
+    "childId": 130,
+    "childName": "AGREEMENT_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 132,
+    "parentName": "AGREEMENT_REMEDIATION_PLAN",
+    "childId": 133,
+    "childName": "AGREEMENT_REMEDIATION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 132,
+    "parentName": "AGREEMENT_REMEDIATION_PLAN",
+    "childId": 357,
+    "childName": "LOAN_MODIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 132,
+    "parentName": "AGREEMENT_REMEDIATION_PLAN",
+    "childId": 361,
+    "childName": "LOAN_RESTRUCTURE",
+    "type": "association"
+  },
+  {
+    "parentId": 136,
+    "parentName": "AGREEMENT_RISK_GRADE",
+    "childId": 0,
+    "childName": "AGREEMENT_RISK_GRADE_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 136,
+    "parentName": "AGREEMENT_RISK_GRADE",
+    "childId": 0,
+    "childName": "AGREEMENT_RISK_GRADE_RELATED_relates_to",
+    "type": "association"
+  },
+  {
+    "parentId": 136,
+    "parentName": "AGREEMENT_RISK_GRADE",
+    "childId": 3346,
+    "childName": "PARTY_TO_AGREEMENT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 144,
+    "parentName": "AGREEMENT_SCORE",
+    "childId": 0,
+    "childName": "AGREEMENT_SCORE_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 144,
+    "parentName": "AGREEMENT_SCORE",
+    "childId": 0,
+    "childName": "AGREEMENT_SCORE_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 147,
+    "parentName": "AGREEMENT_STATEMENT",
+    "childId": 149,
+    "childName": "AGREEMENT_STATEMENT_LINE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 147,
+    "parentName": "AGREEMENT_STATEMENT",
+    "childId": 152,
+    "childName": "AGREEMENT_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 147,
+    "parentName": "AGREEMENT_STATEMENT",
+    "childId": 1259,
+    "childName": "CARD_STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 147,
+    "parentName": "AGREEMENT_STATEMENT",
+    "childId": 1289,
+    "childName": "INVESTMENT_HOLDING_STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 148,
+    "parentName": "AGREEMENT_STATEMENT_LINE_AMOUNT_TYPE",
+    "childId": 149,
+    "childName": "AGREEMENT_STATEMENT_LINE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 149,
+    "parentName": "AGREEMENT_STATEMENT_LINE_ITEM",
+    "childId": 151,
+    "childName": "AGREEMENT_STATEMENT_LINE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 150,
+    "parentName": "AGREEMENT_STATEMENT_LINE_ITEM_SUBTYPE",
+    "childId": 149,
+    "childName": "AGREEMENT_STATEMENT_LINE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 154,
+    "parentName": "AGREEMENT_STATUS_REASON_TYPE",
+    "childId": 153,
+    "childName": "AGREEMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 155,
+    "parentName": "AGREEMENT_STATUS_SCHEME_TYPE",
+    "childId": 153,
+    "childName": "AGREEMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 155,
+    "parentName": "AGREEMENT_STATUS_SCHEME_TYPE",
+    "childId": 156,
+    "childName": "AGREEMENT_STATUS_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 156,
+    "parentName": "AGREEMENT_STATUS_TYPE",
+    "childId": 153,
+    "childName": "AGREEMENT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 156,
+    "parentName": "AGREEMENT_STATUS_TYPE",
+    "childId": 3722,
+    "childName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 156,
+    "parentName": "AGREEMENT_STATUS_TYPE",
+    "childId": 3734,
+    "childName": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 156,
+    "parentName": "AGREEMENT_STATUS_TYPE",
+    "childId": 1120,
+    "childName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 156,
+    "parentName": "AGREEMENT_STATUS_TYPE",
+    "childId": 1122,
+    "childName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 158,
+    "parentName": "AGREEMENT_SUBTYPE",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 162,
+    "parentName": "AGREEMENT_TEXT",
+    "childId": 163,
+    "childName": "AGREEMENT_TEXT_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 166,
+    "parentName": "AGREEMENT_TYPE",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 173,
+    "parentName": "ASSET_ACCOUNT_SUBTYPE",
+    "childId": 172,
+    "childName": "ASSET_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 175,
+    "parentName": "ASSET_COLLATERAL_ROLE_TYPE",
+    "childId": 42,
+    "childName": "AGREEMENT_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 175,
+    "parentName": "ASSET_COLLATERAL_ROLE_TYPE",
+    "childId": 174,
+    "childName": "ASSET_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 175,
+    "parentName": "ASSET_COLLATERAL_ROLE_TYPE",
+    "childId": 419,
+    "childName": "PORTFOLIO_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 178,
+    "parentName": "BALANCE_SHEET_GL_MAIN_ACCOUNT_TYPE",
+    "childId": 177,
+    "childName": "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 185,
+    "parentName": "CAMPAIGN_AGREEMENT_ROLE_TYPE",
+    "childId": 184,
+    "childName": "CAMPAIGN_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 190,
+    "parentName": "CHART_OF_ACCOUNTS_CLASSIFICATION",
+    "childId": 1825,
+    "childName": "COA_CODE_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 34,
+    "childName": "AGREEMENT_CHART_OF_ACCOUNTS",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 70,
+    "childName": "AGREEMENT_GROUP_CHART_OF_ACCOUNTS",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1238,
+    "childName": "AP_INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1240,
+    "childName": "AP_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1241,
+    "childName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1243,
+    "childName": "AP_INVOICE_LINE_PAYMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1248,
+    "childName": "AR_INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1249,
+    "childName": "AR_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1250,
+    "childName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1253,
+    "childName": "AR_INVOICE_LINE_RECEIPT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 2876,
+    "childName": "ASSOCIATE_PAYROLL_TRANSACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 192,
+    "childName": "CHART_OF_ACCOUNTS_CODE_TO_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1821,
+    "childName": "COA_CODE_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 2008,
+    "childName": "FINANCIAL_PLAN_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 537,
+    "childName": "FIXED_ASSET_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1294,
+    "childName": "INVOICE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1316,
+    "childName": "JOURNAL_ENTRY_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 1402,
+    "childName": "PAYROLL_REGISTER",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 2351,
+    "childName": "PAY_ELEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 3563,
+    "childName": "PORTFOLIO_PRODUCT_TO_COA",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 435,
+    "childName": "PROJECT_TASK_CHART_OF_ACCOUNTS",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 2689,
+    "childName": "TASK_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 191,
+    "parentName": "CHART_OF_ACCOUNTS_CODE",
+    "childId": 2784,
+    "childName": "VENDOR_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 195,
+    "parentName": "COLLATERALIZED_EXPOSURE",
+    "childId": 196,
+    "childName": "COLLATERALIZED_EXPOSURE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 200,
+    "parentName": "COLLATERAL_AGREEMENT_TYPE",
+    "childId": 198,
+    "childName": "COLLATERAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 42,
+    "childName": "AGREEMENT_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 174,
+    "childName": "ASSET_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 203,
+    "childName": "COLLATERAL_ITEM_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 205,
+    "childName": "COLLATERAL_ITEM_GROUPED",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 206,
+    "childName": "COLLATERAL_ITEM_RISK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 207,
+    "childName": "COLLATERAL_ITEM_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 210,
+    "childName": "COLLATERAL_ITEM_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 285,
+    "childName": "EXPOSURE_AGREEMENT_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 419,
+    "childName": "PORTFOLIO_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 201,
+    "parentName": "COLLATERAL_ITEM",
+    "childId": 459,
+    "childName": "RISK_MITIGANT_AGREEMENT_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 204,
+    "parentName": "COLLATERAL_ITEM_GROUP",
+    "childId": 205,
+    "childName": "COLLATERAL_ITEM_GROUPED",
+    "type": "association"
+  },
+  {
+    "parentId": 208,
+    "parentName": "COLLATERAL_ITEM_STATUS_TYPE",
+    "childId": 207,
+    "childName": "COLLATERAL_ITEM_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 209,
+    "parentName": "COLLATERAL_ITEM_TYPE",
+    "childId": 201,
+    "childName": "COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 210,
+    "parentName": "COLLATERAL_ITEM_VALUE",
+    "childId": 202,
+    "childName": "COLLATERAL_ITEM_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 211,
+    "parentName": "COLLECTION_ISSUER_AGREEMENT",
+    "childId": 1267,
+    "childName": "COLLECTION_DEBT_INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 215,
+    "parentName": "COMMON_STOCK_ACCOUNT_TYPE",
+    "childId": 214,
+    "childName": "COMMON_STOCK_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 216,
+    "parentName": "COMMUNICATION_COLLATERAL",
+    "childId": 186,
+    "childName": "CAMPAIGN_COLLATERAL",
+    "type": "association"
+  },
+  {
+    "parentId": 216,
+    "parentName": "COMMUNICATION_COLLATERAL",
+    "childId": 398,
+    "childName": "OFFER_COLLATERAL",
+    "type": "association"
+  },
+  {
+    "parentId": 216,
+    "parentName": "COMMUNICATION_COLLATERAL",
+    "childId": 436,
+    "childName": "PROMOTION_COLLATERAL",
+    "type": "association"
+  },
+  {
+    "parentId": 217,
+    "parentName": "COMMUNICATION_COLLATERAL_TYPE",
+    "childId": 216,
+    "childName": "COMMUNICATION_COLLATERAL",
+    "type": "association"
+  },
+  {
+    "parentId": 220,
+    "parentName": "CONSUMER_SERVICE_AGREEMENT_TYPE",
+    "childId": 219,
+    "childName": "CONSUMER_SERVICE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 221,
+    "parentName": "CONTRACT_SETTLEMENT_TYPE",
+    "childId": 235,
+    "childName": "CREDIT_DEFAULT_SWAP",
+    "type": "association"
+  },
+  {
+    "parentId": 221,
+    "parentName": "CONTRACT_SETTLEMENT_TYPE",
+    "childId": 307,
+    "childName": "FORWARD_CONTRACT",
+    "type": "association"
+  },
+  {
+    "parentId": 221,
+    "parentName": "CONTRACT_SETTLEMENT_TYPE",
+    "childId": 309,
+    "childName": "FUTURES_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 223,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 224,
+    "childName": "CREDIT_AGREEMENT_SECONDARY_MARKET_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 223,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 2139,
+    "childName": "INSURANCE_VERIFICATION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 223,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 357,
+    "childName": "LOAN_MODIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 223,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 361,
+    "childName": "LOAN_RESTRUCTURE",
+    "type": "association"
+  },
+  {
+    "parentId": 223,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 362,
+    "childName": "LOAN_REVIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 223,
+    "parentName": "CREDIT_AGREEMENT",
+    "childId": 2332,
+    "childName": "OVERDRAFT_EXCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 225,
+    "parentName": "CREDIT_AGREEMENT_SUBTYPE",
+    "childId": 223,
+    "childName": "CREDIT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 226,
+    "parentName": "CREDIT_APPLICATION",
+    "childId": 227,
+    "childName": "CREDIT_APPLICATION_PRECREDIT_CHARGE",
+    "type": "association"
+  },
+  {
+    "parentId": 231,
+    "parentName": "CREDIT_CARD_AGREEMENT_SUBTYPE",
+    "childId": 230,
+    "childName": "CREDIT_CARD_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 233,
+    "parentName": "CREDIT_CARD_SUBTYPE",
+    "childId": 229,
+    "childName": "CREDIT_CARD",
+    "type": "association"
+  },
+  {
+    "parentId": 238,
+    "parentName": "CREDIT_DERIVATIVE_SUBTYPE",
+    "childId": 1662,
+    "childName": "ADD_ON_FACTOR_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 238,
+    "parentName": "CREDIT_DERIVATIVE_SUBTYPE",
+    "childId": 236,
+    "childName": "CREDIT_DERIVATIVE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 238,
+    "parentName": "CREDIT_DERIVATIVE_SUBTYPE",
+    "childId": 237,
+    "childName": "CREDIT_DERIVATIVE_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 239,
+    "parentName": "CREDIT_EVENT_TYPE",
+    "childId": 235,
+    "childName": "CREDIT_DEFAULT_SWAP",
+    "type": "association"
+  },
+  {
+    "parentId": 240,
+    "parentName": "CREDIT_INQUIRY_REASON_TYPE",
+    "childId": 3222,
+    "childName": "PARTY_CREDIT_INQUIRY",
+    "type": "association"
+  },
+  {
+    "parentId": 243,
+    "parentName": "CREDIT_RATING_TYPE",
+    "childId": 3224,
+    "childName": "PARTY_CREDIT_REPORT",
+    "type": "association"
+  },
+  {
+    "parentId": 244,
+    "parentName": "CREDIT_REPORT_COMMENT_TYPE",
+    "childId": 3225,
+    "childName": "PARTY_CREDIT_REPORT_COMMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 245,
+    "parentName": "CREDIT_REPORT_ROLE_TYPE",
+    "childId": 49,
+    "childName": "AGREEMENT_CREDIT_REPORT",
+    "type": "association"
+  },
+  {
+    "parentId": 245,
+    "parentName": "CREDIT_REPORT_ROLE_TYPE",
+    "childId": 171,
+    "childName": "APPLICATION_CREDIT_REPORT",
+    "type": "association"
+  },
+  {
+    "parentId": 247,
+    "parentName": "CREDIT_STATUS_TYPE",
+    "childId": 3282,
+    "childName": "PARTY_LIABILITY_CREDIT_RATING",
+    "type": "association"
+  },
+  {
+    "parentId": 250,
+    "parentName": "CURRENT_ASSET_ACCOUNT_SUBTYPE",
+    "childId": 249,
+    "childName": "CURRENT_ASSET_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 252,
+    "parentName": "CURRENT_LIABILITY_ACCOUNT_TYPE",
+    "childId": 251,
+    "childName": "CURRENT_LIABILITY_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 255,
+    "parentName": "DEBIT_CREDIT_TYPE",
+    "childId": 1187,
+    "childName": "FINANCIAL_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 256,
+    "parentName": "DEBT_RECEIVABLE_AGREEMENT_TYPE",
+    "childId": 441,
+    "childName": "PURCHASED_RECEIVABLE_ISSUER_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 262,
+    "parentName": "DEPOSIT_BOX_SIZE_TYPE",
+    "childId": 463,
+    "childName": "SAFE_DEPOSIT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 264,
+    "parentName": "DEPOSIT_MATURITY_SUBTYPE",
+    "childId": 260,
+    "childName": "DEPOSIT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 265,
+    "parentName": "DEPOSIT_OWNERSHIP_TYPE",
+    "childId": 260,
+    "childName": "DEPOSIT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 267,
+    "parentName": "DEPOSIT_SLIP_TRANSACTION_TYPE",
+    "childId": 266,
+    "childName": "DEPOSIT_SLIP",
+    "type": "association"
+  },
+  {
+    "parentId": 270,
+    "parentName": "DEPRECIABLE_ASSET_ACCOUNT",
+    "childId": 271,
+    "childName": "DEPRECIABLE_ASSET_ACCOUNT_PAYABLE",
+    "type": "association"
+  },
+  {
+    "parentId": 274,
+    "parentName": "DIVIDEND_EQUITY_ACCOUNT_TYPE",
+    "childId": 273,
+    "childName": "DIVIDEND_EQUITY_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 278,
+    "parentName": "EQUITY_ACCOUNT_TYPE",
+    "childId": 277,
+    "childName": "EQUITY_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 280,
+    "parentName": "EXPENSE_ACCOUNT",
+    "childId": 281,
+    "childName": "EXPENSE_ACCOUNT_COST_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 282,
+    "parentName": "EXPENSE_ACCOUNT_SUBTYPE",
+    "childId": 280,
+    "childName": "EXPENSE_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 283,
+    "parentName": "EXPOSURE_AGREEMENT_ASSET_VALUE",
+    "childId": 284,
+    "childName": "EXPOSURE_AGREEMENT_ASSET_VALUE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 285,
+    "parentName": "EXPOSURE_AGREEMENT_COLLATERAL_ITEM",
+    "childId": 283,
+    "childName": "EXPOSURE_AGREEMENT_ASSET_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 286,
+    "parentName": "EXPOSURE_AGREEMENT_RISK_MITIGANT_AGREEMENT",
+    "childId": 195,
+    "childName": "COLLATERALIZED_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 288,
+    "parentName": "EXTERNAL_AGREEMENT",
+    "childId": 3115,
+    "childName": "OTHER_PARTY_INSURANCE_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 288,
+    "parentName": "EXTERNAL_AGREEMENT",
+    "childId": 3156,
+    "childName": "PARTY_ASSET_INSURANCE_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 289,
+    "parentName": "EXTERNAL_AGREEMENT_TYPE",
+    "childId": 288,
+    "childName": "EXTERNAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 293,
+    "parentName": "FINANCE_EXPOSURE_AGREEMENT",
+    "childId": 285,
+    "childName": "EXPOSURE_AGREEMENT_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 293,
+    "parentName": "FINANCE_EXPOSURE_AGREEMENT",
+    "childId": 3768,
+    "childName": "FINANCE_EXPOSURE_RISK_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 50,
+    "childName": "AGREEMENT_CREDIT_RISK_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 102,
+    "childName": "AGREEMENT_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 105,
+    "childName": "AGREEMENT_MARKET_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 106,
+    "childName": "AGREEMENT_MARKET_RISK_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 138,
+    "childName": "AGREEMENT_RISK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 295,
+    "childName": "FINANCIAL_AGREEMENT_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 296,
+    "childName": "FINANCIAL_AGREEMENT_BASEL_II_APPROACH",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 299,
+    "childName": "FINANCIAL_AGREEMENT_PASSBOOK",
+    "type": "association"
+  },
+  {
+    "parentId": 294,
+    "parentName": "FINANCIAL_AGREEMENT",
+    "childId": 495,
+    "childName": "TRANCHE_TO_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 300,
+    "parentName": "FINANCIAL_AGREEMENT_SUBTYPE",
+    "childId": 294,
+    "childName": "FINANCIAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 301,
+    "parentName": "FINANCIAL_AGREEMENT_TYPE",
+    "childId": 294,
+    "childName": "FINANCIAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 302,
+    "parentName": "FINANCIAL_AGREEMENT_TYPE_JAPAN",
+    "childId": 298,
+    "childName": "FINANCIAL_AGREEMENT_JAPAN",
+    "type": "association"
+  },
+  {
+    "parentId": 304,
+    "parentName": "FIXED_ASSET_ACCOUNT_SUBTYPE",
+    "childId": 303,
+    "childName": "FIXED_ASSET_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 311,
+    "parentName": "FX_AGREEMENT_TYPE",
+    "childId": 306,
+    "childName": "FOREIGN_EXCHANGE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 314,
+    "parentName": "GL_MAIN_ACCOUNT",
+    "childId": 646,
+    "childName": "CAMPAIGN",
+    "type": "association"
+  },
+  {
+    "parentId": 314,
+    "parentName": "GL_MAIN_ACCOUNT",
+    "childId": 313,
+    "childName": "GL_ACCOUNT_COA_CODE_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 314,
+    "parentName": "GL_MAIN_ACCOUNT",
+    "childId": 314,
+    "childName": "GL_MAIN_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 314,
+    "parentName": "GL_MAIN_ACCOUNT",
+    "childId": 317,
+    "childName": "GL_MAIN_ACCOUNT_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 314,
+    "parentName": "GL_MAIN_ACCOUNT",
+    "childId": 320,
+    "childName": "GL_MAIN_ACCOUNT_SET_OF_BOOKS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 314,
+    "parentName": "GL_MAIN_ACCOUNT",
+    "childId": 321,
+    "childName": "GL_MAIN_ACCOUNT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 315,
+    "parentName": "GL_MAIN_ACCOUNT_CATEGORY",
+    "childId": 314,
+    "childName": "GL_MAIN_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 316,
+    "parentName": "GL_MAIN_ACCOUNT_CLASS_VALUE",
+    "childId": 316,
+    "childName": "GL_MAIN_ACCOUNT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 316,
+    "parentName": "GL_MAIN_ACCOUNT_CLASS_VALUE",
+    "childId": 317,
+    "childName": "GL_MAIN_ACCOUNT_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 318,
+    "parentName": "GL_MAIN_ACCOUNT_SCHEME_TYPE",
+    "childId": 316,
+    "childName": "GL_MAIN_ACCOUNT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 318,
+    "parentName": "GL_MAIN_ACCOUNT_SCHEME_TYPE",
+    "childId": 317,
+    "childName": "GL_MAIN_ACCOUNT_CLASS_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 318,
+    "parentName": "GL_MAIN_ACCOUNT_SCHEME_TYPE",
+    "childId": 318,
+    "childName": "GL_MAIN_ACCOUNT_SCHEME_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 319,
+    "parentName": "GL_MAIN_ACCOUNT_SEGMENT",
+    "childId": 29,
+    "childName": "AGREEMENT_BALANCE_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 319,
+    "parentName": "GL_MAIN_ACCOUNT_SEGMENT",
+    "childId": 107,
+    "childName": "AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 322,
+    "parentName": "GL_MAIN_ACCOUNT_STATUS_TYPE",
+    "childId": 321,
+    "childName": "GL_MAIN_ACCOUNT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 325,
+    "parentName": "GUARANTEE_CRITERIA_TYPE",
+    "childId": 3439,
+    "childName": "THIRD-PARTY_GUARANTEE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 329,
+    "parentName": "INCOME_STATEMENT_GL_MAIN_ACCOUNT_TYPE",
+    "childId": 3757,
+    "childName": "DEFAULT_RECOVERY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 329,
+    "parentName": "INCOME_STATEMENT_GL_MAIN_ACCOUNT_TYPE",
+    "childId": 328,
+    "childName": "INCOME_STATEMENT_GL_MAIN_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 332,
+    "parentName": "INFORMATION_RELEASE_TYPE",
+    "childId": 985,
+    "childName": "CLAIM_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 332,
+    "parentName": "INFORMATION_RELEASE_TYPE",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 333,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 35,
+    "childName": "AGREEMENT_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 333,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 3023,
+    "childName": "INSURANCE_AGREEMENT_LINE_OF_BUSINESS",
+    "type": "association"
+  },
+  {
+    "parentId": 333,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 1119,
+    "childName": "POLICY_INSURABLE_INTEREST",
+    "type": "association"
+  },
+  {
+    "parentId": 333,
+    "parentName": "INSURANCE_AGREEMENT",
+    "childId": 2366,
+    "childName": "POLICY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 334,
+    "parentName": "INSURANCE_AGREEMENT_SUBTYPE",
+    "childId": 333,
+    "childName": "INSURANCE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 335,
+    "parentName": "INSURANCE_AGREEMENT_TYPE",
+    "childId": 333,
+    "childName": "INSURANCE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 337,
+    "parentName": "INTANGIBLE_ASSET_ACCOUNT_SUBTYPE",
+    "childId": 336,
+    "childName": "INTANGIBLE_ASSET_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 343,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 1490,
+    "childName": "INVESTMENT_COST_BASIS",
+    "type": "association"
+  },
+  {
+    "parentId": 343,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 1494,
+    "childName": "INVESTMENT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 343,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 867,
+    "childName": "INVESTMENT_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 343,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 868,
+    "childName": "INVESTMENT_POSITION_SPECIFIC",
+    "type": "association"
+  },
+  {
+    "parentId": 343,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 493,
+    "childName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 343,
+    "parentName": "INVESTMENT_AGREEMENT",
+    "childId": 494,
+    "childName": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 346,
+    "parentName": "LABOR_AGREEMENT",
+    "childId": 2086,
+    "childName": "GRIEVANCE_PROCEDURE",
+    "type": "association"
+  },
+  {
+    "parentId": 346,
+    "parentName": "LABOR_AGREEMENT",
+    "childId": 2180,
+    "childName": "LABOR_GRIEVANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 346,
+    "parentName": "LABOR_AGREEMENT",
+    "childId": 423,
+    "childName": "POSITION_LABOR_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 348,
+    "parentName": "LEASE_TYPE",
+    "childId": 347,
+    "childName": "LEASE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 351,
+    "parentName": "LIABILITY_ACCOUNT_SUBTYPE",
+    "childId": 350,
+    "childName": "LIABILITY_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 353,
+    "parentName": "LOAN_AGREEMENT",
+    "childId": 506,
+    "childName": "WORK_PROCESS_LOAN",
+    "type": "association"
+  },
+  {
+    "parentId": 354,
+    "parentName": "LOAN_CHANGE_REASON",
+    "childId": 357,
+    "childName": "LOAN_MODIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 354,
+    "parentName": "LOAN_CHANGE_REASON",
+    "childId": 361,
+    "childName": "LOAN_RESTRUCTURE",
+    "type": "association"
+  },
+  {
+    "parentId": 356,
+    "parentName": "LOAN_MATURITY_SUBTYPE",
+    "childId": 353,
+    "childName": "LOAN_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 358,
+    "parentName": "LOAN_MODIFICATION_TYPE",
+    "childId": 357,
+    "childName": "LOAN_MODIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 359,
+    "parentName": "LOAN_PROVISION_BALANCE",
+    "childId": 360,
+    "childName": "LOAN_PROVISION_CHANGE",
+    "type": "association"
+  },
+  {
+    "parentId": 363,
+    "parentName": "LOAN_REVIEW_RESULT_TYPE",
+    "childId": 362,
+    "childName": "LOAN_REVIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 364,
+    "parentName": "LOAN_REVIEW_TYPE",
+    "childId": 362,
+    "childName": "LOAN_REVIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 366,
+    "parentName": "LOAN_TERM_SUBTYPE",
+    "childId": 365,
+    "childName": "LOAN_TERM_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 368,
+    "parentName": "LOAN_TRANSACTION_SUBTYPE",
+    "childId": 367,
+    "childName": "LOAN_TRANSACTION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 373,
+    "parentName": "LOYALTY_ACCOUNT_EARNING_TYPE",
+    "childId": 372,
+    "childName": "LOYALTY_ACCOUNT_EARNING",
+    "type": "association"
+  },
+  {
+    "parentId": 375,
+    "parentName": "LOYALTY_AGREEMENT",
+    "childId": 376,
+    "childName": "LOYALTY_AGREEMENT_LEVEL",
+    "type": "association"
+  },
+  {
+    "parentId": 382,
+    "parentName": "MORTGAGE_TYPE",
+    "childId": 380,
+    "childName": "MORTGAGE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 386,
+    "parentName": "NETTING_AGREEMENT_TYPE",
+    "childId": 385,
+    "childName": "NETTING_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 389,
+    "parentName": "NETWORK_SERVICE_AGREEMENT_SUBTYPE",
+    "childId": 388,
+    "childName": "NETWORK_SERVICE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 391,
+    "parentName": "NONCURRENT_LIABILITY_ACCOUNT_SUBTYPE",
+    "childId": 390,
+    "childName": "NONCURRENT_LIABILITY_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 394,
+    "parentName": "NONDIVIDEND_EQUITY_ACCOUNT_TYPE",
+    "childId": 393,
+    "childName": "NONDIVIDEND_EQUITY_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 399,
+    "parentName": "OFF_BALANCE_SHEET_SECURITIZATION_TYPE",
+    "childId": 471,
+    "childName": "SECURITIZATION_POOL",
+    "type": "association"
+  },
+  {
+    "parentId": 401,
+    "parentName": "OPERATING_EXPENSE_ACCOUNT_SUBTYPE",
+    "childId": 400,
+    "childName": "OPERATING_EXPENSE_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 406,
+    "parentName": "OTHER_ASSET_ACCOUNT_SUBTYPE",
+    "childId": 405,
+    "childName": "OTHER_ASSET_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 409,
+    "parentName": "OTHER_EXPENSE_ACCOUNT_SUBTYPE",
+    "childId": 408,
+    "childName": "OTHER_EXPENSE_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 411,
+    "parentName": "OTHER_LIABILITY_ACCOUNT_SUBTYPE",
+    "childId": 410,
+    "childName": "OTHER_LIABILITY_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 417,
+    "parentName": "PAYMENT_INSTRUCTION_AGREEMENT_ROLE",
+    "childId": 415,
+    "childName": "PAYMENT_INSTRUCTION_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 417,
+    "parentName": "PAYMENT_INSTRUCTION_AGREEMENT_ROLE",
+    "childId": 416,
+    "childName": "PAYMENT_INSTRUCTION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 420,
+    "parentName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "childId": 419,
+    "childName": "PORTFOLIO_COLLATERAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 420,
+    "parentName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "childId": 421,
+    "childName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING_QUANTITY",
+    "type": "association"
+  },
+  {
+    "parentId": 420,
+    "parentName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "childId": 422,
+    "childName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 420,
+    "parentName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "childId": 3561,
+    "childName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 420,
+    "parentName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "childId": 3563,
+    "childName": "PORTFOLIO_PRODUCT_TO_COA",
+    "type": "association"
+  },
+  {
+    "parentId": 424,
+    "parentName": "PO_DELIVERY_RELEASE",
+    "childId": 425,
+    "childName": "PO_DELIVERY_RELEASE_LINE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 425,
+    "parentName": "PO_DELIVERY_RELEASE_LINE_ITEM",
+    "childId": 426,
+    "childName": "PO_DELIVERY_RELEASE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 425,
+    "parentName": "PO_DELIVERY_RELEASE_LINE_ITEM",
+    "childId": 427,
+    "childName": "PO_LINE_DELIVERY_RELEASE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 428,
+    "parentName": "PO_RELEASE_STATUS_REASON_TYPE",
+    "childId": 426,
+    "childName": "PO_DELIVERY_RELEASE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 429,
+    "parentName": "PO_RELEASE_STATUS_TYPE",
+    "childId": 426,
+    "childName": "PO_DELIVERY_RELEASE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 430,
+    "parentName": "PRECREDIT_TYPE",
+    "childId": 227,
+    "childName": "CREDIT_APPLICATION_PRECREDIT_CHARGE",
+    "type": "association"
+  },
+  {
+    "parentId": 439,
+    "parentName": "PROVIDER_AGREEMENT_TYPE",
+    "childId": 1123,
+    "childName": "PROFESSIONAL_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 441,
+    "parentName": "PURCHASED_RECEIVABLE_ISSUER_AGREEMENT",
+    "childId": 442,
+    "childName": "PURCHASED_RECEIVABLE_ISSUER_DEBTOR_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 442,
+    "parentName": "PURCHASED_RECEIVABLE_ISSUER_DEBTOR_AGREEMENT",
+    "childId": 1355,
+    "childName": "PURCHASED_RECEIVABLE_INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 443,
+    "parentName": "PURCHASE_TRANSACTION_AGREEMENT",
+    "childId": 3405,
+    "childName": "PURCHASE_AGREEMENT_BUSINESS_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 446,
+    "parentName": "REINSURANCE_AGREEMENT",
+    "childId": 1018,
+    "childName": "CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 446,
+    "parentName": "REINSURANCE_AGREEMENT",
+    "childId": 447,
+    "childName": "REINSURANCE_AGREEMENT_RESTRICTION",
+    "type": "association"
+  },
+  {
+    "parentId": 446,
+    "parentName": "REINSURANCE_AGREEMENT",
+    "childId": 2484,
+    "childName": "REINSURANCE_UNDERLYING_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 448,
+    "parentName": "REINSURANCE_CONTRACT_TYPE",
+    "childId": 446,
+    "childName": "REINSURANCE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 449,
+    "parentName": "RELEASE_TYPE",
+    "childId": 424,
+    "childName": "PO_DELIVERY_RELEASE",
+    "type": "association"
+  },
+  {
+    "parentId": 451,
+    "parentName": "REPURCHASE_AGREEMENT_TYPE",
+    "childId": 450,
+    "childName": "REPURCHASE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 455,
+    "parentName": "REVENUE_ACCOUNT",
+    "childId": 456,
+    "childName": "REVENUE_ACCOUNT_REVENUE_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 457,
+    "parentName": "REVENUE_ACCOUNT_SUBTYPE",
+    "childId": 455,
+    "childName": "REVENUE_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 458,
+    "parentName": "RISK_MITIGANT_AGREEMENT",
+    "childId": 459,
+    "childName": "RISK_MITIGANT_AGREEMENT_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 459,
+    "parentName": "RISK_MITIGANT_AGREEMENT_ITEM",
+    "childId": 199,
+    "childName": "COLLATERAL_AGREEMENT_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 460,
+    "parentName": "RISK_MITIGANT_AGREEMENT_RELATED",
+    "childId": 461,
+    "childName": "RISK_MITIGANT_AGREEMENT_SENIORITY",
+    "type": "association"
+  },
+  {
+    "parentId": 462,
+    "parentName": "RISK_MITIGANT_AGREEMENT_SUBTYPE",
+    "childId": 458,
+    "childName": "RISK_MITIGANT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 466,
+    "parentName": "SEARCH_ENGINE_SYSTEM_ACCOUNT",
+    "childId": 465,
+    "childName": "SEARCH_ENGINE_ACCOUNT_CAMPAIGN_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 469,
+    "parentName": "SECURITIZATION_CLEAN_UP_CALL_TYPE",
+    "childId": 476,
+    "childName": "SECURITIZATION_SELL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 471,
+    "parentName": "SECURITIZATION_POOL",
+    "childId": 3467,
+    "childName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 471,
+    "parentName": "SECURITIZATION_POOL",
+    "childId": 472,
+    "childName": "SECURITIZATION_POOL_OBLIGOR_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 471,
+    "parentName": "SECURITIZATION_POOL",
+    "childId": 473,
+    "childName": "SECURITIZATION_POOL_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 474,
+    "parentName": "SECURITIZATION_POOL_STRUCTURE_TYPE",
+    "childId": 471,
+    "childName": "SECURITIZATION_POOL",
+    "type": "association"
+  },
+  {
+    "parentId": 475,
+    "parentName": "SECURITIZATION_ROLE",
+    "childId": 470,
+    "childName": "SECURITIZATION_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 477,
+    "parentName": "SECURITIZATION_TYPE",
+    "childId": 471,
+    "childName": "SECURITIZATION_POOL",
+    "type": "association"
+  },
+  {
+    "parentId": 479,
+    "parentName": "SETTLEMENT_DELIVERY_TYPE",
+    "childId": 1577,
+    "childName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 479,
+    "parentName": "SETTLEMENT_DELIVERY_TYPE",
+    "childId": 493,
+    "childName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 479,
+    "parentName": "SETTLEMENT_DELIVERY_TYPE",
+    "childId": 494,
+    "childName": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 480,
+    "parentName": "SETTLEMENT_DIRECTION_TYPE",
+    "childId": 1577,
+    "childName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 480,
+    "parentName": "SETTLEMENT_DIRECTION_TYPE",
+    "childId": 493,
+    "childName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 480,
+    "parentName": "SETTLEMENT_DIRECTION_TYPE",
+    "childId": 494,
+    "childName": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 481,
+    "parentName": "SETTLEMENT_PRODUCT_REASON_TYPE",
+    "childId": 494,
+    "childName": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 483,
+    "parentName": "SPLIT_SETTLEMENT_TYPE",
+    "childId": 1577,
+    "childName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 483,
+    "parentName": "SPLIT_SETTLEMENT_TYPE",
+    "childId": 493,
+    "childName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 483,
+    "parentName": "SPLIT_SETTLEMENT_TYPE",
+    "childId": 494,
+    "childName": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 486,
+    "parentName": "SWAP_AGREEMENT",
+    "childId": 487,
+    "childName": "SWAP_AGREEMENT_LEG",
+    "type": "association"
+  },
+  {
+    "parentId": 487,
+    "parentName": "SWAP_AGREEMENT_LEG",
+    "childId": 488,
+    "childName": "SWAP_AGREEMENT_LEG_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 487,
+    "parentName": "SWAP_AGREEMENT_LEG",
+    "childId": 489,
+    "childName": "SWAP_LEG_AGREEMENT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 487,
+    "parentName": "SWAP_AGREEMENT_LEG",
+    "childId": 1567,
+    "childName": "SWAP_LEG_AMORTIZATION_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 487,
+    "parentName": "SWAP_AGREEMENT_LEG",
+    "childId": 1568,
+    "childName": "SWAP_LEG_CALL_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 487,
+    "parentName": "SWAP_AGREEMENT_LEG",
+    "childId": 3659,
+    "childName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 487,
+    "parentName": "SWAP_AGREEMENT_LEG",
+    "childId": 1369,
+    "childName": "SWAP_LEG_PAYMENT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 487,
+    "parentName": "SWAP_AGREEMENT_LEG",
+    "childId": 1569,
+    "childName": "SWAP_LEG_PROJECTED_CASH_FLOW",
+    "type": "association"
+  },
+  {
+    "parentId": 487,
+    "parentName": "SWAP_AGREEMENT_LEG",
+    "childId": 1570,
+    "childName": "SWAP_LEG_RESET_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 493,
+    "parentName": "TRADE_SETTLEMENT_INSTRUCTION",
+    "childId": 3446,
+    "childName": "TRADE_SETTLEMENT_INSTRUCTION_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 496,
+    "parentName": "TRANCHE_TO_AGREEMENT_ROLE_TYPE",
+    "childId": 495,
+    "childName": "TRANCHE_TO_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 497,
+    "parentName": "TRANSACTION_ACCOUNT",
+    "childId": 1759,
+    "childName": "BANK_DRAFT",
+    "type": "association"
+  },
+  {
+    "parentId": 498,
+    "parentName": "TRANSACTION_ACCOUNT_TYPE",
+    "childId": 497,
+    "childName": "TRANSACTION_ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 505,
+    "parentName": "WEB_AD_PLACEMENT_CONTRACT",
+    "childId": 1924,
+    "childName": "DIGITAL_REQUEST_PLACEMENT",
+    "type": "association"
+  }
+]

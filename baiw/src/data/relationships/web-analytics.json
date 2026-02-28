@@ -1,0 +1,940 @@
+[
+  {
+    "parentId": 3841,
+    "parentName": "BROWSER_APPLICATION_TYPE",
+    "childId": 3845,
+    "childName": "BROWSER_VERSION",
+    "type": "association"
+  },
+  {
+    "parentId": 3843,
+    "parentName": "BROWSER_PLUG-IN",
+    "childId": 3844,
+    "childName": "BROWSER_PLUG-IN_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3845,
+    "parentName": "BROWSER_VERSION",
+    "childId": 2897,
+    "childName": "BROWSER_IDENTIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3846,
+    "parentName": "CLICK_ACTION_TYPE",
+    "childId": 3847,
+    "childName": "CLICK_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3848,
+    "parentName": "CLICK_CONTEXT_TYPE",
+    "childId": 3847,
+    "childName": "CLICK_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3849,
+    "parentName": "COOKIE",
+    "childId": 3897,
+    "childName": "WEB_SESSION_COOKIE",
+    "type": "association"
+  },
+  {
+    "parentId": 3850,
+    "parentName": "CRAWLER",
+    "childId": 3852,
+    "childName": "CRAWLER_WEB_PAGE_PERMISSION",
+    "type": "association"
+  },
+  {
+    "parentId": 3850,
+    "parentName": "CRAWLER",
+    "childId": 3853,
+    "childName": "CRAWLER_WEB_SITE_PERMISSION",
+    "type": "association"
+  },
+  {
+    "parentId": 3850,
+    "parentName": "CRAWLER",
+    "childId": 3902,
+    "childName": "WEB_SITE_CRAWLER",
+    "type": "association"
+  },
+  {
+    "parentId": 3851,
+    "parentName": "CRAWLER_PERMISSION_TYPE",
+    "childId": 3852,
+    "childName": "CRAWLER_WEB_PAGE_PERMISSION",
+    "type": "association"
+  },
+  {
+    "parentId": 3851,
+    "parentName": "CRAWLER_PERMISSION_TYPE",
+    "childId": 3853,
+    "childName": "CRAWLER_WEB_SITE_PERMISSION",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 917,
+    "childName": "ONLINE_DOCUMENT_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 2569,
+    "childName": "SHOPPING_CART",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 3860,
+    "childName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 3457,
+    "childName": "VISITOR_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 3864,
+    "childName": "VISITOR_LOGON_SYSTEM_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 3866,
+    "childName": "VISITOR_PATH_ANALYSIS",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 3885,
+    "childName": "WEB_PAGE_VIEW_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 3912,
+    "childName": "WEB_SITE_USER_SPACE",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 3914,
+    "childName": "WEB_VISIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3859,
+    "parentName": "VISITOR",
+    "childId": 3917,
+    "childName": "WEB_VISIT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3863,
+    "parentName": "VISITOR_LOGON_SYSTEM",
+    "childId": 2259,
+    "childName": "MICROSITE_MEMBER",
+    "type": "association"
+  },
+  {
+    "parentId": 3863,
+    "parentName": "VISITOR_LOGON_SYSTEM",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 3863,
+    "parentName": "VISITOR_LOGON_SYSTEM",
+    "childId": 2620,
+    "childName": "SOCIAL_NETWORK_AFFILIATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3863,
+    "parentName": "VISITOR_LOGON_SYSTEM",
+    "childId": 3862,
+    "childName": "VISITOR_LOGON",
+    "type": "association"
+  },
+  {
+    "parentId": 3863,
+    "parentName": "VISITOR_LOGON_SYSTEM",
+    "childId": 3864,
+    "childName": "VISITOR_LOGON_SYSTEM_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3865,
+    "parentName": "VISITOR_LOGON_TYPE",
+    "childId": 3862,
+    "childName": "VISITOR_LOGON",
+    "type": "association"
+  },
+  {
+    "parentId": 3866,
+    "parentName": "VISITOR_PATH_ANALYSIS",
+    "childId": 2347,
+    "childName": "PATH_ANALYSIS_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3866,
+    "parentName": "VISITOR_PATH_ANALYSIS",
+    "childId": 3554,
+    "childName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3866,
+    "parentName": "VISITOR_PATH_ANALYSIS",
+    "childId": 3867,
+    "childName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3868,
+    "parentName": "WEB_AD",
+    "childId": 805,
+    "childName": "WEB_CAMPAIGN_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3870,
+    "parentName": "WEB_FORM",
+    "childId": 1231,
+    "childName": "WEB_FORM_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3872,
+    "parentName": "WEB_INTERACTION_SITE_TYPE",
+    "childId": 1195,
+    "childName": "INTERACTION_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 583,
+    "childName": "AD_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 1862,
+    "childName": "CONVERSION_CATEGORY",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3852,
+    "childName": "CRAWLER_WEB_PAGE_PERMISSION",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 1924,
+    "childName": "DIGITAL_REQUEST_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 1192,
+    "childName": "FORM_FIELD_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 1198,
+    "childName": "INTERNAL_SEARCH_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3636,
+    "childName": "PRODUCT_VIEW_WEB_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3638,
+    "childName": "PROMOTED_PRODUCT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 1216,
+    "childName": "REBATE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 2543,
+    "childName": "SEGMENT_PAGE_INTEREST_MAP",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 1220,
+    "childName": "SESSION_EVENT_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 0,
+    "childName": "VISITOR_PATH_ANALYSIS_is_current_page_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 0,
+    "childName": "VISITOR_PATH_ANALYSIS_is_parent_page_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 1231,
+    "childName": "WEB_FORM_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3874,
+    "childName": "WEB_PAGE_CONTEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 0,
+    "childName": "WEB_PAGE_CREATIVE_is_page_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 0,
+    "childName": "WEB_PAGE_CREATIVE_is_web_page_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3876,
+    "childName": "WEB_PAGE_ERROR",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 1232,
+    "childName": "WEB_PAGE_EVENT_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 0,
+    "childName": "WEB_PAGE_MM_OBJECT_is_composed_of",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 0,
+    "childName": "WEB_PAGE_MM_OBJECT_is_linked_to_from",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3665,
+    "childName": "WEB_PAGE_PRODUCT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3882,
+    "childName": "WEB_PAGE_TEXT",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 0,
+    "childName": "WEB_PAGE_VIEW_current_web_page_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 0,
+    "childName": "WEB_PAGE_VIEW_is_previous_page_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3886,
+    "childName": "WEB_PLATFORM",
+    "type": "association"
+  },
+  {
+    "parentId": 3873,
+    "parentName": "WEB_PAGE",
+    "childId": 3914,
+    "childName": "WEB_VISIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3877,
+    "parentName": "WEB_PAGE_ERROR_TYPE",
+    "childId": 3876,
+    "childName": "WEB_PAGE_ERROR",
+    "type": "association"
+  },
+  {
+    "parentId": 3878,
+    "parentName": "WEB_PAGE_GENERATION_TYPE",
+    "childId": 3873,
+    "childName": "WEB_PAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3881,
+    "parentName": "WEB_PAGE_STATUS_CATEGORY",
+    "childId": 3877,
+    "childName": "WEB_PAGE_ERROR_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3882,
+    "parentName": "WEB_PAGE_TEXT",
+    "childId": 3883,
+    "childName": "WEB_PAGE_TEXT_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 3847,
+    "childName": "CLICK_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 2103,
+    "childName": "HIT_PAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 898,
+    "childName": "ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 3856,
+    "childName": "PROGRAM_PAGE_VIEW_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 3409,
+    "childName": "QUERY_STRING_NAME_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 2773,
+    "childName": "URL_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 3861,
+    "childName": "VISITOR_INPUT",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 806,
+    "childName": "WEB_PAGE_AD_VIEW_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 3876,
+    "childName": "WEB_PAGE_ERROR",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 1232,
+    "childName": "WEB_PAGE_EVENT_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 3880,
+    "childName": "WEB_PAGE_OBJECT_VIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 3885,
+    "childName": "WEB_PAGE_VIEW_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3884,
+    "parentName": "WEB_PAGE_VIEW",
+    "childId": 3889,
+    "childName": "WEB_SELF-HELP",
+    "type": "association"
+  },
+  {
+    "parentId": 3885,
+    "parentName": "WEB_PAGE_VIEW_SUMMARY",
+    "childId": 807,
+    "childName": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3888,
+    "parentName": "WEB_SECTION_SUBTYPE",
+    "childId": 3907,
+    "childName": "WEB_SITE_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3890,
+    "parentName": "WEB_SERVER",
+    "childId": 3884,
+    "childName": "WEB_PAGE_VIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3890,
+    "parentName": "WEB_SERVER",
+    "childId": 3891,
+    "childName": "WEB_SERVER_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3890,
+    "parentName": "WEB_SERVER",
+    "childId": 3892,
+    "childName": "WEB_SERVER_INTERNET_PROTOCOL_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 3890,
+    "parentName": "WEB_SERVER",
+    "childId": 3908,
+    "childName": "WEB_SITE_SERVER",
+    "type": "association"
+  },
+  {
+    "parentId": 3891,
+    "parentName": "WEB_SERVER_ACTIVITY",
+    "childId": 3894,
+    "childName": "WEB_SERVER_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3893,
+    "parentName": "WEB_SERVER_SOFTWARE",
+    "childId": 3890,
+    "childName": "WEB_SERVER",
+    "type": "association"
+  },
+  {
+    "parentId": 3895,
+    "parentName": "WEB_SERVER_STATUS_CATEGORY",
+    "childId": 3896,
+    "childName": "WEB_SERVER_STATUS_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3896,
+    "parentName": "WEB_SERVER_STATUS_TYPE",
+    "childId": 3884,
+    "childName": "WEB_PAGE_VIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3896,
+    "parentName": "WEB_SERVER_STATUS_TYPE",
+    "childId": 3894,
+    "childName": "WEB_SERVER_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3898,
+    "parentName": "WEB_SHOPPING_EXPERIENCE_FUNCTION_TYPE",
+    "childId": 1234,
+    "childName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 589,
+    "childName": "AD_IMPRESSION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 591,
+    "childName": "AD_NETWORK_WEB_SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 654,
+    "childName": "CAMPAIGN_CELL_WEB_SITE_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 3853,
+    "childName": "CRAWLER_WEB_SITE_PERMISSION",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 1154,
+    "childName": "CUSTOM_EVENT_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 2545,
+    "childName": "SEGMENT_SITE_INTEREST_MAP",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 3873,
+    "childName": "WEB_PAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 3902,
+    "childName": "WEB_SITE_CRAWLER",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 3905,
+    "childName": "WEB_SITE_GROUP_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 3907,
+    "childName": "WEB_SITE_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3899,
+    "parentName": "WEB_SITE",
+    "childId": 3908,
+    "childName": "WEB_SITE_SERVER",
+    "type": "association"
+  },
+  {
+    "parentId": 3900,
+    "parentName": "WEB_SITE_BREADCRUMB",
+    "childId": 583,
+    "childName": "AD_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3900,
+    "parentName": "WEB_SITE_BREADCRUMB",
+    "childId": 1854,
+    "childName": "CONTENT_GROUP_VIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3901,
+    "parentName": "WEB_SITE_CONTENT_TYPE",
+    "childId": 3899,
+    "childName": "WEB_SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 3903,
+    "parentName": "WEB_SITE_ENTRY_TYPE",
+    "childId": 3914,
+    "childName": "WEB_VISIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3904,
+    "parentName": "WEB_SITE_GROUP",
+    "childId": 3871,
+    "childName": "WEB_GROUP_PUBLISHER",
+    "type": "association"
+  },
+  {
+    "parentId": 3904,
+    "parentName": "WEB_SITE_GROUP",
+    "childId": 3905,
+    "childName": "WEB_SITE_GROUP_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3906,
+    "parentName": "WEB_SITE_NAVIGATION",
+    "childId": 3873,
+    "childName": "WEB_PAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3906,
+    "parentName": "WEB_SITE_NAVIGATION",
+    "childId": 3906,
+    "childName": "WEB_SITE_NAVIGATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3907,
+    "parentName": "WEB_SITE_SECTION",
+    "childId": 654,
+    "childName": "CAMPAIGN_CELL_WEB_SITE_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3907,
+    "parentName": "WEB_SITE_SECTION",
+    "childId": 1924,
+    "childName": "DIGITAL_REQUEST_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3907,
+    "parentName": "WEB_SITE_SECTION",
+    "childId": 3873,
+    "childName": "WEB_PAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3907,
+    "parentName": "WEB_SITE_SECTION",
+    "childId": 3907,
+    "childName": "WEB_SITE_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3907,
+    "parentName": "WEB_SITE_SECTION",
+    "childId": 3909,
+    "childName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3909,
+    "parentName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "childId": 1854,
+    "childName": "CONTENT_GROUP_VIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3909,
+    "parentName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "childId": 1234,
+    "childName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3909,
+    "parentName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "childId": 3666,
+    "childName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3910,
+    "parentName": "WEB_SITE_SUBSTITUTE_SECTION_TYPE",
+    "childId": 3909,
+    "childName": "WEB_SITE_SUBSTITUTE_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3911,
+    "parentName": "WEB_SITE_SUBTYPE",
+    "childId": 3899,
+    "childName": "WEB_SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 913,
+    "childName": "ONLINE_CAMPAIGN_CHARACTERISTIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 923,
+    "childName": "ONLINE_PROMOTION_VISIT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 3858,
+    "childName": "SESSION_ATTRIBUTE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 2775,
+    "childName": "USER_SOURCE_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 2776,
+    "childName": "USER_TYPE_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 3860,
+    "childName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 1227,
+    "childName": "VISITOR_INTERACTION_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 3866,
+    "childName": "VISITOR_PATH_ANALYSIS",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 799,
+    "childName": "VISIT_PROMOTION_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 3884,
+    "childName": "WEB_PAGE_VIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 3897,
+    "childName": "WEB_SESSION_COOKIE",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 3915,
+    "childName": "WEB_VISIT_INTERNET_PROTOCOL_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3914,
+    "parentName": "WEB_VISIT",
+    "childId": 3917,
+    "childName": "WEB_VISIT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3916,
+    "parentName": "WEB_VISIT_SUBTYPE",
+    "childId": 3914,
+    "childName": "WEB_VISIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3917,
+    "parentName": "WEB_VISIT_SUMMARY",
+    "childId": 921,
+    "childName": "ONLINE_PROMOTION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3917,
+    "parentName": "WEB_VISIT_SUMMARY",
+    "childId": 3664,
+    "childName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "type": "association"
+  }
+]

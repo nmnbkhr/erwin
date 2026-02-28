@@ -1,0 +1,5588 @@
+[
+  {
+    "entityId": 973,
+    "entityName": "ADJUDICATION_AMOUNT_TYPE",
+    "name": "Adjudication_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 973,
+    "entityName": "ADJUDICATION_AMOUNT_TYPE",
+    "name": "Adjudication_Amount_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 974,
+    "entityName": "ADJUDICATION_TYPE",
+    "name": "Adjudication_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 974,
+    "entityName": "ADJUDICATION_TYPE",
+    "name": "Adjudication_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 975,
+    "entityName": "ASSET_INSURABLE_INTEREST",
+    "name": "Asset_Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 975,
+    "entityName": "ASSET_INSURABLE_INTEREST",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Claim_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Claim_Media_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Claim_Media_Control_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Claim_Submittal_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Claim_Category_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Additional_Insurance_Plan_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Employment_Related_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Attorney_Involvement_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Claim_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Payment_Mode_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Claim_Obligation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "name": "Incident_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 977,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 977,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 977,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 977,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "name": "Party_Claim_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 977,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "name": "Party_Claim_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 977,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "name": "Claimant_Insurable_Interest_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 977,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS",
+    "name": "Claimant_Insurable_Interest_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 978,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS_TYPE",
+    "name": "Claimant_Insurable_Interest_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 978,
+    "entityName": "CLAIMANT_INSURABLE_INTEREST_STATUS_TYPE",
+    "name": "Claimant_Insurable_Interest_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 979,
+    "entityName": "CLAIM_ADJUDICATION",
+    "name": "Claim_Adjudication_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 979,
+    "entityName": "CLAIM_ADJUDICATION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 979,
+    "entityName": "CLAIM_ADJUDICATION",
+    "name": "Benefit_Rule_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 979,
+    "entityName": "CLAIM_ADJUDICATION",
+    "name": "Claim_Pricing_Rule_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 979,
+    "entityName": "CLAIM_ADJUDICATION",
+    "name": "Adjudication_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 979,
+    "entityName": "CLAIM_ADJUDICATION",
+    "name": "Adjudication_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 980,
+    "entityName": "CLAIM_ADJUDICATION_AMOUNT",
+    "name": "Claim_Adjudication_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 980,
+    "entityName": "CLAIM_ADJUDICATION_AMOUNT",
+    "name": "Adjudication_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 980,
+    "entityName": "CLAIM_ADJUDICATION_AMOUNT",
+    "name": "Adjudication_Claim_Detail_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 980,
+    "entityName": "CLAIM_ADJUDICATION_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 981,
+    "entityName": "CLAIM_AMOUNT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 981,
+    "entityName": "CLAIM_AMOUNT",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 981,
+    "entityName": "CLAIM_AMOUNT",
+    "name": "Claim_Amount_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 981,
+    "entityName": "CLAIM_AMOUNT",
+    "name": "Claim_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 981,
+    "entityName": "CLAIM_AMOUNT",
+    "name": "Claim_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 981,
+    "entityName": "CLAIM_AMOUNT",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 981,
+    "entityName": "CLAIM_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 982,
+    "entityName": "CLAIM_AMOUNT_TYPE",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 982,
+    "entityName": "CLAIM_AMOUNT_TYPE",
+    "name": "Claim_Amount_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 983,
+    "entityName": "CLAIM_ASSET",
+    "name": "Claim_Asset_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 983,
+    "entityName": "CLAIM_ASSET",
+    "name": "Motor_Vehicle_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 983,
+    "entityName": "CLAIM_ASSET",
+    "name": "Claim_Asset_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 983,
+    "entityName": "CLAIM_ASSET",
+    "name": "Agreement_Currency_Claim_Asset_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 983,
+    "entityName": "CLAIM_ASSET",
+    "name": "Original_Currency_Claim_Asset_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 983,
+    "entityName": "CLAIM_ASSET",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 984,
+    "entityName": "CLAIM_ASSET_RELATIONSHIP_TYPE",
+    "name": "Claim_Asset_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 984,
+    "entityName": "CLAIM_ASSET_RELATIONSHIP_TYPE",
+    "name": "Claim_Asset_Relationship_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Authorization_Approval_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Application_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Approval_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Approval_Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Actual_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_End_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Peril_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Approval_Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Level_Of_Service_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Information_Release_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Facility_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Facility_Qualifier_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 985,
+    "entityName": "CLAIM_AUTHORIZATION",
+    "name": "Authorization_Service_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 986,
+    "entityName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "name": "Claim_Authorization_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 986,
+    "entityName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 986,
+    "entityName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 986,
+    "entityName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "name": "Claim_Authorization_Amount_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 986,
+    "entityName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 987,
+    "entityName": "CLAIM_AUTHORIZATION_AMOUNT_TYPE",
+    "name": "Claim_Authorization_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 987,
+    "entityName": "CLAIM_AUTHORIZATION_AMOUNT_TYPE",
+    "name": "Claim_Authorization_Amount_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 988,
+    "entityName": "CLAIM_AUTHORIZATION_ATTACHMENT",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 988,
+    "entityName": "CLAIM_AUTHORIZATION_ATTACHMENT",
+    "name": "Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 988,
+    "entityName": "CLAIM_AUTHORIZATION_ATTACHMENT",
+    "name": "Attachment_Transmit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 989,
+    "entityName": "CLAIM_AUTHORIZATION_CATEGORY",
+    "name": "Claim_Authorization_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 989,
+    "entityName": "CLAIM_AUTHORIZATION_CATEGORY",
+    "name": "Claim_Authorization_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 990,
+    "entityName": "CLAIM_AUTHORIZATION_CERTIFICATION",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 990,
+    "entityName": "CLAIM_AUTHORIZATION_CERTIFICATION",
+    "name": "Certification_Of_Medical_Necessity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 991,
+    "entityName": "CLAIM_AUTHORIZATION_DIAGNOSIS_CODE",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 991,
+    "entityName": "CLAIM_AUTHORIZATION_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 991,
+    "entityName": "CLAIM_AUTHORIZATION_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 991,
+    "entityName": "CLAIM_AUTHORIZATION_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 991,
+    "entityName": "CLAIM_AUTHORIZATION_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Classification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 991,
+    "entityName": "CLAIM_AUTHORIZATION_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Code_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 992,
+    "entityName": "CLAIM_AUTHORIZATION_END_REASON_TYPE",
+    "name": "Claim_Authorization_End_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 992,
+    "entityName": "CLAIM_AUTHORIZATION_END_REASON_TYPE",
+    "name": "Claim_Authorization_End_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 993,
+    "entityName": "CLAIM_AUTHORIZATION_IDENTIFIER",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 993,
+    "entityName": "CLAIM_AUTHORIZATION_IDENTIFIER",
+    "name": "Assigning_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 993,
+    "entityName": "CLAIM_AUTHORIZATION_IDENTIFIER",
+    "name": "Claim_Authorization_Trace_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 994,
+    "entityName": "CLAIM_AUTHORIZATION_REASON",
+    "name": "Claim_Authorization_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 994,
+    "entityName": "CLAIM_AUTHORIZATION_REASON",
+    "name": "Claim_Authorization_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 995,
+    "entityName": "CLAIM_AUTHORIZATION_RELATED",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 995,
+    "entityName": "CLAIM_AUTHORIZATION_RELATED",
+    "name": "Related_Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 995,
+    "entityName": "CLAIM_AUTHORIZATION_RELATED",
+    "name": "Claim_Authorization_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 995,
+    "entityName": "CLAIM_AUTHORIZATION_RELATED",
+    "name": "Claim_Authorization_Relationship_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 995,
+    "entityName": "CLAIM_AUTHORIZATION_RELATED",
+    "name": "Claim_Authorization_Relationship_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 996,
+    "entityName": "CLAIM_AUTHORIZATION_RELATIONSHIP_TYPE",
+    "name": "Claim_Authorization_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 996,
+    "entityName": "CLAIM_AUTHORIZATION_RELATIONSHIP_TYPE",
+    "name": "Claim_Authorization_Relationship_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 997,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 997,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE",
+    "name": "Claim_Authorization_Service_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 997,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE",
+    "name": "Health_Procedure_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 997,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE",
+    "name": "Procedure_Qualifier_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 997,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE",
+    "name": "Requested_Authorization_Service_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 997,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE",
+    "name": "Procedure_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 998,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 998,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "name": "Claim_Authorization_Service_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 998,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "name": "Health_Procedure_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 998,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "name": "Procedure_Qualifier_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 998,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "name": "Claim_Authorization_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 998,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "name": "Claim_Authorization_Service_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 998,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 998,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 999,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_ROLE",
+    "name": "Claim_Authorization_Service_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 999,
+    "entityName": "CLAIM_AUTHORIZATION_SERVICE_ROLE",
+    "name": "Claim_Authorization_Service_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1000,
+    "entityName": "CLAIM_AUTHORIZATION_STATUS",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1000,
+    "entityName": "CLAIM_AUTHORIZATION_STATUS",
+    "name": "Claim_Authorization_Status_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1000,
+    "entityName": "CLAIM_AUTHORIZATION_STATUS",
+    "name": "Claim_Authorization_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1000,
+    "entityName": "CLAIM_AUTHORIZATION_STATUS",
+    "name": "Claim_Authorization_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1001,
+    "entityName": "CLAIM_AUTHORIZATION_STATUS_REASON",
+    "name": "Claim_Authorization_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1001,
+    "entityName": "CLAIM_AUTHORIZATION_STATUS_REASON",
+    "name": "Claim_Authorization_Status_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1002,
+    "entityName": "CLAIM_AUTHORIZATION_STATUS_TYPE",
+    "name": "Claim_Authorization_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1002,
+    "entityName": "CLAIM_AUTHORIZATION_STATUS_TYPE",
+    "name": "Claim_Authorization_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1003,
+    "entityName": "CLAIM_AUTHORIZATION_TYPE",
+    "name": "Claim_Authorization_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1003,
+    "entityName": "CLAIM_AUTHORIZATION_TYPE",
+    "name": "Claim_Authorization_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1004,
+    "entityName": "CLAIM_CATEGORY_TYPE",
+    "name": "Claim_Category_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1004,
+    "entityName": "CLAIM_CATEGORY_TYPE",
+    "name": "Claim_Category_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1005,
+    "entityName": "CLAIM_CLAIM_GROUP",
+    "name": "Claim_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1005,
+    "entityName": "CLAIM_CLAIM_GROUP",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1005,
+    "entityName": "CLAIM_CLAIM_GROUP",
+    "name": "Claim_Claim_Group_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1005,
+    "entityName": "CLAIM_CLAIM_GROUP",
+    "name": "Claim_Claim_Group_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1006,
+    "entityName": "CLAIM_CLASS_SCHEME_TYPE",
+    "name": "Claim_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1006,
+    "entityName": "CLAIM_CLASS_SCHEME_TYPE",
+    "name": "Parent_Claim_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1006,
+    "entityName": "CLAIM_CLASS_SCHEME_TYPE",
+    "name": "Claim_Class_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1006,
+    "entityName": "CLAIM_CLASS_SCHEME_TYPE",
+    "name": "Claim_Class_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1006,
+    "entityName": "CLAIM_CLASS_SCHEME_TYPE",
+    "name": "Claim_Class_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Claim_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Claim_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Parent_Claim_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Claim_Class_From_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Claim_Class_To_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Claim_Class_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Claim_Class_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1007,
+    "entityName": "CLAIM_CLASS_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1008,
+    "entityName": "CLAIM_CLASS_VALUE_XREF",
+    "name": "Claim_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1008,
+    "entityName": "CLAIM_CLASS_VALUE_XREF",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1008,
+    "entityName": "CLAIM_CLASS_VALUE_XREF",
+    "name": "Claim_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1009,
+    "entityName": "CLAIM_CLIA",
+    "name": "Claim_CLIA_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1009,
+    "entityName": "CLAIM_CLIA",
+    "name": "Professional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1010,
+    "entityName": "CLAIM_COST_RECOVERY",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1010,
+    "entityName": "CLAIM_COST_RECOVERY",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1010,
+    "entityName": "CLAIM_COST_RECOVERY",
+    "name": "Cost_Recovery_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1010,
+    "entityName": "CLAIM_COST_RECOVERY",
+    "name": "Claim_Amount_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1010,
+    "entityName": "CLAIM_COST_RECOVERY",
+    "name": "Claim_Cost_Recover_Calculation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1010,
+    "entityName": "CLAIM_COST_RECOVERY",
+    "name": "Claim_Estimated_Recovery_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1010,
+    "entityName": "CLAIM_COST_RECOVERY",
+    "name": "Claim_Actual_Recovery_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1010,
+    "entityName": "CLAIM_COST_RECOVERY",
+    "name": "Claim_Recovery_Probability_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1011,
+    "entityName": "CLAIM_COVERAGE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1011,
+    "entityName": "CLAIM_COVERAGE",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1011,
+    "entityName": "CLAIM_COVERAGE",
+    "name": "Claim_Coverage_Statute_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1012,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1012,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1012,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION",
+    "name": "Claim_Adjudication_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1013,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1013,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1013,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "name": "Claim_Adjudication_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1013,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "name": "Adjudication_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1013,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "name": "Adjudication_Coverage_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1013,
+    "entityName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1014,
+    "entityName": "CLAIM_COVERAGE_AMOUNT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1014,
+    "entityName": "CLAIM_COVERAGE_AMOUNT",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1014,
+    "entityName": "CLAIM_COVERAGE_AMOUNT",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1014,
+    "entityName": "CLAIM_COVERAGE_AMOUNT",
+    "name": "Claim_Coverage_Amount_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1014,
+    "entityName": "CLAIM_COVERAGE_AMOUNT",
+    "name": "Claim_Coverage_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1014,
+    "entityName": "CLAIM_COVERAGE_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1015,
+    "entityName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1015,
+    "entityName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1015,
+    "entityName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1015,
+    "entityName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "name": "Cost_Recovery_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1015,
+    "entityName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "name": "Claim_Coverage_Recover_Calculation_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1015,
+    "entityName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "name": "Claim_Coverage_Recovery_Probability_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1015,
+    "entityName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "name": "Claim_Coverage_Estimated_Recovery_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1015,
+    "entityName": "CLAIM_COVERAGE_COST_RECOVERY",
+    "name": "Claim_Coverage_Actual_Recovery_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1016,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1016,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1016,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Claim_Coverage_Amount_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Claim_Coverage_Insurable_Interest_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Claim_Coverage_Insurable_Interest_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1017,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1018,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1018,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1018,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1018,
+    "entityName": "CLAIM_COVERAGE_INSURABLE_INTEREST_REINSURANCE",
+    "name": "Reinsurance_Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1019,
+    "entityName": "CLAIM_COVERAGE_LEGAL_ACTION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1019,
+    "entityName": "CLAIM_COVERAGE_LEGAL_ACTION",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1019,
+    "entityName": "CLAIM_COVERAGE_LEGAL_ACTION",
+    "name": "Legal_Action_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1020,
+    "entityName": "CLAIM_COVERAGE_SCORE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1020,
+    "entityName": "CLAIM_COVERAGE_SCORE",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1020,
+    "entityName": "CLAIM_COVERAGE_SCORE",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1020,
+    "entityName": "CLAIM_COVERAGE_SCORE",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1020,
+    "entityName": "CLAIM_COVERAGE_SCORE",
+    "name": "Claim_Coverage_Score_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1021,
+    "entityName": "CLAIM_COVERAGE_STATUS",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1021,
+    "entityName": "CLAIM_COVERAGE_STATUS",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1021,
+    "entityName": "CLAIM_COVERAGE_STATUS",
+    "name": "Claim_Coverage_Status_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1021,
+    "entityName": "CLAIM_COVERAGE_STATUS",
+    "name": "Claim_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1021,
+    "entityName": "CLAIM_COVERAGE_STATUS",
+    "name": "Claim_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1022,
+    "entityName": "CLAIM_COVERAGE_TEXT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1022,
+    "entityName": "CLAIM_COVERAGE_TEXT",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1022,
+    "entityName": "CLAIM_COVERAGE_TEXT",
+    "name": "Claim_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1022,
+    "entityName": "CLAIM_COVERAGE_TEXT",
+    "name": "Claim_Coverage_Text_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1022,
+    "entityName": "CLAIM_COVERAGE_TEXT",
+    "name": "Claim_Coverage_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1023,
+    "entityName": "CLAIM_COVERAGE_TEXT_SECTION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1023,
+    "entityName": "CLAIM_COVERAGE_TEXT_SECTION",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1023,
+    "entityName": "CLAIM_COVERAGE_TEXT_SECTION",
+    "name": "Claim_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1023,
+    "entityName": "CLAIM_COVERAGE_TEXT_SECTION",
+    "name": "Claim_Coverage_Text_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1023,
+    "entityName": "CLAIM_COVERAGE_TEXT_SECTION",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1024,
+    "entityName": "CLAIM_DATE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1024,
+    "entityName": "CLAIM_DATE",
+    "name": "Claim_Date_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1024,
+    "entityName": "CLAIM_DATE",
+    "name": "Claim_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1025,
+    "entityName": "CLAIM_DATE_TYPE",
+    "name": "Claim_Date_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1025,
+    "entityName": "CLAIM_DATE_TYPE",
+    "name": "Claim_Date_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1026,
+    "entityName": "CLAIM_DIAGNOSIS_CODE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1026,
+    "entityName": "CLAIM_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1026,
+    "entityName": "CLAIM_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1026,
+    "entityName": "CLAIM_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1026,
+    "entityName": "CLAIM_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Classification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1026,
+    "entityName": "CLAIM_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Code_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1026,
+    "entityName": "CLAIM_DIAGNOSIS_CODE",
+    "name": "Admission_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1027,
+    "entityName": "CLAIM_DOCUMENT",
+    "name": "Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1027,
+    "entityName": "CLAIM_DOCUMENT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1027,
+    "entityName": "CLAIM_DOCUMENT",
+    "name": "Proof_Of_Loss_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1028,
+    "entityName": "CLAIM_FILING_TYPE",
+    "name": "Claim_Filing_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1028,
+    "entityName": "CLAIM_FILING_TYPE",
+    "name": "Claim_Filing_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1029,
+    "entityName": "CLAIM_FOLLOW-UP",
+    "name": "Claim_Follow-up_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1029,
+    "entityName": "CLAIM_FOLLOW-UP",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1029,
+    "entityName": "CLAIM_FOLLOW-UP",
+    "name": "Follow-up_Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1029,
+    "entityName": "CLAIM_FOLLOW-UP",
+    "name": "Follow-up_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1029,
+    "entityName": "CLAIM_FOLLOW-UP",
+    "name": "Claim_Follow-up_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1029,
+    "entityName": "CLAIM_FOLLOW-UP",
+    "name": "Claim_Follow-up_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1029,
+    "entityName": "CLAIM_FOLLOW-UP",
+    "name": "Claim_Follow-up_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1030,
+    "entityName": "CLAIM_FOLLOW-UP_TYPE",
+    "name": "Claim_Follow-up_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1030,
+    "entityName": "CLAIM_FOLLOW-UP_TYPE",
+    "name": "Claim_Follow-up_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1031,
+    "entityName": "CLAIM_FREQUENCY_TYPE",
+    "name": "Claim_Frequency_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1031,
+    "entityName": "CLAIM_FREQUENCY_TYPE",
+    "name": "Claim_Frequency_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1032,
+    "entityName": "CLAIM_GROUP",
+    "name": "Claim_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1032,
+    "entityName": "CLAIM_GROUP",
+    "name": "Claim_Group_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1032,
+    "entityName": "CLAIM_GROUP",
+    "name": "Claim_Group_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1032,
+    "entityName": "CLAIM_GROUP",
+    "name": "Claim_Group_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1032,
+    "entityName": "CLAIM_GROUP",
+    "name": "Parent_Claim_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1033,
+    "entityName": "CLAIM_GROUP_TYPE",
+    "name": "Claim_Group_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1033,
+    "entityName": "CLAIM_GROUP_TYPE",
+    "name": "Claim_Group_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1034,
+    "entityName": "CLAIM_INSURABLE_INTEREST",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1034,
+    "entityName": "CLAIM_INSURABLE_INTEREST",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1034,
+    "entityName": "CLAIM_INSURABLE_INTEREST",
+    "name": "Claim_Insurable_Interest_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1034,
+    "entityName": "CLAIM_INSURABLE_INTEREST",
+    "name": "Severity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1034,
+    "entityName": "CLAIM_INSURABLE_INTEREST",
+    "name": "Claim_Insurable_Interest_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1034,
+    "entityName": "CLAIM_INSURABLE_INTEREST",
+    "name": "Fault_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1035,
+    "entityName": "CLAIM_INSURABLE_INTEREST_ACCIDENT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1035,
+    "entityName": "CLAIM_INSURABLE_INTEREST_ACCIDENT",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1035,
+    "entityName": "CLAIM_INSURABLE_INTEREST_ACCIDENT",
+    "name": "Accident_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1036,
+    "entityName": "CLAIM_INSURABLE_INTEREST_TYPE",
+    "name": "Claim_Insurable_Interest_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1036,
+    "entityName": "CLAIM_INSURABLE_INTEREST_TYPE",
+    "name": "Claim_Insurable_Interest_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1037,
+    "entityName": "CLAIM_LEGAL_ACTION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1037,
+    "entityName": "CLAIM_LEGAL_ACTION",
+    "name": "Legal_Action_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1038,
+    "entityName": "CLAIM_MANAGEMENT_AUTHORITY_TYPE",
+    "name": "Claim_Management_Authority_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1038,
+    "entityName": "CLAIM_MANAGEMENT_AUTHORITY_TYPE",
+    "name": "Claim_Management_Authority_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1039,
+    "entityName": "CLAIM_MEDIA_TYPE",
+    "name": "Claim_Media_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1039,
+    "entityName": "CLAIM_MEDIA_TYPE",
+    "name": "Claim_Media_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1040,
+    "entityName": "CLAIM_MOTOR_VEHICLE",
+    "name": "Passenger_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1041,
+    "entityName": "CLAIM_OBLIGATION_TYPE",
+    "name": "Claim_Obligation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1041,
+    "entityName": "CLAIM_OBLIGATION_TYPE",
+    "name": "Claim_Obligation_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1042,
+    "entityName": "CLAIM_PERIL",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1042,
+    "entityName": "CLAIM_PERIL",
+    "name": "Peril_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1043,
+    "entityName": "CLAIM_REFERRAL_TYPE",
+    "name": "Claim_Referral_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1043,
+    "entityName": "CLAIM_REFERRAL_TYPE",
+    "name": "Claim_Referral_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1044,
+    "entityName": "CLAIM_REINSURANCE_AMOUNT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1044,
+    "entityName": "CLAIM_REINSURANCE_AMOUNT",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1044,
+    "entityName": "CLAIM_REINSURANCE_AMOUNT",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1044,
+    "entityName": "CLAIM_REINSURANCE_AMOUNT",
+    "name": "Reinsurance_Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1044,
+    "entityName": "CLAIM_REINSURANCE_AMOUNT",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1044,
+    "entityName": "CLAIM_REINSURANCE_AMOUNT",
+    "name": "Claim_Reinsurance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1045,
+    "entityName": "CLAIM_RELATED",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1045,
+    "entityName": "CLAIM_RELATED",
+    "name": "Related_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1045,
+    "entityName": "CLAIM_RELATED",
+    "name": "Claim_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1045,
+    "entityName": "CLAIM_RELATED",
+    "name": "Claim_Related_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1045,
+    "entityName": "CLAIM_RELATED",
+    "name": "Claim_Related_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1046,
+    "entityName": "CLAIM_RELATIONSHIP_TYPE",
+    "name": "Claim_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1046,
+    "entityName": "CLAIM_RELATIONSHIP_TYPE",
+    "name": "Claim_Relationship_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1047,
+    "entityName": "CLAIM_SCORE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1047,
+    "entityName": "CLAIM_SCORE",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1047,
+    "entityName": "CLAIM_SCORE",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1047,
+    "entityName": "CLAIM_SCORE",
+    "name": "Claim_Score_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Claim_Service_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Claim_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Peril_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Level_Of_Service_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Host_Claim_Suffix_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Claim_Service_Statute_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Current_Claim_Service_Action_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1048,
+    "entityName": "CLAIM_SERVICE",
+    "name": "Next_Claim_Service_Action_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1049,
+    "entityName": "CLAIM_SERVICE_ACTION_TYPE",
+    "name": "Claim_Service_Action_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1049,
+    "entityName": "CLAIM_SERVICE_ACTION_TYPE",
+    "name": "Claim_Service_Action_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1050,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1050,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1050,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1050,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1050,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION",
+    "name": "Claim_Adjudication_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1051,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "name": "Claim_Adjudication_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1051,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "name": "Adjudication_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1051,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1051,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1051,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1051,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1051,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "name": "Adjudication_Claim_Service_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1051,
+    "entityName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Claim_Service_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Claim_Service_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1052,
+    "entityName": "CLAIM_SERVICE_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1053,
+    "entityName": "CLAIM_SERVICE_ASSET",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1053,
+    "entityName": "CLAIM_SERVICE_ASSET",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1053,
+    "entityName": "CLAIM_SERVICE_ASSET",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1053,
+    "entityName": "CLAIM_SERVICE_ASSET",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1053,
+    "entityName": "CLAIM_SERVICE_ASSET",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1054,
+    "entityName": "CLAIM_SERVICE_CATEGORY_TYPE",
+    "name": "Claim_Service_Category_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1054,
+    "entityName": "CLAIM_SERVICE_CATEGORY_TYPE",
+    "name": "Claim_Service_Category_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Cost_Recovery_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Claim_Service_Recovery_Calculation_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Claim_Service_Recovery_Probability_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Claim_Service_Estimated_Recover_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1055,
+    "entityName": "CLAIM_SERVICE_COST_RECOVERY",
+    "name": "Claim_Service_Actual_Recovery_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1056,
+    "entityName": "CLAIM_SERVICE_COVERAGE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1056,
+    "entityName": "CLAIM_SERVICE_COVERAGE",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1056,
+    "entityName": "CLAIM_SERVICE_COVERAGE",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1056,
+    "entityName": "CLAIM_SERVICE_COVERAGE",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1056,
+    "entityName": "CLAIM_SERVICE_COVERAGE",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Claim_Service_Coverage_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Claim_Coverage_Service_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1057,
+    "entityName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1058,
+    "entityName": "CLAIM_SERVICE_DATE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1058,
+    "entityName": "CLAIM_SERVICE_DATE",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1058,
+    "entityName": "CLAIM_SERVICE_DATE",
+    "name": "Claim_Service_Line_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1058,
+    "entityName": "CLAIM_SERVICE_DATE",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1058,
+    "entityName": "CLAIM_SERVICE_DATE",
+    "name": "Claim_Service_Date_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1058,
+    "entityName": "CLAIM_SERVICE_DATE",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1058,
+    "entityName": "CLAIM_SERVICE_DATE",
+    "name": "Claim_Service_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1059,
+    "entityName": "CLAIM_SERVICE_DATE_TYPE",
+    "name": "Claim_Service_Date_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1059,
+    "entityName": "CLAIM_SERVICE_DATE_TYPE",
+    "name": "Claim_Service_Date_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Claim_Service_Diagnosis_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Claim_Service_Diagnosis_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Classification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1060,
+    "entityName": "CLAIM_SERVICE_DIAGNOSIS_CODE",
+    "name": "Diagnosis_Code_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1061,
+    "entityName": "CLAIM_SERVICE_LEGAL_ACTION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1061,
+    "entityName": "CLAIM_SERVICE_LEGAL_ACTION",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1061,
+    "entityName": "CLAIM_SERVICE_LEGAL_ACTION",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1061,
+    "entityName": "CLAIM_SERVICE_LEGAL_ACTION",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1061,
+    "entityName": "CLAIM_SERVICE_LEGAL_ACTION",
+    "name": "Legal_Action_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1062,
+    "entityName": "CLAIM_SERVICE_REQUEST",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1062,
+    "entityName": "CLAIM_SERVICE_REQUEST",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1063,
+    "entityName": "CLAIM_SERVICE_SCORE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1063,
+    "entityName": "CLAIM_SERVICE_SCORE",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1063,
+    "entityName": "CLAIM_SERVICE_SCORE",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1063,
+    "entityName": "CLAIM_SERVICE_SCORE",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1063,
+    "entityName": "CLAIM_SERVICE_SCORE",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1063,
+    "entityName": "CLAIM_SERVICE_SCORE",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1063,
+    "entityName": "CLAIM_SERVICE_SCORE",
+    "name": "Claim_Service_Score_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1064,
+    "entityName": "CLAIM_SERVICE_STATUS_REASON_TYPE",
+    "name": "Claim_Service_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1064,
+    "entityName": "CLAIM_SERVICE_STATUS_REASON_TYPE",
+    "name": "Claim_Service_Status_Reason_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1065,
+    "entityName": "CLAIM_SERVICE_STATUS_TYPE",
+    "name": "Claim_Service_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1065,
+    "entityName": "CLAIM_SERVICE_STATUS_TYPE",
+    "name": "Claim_Service_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1066,
+    "entityName": "CLAIM_SERVICE_TEXT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1066,
+    "entityName": "CLAIM_SERVICE_TEXT",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1066,
+    "entityName": "CLAIM_SERVICE_TEXT",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1066,
+    "entityName": "CLAIM_SERVICE_TEXT",
+    "name": "Claim_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1066,
+    "entityName": "CLAIM_SERVICE_TEXT",
+    "name": "Claim_Service_Text_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1066,
+    "entityName": "CLAIM_SERVICE_TEXT",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1066,
+    "entityName": "CLAIM_SERVICE_TEXT",
+    "name": "Claim_Service_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1067,
+    "entityName": "CLAIM_SERVICE_TEXT_SECTION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1067,
+    "entityName": "CLAIM_SERVICE_TEXT_SECTION",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1067,
+    "entityName": "CLAIM_SERVICE_TEXT_SECTION",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1067,
+    "entityName": "CLAIM_SERVICE_TEXT_SECTION",
+    "name": "Claim_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1067,
+    "entityName": "CLAIM_SERVICE_TEXT_SECTION",
+    "name": "Claim_Service_Text_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1067,
+    "entityName": "CLAIM_SERVICE_TEXT_SECTION",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1067,
+    "entityName": "CLAIM_SERVICE_TEXT_SECTION",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1068,
+    "entityName": "CLAIM_STATUS",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1068,
+    "entityName": "CLAIM_STATUS",
+    "name": "Claim_Status_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1068,
+    "entityName": "CLAIM_STATUS",
+    "name": "Claim_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1068,
+    "entityName": "CLAIM_STATUS",
+    "name": "Claim_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1069,
+    "entityName": "CLAIM_STATUS_REASON_TYPE",
+    "name": "Claim_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1069,
+    "entityName": "CLAIM_STATUS_REASON_TYPE",
+    "name": "Claim_Status_Reason_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1070,
+    "entityName": "CLAIM_STATUS_TYPE",
+    "name": "Claim_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1070,
+    "entityName": "CLAIM_STATUS_TYPE",
+    "name": "Claim_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1071,
+    "entityName": "CLAIM_SUBMITTAL_TYPE",
+    "name": "Claim_Submittal_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1071,
+    "entityName": "CLAIM_SUBMITTAL_TYPE",
+    "name": "Claim_Submittal_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1072,
+    "entityName": "CLAIM_TEXT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1072,
+    "entityName": "CLAIM_TEXT",
+    "name": "Claim_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1072,
+    "entityName": "CLAIM_TEXT",
+    "name": "Claim_Text_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1072,
+    "entityName": "CLAIM_TEXT",
+    "name": "Claim_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1073,
+    "entityName": "CLAIM_TEXT_SECTION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1073,
+    "entityName": "CLAIM_TEXT_SECTION",
+    "name": "Claim_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1073,
+    "entityName": "CLAIM_TEXT_SECTION",
+    "name": "Claim_Text_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1073,
+    "entityName": "CLAIM_TEXT_SECTION",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1074,
+    "entityName": "CLAIM_TEXT_TYPE",
+    "name": "Claim_Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1074,
+    "entityName": "CLAIM_TEXT_TYPE",
+    "name": "Claim_Text_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1075,
+    "entityName": "CLAIM_TO_CLAIM_AUTHORIZATION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1075,
+    "entityName": "CLAIM_TO_CLAIM_AUTHORIZATION",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1076,
+    "entityName": "CLAIM_TYPE",
+    "name": "Claim_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1076,
+    "entityName": "CLAIM_TYPE",
+    "name": "Claim_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1077,
+    "entityName": "CLAIM_VISION_CONDITION",
+    "name": "Professional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1077,
+    "entityName": "CLAIM_VISION_CONDITION",
+    "name": "Vision_Condition_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1077,
+    "entityName": "CLAIM_VISION_CONDITION",
+    "name": "Vision_Condition_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1078,
+    "entityName": "DENTAL_CLAIM",
+    "name": "Dental_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1078,
+    "entityName": "DENTAL_CLAIM",
+    "name": "Oral_Traction_Device_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Health_Procedure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Replacement_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Placement_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Service_Prosthesis_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Service_Prosthesis_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Service_Orthodontics_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Service_Orthodontics_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Dental_Service_Orthodontics_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Prior_Placement_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1079,
+    "entityName": "DENTAL_CLAIM_SERVICE",
+    "name": "Replacement_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1080,
+    "entityName": "DENTAL_CLAIM_TOOTH",
+    "name": "Dental_Claim_Tooth_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1080,
+    "entityName": "DENTAL_CLAIM_TOOTH",
+    "name": "Dental_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1080,
+    "entityName": "DENTAL_CLAIM_TOOTH",
+    "name": "Tooth_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Claim_Policy_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Claim_Report_Receipt_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Claim_Loss_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Claim_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Claim_Data_Provider_Filing_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Insurer_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "Policy_Holder_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_Given_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_Family_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_Birth_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_Gender_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_Tax_Id_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_Street_Address_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_City_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_Street_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "External_Policy_Holder_Postal_Code_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "Data_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1081,
+    "entityName": "EXTERNALLY_REPORTED_CLAIM",
+    "name": "Property_Locator_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Disposition_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Crime_Report_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Fault_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Operator_Given_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Operator_Family_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Operator_Birth_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Operator_Driver_License_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Year_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Make_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Model_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Identification_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Policy_Holder_Driver_License_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Policy_Holder_License_Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "Vehicle_Operator_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Vehicle_Owner_Residence_Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1082,
+    "entityName": "EXTERNALLY_REPORTED_VEHICLE_CLAIM",
+    "name": "External_Claim_Loss_First_Payment_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1083,
+    "entityName": "EXTERNAL_CLAIM_CRIME_REPORT_TYPE",
+    "name": "External_Claim_Crime_Report_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1083,
+    "entityName": "EXTERNAL_CLAIM_CRIME_REPORT_TYPE",
+    "name": "External_Claim_Crime_Report_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1084,
+    "entityName": "EXTERNAL_CLAIM_FAULT_TYPE",
+    "name": "External_Claim_Fault_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1084,
+    "entityName": "EXTERNAL_CLAIM_FAULT_TYPE",
+    "name": "External_Claim_Fault_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1085,
+    "entityName": "EXTERNAL_CLAIM_POLICY_TYPE",
+    "name": "External_Claim_Policy_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1085,
+    "entityName": "EXTERNAL_CLAIM_POLICY_TYPE",
+    "name": "External_Claim_Policy_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1086,
+    "entityName": "EXTERNAL_CLAIM_SUBTYPE",
+    "name": "External_Policy_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1086,
+    "entityName": "EXTERNAL_CLAIM_SUBTYPE",
+    "name": "External_Policy_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Claim_Medical_Record_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Claim_Outside_Lab_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Health_Claim_Format_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Information_Release_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Signature_Source_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Claim_Frequency_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Provider_Signature_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Medicare_Assignment_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Special_Program_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Health_Claim_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Medicare_Demonstration_Project_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Pricing_Methodology_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Investigational_Device_Exemption_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "X-ray_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Initial_Treatment_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "ITS_Host_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "ITS_Control_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Claim_Service_Category_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Medicaid_Statistical_Information_System_Claim_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Claim_Filing_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Claim_Referral_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Authorization_Exception_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1087,
+    "entityName": "HEALTH_CLAIM",
+    "name": "Benefits_Assignment_Certification_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1088,
+    "entityName": "HEALTH_CLAIM_FORMAT_CATEGORY",
+    "name": "Health_Claim_Format_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1088,
+    "entityName": "HEALTH_CLAIM_FORMAT_CATEGORY",
+    "name": "Health_Claim_Format_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1089,
+    "entityName": "HEALTH_CLAIM_NUBC_CONDITION_CODE",
+    "name": "National_Uniform_Billing_Committee_Condition_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1089,
+    "entityName": "HEALTH_CLAIM_NUBC_CONDITION_CODE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Health_Procedure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Facility_Qualifier_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Servicing_Facility_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Health_Claim_Format_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Health_Billing_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Health_Billing_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Health_Procedure_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Procedure_Qualifier_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Procedure_Code_Modifier_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Billed_Units_Of_Service_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1090,
+    "entityName": "HEALTH_CLAIM_SERVICE",
+    "name": "Billed_Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1091,
+    "entityName": "HEALTH_CLAIM_TYPE",
+    "name": "Health_Claim_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1091,
+    "entityName": "HEALTH_CLAIM_TYPE",
+    "name": "Health_Claim_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1092,
+    "entityName": "INCIDENT",
+    "name": "Incident_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1092,
+    "entityName": "INCIDENT",
+    "name": "Catastrophe_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1092,
+    "entityName": "INCIDENT",
+    "name": "Incident_Reserve_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1092,
+    "entityName": "INCIDENT",
+    "name": "Host_Catastrophe_Reference_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1093,
+    "entityName": "INCIDENT_PERIL_TYPE",
+    "name": "Peril_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1093,
+    "entityName": "INCIDENT_PERIL_TYPE",
+    "name": "Incident_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1094,
+    "entityName": "INPATIENT_INSTITUTIONAL_CLAIM",
+    "name": "Inpatient_Institutional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1094,
+    "entityName": "INPATIENT_INSTITUTIONAL_CLAIM",
+    "name": "Submitted_DRG_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1094,
+    "entityName": "INPATIENT_INSTITUTIONAL_CLAIM",
+    "name": "Repriced_Approved_DRG_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Institutional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Claim_Admission_Count_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Claim_Admission_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Claim_Admission_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Claim_Discharge_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Claim_Discharge_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Covered_Days_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Noncovered_Days_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Admission_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Policy_Compliance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Out_Of_Network_Exception_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Explanation_Of_Benefits_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Peer_Review_Authorization_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Plan_Of_Care_Document_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Submit_Service_Facility_Quality_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Adjudication_Service_Facility_Quality_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Adjudication_Service_Facility_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Submit_Service_Facility_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Patient_Discharge_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Capitated_Services_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Geographic_Adjustment_Factor_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Home_Health_Care_Certification_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1095,
+    "entityName": "INSTITUTIONAL_CLAIM",
+    "name": "Admission_Source_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1096,
+    "entityName": "INSTITUTIONAL_CLAIM_PROCEDURE_CODE",
+    "name": "Health_Procedure_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1096,
+    "entityName": "INSTITUTIONAL_CLAIM_PROCEDURE_CODE",
+    "name": "Procedure_Qualifier_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1096,
+    "entityName": "INSTITUTIONAL_CLAIM_PROCEDURE_CODE",
+    "name": "Institutional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1096,
+    "entityName": "INSTITUTIONAL_CLAIM_PROCEDURE_CODE",
+    "name": "Submission_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1097,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE",
+    "name": "Institutional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1097,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE",
+    "name": "Institutional_Health_Procedure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Institutional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Institutional_Health_Procedure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Claimed_Drug_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Drug_NDC_Num__Geo",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "RXNORM_Atom_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Prescription_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Unit_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Dosage_Form_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Dosage_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1098,
+    "entityName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Vaccine_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1099,
+    "entityName": "INSURABLE_INTEREST",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1099,
+    "entityName": "INSURABLE_INTEREST",
+    "name": "Insurable_Interest_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1099,
+    "entityName": "INSURABLE_INTEREST",
+    "name": "Catastrophe_Exposure_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1100,
+    "entityName": "INSURABLE_INTEREST_CATEGORY",
+    "name": "Insurable_Interest_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1100,
+    "entityName": "INSURABLE_INTEREST_CATEGORY",
+    "name": "Insurable_Interest_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Insurable_Interest_Metric_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1101,
+    "entityName": "INSURABLE_INTEREST_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1102,
+    "entityName": "INSURABLE_INTEREST_METRIC_TYPE",
+    "name": "Insurable_Interest_Metric_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1102,
+    "entityName": "INSURABLE_INTEREST_METRIC_TYPE",
+    "name": "Insurable_Interest_Metric_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1103,
+    "entityName": "INSURANCE_CLAIM_CASE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1103,
+    "entityName": "INSURANCE_CLAIM_CASE",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1104,
+    "entityName": "INTERNAL_CLAIM_ADJUDICATION",
+    "name": "Adjudication_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1106,
+    "entityName": "MEDICAID_STATISTICAL_INFORMATION_SYSTEM_CLAIM_TYPE",
+    "name": "Medicaid_Statistical_Information_System_Claim_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1106,
+    "entityName": "MEDICAID_STATISTICAL_INFORMATION_SYSTEM_CLAIM_TYPE",
+    "name": "Medicaid_Statistical_Information_System_Claim_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1107,
+    "entityName": "OUTPATIENT_INSTITUTIONAL_CLAIM",
+    "name": "Outpatient_Institutional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1108,
+    "entityName": "OUTPATIENT_INSTITUTIONAL_CLAIM_APC",
+    "name": "Outpatient_Institutional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1108,
+    "entityName": "OUTPATIENT_INSTITUTIONAL_CLAIM_APC",
+    "name": "Ambulatory_Patient_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1108,
+    "entityName": "OUTPATIENT_INSTITUTIONAL_CLAIM_APC",
+    "name": "Submission_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1109,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION",
+    "name": "Patient_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1109,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION",
+    "name": "Prognosis_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1109,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION",
+    "name": "Overall_Health_Condition_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1109,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION",
+    "name": "Patient_Last_Seen_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1109,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION",
+    "name": "Patient_Last_Admission_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1109,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION",
+    "name": "Patient_Last_Admission_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1109,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION",
+    "name": "Nursing_Home_Resident_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1110,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION_CONDITION",
+    "name": "Authorization_Patient_Condition_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1110,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION_CONDITION",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1110,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION_CONDITION",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1110,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION_CONDITION",
+    "name": "Party_Claim_Authorization_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1110,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION_CONDITION",
+    "name": "Party_Claim_Authorization_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1110,
+    "entityName": "PATIENT_CLAIM_AUTHORIZATION_CONDITION",
+    "name": "Certificate_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1111,
+    "entityName": "PERIL_ORIGIN_TYPE",
+    "name": "Peril_Origin_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1111,
+    "entityName": "PERIL_ORIGIN_TYPE",
+    "name": "Peril_Origin_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1112,
+    "entityName": "PERIL_TYPE",
+    "name": "Peril_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1112,
+    "entityName": "PERIL_TYPE",
+    "name": "Peril_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1112,
+    "entityName": "PERIL_TYPE",
+    "name": "Peril_Origin_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1112,
+    "entityName": "PERIL_TYPE",
+    "name": "Party_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1113,
+    "entityName": "PERIL_TYPE_SUBJECT",
+    "name": "Peril_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1114,
+    "entityName": "PHARMACY_CLAIM",
+    "name": "Pharmacy_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Pharmacy_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Pharmacy_Health_Procedure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "External_Coupon_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Pharmacy_Service_Dispense_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Pharmacy_Service_Issue_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Pharmacy_Service_Submission_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Pharmacy_Service_Maintenance_Drug_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Pharmacy_Service_Formulary_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Authorized_Refill_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Prescription_Refill_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Prescription_Origin_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Prescription_Form_Serial_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Prescription_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Submission_Clarification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Dispense_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Dispensing_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Pharmacist_Intervention_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Effort_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Eligibility_Clarification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Service_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1115,
+    "entityName": "PHARMACY_CLAIM_SERVICE",
+    "name": "Rebate_Eligible_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Pharmacy_Health_Procedure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Pharmacy_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Pharmacy_Claim_Drug_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Dispensing_Form_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Ingredient_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Standard_Price_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Days_Supply_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Expiration_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Half_Tab_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Dosage_Form_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Dosage_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Drug_NDC_Num__Geo",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "RXNORM_Atom_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1116,
+    "entityName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "name": "Vaccine_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1117,
+    "entityName": "POLICY_INSURABLE_COVERAGE",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1117,
+    "entityName": "POLICY_INSURABLE_COVERAGE",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1117,
+    "entityName": "POLICY_INSURABLE_COVERAGE",
+    "name": "Policy_Insurable_Interest_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1117,
+    "entityName": "POLICY_INSURABLE_COVERAGE",
+    "name": "Policy_Insurable_Interest_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1117,
+    "entityName": "POLICY_INSURABLE_COVERAGE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1117,
+    "entityName": "POLICY_INSURABLE_COVERAGE",
+    "name": "Insurable_Coverage_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1117,
+    "entityName": "POLICY_INSURABLE_COVERAGE",
+    "name": "Insurable_Coverage_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Policy_Insurable_Interest_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Policy_Insurable_Interest_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Insurable_Coverage_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Insurance_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Insurable_Coverage_Metric_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Insurable_Coverage_Metric_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Policy_Insurable_Coverage_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Policy_Currency_Coverage_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Policy_Insurable_Coverage_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Policy_Interest_Coverage_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1118,
+    "entityName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1119,
+    "entityName": "POLICY_INSURABLE_INTEREST",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1119,
+    "entityName": "POLICY_INSURABLE_INTEREST",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1119,
+    "entityName": "POLICY_INSURABLE_INTEREST",
+    "name": "Policy_Insurable_Interest_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1119,
+    "entityName": "POLICY_INSURABLE_INTEREST",
+    "name": "Policy_Insurable_Interest_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1119,
+    "entityName": "POLICY_INSURABLE_INTEREST",
+    "name": "Policy_Insurable_Interest_End_Dttm",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Policy_Insurable_Interest_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Policy_Insurable_Interest_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Insurable_Coverage_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Agreement_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Agreement_Status_Scheme_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Insurable_Interest_Coverage_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1120,
+    "entityName": "POLICY_INSURABLE_INTEREST_COVERAGE_STATUS",
+    "name": "Insurable_Interest_Coverage_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1121,
+    "entityName": "POLICY_INSURABLE_INTEREST_ROLE",
+    "name": "Policy_Insurable_Interest_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1121,
+    "entityName": "POLICY_INSURABLE_INTEREST_ROLE",
+    "name": "Policy_Insurable_Interest_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1122,
+    "entityName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1122,
+    "entityName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1122,
+    "entityName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "name": "Policy_Insurable_Interest_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1122,
+    "entityName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "name": "Policy_Insurable_Interest_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1122,
+    "entityName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "name": "Agreement_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1122,
+    "entityName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "name": "Policy_Insurable_Interest_Status_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1122,
+    "entityName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "name": "Agreement_Status_Scheme_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1122,
+    "entityName": "POLICY_INSURABLE_INTEREST_STATUS",
+    "name": "Policy_Insurable_Interest_Status_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Professional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Provider_Agreement_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Hearing_Or_Vision_Prescription_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Policy_Compliance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Out_Of_Network_Exception_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Mammography_Center_Certification_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Medicare_Crossover_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Claim_Similar_Symptom_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Claim_Acute_Manifestation_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Total_Relative_Value_Unit_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Adjusted_Relative_Value_Unit_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1123,
+    "entityName": "PROFESSIONAL_CLAIM",
+    "name": "Geographic_Adjustment_Factor_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1124,
+    "entityName": "PROFESSIONAL_CLAIM_APG",
+    "name": "Ambulatory_Patient_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1124,
+    "entityName": "PROFESSIONAL_CLAIM_APG",
+    "name": "Professional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1124,
+    "entityName": "PROFESSIONAL_CLAIM_APG",
+    "name": "Submission_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Professional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Professional_Health_Procedure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Hospice_Condition_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Family_Services_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "CLIA_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "EPSDT_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Copay_Waiver_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Prescription_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Pricing_Methodology_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Policy_Compliance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Out_Of_Network_Exception_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Mammography_Center_Certification_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Claim_Service_Rendering_CLIA_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Claim_Service_Referring_CLIA_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Similar_Symptom_Onset_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Universal_Product_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Ambulatory_Patient_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Repriced_APG_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Initial_Treatment_Service_Line_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1125,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE",
+    "name": "Claim_Service_Acute_Manifestation_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Professional_Health_Procedure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Professional_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Claimed_Drug_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Drug_NDC_Num__Geo",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "RXNORM_Atom_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Immunization_Batch_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Drug_Unit_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Dosage_Form_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Dosage_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1126,
+    "entityName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "name": "Vaccine_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1127,
+    "entityName": "PROPERTY_AND_CASUALTY_CLAIM",
+    "name": "Subrogation_Eligible_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1127,
+    "entityName": "PROPERTY_AND_CASUALTY_CLAIM",
+    "name": "Subrogation_Eligibility_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1128,
+    "entityName": "WORK_PROCESS_CLAIM",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  }
+]

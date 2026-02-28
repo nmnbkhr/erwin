@@ -1,0 +1,21 @@
+{
+  "files_converted": 15,
+  "warnings": [],
+  "counts": {
+    "entities": 3917,
+    "attributes": 15364,
+    "relationships": 5636,
+    "domains": 16,
+    "inheritance": 839,
+    "capabilities": 112,
+    "dataRequirements": 113,
+    "mappings": 360,
+    "dependencies": 17175,
+    "reuseScores": 219,
+    "reuseMatrix": 500,
+    "lineage": 23,
+    "starSchema": 11,
+    "gapExtensions": 21,
+    "bacrQuestions": 804
+  }
+}

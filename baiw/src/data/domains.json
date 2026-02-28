@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "name": "Other",
+    "description": "Cross-cutting and miscellaneous entities spanning multiple subject areas.",
+    "entityCount": 1197,
+    "color": "#A0CBE8"
+  },
+  {
+    "id": 2,
+    "name": "Party Management",
+    "description": "Entities representing parties, individuals, organizations, and their roles, relationships, and contact information.",
+    "entityCount": 622,
+    "color": "#4E79A7"
+  },
+  {
+    "id": 3,
+    "name": "Agreement & Account",
+    "description": "Entities covering agreements, accounts, terms, conditions, and contractual arrangements between parties.",
+    "entityCount": 506,
+    "color": "#F28E2B"
+  },
+  {
+    "id": 4,
+    "name": "Campaign & Marketing",
+    "description": "Entities for marketing campaigns, offers, promotions, and customer engagement programs.",
+    "entityCount": 230,
+    "color": "#499894"
+  },
+  {
+    "id": 5,
+    "name": "Product Management",
+    "description": "Entities describing banking products, services, features, pricing, and product lifecycle management.",
+    "entityCount": 209,
+    "color": "#76B7B2"
+  },
+  {
+    "id": 6,
+    "name": "Investment Management",
+    "description": "Entities representing securities, derivatives, fixed income instruments, and other financial assets.",
+    "entityCount": 191,
+    "color": "#59A14F"
+  },
+  {
+    "id": 7,
+    "name": "Channel Management",
+    "description": "Entities representing distribution channels including branch, digital, ATM, and contact center.",
+    "entityCount": 165,
+    "color": "#FABFD2"
+  },
+  {
+    "id": 8,
+    "name": "Claims Management",
+    "description": "Entities for insurance claims, claim processing, settlements, and claims lifecycle management.",
+    "entityCount": 156,
+    "color": "#D37295"
+  },
+  {
+    "id": 9,
+    "name": "Financial Transaction",
+    "description": "Entities covering financial transactions, payments, transfers, and settlement processing.",
+    "entityCount": 141,
+    "color": "#EDC948"
+  },
+  {
+    "id": 10,
+    "name": "Risk Management",
+    "description": "Entities for credit risk, market risk, operational risk, and risk assessment frameworks.",
+    "entityCount": 133,
+    "color": "#BAB0AC"
+  },
+  {
+    "id": 11,
+    "name": "Event Management",
+    "description": "Entities for business events, calendars, schedules, holidays, and temporal reference data.",
+    "entityCount": 109,
+    "color": "#B6992D"
+  },
+  {
+    "id": 12,
+    "name": "Web Analytics",
+    "description": "Entities for digital analytics, web tracking, online behavior, and digital channel metrics.",
+    "entityCount": 77,
+    "color": "#86BCB6"
+  },
+  {
+    "id": 13,
+    "name": "Asset Management",
+    "description": "Entities for market prices, rates, indices, benchmarks, and asset portfolio data.",
+    "entityCount": 71,
+    "color": "#FF9DA7"
+  },
+  {
+    "id": 14,
+    "name": "Reference Data",
+    "description": "Reference data entities including codes, classifications, taxonomies, and standardized lookup values.",
+    "entityCount": 39,
+    "color": "#E15759"
+  },
+  {
+    "id": 15,
+    "name": "Human Resources",
+    "description": "Entities for employee records, organizational structure, roles, and HR management.",
+    "entityCount": 36,
+    "color": "#9C755F"
+  },
+  {
+    "id": 16,
+    "name": "Location & Geography",
+    "description": "Entities for addresses, regions, countries, branches, and geographic hierarchies.",
+    "entityCount": 35,
+    "color": "#B07AA1"
+  }
+]

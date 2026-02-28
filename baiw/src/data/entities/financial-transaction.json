@@ -1,0 +1,989 @@
+[
+  {
+    "id": 1238,
+    "name": "AP_INVOICE",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies an INVOICE or billing document received by the company from a third-party VENDOR as a request for payment for goods purchased or services received. The AP INVOICE entity captures transaction information such as invoice date, host invoice number, payment terms, and freight term",
+    "attributeCount": 5
+  },
+  {
+    "id": 1239,
+    "name": "AP_INVOICE_EXPENSE",
+    "domain": "Financial Transaction",
+    "description": "This entity is a subtype of AP INVOICE. It is one of four subtypes. The other three are AP REIMBURSABLE EXPENSE, AP RECURRING EXPENSE, and OTHER INVOICE EXPENSEs.  AP INVOICE EXPENSE pertains to INVOICEs for costs incurred to operate the company and billed to the company directly by the VENDOR, such",
+    "attributeCount": 0
+  },
+  {
+    "id": 1240,
+    "name": "AP_INVOICE_LINE",
+    "domain": "Financial Transaction",
+    "description": "AP INVOICE LINEs provide line item billing details for items or services purchased by the company. This entity identifies detailed information related to the lines on a specific AP INVOICE.  AP INVOICE LINE includes information such as the quantity and unit of measure for the invoice line item, as w",
+    "attributeCount": 9
+  },
+  {
+    "id": 1241,
+    "name": "AP_INVOICE_LINE_ADJUSTMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies the adjustments that have been made to an AP INVOICE LINE.",
+    "attributeCount": 12
+  },
+  {
+    "id": 1242,
+    "name": "AP_INVOICE_LINE_AMOUNT",
+    "domain": "Financial Transaction",
+    "description": "This entity relates the invoice line with the monetary value amount for the line item, such as tax amount or freight line amount. The amounts are recorded in transaction, local accounting, and global currencies.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1243,
+    "name": "AP_INVOICE_LINE_PAYMENT",
+    "domain": "Financial Transaction",
+    "description": "Further classifies an invoice line payment as a remittance related to a specific line item on an accounts payable invoice.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1244,
+    "name": "AP_INVOICE_LINE_STATUS",
+    "domain": "Financial Transaction",
+    "description": "This entity tracks the status of an AP INVOICE LINE, such as canceled, approved, pending, and send.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1245,
+    "name": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies the quantities on a VENDOR PO that are included on an account payable invoice.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1246,
+    "name": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies the relationship between a vendor receipt line and an AP invoice line. It identifies the quantity of internal asset types associated with a vendor receipt line that is included on the AP invoice line and can be used to compare the invoice quantity to what has actually been rec",
+    "attributeCount": 6
+  },
+  {
+    "id": 1247,
+    "name": "AP_INVOICE_SUBTYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity defines the type of AP INVOICE such as AP invoice expense, AP reimbursable expense (employee expense reports), AP recurring expense, or other invoice expense.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1248,
+    "name": "AR_INVOICE",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies an INVOICE or billing document issued by the company to a third-party customer as a request for payment for goods sold or services rendered. The AR INVOICE entity captures transaction information about such as invoice date, host invoice number, payment terms, and freight terms",
+    "attributeCount": 8
+  },
+  {
+    "id": 1249,
+    "name": "AR_INVOICE_LINE",
+    "domain": "Financial Transaction",
+    "description": "This table has one row per AR INVOICE LINE. Line type can be item line, tax line, or freight. Records the quantities ordered, invoiced, and credited along with the unit price.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1250,
+    "name": "AR_INVOICE_LINE_ADJUSTMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies the adjustments made to an AR INVOICE LINE. Adjustments or changes may be made to an AR invoice line to correct an error in the original AR or to write off an amount that a customer refuses to pay, such as a bad debt, or to make an allowance for a late delivery or damaged good",
+    "attributeCount": 12
+  },
+  {
+    "id": 1251,
+    "name": "AR_INVOICE_LINE_AMOUNT",
+    "domain": "Financial Transaction",
+    "description": "This associative entity relates the AR INVOICE LINE AMOUNT with the amounts for the AR INVOICE LINE item, such as tax amount and freight line amount, as defined in the Invoice Amount Type Cd. The amounts are recorded in transaction, local accounting, and global currencies.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1252,
+    "name": "AR_INVOICE_LINE_QUANTITY",
+    "domain": "Financial Transaction",
+    "description": "Defines quantity and unit of measure by various types of quantities to a specific AR INVOICE LINE. Examples of quantity types are credited, invoiced, and ordered.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1253,
+    "name": "AR_INVOICE_LINE_RECEIPT",
+    "domain": "Financial Transaction",
+    "description": "Further classifies an invoice line payment as an amount collected related to a specific line item on an accounts receivable invoice.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1254,
+    "name": "AR_INVOICE_LINE_TYPE",
+    "domain": "Financial Transaction",
+    "description": "Table to hold all the line types for the INVOICEs in AR. Defines the type of invoice line.  Examples: - Chargeback - Charges - Freight - Line - DM-reversal - Tax",
+    "attributeCount": 2
+  },
+  {
+    "id": 1255,
+    "name": "AR_INVOICE_REASON_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity defines the reason for invoicing.  Examples: - AR billing error - Cancelation – customer cancelation of an order - Contracts – contract lines have been billed - Credit and rebill - Duplicate billing - Foreign – foreign interface credit memo - Free product – invoiced for free produc",
+    "attributeCount": 2
+  },
+  {
+    "id": 1256,
+    "name": "AR_INVOICE_TYPE",
+    "domain": "Financial Transaction",
+    "description": "Contains the list of all the in-use AR INVOICE TYPEs.  Examples of invoice types are invoice, invoice local, invoice state, and projects credit memo.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1257,
+    "name": "BANK_TRANSFER_EVENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A code for the type of bank transfer event such as interbank event or intrabank event.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1258,
+    "name": "BOND_PAYMENT_SCHEDULE",
+    "domain": "Financial Transaction",
+    "description": "This entity contains payment schedule details for bonds.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1259,
+    "name": "CARD_STATEMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity contains the card level details in the billing statement.  It can include any access device to the account including plastic cards and mobile phones.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1260,
+    "name": "CARD_STATEMENT_LINE_ITEM",
+    "domain": "Financial Transaction",
+    "description": "This is the line item value for each activity of an account card.  Then entity name is kept as \"card\" because it is still a \"credit card\" account.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1261,
+    "name": "CARD_STATEMENT_METRIC",
+    "domain": "Financial Transaction",
+    "description": "This entity shows metrics for a given account access device (e.g., credit card plastic) for a given account for a given statement.  Example of metrics include purchase amount, cash advance amount, purchase count, and cash advance request count.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1262,
+    "name": "CHECK_TRANSACTION_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity identifies the different types of transaction types for checks as used at the home bank.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1263,
+    "name": "CLAIM_EXPOSURE_ACTIVITY_PAYMENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This is a classification of payment types such as working, final or supplemental.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1264,
+    "name": "CLAIM_IVR_STEP_TRANSACTION",
+    "domain": "Financial Transaction",
+    "description": "This links the claim to the IVR step transaction.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1265,
+    "name": "CLAIM_PAYMENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A code for the claim transaction type.  Examples are claim medical payment, claim legal payment, claim auto body payment, expense payment, reserve transaction, salvage transaction, subrogation transaction, and reinsurance recovery transaction.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1266,
+    "name": "COA_MONETARY_BALANCE",
+    "domain": "Financial Transaction",
+    "description": "This entity carries the aggregate monetary balance of the CHART OF ACCOUNTS CODE. For example, $100,000 was the ending monetary amount of long-term receivables.",
+    "attributeCount": 10
+  },
+  {
+    "id": 1267,
+    "name": "COLLECTION_DEBT_INVOICE",
+    "domain": "Financial Transaction",
+    "description": "This is an agreement where the financial institution agrees to collect debt from its customer (the issuer) usually for a fee. The debt issuer owns the debt but the financial institution is providing a collection service. This differs from purchased receivables where the financial institution actuall",
+    "attributeCount": 4
+  },
+  {
+    "id": 1268,
+    "name": "COMMODITY_TRANSACTION_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This identifies the type of commodity transaction as defined by the trading venue as required for MiFID II commodity instruments. Examples include futures, options, swaps, traded average price option, over the counter, outright option, crack option, differential option or other. This could affect ho",
+    "attributeCount": 2
+  },
+  {
+    "id": 1269,
+    "name": "CONSOLIDATED_INVOICE",
+    "domain": "Financial Transaction",
+    "description": "A CONSOLIDATED INVOICE represents a collection of multiple INVOICEs for single payment or customer billing.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1270,
+    "name": "CONSOLIDATED_INVOICE_STATUS",
+    "domain": "Financial Transaction",
+    "description": "This entity tracks the status of a CONSOLIDATED INVOICE, such as canceled, approved, pending, send, hold, and release.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1271,
+    "name": "CONSOLIDATED_INVOICE_SUMMARY",
+    "domain": "Financial Transaction",
+    "description": "This entity contains summary account information as of this summary date. Even though the information is technically derivable from the separate invoices that compose the CONSOLIDATED INVOICE, it is included here because companies commonly require tracking of payments and balances at the CONSOLIDATE",
+    "attributeCount": 7
+  },
+  {
+    "id": 1272,
+    "name": "DEBT_PRINCIPAL_REPAYMENT",
+    "domain": "Financial Transaction",
+    "description": "Scheduled repayment of principal on debt instrument.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1273,
+    "name": "EARNING_STATEMENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity contains a vendor's 1099 Type.  A 1099 classification scheme is used in the United States for types of payments. Each 1099 form has one or more payment types. A 1099 supplier may receive payments from more than one type. The 1099-MISC form has the following types: rents, royalties, prize",
+    "attributeCount": 2
+  },
+  {
+    "id": 1274,
+    "name": "EVENT_PAYMENT_INSTRUCTION",
+    "domain": "Financial Transaction",
+    "description": "This relates the payment instruction to the actual payment event.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1275,
+    "name": "FILE_TRANSFER",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding online applications that enable visitors to transfer files.",
+    "attributeCount": 17
+  },
+  {
+    "id": 1276,
+    "name": "FINANCIAL_EVENT_JOURNAL_ENTRY_LINE",
+    "domain": "Financial Transaction",
+    "description": "This entity links a financial event amount to the journal entry lines that it may generate. With double entry bookkeeping, one financial event can have more than one journal entry.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1277,
+    "name": "FIXED_INCOME_INTEREST_PAYMENT",
+    "domain": "Financial Transaction",
+    "description": "Periodic payment of interest on fixed income obligations.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1278,
+    "name": "FORM_OF_PAYMENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This is a code that describes how a party is compensated such as cash, securities, or barter.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1279,
+    "name": "FREIGHT_TERM_TYPE_INVOICE_XREF",
+    "domain": "Financial Transaction",
+    "description": "This entity provides a cross-reference of freight term types to invoices.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1280,
+    "name": "FUNDS_TRANSFER_EVENT",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding the partial or complete discharge of an obligation typically by its settlement in the form of a transfer of funds applied against the monetary value of the debtor's obligation. Payments may be applied against obligations represented by one or more invoices.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1281,
+    "name": "FUNDS_TRANSFER_METHOD_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity describes ways in which funds transfers are conveyed to payers. Receipt method tells how the receipt for an invoice will be treated; processing can be manual or automatic, for example, lockbox, check, and wire transfer.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1282,
+    "name": "FUNDS_TRANSFER_TYPE",
+    "domain": "Financial Transaction",
+    "description": "Classifies a funds transfer as pertaining to an invoice or other type.  Other payment types could include shopping transactions, or to fulfill the terms and conditions of any contracts that exist between the company and its parties and channels.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1283,
+    "name": "GL_PROJECT_SEGMENT",
+    "domain": "Financial Transaction",
+    "description": "The entity that indicates the GL PROJECT SEGMENT of the accounts used in financial reporting for a company.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1284,
+    "name": "GL_ROLL-UP_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity identifies the purpose for rolling up GL account information a certain way.  For example, one way of rolling up GL account information would be to accumulate all travel and entertainment expenses. Another way would be from a geographical view such as all expenses in California, or",
+    "attributeCount": 2
+  },
+  {
+    "id": 1285,
+    "name": "HEALTH_BILLING_CATEGORY",
+    "domain": "Financial Transaction",
+    "description": "The domain of codes used to group revenue codes associated with HCFA form 1450 field 43 as assigned to specific billing cost centers.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1286,
+    "name": "HEALTH_BILLING_CODE",
+    "domain": "Financial Transaction",
+    "description": "A detailed level of billing codes on a claim submitted from a facility.  (HCFA 1450 field 42)",
+    "attributeCount": 3
+  },
+  {
+    "id": 1287,
+    "name": "HEALTH_BILLING_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A domain of the highest-level codes used to describe a billing cost center.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1288,
+    "name": "INTEREST_PAYMENT_METHOD_TYPE_JAPAN",
+    "domain": "Financial Transaction",
+    "description": "This is the method for interest payment such as issue a check, deposit into another account, or compound into this account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1289,
+    "name": "INVESTMENT_HOLDING_STATEMENT",
+    "domain": "Financial Transaction",
+    "description": "The value for each holding of investment product within a portfolio as of the statement date, and which appeared on this statement. This represents a summary of holdings and their market value for this investment account for this investment product.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1290,
+    "name": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "domain": "Financial Transaction",
+    "description": "This entity shows metrics for a given investment holding for a given account for a given statement.  Examples: - Quantity of shares or units held - Current market unit price (count x unit price) - Current market value of holding - Estimated income for this holding",
+    "attributeCount": 10
+  },
+  {
+    "id": 1291,
+    "name": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "domain": "Financial Transaction",
+    "description": "The line item information for each trade of an investment product as it appeared on the statement. This represents the activity portion of the investment statement.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1292,
+    "name": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "domain": "Financial Transaction",
+    "description": "This entity represents metrics at the line item level for investment trades within a portfolio. This can include the number of units traded, the sales price, the commission price, and fees.",
+    "attributeCount": 11
+  },
+  {
+    "id": 1293,
+    "name": "INVOICE",
+    "domain": "Financial Transaction",
+    "description": "This entity contains information related to a billing document presented to a bill-to-party as a request for payment for goods sold or services rendered. The INVOICE entity captures information about an invoice such as invoice date, host invoice number, payment terms, and freight terms.  In the FSDM",
+    "attributeCount": 12
+  },
+  {
+    "id": 1294,
+    "name": "INVOICE_ADJUSTMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies the credits and debits made against an INVOICE. For example, a customer may be given a credit for damaged goods or additional charges may be applied to correct improper pricing.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1295,
+    "name": "INVOICE_AMOUNT",
+    "domain": "Financial Transaction",
+    "description": "This associative entity relates the INVOICE with the amounts for the INVOICE, such as invoice original amount, and invoice total amount, as defined in the Invoice Amount Type Cd. The amounts are recorded in transaction, local accounting, and base currencies.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1296,
+    "name": "INVOICE_AMOUNT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity contains the INVOICE monetary amount types and descriptions that can be associated with an AP INVOICE or AR INVOICE.  Examples: - Invoice original amount - Unit price - Invoice total amount - Freight invoice total amount - Tax amount - Discount amount - Paid amount - Unpaid amount",
+    "attributeCount": 2
+  },
+  {
+    "id": 1297,
+    "name": "INVOICE_CHARGE",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding the specific charges that are added to a purchase or sales transaction that are not related to any particular item.  Examples: - Shipping - Handling - Insurance - Expedited shipping",
+    "attributeCount": 3
+  },
+  {
+    "id": 1298,
+    "name": "INVOICE_LINE_PAYMENT",
+    "domain": "Financial Transaction",
+    "description": "Contains information about INVOICE LINE PAYMENT detail related to an INVOICE PAYMENT.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1299,
+    "name": "INVOICE_LINE_PAYMENT_STATUS",
+    "domain": "Financial Transaction",
+    "description": "Assigns a PAYMENT STATUS, such as remitted or reversed, to an invoice line. Tracks INVOICE LINE PAYMENT status by date. In addition, associates a reason with the PAYMENT STATUS, such as wrong amount or agreement closed.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1300,
+    "name": "INVOICE_PAYMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding payments made or collected that relates to an invoice. Other payments not represented here could include contract payments or any payment that does not relate to an invoice.  This entity allows for one payment to be applied to many invoices, and one invoice",
+    "attributeCount": 6
+  },
+  {
+    "id": 1301,
+    "name": "INVOICE_PAYMENT_METHOD_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This code captures information regarding ways to apply one payment to one or more invoices such as largest amount first, alphabetical, or customer request.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1302,
+    "name": "INVOICE_PAYMENT_SUBTYPE",
+    "domain": "Financial Transaction",
+    "description": "Further classifies an INVOICE LINE PAYMENT as a remittance against an AP INVOICE LINE PAYMENT or collection against an AR INVOICE LINE RECEIPT.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1303,
+    "name": "INVOICE_QUANTITY_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This classifies the status of this order such as credited, invoiced, and ordered.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1304,
+    "name": "INVOICE_RELATED",
+    "domain": "Financial Transaction",
+    "description": "This associative entity relates INVOICEs to other INVOICEs. There is one instance for each relationship. The Invoice Relationship Type Cd describes the relationship type between INVOICEs.  Examples of INVOICE relationships include PA DRAFT INVOICE to AR INVOICE, and INVOICE ADJUSTMENT to the origina",
+    "attributeCount": 5
+  },
+  {
+    "id": 1305,
+    "name": "INVOICE_RELATIONSHIP_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity describes the type of relationship between two INVOICEs such as replaces and credit memo for.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1306,
+    "name": "INVOICE_SOURCE_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity describes the source of the invoice, for example, auto invoice and transactions window.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1307,
+    "name": "INVOICE_STATUS",
+    "domain": "Financial Transaction",
+    "description": "This entity tracks the status of an INVOICE, such as canceled, approved, pending, send, hold, and release.",
+    "attributeCount": 5
+  },
+  {
+    "id": 1308,
+    "name": "INVOICE_STATUS_REASON_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A reason why a particular Invoice Status Type Cd is assigned to an INVOICE or an invoice line.  For example, if the status code is 'release' for an AP INVOICE, the reason codes may be PO was matched, or the quantity ordered has been reconciled. Alternatively, they may be a predefined value of accoun",
+    "attributeCount": 2
+  },
+  {
+    "id": 1309,
+    "name": "INVOICE_STATUS_TYPE",
+    "domain": "Financial Transaction",
+    "description": "The status or conditions that can be assigned to an AR INVOICE, AP INVOICE or invoice line such as canceled, approved, pending, send, hold, and release.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1310,
+    "name": "INVOICE_SUBTYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity defines the type of INVOICE such as an AR INVOICE, an AP INVOICE, or a PA DRAFT INVOICE.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1311,
+    "name": "ITEM_TRANSFER",
+    "domain": "Financial Transaction",
+    "description": "This entity captures the transfer of digital items.  There is a one-to-many relationship to the sales transaction line entity to handle situations where multiple items are purchased.  For example, the purchase of a single digital item (let us say, a music album) can trigger the download of 10 MP3 fi",
+    "attributeCount": 3
+  },
+  {
+    "id": 1312,
+    "name": "ITEM_TRANSFER_DIRECTION_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding item transfer direction; transfer directions can be either uploads or downloads.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1313,
+    "name": "IVR_STEP_TRANSACTION",
+    "domain": "Financial Transaction",
+    "description": "Financial and/or service transaction handled by the IVR STEP if the step resulted in some business transaction. This represents the business transaction that is the result of the navigation such as open an account, make a payment, or transfer money from one agreement to another. The other entities i",
+    "attributeCount": 2
+  },
+  {
+    "id": 1314,
+    "name": "IVR_STEP_TRANSACTION_SUBTYPE",
+    "domain": "Financial Transaction",
+    "description": "This is the subtype discriminator for IVR step transactions.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1315,
+    "name": "JOURNAL_ENTRY_HEADER",
+    "domain": "Financial Transaction",
+    "description": "The entity that provides summary of an accounting transaction recorded in the general ledger.",
+    "attributeCount": 13
+  },
+  {
+    "id": 1316,
+    "name": "JOURNAL_ENTRY_LINE",
+    "domain": "Financial Transaction",
+    "description": "The entity that provides details of an accounting transaction usually, credit, or debit recorded for a transaction. One JOURNAL ENTRY HEADER will have multiple JOURNAL ENTRY LINEs.",
+    "attributeCount": 14
+  },
+  {
+    "id": 1317,
+    "name": "MERCHANT_TRANSACTION_FRAUD",
+    "domain": "Financial Transaction",
+    "description": "This entity contains those cases where the fraud is due to fraudulent activity related to an access device transaction such as a credit or debit card purchase at a merchant.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1318,
+    "name": "NATIONAL_UNIFORM_BILLING_COMMITTEE_CONDITION_CODE",
+    "domain": "Financial Transaction",
+    "description": "The National Uniform Billing Committee (NUBC) condition codes are designed to allow the collection of information related to the patient, particular services, service venue and billing parameters, which impact the processing of an Institutional claim. Some examples of this information are employment",
+    "attributeCount": 2
+  },
+  {
+    "id": 1319,
+    "name": "NONCASH_PAYMENT_APPROVAL_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding the outcome of a request for approval of a noncash transaction.  Examples: - Confirm ID of individual - Deny purchase",
+    "attributeCount": 2
+  },
+  {
+    "id": 1320,
+    "name": "OTHER_INVOICE_EXPENSE",
+    "domain": "Financial Transaction",
+    "description": "This entity is a subtype of AP INVOICE. It is one of four subtypes. The other three are AP INVOICE EXPENSE, AP REIMBURSABLE EXPENSE, and AP RECURRING EXPENSE.  OTHER INVOICE EXPENSE pertains to INVOICEs for costs incurred to operate the company and billed to the company directly by the VENDOR, that",
+    "attributeCount": 0
+  },
+  {
+    "id": 1321,
+    "name": "OTHER_STATEMENT_LINE_ITEM",
+    "domain": "Financial Transaction",
+    "description": "Line item detail for statements other than investment statements. Placeholder for other statement types with detail line items.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1322,
+    "name": "PAYMENT_ACTION_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding the payment options and limits associated with this advertisement placement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1323,
+    "name": "PAYMENT_ADJUSTMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies any adjustments related to a payment such as when a credit memo is issued to trigger the cutting of a check.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1324,
+    "name": "PAYMENT_ADJUSTMENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies the possible types of payment adjustments.  Examples: - Adjustment to correct an incorrect price - Discounting adjustments due to product breakage",
+    "attributeCount": 2
+  },
+  {
+    "id": 1325,
+    "name": "PAYMENT_BANK_DRAFT_XREF",
+    "domain": "Financial Transaction",
+    "description": "This entity contains information about drafts used for a payment.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1326,
+    "name": "PAYMENT_INSTRUCTION",
+    "domain": "Financial Transaction",
+    "description": "This entity contains the instructions about future payments or money transfers between accounts. Each instruction is for a specific payment that has a given due date, specific amount, specific accounts and other information. It is not related to an invoice.  Payment instructions are different from p",
+    "attributeCount": 6
+  },
+  {
+    "id": 1327,
+    "name": "PAYMENT_INSTRUCTION_EVENT_ROLE",
+    "domain": "Financial Transaction",
+    "description": "This is the role that a payment instruction has with the actual payment event such as \"complies with\", or \"was result of\".",
+    "attributeCount": 2
+  },
+  {
+    "id": 1328,
+    "name": "PAYMENT_INSTRUCTION_STATUS",
+    "domain": "Financial Transaction",
+    "description": "This is the status of the instruction such as not yet executed or executed.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1329,
+    "name": "PAYMENT_INSTRUCTION_STATUS_REASON_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This is the reason for the change of status such as \"payment made\", \"payment did not meet instruction\", and \"payment fulfilled instruction\".",
+    "attributeCount": 2
+  },
+  {
+    "id": 1330,
+    "name": "PAYMENT_INSTRUCTION_STATUS_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This is the status of a payment instruction such as \"not yet executed\", \"executed\", or \"being developed\".",
+    "attributeCount": 2
+  },
+  {
+    "id": 1331,
+    "name": "PAYMENT_INSTRUCTION_TEXT",
+    "domain": "Financial Transaction",
+    "description": "This entity contains textual information about the payment instruction.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1332,
+    "name": "PAYMENT_INSTRUCTION_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This is a classification of the payment instruction such as \"recurring\" or \"one time\".",
+    "attributeCount": 2
+  },
+  {
+    "id": 1333,
+    "name": "PAYMENT_MODE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity contains the codes and descriptions of payment modes for monetary settlements such as check, electronic funds transfer, debit card, and credit card.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1334,
+    "name": "PAYMENT_OPTION_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity defines the types of payments that can be made by an account or associated with a product. For example, if the account/product is a credit card, then the type of payment could be minimum or full. If the account/product is for a loan, then the customer could have several choices of",
+    "attributeCount": 2
+  },
+  {
+    "id": 1335,
+    "name": "PAYMENT_PRIORITY_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A classification of the priority level that one vendor has in relation to another vendor for a payment. This is the order in which vendors get paid first, for example, first, second, and third.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1336,
+    "name": "PAYMENT_SCHEDULE",
+    "domain": "Financial Transaction",
+    "description": "This entity contains the scheduled payment detailed information. Schedules are created based on payment terms, which define the expected payment and collection due dates for invoices. The payment and collection activities, activity status, and various amounts are maintained in this entity or childre",
+    "attributeCount": 5
+  },
+  {
+    "id": 1337,
+    "name": "PAYMENT_SCHEDULE_AMOUNT",
+    "domain": "Financial Transaction",
+    "description": "This entity contains the monetary amount information associated with a payment schedule. There is one instance for each collection amount for each amount type for each amount date.  An example of an invoice with a payment schedule is an insurance policy premium invoice with a payment plan of $100 do",
+    "attributeCount": 10
+  },
+  {
+    "id": 1338,
+    "name": "PAYMENT_SCHEDULE_AMOUNT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity classifies the types of collection amount.  Examples: - Adjusted amount = the amount adjusted against this collection - Applied amount = the amount applied against this collection - Credited amount = the amount credited against this collection - In dispute amount = the amount of funds in",
+    "attributeCount": 2
+  },
+  {
+    "id": 1339,
+    "name": "PAYMENT_SCHEDULE_PAYMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity identifies the monetary amount of a full or partial settlement of an obligation to be applied to a PAYMENT SCHEDULE. The payment is reported against the PAYMENT SCHEDULE to compare the actual payment date to the expected payment date, based on the payment terms.  PAYMENT SCHEDULE support",
+    "attributeCount": 2
+  },
+  {
+    "id": 1340,
+    "name": "PAYMENT_SCHEDULE_TERM",
+    "domain": "Financial Transaction",
+    "description": "This entity captures terms and conditions that are associated with a payment schedule such as a discount that will apply if the payment is made in less than 30 days following issuance of the invoice.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1341,
+    "name": "PAYMENT_SCHEDULE_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity describes the types of payment schedules. For example, payroll payment schedule may be biweekly, bimonthly, or monthly.  For payroll payment schedules, payment schedule will be tied to the organization's payroll period.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1342,
+    "name": "PAYMENT_STATUS",
+    "domain": "Financial Transaction",
+    "description": "This entity is used to store the status of each payment event. This relates the payment entity to the PAYMENT STATUS TYPE entity.  Examples: - Approved - Confirmed - Remitted - Cleared - Reversed",
+    "attributeCount": 5
+  },
+  {
+    "id": 1343,
+    "name": "PAYMENT_STATUS_REASON_TYPE",
+    "domain": "Financial Transaction",
+    "description": "Provides descriptions of the reason codes associated with the status of a payment.  Examples: - Agreement closed - Credit card refund reversed or amount changed - NSF - Payment reversal - Resubmit check - Uncollectible - Wrong amount - Wrong customer - Wrong invoice",
+    "attributeCount": 2
+  },
+  {
+    "id": 1344,
+    "name": "PAYMENT_STATUS_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This contains a list of the payment statuses.  Examples: - Approved - Confirmed - Remitted - Cleared - Posted - Reversed",
+    "attributeCount": 2
+  },
+  {
+    "id": 1345,
+    "name": "PAYMENT_TERM_TYPE",
+    "domain": "Financial Transaction",
+    "description": "Contains the list of all the payment terms to be associated with scheduled payment, customer/vendors, and INVOICEs. Examples are net 10 days, net 45 days, and prepayment. Payment terms are used in calculating the payment schedule.  Payment terms specify the due date and discount date for payment of",
+    "attributeCount": 2
+  },
+  {
+    "id": 1346,
+    "name": "PAYMENT_TERM_TYPE_INVOICE_XREF",
+    "domain": "Financial Transaction",
+    "description": "This entity provides a cross-reference of payment term types to invoices.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1347,
+    "name": "PAYMENT_TIMING_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A code for the timing for the settlement payment such as: - Same day - Next day - Versus payment - Free – no payments - All payments - DvP = delivery versus payment – security delivery and payment are simultaneous - RvP = receive versus payment – only cash will be accepted at time of delivery of sec",
+    "attributeCount": 2
+  },
+  {
+    "id": 1348,
+    "name": "PAYROLL_REGISTER_PAYMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information about payments related to a payroll register.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1349,
+    "name": "PAYROLL_TRANSACTION_SUBTYPE",
+    "domain": "Financial Transaction",
+    "description": "A subtype discriminator used to classify a payroll transaction. Example types of payroll transactions include DIRECT EARNING, INDIRECT EARNING, and ASSOCIATE DEDUCTION.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1350,
+    "name": "PA_DRAFT_INVOICE",
+    "domain": "Financial Transaction",
+    "description": "The purpose of the PA draft invoice is to feed billable project information to the AR billing system that generates the final Invoice to be sent to a customer. The Invoice Dttm in the supertype entity, INVOICE, is the date the final customer INVOICE, related to the PA draft invoice, and is created.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1351,
+    "name": "PA_DRAFT_INVOICE_LINE",
+    "domain": "Financial Transaction",
+    "description": "PA draft invoice line provides line item billing details for project tasks or resources. This entity identifies detailed information related to the lines on a specific PA DRAFT INVOICE.",
+    "attributeCount": 9
+  },
+  {
+    "id": 1352,
+    "name": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "domain": "Financial Transaction",
+    "description": "This associative entity relates the draft invoice line with the amounts for the line item, such as professional services amount, and tax line amount, as defined in the Invoice Amount Type Cd. The amounts are recorded in transaction, local accounting, and global currencies.",
+    "attributeCount": 8
+  },
+  {
+    "id": 1353,
+    "name": "PHISHING_TRANSACTION_FRAUD",
+    "domain": "Financial Transaction",
+    "description": "This entity contains those cases where the fraud is due to \"phishing\" activity.  Phishing is an attempt to criminally and fraudulently acquire sensitive information, such as usernames, passwords, and credit card details, by masquerading as a trustworthy entity in an electronic communication.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1354,
+    "name": "PRIVACY_DATA_TRANSFER",
+    "domain": "Financial Transaction",
+    "description": "The recipient and date of transfer of the privacy data. This information may be required by certain organizations for purposes of tracking who receives information that is protected by privacy regulations.",
+    "attributeCount": 6
+  },
+  {
+    "id": 1355,
+    "name": "PURCHASED_RECEIVABLE_INVOICE",
+    "domain": "Financial Transaction",
+    "description": "This entity represents the actual debt or invoice that is to be collected by the bank from its customer, the issuer. This is the bank's customer's customer (borrower) debt that is now owed to the bank. One instance of this entity represents each individual debt invoice by the obligor.  Related to a",
+    "attributeCount": 5
+  },
+  {
+    "id": 1356,
+    "name": "PURCHASED_RECEIVABLE_INVOICE_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A classification of the type of underlying assets this invoice is for such as machinery, commercial real estate, and residential real estate.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1357,
+    "name": "REPAYMENT_METHOD_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity describes the source of funds to repay the debt.  In Basel II, eligible financial receivables are claims where repayment will occur through the commercial or financial flows related to the underlying assets of the borrower.  Examples: - Repayment flows borrower based on borrower underlyi",
+    "attributeCount": 2
+  },
+  {
+    "id": 1358,
+    "name": "SOCIAL_MEDIA_DOWNLOAD_TRANSFER",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding downloads from a social media site.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1359,
+    "name": "SOCIAL_MEDIA_TRANSFER",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding social media visitors transfer activities; transfers are either uploads or downloads.",
+    "attributeCount": 21
+  },
+  {
+    "id": 1360,
+    "name": "SOCIAL_MEDIA_UPLOAD_TRANSFER",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding content uploaded to the social media site.",
+    "attributeCount": 4
+  },
+  {
+    "id": 1361,
+    "name": "STATEMENT",
+    "domain": "Financial Transaction",
+    "description": "This entity is a subtype to DOCUMENT and contains only those statements produced internally by this financial institution. One instance represents one issuance of a statement document.",
+    "attributeCount": 7
+  },
+  {
+    "id": 1362,
+    "name": "STATEMENT_EVENT",
+    "domain": "Financial Transaction",
+    "description": "This is a subtype entity of EVENT. This entity contains all events involved with the financial institution's statements.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1363,
+    "name": "STATEMENT_EVENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity identifies the types of statement event.  Examples: - Statement issued - Statement returned - Statement payment.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1364,
+    "name": "STATEMENT_INSERT_CHANNEL_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This is a type of channel that is inserting a message with a statement.",
+    "attributeCount": 0
+  },
+  {
+    "id": 1365,
+    "name": "STATEMENT_MAIL_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This minor entity describes how the account statement should be handled such as will be picked up by customer or mail to the statement address.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1366,
+    "name": "STATEMENT_METRIC",
+    "domain": "Financial Transaction",
+    "description": "This entity keeps track of metrics at the statement level. If the statement is for more than one account/agreement then this is the combined total of all account metrics.  Metrics can be amounts, counts, or rates.  Amount examples: - For banking, it could be cash withdrawal total, fee total, previou",
+    "attributeCount": 7
+  },
+  {
+    "id": 1367,
+    "name": "STATEMENT_METRIC_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity contains codes for statement metrics. Metrics can be amounts, counts, or rates.  Amount examples: - For credit card, purchase, cash withdrawals, fees, previous balance, past due amount, current due amount, penalty amount, finance charge amount, new balance, and minimum due amount - For b",
+    "attributeCount": 2
+  },
+  {
+    "id": 1368,
+    "name": "STATEMENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "The domain of billing types represented by the service account statements.  Examples: - Final - Regular - Rebill",
+    "attributeCount": 2
+  },
+  {
+    "id": 1369,
+    "name": "SWAP_LEG_PAYMENT_SCHEDULE",
+    "domain": "Financial Transaction",
+    "description": "This entity shows the projected payment date for this swap leg.",
+    "attributeCount": 3
+  },
+  {
+    "id": 1370,
+    "name": "SWAP_PAYMENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A classification of the type of swap such as: - Interest rate swap    o Coupon swap – fixed for floating in same currency    o Basis swap – floating for floating in same currency    o Cross-currency swap – fixed rate in one currency for floating rate in another - Currency swap - Bond swap - Commodit",
+    "attributeCount": 2
+  },
+  {
+    "id": 1371,
+    "name": "TRANSACTION_FRAUD_CASE",
+    "domain": "Financial Transaction",
+    "description": "A type of case for researching fraudulent transaction activity such as credit card transaction fraud. The fraudulent transaction(s) related to the case are in entity CASE EVENT.",
+    "attributeCount": 1
+  },
+  {
+    "id": 1372,
+    "name": "TRANSACTION_FRAUD_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A code for the type of fraud for this transaction such as customer fraud, merchant fraud, identity theft fraud, or phishing.  Phishing is an attempt to criminally and fraudulently acquire sensitive information, such as usernames, passwords and credit card details, by masquerading as a trustworthy en",
+    "attributeCount": 2
+  },
+  {
+    "id": 1373,
+    "name": "TRANSFER_EVENT",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding visitor transfer events. Transfer events can be message or file (item) transfers.",
+    "attributeCount": 15
+  },
+  {
+    "id": 1374,
+    "name": "TRANSFER_EVENT_SUBTYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding transfer event subtypes. Transfer events can be send message, receive message, download item, or upload item types.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1375,
+    "name": "TRANSFER_FAILURE_REASON",
+    "domain": "Financial Transaction",
+    "description": "This is the description of why a transfer failed.  Examples: - Link failed - User disconnected unexpectedly - Server failed",
+    "attributeCount": 2
+  },
+  {
+    "id": 1376,
+    "name": "TRANSFER_PROTOCOL_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity captures information regarding the protocol utilized for the transfer event.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1377,
+    "name": "USSGL_TRANSACTION_TYPE",
+    "domain": "Financial Transaction",
+    "description": "This entity is for U.S. only – U.S. Government Standard GL codes for transactions.",
+    "attributeCount": 2
+  },
+  {
+    "id": 1378,
+    "name": "WATERFALL_PAYMENT_TYPE",
+    "domain": "Financial Transaction",
+    "description": "A code for the position of this tranche or account in the \"waterfall\" of payments. In contrast to seniority type, this makes it possible to determine the seniority of certain methods in cases where not all the data is available.  Examples: - First loss piece or a position that is treated as a first",
+    "attributeCount": 2
+  }
+]

@@ -1,0 +1,275 @@
+[
+  {
+    "id": 3669,
+    "name": "AMBULATORY_PATIENT_CLASSIFICATION",
+    "domain": "Reference Data",
+    "description": "Ambulatory Payment Classification (APC) is the government's method of paying for facility outpatient services for the Medicare program. A part of the Federal Balanced Budget Act of 1997 required HCFA (now CMS) to create a new Medicare \"Outpatient Prospective Payment System\" (OPPS) for hospital outpa",
+    "attributeCount": 2
+  },
+  {
+    "id": 3670,
+    "name": "ASTRONOMICAL_CALENDAR",
+    "domain": "Reference Data",
+    "description": "This provides the date- and time-specific astronomical events that occur at a given location. Typical astronomical events are sunrise, sunset, and twilight (civil, nautical, and astronomical) start and end.  Sunrise and sunset times can be used to correlate heating and cooling needs, and twilight ti",
+    "attributeCount": 4
+  },
+  {
+    "id": 3671,
+    "name": "CALENDAR_TYPE",
+    "domain": "Reference Data",
+    "description": "This defines the type of calendar such as fiscal year.  This table allows for the identification of multiple different versions of a fiscal calendar such as where one starts in January and another starts in July. It will prove useful to those companies where multiple versions of fiscal calendars are",
+    "attributeCount": 2
+  },
+  {
+    "id": 3672,
+    "name": "CROP_YEAR_CALENDAR_TYPE",
+    "domain": "Reference Data",
+    "description": "A crop year is the time period from one year's harvest to the next for an agricultural commodity. The crop year varies for each commodity. The crop year has an influence on the price of a commodity, since the quality of the harvest may differ from year to year, depending on weather conditions and ot",
+    "attributeCount": 0
+  },
+  {
+    "id": 3673,
+    "name": "CURRENCY",
+    "domain": "Reference Data",
+    "description": "This entity identifies the name for the system of money.  Example: - U.S. dollars - Canadian dollars - Japanese yen",
+    "attributeCount": 5
+  },
+  {
+    "id": 3674,
+    "name": "CURRENCY_DENOMINATION_TYPE",
+    "domain": "Reference Data",
+    "description": "A code for the type of currency denomination such as $5, $10, $20, $100, and $500.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3675,
+    "name": "CURRENCY_SEGMENT",
+    "domain": "Reference Data",
+    "description": "At some international banks, one of their Chart of Account (COA) segments is currency. They use the term \"multicurrency\" for their accounting system.  At many banks, and as the FSDM has modeled it, all balances are in local currency and global currency. However, some banks maintain balances in multi",
+    "attributeCount": 1
+  },
+  {
+    "id": 3676,
+    "name": "CURRENCY_TRANSLATION_RATE",
+    "domain": "Reference Data",
+    "description": "This is the entity that tracks the conversion rates for converting from one currency to another currency.  There is no single market source for currency exchange rates. The rates are determined by banks, government and other institutions. If you need to track the currency rates from multiple sources",
+    "attributeCount": 8
+  },
+  {
+    "id": 3677,
+    "name": "CURRENCY_TRANSLATION_RATE_TYPE",
+    "domain": "Reference Data",
+    "description": "The entity that indicates the type of currency translation.  Possible examples may be: - Minimum bid rate - Minimum ask rate - Average bid rate - Average ask rate - Maximum bid rate - Maximum ask rate",
+    "attributeCount": 2
+  },
+  {
+    "id": 3678,
+    "name": "CURRENCY_USE_TYPE",
+    "domain": "Reference Data",
+    "description": "This minor entity defines the uses that a currency may have. For example, when it is related to an account it may be the currency the statement is printed in or the currency that internal amounts related to that account are stated in.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3679,
+    "name": "CUSTOM_CALENDAR",
+    "domain": "Reference Data",
+    "description": "This entity establishes an identity for a custom calendar. It allows for many custom calendars of varying types. For example, you could have many fiscal calendars or many crop calendars.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3680,
+    "name": "CUSTOM_CALENDAR_DAY",
+    "domain": "Reference Data",
+    "description": "This entity assigns a Gregorian date to a custom calendar week, month, and year for a given custom calendar. An example of a custom calendar is a fiscal year, where the period could start in the month of July and end in June. Another example of a custom calendar is a crop year where the year could b",
+    "attributeCount": 6
+  },
+  {
+    "id": 3681,
+    "name": "CUSTOM_CALENDAR_MONTH",
+    "domain": "Reference Data",
+    "description": "Defines the months belonging to a custom calendar. In the context of finance, it is a fiscal month, for example, \"Fiscal Month 2.\"",
+    "attributeCount": 3
+  },
+  {
+    "id": 3682,
+    "name": "CUSTOM_CALENDAR_MONTH_WEEK",
+    "domain": "Reference Data",
+    "description": "This is a cross-reference mapping custom weeks to the month(s) they fall in.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3683,
+    "name": "CUSTOM_CALENDAR_QUARTER",
+    "domain": "Reference Data",
+    "description": "Defines the quarters belonging to a custom calendar. In the context of finance, it is a fiscal quarter, for example, \"Q1 Fiscal 2005.\"",
+    "attributeCount": 3
+  },
+  {
+    "id": 3684,
+    "name": "CUSTOM_CALENDAR_WEEK",
+    "domain": "Reference Data",
+    "description": "Defines the weeks belonging to a custom calendar. In the context of finance, it is a fiscal week, for example, \"Fiscal Week 5, 2005.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 3685,
+    "name": "CUSTOM_CALENDAR_YEAR",
+    "domain": "Reference Data",
+    "description": "A CUSTOM CALENDAR YEAR defines a calendar year for a specific business purpose. Finance frequently defines a fiscal year, which may be different from a calendar year, for accounting closing periods, for example, \"Fiscal 2005.\" A fiscal year may start in July and end in June, or include any 12 consec",
+    "attributeCount": 3
+  },
+  {
+    "id": 3686,
+    "name": "DEA_DRUG_CLASSIFICATION__GEO",
+    "domain": "Reference Data",
+    "description": "* USA centric – replace with appropriate localized content as needed.  Numerical coding of Controlled Substances (CS) by the Drug Enforcement Agency (DEA). The DEA code is a four-digit number assigned to each controlled substance.  Examples: Schedule I - 9200 = Heroin - 7415 = Peyote  Schedule III -",
+    "attributeCount": 4
+  },
+  {
+    "id": 3687,
+    "name": "DIAGNOSIS_CLASSIFICATION_TYPE",
+    "domain": "Reference Data",
+    "description": "The classification standard used to record the diagnosis.  Examples: - Not specified - International Classification of Diseases (ICD9) - International Classification of Diseases (ICD1O) - National Criteria Care Institute (NCCI) - The Systematized Nomenclature of Human and Veterinary Medicine (SNOMED",
+    "attributeCount": 2
+  },
+  {
+    "id": 3688,
+    "name": "DOMAIN_ROOT_TYPE",
+    "domain": "Reference Data",
+    "description": "This is the extension name of the domain server sourced from the web log.  Examples: - .com - .net - .org",
+    "attributeCount": 2
+  },
+  {
+    "id": 3689,
+    "name": "GEOGRAPHICAL_AREA_CURRENCY",
+    "domain": "Reference Data",
+    "description": "This entity contains the currencies that are valid for this geographical area. For example, the currency for the United States is United States dollar (USD). Some countries can have multiple currencies such as Barbados uses United States dollar as well as Barbados dollar.",
+    "attributeCount": 5
+  },
+  {
+    "id": 3690,
+    "name": "GEOGRAPHICAL_AREA_CURRENCY_ROLE",
+    "domain": "Reference Data",
+    "description": "This is a code for the role that a currency has with a geographical area such as the primary currency or the currency that the country's currency is pegged to.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3691,
+    "name": "HOLIDAY_CALENDAR",
+    "domain": "Reference Data",
+    "description": "This entity identifies a calendar that is used to determine business days. This is used in capital markets when determining next business day. It is not necessarily tied to a geographic area. Some holiday schedules are tied to security exchanges.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3692,
+    "name": "HOLIDAY_CALENDAR_DATE",
+    "domain": "Reference Data",
+    "description": "This entity contains dates that are considered holidays and weekends. This is used in capital markets when determining next business day. It is not necessarily tied to a geographic area. Some holiday schedules are tied to security exchanges.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3693,
+    "name": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "domain": "Reference Data",
+    "description": "ISO 10962 defines the structure and format for classification of financial instruments (CFI) approved by the International Organization for Standardization (ISO). There are many types of Financial Instruments used for saving, investing, trading, hedging and speculating. These instruments are general",
+    "attributeCount": 7
+  },
+  {
+    "id": 3694,
+    "name": "ISO_4217_CURRENCY_TYPE",
+    "domain": "Reference Data",
+    "description": "This is the coding scheme for this currency as assigned by the International Standards Organization 4217.  Currency codes in this standard are represented by an alphabetic three-digit code and a numeric three-digit code.  In the three-letter alphabetic representation for country-based currencies, th",
+    "attributeCount": 8
+  },
+  {
+    "id": 3695,
+    "name": "ISO_LANGUAGE_TYPE",
+    "domain": "Reference Data",
+    "description": "The ISO 639 standard for this language.  Examples: - Eng = English - Frp = Franco Provencal - Spa = Spanish",
+    "attributeCount": 2
+  },
+  {
+    "id": 3696,
+    "name": "LANGUAGE_PROFICIENCY_TYPE",
+    "domain": "Reference Data",
+    "description": "The natural method of language expression that a party may be proficient in.  Examples: - Speaking - Understanding (listening) - Reading - Writing",
+    "attributeCount": 2
+  },
+  {
+    "id": 3697,
+    "name": "LANGUAGE_TYPE",
+    "domain": "Reference Data",
+    "description": "This is a code for the method of written or spoken communication that is tied to world regions and cultures such as English, Spanish, German, and French.  Note: ISO 639 can be used as a standard identifier.",
+    "attributeCount": 4
+  },
+  {
+    "id": 3698,
+    "name": "LANGUAGE_USAGE_TYPE",
+    "domain": "Reference Data",
+    "description": "The way a LANGUAGE TYPE is used in a specific instance by a PARTY.  Examples: - Verbal communication - Written communication - Solicitation",
+    "attributeCount": 2
+  },
+  {
+    "id": 3699,
+    "name": "LEGAL_CLASSIFICATION",
+    "domain": "Reference Data",
+    "description": "The set of codes used in the legal classification of the businesses. Examples include sole proprietor, partnership, limited partnership, master limited partnership, corporation, S corporation, nonprofit, or trust.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3700,
+    "name": "METRIC_DOMAIN_TYPE",
+    "domain": "Reference Data",
+    "description": "Identifies whether the metric is an amount, a rate, or a quantity.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3701,
+    "name": "PROJECT_CLASSIFICATION_TYPE",
+    "domain": "Reference Data",
+    "description": "PROJECT CLASSIFICATION TYPE indicates whether the PROJECT involves parties outside the company. Internal projects are within the company only.  PROJECTs that involve customers or parties outside the company are designated as external.  Joint projects involve parties from both inside and outside the",
+    "attributeCount": 2
+  },
+  {
+    "id": 3702,
+    "name": "SET_OF_BOOKS_CALENDAR_YEAR",
+    "domain": "Reference Data",
+    "description": "This entity defines the fiscal year associated with a SET OF BOOKS. Each SET OF BOOKS will have a fiscal year, or accounting period covering 12 consecutive months. At the end of the fiscal year, the books are closed and profit or loss is determined. A fiscal year does not need to be the same as a ca",
+    "attributeCount": 4
+  },
+  {
+    "id": 3703,
+    "name": "SET_OF_BOOKS_CURRENCY",
+    "domain": "Reference Data",
+    "description": "This entity relates a set of books to the base (or primary) currency used for that set of books. A company may have a set of books for a foreign division kept in the currency of that country.  A transaction may be assumed to occur in the base currency code for the SET OF BOOKS. However, transactions",
+    "attributeCount": 4
+  },
+  {
+    "id": 3704,
+    "name": "TIME_PERIOD_TYPE",
+    "domain": "Reference Data",
+    "description": "This minor entity defines the code for a time period that is used in various places in the model. Values could be daily, weekly, monthly, and annually.",
+    "attributeCount": 2
+  },
+  {
+    "id": 3705,
+    "name": "UNIT_OF_MEASURE",
+    "domain": "Reference Data",
+    "description": "This is the unit in which the quantity or magnitude is expressed. It can apply to any business element requiring a unit of measure.  Examples: - For volume: milliliter, UK dry pint, liter, liquid ounce, and cubic centimeter - For weight: kilogram, ton, centigram, ounce, and pound - For length: mm, i",
+    "attributeCount": 3
+  },
+  {
+    "id": 3706,
+    "name": "UNIT_OF_MEASURE_CONVERSION",
+    "domain": "Reference Data",
+    "description": "Cross-references the translation of one unit of measure to another, similar, unit of measure (both belonging to the same category).  Examples: - Convert ounces to kilograms (members of weight category) - Convert acres to square feet (members of area category) - Convert yards to centimeters (members",
+    "attributeCount": 3
+  },
+  {
+    "id": 3707,
+    "name": "UNIT_OF_MEASURE_TYPE",
+    "domain": "Reference Data",
+    "description": "This is a classification of units of measure.  Examples: - \"Length\" might be described as \"the linear extent in space from one point to another\" and categorize the following similar units of measure - inches, centimeters, feet, kilometers, millimeters, yards, and miles.  - \"Weight\" might be describe",
+    "attributeCount": 2
+  }
+]

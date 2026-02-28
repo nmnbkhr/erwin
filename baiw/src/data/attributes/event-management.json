@@ -1,0 +1,2893 @@
+[
+  {
+    "entityId": 1129,
+    "entityName": "ACCESS_DEVICE_ACTIVATE_EVENT",
+    "name": "Access_Device_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1130,
+    "entityName": "ACCESS_DEVICE_EVENT",
+    "name": "Access_Device_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1130,
+    "entityName": "ACCESS_DEVICE_EVENT",
+    "name": "Access_Device_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1130,
+    "entityName": "ACCESS_DEVICE_EVENT",
+    "name": "Access_Device_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1130,
+    "entityName": "ACCESS_DEVICE_EVENT",
+    "name": "Access_Device_Verify_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1130,
+    "entityName": "ACCESS_DEVICE_EVENT",
+    "name": "Access_Device_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Confidence_Level_Lower_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Confidence_Level_Upper_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Event_Headline_Standard_Comment_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Event_Issued_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "False_Alarm_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Priority_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Event_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Trigger_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1131,
+    "entityName": "ALERT_EVENT",
+    "name": "Alert_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1132,
+    "entityName": "ALERT_EVENT_CATEGORY",
+    "name": "Alert_Event_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1132,
+    "entityName": "ALERT_EVENT_CATEGORY",
+    "name": "Alert_Event_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1133,
+    "entityName": "ALERT_EVENT_SUBTYPE",
+    "name": "Alert_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1133,
+    "entityName": "ALERT_EVENT_SUBTYPE",
+    "name": "Alert_Event_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1134,
+    "entityName": "ALERT_EVENT_WEIGHTING",
+    "name": "Alert_Weighting_Value_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1134,
+    "entityName": "ALERT_EVENT_WEIGHTING",
+    "name": "Alert_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1134,
+    "entityName": "ALERT_EVENT_WEIGHTING",
+    "name": "Alert_Event_Weighting_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1134,
+    "entityName": "ALERT_EVENT_WEIGHTING",
+    "name": "Alert_Event_Weighting_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1135,
+    "entityName": "APPLICATION_EVENT",
+    "name": "Application_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1136,
+    "entityName": "ASTRONOMICAL_EVENT_TYPE",
+    "name": "Astronomical_Event_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1136,
+    "entityName": "ASTRONOMICAL_EVENT_TYPE",
+    "name": "Astronomical_Event_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1137,
+    "entityName": "BACK_OFFICE_EVENT",
+    "name": "Back_Office_Event_Effective_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1138,
+    "entityName": "BANK_EVENT",
+    "name": "Bank_Event_Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1139,
+    "entityName": "BOFD_CHECK_EVENT",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1140,
+    "entityName": "CASE_EVENT",
+    "name": "Case_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1140,
+    "entityName": "CASE_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1140,
+    "entityName": "CASE_EVENT",
+    "name": "Case_Event_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1141,
+    "entityName": "CASE_EVENT_ROLE_TYPE",
+    "name": "Case_Event_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1141,
+    "entityName": "CASE_EVENT_ROLE_TYPE",
+    "name": "Case_Event_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1142,
+    "entityName": "CAUSAL_EVENT",
+    "name": "Causal_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1142,
+    "entityName": "CAUSAL_EVENT",
+    "name": "Causal_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1142,
+    "entityName": "CAUSAL_EVENT",
+    "name": "Causal_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1143,
+    "entityName": "CAUSAL_EVENT_METRIC_TYPE",
+    "name": "Causal_Event_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1143,
+    "entityName": "CAUSAL_EVENT_METRIC_TYPE",
+    "name": "Causal_Event_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1144,
+    "entityName": "CAUSAL_EVENT_SEVERITY",
+    "name": "Causal_Event_Severity_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1144,
+    "entityName": "CAUSAL_EVENT_SEVERITY",
+    "name": "Causal_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1144,
+    "entityName": "CAUSAL_EVENT_SEVERITY",
+    "name": "Causal_Event_Severity_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1145,
+    "entityName": "CAUSAL_EVENT_SUBTYPE",
+    "name": "Causal_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1145,
+    "entityName": "CAUSAL_EVENT_SUBTYPE",
+    "name": "Causal_Event_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1146,
+    "entityName": "CAUSAL_EVENT_TYPE",
+    "name": "Causal_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1146,
+    "entityName": "CAUSAL_EVENT_TYPE",
+    "name": "Causal_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1146,
+    "entityName": "CAUSAL_EVENT_TYPE",
+    "name": "Causal_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1147,
+    "entityName": "CHECK_EVENT",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1147,
+    "entityName": "CHECK_EVENT",
+    "name": "Check_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1147,
+    "entityName": "CHECK_EVENT",
+    "name": "Draft_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1148,
+    "entityName": "CHECK_EVENT_TYPE",
+    "name": "Check_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1148,
+    "entityName": "CHECK_EVENT_TYPE",
+    "name": "Check_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1149,
+    "entityName": "CLAIM_AUTHORIZATION_EVENT",
+    "name": "Claim_Authorization_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1149,
+    "entityName": "CLAIM_AUTHORIZATION_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1149,
+    "entityName": "CLAIM_AUTHORIZATION_EVENT",
+    "name": "Claim_Authorization_Event_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1150,
+    "entityName": "CLAIM_AUTHORIZATION_EVENT_ROLE",
+    "name": "Claim_Authorization_Event_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1150,
+    "entityName": "CLAIM_AUTHORIZATION_EVENT_ROLE",
+    "name": "Claim_Authorization_Event_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1151,
+    "entityName": "CLAIM_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1151,
+    "entityName": "CLAIM_EVENT",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1151,
+    "entityName": "CLAIM_EVENT",
+    "name": "Claim_Event_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1152,
+    "entityName": "CLAIM_EVENT_ROLE",
+    "name": "Claim_Event_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1152,
+    "entityName": "CLAIM_EVENT_ROLE",
+    "name": "Claim_Event_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1154,
+    "entityName": "CUSTOM_EVENT_INFORMATION",
+    "name": "Web_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1154,
+    "entityName": "CUSTOM_EVENT_INFORMATION",
+    "name": "Custom_Event_Time_Offset_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1154,
+    "entityName": "CUSTOM_EVENT_INFORMATION",
+    "name": "Custom_Large_String_Value_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1154,
+    "entityName": "CUSTOM_EVENT_INFORMATION",
+    "name": "Tracked_Visitor_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1155,
+    "entityName": "CUSTOM_PAGE_VIEW_EVENT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1155,
+    "entityName": "CUSTOM_PAGE_VIEW_EVENT",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1155,
+    "entityName": "CUSTOM_PAGE_VIEW_EVENT",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1155,
+    "entityName": "CUSTOM_PAGE_VIEW_EVENT",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1155,
+    "entityName": "CUSTOM_PAGE_VIEW_EVENT",
+    "name": "Custom_Page_View_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Event_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Event_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Event_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Event_GMT_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Event_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Event_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "Source_Transaction_Identifier_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "name": "External_Transaction_Identifier_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1157,
+    "entityName": "EVENT_ACTIVITY_TYPE",
+    "name": "Event_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1157,
+    "entityName": "EVENT_ACTIVITY_TYPE",
+    "name": "Event_Activity_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1157,
+    "entityName": "EVENT_ACTIVITY_TYPE",
+    "name": "Event_Activity_Type_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1158,
+    "entityName": "EVENT_CLASS_SCHEME_TYPE",
+    "name": "Event_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1158,
+    "entityName": "EVENT_CLASS_SCHEME_TYPE",
+    "name": "Event_Class_Scheme_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1158,
+    "entityName": "EVENT_CLASS_SCHEME_TYPE",
+    "name": "Parent_Event_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1158,
+    "entityName": "EVENT_CLASS_SCHEME_TYPE",
+    "name": "Event_Class_Scheme_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1158,
+    "entityName": "EVENT_CLASS_SCHEME_TYPE",
+    "name": "Event_Class_Scheme_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Event_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Event_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Parent_Event_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Event_Class_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Event_Class_From_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Event_Class_To_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Event_Class_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Event_Class_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1159,
+    "entityName": "EVENT_CLASS_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1160,
+    "entityName": "EVENT_CONTENT",
+    "name": "Content_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1160,
+    "entityName": "EVENT_CONTENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1160,
+    "entityName": "EVENT_CONTENT",
+    "name": "In_Out_Direction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1161,
+    "entityName": "EVENT_CONTENT_ITEM",
+    "name": "Content_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1161,
+    "entityName": "EVENT_CONTENT_ITEM",
+    "name": "Content_Serial_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1161,
+    "entityName": "EVENT_CONTENT_ITEM",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1161,
+    "entityName": "EVENT_CONTENT_ITEM",
+    "name": "Content_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1161,
+    "entityName": "EVENT_CONTENT_ITEM",
+    "name": "Content_Total_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1162,
+    "entityName": "EVENT_COST",
+    "name": "Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1162,
+    "entityName": "EVENT_COST",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1162,
+    "entityName": "EVENT_COST",
+    "name": "Event_Cost_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1162,
+    "entityName": "EVENT_COST",
+    "name": "Event_Cost_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1162,
+    "entityName": "EVENT_COST",
+    "name": "Event_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1163,
+    "entityName": "EVENT_DOCUMENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1163,
+    "entityName": "EVENT_DOCUMENT",
+    "name": "Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1163,
+    "entityName": "EVENT_DOCUMENT",
+    "name": "Event_Document_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1164,
+    "entityName": "EVENT_DOCUMENT_ROLE",
+    "name": "Event_Document_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1164,
+    "entityName": "EVENT_DOCUMENT_ROLE",
+    "name": "Event_Document_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1165,
+    "entityName": "EVENT_EVENT_CLASS_XREF",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1165,
+    "entityName": "EVENT_EVENT_CLASS_XREF",
+    "name": "Event_Class_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1165,
+    "entityName": "EVENT_EVENT_CLASS_XREF",
+    "name": "Event_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1165,
+    "entityName": "EVENT_EVENT_CLASS_XREF",
+    "name": "Event_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1165,
+    "entityName": "EVENT_EVENT_CLASS_XREF",
+    "name": "Event_Class_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Event_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Event_Forecast_Metric_Calculation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Event_Forecast_Metric_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Event_Forecast_Metric_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Event_Forecast_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Event_Forecast_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Event_Forecast_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1166,
+    "entityName": "EVENT_FORECAST_METRIC",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1167,
+    "entityName": "EVENT_GROUP",
+    "name": "Event_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1167,
+    "entityName": "EVENT_GROUP",
+    "name": "Parent_Event_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1167,
+    "entityName": "EVENT_GROUP",
+    "name": "Event_Group_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1167,
+    "entityName": "EVENT_GROUP",
+    "name": "Host_Event_Group_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1167,
+    "entityName": "EVENT_GROUP",
+    "name": "Event_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1168,
+    "entityName": "EVENT_GROUP_TYPE",
+    "name": "Event_Group_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1168,
+    "entityName": "EVENT_GROUP_TYPE",
+    "name": "Event_Group_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1169,
+    "entityName": "EVENT_GROUP_XREF",
+    "name": "Event_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1169,
+    "entityName": "EVENT_GROUP_XREF",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1170,
+    "entityName": "EVENT_MEDIUM_TYPE",
+    "name": "Event_Medium_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1170,
+    "entityName": "EVENT_MEDIUM_TYPE",
+    "name": "Event_Medium_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1171,
+    "entityName": "EVENT_METRIC",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1171,
+    "entityName": "EVENT_METRIC",
+    "name": "Event_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1171,
+    "entityName": "EVENT_METRIC",
+    "name": "Event_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1171,
+    "entityName": "EVENT_METRIC",
+    "name": "Event_Metric_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1171,
+    "entityName": "EVENT_METRIC",
+    "name": "Event_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1171,
+    "entityName": "EVENT_METRIC",
+    "name": "Event_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1171,
+    "entityName": "EVENT_METRIC",
+    "name": "Event_Metric_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1171,
+    "entityName": "EVENT_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1172,
+    "entityName": "EVENT_METRIC_TYPE",
+    "name": "Event_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1172,
+    "entityName": "EVENT_METRIC_TYPE",
+    "name": "Event_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1173,
+    "entityName": "EVENT_MULTIMEDIA_OBJECT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1173,
+    "entityName": "EVENT_MULTIMEDIA_OBJECT",
+    "name": "MM_Object_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1173,
+    "entityName": "EVENT_MULTIMEDIA_OBJECT",
+    "name": "Event_Multimedia_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1174,
+    "entityName": "EVENT_MULTIMEDIA_REASON",
+    "name": "Event_Multimedia_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1174,
+    "entityName": "EVENT_MULTIMEDIA_REASON",
+    "name": "Event_Multimedia_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1175,
+    "entityName": "EVENT_REASON",
+    "name": "Event_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1175,
+    "entityName": "EVENT_REASON",
+    "name": "Event_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1176,
+    "entityName": "EVENT_RELATED",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1176,
+    "entityName": "EVENT_RELATED",
+    "name": "Related_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1176,
+    "entityName": "EVENT_RELATED",
+    "name": "Event_Related_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1176,
+    "entityName": "EVENT_RELATED",
+    "name": "Event_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1176,
+    "entityName": "EVENT_RELATED",
+    "name": "Event_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1176,
+    "entityName": "EVENT_RELATED",
+    "name": "Event_Related_Correlation_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1177,
+    "entityName": "EVENT_RELATED_REASON",
+    "name": "Event_Related_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1177,
+    "entityName": "EVENT_RELATED_REASON",
+    "name": "Event_Related_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1178,
+    "entityName": "EVENT_SCORE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1178,
+    "entityName": "EVENT_SCORE",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1178,
+    "entityName": "EVENT_SCORE",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1178,
+    "entityName": "EVENT_SCORE",
+    "name": "Event_Score_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1179,
+    "entityName": "EVENT_SITE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1179,
+    "entityName": "EVENT_SITE",
+    "name": "Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1179,
+    "entityName": "EVENT_SITE",
+    "name": "Event_Site_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1179,
+    "entityName": "EVENT_SITE",
+    "name": "Event_Site_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1179,
+    "entityName": "EVENT_SITE",
+    "name": "Event_Site_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1180,
+    "entityName": "EVENT_SITE_REASON",
+    "name": "Event_Site_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1180,
+    "entityName": "EVENT_SITE_REASON",
+    "name": "Event_Site_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1181,
+    "entityName": "EVENT_STATUS",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1181,
+    "entityName": "EVENT_STATUS",
+    "name": "Event_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1181,
+    "entityName": "EVENT_STATUS",
+    "name": "Event_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1181,
+    "entityName": "EVENT_STATUS",
+    "name": "Event_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1181,
+    "entityName": "EVENT_STATUS",
+    "name": "Event_Status_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1182,
+    "entityName": "EVENT_STATUS_REASON",
+    "name": "Event_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1182,
+    "entityName": "EVENT_STATUS_REASON",
+    "name": "Event_Status_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1183,
+    "entityName": "EVENT_STATUS_TYPE",
+    "name": "Event_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1183,
+    "entityName": "EVENT_STATUS_TYPE",
+    "name": "Event_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1184,
+    "entityName": "EVENT_SUBTYPE",
+    "name": "Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1184,
+    "entityName": "EVENT_SUBTYPE",
+    "name": "Event_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1185,
+    "entityName": "EVENT_TEXT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1185,
+    "entityName": "EVENT_TEXT",
+    "name": "Text_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1185,
+    "entityName": "EVENT_TEXT",
+    "name": "Text_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1185,
+    "entityName": "EVENT_TEXT",
+    "name": "Event_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1185,
+    "entityName": "EVENT_TEXT",
+    "name": "Event_Text_Source_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1186,
+    "entityName": "EVENT_TEXT_SECTION",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1186,
+    "entityName": "EVENT_TEXT_SECTION",
+    "name": "Text_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1186,
+    "entityName": "EVENT_TEXT_SECTION",
+    "name": "Text_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1187,
+    "entityName": "FINANCIAL_EVENT",
+    "name": "Financial_Event_Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1187,
+    "entityName": "FINANCIAL_EVENT",
+    "name": "Financial_Event_Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1187,
+    "entityName": "FINANCIAL_EVENT",
+    "name": "Financial_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1187,
+    "entityName": "FINANCIAL_EVENT",
+    "name": "Document_Production_Cycle_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1187,
+    "entityName": "FINANCIAL_EVENT",
+    "name": "Event_Medium_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1187,
+    "entityName": "FINANCIAL_EVENT",
+    "name": "Debit_Credit_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1187,
+    "entityName": "FINANCIAL_EVENT",
+    "name": "In_Out_Direction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1187,
+    "entityName": "FINANCIAL_EVENT",
+    "name": "Financial_Event_Bill_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Financial_Event_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Financial_Event_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Event_Transaction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Event_Local_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Event_Global_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Settlement_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Transaction_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Global_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1188,
+    "entityName": "FINANCIAL_EVENT_AMOUNT",
+    "name": "Local_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1189,
+    "entityName": "FINANCIAL_EVENT_AMOUNT_TYPE",
+    "name": "Financial_Event_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1189,
+    "entityName": "FINANCIAL_EVENT_AMOUNT_TYPE",
+    "name": "Financial_Event_Amount_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1190,
+    "entityName": "FINANCIAL_EVENT_TYPE",
+    "name": "Financial_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1190,
+    "entityName": "FINANCIAL_EVENT_TYPE",
+    "name": "Financial_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1191,
+    "entityName": "FOREIGN_EXCHANGE_EVENT",
+    "name": "Target_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Web_Form_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Event_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Event_Field_Change_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Event_Change_Indicator_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Event_Last_Changed_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Event_Furthest_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Event_Final_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Event_Index_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Form_Field_Event_Sequence_Index_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1192,
+    "entityName": "FORM_FIELD_EVENT",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1193,
+    "entityName": "GEOSPATIAL_POINT_MEASUREMENT_EVENT",
+    "name": "Geospatial_Point_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1193,
+    "entityName": "GEOSPATIAL_POINT_MEASUREMENT_EVENT",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1193,
+    "entityName": "GEOSPATIAL_POINT_MEASUREMENT_EVENT",
+    "name": "Monitoring_Device_Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Web_Interaction_Site_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_Content_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_Version_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1195,
+    "entityName": "INTERACTION_EVENT",
+    "name": "Interaction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1196,
+    "entityName": "INTERACTION_EVENT_IMPRESSION_XREF",
+    "name": "Online_Impression_Experienced_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1196,
+    "entityName": "INTERACTION_EVENT_IMPRESSION_XREF",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1196,
+    "entityName": "INTERACTION_EVENT_IMPRESSION_XREF",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1196,
+    "entityName": "INTERACTION_EVENT_IMPRESSION_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1197,
+    "entityName": "INTERBANK_EVENT",
+    "name": "Interbank_Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1197,
+    "entityName": "INTERBANK_EVENT",
+    "name": "Interbank_Counterparty_Account_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Internal_Search_Result_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Internal_Search_Action_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Internal_Search_Name_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Internal_Search_Page_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Internal_Search_Product_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Internal_Search_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Keyword_Phrase_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Search_Refinement_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Sort_By_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Search_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Search_By_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Search_Match_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1198,
+    "entityName": "INTERNAL_SEARCH_EVENT",
+    "name": "Search_Event_Page_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1199,
+    "entityName": "INTERNAL_SEARCH_EVENT_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1199,
+    "entityName": "INTERNAL_SEARCH_EVENT_XREF",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1199,
+    "entityName": "INTERNAL_SEARCH_EVENT_XREF",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1199,
+    "entityName": "INTERNAL_SEARCH_EVENT_XREF",
+    "name": "Search_Event_Field_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1200,
+    "entityName": "INTRABANK_EVENT",
+    "name": "Intrabank_Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1200,
+    "entityName": "INTRABANK_EVENT",
+    "name": "Intrabank_Counter_Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1201,
+    "entityName": "LEGAL_ACTION_EVENT",
+    "name": "Legal_Action_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1202,
+    "entityName": "MAN-MADE_EVENT",
+    "name": "Planned_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1203,
+    "entityName": "MATURITY_EVENT_ALERT",
+    "name": "Instrument_Maturity_Event_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1204,
+    "entityName": "MEASUREMENT_EVENT",
+    "name": "Measurement_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1204,
+    "entityName": "MEASUREMENT_EVENT",
+    "name": "Measurement_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1204,
+    "entityName": "MEASUREMENT_EVENT",
+    "name": "Measurement_Event_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1205,
+    "entityName": "MEASUREMENT_EVENT_MEASURE",
+    "name": "Measurement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1205,
+    "entityName": "MEASUREMENT_EVENT_MEASURE",
+    "name": "Measurement_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1205,
+    "entityName": "MEASUREMENT_EVENT_MEASURE",
+    "name": "Actual_Result_Value_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1205,
+    "entityName": "MEASUREMENT_EVENT_MEASURE",
+    "name": "Measurement_Event_Value_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1205,
+    "entityName": "MEASUREMENT_EVENT_MEASURE",
+    "name": "Measurement_Event_Result_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1205,
+    "entityName": "MEASUREMENT_EVENT_MEASURE",
+    "name": "Measurement_Event_Measure_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1205,
+    "entityName": "MEASUREMENT_EVENT_MEASURE",
+    "name": "Measurement_Event_Measure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1206,
+    "entityName": "MEASUREMENT_EVENT_MEASURE_TYPE",
+    "name": "Measurement_Event_Measure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1206,
+    "entityName": "MEASUREMENT_EVENT_MEASURE_TYPE",
+    "name": "Measurement_Event_Measure_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1207,
+    "entityName": "MEASUREMENT_EVENT_RESULT",
+    "name": "Standard_Result_Set_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1207,
+    "entityName": "MEASUREMENT_EVENT_RESULT",
+    "name": "Measurement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1207,
+    "entityName": "MEASUREMENT_EVENT_RESULT",
+    "name": "Measurement_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1207,
+    "entityName": "MEASUREMENT_EVENT_RESULT",
+    "name": "Measurement_Event_Result_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1208,
+    "entityName": "MEASUREMENT_EVENT_RESULT_TYPE",
+    "name": "Measurement_Event_Result_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1208,
+    "entityName": "MEASUREMENT_EVENT_RESULT_TYPE",
+    "name": "Measurement_Event_Result_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1209,
+    "entityName": "MEASUREMENT_EVENT_TYPE",
+    "name": "Measurement_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1209,
+    "entityName": "MEASUREMENT_EVENT_TYPE",
+    "name": "Measurement_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1211,
+    "entityName": "NETWORK_ACCESS_DEVICE_EVENT",
+    "name": "Network_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1211,
+    "entityName": "NETWORK_ACCESS_DEVICE_EVENT",
+    "name": "Access_Device_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1212,
+    "entityName": "NETWORK_SERVICE_EVENT",
+    "name": "Network_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1212,
+    "entityName": "NETWORK_SERVICE_EVENT",
+    "name": "Network_Serial_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1213,
+    "entityName": "PAGE_EVENT_STATUS_TYPE",
+    "name": "Page_Event_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1213,
+    "entityName": "PAGE_EVENT_STATUS_TYPE",
+    "name": "Page_Event_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1214,
+    "entityName": "PROJECT_TASK_TRAINING_EVENT",
+    "name": "Project_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1214,
+    "entityName": "PROJECT_TASK_TRAINING_EVENT",
+    "name": "Project_Task_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1214,
+    "entityName": "PROJECT_TASK_TRAINING_EVENT",
+    "name": "Training_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1215,
+    "entityName": "PURCHASE_EVENT",
+    "name": "Purchase_Event_Order_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1215,
+    "entityName": "PURCHASE_EVENT",
+    "name": "Shopping_Cart_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1215,
+    "entityName": "PURCHASE_EVENT",
+    "name": "Shopping_Cart_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1215,
+    "entityName": "PURCHASE_EVENT",
+    "name": "Shopping_Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1216,
+    "entityName": "REBATE_EVENT",
+    "name": "Rebate_Code_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1216,
+    "entityName": "REBATE_EVENT",
+    "name": "Shopping_Cart_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1216,
+    "entityName": "REBATE_EVENT",
+    "name": "Shopping_Cart_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1216,
+    "entityName": "REBATE_EVENT",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1216,
+    "entityName": "REBATE_EVENT",
+    "name": "Shopping_Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1217,
+    "entityName": "RECOMMENDATION_EVENT",
+    "name": "Recommend_Conversion_Category_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1217,
+    "entityName": "RECOMMENDATION_EVENT",
+    "name": "Recommendation_Clicked_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1217,
+    "entityName": "RECOMMENDATION_EVENT",
+    "name": "Page_Conversion_Category_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1218,
+    "entityName": "SEARCH_EVENT_FIELD",
+    "name": "Search_Event_Field_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1218,
+    "entityName": "SEARCH_EVENT_FIELD",
+    "name": "Search_Event_Field_Name_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1218,
+    "entityName": "SEARCH_EVENT_FIELD",
+    "name": "Keyword_Phrase_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1219,
+    "entityName": "SERVICE_REQUEST_EVENT",
+    "name": "Service_Request_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1219,
+    "entityName": "SERVICE_REQUEST_EVENT",
+    "name": "Service_Request_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1220,
+    "entityName": "SESSION_EVENT_INFORMATION",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1220,
+    "entityName": "SESSION_EVENT_INFORMATION",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1220,
+    "entityName": "SESSION_EVENT_INFORMATION",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1220,
+    "entityName": "SESSION_EVENT_INFORMATION",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1220,
+    "entityName": "SESSION_EVENT_INFORMATION",
+    "name": "Session_Event_Information_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1220,
+    "entityName": "SESSION_EVENT_INFORMATION",
+    "name": "Session_Event_Information_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1220,
+    "entityName": "SESSION_EVENT_INFORMATION",
+    "name": "Session_Event_Information_Status_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1221,
+    "entityName": "SHOPPING_CART_EVENT",
+    "name": "Shopping_Cart_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1221,
+    "entityName": "SHOPPING_CART_EVENT",
+    "name": "Shopping_Cart_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1221,
+    "entityName": "SHOPPING_CART_EVENT",
+    "name": "Shopping_Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1222,
+    "entityName": "TAX_LOT_EVENT",
+    "name": "Tax_Lot_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1222,
+    "entityName": "TAX_LOT_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1223,
+    "entityName": "TRAINING_EVENT",
+    "name": "Training_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1223,
+    "entityName": "TRAINING_EVENT",
+    "name": "Course_Scheduled_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1223,
+    "entityName": "TRAINING_EVENT",
+    "name": "Training_Event_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1224,
+    "entityName": "TRAVEL_EVENT",
+    "name": "Travel_Class_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1224,
+    "entityName": "TRAVEL_EVENT",
+    "name": "Travel_Event_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1225,
+    "entityName": "TRAVEL_PLAN_EVENT",
+    "name": "Travel_Plan_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1226,
+    "entityName": "UNIT_DISTRIBUTION_EVENT",
+    "name": "New_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1226,
+    "entityName": "UNIT_DISTRIBUTION_EVENT",
+    "name": "Unit_Distribution_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1226,
+    "entityName": "UNIT_DISTRIBUTION_EVENT",
+    "name": "Unit_Distribution_Effective_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1226,
+    "entityName": "UNIT_DISTRIBUTION_EVENT",
+    "name": "Base_Unit_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1226,
+    "entityName": "UNIT_DISTRIBUTION_EVENT",
+    "name": "New_Unit_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "name": "Visitor_Interaction_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "name": "Online_Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "name": "Visitor_Interaction_Activity_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "name": "Visitor_Interaction_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "name": "Visitor_Interaction_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1228,
+    "entityName": "VISITOR_INTERACTION_EVENT_SUBTYPE",
+    "name": "Visitor_Interaction_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1228,
+    "entityName": "VISITOR_INTERACTION_EVENT_SUBTYPE",
+    "name": "Visitor_Interaction_Event_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1229,
+    "entityName": "WEB_DOCUMENT_EVENT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1229,
+    "entityName": "WEB_DOCUMENT_EVENT",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1229,
+    "entityName": "WEB_DOCUMENT_EVENT",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1229,
+    "entityName": "WEB_DOCUMENT_EVENT",
+    "name": "Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1229,
+    "entityName": "WEB_DOCUMENT_EVENT",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1229,
+    "entityName": "WEB_DOCUMENT_EVENT",
+    "name": "Document_Completion_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1229,
+    "entityName": "WEB_DOCUMENT_EVENT",
+    "name": "Document_Information_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1230,
+    "entityName": "WEB_EVENT_DETAIL",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1230,
+    "entityName": "WEB_EVENT_DETAIL",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1230,
+    "entityName": "WEB_EVENT_DETAIL",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1230,
+    "entityName": "WEB_EVENT_DETAIL",
+    "name": "Web_Page_Event_Field_Value_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1230,
+    "entityName": "WEB_EVENT_DETAIL",
+    "name": "Web_Page_Event_Field_Name_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1231,
+    "entityName": "WEB_FORM_EVENT",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1231,
+    "entityName": "WEB_FORM_EVENT",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1231,
+    "entityName": "WEB_FORM_EVENT",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1231,
+    "entityName": "WEB_FORM_EVENT",
+    "name": "Web_Form_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1231,
+    "entityName": "WEB_FORM_EVENT",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1231,
+    "entityName": "WEB_FORM_EVENT",
+    "name": "Form_Event_Index_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1231,
+    "entityName": "WEB_FORM_EVENT",
+    "name": "Form_Event_Completion_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1231,
+    "entityName": "WEB_FORM_EVENT",
+    "name": "Form_Event_Sequence_Index_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Web_Page_View_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Web_Page_Event_Information_Parameter_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Web_Page_Event_Information_URL_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Web_Page_Event_Information_URL_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Web_Page_Event_Information_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Web_Page_Event_Information_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Web_Page_Event_Information_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Path_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1232,
+    "entityName": "WEB_PAGE_EVENT_INFORMATION",
+    "name": "Referral_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1233,
+    "entityName": "WEB_SCENARIO_EVENT",
+    "name": "Web_Scenario_Event_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1233,
+    "entityName": "WEB_SCENARIO_EVENT",
+    "name": "Web_Scenario_Event_Step_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1233,
+    "entityName": "WEB_SCENARIO_EVENT",
+    "name": "Web_Scenario_Event_Conversion_Step_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Shopping_Experience_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Shopping_Experience_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Child_Web_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Parent_Web_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Web_Shopping_Experience_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Web_Shopping_Experience_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Web_Shopping_Chat_Button_Clicked_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Web_Shopping_Chat_Invitation_Displayed_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Web_Shopping_Chat_Invitation_Status_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Shopping_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Data_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1234,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT",
+    "name": "Web_Shopping_Event_Last_Modified_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1235,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_SUBTYPE",
+    "name": "Web_Shopping_Experience_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1235,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_SUBTYPE",
+    "name": "Web_Shopping_Experience_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1236,
+    "entityName": "WISH_LIST_EVENT",
+    "name": "Wish_List_Cart_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1236,
+    "entityName": "WISH_LIST_EVENT",
+    "name": "Shopping_Cart_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1236,
+    "entityName": "WISH_LIST_EVENT",
+    "name": "Shopping_Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1237,
+    "entityName": "WORK_PROCESS_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1237,
+    "entityName": "WORK_PROCESS_EVENT",
+    "name": "Work_Process_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  }
+]

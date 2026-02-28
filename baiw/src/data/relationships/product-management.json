@@ -1,0 +1,2347 @@
+[
+  {
+    "parentId": 3464,
+    "parentName": "APPLICATION_FEATURE",
+    "childId": 3465,
+    "childName": "APPLICATION_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3467,
+    "parentName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "childId": 1420,
+    "childName": "ASSET-BACKED_SECURITY_PRINCIPAL",
+    "type": "association"
+  },
+  {
+    "parentId": 3467,
+    "parentName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "childId": 2742,
+    "childName": "TRANCHE",
+    "type": "association"
+  },
+  {
+    "parentId": 3470,
+    "parentName": "BANKING_PRODUCT_TYPE",
+    "childId": 3469,
+    "childName": "BANKING_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3472,
+    "parentName": "CAMPAIGN_PRODUCT",
+    "childId": 656,
+    "childName": "CAMPAIGN_CONDITION",
+    "type": "association"
+  },
+  {
+    "parentId": 3473,
+    "parentName": "CAMPAIGN_PRODUCT_ROLE",
+    "childId": 3472,
+    "childName": "CAMPAIGN_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3475,
+    "parentName": "CLAIM_PRICING_RULE_TYPE",
+    "childId": 979,
+    "childName": "CLAIM_ADJUDICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3477,
+    "parentName": "COVERAGE_FEATURE",
+    "childId": 1011,
+    "childName": "CLAIM_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3477,
+    "parentName": "COVERAGE_FEATURE",
+    "childId": 1056,
+    "childName": "CLAIM_SERVICE_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3477,
+    "parentName": "COVERAGE_FEATURE",
+    "childId": 1103,
+    "childName": "INSURANCE_CLAIM_CASE",
+    "type": "association"
+  },
+  {
+    "parentId": 3478,
+    "parentName": "CURRENCY_PRODUCT",
+    "childId": 851,
+    "childName": "CURRENCY_POSITION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3482,
+    "parentName": "DERIVATIVE_UNDERLYING_PRODUCT_TYPE",
+    "childId": 272,
+    "childName": "DERIVATIVE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3484,
+    "parentName": "DESCRIPTIVE_FEATURE_TYPE",
+    "childId": 3483,
+    "childName": "DESCRIPTIVE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3485,
+    "parentName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3485,
+    "parentName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "childId": 1936,
+    "childName": "DOCUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3485,
+    "parentName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "childId": 1187,
+    "childName": "FINANCIAL_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3487,
+    "parentName": "EVENT_FEATURE_ROLE",
+    "childId": 3486,
+    "childName": "EVENT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3489,
+    "parentName": "EVENT_PRODUCT_ROLE",
+    "childId": 3488,
+    "childName": "EVENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3461,
+    "childName": "ACCESS_DEVICE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 20,
+    "childName": "AGREEMENT_ACCESS_DEVICE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_FEATURE_RELATED_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_FEATURE_RELATED_is_specific_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_FEATURE_describes",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_FEATURE_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 73,
+    "childName": "AGREEMENT_GROUP_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_INSURED_ASSET_FEATURE_RELATED_describes",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_INSURED_ASSET_FEATURE_RELATED_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_INSURED_ASSET_FEATURE_describes",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_INSURED_ASSET_FEATURE_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_PARTY_FEATURE_RELATED_describes",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_PARTY_FEATURE_RELATED_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_PARTY_FEATURE_describes",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_PARTY_FEATURE_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_PRODUCT_FEATURE_RELATED_is_condition_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_PRODUCT_FEATURE_RELATED_is_overridden_by",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_PRODUCT_FEATURE_is_terms_and_conditions_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "AGREEMENT_PRODUCT_FEATURE_was_overridden_by",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "APPLICATION_FEATURE_RELATED_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "APPLICATION_FEATURE_RELATED_is_specific_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "APPLICATION_FEATURE_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "APPLICATION_FEATURE_is_specific_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3468,
+    "childName": "ASSET_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 656,
+    "childName": "CAMPAIGN_CONDITION",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3474,
+    "childName": "CHANNEL_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 232,
+    "childName": "CREDIT_CARD_BALANCE_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3486,
+    "childName": "EVENT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3492,
+    "childName": "FEATURE-TO-FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3496,
+    "childName": "FEATURE_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 2985,
+    "childName": "FEATURE_DEMOGRAPHIC_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3497,
+    "childName": "FEATURE_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3498,
+    "childName": "FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3499,
+    "childName": "FEATURE_GEOGRAPHICAL_AREA",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 2986,
+    "childName": "FEATURE_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3505,
+    "childName": "FEATURE_OCCUPATION_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "FEATURE_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "FEATURE_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3508,
+    "childName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3509,
+    "childName": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3510,
+    "childName": "FEATURE_SUBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3512,
+    "childName": "FEATURE_UNIFIED_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3513,
+    "childName": "FINANCIAL_EVENT_AMOUNT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3537,
+    "childName": "INVOICE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3539,
+    "childName": "LIABILITY_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3543,
+    "childName": "NEXT_OFFER_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3546,
+    "childName": "OFFER_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3547,
+    "childName": "OPPORTUNITY_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3549,
+    "childName": "OPPORTUNITY_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3126,
+    "childName": "PARTY_AGREEMENT_ASSET_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3238,
+    "childName": "PARTY_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 1117,
+    "childName": "POLICY_INSURABLE_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3557,
+    "childName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3579,
+    "childName": "PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3584,
+    "childName": "PRODUCT_FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3587,
+    "childName": "PRODUCT_FEATURE_PERIL",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3588,
+    "childName": "PRODUCT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3612,
+    "childName": "PRODUCT_PACKAGE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3614,
+    "childName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3641,
+    "childName": "PROPOSAL_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3643,
+    "childName": "PROPOSAL_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "QUOTATION_FEATURE_RELATED_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "QUOTATION_FEATURE_RELATED_is_specific_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "QUOTATION_FEATURE_is_overridden",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 0,
+    "childName": "QUOTATION_FEATURE_is_specific_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 2645,
+    "childName": "STATUTORY_RESPONSIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3659,
+    "childName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3491,
+    "parentName": "FEATURE",
+    "childId": 3664,
+    "childName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3493,
+    "parentName": "FEATURE_CLASSIFICATION_TYPE",
+    "childId": 3491,
+    "childName": "FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3494,
+    "parentName": "FEATURE_CLASS_SCHEME_TYPE",
+    "childId": 3494,
+    "childName": "FEATURE_CLASS_SCHEME_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3494,
+    "parentName": "FEATURE_CLASS_SCHEME_TYPE",
+    "childId": 3495,
+    "childName": "FEATURE_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3494,
+    "parentName": "FEATURE_CLASS_SCHEME_TYPE",
+    "childId": 3496,
+    "childName": "FEATURE_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3495,
+    "parentName": "FEATURE_CLASS_VALUE",
+    "childId": 3495,
+    "childName": "FEATURE_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3495,
+    "parentName": "FEATURE_CLASS_VALUE",
+    "childId": 3496,
+    "childName": "FEATURE_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3500,
+    "parentName": "FEATURE_GEOGRAPHICAL_AREA_ROLE",
+    "childId": 3499,
+    "childName": "FEATURE_GEOGRAPHICAL_AREA",
+    "type": "association"
+  },
+  {
+    "parentId": 3501,
+    "parentName": "FEATURE_GROUP",
+    "childId": 59,
+    "childName": "AGREEMENT_FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3501,
+    "parentName": "FEATURE_GROUP",
+    "childId": 3492,
+    "childName": "FEATURE-TO-FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3501,
+    "parentName": "FEATURE_GROUP",
+    "childId": 3501,
+    "childName": "FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3501,
+    "parentName": "FEATURE_GROUP",
+    "childId": 3502,
+    "childName": "FEATURE_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3501,
+    "parentName": "FEATURE_GROUP",
+    "childId": 3026,
+    "childName": "INSURANCE_LINE_OF_BUSINESS_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3501,
+    "parentName": "FEATURE_GROUP",
+    "childId": 1340,
+    "childName": "PAYMENT_SCHEDULE_TERM",
+    "type": "association"
+  },
+  {
+    "parentId": 3501,
+    "parentName": "FEATURE_GROUP",
+    "childId": 3584,
+    "childName": "PRODUCT_FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3503,
+    "parentName": "FEATURE_GROUP_TYPE",
+    "childId": 3501,
+    "childName": "FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3504,
+    "parentName": "FEATURE_INSURANCE_SUBTYPE",
+    "childId": 3491,
+    "childName": "FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3506,
+    "parentName": "FEATURE_RELATED",
+    "childId": 2987,
+    "childName": "FEATURE_RELATED_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3507,
+    "parentName": "FEATURE_RELATIONSHIP_TYPE",
+    "childId": 3506,
+    "childName": "FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3511,
+    "parentName": "FEATURE_SUBTYPE",
+    "childId": 3491,
+    "childName": "FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3517,
+    "parentName": "GL_NONSERVICE_PRODUCT_TYPE",
+    "childId": 3520,
+    "childName": "GL_REPORTING_NONSERVICE_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3518,
+    "parentName": "GL_PRODUCT_GROUP_SEGMENT",
+    "childId": 3652,
+    "childName": "REPORTING_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3519,
+    "parentName": "GL_PRODUCT_SEGMENT",
+    "childId": 3651,
+    "childName": "REPORTING_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3522,
+    "parentName": "GL_SERVICE_PRODUCT_TYPE",
+    "childId": 3521,
+    "childName": "GL_REPORTING_SERVICE_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1417,
+    "childName": "APPLICATION_INVESTMENT_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1447,
+    "childName": "BOND_TO_EQUITY_CONVERSION",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1389,
+    "childName": "DIRECT_EARNINGS_FINANCIAL_INSTRUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 310,
+    "childName": "FUTURES_CONTRACT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1486,
+    "childName": "INTEREST_RATE_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1489,
+    "childName": "INVESTMENT_CORPORATE_ACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1289,
+    "childName": "INVESTMENT_HOLDING_STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3526,
+    "childName": "INVESTMENT_PRODUCT_CFI",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3040,
+    "childName": "INVESTMENT_PRODUCT_COMPLEMENTARY_IDENTIFICATION_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3527,
+    "childName": "INVESTMENT_PRODUCT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3530,
+    "childName": "INVESTMENT_PRODUCT_INDEX",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3532,
+    "childName": "INVESTMENT_PRODUCT_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3533,
+    "childName": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3787,
+    "childName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1510,
+    "childName": "MARKET_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3550,
+    "childName": "OPTION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 420,
+    "childName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3559,
+    "childName": "PORTFOLIO_PRODUCT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 3824,
+    "childName": "RISK_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1559,
+    "childName": "SECURITY_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 781,
+    "childName": "SPREAD_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 2679,
+    "childName": "SUBSCRIPTION_RIGHT",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 2680,
+    "childName": "SUBSCRIPTION_WARRANT",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 0,
+    "childName": "SWAP_PRODUCT_is_swap_underlying",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 0,
+    "childName": "SWAP_PRODUCT_is_swapped_underlying",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 2742,
+    "childName": "TRANCHE",
+    "type": "association"
+  },
+  {
+    "parentId": 3525,
+    "parentName": "INVESTMENT_PRODUCT",
+    "childId": 1226,
+    "childName": "UNIT_DISTRIBUTION_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3528,
+    "parentName": "INVESTMENT_PRODUCT_EXTERNAL_EVENT_SUBTYPE",
+    "childId": 1489,
+    "childName": "INVESTMENT_CORPORATE_ACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3531,
+    "parentName": "INVESTMENT_PRODUCT_INDEX_PURPOSE_TYPE",
+    "childId": 3530,
+    "childName": "INVESTMENT_PRODUCT_INDEX",
+    "type": "association"
+  },
+  {
+    "parentId": 3534,
+    "parentName": "INVESTMENT_PRODUCT_SUBTYPE",
+    "childId": 3525,
+    "childName": "INVESTMENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3535,
+    "parentName": "INVESTMENT_PRODUCT_TRADE_SUBTYPE",
+    "childId": 3525,
+    "childName": "INVESTMENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3540,
+    "parentName": "LISTED_PRODUCT_RELATED_ROLE_TYPE",
+    "childId": 3490,
+    "childName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3542,
+    "parentName": "MONEY_MARKET_PRODUCT_TYPE",
+    "childId": 3541,
+    "childName": "MONEY_MARKET_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3545,
+    "parentName": "NSIN_PRODUCT_IDENTIFIER",
+    "childId": 3538,
+    "childName": "ISIN_PRODUCT_IDENTIFIER",
+    "type": "association"
+  },
+  {
+    "parentId": 3548,
+    "parentName": "OPPORTUNITY_PRODUCT",
+    "childId": 3549,
+    "childName": "OPPORTUNITY_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3553,
+    "parentName": "PACKAGE_OFFERING",
+    "childId": 3611,
+    "childName": "PRODUCT_PACKAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3557,
+    "parentName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "childId": 2484,
+    "childName": "REINSURANCE_UNDERLYING_COVERAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3559,
+    "parentName": "PORTFOLIO_PRODUCT_HOLDING",
+    "childId": 3558,
+    "childName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "type": "association"
+  },
+  {
+    "parentId": 3559,
+    "parentName": "PORTFOLIO_PRODUCT_HOLDING",
+    "childId": 3560,
+    "childName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3559,
+    "parentName": "PORTFOLIO_PRODUCT_HOLDING",
+    "childId": 3562,
+    "childName": "PORTFOLIO_PRODUCT_QUANTITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3564,
+    "parentName": "PRICING_METHODOLOGY_TYPE",
+    "childId": 1087,
+    "childName": "HEALTH_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 3564,
+    "parentName": "PRICING_METHODOLOGY_TYPE",
+    "childId": 1125,
+    "childName": "PROFESSIONAL_CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 3565,
+    "parentName": "PRICING_METHOD_SUBTYPE",
+    "childId": 294,
+    "childName": "FINANCIAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 621,
+    "childName": "AD_PLACEMENT_BROADCAST_PLATFORM",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3462,
+    "childName": "AD_PRODUCT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 117,
+    "childName": "AGREEMENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 1710,
+    "childName": "APPLICATION_FORM",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2855,
+    "childName": "APPLICATION_PARTY_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3466,
+    "childName": "APPLICATION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 1725,
+    "childName": "APPLICATION_SECOND_SOURCE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 1249,
+    "childName": "AR_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3472,
+    "childName": "CAMPAIGN_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 1853,
+    "childName": "CONTENT_DELIVERY_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 1920,
+    "childName": "DIGITAL_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3488,
+    "childName": "EVENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 307,
+    "childName": "FORWARD_CONTRACT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 866,
+    "childName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3789,
+    "childName": "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2286,
+    "childName": "MULTIMEDIA_OBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 719,
+    "childName": "NEXT_OFFER",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 892,
+    "childName": "ONLINE_APPLICATION_PROGRAM",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3548,
+    "childName": "OPPORTUNITY_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3299,
+    "childName": "PARTY_PRODUCT_QUOTA",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3300,
+    "childName": "PARTY_PRODUCT_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3328,
+    "childName": "PARTY_SCRIPT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3554,
+    "childName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3556,
+    "childName": "PLANNED_PRODUCT_REVENUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3569,
+    "childName": "PRODUCT_CHANNEL_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3572,
+    "childName": "PRODUCT_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3574,
+    "childName": "PRODUCT_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3367,
+    "childName": "PRODUCT_DEMOGRAPHIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3368,
+    "childName": "PRODUCT_DEMOGRAPHIC_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3575,
+    "childName": "PRODUCT_DOCUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3577,
+    "childName": "PRODUCT_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3578,
+    "childName": "PRODUCT_EVENT_ACTIVITY_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3579,
+    "childName": "PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3584,
+    "childName": "PRODUCT_FEATURE_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3587,
+    "childName": "PRODUCT_FEATURE_PERIL",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3594,
+    "childName": "PRODUCT_FINANCIAL_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3604,
+    "childName": "PRODUCT_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3378,
+    "childName": "PRODUCT_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3605,
+    "childName": "PRODUCT_MARKET_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3606,
+    "childName": "PRODUCT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3379,
+    "childName": "PRODUCT_NAME",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3609,
+    "childName": "PRODUCT_OCCUPATION_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3610,
+    "childName": "PRODUCT_OFFER",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3611,
+    "childName": "PRODUCT_PACKAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3382,
+    "childName": "PRODUCT_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3383,
+    "childName": "PRODUCT_PARTY_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3616,
+    "childName": "PRODUCT_PAYMENT_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3617,
+    "childName": "PRODUCT_PROFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 0,
+    "childName": "PRODUCT_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 0,
+    "childName": "PRODUCT_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3620,
+    "childName": "PRODUCT_REVENUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3621,
+    "childName": "PRODUCT_REVIEW_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3622,
+    "childName": "PRODUCT_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3623,
+    "childName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3625,
+    "childName": "PRODUCT_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3626,
+    "childName": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3627,
+    "childName": "PRODUCT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3631,
+    "childName": "PRODUCT_TAX_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 434,
+    "childName": "PRODUCT_TO_AGREEMENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3632,
+    "childName": "PRODUCT_TO_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3634,
+    "childName": "PRODUCT_TO_PRODUCT_IDENTIFIER",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3635,
+    "childName": "PRODUCT_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3636,
+    "childName": "PRODUCT_VIEW_WEB_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3638,
+    "childName": "PROMOTED_PRODUCT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3639,
+    "childName": "PROMOTION_PRODUCT_OFFER",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3642,
+    "childName": "PROPOSAL_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2421,
+    "childName": "PUBLISHED_CONTENT_REVIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2422,
+    "childName": "PUBLISHED_CONTENT_VIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3647,
+    "childName": "QUOTATION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3651,
+    "childName": "REPORTING_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 450,
+    "childName": "REPURCHASE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2516,
+    "childName": "SALES_PROGRAM",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3653,
+    "childName": "SEARCH_PRODUCT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2569,
+    "childName": "SHOPPING_CART",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3657,
+    "childName": "SITE_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2607,
+    "childName": "SOCIAL_MEDIA_CONTENT_REVIEW",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 1358,
+    "childName": "SOCIAL_MEDIA_DOWNLOAD_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 1360,
+    "childName": "SOCIAL_MEDIA_UPLOAD_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2735,
+    "childName": "TRADITIONAL_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 2759,
+    "childName": "TV_SIGNAL_RECEIVER",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3867,
+    "childName": "VISITOR_PATH_ANALYSIS_ITEM_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3664,
+    "childName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3838,
+    "childName": "VOLATILITY_RISK_CALCULATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3665,
+    "childName": "WEB_PAGE_PRODUCT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3567,
+    "parentName": "PRODUCT",
+    "childId": 3666,
+    "childName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3568,
+    "parentName": "PRODUCT_CHANNEL_ROLE_TYPE",
+    "childId": 3569,
+    "childName": "PRODUCT_CHANNEL_TYPE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3570,
+    "parentName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "childId": 3570,
+    "childName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3570,
+    "parentName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "childId": 3571,
+    "childName": "PRODUCT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3570,
+    "parentName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "childId": 3572,
+    "childName": "PRODUCT_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3571,
+    "parentName": "PRODUCT_CLASS_VALUE",
+    "childId": 3571,
+    "childName": "PRODUCT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3571,
+    "parentName": "PRODUCT_CLASS_VALUE",
+    "childId": 3572,
+    "childName": "PRODUCT_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3576,
+    "parentName": "PRODUCT_DOCUMENT_ROLE_TYPE",
+    "childId": 3575,
+    "childName": "PRODUCT_DOCUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3369,
+    "childName": "PRODUCT_FEATURE_DEMOGRAPHIC_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3580,
+    "childName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3583,
+    "childName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3585,
+    "childName": "PRODUCT_FEATURE_LEEWAY",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3370,
+    "childName": "PRODUCT_FEATURE_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3586,
+    "childName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3372,
+    "childName": "PRODUCT_FEATURE_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3588,
+    "childName": "PRODUCT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3589,
+    "childName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3590,
+    "childName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3591,
+    "childName": "PRODUCT_FEATURE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3579,
+    "parentName": "PRODUCT_FEATURE",
+    "childId": 3640,
+    "childName": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3581,
+    "parentName": "PRODUCT_FEATURE_ELIGIBILITY_CATEGORY_TYPE",
+    "childId": 3582,
+    "childName": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3582,
+    "parentName": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "childId": 3497,
+    "childName": "FEATURE_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3582,
+    "parentName": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "childId": 3577,
+    "childName": "PRODUCT_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3582,
+    "parentName": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "childId": 3580,
+    "childName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3582,
+    "parentName": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "childId": 3384,
+    "childName": "PRODUCT_PARTY_GROUP_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3592,
+    "parentName": "PRODUCT_FEATURE_STATUS_TYPE",
+    "childId": 3591,
+    "childName": "PRODUCT_FEATURE_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3593,
+    "parentName": "PRODUCT_FEATURE_TYPE",
+    "childId": 3579,
+    "childName": "PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3593,
+    "parentName": "PRODUCT_FEATURE_TYPE",
+    "childId": 3588,
+    "childName": "PRODUCT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3593,
+    "parentName": "PRODUCT_FEATURE_TYPE",
+    "childId": 3612,
+    "childName": "PRODUCT_PACKAGE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3593,
+    "parentName": "PRODUCT_FEATURE_TYPE",
+    "childId": 3614,
+    "childName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 149,
+    "childName": "AGREEMENT_STATEMENT_LINE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 1703,
+    "childName": "APPLICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 1710,
+    "childName": "APPLICATION_FORM",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3723,
+    "childName": "BASEL_EQUITY_RISK_WEIGHT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3724,
+    "childName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3734,
+    "childName": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3735,
+    "childName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 1796,
+    "childName": "CCF_EARLY_AMORTIZATION_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 234,
+    "childName": "CREDIT_CONVERSION_FACTOR_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 242,
+    "childName": "CREDIT_MATURITY_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 246,
+    "childName": "CREDIT_RISK_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 1472,
+    "childName": "EQUITY_HOLDING_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3784,
+    "childName": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 2160,
+    "childName": "INTERNAL_MODEL_APPROACH_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 344,
+    "childName": "INVESTMENT_AGREEMENT_ALLOCATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3529,
+    "childName": "INVESTMENT_PRODUCT_GROUP_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 701,
+    "childName": "KEYWORD_PLACEMENT_AD_GROUP_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 1509,
+    "childName": "MARKET_PLAN",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3790,
+    "childName": "MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 2286,
+    "childName": "MULTIMEDIA_OBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3798,
+    "childName": "NON-IRB_EXPOSURE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3799,
+    "childName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3298,
+    "childName": "PARTY_PRODUCT_GROUP_QUOTA",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 1526,
+    "childName": "PORTFOLIO_INVESTMENT_ALLOCATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3595,
+    "childName": "PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3596,
+    "childName": "PRODUCT_GROUP_BASEL_1_WEIGHT",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3597,
+    "childName": "PRODUCT_GROUP_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3598,
+    "childName": "PRODUCT_GROUP_MARGIN",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3599,
+    "childName": "PRODUCT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3374,
+    "childName": "PRODUCT_GROUP_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3602,
+    "childName": "PRODUCT_GROUP_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3603,
+    "childName": "PRODUCT_GROUP_SUBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3608,
+    "childName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3632,
+    "childName": "PRODUCT_TO_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3652,
+    "childName": "REPORTING_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3808,
+    "childName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 3823,
+    "childName": "RISK_MITIGATION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 470,
+    "childName": "SECURITIZATION_EXPOSURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 2632,
+    "childName": "SPECIAL_LENDING_SLOTTING_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 494,
+    "childName": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3595,
+    "parentName": "PRODUCT_GROUP",
+    "childId": 1604,
+    "childName": "YIELD_TO_MATURITY_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3600,
+    "parentName": "PRODUCT_GROUP_METRIC_TYPE",
+    "childId": 3599,
+    "childName": "PRODUCT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3601,
+    "parentName": "PRODUCT_GROUP_REASON_TYPE",
+    "childId": 3595,
+    "childName": "PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3607,
+    "parentName": "PRODUCT_METRIC_TYPE",
+    "childId": 3606,
+    "childName": "PRODUCT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3611,
+    "parentName": "PRODUCT_PACKAGE",
+    "childId": 3612,
+    "childName": "PRODUCT_PACKAGE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3611,
+    "parentName": "PRODUCT_PACKAGE",
+    "childId": 3381,
+    "childName": "PRODUCT_PACKAGE_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 3612,
+    "parentName": "PRODUCT_PACKAGE_FEATURE",
+    "childId": 3613,
+    "childName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "type": "association"
+  },
+  {
+    "parentId": 3612,
+    "parentName": "PRODUCT_PACKAGE_FEATURE",
+    "childId": 3614,
+    "childName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3615,
+    "parentName": "PRODUCT_PACKAGE_TYPE",
+    "childId": 3567,
+    "childName": "PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3619,
+    "parentName": "PRODUCT_RELATIONSHIP_TYPE",
+    "childId": 3618,
+    "childName": "PRODUCT_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3622,
+    "parentName": "PRODUCT_RISK_GRADE",
+    "childId": 0,
+    "childName": "PRODUCT_RISK_GRADE_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3622,
+    "parentName": "PRODUCT_RISK_GRADE",
+    "childId": 0,
+    "childName": "PRODUCT_RISK_GRADE_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 3628,
+    "parentName": "PRODUCT_STATUS_TYPE",
+    "childId": 3627,
+    "childName": "PRODUCT_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 3629,
+    "parentName": "PRODUCT_STRUCTURE_TYPE",
+    "childId": 3618,
+    "childName": "PRODUCT_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3630,
+    "parentName": "PRODUCT_SUBTYPE",
+    "childId": 3567,
+    "childName": "PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3633,
+    "parentName": "PRODUCT_TO_PRODUCT_GROUP_ROLE_TYPE",
+    "childId": 3632,
+    "childName": "PRODUCT_TO_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3639,
+    "parentName": "PROMOTION_PRODUCT_OFFER",
+    "childId": 3640,
+    "childName": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3642,
+    "parentName": "PROPOSAL_PRODUCT",
+    "childId": 3643,
+    "childName": "PROPOSAL_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3645,
+    "parentName": "QUOTATION_FEATURE",
+    "childId": 3646,
+    "childName": "QUOTATION_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3649,
+    "parentName": "RATE_FEATURE_TYPE",
+    "childId": 338,
+    "childName": "INTEREST_BASED_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3649,
+    "parentName": "RATE_FEATURE_TYPE",
+    "childId": 3648,
+    "childName": "RATE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3650,
+    "parentName": "REFERRAL_WEB_SITE_FEATURE_SUBTYPE",
+    "childId": 2474,
+    "childName": "REFERRAL",
+    "type": "association"
+  },
+  {
+    "parentId": 3652,
+    "parentName": "REPORTING_PRODUCT_GROUP",
+    "childId": 3652,
+    "childName": "REPORTING_PRODUCT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3655,
+    "parentName": "SECURITIES_INDEX_PRODUCT",
+    "childId": 213,
+    "childName": "COMMODITY_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3656,
+    "parentName": "SERVICE_FEATURE",
+    "childId": 1048,
+    "childName": "CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 3658,
+    "parentName": "SITE_PRODUCT_ROLE",
+    "childId": 3657,
+    "childName": "SITE_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3667,
+    "parentName": "WORK_PRODUCT",
+    "childId": 2647,
+    "childName": "STEP_ACTUAL_INPUT_OUTPUT",
+    "type": "association"
+  },
+  {
+    "parentId": 3667,
+    "parentName": "WORK_PRODUCT",
+    "childId": 2656,
+    "childName": "STEP_STANDARD_INPUT_OUTPUT",
+    "type": "association"
+  },
+  {
+    "parentId": 3668,
+    "parentName": "WORK_PRODUCT_TYPE",
+    "childId": 3667,
+    "childName": "WORK_PRODUCT",
+    "type": "association"
+  }
+]

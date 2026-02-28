@@ -1,0 +1,513 @@
+[
+  {
+    "parentId": 508,
+    "parentName": "APPLICATION_ASSET_ROLE_SUBTYPE",
+    "childId": 507,
+    "childName": "APPLICATION_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 510,
+    "parentName": "ASSET_APPRAISAL_REASON_TYPE",
+    "childId": 3137,
+    "childName": "PARTY_ASSET_APPRAISAL",
+    "type": "association"
+  },
+  {
+    "parentId": 514,
+    "parentName": "ASSET_DETAIL_SCHEME_TYPE",
+    "childId": 515,
+    "childName": "ASSET_DETAIL_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 515,
+    "parentName": "ASSET_DETAIL_TYPE",
+    "childId": 513,
+    "childName": "ASSET_DETAIL_CODE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 516,
+    "parentName": "ASSET_INSPECTION",
+    "childId": 2856,
+    "childName": "ASSET_INSPECTION_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 516,
+    "parentName": "ASSET_INSPECTION",
+    "childId": 517,
+    "childName": "ASSET_INSPECTION_RESULT",
+    "type": "association"
+  },
+  {
+    "parentId": 516,
+    "parentName": "ASSET_INSPECTION",
+    "childId": 526,
+    "childName": "ASSET_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 518,
+    "parentName": "ASSET_INSURANCE_REFUSED_TYPE",
+    "childId": 3136,
+    "childName": "PARTY_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 519,
+    "parentName": "ASSET_LIABILITY_TYPE",
+    "childId": 17,
+    "childName": "AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 519,
+    "parentName": "ASSET_LIABILITY_TYPE",
+    "childId": 3514,
+    "childName": "FINANCIAL_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 519,
+    "parentName": "ASSET_LIABILITY_TYPE",
+    "childId": 3596,
+    "childName": "PRODUCT_GROUP_BASEL_1_WEIGHT",
+    "type": "association"
+  },
+  {
+    "parentId": 520,
+    "parentName": "ASSET_MAINTENANCE_TYPE",
+    "childId": 3167,
+    "childName": "PARTY_ASSET_MAINTENANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 521,
+    "parentName": "ASSET_ROLE_TYPE",
+    "childId": 3125,
+    "childName": "PARTY_AGREEMENT_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 521,
+    "parentName": "ASSET_ROLE_TYPE",
+    "childId": 3348,
+    "childName": "PARTY_TO_PARTY_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 523,
+    "parentName": "ASSET_USE_TYPE",
+    "childId": 3348,
+    "childName": "PARTY_TO_PARTY_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 524,
+    "parentName": "ASSET_VALUATION_AMOUNT_TYPE",
+    "childId": 526,
+    "childName": "ASSET_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 524,
+    "parentName": "ASSET_VALUATION_AMOUNT_TYPE",
+    "childId": 3172,
+    "childName": "PARTY_ASSET_PART_VALUATION",
+    "type": "association"
+  },
+  {
+    "parentId": 525,
+    "parentName": "ASSET_VALUATION_METHOD_TYPE",
+    "childId": 526,
+    "childName": "ASSET_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 525,
+    "parentName": "ASSET_VALUATION_METHOD_TYPE",
+    "childId": 210,
+    "childName": "COLLATERAL_ITEM_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 529,
+    "parentName": "DEPRECIABLE_ASSET_TYPE",
+    "childId": 530,
+    "childName": "DEPRECIABLE_FIXED_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 530,
+    "parentName": "DEPRECIABLE_FIXED_ASSET",
+    "childId": 528,
+    "childName": "DEPRECIABLE_ASSET_DEPRECIATION",
+    "type": "association"
+  },
+  {
+    "parentId": 532,
+    "parentName": "DWELLING_TYPE",
+    "childId": 1631,
+    "childName": "STREET_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 532,
+    "parentName": "DWELLING_TYPE",
+    "childId": 1633,
+    "childName": "STREET_ADDRESS_JAPAN",
+    "type": "association"
+  },
+  {
+    "parentId": 535,
+    "parentName": "FINANCIAL_ASSET_SUBTYPE",
+    "childId": 534,
+    "childName": "FINANCIAL_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 809,
+    "childName": "ATM_CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 537,
+    "childName": "FIXED_ASSET_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 539,
+    "childName": "FIXED_ASSET_BOOK",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 542,
+    "childName": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 2989,
+    "childName": "FIXED_ASSET_COMPLEMENTARY_IDENTIFICATION_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 544,
+    "childName": "FIXED_ASSET_GROUP_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 2990,
+    "childName": "FIXED_ASSET_IDENTIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 546,
+    "childName": "FIXED_ASSET_PO",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 547,
+    "childName": "FIXED_ASSET_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 876,
+    "childName": "KIOSK_CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 536,
+    "parentName": "FIXED_ASSET",
+    "childId": 571,
+    "childName": "PROJECT_RESOURCE_FIXED_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 538,
+    "parentName": "FIXED_ASSET_AMOUNT_TYPE",
+    "childId": 537,
+    "childName": "FIXED_ASSET_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 540,
+    "parentName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "childId": 540,
+    "childName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 540,
+    "parentName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "childId": 541,
+    "childName": "FIXED_ASSET_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 540,
+    "parentName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "childId": 542,
+    "childName": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 541,
+    "parentName": "FIXED_ASSET_CLASS_VALUE",
+    "childId": 541,
+    "childName": "FIXED_ASSET_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 541,
+    "parentName": "FIXED_ASSET_CLASS_VALUE",
+    "childId": 542,
+    "childName": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 543,
+    "parentName": "FIXED_ASSET_GROUP",
+    "childId": 544,
+    "childName": "FIXED_ASSET_GROUP_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 543,
+    "parentName": "FIXED_ASSET_GROUP",
+    "childId": 556,
+    "childName": "INTERNAL_FIXED_ASSET_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 543,
+    "parentName": "FIXED_ASSET_GROUP",
+    "childId": 3637,
+    "childName": "PROJECT_TASK_RESOURCE_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 545,
+    "parentName": "FIXED_ASSET_OWNERSHIP_TYPE",
+    "childId": 536,
+    "childName": "FIXED_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 548,
+    "parentName": "FIXED_ASSET_STATUS_TYPE",
+    "childId": 547,
+    "childName": "FIXED_ASSET_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 549,
+    "parentName": "FIXED_ASSET_TYPE",
+    "childId": 536,
+    "childName": "FIXED_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 551,
+    "parentName": "INTELLECTUAL_PROPERTY",
+    "childId": 892,
+    "childName": "ONLINE_APPLICATION_PROGRAM",
+    "type": "association"
+  },
+  {
+    "parentId": 552,
+    "parentName": "INTELLECTUAL_PROPERTY_TYPE",
+    "childId": 551,
+    "childName": "INTELLECTUAL_PROPERTY",
+    "type": "association"
+  },
+  {
+    "parentId": 553,
+    "parentName": "INTERNAL_ASSET_SUBTYPE",
+    "childId": 554,
+    "childName": "INTERNAL_ASSET_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 554,
+    "parentName": "INTERNAL_ASSET_TYPE",
+    "childId": 1240,
+    "childName": "AP_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 554,
+    "parentName": "INTERNAL_ASSET_TYPE",
+    "childId": 2429,
+    "childName": "PURCHASE_REQUISITION_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 554,
+    "parentName": "INTERNAL_ASSET_TYPE",
+    "childId": 2453,
+    "childName": "RECEIPT_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 554,
+    "parentName": "INTERNAL_ASSET_TYPE",
+    "childId": 2501,
+    "childName": "RETURN_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 554,
+    "parentName": "INTERNAL_ASSET_TYPE",
+    "childId": 2784,
+    "childName": "VENDOR_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 555,
+    "parentName": "INTERNAL_CONSUMABLE_ASSET_TYPE",
+    "childId": 2411,
+    "childName": "PROJECT_TASK_RESOURCE_SUPPLY",
+    "type": "association"
+  },
+  {
+    "parentId": 558,
+    "parentName": "JEWELRY_GEM_TYPE",
+    "childId": 557,
+    "childName": "JEWELRY",
+    "type": "association"
+  },
+  {
+    "parentId": 559,
+    "parentName": "JEWELRY_METAL_TYPE",
+    "childId": 557,
+    "childName": "JEWELRY",
+    "type": "association"
+  },
+  {
+    "parentId": 560,
+    "parentName": "JEWELRY_TYPE",
+    "childId": 557,
+    "childName": "JEWELRY",
+    "type": "association"
+  },
+  {
+    "parentId": 561,
+    "parentName": "MOTOR_VEHICLE",
+    "childId": 562,
+    "childName": "MOTOR_VEHICLE_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 561,
+    "parentName": "MOTOR_VEHICLE",
+    "childId": 563,
+    "childName": "MOTOR_VEHICLE_SPECIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 561,
+    "parentName": "MOTOR_VEHICLE",
+    "childId": 565,
+    "childName": "MOTOR_VEHICLE_USAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 564,
+    "parentName": "MOTOR_VEHICLE_TYPE",
+    "childId": 561,
+    "childName": "MOTOR_VEHICLE",
+    "type": "association"
+  },
+  {
+    "parentId": 564,
+    "parentName": "MOTOR_VEHICLE_TYPE",
+    "childId": 3236,
+    "childName": "PARTY_DRIVING_LICENSE_ISSUANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 566,
+    "parentName": "MOTOR_VEHICLE_USAGE_METRIC_TYPE",
+    "childId": 565,
+    "childName": "MOTOR_VEHICLE_USAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 567,
+    "parentName": "NONDEPRECIABLE_ASSET_TYPE",
+    "childId": 568,
+    "childName": "NONDEPRECIABLE_FIXED_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 572,
+    "parentName": "VEHICLE_MAKE_MODEL",
+    "childId": 573,
+    "childName": "VEHICLE_MAKE_MODEL_YEAR",
+    "type": "association"
+  },
+  {
+    "parentId": 573,
+    "parentName": "VEHICLE_MAKE_MODEL_YEAR",
+    "childId": 561,
+    "childName": "MOTOR_VEHICLE",
+    "type": "association"
+  },
+  {
+    "parentId": 573,
+    "parentName": "VEHICLE_MAKE_MODEL_YEAR",
+    "childId": 574,
+    "childName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 575,
+    "parentName": "VEHICLE_MAKE_TYPE",
+    "childId": 572,
+    "childName": "VEHICLE_MAKE_MODEL",
+    "type": "association"
+  },
+  {
+    "parentId": 576,
+    "parentName": "VEHICLE_SERIES_TYPE",
+    "childId": 573,
+    "childName": "VEHICLE_MAKE_MODEL_YEAR",
+    "type": "association"
+  },
+  {
+    "parentId": 577,
+    "parentName": "VEHICLE_SPECIFICATION_TYPE",
+    "childId": 563,
+    "childName": "MOTOR_VEHICLE_SPECIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 577,
+    "parentName": "VEHICLE_SPECIFICATION_TYPE",
+    "childId": 574,
+    "childName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "type": "association"
+  }
+]

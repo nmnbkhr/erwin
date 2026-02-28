@@ -1,0 +1,625 @@
+[
+  {
+    "parentId": 1606,
+    "parentName": "ADDRESS",
+    "childId": 1607,
+    "childName": "ADDRESS_DELIVERY_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1606,
+    "parentName": "ADDRESS",
+    "childId": 3122,
+    "childName": "PARTY_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1606,
+    "parentName": "ADDRESS",
+    "childId": 3447,
+    "childName": "TRAVEL_PLAN_CONTACT",
+    "type": "association"
+  },
+  {
+    "parentId": 1608,
+    "parentName": "ADDRESS_SUBTYPE",
+    "childId": 1606,
+    "childName": "ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 618,
+    "childName": "AD_PERFORMANCE_RATING",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 630,
+    "childName": "AD_RATING_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1738,
+    "childName": "AREA_JAPAN",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 0,
+    "childName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION_is_country_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1610,
+    "childName": "COUNTRY_CODE_STANDARD",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1613,
+    "childName": "COUNTRY_TO_COUNTRY_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 0,
+    "childName": "INDIVIDUAL_MIGRATION_is_from_country_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 0,
+    "childName": "INDIVIDUAL_MIGRATION_is_to_country_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1617,
+    "childName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1625,
+    "childName": "ISO_4217_COUNTRY_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 2263,
+    "childName": "MICROSITE_RATING_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 894,
+    "childName": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1628,
+    "childName": "PARCEL_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 946,
+    "childName": "POSTAL_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 948,
+    "childName": "POST_OFFICE_BOX_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1629,
+    "childName": "REGION",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1631,
+    "childName": "STREET_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1636,
+    "childName": "TERRITORY",
+    "type": "association"
+  },
+  {
+    "parentId": 1609,
+    "parentName": "COUNTRY",
+    "childId": 1577,
+    "childName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1611,
+    "parentName": "COUNTRY_CODE_STANDARD_TYPE",
+    "childId": 1610,
+    "childName": "COUNTRY_CODE_STANDARD",
+    "type": "association"
+  },
+  {
+    "parentId": 1612,
+    "parentName": "COUNTRY_GROUP",
+    "childId": 1609,
+    "childName": "COUNTRY",
+    "type": "association"
+  },
+  {
+    "parentId": 1612,
+    "parentName": "COUNTRY_GROUP",
+    "childId": 1613,
+    "childName": "COUNTRY_TO_COUNTRY_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 1614,
+    "parentName": "ELECTRONIC_ADDRESS",
+    "childId": 1920,
+    "childName": "DIGITAL_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1614,
+    "parentName": "ELECTRONIC_ADDRESS",
+    "childId": 1924,
+    "childName": "DIGITAL_REQUEST_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1614,
+    "parentName": "ELECTRONIC_ADDRESS",
+    "childId": 853,
+    "childName": "ELECTRONIC_CHANNEL_INSTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 1614,
+    "parentName": "ELECTRONIC_ADDRESS",
+    "childId": 2977,
+    "childName": "EMAIL_REFERRAL",
+    "type": "association"
+  },
+  {
+    "parentId": 1614,
+    "parentName": "ELECTRONIC_ADDRESS",
+    "childId": 3861,
+    "childName": "VISITOR_INPUT",
+    "type": "association"
+  },
+  {
+    "parentId": 1614,
+    "parentName": "ELECTRONIC_ADDRESS",
+    "childId": 3899,
+    "childName": "WEB_SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 1615,
+    "parentName": "ELECTRONIC_ADDRESS_SUBTYPE",
+    "childId": 1614,
+    "childName": "ELECTRONIC_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1616,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS",
+    "childId": 3855,
+    "childName": "EXTENDED_SESSION_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1616,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS",
+    "childId": 0,
+    "childName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP_is_from_IP_address",
+    "type": "association"
+  },
+  {
+    "parentId": 1616,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS",
+    "childId": 0,
+    "childName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP_is_to_IP_address",
+    "type": "association"
+  },
+  {
+    "parentId": 1616,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS",
+    "childId": 0,
+    "childName": "TRANSFER_EVENT_is_destination_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1616,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS",
+    "childId": 0,
+    "childName": "TRANSFER_EVENT_is_source_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1616,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS",
+    "childId": 3892,
+    "childName": "WEB_SERVER_INTERNET_PROTOCOL_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1616,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS",
+    "childId": 0,
+    "childName": "WEB_VISIT_INTERNET_PROTOCOL_XREF_is_destination_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1616,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS",
+    "childId": 0,
+    "childName": "WEB_VISIT_INTERNET_PROTOCOL_XREF_is_visitor",
+    "type": "association"
+  },
+  {
+    "parentId": 1617,
+    "parentName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "childId": 1359,
+    "childName": "SOCIAL_MEDIA_TRANSFER",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 2903,
+    "childName": "BUSINESS_IDENTIFIER_CODE_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 228,
+    "childName": "CREDIT_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 2989,
+    "childName": "FIXED_ASSET_COMPLEMENTARY_IDENTIFICATION_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 327,
+    "childName": "IBAN_AGREEMENT_IDENTIFIER",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 3040,
+    "childName": "INVESTMENT_PRODUCT_COMPLEMENTARY_IDENTIFICATION_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 3538,
+    "childName": "ISIN_PRODUCT_IDENTIFIER",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 1621,
+    "childName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 1624,
+    "childName": "ISO_3166_NUMERIC_COUNTRY",
+    "type": "association"
+  },
+  {
+    "parentId": 1618,
+    "parentName": "ISO_3166_ALPHA-2_COUNTRY",
+    "childId": 3694,
+    "childName": "ISO_4217_CURRENCY_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 1619,
+    "parentName": "ISO_3166_ALPHA-3_COUNTRY",
+    "childId": 1624,
+    "childName": "ISO_3166_NUMERIC_COUNTRY",
+    "type": "association"
+  },
+  {
+    "parentId": 1621,
+    "parentName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "childId": 1621,
+    "childName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "type": "association"
+  },
+  {
+    "parentId": 1621,
+    "parentName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "childId": 1622,
+    "childName": "ISO_3166_COUNTRY_SUBDIVISION_STANDARD",
+    "type": "association"
+  },
+  {
+    "parentId": 1623,
+    "parentName": "ISO_3166_COUNTRY_SUBDIVISION_TYPE",
+    "childId": 1621,
+    "childName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "type": "association"
+  },
+  {
+    "parentId": 1624,
+    "parentName": "ISO_3166_NUMERIC_COUNTRY",
+    "childId": 2995,
+    "childName": "GLOBAL_INTERMEDIARY_IDENTIFICATION_NUMBER",
+    "type": "association"
+  },
+  {
+    "parentId": 1624,
+    "parentName": "ISO_3166_NUMERIC_COUNTRY",
+    "childId": 1620,
+    "childName": "ISO_3166_COUNTRY_STANDARD",
+    "type": "association"
+  },
+  {
+    "parentId": 1624,
+    "parentName": "ISO_3166_NUMERIC_COUNTRY",
+    "childId": 3694,
+    "childName": "ISO_4217_CURRENCY_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 1626,
+    "parentName": "ISO_4217_COUNTRY_CURRENCY_ROLE",
+    "childId": 1625,
+    "childName": "ISO_4217_COUNTRY_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 1629,
+    "parentName": "REGION",
+    "childId": 1636,
+    "childName": "TERRITORY",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 0,
+    "childName": "GPS_PROGRAM_is_destination_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 0,
+    "childName": "GPS_PROGRAM_is_source_for",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 2453,
+    "childName": "RECEIPT_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 2500,
+    "childName": "RETURN_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 1632,
+    "childName": "STREET_ADDRESS_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 1634,
+    "childName": "STREET_ADDRESS_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 0,
+    "childName": "VENDOR_PO_LINE_requested_ship_to",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 0,
+    "childName": "VENDOR_PO_LINE_shipped_to",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 0,
+    "childName": "VENDOR_PO_bill_to",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 0,
+    "childName": "VENDOR_PO_sent_to",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 0,
+    "childName": "VENDOR_PO_sold_to",
+    "type": "association"
+  },
+  {
+    "parentId": 1631,
+    "parentName": "STREET_ADDRESS",
+    "childId": 3890,
+    "childName": "WEB_SERVER",
+    "type": "association"
+  },
+  {
+    "parentId": 1635,
+    "parentName": "STREET_SUFFIX_TYPE",
+    "childId": 1632,
+    "childName": "STREET_ADDRESS_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 0,
+    "childName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION_describes_DMA",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 0,
+    "childName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION_describes_MSA",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 0,
+    "childName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION_describes_PMSA",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 0,
+    "childName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION_describes_territory",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 1816,
+    "childName": "CITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 1867,
+    "childName": "COUNTY",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 228,
+    "childName": "CREDIT_AUTHORIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 1617,
+    "childName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 1627,
+    "childName": "OVERSEAS_MILITARY_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 1628,
+    "childName": "PARCEL_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 948,
+    "childName": "POST_OFFICE_BOX_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 1631,
+    "childName": "STREET_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1636,
+    "parentName": "TERRITORY",
+    "childId": 1637,
+    "childName": "TERRITORY_STANDARD",
+    "type": "association"
+  },
+  {
+    "parentId": 1638,
+    "parentName": "TERRITORY_STANDARD_TYPE",
+    "childId": 1637,
+    "childName": "TERRITORY_STANDARD",
+    "type": "association"
+  },
+  {
+    "parentId": 1639,
+    "parentName": "TERRITORY_TYPE",
+    "childId": 1636,
+    "childName": "TERRITORY",
+    "type": "association"
+  }
+]

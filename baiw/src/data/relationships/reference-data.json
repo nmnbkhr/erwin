@@ -1,0 +1,3691 @@
+[
+  {
+    "parentId": 3669,
+    "parentName": "AMBULATORY_PATIENT_CLASSIFICATION",
+    "childId": 1108,
+    "childName": "OUTPATIENT_INSTITUTIONAL_CLAIM_APC",
+    "type": "association"
+  },
+  {
+    "parentId": 3669,
+    "parentName": "AMBULATORY_PATIENT_CLASSIFICATION",
+    "childId": 2383,
+    "childName": "PROCEDURE_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 3671,
+    "parentName": "CALENDAR_TYPE",
+    "childId": 1609,
+    "childName": "COUNTRY",
+    "type": "association"
+  },
+  {
+    "parentId": 3671,
+    "parentName": "CALENDAR_TYPE",
+    "childId": 3679,
+    "childName": "CUSTOM_CALENDAR",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1642,
+    "childName": "ACCESS_DEVICE_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1,
+    "childName": "ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3,
+    "childName": "ACCOUNTING_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 8,
+    "childName": "ACCOUNT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1660,
+    "childName": "ACTUAL_IMPACT_AREA_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 598,
+    "childName": "AD_ORDER_HEADER_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1675,
+    "childName": "AGENT_REPORT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 18,
+    "childName": "AGREEMENT_ABUSE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 41,
+    "childName": "AGREEMENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 51,
+    "childName": "AGREEMENT_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 58,
+    "childName": "AGREEMENT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 61,
+    "childName": "AGREEMENT_FEATURE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 63,
+    "childName": "AGREEMENT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 68,
+    "childName": "AGREEMENT_GROUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 76,
+    "childName": "AGREEMENT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 80,
+    "childName": "AGREEMENT_GROUP_RELATED_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 96,
+    "childName": "AGREEMENT_INSURED_ASSET_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 103,
+    "childName": "AGREEMENT_LIMIT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 107,
+    "childName": "AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 108,
+    "childName": "AGREEMENT_METRIC_PROJECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 118,
+    "childName": "AGREEMENT_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 119,
+    "childName": "AGREEMENT_PRODUCT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 151,
+    "childName": "AGREEMENT_STATEMENT_LINE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 152,
+    "childName": "AGREEMENT_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 161,
+    "childName": "AGREEMENT_TAX_RULE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1134,
+    "childName": "ALERT_EVENT_WEIGHTING",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3463,
+    "childName": "AMOUNT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3464,
+    "childName": "APPLICATION_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3465,
+    "childName": "APPLICATION_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "AP_INVOICE_LINE_ADJUSTMENT_is_assigned_to",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "AP_INVOICE_LINE_ADJUSTMENT_is_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1250,
+    "childName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 513,
+    "childName": "ASSET_DETAIL_CODE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 526,
+    "childName": "ASSET_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "BARRIER_OPTION_AGREEMENT_is_high_currency",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "BARRIER_OPTION_AGREEMENT_is_low_barrier_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 646,
+    "childName": "CAMPAIGN",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 687,
+    "childName": "CAMPAIGN_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1261,
+    "childName": "CARD_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1778,
+    "childName": "CASE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 527,
+    "childName": "CASH_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1449,
+    "childName": "CASH_DIVIDEND_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 825,
+    "childName": "CHANNEL_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 839,
+    "childName": "CHANNEL_REPLENISHMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1811,
+    "childName": "CHECK_BOOK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 976,
+    "childName": "CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 980,
+    "childName": "CLAIM_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 981,
+    "childName": "CLAIM_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 983,
+    "childName": "CLAIM_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 986,
+    "childName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1007,
+    "childName": "CLAIM_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1013,
+    "childName": "CLAIM_COVERAGE_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1014,
+    "childName": "CLAIM_COVERAGE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1017,
+    "childName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3740,
+    "childName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1051,
+    "childName": "CLAIM_SERVICE_ADJUDICATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1052,
+    "childName": "CLAIM_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1057,
+    "childName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1266,
+    "childName": "COA_MONETARY_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1271,
+    "childName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_EXCHANGE_QUOTATION_is_from_currency",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_EXCHANGE_QUOTATION_is_to_currency",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_EXCHANGE_RISK_FACTOR_is_source_currency",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_EXCHANGE_RISK_FACTOR_is_target_currency",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_FORWARD_is_buy_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_FORWARD_is_sell_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3479,
+    "childName": "CURRENCY_PRODUCT_PAIR",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3749,
+    "childName": "CURRENCY_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_SWAP_is_swap_out_code",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_SWAP_is_swapped_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_TRANSLATION_RATE_is_source_currency",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "CURRENCY_TRANSLATION_RATE_is_target_currency",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3757,
+    "childName": "DEFAULT_RECOVERY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 272,
+    "childName": "DERIVATIVE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1159,
+    "childName": "EVENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1166,
+    "childName": "EVENT_FORECAST_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1171,
+    "childName": "EVENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1980,
+    "childName": "EXTERNAL_DIRECT_DEBIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 290,
+    "childName": "EXTERNAL_MARGIN_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1984,
+    "childName": "EXTERNAL_STANDING_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3495,
+    "childName": "FEATURE_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3502,
+    "childName": "FEATURE_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FINANCIAL_EVENT_AMOUNT_is_global_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FINANCIAL_EVENT_AMOUNT_is_local_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FINANCIAL_EVENT_AMOUNT_is_settlement_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FINANCIAL_EVENT_AMOUNT_is_transaction_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 536,
+    "childName": "FIXED_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 537,
+    "childName": "FIXED_ASSET_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 541,
+    "childName": "FIXED_ASSET_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FOREIGN_EXCHANGE_AGREEMENT_is_destination_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FOREIGN_EXCHANGE_AGREEMENT_is_source_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1191,
+    "childName": "FOREIGN_EXCHANGE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FOREIGN_EXCHANGE_METRIC_is_source_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FOREIGN_EXCHANGE_METRIC_is_target_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FOREIGN_EXCHANGE_POINT_is_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "FOREIGN_EXCHANGE_POINT_is_related_currency",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3689,
+    "childName": "GEOGRAPHICAL_AREA_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2051,
+    "childName": "GEOGRAPHIC_ECONOMIC_MEASURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2057,
+    "childName": "GEOSEQUENCE_POINT_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 316,
+    "childName": "GL_MAIN_ACCOUNT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2101,
+    "childName": "HEDGING_SET",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2117,
+    "childName": "INCENTIVE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1098,
+    "childName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1101,
+    "childName": "INSURABLE_INTEREST_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3025,
+    "childName": "INSURANCE_LINE_OF_BUSINESS_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2154,
+    "childName": "INTEREST_RATE_BANKING_BOOK_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2155,
+    "childName": "INTEREST_RATE_INDEX",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "INTEREST_RATE_QUOTATION_is_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "INTEREST_RATE_QUOTATION_is_underlying",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2159,
+    "childName": "INTERNAL_DIRECT_DEBIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2166,
+    "childName": "INTERNAL_STANDING_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1290,
+    "childName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 866,
+    "childName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 867,
+    "childName": "INVESTMENT_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 868,
+    "childName": "INVESTMENT_POSITION_SPECIFIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3525,
+    "childName": "INVESTMENT_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3527,
+    "childName": "INVESTMENT_PRODUCT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1292,
+    "childName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1293,
+    "childName": "INVOICE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1294,
+    "childName": "INVOICE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "JOURNAL_ENTRY_LINE_is_global_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "JOURNAL_ENTRY_LINE_is_local_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 708,
+    "childName": "LEAD_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3054,
+    "childName": "LINE_OF_BUSINESS_PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3058,
+    "childName": "LOCATOR_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3060,
+    "childName": "LOCATOR_PERIL_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1507,
+    "childName": "MARKET_INDEX_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1510,
+    "childName": "MARKET_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1511,
+    "childName": "MARKET_QUOTATION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1513,
+    "childName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 720,
+    "childName": "OFFER",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 906,
+    "childName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 726,
+    "childName": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 731,
+    "childName": "OPPORTUNITY_FINANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3550,
+    "childName": "OPTION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2337,
+    "childName": "PAID_SEARCH",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3131,
+    "childName": "PARTY_AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3141,
+    "childName": "PARTY_ASSET_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3172,
+    "childName": "PARTY_ASSET_PART_VALUATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3186,
+    "childName": "PARTY_ASSET_SPECIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3215,
+    "childName": "PARTY_CLAIM_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3216,
+    "childName": "PARTY_CLAIM_SERVICE_DIAGNOSIS_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3220,
+    "childName": "PARTY_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3227,
+    "childName": "PARTY_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3241,
+    "childName": "PARTY_FINANCIAL_DOCUMENT_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3247,
+    "childName": "PARTY_GROUP_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3248,
+    "childName": "PARTY_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3284,
+    "childName": "PARTY_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3287,
+    "childName": "PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3288,
+    "childName": "PARTY_METRIC_PROJECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3311,
+    "childName": "PARTY_RELATED_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3318,
+    "childName": "PARTY_RISK_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3342,
+    "childName": "PARTY_SYSTEM_ABUSE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3353,
+    "childName": "PARTY_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1116,
+    "childName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 570,
+    "childName": "POLICY_ASSET_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2365,
+    "childName": "POLICY_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1118,
+    "childName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3365,
+    "childName": "POLICY_INSURABLE_COVERAGE_PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2366,
+    "childName": "POLICY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3366,
+    "childName": "POLICY_PARTY_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 420,
+    "childName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 422,
+    "childName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3559,
+    "childName": "PORTFOLIO_PRODUCT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3560,
+    "childName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 943,
+    "childName": "POSITION_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2371,
+    "childName": "PO_TERM",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3571,
+    "childName": "PRODUCT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3579,
+    "childName": "PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3599,
+    "childName": "PRODUCT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3606,
+    "childName": "PRODUCT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1126,
+    "childName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2394,
+    "childName": "PROJECTED_CASH_FLOW",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2397,
+    "childName": "PROJECT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2409,
+    "childName": "PROJECT_TASK_RESOURCE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3394,
+    "childName": "PROJECT_TASK_RESOURCE_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 757,
+    "childName": "PROMOTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 761,
+    "childName": "PROMOTION_EXPENSE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 954,
+    "childName": "PROPOSAL_FINANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3407,
+    "childName": "PURCHASE_CARD_BUSINESS_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2429,
+    "childName": "PURCHASE_REQUISITION_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3645,
+    "childName": "QUOTATION_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3646,
+    "childName": "QUOTATION_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1535,
+    "childName": "QUOTATION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3412,
+    "childName": "RECOVERY_COLLECTION_CONTACT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2501,
+    "childName": "RETURN_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3813,
+    "childName": "RISK_CALCULATION_SCENARIO",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3824,
+    "childName": "RISK_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2550,
+    "childName": "SERVICE_REQUEST",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3703,
+    "childName": "SET_OF_BOOKS_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2577,
+    "childName": "SITE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2579,
+    "childName": "SITE_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2580,
+    "childName": "SITE_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2584,
+    "childName": "SITE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2595,
+    "childName": "SITE_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1366,
+    "childName": "STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 487,
+    "childName": "SWAP_AGREEMENT_LEG",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 488,
+    "childName": "SWAP_AGREEMENT_LEG_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2694,
+    "childName": "TAX_LOT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "TRADE_EXECUTION_is_currency_of_up-front_payment",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "TRADE_EXECUTION_is_nominal_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 0,
+    "childName": "TRADE_EXECUTION_is_unit_price_currency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 2784,
+    "childName": "VENDOR_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3673,
+    "parentName": "CURRENCY",
+    "childId": 3914,
+    "childName": "WEB_VISIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3674,
+    "parentName": "CURRENCY_DENOMINATION_TYPE",
+    "childId": 2340,
+    "childName": "PASSBOOK",
+    "type": "association"
+  },
+  {
+    "parentId": 3677,
+    "parentName": "CURRENCY_TRANSLATION_RATE_TYPE",
+    "childId": 3676,
+    "childName": "CURRENCY_TRANSLATION_RATE",
+    "type": "association"
+  },
+  {
+    "parentId": 3678,
+    "parentName": "CURRENCY_USE_TYPE",
+    "childId": 51,
+    "childName": "AGREEMENT_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3679,
+    "parentName": "CUSTOM_CALENDAR",
+    "childId": 3680,
+    "childName": "CUSTOM_CALENDAR_DAY",
+    "type": "association"
+  },
+  {
+    "parentId": 3679,
+    "parentName": "CUSTOM_CALENDAR",
+    "childId": 2967,
+    "childName": "CUSTOM_CALENDAR_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 3679,
+    "parentName": "CUSTOM_CALENDAR",
+    "childId": 3685,
+    "childName": "CUSTOM_CALENDAR_YEAR",
+    "type": "association"
+  },
+  {
+    "parentId": 3681,
+    "parentName": "CUSTOM_CALENDAR_MONTH",
+    "childId": 3682,
+    "childName": "CUSTOM_CALENDAR_MONTH_WEEK",
+    "type": "association"
+  },
+  {
+    "parentId": 3681,
+    "parentName": "CUSTOM_CALENDAR_MONTH",
+    "childId": 0,
+    "childName": "JOURNAL_ENTRY_HEADER_is_accounting_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3681,
+    "parentName": "CUSTOM_CALENDAR_MONTH",
+    "childId": 0,
+    "childName": "JOURNAL_ENTRY_HEADER_is_reversing_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3682,
+    "parentName": "CUSTOM_CALENDAR_MONTH_WEEK",
+    "childId": 3680,
+    "childName": "CUSTOM_CALENDAR_DAY",
+    "type": "association"
+  },
+  {
+    "parentId": 3683,
+    "parentName": "CUSTOM_CALENDAR_QUARTER",
+    "childId": 3681,
+    "childName": "CUSTOM_CALENDAR_MONTH",
+    "type": "association"
+  },
+  {
+    "parentId": 3684,
+    "parentName": "CUSTOM_CALENDAR_WEEK",
+    "childId": 3682,
+    "childName": "CUSTOM_CALENDAR_MONTH_WEEK",
+    "type": "association"
+  },
+  {
+    "parentId": 3685,
+    "parentName": "CUSTOM_CALENDAR_YEAR",
+    "childId": 3683,
+    "childName": "CUSTOM_CALENDAR_QUARTER",
+    "type": "association"
+  },
+  {
+    "parentId": 3685,
+    "parentName": "CUSTOM_CALENDAR_YEAR",
+    "childId": 3702,
+    "childName": "SET_OF_BOOKS_CALENDAR_YEAR",
+    "type": "association"
+  },
+  {
+    "parentId": 3686,
+    "parentName": "DEA_DRUG_CLASSIFICATION__GEO",
+    "childId": 1956,
+    "childName": "DRUG_NDC__GEO",
+    "type": "association"
+  },
+  {
+    "parentId": 3687,
+    "parentName": "DIAGNOSIS_CLASSIFICATION_TYPE",
+    "childId": 1913,
+    "childName": "DIAGNOSIS_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 3688,
+    "parentName": "DOMAIN_ROOT_TYPE",
+    "childId": 1614,
+    "childName": "ELECTRONIC_ADDRESS",
+    "type": "association"
+  },
+  {
+    "parentId": 3690,
+    "parentName": "GEOGRAPHICAL_AREA_CURRENCY_ROLE",
+    "childId": 3689,
+    "childName": "GEOGRAPHICAL_AREA_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3691,
+    "parentName": "HOLIDAY_CALENDAR",
+    "childId": 3692,
+    "childName": "HOLIDAY_CALENDAR_DATE",
+    "type": "association"
+  },
+  {
+    "parentId": 3691,
+    "parentName": "HOLIDAY_CALENDAR",
+    "childId": 3550,
+    "childName": "OPTION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 3691,
+    "parentName": "HOLIDAY_CALENDAR",
+    "childId": 3256,
+    "childName": "PARTY_HOLIDAY_CALENDAR",
+    "type": "association"
+  },
+  {
+    "parentId": 3691,
+    "parentName": "HOLIDAY_CALENDAR",
+    "childId": 487,
+    "childName": "SWAP_AGREEMENT_LEG",
+    "type": "association"
+  },
+  {
+    "parentId": 3693,
+    "parentName": "ISO_10962_CLASSIFICATION_OF_FINANCIAL_INSTRUMENTS",
+    "childId": 3526,
+    "childName": "INVESTMENT_PRODUCT_CFI",
+    "type": "association"
+  },
+  {
+    "parentId": 3694,
+    "parentName": "ISO_4217_CURRENCY_TYPE",
+    "childId": 3673,
+    "childName": "CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3694,
+    "parentName": "ISO_4217_CURRENCY_TYPE",
+    "childId": 1625,
+    "childName": "ISO_4217_COUNTRY_CURRENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3694,
+    "parentName": "ISO_4217_CURRENCY_TYPE",
+    "childId": 3694,
+    "childName": "ISO_4217_CURRENCY_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3695,
+    "parentName": "ISO_LANGUAGE_TYPE",
+    "childId": 3697,
+    "childName": "LANGUAGE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3696,
+    "parentName": "LANGUAGE_PROFICIENCY_TYPE",
+    "childId": 3278,
+    "childName": "PARTY_LANGUAGE_PROFICIENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 1774,
+    "childName": "CARD",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 2939,
+    "childName": "CONTACT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 1936,
+    "childName": "DOCUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 3278,
+    "childName": "PARTY_LANGUAGE_PROFICIENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 3279,
+    "childName": "PARTY_LANGUAGE_USAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 2513,
+    "childName": "RXNORM_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 2707,
+    "childName": "TEXT_SECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3697,
+    "parentName": "LANGUAGE_TYPE",
+    "childId": 3914,
+    "childName": "WEB_VISIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3698,
+    "parentName": "LANGUAGE_USAGE_TYPE",
+    "childId": 3279,
+    "childName": "PARTY_LANGUAGE_USAGE",
+    "type": "association"
+  },
+  {
+    "parentId": 3699,
+    "parentName": "LEGAL_CLASSIFICATION",
+    "childId": 3085,
+    "childName": "ORGANIZATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3700,
+    "parentName": "METRIC_DOMAIN_TYPE",
+    "childId": 2013,
+    "childName": "FINANCIAL_RULE_METRIC_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3701,
+    "parentName": "PROJECT_CLASSIFICATION_TYPE",
+    "childId": 2393,
+    "childName": "PROJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 8,
+    "childName": "ACCOUNT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1675,
+    "childName": "AGENT_REPORT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 29,
+    "childName": "AGREEMENT_BALANCE_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 44,
+    "childName": "AGREEMENT_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 69,
+    "childName": "AGREEMENT_GROUP_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 76,
+    "childName": "AGREEMENT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 95,
+    "childName": "AGREEMENT_INSURED_ASSET_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 107,
+    "childName": "AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 108,
+    "childName": "AGREEMENT_METRIC_PROJECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 112,
+    "childName": "AGREEMENT_PAYMENT_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 121,
+    "childName": "AGREEMENT_PROFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 129,
+    "childName": "AGREEMENT_RATE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 135,
+    "childName": "AGREEMENT_REVENUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 138,
+    "childName": "AGREEMENT_RISK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 159,
+    "childName": "AGREEMENT_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3463,
+    "childName": "AMOUNT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1690,
+    "childName": "ANALYTICAL_MODEL",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2878,
+    "childName": "ASSOCIATE_PERFORMANCE_EVALUATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1757,
+    "childName": "BANKERS_ACCEPTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "BASEL_COLLATERAL_HAIRCUT_PARAMETER_is_holding_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "BASEL_COLLATERAL_HAIRCUT_PARAMETER_is_remargining_frequency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1433,
+    "childName": "BOND",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 822,
+    "childName": "CHANNEL_CAPACITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 826,
+    "childName": "CHANNEL_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 838,
+    "childName": "CHANNEL_PROFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 842,
+    "childName": "CHANNEL_TYPE_CAPACITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 998,
+    "childName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 206,
+    "childName": "COLLATERAL_ITEM_RISK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1829,
+    "childName": "COLLECTION_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 223,
+    "childName": "CREDIT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1468,
+    "childName": "DIVIDEND_DECLARE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1936,
+    "childName": "DOCUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3485,
+    "childName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1166,
+    "childName": "EVENT_FORECAST_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1980,
+    "childName": "EXTERNAL_DIRECT_DEBIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1984,
+    "childName": "EXTERNAL_STANDING_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 293,
+    "childName": "FINANCE_EXPOSURE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2019,
+    "childName": "FLOATING_RATE_NOTE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "FOREIGN_EXCHANGE_AGREEMENT_is_buy_compound_frequency",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "FOREIGN_EXCHANGE_AGREEMENT_is_sell_compound_frequency",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2024,
+    "childName": "FOREIGN_EXCHANGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2025,
+    "childName": "FOREIGN_EXCHANGE_POINT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 308,
+    "childName": "FORWARD_RATE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2051,
+    "childName": "GEOGRAPHIC_ECONOMIC_MEASURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3774,
+    "childName": "HOLDING_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3018,
+    "childName": "INDIVIDUAL_PAY_TIMING",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1101,
+    "childName": "INSURABLE_INTEREST_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3025,
+    "childName": "INSURANCE_LINE_OF_BUSINESS_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1485,
+    "childName": "INSURANCE_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "INTEREST_BASED_AGREEMENT_is_compound_frequency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "INTEREST_BASED_AGREEMENT_is_reset_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3784,
+    "childName": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "INTEREST_RATE_INDEX_is_time_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1486,
+    "childName": "INTEREST_RATE_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2159,
+    "childName": "INTERNAL_DIRECT_DEBIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2166,
+    "childName": "INTERNAL_STANDING_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3054,
+    "childName": "LINE_OF_BUSINESS_PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3058,
+    "childName": "LOCATOR_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1513,
+    "childName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2243,
+    "childName": "MEDIUM_TERM_NOTE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 384,
+    "childName": "NEGOTIABLE_CERTIFICATE_OF_DEPOSIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3136,
+    "childName": "PARTY_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3145,
+    "childName": "PARTY_ASSET_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3180,
+    "childName": "PARTY_ASSET_REVENUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3183,
+    "childName": "PARTY_ASSET_SALVAGE_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3205,
+    "childName": "PARTY_CHANNEL_TYPE_ACTIVITY_QUOTA",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3221,
+    "childName": "PARTY_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3223,
+    "childName": "PARTY_CREDIT_INQUIRY_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3240,
+    "childName": "PARTY_FINANCIAL_DOCUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3248,
+    "childName": "PARTY_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3287,
+    "childName": "PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3288,
+    "childName": "PARTY_METRIC_PROJECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3298,
+    "childName": "PARTY_PRODUCT_GROUP_QUOTA",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3299,
+    "childName": "PARTY_PRODUCT_QUOTA",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3301,
+    "childName": "PARTY_PROFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3305,
+    "childName": "PARTY_QUOTA",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3316,
+    "childName": "PARTY_RELATIONSHIP_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3317,
+    "childName": "PARTY_REVENUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3556,
+    "childName": "PLANNED_PRODUCT_REVENUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 570,
+    "childName": "POLICY_ASSET_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2365,
+    "childName": "POLICY_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 1118,
+    "childName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3365,
+    "childName": "POLICY_INSURABLE_COVERAGE_PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2366,
+    "childName": "POLICY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3366,
+    "childName": "POLICY_PARTY_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3803,
+    "childName": "PORTFOLIO_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 938,
+    "childName": "POSITION_GRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3574,
+    "childName": "PRODUCT_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3599,
+    "childName": "PRODUCT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3606,
+    "childName": "PRODUCT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER_is_remargining_frequency_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER_is_time_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3617,
+    "childName": "PRODUCT_PROFIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3620,
+    "childName": "PRODUCT_REVENUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3635,
+    "childName": "PRODUCT_VALUE_AT_RISK",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2397,
+    "childName": "PROJECT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3644,
+    "childName": "QUANTITY_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 3648,
+    "childName": "RATE_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2584,
+    "childName": "SITE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 782,
+    "childName": "SURVEY_COST",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 486,
+    "childName": "SWAP_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "TERM_FEATURE_is_from_time_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "TERM_FEATURE_is_to_time_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "TERM_FEATURE_is_until_age_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "TIME_BAND_is_from_timer_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 0,
+    "childName": "TIME_BAND_is_to_timer_period_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3704,
+    "parentName": "TIME_PERIOD_TYPE",
+    "childId": 2821,
+    "childName": "WEATHER_NORMALS_PERIODIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1642,
+    "childName": "ACCESS_DEVICE_LIMIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1,
+    "childName": "ACCOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 8,
+    "childName": "ACCOUNT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1656,
+    "childName": "ACTIVE_INGREDIENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1660,
+    "childName": "ACTUAL_IMPACT_AREA_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 41,
+    "childName": "AGREEMENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 58,
+    "childName": "AGREEMENT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 61,
+    "childName": "AGREEMENT_FEATURE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 63,
+    "childName": "AGREEMENT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 76,
+    "childName": "AGREEMENT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 80,
+    "childName": "AGREEMENT_GROUP_RELATED_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 96,
+    "childName": "AGREEMENT_INSURED_ASSET_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 103,
+    "childName": "AGREEMENT_LIMIT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 107,
+    "childName": "AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 118,
+    "childName": "AGREEMENT_PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 119,
+    "childName": "AGREEMENT_PRODUCT_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 151,
+    "childName": "AGREEMENT_STATEMENT_LINE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 152,
+    "childName": "AGREEMENT_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1680,
+    "childName": "ALERT_SETUP",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "ALERT_SETUP_NOTIFICATION_PARTY_is_unit_of_measure_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3464,
+    "childName": "APPLICATION_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3465,
+    "childName": "APPLICATION_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1240,
+    "childName": "AP_INVOICE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1241,
+    "childName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1245,
+    "childName": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1246,
+    "childName": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1250,
+    "childName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1252,
+    "childName": "AR_INVOICE_LINE_QUANTITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 513,
+    "childName": "ASSET_DETAIL_CODE_XREF",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2869,
+    "childName": "ASSOCIATE_LABOR_TASK",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2870,
+    "childName": "ASSOCIATE_LEAVE_EARNED",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2871,
+    "childName": "ASSOCIATE_LEAVE_PLAN",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2873,
+    "childName": "ASSOCIATE_LEAVE_TAKEN",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2876,
+    "childName": "ASSOCIATE_PAYROLL_TRANSACTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 687,
+    "childName": "CAMPAIGN_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1261,
+    "childName": "CARD_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 825,
+    "childName": "CHANNEL_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1811,
+    "childName": "CHECK_BOOK_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 981,
+    "childName": "CLAIM_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 986,
+    "childName": "CLAIM_AUTHORIZATION_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 998,
+    "childName": "CLAIM_AUTHORIZATION_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1007,
+    "childName": "CLAIM_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1014,
+    "childName": "CLAIM_COVERAGE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1017,
+    "childName": "CLAIM_COVERAGE_INSURABLE_INTEREST_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1052,
+    "childName": "CLAIM_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1057,
+    "childName": "CLAIM_SERVICE_COVERAGE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1827,
+    "childName": "COA_QUANTITATIVE_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1838,
+    "childName": "COMMODITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2951,
+    "childName": "CONTACT_LIST_UPDATE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3757,
+    "childName": "DEFAULT_RECOVERY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 272,
+    "childName": "DERIVATIVE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1918,
+    "childName": "DIGITAL_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1931,
+    "childName": "DIRECT_PAY_ELEMENT_VARIABLE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1956,
+    "childName": "DRUG_NDC__GEO",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1159,
+    "childName": "EVENT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1166,
+    "childName": "EVENT_FORECAST_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1171,
+    "childName": "EVENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3495,
+    "childName": "FEATURE_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3502,
+    "childName": "FEATURE_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "FILE_TRANSFER_is_duration_measure_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "FILE_TRANSFER_is_transfer_measure_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2009,
+    "childName": "FINANCIAL_PLAN_PROJECT_TASK_RESOURCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3769,
+    "childName": "FINANCIAL_RISK_FACTOR",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 541,
+    "childName": "FIXED_ASSET_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2057,
+    "childName": "GEOSEQUENCE_POINT_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2064,
+    "childName": "GEOSPATIAL_POINT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 316,
+    "childName": "GL_MAIN_ACCOUNT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2079,
+    "childName": "GPS_PROGRAM",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1090,
+    "childName": "HEALTH_CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2115,
+    "childName": "INACTIVE_INGREDIENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1098,
+    "childName": "INSTITUTIONAL_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1101,
+    "childName": "INSURABLE_INTEREST_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1290,
+    "childName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1292,
+    "childName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2179,
+    "childName": "LABOR_FINANCIAL_PLAN",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 708,
+    "childName": "LEAD_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3058,
+    "childName": "LOCATOR_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3060,
+    "childName": "LOCATOR_PERIL_TYPE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3064,
+    "childName": "LOCATOR_TO_LOCATOR_DISTANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 715,
+    "childName": "LOYALTY_UNIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2232,
+    "childName": "MEASUREMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1205,
+    "childName": "MEASUREMENT_EVENT_MEASURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 563,
+    "childName": "MOTOR_VEHICLE_SPECIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 565,
+    "childName": "MOTOR_VEHICLE_USAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "MULTIMEDIA_IMAGE_OBJECT_describes",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "MULTIMEDIA_IMAGE_OBJECT_is_unit_of_measure_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2286,
+    "childName": "MULTIMEDIA_OBJECT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 906,
+    "childName": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "PAID_SEARCH_is_UOM_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "PAID_SEARCH_is_average_position_UOM_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3131,
+    "childName": "PARTY_AGREEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3141,
+    "childName": "PARTY_ASSET_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3186,
+    "childName": "PARTY_ASSET_SPECIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3215,
+    "childName": "PARTY_CLAIM_SERVICE_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3216,
+    "childName": "PARTY_CLAIM_SERVICE_DIAGNOSIS_AMOUNT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3220,
+    "childName": "PARTY_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3241,
+    "childName": "PARTY_FINANCIAL_DOCUMENT_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3248,
+    "childName": "PARTY_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3287,
+    "childName": "PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3288,
+    "childName": "PARTY_METRIC_PROJECTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3311,
+    "childName": "PARTY_RELATED_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3353,
+    "childName": "PARTY_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2351,
+    "childName": "PAY_ELEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2356,
+    "childName": "PAY_STUB_BALANCE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2357,
+    "childName": "PHARMACEUTICAL_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1116,
+    "childName": "PHARMACY_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 570,
+    "childName": "POLICY_ASSET_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2365,
+    "childName": "POLICY_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1118,
+    "childName": "POLICY_INSURABLE_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3365,
+    "childName": "POLICY_INSURABLE_COVERAGE_PARTY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2366,
+    "childName": "POLICY_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3366,
+    "childName": "POLICY_PARTY_COVERAGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 943,
+    "childName": "POSITION_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 945,
+    "childName": "POSSIBLE_ANSWER",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 425,
+    "childName": "PO_DELIVERY_RELEASE_LINE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 427,
+    "childName": "PO_LINE_DELIVERY_RELEASE_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2371,
+    "childName": "PO_TERM",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3571,
+    "childName": "PRODUCT_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3579,
+    "childName": "PRODUCT_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3599,
+    "childName": "PRODUCT_GROUP_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3606,
+    "childName": "PRODUCT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1126,
+    "childName": "PROFESSIONAL_CLAIM_SERVICE_DRUG",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2397,
+    "childName": "PROJECT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2404,
+    "childName": "PROJECT_TASK",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2409,
+    "childName": "PROJECT_TASK_RESOURCE_ITEM",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3394,
+    "childName": "PROJECT_TASK_RESOURCE_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 757,
+    "childName": "PROMOTION",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 762,
+    "childName": "PROMOTION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2429,
+    "childName": "PURCHASE_REQUISITION_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3644,
+    "childName": "QUANTITY_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3645,
+    "childName": "QUOTATION_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3646,
+    "childName": "QUOTATION_FEATURE_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1535,
+    "childName": "QUOTATION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2453,
+    "childName": "RECEIPT_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2467,
+    "childName": "RECEIVED_QUANTITY",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2501,
+    "childName": "RETURN_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3816,
+    "childName": "RISK_FACTOR_INSTRUMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2547,
+    "childName": "SELECTION_SET_CRITERION",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2579,
+    "childName": "SITE_CLASS_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2584,
+    "childName": "SITE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2595,
+    "childName": "SITE_TRAIT_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "SOCIAL_MEDIA_TRANSFER_is_duration_unit_of_measure_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "SOCIAL_MEDIA_TRANSFER_is_transfer_unit_of_measure_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "STANDARD_RESULT_VALID_VALUE_is_unit_of_measure_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1366,
+    "childName": "STATEMENT_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2647,
+    "childName": "STEP_ACTUAL_INPUT_OUTPUT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2656,
+    "childName": "STEP_STANDARD_INPUT_OUTPUT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 488,
+    "childName": "SWAP_AGREEMENT_LEG_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2689,
+    "childName": "TASK_ADJUSTMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2739,
+    "childName": "TRAIT",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "TRANSFER_EVENT_is_duration_unit_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "TRANSFER_EVENT_is_transfer_unit_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "UNIT_OF_MEASURE_CONVERSION_is_from_UOM",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "UNIT_OF_MEASURE_CONVERSION_is_to_UOM",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 574,
+    "childName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2784,
+    "childName": "VENDOR_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2785,
+    "childName": "VENDOR_PO_LINE_BACK_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2799,
+    "childName": "VENDOR_RECEIPT_LINE_VENDOR_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2800,
+    "childName": "VENDOR_RETURN_PO_LINE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3860,
+    "childName": "VISITOR_BEHAVIOR_ANALYSIS",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 2818,
+    "childName": "WEATHER_MEASURE_TYPE",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "WEB_PAGE_VIEW_defines_height",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "WEB_PAGE_VIEW_defines_width",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "WEB_PAGE_VIEW_is_UOM_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "WEB_PAGE_VIEW_specifies_measurement",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 3890,
+    "childName": "WEB_SERVER",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "WEB_VISIT_is_unit_of_measure_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3705,
+    "parentName": "UNIT_OF_MEASURE",
+    "childId": 0,
+    "childName": "WEB_VISIT_specifies_measurement_for",
+    "type": "association"
+  },
+  {
+    "parentId": 3707,
+    "parentName": "UNIT_OF_MEASURE_TYPE",
+    "childId": 3705,
+    "childName": "UNIT_OF_MEASURE",
+    "type": "association"
+  }
+]

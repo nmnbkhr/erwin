@@ -1,0 +1,996 @@
+[
+  {
+    "entityId": 1606,
+    "entityName": "ADDRESS",
+    "name": "Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1606,
+    "entityName": "ADDRESS",
+    "name": "Address_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1607,
+    "entityName": "ADDRESS_DELIVERY_STATUS",
+    "name": "Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1607,
+    "entityName": "ADDRESS_DELIVERY_STATUS",
+    "name": "Delivery_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1607,
+    "entityName": "ADDRESS_DELIVERY_STATUS",
+    "name": "Delivery_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1607,
+    "entityName": "ADDRESS_DELIVERY_STATUS",
+    "name": "Source_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1607,
+    "entityName": "ADDRESS_DELIVERY_STATUS",
+    "name": "Party_Address_Usage_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1607,
+    "entityName": "ADDRESS_DELIVERY_STATUS",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1607,
+    "entityName": "ADDRESS_DELIVERY_STATUS",
+    "name": "Party_Address_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1608,
+    "entityName": "ADDRESS_SUBTYPE",
+    "name": "Address_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1608,
+    "entityName": "ADDRESS_SUBTYPE",
+    "name": "Address_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1609,
+    "entityName": "COUNTRY",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1609,
+    "entityName": "COUNTRY",
+    "name": "Calendar_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1609,
+    "entityName": "COUNTRY",
+    "name": "Country_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1610,
+    "entityName": "COUNTRY_CODE_STANDARD",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1610,
+    "entityName": "COUNTRY_CODE_STANDARD",
+    "name": "Country_Code_Standard_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1611,
+    "entityName": "COUNTRY_CODE_STANDARD_TYPE",
+    "name": "Country_Code_Standard_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1611,
+    "entityName": "COUNTRY_CODE_STANDARD_TYPE",
+    "name": "Country_Code_Standard_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1611,
+    "entityName": "COUNTRY_CODE_STANDARD_TYPE",
+    "name": "Standard_Source_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1612,
+    "entityName": "COUNTRY_GROUP",
+    "name": "Country_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1613,
+    "entityName": "COUNTRY_TO_COUNTRY_GROUP",
+    "name": "Country_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1613,
+    "entityName": "COUNTRY_TO_COUNTRY_GROUP",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1614,
+    "entityName": "ELECTRONIC_ADDRESS",
+    "name": "Electronic_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1614,
+    "entityName": "ELECTRONIC_ADDRESS",
+    "name": "Electronic_Address_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1614,
+    "entityName": "ELECTRONIC_ADDRESS",
+    "name": "Electronic_Address_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1614,
+    "entityName": "ELECTRONIC_ADDRESS",
+    "name": "Electronic_Address_Domain_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1614,
+    "entityName": "ELECTRONIC_ADDRESS",
+    "name": "Domain_Root_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1615,
+    "entityName": "ELECTRONIC_ADDRESS_SUBTYPE",
+    "name": "Electronic_Address_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1615,
+    "entityName": "ELECTRONIC_ADDRESS_SUBTYPE",
+    "name": "Electronic_Address_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1616,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS",
+    "name": "Internet_Protocol_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1616,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS",
+    "name": "Internet_Protocol_Address_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1616,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS",
+    "name": "Internet_Protocol_Registered_By_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1616,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS",
+    "name": "Internet_Protocol_Network_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "To_Internet_Protocol_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "From_Internet_Protocol_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Source_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "DMA_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "MSA_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Telephone_Area_Code_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Time_Zone_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Latitude_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Longitude_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1617,
+    "entityName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "name": "Geospatial_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1618,
+    "entityName": "ISO_3166_ALPHA-2_COUNTRY",
+    "name": "ISO_3166_Country_Alpha-2_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 1619,
+    "entityName": "ISO_3166_ALPHA-3_COUNTRY",
+    "name": "ISO_3166_Country_Alpha-3_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 1620,
+    "entityName": "ISO_3166_COUNTRY_STANDARD",
+    "name": "ISO_3166_Country-3_Num",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1621,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "name": "ISO_3166_Country_Alpha-2_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 1621,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "name": "ISO_3166_Country_Subdivision_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 1621,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "name": "ISO_3166_Subdivision_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1621,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "name": "ISO_3166_Country_Subdivision_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1621,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION",
+    "name": "Parent_Subdivision_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1622,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION_STANDARD",
+    "name": "ISO_3166_Country_Alpha-2_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1622,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION_STANDARD",
+    "name": "ISO_3166_Country_Subdivision_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1623,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION_TYPE",
+    "name": "ISO_3166_Country_Subdivision_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1623,
+    "entityName": "ISO_3166_COUNTRY_SUBDIVISION_TYPE",
+    "name": "ISO_3166_Country_Subdivision_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1624,
+    "entityName": "ISO_3166_NUMERIC_COUNTRY",
+    "name": "ISO_3166_Country-3_Num",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 1624,
+    "entityName": "ISO_3166_NUMERIC_COUNTRY",
+    "name": "ISO_Country_Long_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1624,
+    "entityName": "ISO_3166_NUMERIC_COUNTRY",
+    "name": "ISO_3166_Country_Alpha-2_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1624,
+    "entityName": "ISO_3166_NUMERIC_COUNTRY",
+    "name": "ISO_3166_Country_Alpha-3_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 1625,
+    "entityName": "ISO_4217_COUNTRY_CURRENCY",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1625,
+    "entityName": "ISO_4217_COUNTRY_CURRENCY",
+    "name": "ISO_4217_Currency_Alpha-3_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 1625,
+    "entityName": "ISO_4217_COUNTRY_CURRENCY",
+    "name": "ISO_4217_Country_Currency_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1625,
+    "entityName": "ISO_4217_COUNTRY_CURRENCY",
+    "name": "ISO_4217_Country_Currency_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1625,
+    "entityName": "ISO_4217_COUNTRY_CURRENCY",
+    "name": "ISO_4217_Country_Currency_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1626,
+    "entityName": "ISO_4217_COUNTRY_CURRENCY_ROLE",
+    "name": "ISO_4217_Country_Currency_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1626,
+    "entityName": "ISO_4217_COUNTRY_CURRENCY_ROLE",
+    "name": "ISO_4217_Country_Currency_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1627,
+    "entityName": "OVERSEAS_MILITARY_ADDRESS",
+    "name": "Overseas_Military_Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1627,
+    "entityName": "OVERSEAS_MILITARY_ADDRESS",
+    "name": "Overseas_Military_City_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1627,
+    "entityName": "OVERSEAS_MILITARY_ADDRESS",
+    "name": "Overseas_Military_Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "Parcel_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "Page_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "Map_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "Parcel_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1628,
+    "entityName": "PARCEL_ADDRESS",
+    "name": "County_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1629,
+    "entityName": "REGION",
+    "name": "Region_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1629,
+    "entityName": "REGION",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1630,
+    "entityName": "ROUTING_TRANSIT_NUMBER_ADDRESS",
+    "name": "Routing_Transit_Number_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Street_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Address_Line_1_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Address_Line_2_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Address_Line_3_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Dwelling_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Census_Block_Id__Geo",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "City_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "Carrier_Route_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1631,
+    "entityName": "STREET_ADDRESS",
+    "name": "County_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Street_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Street_Address_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Street_Address_Number_Modifier_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Street_Direction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Street_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Street_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Street_Suffix_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Building_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Unit_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Floor_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Workspace_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Route_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Mail_Pickup_Tm",
+    "dataType": "TIME",
+    "nullable": false
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Mail_Delivery_Tm",
+    "dataType": "TIME",
+    "nullable": false
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Mail_Stop_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1632,
+    "entityName": "STREET_ADDRESS_DETAIL",
+    "name": "Mail_Box_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Street_Address_Japan_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Street_Building_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Building_Unit_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Dwelling_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Japan_Address_Line_1_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Japan_Address_Line_2_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Japan_Address_Line_3_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Japan_Carrier_Route_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Japan_Postal_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Japan_Block_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1633,
+    "entityName": "STREET_ADDRESS_JAPAN",
+    "name": "Japan_District_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1634,
+    "entityName": "STREET_ADDRESS_LINE",
+    "name": "Street_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1634,
+    "entityName": "STREET_ADDRESS_LINE",
+    "name": "Street_Line_Text_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1634,
+    "entityName": "STREET_ADDRESS_LINE",
+    "name": "Street_Address_Line_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1635,
+    "entityName": "STREET_SUFFIX_TYPE",
+    "name": "Street_Suffix_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1635,
+    "entityName": "STREET_SUFFIX_TYPE",
+    "name": "Street_Suffix_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1636,
+    "entityName": "TERRITORY",
+    "name": "Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1636,
+    "entityName": "TERRITORY",
+    "name": "Territory_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1636,
+    "entityName": "TERRITORY",
+    "name": "Country_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1636,
+    "entityName": "TERRITORY",
+    "name": "Region_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1637,
+    "entityName": "TERRITORY_STANDARD",
+    "name": "Territory_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1637,
+    "entityName": "TERRITORY_STANDARD",
+    "name": "Territory_Standard_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1638,
+    "entityName": "TERRITORY_STANDARD_TYPE",
+    "name": "Territory_Standard_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1638,
+    "entityName": "TERRITORY_STANDARD_TYPE",
+    "name": "Territory_Standard_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1638,
+    "entityName": "TERRITORY_STANDARD_TYPE",
+    "name": "Standard_Source_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1639,
+    "entityName": "TERRITORY_TYPE",
+    "name": "Territory_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1639,
+    "entityName": "TERRITORY_TYPE",
+    "name": "Territory_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1640,
+    "entityName": "WMO_COUNTRY_STANDARD",
+    "name": "WMO_Country_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1640,
+    "entityName": "WMO_COUNTRY_STANDARD",
+    "name": "WMO_Country_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  }
+]

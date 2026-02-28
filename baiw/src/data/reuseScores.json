@@ -1,0 +1,1535 @@
+[
+  {
+    "entityId": 3005,
+    "entityName": "INDIVIDUAL",
+    "domain": "Party Management",
+    "reuseCount": 101,
+    "tier": "P1"
+  },
+  {
+    "entityId": 3085,
+    "entityName": "ORGANIZATION",
+    "domain": "Party Management",
+    "reuseCount": 99,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_PREFERENCE",
+    "domain": "Other",
+    "reuseCount": 97,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_CLASSIFICATION",
+    "domain": "Other",
+    "reuseCount": 96,
+    "tier": "P1"
+  },
+  {
+    "entityId": 3329,
+    "entityName": "PARTY_SEGMENT",
+    "domain": "Party Management",
+    "reuseCount": 95,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_CLASSIFICATION_VALUE",
+    "domain": "Other",
+    "reuseCount": 95,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "POSTAL_ADDRESS",
+    "domain": "Other",
+    "reuseCount": 95,
+    "tier": "P1"
+  },
+  {
+    "entityId": 17,
+    "entityName": "AGREEMENT",
+    "domain": "Agreement & Account",
+    "reuseCount": 92,
+    "tier": "P1"
+  },
+  {
+    "entityId": 159,
+    "entityName": "AGREEMENT_SUMMARY",
+    "domain": "Agreement & Account",
+    "reuseCount": 91,
+    "tier": "P1"
+  },
+  {
+    "entityId": 3230,
+    "entityName": "PARTY_DEMOGRAPHIC",
+    "domain": "Party Management",
+    "reuseCount": 91,
+    "tier": "P1"
+  },
+  {
+    "entityId": 153,
+    "entityName": "AGREEMENT_STATUS",
+    "domain": "Agreement & Account",
+    "reuseCount": 88,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_STATUS_HISTORY",
+    "domain": "Other",
+    "reuseCount": 87,
+    "tier": "P1"
+  },
+  {
+    "entityId": 3132,
+    "entityName": "PARTY_AGREEMENT_ROLE",
+    "domain": "Party Management",
+    "reuseCount": 86,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_PARTY_ROLE",
+    "domain": "Other",
+    "reuseCount": 86,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_RELATIONSHIP",
+    "domain": "Other",
+    "reuseCount": 86,
+    "tier": "P1"
+  },
+  {
+    "entityId": 365,
+    "entityName": "LOAN_TERM_AGREEMENT",
+    "domain": "Agreement & Account",
+    "reuseCount": 86,
+    "tier": "P1"
+  },
+  {
+    "entityId": 333,
+    "entityName": "INSURANCE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "reuseCount": 84,
+    "tier": "P1"
+  },
+  {
+    "entityId": 3117,
+    "entityName": "PARTY",
+    "domain": "Party Management",
+    "reuseCount": 82,
+    "tier": "P1"
+  },
+  {
+    "entityId": 3257,
+    "entityName": "PARTY_IDENTIFICATION",
+    "domain": "Party Management",
+    "reuseCount": 82,
+    "tier": "P1"
+  },
+  {
+    "entityId": 260,
+    "entityName": "DEPOSIT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "reuseCount": 82,
+    "tier": "P1"
+  },
+  {
+    "entityId": 230,
+    "entityName": "CREDIT_CARD_AGREEMENT",
+    "domain": "Agreement & Account",
+    "reuseCount": 82,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "INTERNAL_ORGANIZATION_UNIT",
+    "domain": "Other",
+    "reuseCount": 82,
+    "tier": "P1"
+  },
+  {
+    "entityId": 2998,
+    "entityName": "HOUSEHOLD",
+    "domain": "Party Management",
+    "reuseCount": 81,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_RELATIONSHIP",
+    "domain": "Other",
+    "reuseCount": 81,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_TERM",
+    "domain": "Other",
+    "reuseCount": 79,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "BALANCE_SUMMARY",
+    "domain": "Other",
+    "reuseCount": 77,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_BALANCE",
+    "domain": "Other",
+    "reuseCount": 77,
+    "tier": "P1"
+  },
+  {
+    "entityId": 1936,
+    "entityName": "DOCUMENT",
+    "domain": "Other",
+    "reuseCount": 77,
+    "tier": "P1"
+  },
+  {
+    "entityId": 138,
+    "entityName": "AGREEMENT_RISK_METRIC",
+    "domain": "Agreement & Account",
+    "reuseCount": 77,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "ORGANIZATION_UNIT_RELATIONSHIP",
+    "domain": "Other",
+    "reuseCount": 76,
+    "tier": "P1"
+  },
+  {
+    "entityId": 3087,
+    "entityName": "ORGANIZATION_BUSINESS_TYPE",
+    "domain": "Party Management",
+    "reuseCount": 76,
+    "tier": "P1"
+  },
+  {
+    "entityId": 2043,
+    "entityName": "GEOGRAPHICAL_AREA",
+    "domain": "Other",
+    "reuseCount": 75,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "GEOGRAPHICAL_UNIT",
+    "domain": "Other",
+    "reuseCount": 75,
+    "tier": "P1"
+  },
+  {
+    "entityId": 2577,
+    "entityName": "SITE",
+    "domain": "Other",
+    "reuseCount": 75,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "MONETARY_TRANSACTION",
+    "domain": "Other",
+    "reuseCount": 74,
+    "tier": "P1"
+  },
+  {
+    "entityId": 1614,
+    "entityName": "ELECTRONIC_ADDRESS",
+    "domain": "Location & Geography",
+    "reuseCount": 74,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_REPRICING_SCHEDULE",
+    "domain": "Other",
+    "reuseCount": 74,
+    "tier": "P1"
+  },
+  {
+    "entityId": 2973,
+    "entityName": "DIRECT_CONTACT_EVENT",
+    "domain": "Party Management",
+    "reuseCount": 74,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "SURVEY",
+    "domain": "Other",
+    "reuseCount": 74,
+    "tier": "P1"
+  },
+  {
+    "entityId": 829,
+    "entityName": "CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "reuseCount": 72,
+    "tier": "P1"
+  },
+  {
+    "entityId": 1690,
+    "entityName": "ANALYTICAL_MODEL",
+    "domain": "Other",
+    "reuseCount": 72,
+    "tier": "P1"
+  },
+  {
+    "entityId": 2274,
+    "entityName": "MODEL_RUN",
+    "domain": "Other",
+    "reuseCount": 72,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "TRANSACTION_TYPE",
+    "domain": "Other",
+    "reuseCount": 71,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "FINANCIAL_TRANSACTION",
+    "domain": "Other",
+    "reuseCount": 71,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PAYMENT",
+    "domain": "Other",
+    "reuseCount": 71,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CAMPAIGN_RESPONSE",
+    "domain": "Other",
+    "reuseCount": 71,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "LOSS_EVENT",
+    "domain": "Other",
+    "reuseCount": 71,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "DEFAULT_EVENT",
+    "domain": "Other",
+    "reuseCount": 70,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "LIMIT_BREACH_EVENT",
+    "domain": "Other",
+    "reuseCount": 70,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CAMPAIGN_OFFER_RESPONSE",
+    "domain": "Other",
+    "reuseCount": 70,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PROVISION",
+    "domain": "Other",
+    "reuseCount": 70,
+    "tier": "P1"
+  },
+  {
+    "entityId": 0,
+    "entityName": "WRITE_OFF",
+    "domain": "Other",
+    "reuseCount": 70,
+    "tier": "P1"
+  },
+  {
+    "entityId": 1506,
+    "entityName": "MARKET_INDEX",
+    "domain": "Investment Management",
+    "reuseCount": 70,
+    "tier": "P1"
+  },
+  {
+    "entityId": 787,
+    "entityName": "SURVEY_QUESTION_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 69,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3819,
+    "entityName": "RISK_GRADE_SCHEME",
+    "domain": "Risk Management",
+    "reuseCount": 69,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "domain": "Risk Management",
+    "reuseCount": 69,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1703,
+    "entityName": "APPLICATION",
+    "domain": "Other",
+    "reuseCount": 67,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "INVESTMENT_PRODUCT_PRICE",
+    "domain": "Other",
+    "reuseCount": 67,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_REPAYMENT_SCHEDULE",
+    "domain": "Other",
+    "reuseCount": 67,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_CONDITION",
+    "domain": "Other",
+    "reuseCount": 67,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "RISK_EXPOSURE",
+    "domain": "Other",
+    "reuseCount": 67,
+    "tier": "P2"
+  },
+  {
+    "entityId": 246,
+    "entityName": "CREDIT_RISK_SUMMARY",
+    "domain": "Agreement & Account",
+    "reuseCount": 67,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1507,
+    "entityName": "MARKET_INDEX_VALUE",
+    "domain": "Investment Management",
+    "reuseCount": 67,
+    "tier": "P2"
+  },
+  {
+    "entityId": 102,
+    "entityName": "AGREEMENT_LIMIT",
+    "domain": "Agreement & Account",
+    "reuseCount": 66,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "LIMIT",
+    "domain": "Other",
+    "reuseCount": 66,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3284,
+    "entityName": "PARTY_LIMIT",
+    "domain": "Party Management",
+    "reuseCount": 66,
+    "tier": "P2"
+  },
+  {
+    "entityId": 976,
+    "entityName": "CLAIM",
+    "domain": "Claims Management",
+    "reuseCount": 64,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1068,
+    "entityName": "CLAIM_STATUS",
+    "domain": "Claims Management",
+    "reuseCount": 64,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CLAIM_PARTY_ROLE",
+    "domain": "Other",
+    "reuseCount": 64,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CLAIM_PAYMENT",
+    "domain": "Other",
+    "reuseCount": 64,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3282,
+    "entityName": "PARTY_LIABILITY_CREDIT_RATING",
+    "domain": "Party Management",
+    "reuseCount": 63,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3673,
+    "entityName": "CURRENCY",
+    "domain": "Reference Data",
+    "reuseCount": 63,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CURRENCY_EXCHANGE_RATE",
+    "domain": "Other",
+    "reuseCount": 63,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CURRENCY_PAIR",
+    "domain": "Other",
+    "reuseCount": 63,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1583,
+    "entityName": "TRADE_ORDER",
+    "domain": "Investment Management",
+    "reuseCount": 62,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1578,
+    "entityName": "TRADE_EXECUTION",
+    "domain": "Investment Management",
+    "reuseCount": 62,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "TRADING_POSITION",
+    "domain": "Other",
+    "reuseCount": 62,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_VALUATION",
+    "domain": "Other",
+    "reuseCount": 62,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_CONTACT_POINT",
+    "domain": "Other",
+    "reuseCount": 61,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "domain": "Product Management",
+    "reuseCount": 61,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "COLLATERAL_VALUATION",
+    "domain": "Other",
+    "reuseCount": 61,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3136,
+    "entityName": "PARTY_ASSET",
+    "domain": "Party Management",
+    "reuseCount": 61,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3914,
+    "entityName": "WEB_VISIT",
+    "domain": "Web Analytics",
+    "reuseCount": 60,
+    "tier": "P2"
+  },
+  {
+    "entityId": 58,
+    "entityName": "AGREEMENT_FEATURE",
+    "domain": "Agreement & Account",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "domain": "Product Management",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3483,
+    "entityName": "DESCRIPTIVE_FEATURE",
+    "domain": "Product Management",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "BRANCH_VISIT_EVENT",
+    "domain": "Other",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CALL_EVENT",
+    "domain": "Other",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3884,
+    "entityName": "WEB_PAGE_VIEW",
+    "domain": "Web Analytics",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "ONLINE_INTERACTION_EVENT",
+    "domain": "Other",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3855,
+    "entityName": "EXTENDED_SESSION_INFORMATION",
+    "domain": "Web Analytics",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 887,
+    "entityName": "ONLINE_APPLICATION_ACCESS",
+    "domain": "Channel Management",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3231,
+    "entityName": "PARTY_DOCUMENT",
+    "domain": "Party Management",
+    "reuseCount": 59,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3341,
+    "entityName": "PARTY_SURVEY_RESPONSE",
+    "domain": "Party Management",
+    "reuseCount": 58,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1726,
+    "entityName": "APPLICATION_STATUS",
+    "domain": "Other",
+    "reuseCount": 57,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "APPLICATION_PARTY_ROLE",
+    "domain": "Other",
+    "reuseCount": 57,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "MODEL_SCORE",
+    "domain": "Other",
+    "reuseCount": 57,
+    "tier": "P2"
+  },
+  {
+    "entityId": 198,
+    "entityName": "COLLATERAL_AGREEMENT",
+    "domain": "Agreement & Account",
+    "reuseCount": 57,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "COLLATERAL",
+    "domain": "Other",
+    "reuseCount": 57,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CORRESPONDENCE_EVENT",
+    "domain": "Other",
+    "reuseCount": 56,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "SMS_EVENT",
+    "domain": "Other",
+    "reuseCount": 56,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "EMAIL_EVENT",
+    "domain": "Other",
+    "reuseCount": 56,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "MOBILE_APP_EVENT",
+    "domain": "Other",
+    "reuseCount": 56,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "INSURANCE_COVERAGE",
+    "domain": "Other",
+    "reuseCount": 56,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "COVERAGE_TYPE",
+    "domain": "Other",
+    "reuseCount": 56,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_MARKETING_PREFERENCE",
+    "domain": "Other",
+    "reuseCount": 55,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_CONSENT",
+    "domain": "Other",
+    "reuseCount": 55,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CASE",
+    "domain": "Other",
+    "reuseCount": 54,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1140,
+    "entityName": "CASE_EVENT",
+    "domain": "Event Management",
+    "reuseCount": 54,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CASE_PARTY_ROLE",
+    "domain": "Other",
+    "reuseCount": 54,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "FRAUD_CASE",
+    "domain": "Other",
+    "reuseCount": 54,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1156,
+    "entityName": "EVENT",
+    "domain": "Event Management",
+    "reuseCount": 53,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CHANNEL_USAGE_METRIC",
+    "domain": "Other",
+    "reuseCount": 52,
+    "tier": "P2"
+  },
+  {
+    "entityId": 646,
+    "entityName": "CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 52,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CAMPAIGN_WAVE",
+    "domain": "Other",
+    "reuseCount": 52,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "SERVICE_USAGE_EVENT",
+    "domain": "Other",
+    "reuseCount": 51,
+    "tier": "P2"
+  },
+  {
+    "entityId": 841,
+    "entityName": "CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "reuseCount": 51,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CHANNEL_CLASSIFICATION",
+    "domain": "Other",
+    "reuseCount": 51,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "FEE_TRANSACTION",
+    "domain": "Other",
+    "reuseCount": 50,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "COMMISSION_TRANSACTION",
+    "domain": "Other",
+    "reuseCount": 50,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_FEE",
+    "domain": "Other",
+    "reuseCount": 50,
+    "tier": "P2"
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "domain": "Asset Management",
+    "reuseCount": 50,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "REAL_PROPERTY",
+    "domain": "Other",
+    "reuseCount": 50,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_ASSET_VALUATION",
+    "domain": "Other",
+    "reuseCount": 50,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "REAL_PROPERTY_VALUATION",
+    "domain": "Other",
+    "reuseCount": 50,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "COMPLAINT",
+    "domain": "Other",
+    "reuseCount": 49,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "COMPLAINT_STATUS",
+    "domain": "Other",
+    "reuseCount": 49,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "COMPLAINT_RESOLUTION",
+    "domain": "Other",
+    "reuseCount": 49,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "RISK_POLICY",
+    "domain": "Other",
+    "reuseCount": 49,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "BUSINESS_RULE",
+    "domain": "Other",
+    "reuseCount": 49,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CREDIT_BUREAU_SCORE",
+    "domain": "Other",
+    "reuseCount": 48,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_EXTERNAL_RATING",
+    "domain": "Other",
+    "reuseCount": 48,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "INVESTMENT_ACCOUNT",
+    "domain": "Other",
+    "reuseCount": 48,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1494,
+    "entityName": "INVESTMENT_HOLDING",
+    "domain": "Investment Management",
+    "reuseCount": 48,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PROCESS_EVENT",
+    "domain": "Other",
+    "reuseCount": 46,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_COMPLIANCE_VERIFICATION",
+    "domain": "Other",
+    "reuseCount": 45,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "OPERATIONAL_EVENT",
+    "domain": "Other",
+    "reuseCount": 45,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3280,
+    "entityName": "PARTY_LEGAL_ACTION",
+    "domain": "Party Management",
+    "reuseCount": 45,
+    "tier": "P2"
+  },
+  {
+    "entityId": 2195,
+    "entityName": "LEGAL_ACTION",
+    "domain": "Other",
+    "reuseCount": 45,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_LITIGATION",
+    "domain": "Other",
+    "reuseCount": 45,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "domain": "Risk Management",
+    "reuseCount": 45,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "RISK_SCENARIO_RESULT",
+    "domain": "Other",
+    "reuseCount": 45,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3833,
+    "entityName": "STRESS_TEST_RESULT",
+    "domain": "Risk Management",
+    "reuseCount": 45,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "DIGITAL_CONTENT",
+    "domain": "Other",
+    "reuseCount": 44,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_IDENTITY_DOCUMENT",
+    "domain": "Other",
+    "reuseCount": 43,
+    "tier": "P2"
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "domain": "Product Management",
+    "reuseCount": 43,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1950,
+    "entityName": "DOCUMENT_TYPE",
+    "domain": "Other",
+    "reuseCount": 43,
+    "tier": "P2"
+  },
+  {
+    "entityId": 689,
+    "entityName": "CAMPAIGN_TYPE",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 43,
+    "tier": "P2"
+  },
+  {
+    "entityId": 679,
+    "entityName": "CAMPAIGN_STATUS",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 43,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "MODEL_PARAMETER",
+    "domain": "Other",
+    "reuseCount": 43,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1227,
+    "entityName": "VISITOR_INTERACTION_EVENT",
+    "domain": "Event Management",
+    "reuseCount": 42,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_CREDIT_BUREAU_REPORT",
+    "domain": "Other",
+    "reuseCount": 42,
+    "tier": "P2"
+  },
+  {
+    "entityId": 1661,
+    "entityName": "AD",
+    "domain": "Other",
+    "reuseCount": 42,
+    "tier": "P2"
+  },
+  {
+    "entityId": 620,
+    "entityName": "AD_PLACEMENT",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 42,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AD_IMPRESSION",
+    "domain": "Other",
+    "reuseCount": 42,
+    "tier": "P2"
+  },
+  {
+    "entityId": 580,
+    "entityName": "AD_CAMPAIGN_OBJECTIVE",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 42,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PERFORMANCE_METRIC",
+    "domain": "Other",
+    "reuseCount": 41,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PERFORMANCE_TARGET",
+    "domain": "Other",
+    "reuseCount": 41,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "ORGANIZATION_PERFORMANCE",
+    "domain": "Other",
+    "reuseCount": 41,
+    "tier": "P2"
+  },
+  {
+    "entityId": 2857,
+    "entityName": "ASSOCIATE",
+    "domain": "Party Management",
+    "reuseCount": 41,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "ASSOCIATE_ASSIGNMENT",
+    "domain": "Other",
+    "reuseCount": 41,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_MODEL_SCORE",
+    "domain": "Other",
+    "reuseCount": 40,
+    "tier": "P2"
+  },
+  {
+    "entityId": 0,
+    "entityName": "SOCIAL_MEDIA_ACCOUNT",
+    "domain": "Other",
+    "reuseCount": 39,
+    "tier": "P3"
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "domain": "Financial Transaction",
+    "reuseCount": 39,
+    "tier": "P3"
+  },
+  {
+    "entityId": 964,
+    "entityName": "SOCIAL_MEDIA_POST",
+    "domain": "Channel Management",
+    "reuseCount": 39,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "NON_MONETARY_EVENT",
+    "domain": "Other",
+    "reuseCount": 39,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "QUOTE",
+    "domain": "Other",
+    "reuseCount": 39,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "INTEREST_RATE",
+    "domain": "Other",
+    "reuseCount": 39,
+    "tier": "P3"
+  },
+  {
+    "entityId": 2155,
+    "entityName": "INTEREST_RATE_INDEX",
+    "domain": "Other",
+    "reuseCount": 39,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "INTERBANK_PAYMENT",
+    "domain": "Other",
+    "reuseCount": 39,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_PROFITABILITY",
+    "domain": "Other",
+    "reuseCount": 38,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PRODUCT_PROFITABILITY",
+    "domain": "Other",
+    "reuseCount": 38,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "TEXT_CONTENT",
+    "domain": "Other",
+    "reuseCount": 37,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "GL_ACCOUNT",
+    "domain": "Other",
+    "reuseCount": 37,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PRODUCT_INTEREST_RATE",
+    "domain": "Other",
+    "reuseCount": 37,
+    "tier": "P3"
+  },
+  {
+    "entityId": 314,
+    "entityName": "GL_MAIN_ACCOUNT",
+    "domain": "Agreement & Account",
+    "reuseCount": 36,
+    "tier": "P3"
+  },
+  {
+    "entityId": 2781,
+    "entityName": "VENDOR",
+    "domain": "Other",
+    "reuseCount": 36,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "VENDOR_INVOICE",
+    "domain": "Other",
+    "reuseCount": 36,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_AMORTIZATION_SCHEDULE",
+    "domain": "Other",
+    "reuseCount": 36,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "MERCHANT",
+    "domain": "Other",
+    "reuseCount": 34,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "MERCHANT_CATEGORY",
+    "domain": "Other",
+    "reuseCount": 34,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "NEWS_FEED",
+    "domain": "Other",
+    "reuseCount": 33,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PRODUCT_PRICING",
+    "domain": "Other",
+    "reuseCount": 33,
+    "tier": "P3"
+  },
+  {
+    "entityId": 3574,
+    "entityName": "PRODUCT_COST",
+    "domain": "Product Management",
+    "reuseCount": 33,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "ECONOMIC_INDEX",
+    "domain": "Other",
+    "reuseCount": 33,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "ECONOMIC_INDEX_VALUE",
+    "domain": "Other",
+    "reuseCount": 33,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "AGREEMENT_CASHFLOW",
+    "domain": "Other",
+    "reuseCount": 32,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CASHFLOW_SCHEDULE",
+    "domain": "Other",
+    "reuseCount": 32,
+    "tier": "P3"
+  },
+  {
+    "entityId": 3435,
+    "entityName": "TELEPHONE_NUMBER",
+    "domain": "Party Management",
+    "reuseCount": 31,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PRODUCT_VALUATION",
+    "domain": "Other",
+    "reuseCount": 31,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PROSPECT",
+    "domain": "Other",
+    "reuseCount": 30,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_LIST",
+    "domain": "Other",
+    "reuseCount": 30,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_LIST_MEMBERSHIP",
+    "domain": "Other",
+    "reuseCount": 30,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CORPORATE_ACTION",
+    "domain": "Other",
+    "reuseCount": 29,
+    "tier": "P3"
+  },
+  {
+    "entityId": 722,
+    "entityName": "OPPORTUNITY",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 29,
+    "tier": "P3"
+  },
+  {
+    "entityId": 744,
+    "entityName": "OPPORTUNITY_STATUS",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 29,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "OPPORTUNITY_PARTY_ROLE",
+    "domain": "Other",
+    "reuseCount": 29,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "ASSOCIATE_PERFORMANCE_REVIEW",
+    "domain": "Other",
+    "reuseCount": 28,
+    "tier": "P3"
+  },
+  {
+    "entityId": 2809,
+    "entityName": "WATCH_LIST",
+    "domain": "Other",
+    "reuseCount": 25,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "WATCH_LIST_ENTRY",
+    "domain": "Other",
+    "reuseCount": 25,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "PARTY_WATCH_LIST_CHECK",
+    "domain": "Other",
+    "reuseCount": 25,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "COMPLIANCE_EVENT",
+    "domain": "Other",
+    "reuseCount": 24,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "APPROVAL",
+    "domain": "Other",
+    "reuseCount": 24,
+    "tier": "P3"
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "domain": "Risk Management",
+    "reuseCount": 24,
+    "tier": "P3"
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "domain": "Risk Management",
+    "reuseCount": 24,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "BUDGET",
+    "domain": "Other",
+    "reuseCount": 23,
+    "tier": "P3"
+  },
+  {
+    "entityId": 0,
+    "entityName": "FORECAST",
+    "domain": "Other",
+    "reuseCount": 23,
+    "tier": "P3"
+  },
+  {
+    "entityId": 2007,
+    "entityName": "FINANCIAL_PLAN",
+    "domain": "Other",
+    "reuseCount": 23,
+    "tier": "P3"
+  },
+  {
+    "entityId": 657,
+    "entityName": "CAMPAIGN_COST",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 18,
+    "tier": "P4"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CAMPAIGN_BUDGET",
+    "domain": "Other",
+    "reuseCount": 18,
+    "tier": "P4"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CALL_RECORDING",
+    "domain": "Other",
+    "reuseCount": 17,
+    "tier": "P4"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CAMPAIGN_SCHEDULE",
+    "domain": "Other",
+    "reuseCount": 17,
+    "tier": "P4"
+  },
+  {
+    "entityId": 0,
+    "entityName": "OPERATIONAL_LOSS_EVENT",
+    "domain": "Other",
+    "reuseCount": 16,
+    "tier": "P4"
+  },
+  {
+    "entityId": 720,
+    "entityName": "OFFER",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 16,
+    "tier": "P4"
+  },
+  {
+    "entityId": 721,
+    "entityName": "OFFER_TYPE",
+    "domain": "Campaign & Marketing",
+    "reuseCount": 16,
+    "tier": "P4"
+  },
+  {
+    "entityId": 0,
+    "entityName": "CAMPAIGN_OFFER",
+    "domain": "Other",
+    "reuseCount": 16,
+    "tier": "P4"
+  },
+  {
+    "entityId": 0,
+    "entityName": "SERVICE_LEVEL_METRIC",
+    "domain": "Other",
+    "reuseCount": 15,
+    "tier": "P4"
+  },
+  {
+    "entityId": 0,
+    "entityName": "SYSTEM_EVENT",
+    "domain": "Other",
+    "reuseCount": 14,
+    "tier": "P4"
+  },
+  {
+    "entityId": 0,
+    "entityName": "MEDIA_ASSET",
+    "domain": "Other",
+    "reuseCount": 13,
+    "tier": "P4"
+  }
+]

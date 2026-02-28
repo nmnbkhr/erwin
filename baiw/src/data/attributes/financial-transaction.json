@@ -1,0 +1,4076 @@
+[
+  {
+    "entityId": 1238,
+    "entityName": "AP_INVOICE",
+    "name": "AP_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1238,
+    "entityName": "AP_INVOICE",
+    "name": "AP_Invoice_Batch_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1238,
+    "entityName": "AP_INVOICE",
+    "name": "AP_Invoice_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1238,
+    "entityName": "AP_INVOICE",
+    "name": "AP_Invoice_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1238,
+    "entityName": "AP_INVOICE",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "AP_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "AP_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "AP_Invoice_Line_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "AP_Invoice_Line_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "AP_Invoice_Line_Merchant_Document_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "AP_Invoice_Line_Quantity_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "AP_Invoice_Line_Asset_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "AP_Invoice_Line_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1240,
+    "entityName": "AP_INVOICE_LINE",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Adjusted_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Adjustment_Creation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Adjustment_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Adjustment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Adjustment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Adjustment_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Adjustment_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "AP_Invoice_Line_Adjustment_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1241,
+    "entityName": "AP_INVOICE_LINE_ADJUSTMENT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1242,
+    "entityName": "AP_INVOICE_LINE_AMOUNT",
+    "name": "AP_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1242,
+    "entityName": "AP_INVOICE_LINE_AMOUNT",
+    "name": "AP_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1242,
+    "entityName": "AP_INVOICE_LINE_AMOUNT",
+    "name": "AP_Invoice_Line_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1242,
+    "entityName": "AP_INVOICE_LINE_AMOUNT",
+    "name": "AP_Invoice_Line_Amount_Global_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1242,
+    "entityName": "AP_INVOICE_LINE_AMOUNT",
+    "name": "AP_Invoice_Line_Amount_Local_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1242,
+    "entityName": "AP_INVOICE_LINE_AMOUNT",
+    "name": "AP_Invoice_Line_Amount_Transaction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1243,
+    "entityName": "AP_INVOICE_LINE_PAYMENT",
+    "name": "AP_Invoice_Line_Payment_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1243,
+    "entityName": "AP_INVOICE_LINE_PAYMENT",
+    "name": "AP_Invoice_Line_Payment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1243,
+    "entityName": "AP_INVOICE_LINE_PAYMENT",
+    "name": "AP_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1243,
+    "entityName": "AP_INVOICE_LINE_PAYMENT",
+    "name": "AP_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1243,
+    "entityName": "AP_INVOICE_LINE_PAYMENT",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1243,
+    "entityName": "AP_INVOICE_LINE_PAYMENT",
+    "name": "AP_Invoice_Line_Payment_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1244,
+    "entityName": "AP_INVOICE_LINE_STATUS",
+    "name": "AP_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1244,
+    "entityName": "AP_INVOICE_LINE_STATUS",
+    "name": "AP_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1244,
+    "entityName": "AP_INVOICE_LINE_STATUS",
+    "name": "AP_Invoice_Line_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1244,
+    "entityName": "AP_INVOICE_LINE_STATUS",
+    "name": "AP_Invoice_Line_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1244,
+    "entityName": "AP_INVOICE_LINE_STATUS",
+    "name": "AP_Invoice_Line_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1244,
+    "entityName": "AP_INVOICE_LINE_STATUS",
+    "name": "AP_Invoice_Line_Status_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1245,
+    "entityName": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "name": "AP_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1245,
+    "entityName": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "name": "AP_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1245,
+    "entityName": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "name": "Vendor_PO_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1245,
+    "entityName": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "name": "Vendor_PO_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1245,
+    "entityName": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "name": "AP_Invoice_Line_Vendor_PO_Line_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1245,
+    "entityName": "AP_INVOICE_LINE_VENDOR_PO_LINE",
+    "name": "AP_Invoice_Line_Vendor_PO_Line_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1246,
+    "entityName": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "name": "AP_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1246,
+    "entityName": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "name": "AP_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1246,
+    "entityName": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "name": "Vendor_Receipt_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1246,
+    "entityName": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "name": "Receipt_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1246,
+    "entityName": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "name": "AP_Invoice_Line_Vendor_Receipt_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1246,
+    "entityName": "AP_INVOICE_LINE_VENDOR_RECEIPT_LINE",
+    "name": "AP_Invoice_Line_Vendor_Receipt_Line_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1247,
+    "entityName": "AP_INVOICE_SUBTYPE",
+    "name": "AP_Invoice_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1247,
+    "entityName": "AP_INVOICE_SUBTYPE",
+    "name": "AP_Invoice_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1248,
+    "entityName": "AR_INVOICE",
+    "name": "AR_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1248,
+    "entityName": "AR_INVOICE",
+    "name": "AR_Invoice_Customer_PO_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1248,
+    "entityName": "AR_INVOICE",
+    "name": "AR_Invoice_GL_Batch_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1248,
+    "entityName": "AR_INVOICE",
+    "name": "AR_Invoice_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1248,
+    "entityName": "AR_INVOICE",
+    "name": "AR_Invoice_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1248,
+    "entityName": "AR_INVOICE",
+    "name": "AR_Invoice_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1248,
+    "entityName": "AR_INVOICE",
+    "name": "Order_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1248,
+    "entityName": "AR_INVOICE",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1249,
+    "entityName": "AR_INVOICE_LINE",
+    "name": "AR_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1249,
+    "entityName": "AR_INVOICE_LINE",
+    "name": "AR_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1249,
+    "entityName": "AR_INVOICE_LINE",
+    "name": "AR_Invoice_Line_Description_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1249,
+    "entityName": "AR_INVOICE_LINE",
+    "name": "AR_Invoice_Line_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1249,
+    "entityName": "AR_INVOICE_LINE",
+    "name": "Host_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1249,
+    "entityName": "AR_INVOICE_LINE",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1249,
+    "entityName": "AR_INVOICE_LINE",
+    "name": "AR_Invoice_Line_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1249,
+    "entityName": "AR_INVOICE_LINE",
+    "name": "AR_Invoice_Line_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Adjustment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Adjustment_Creation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Adjustment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Adjustment_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Adjustment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Adjustment_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Adjustment_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "AR_Invoice_Line_Adjustment_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1250,
+    "entityName": "AR_INVOICE_LINE_ADJUSTMENT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1251,
+    "entityName": "AR_INVOICE_LINE_AMOUNT",
+    "name": "AR_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1251,
+    "entityName": "AR_INVOICE_LINE_AMOUNT",
+    "name": "AR_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1251,
+    "entityName": "AR_INVOICE_LINE_AMOUNT",
+    "name": "AR_Invoice_Line_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1251,
+    "entityName": "AR_INVOICE_LINE_AMOUNT",
+    "name": "AR_Invoice_Line_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1251,
+    "entityName": "AR_INVOICE_LINE_AMOUNT",
+    "name": "AR_Invoice_Line_Amount_Global_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1251,
+    "entityName": "AR_INVOICE_LINE_AMOUNT",
+    "name": "AR_Invoice_Line_Amount_Transaction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1251,
+    "entityName": "AR_INVOICE_LINE_AMOUNT",
+    "name": "AR_Invoice_Line_Amount_Local_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1252,
+    "entityName": "AR_INVOICE_LINE_QUANTITY",
+    "name": "AR_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1252,
+    "entityName": "AR_INVOICE_LINE_QUANTITY",
+    "name": "AR_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1252,
+    "entityName": "AR_INVOICE_LINE_QUANTITY",
+    "name": "Invoice_Quantity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1252,
+    "entityName": "AR_INVOICE_LINE_QUANTITY",
+    "name": "AR_Invoice_Line_Quantity_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1252,
+    "entityName": "AR_INVOICE_LINE_QUANTITY",
+    "name": "AR_Invoice_Line_Quantity_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1253,
+    "entityName": "AR_INVOICE_LINE_RECEIPT",
+    "name": "AR_Invoice_Line_Receipt_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1253,
+    "entityName": "AR_INVOICE_LINE_RECEIPT",
+    "name": "AR_Invoice_Line_Receipt_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1253,
+    "entityName": "AR_INVOICE_LINE_RECEIPT",
+    "name": "AR_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1253,
+    "entityName": "AR_INVOICE_LINE_RECEIPT",
+    "name": "AR_Invoice_Line_Receipt_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1253,
+    "entityName": "AR_INVOICE_LINE_RECEIPT",
+    "name": "AR_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1253,
+    "entityName": "AR_INVOICE_LINE_RECEIPT",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1254,
+    "entityName": "AR_INVOICE_LINE_TYPE",
+    "name": "AR_Invoice_Line_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1254,
+    "entityName": "AR_INVOICE_LINE_TYPE",
+    "name": "AR_Invoice_Line_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1255,
+    "entityName": "AR_INVOICE_REASON_TYPE",
+    "name": "AR_Invoice_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1255,
+    "entityName": "AR_INVOICE_REASON_TYPE",
+    "name": "AR_Invoice_Reason_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1256,
+    "entityName": "AR_INVOICE_TYPE",
+    "name": "AR_Invoice_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1256,
+    "entityName": "AR_INVOICE_TYPE",
+    "name": "AR_Invoice_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1257,
+    "entityName": "BANK_TRANSFER_EVENT_TYPE",
+    "name": "Bank_Transfer_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1257,
+    "entityName": "BANK_TRANSFER_EVENT_TYPE",
+    "name": "Bank_Transfer_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1258,
+    "entityName": "BOND_PAYMENT_SCHEDULE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1258,
+    "entityName": "BOND_PAYMENT_SCHEDULE",
+    "name": "Bond_Payment_Interest_Payment_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1258,
+    "entityName": "BOND_PAYMENT_SCHEDULE",
+    "name": "Bond_Payment_Interest_Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1258,
+    "entityName": "BOND_PAYMENT_SCHEDULE",
+    "name": "Bond_Payment_Rate_Fixing_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1258,
+    "entityName": "BOND_PAYMENT_SCHEDULE",
+    "name": "Bond_Interest_Payment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1258,
+    "entityName": "BOND_PAYMENT_SCHEDULE",
+    "name": "Bond_Payment_Cash_Flow_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1259,
+    "entityName": "CARD_STATEMENT",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1259,
+    "entityName": "CARD_STATEMENT",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1259,
+    "entityName": "CARD_STATEMENT",
+    "name": "Access_Device_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1260,
+    "entityName": "CARD_STATEMENT_LINE_ITEM",
+    "name": "Statement_Merchant_Purchase_Reference_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1260,
+    "entityName": "CARD_STATEMENT_LINE_ITEM",
+    "name": "Statement_Merchant_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1260,
+    "entityName": "CARD_STATEMENT_LINE_ITEM",
+    "name": "Statement_Organization_Business_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1260,
+    "entityName": "CARD_STATEMENT_LINE_ITEM",
+    "name": "Statement_Merchant_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1260,
+    "entityName": "CARD_STATEMENT_LINE_ITEM",
+    "name": "Access_Device_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Access_Device_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Statement_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Card_Statement_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Card_Statement_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Card_Statement_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1261,
+    "entityName": "CARD_STATEMENT_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1262,
+    "entityName": "CHECK_TRANSACTION_TYPE",
+    "name": "Check_Transaction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1262,
+    "entityName": "CHECK_TRANSACTION_TYPE",
+    "name": "Check_Transaction_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1263,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_PAYMENT_TYPE",
+    "name": "Claim_Exposure_Activity_Payment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1263,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_PAYMENT_TYPE",
+    "name": "Claim_Exposure_Activity_Payment_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1264,
+    "entityName": "CLAIM_IVR_STEP_TRANSACTION",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1265,
+    "entityName": "CLAIM_PAYMENT_TYPE",
+    "name": "Claim_Payment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1265,
+    "entityName": "CLAIM_PAYMENT_TYPE",
+    "name": "Claim_Payment_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Monetary_Balance_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Starting_Monetary_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Ending_Monetary_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Average_Monetary_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Average_Global_Monetary_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Starting_Global_Monetary_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Ending_Global_Monetary_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Starting_Currency_Segment_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Ending_Currency_Segment_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1266,
+    "entityName": "COA_MONETARY_BALANCE",
+    "name": "Average_Currency_Segment_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1267,
+    "entityName": "COLLECTION_DEBT_INVOICE",
+    "name": "Original_Collection_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1267,
+    "entityName": "COLLECTION_DEBT_INVOICE",
+    "name": "Agreement_Currency_Original_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1267,
+    "entityName": "COLLECTION_DEBT_INVOICE",
+    "name": "Original_Collection_Due_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1267,
+    "entityName": "COLLECTION_DEBT_INVOICE",
+    "name": "Collection_Issuer_Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1268,
+    "entityName": "COMMODITY_TRANSACTION_TYPE",
+    "name": "Commodity_Transaction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1268,
+    "entityName": "COMMODITY_TRANSACTION_TYPE",
+    "name": "Commodity_Transaction_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1269,
+    "entityName": "CONSOLIDATED_INVOICE",
+    "name": "Consolidated_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1269,
+    "entityName": "CONSOLIDATED_INVOICE",
+    "name": "Consolidated_Invoice_Create_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1269,
+    "entityName": "CONSOLIDATED_INVOICE",
+    "name": "Consolidated_Invoice_Created_By_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1270,
+    "entityName": "CONSOLIDATED_INVOICE_STATUS",
+    "name": "Consolidated_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1270,
+    "entityName": "CONSOLIDATED_INVOICE_STATUS",
+    "name": "Invoice_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1270,
+    "entityName": "CONSOLIDATED_INVOICE_STATUS",
+    "name": "Consolidated_Invoice_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1271,
+    "entityName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "name": "Consolidated_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1271,
+    "entityName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "name": "Consolidated_Invoice_Summary_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1271,
+    "entityName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "name": "Consolidated_Invoice_Summary_Begin_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1271,
+    "entityName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "name": "Consolidated_Invoice_Summary_Payment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1271,
+    "entityName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "name": "Consolidated_Invoice_Summary_Adjusted_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1271,
+    "entityName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "name": "Consolidated_Invoice_Summary_Due_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1271,
+    "entityName": "CONSOLIDATED_INVOICE_SUMMARY",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1272,
+    "entityName": "DEBT_PRINCIPAL_REPAYMENT",
+    "name": "Debt_Principal_Repayment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1272,
+    "entityName": "DEBT_PRINCIPAL_REPAYMENT",
+    "name": "Debt_Repayment_Agent_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1272,
+    "entityName": "DEBT_PRINCIPAL_REPAYMENT",
+    "name": "Debt_Principal_Repayment_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1273,
+    "entityName": "EARNING_STATEMENT_TYPE",
+    "name": "Earning_Statement_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1273,
+    "entityName": "EARNING_STATEMENT_TYPE",
+    "name": "Earning_Statement_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1274,
+    "entityName": "EVENT_PAYMENT_INSTRUCTION",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1274,
+    "entityName": "EVENT_PAYMENT_INSTRUCTION",
+    "name": "Payment_Instruction_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1274,
+    "entityName": "EVENT_PAYMENT_INSTRUCTION",
+    "name": "Payment_Instruction_Event_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "File_Transfer_Program_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "File_Transfer_Program_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "File_Transfer_Program_Access_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Transfer_Failure_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Transfer_Direction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Transfer_Protocol_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Digital_Item_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Transfer_Bytes_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Duration_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Successful_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Retry_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Transfer_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Transfer_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Transfer_Duration_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Transfer_Bytes_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Source_URL_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1275,
+    "entityName": "FILE_TRANSFER",
+    "name": "Destination_Path_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1276,
+    "entityName": "FINANCIAL_EVENT_JOURNAL_ENTRY_LINE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1276,
+    "entityName": "FINANCIAL_EVENT_JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1276,
+    "entityName": "FINANCIAL_EVENT_JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Line_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1276,
+    "entityName": "FINANCIAL_EVENT_JOURNAL_ENTRY_LINE",
+    "name": "Financial_Event_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1276,
+    "entityName": "FINANCIAL_EVENT_JOURNAL_ENTRY_LINE",
+    "name": "Financial_Event_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1277,
+    "entityName": "FIXED_INCOME_INTEREST_PAYMENT",
+    "name": "Fixed_Income_Interest_Payment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1277,
+    "entityName": "FIXED_INCOME_INTEREST_PAYMENT",
+    "name": "Fixed_Income_Payment_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1277,
+    "entityName": "FIXED_INCOME_INTEREST_PAYMENT",
+    "name": "Payment_Agent_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1278,
+    "entityName": "FORM_OF_PAYMENT_TYPE",
+    "name": "Form_Of_Payment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1278,
+    "entityName": "FORM_OF_PAYMENT_TYPE",
+    "name": "Form_Of_Payment_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1279,
+    "entityName": "FREIGHT_TERM_TYPE_INVOICE_XREF",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1279,
+    "entityName": "FREIGHT_TERM_TYPE_INVOICE_XREF",
+    "name": "Freight_Term_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1280,
+    "entityName": "FUNDS_TRANSFER_EVENT",
+    "name": "Funds_Transfer_Host_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1280,
+    "entityName": "FUNDS_TRANSFER_EVENT",
+    "name": "Funds_Transfer_Effective_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1280,
+    "entityName": "FUNDS_TRANSFER_EVENT",
+    "name": "Funds_Transfer_Reference_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1280,
+    "entityName": "FUNDS_TRANSFER_EVENT",
+    "name": "Funds_Transfer_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1280,
+    "entityName": "FUNDS_TRANSFER_EVENT",
+    "name": "Funds_Transfer_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1280,
+    "entityName": "FUNDS_TRANSFER_EVENT",
+    "name": "Bank_Transfer_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1280,
+    "entityName": "FUNDS_TRANSFER_EVENT",
+    "name": "Internal_Processing_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1281,
+    "entityName": "FUNDS_TRANSFER_METHOD_TYPE",
+    "name": "Funds_Transfer_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1281,
+    "entityName": "FUNDS_TRANSFER_METHOD_TYPE",
+    "name": "Funds_Transfer_Method_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1282,
+    "entityName": "FUNDS_TRANSFER_TYPE",
+    "name": "Funds_Transfer_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1282,
+    "entityName": "FUNDS_TRANSFER_TYPE",
+    "name": "Funds_Transfer_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1283,
+    "entityName": "GL_PROJECT_SEGMENT",
+    "name": "GL_Project_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1284,
+    "entityName": "GL_ROLL-UP_TYPE",
+    "name": "GL_Roll-up_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1284,
+    "entityName": "GL_ROLL-UP_TYPE",
+    "name": "GL_Roll-up_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1285,
+    "entityName": "HEALTH_BILLING_CATEGORY",
+    "name": "Health_Billing_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1285,
+    "entityName": "HEALTH_BILLING_CATEGORY",
+    "name": "Health_Billing_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1286,
+    "entityName": "HEALTH_BILLING_CODE",
+    "name": "Health_Billing_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1286,
+    "entityName": "HEALTH_BILLING_CODE",
+    "name": "Health_Billing_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1286,
+    "entityName": "HEALTH_BILLING_CODE",
+    "name": "Health_Billing_Code_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1287,
+    "entityName": "HEALTH_BILLING_TYPE",
+    "name": "Health_Billing_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1287,
+    "entityName": "HEALTH_BILLING_TYPE",
+    "name": "Health_Billing_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1288,
+    "entityName": "INTEREST_PAYMENT_METHOD_TYPE_JAPAN",
+    "name": "Interest_Payment_Method_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1288,
+    "entityName": "INTEREST_PAYMENT_METHOD_TYPE_JAPAN",
+    "name": "Interest_Payment_Method_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1289,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1289,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1289,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1289,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1289,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT",
+    "name": "Statement_Holding_Position_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Statement_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Investment_Holding_Statement_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Investment_Holding_Statement_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Investment_Holding_Statement_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1290,
+    "entityName": "INVESTMENT_HOLDING_STATEMENT_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1291,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1291,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1291,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1291,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1291,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "name": "Investment_Statement_Line_Item_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1291,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "name": "Statement_Settlement_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1291,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "name": "Statement_Trade_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1291,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM",
+    "name": "Event_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Investment_Statement_Line_Item_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Statement_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Investment_Holding_Statement_Line_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Investment_Holding_Statement_Line_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Investment_Holding_Statement_Line_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1292,
+    "entityName": "INVESTMENT_STATEMENT_LINE_ITEM_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Description_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Host_Invoice_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Transmittal_Mode_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Consolidated_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Due_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Billing_Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1293,
+    "entityName": "INVOICE",
+    "name": "Invoice_Billing_Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Invoice_Adjustment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Invoice_Adjustment_Creation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Invoice_Adjustment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Invoice_Adjustment_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Invoice_Adjustment_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Invoice_Adjustment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1294,
+    "entityName": "INVOICE_ADJUSTMENT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1295,
+    "entityName": "INVOICE_AMOUNT",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1295,
+    "entityName": "INVOICE_AMOUNT",
+    "name": "Invoice_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1295,
+    "entityName": "INVOICE_AMOUNT",
+    "name": "Invoice_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1295,
+    "entityName": "INVOICE_AMOUNT",
+    "name": "Invoice_Amount_Global_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1295,
+    "entityName": "INVOICE_AMOUNT",
+    "name": "Invoice_Amount_Transaction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1295,
+    "entityName": "INVOICE_AMOUNT",
+    "name": "Invoice_Amount_Local_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1296,
+    "entityName": "INVOICE_AMOUNT_TYPE",
+    "name": "Invoice_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1296,
+    "entityName": "INVOICE_AMOUNT_TYPE",
+    "name": "Invoice_Amount_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1297,
+    "entityName": "INVOICE_CHARGE",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1297,
+    "entityName": "INVOICE_CHARGE",
+    "name": "Charge_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1297,
+    "entityName": "INVOICE_CHARGE",
+    "name": "Invoice_Charge_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1298,
+    "entityName": "INVOICE_LINE_PAYMENT",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1298,
+    "entityName": "INVOICE_LINE_PAYMENT",
+    "name": "Invoice_Line_Payment_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1298,
+    "entityName": "INVOICE_LINE_PAYMENT",
+    "name": "Invoice_Payment_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1298,
+    "entityName": "INVOICE_LINE_PAYMENT",
+    "name": "Invoice_Line_Payment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1298,
+    "entityName": "INVOICE_LINE_PAYMENT",
+    "name": "Invoice_Line_Payment_Posted_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1298,
+    "entityName": "INVOICE_LINE_PAYMENT",
+    "name": "Invoice_Payment_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1299,
+    "entityName": "INVOICE_LINE_PAYMENT_STATUS",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1299,
+    "entityName": "INVOICE_LINE_PAYMENT_STATUS",
+    "name": "Payment_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1299,
+    "entityName": "INVOICE_LINE_PAYMENT_STATUS",
+    "name": "Invoice_Line_Payment_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1299,
+    "entityName": "INVOICE_LINE_PAYMENT_STATUS",
+    "name": "Invoice_Line_Payment_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1299,
+    "entityName": "INVOICE_LINE_PAYMENT_STATUS",
+    "name": "Invoice_Payment_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1299,
+    "entityName": "INVOICE_LINE_PAYMENT_STATUS",
+    "name": "Invoice_Line_Payment_Status_Comment_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1299,
+    "entityName": "INVOICE_LINE_PAYMENT_STATUS",
+    "name": "Payment_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1300,
+    "entityName": "INVOICE_PAYMENT",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1300,
+    "entityName": "INVOICE_PAYMENT",
+    "name": "Invoice_Payment_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1300,
+    "entityName": "INVOICE_PAYMENT",
+    "name": "Invoice_Payment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1300,
+    "entityName": "INVOICE_PAYMENT",
+    "name": "Noncash_Payment_Approval_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1300,
+    "entityName": "INVOICE_PAYMENT",
+    "name": "Closing_Payment_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1300,
+    "entityName": "INVOICE_PAYMENT",
+    "name": "Invoice_Payment_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1301,
+    "entityName": "INVOICE_PAYMENT_METHOD_TYPE",
+    "name": "Invoice_Payment_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1301,
+    "entityName": "INVOICE_PAYMENT_METHOD_TYPE",
+    "name": "Invoice_Payment_Method_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1302,
+    "entityName": "INVOICE_PAYMENT_SUBTYPE",
+    "name": "Invoice_Payment_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1302,
+    "entityName": "INVOICE_PAYMENT_SUBTYPE",
+    "name": "Invoice_Payment_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1303,
+    "entityName": "INVOICE_QUANTITY_TYPE",
+    "name": "Invoice_Quantity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1303,
+    "entityName": "INVOICE_QUANTITY_TYPE",
+    "name": "Invoice_Quantity_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1304,
+    "entityName": "INVOICE_RELATED",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1304,
+    "entityName": "INVOICE_RELATED",
+    "name": "Related_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1304,
+    "entityName": "INVOICE_RELATED",
+    "name": "Invoice_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1304,
+    "entityName": "INVOICE_RELATED",
+    "name": "Invoice_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1304,
+    "entityName": "INVOICE_RELATED",
+    "name": "Invoice_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1305,
+    "entityName": "INVOICE_RELATIONSHIP_TYPE",
+    "name": "Invoice_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1305,
+    "entityName": "INVOICE_RELATIONSHIP_TYPE",
+    "name": "Invoice_Relationship_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1306,
+    "entityName": "INVOICE_SOURCE_TYPE",
+    "name": "Invoice_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1306,
+    "entityName": "INVOICE_SOURCE_TYPE",
+    "name": "Invoice_Source_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1307,
+    "entityName": "INVOICE_STATUS",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1307,
+    "entityName": "INVOICE_STATUS",
+    "name": "Invoice_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1307,
+    "entityName": "INVOICE_STATUS",
+    "name": "Invoice_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1307,
+    "entityName": "INVOICE_STATUS",
+    "name": "Invoice_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1307,
+    "entityName": "INVOICE_STATUS",
+    "name": "Invoice_Status_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1308,
+    "entityName": "INVOICE_STATUS_REASON_TYPE",
+    "name": "Invoice_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1308,
+    "entityName": "INVOICE_STATUS_REASON_TYPE",
+    "name": "Invoice_Status_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1309,
+    "entityName": "INVOICE_STATUS_TYPE",
+    "name": "Invoice_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1309,
+    "entityName": "INVOICE_STATUS_TYPE",
+    "name": "Invoice_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1310,
+    "entityName": "INVOICE_SUBTYPE",
+    "name": "Invoice_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1310,
+    "entityName": "INVOICE_SUBTYPE",
+    "name": "Invoice_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 1311,
+    "entityName": "ITEM_TRANSFER",
+    "name": "Item_Transfer_Object_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1311,
+    "entityName": "ITEM_TRANSFER",
+    "name": "Item_Transfer_Direction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1311,
+    "entityName": "ITEM_TRANSFER",
+    "name": "Digital_Item_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1312,
+    "entityName": "ITEM_TRANSFER_DIRECTION_TYPE",
+    "name": "Item_Transfer_Direction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1312,
+    "entityName": "ITEM_TRANSFER_DIRECTION_TYPE",
+    "name": "Item_Transfer_Direction_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1313,
+    "entityName": "IVR_STEP_TRANSACTION",
+    "name": "IVR_Business_Transaction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1313,
+    "entityName": "IVR_STEP_TRANSACTION",
+    "name": "IVR_Step_Transaction_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1314,
+    "entityName": "IVR_STEP_TRANSACTION_SUBTYPE",
+    "name": "IVR_Step_Transaction_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1314,
+    "entityName": "IVR_STEP_TRANSACTION_SUBTYPE",
+    "name": "IVR_Step_Transaction_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "Journal_Entry_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Reversing_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Conversion_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Create_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Posted_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Value_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Host_Header_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Header_Ledger_Batch_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Accounting_Period_Month_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1315,
+    "entityName": "JOURNAL_ENTRY_HEADER",
+    "name": "JE_Reversing_Period_Month_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Header_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Line_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "COA_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Line_Credit_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Line_Local_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Transaction_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Line_Global_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Global_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Line_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Journal_Entry_Line_Transaction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Charged_To_Associate_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1316,
+    "entityName": "JOURNAL_ENTRY_LINE",
+    "name": "Created_By_Associate_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1318,
+    "entityName": "NATIONAL_UNIFORM_BILLING_COMMITTEE_CONDITION_CODE",
+    "name": "National_Uniform_Billing_Committee_Condition_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1318,
+    "entityName": "NATIONAL_UNIFORM_BILLING_COMMITTEE_CONDITION_CODE",
+    "name": "National_Uniform_Billing_Committee_Condition_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1319,
+    "entityName": "NONCASH_PAYMENT_APPROVAL_TYPE",
+    "name": "Noncash_Payment_Approval_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1319,
+    "entityName": "NONCASH_PAYMENT_APPROVAL_TYPE",
+    "name": "Noncash_Payment_Approval_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1322,
+    "entityName": "PAYMENT_ACTION_TYPE",
+    "name": "Payment_Action_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1322,
+    "entityName": "PAYMENT_ACTION_TYPE",
+    "name": "Payment_Action_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1323,
+    "entityName": "PAYMENT_ADJUSTMENT",
+    "name": "Payment_Adjustment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1323,
+    "entityName": "PAYMENT_ADJUSTMENT",
+    "name": "Payment_Adjustment_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1323,
+    "entityName": "PAYMENT_ADJUSTMENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1323,
+    "entityName": "PAYMENT_ADJUSTMENT",
+    "name": "Payment_Adjustment_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1324,
+    "entityName": "PAYMENT_ADJUSTMENT_TYPE",
+    "name": "Payment_Adjustment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1324,
+    "entityName": "PAYMENT_ADJUSTMENT_TYPE",
+    "name": "Payment_Adjustment_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1325,
+    "entityName": "PAYMENT_BANK_DRAFT_XREF",
+    "name": "Bank_Draft_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1325,
+    "entityName": "PAYMENT_BANK_DRAFT_XREF",
+    "name": "Payment_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1326,
+    "entityName": "PAYMENT_INSTRUCTION",
+    "name": "Payment_Instruction_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1326,
+    "entityName": "PAYMENT_INSTRUCTION",
+    "name": "Payment_Instruction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1326,
+    "entityName": "PAYMENT_INSTRUCTION",
+    "name": "Payment_Instruction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1326,
+    "entityName": "PAYMENT_INSTRUCTION",
+    "name": "Payment_Settlement_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1326,
+    "entityName": "PAYMENT_INSTRUCTION",
+    "name": "Payment_Due_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1326,
+    "entityName": "PAYMENT_INSTRUCTION",
+    "name": "Originating_Institution_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1327,
+    "entityName": "PAYMENT_INSTRUCTION_EVENT_ROLE",
+    "name": "Payment_Instruction_Event_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1327,
+    "entityName": "PAYMENT_INSTRUCTION_EVENT_ROLE",
+    "name": "Payment_Instruction_Event_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1328,
+    "entityName": "PAYMENT_INSTRUCTION_STATUS",
+    "name": "Payment_Instruction_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1328,
+    "entityName": "PAYMENT_INSTRUCTION_STATUS",
+    "name": "Payment_Instruction_Status_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1328,
+    "entityName": "PAYMENT_INSTRUCTION_STATUS",
+    "name": "Payment_Instruction_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1328,
+    "entityName": "PAYMENT_INSTRUCTION_STATUS",
+    "name": "Payment_Instruction_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1329,
+    "entityName": "PAYMENT_INSTRUCTION_STATUS_REASON_TYPE",
+    "name": "Payment_Instruction_Status_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1329,
+    "entityName": "PAYMENT_INSTRUCTION_STATUS_REASON_TYPE",
+    "name": "Payment_Instruction_Status_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1330,
+    "entityName": "PAYMENT_INSTRUCTION_STATUS_TYPE",
+    "name": "Payment_Instruction_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1330,
+    "entityName": "PAYMENT_INSTRUCTION_STATUS_TYPE",
+    "name": "Payment_Instruction_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1331,
+    "entityName": "PAYMENT_INSTRUCTION_TEXT",
+    "name": "Payment_Instruction_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1331,
+    "entityName": "PAYMENT_INSTRUCTION_TEXT",
+    "name": "Payment_Instruction_Text_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1331,
+    "entityName": "PAYMENT_INSTRUCTION_TEXT",
+    "name": "Payment_Instruction_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1332,
+    "entityName": "PAYMENT_INSTRUCTION_TYPE",
+    "name": "Payment_Instruction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1332,
+    "entityName": "PAYMENT_INSTRUCTION_TYPE",
+    "name": "Payment_Instruction_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1333,
+    "entityName": "PAYMENT_MODE",
+    "name": "Payment_Mode_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1333,
+    "entityName": "PAYMENT_MODE",
+    "name": "Payment_Mode_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1334,
+    "entityName": "PAYMENT_OPTION_TYPE",
+    "name": "Payment_Option_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1334,
+    "entityName": "PAYMENT_OPTION_TYPE",
+    "name": "Payment_Option_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1335,
+    "entityName": "PAYMENT_PRIORITY_TYPE",
+    "name": "Payment_Priority_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1335,
+    "entityName": "PAYMENT_PRIORITY_TYPE",
+    "name": "Payment_Priority_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1336,
+    "entityName": "PAYMENT_SCHEDULE",
+    "name": "Payment_Schedule_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1336,
+    "entityName": "PAYMENT_SCHEDULE",
+    "name": "Payment_Schedule_Term_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1336,
+    "entityName": "PAYMENT_SCHEDULE",
+    "name": "Payment_Schedule_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1336,
+    "entityName": "PAYMENT_SCHEDULE",
+    "name": "Consolidated_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1336,
+    "entityName": "PAYMENT_SCHEDULE",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_Due_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_Local_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_Transaction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_Global_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_Interest_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1337,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT",
+    "name": "Payment_Schedule_Amount_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1338,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT_TYPE",
+    "name": "Payment_Schedule_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1338,
+    "entityName": "PAYMENT_SCHEDULE_AMOUNT_TYPE",
+    "name": "Payment_Schedule_Amount_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1339,
+    "entityName": "PAYMENT_SCHEDULE_PAYMENT",
+    "name": "Payment_Schedule_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1339,
+    "entityName": "PAYMENT_SCHEDULE_PAYMENT",
+    "name": "Payment_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1340,
+    "entityName": "PAYMENT_SCHEDULE_TERM",
+    "name": "Payment_Schedule_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1340,
+    "entityName": "PAYMENT_SCHEDULE_TERM",
+    "name": "Feature_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1340,
+    "entityName": "PAYMENT_SCHEDULE_TERM",
+    "name": "Payment_Feature_Group_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1341,
+    "entityName": "PAYMENT_SCHEDULE_TYPE",
+    "name": "Payment_Schedule_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1341,
+    "entityName": "PAYMENT_SCHEDULE_TYPE",
+    "name": "Payment_Schedule_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1342,
+    "entityName": "PAYMENT_STATUS",
+    "name": "Payment_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1342,
+    "entityName": "PAYMENT_STATUS",
+    "name": "Payment_Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1342,
+    "entityName": "PAYMENT_STATUS",
+    "name": "Payment_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1342,
+    "entityName": "PAYMENT_STATUS",
+    "name": "Payment_Status_Comment_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 1342,
+    "entityName": "PAYMENT_STATUS",
+    "name": "Payment_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1343,
+    "entityName": "PAYMENT_STATUS_REASON_TYPE",
+    "name": "Payment_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1343,
+    "entityName": "PAYMENT_STATUS_REASON_TYPE",
+    "name": "Payment_Status_Reason_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1344,
+    "entityName": "PAYMENT_STATUS_TYPE",
+    "name": "Payment_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1344,
+    "entityName": "PAYMENT_STATUS_TYPE",
+    "name": "Payment_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1345,
+    "entityName": "PAYMENT_TERM_TYPE",
+    "name": "Payment_Term_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1345,
+    "entityName": "PAYMENT_TERM_TYPE",
+    "name": "Payment_Term_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1346,
+    "entityName": "PAYMENT_TERM_TYPE_INVOICE_XREF",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1346,
+    "entityName": "PAYMENT_TERM_TYPE_INVOICE_XREF",
+    "name": "Payment_Term_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1347,
+    "entityName": "PAYMENT_TIMING_TYPE",
+    "name": "Payment_Timing_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1347,
+    "entityName": "PAYMENT_TIMING_TYPE",
+    "name": "Payment_Timing_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1348,
+    "entityName": "PAYROLL_REGISTER_PAYMENT",
+    "name": "Payroll_Register_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1348,
+    "entityName": "PAYROLL_REGISTER_PAYMENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1349,
+    "entityName": "PAYROLL_TRANSACTION_SUBTYPE",
+    "name": "Payroll_Transaction_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1349,
+    "entityName": "PAYROLL_TRANSACTION_SUBTYPE",
+    "name": "Payroll_Transaction_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1350,
+    "entityName": "PA_DRAFT_INVOICE",
+    "name": "PA_Draft_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1350,
+    "entityName": "PA_DRAFT_INVOICE",
+    "name": "PA_Draft_Invoice_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1350,
+    "entityName": "PA_DRAFT_INVOICE",
+    "name": "Project_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "PA_Draft_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "PA_Draft_Invoice_Line_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "PA_Draft_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "PA_Draft_Invoice_Line_Bill_Thru_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "PA_Draft_Invoice_Line_Approve_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "Project_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "Project_Task_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "Project_Task_Resource_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1351,
+    "entityName": "PA_DRAFT_INVOICE_LINE",
+    "name": "Project_Task_Resource_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1352,
+    "entityName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "name": "PA_Draft_Invoice_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1352,
+    "entityName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "name": "PA_Draft_Invoice_Line_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1352,
+    "entityName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "name": "PA_Invoice_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1352,
+    "entityName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "name": "PA_Draft_Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1352,
+    "entityName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "name": "PA_Draft_Invoice_Line_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1352,
+    "entityName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "name": "PA_Draft_Invoice_Line_Global_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1352,
+    "entityName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "name": "PA_Draft_Invoice_Line_Local_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1352,
+    "entityName": "PA_DRAFT_INVOICE_LINE_AMOUNT",
+    "name": "PA_Draft_Invoice_Line_Transaction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1354,
+    "entityName": "PRIVACY_DATA_TRANSFER",
+    "name": "Privacy_Data_Transfer_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1354,
+    "entityName": "PRIVACY_DATA_TRANSFER",
+    "name": "Privacy_Data_Receipt_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1354,
+    "entityName": "PRIVACY_DATA_TRANSFER",
+    "name": "Privacy_Data_Transfer_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1354,
+    "entityName": "PRIVACY_DATA_TRANSFER",
+    "name": "Information_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1354,
+    "entityName": "PRIVACY_DATA_TRANSFER",
+    "name": "Privacy_Data_Usage_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1354,
+    "entityName": "PRIVACY_DATA_TRANSFER",
+    "name": "Privacy_Data_Transfer_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1355,
+    "entityName": "PURCHASED_RECEIVABLE_INVOICE",
+    "name": "Purchased_Invoice_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1355,
+    "entityName": "PURCHASED_RECEIVABLE_INVOICE",
+    "name": "Debt_Due_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1355,
+    "entityName": "PURCHASED_RECEIVABLE_INVOICE",
+    "name": "Original_Debt_Due_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1355,
+    "entityName": "PURCHASED_RECEIVABLE_INVOICE",
+    "name": "Agreement_Currency_Original_Debt_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1355,
+    "entityName": "PURCHASED_RECEIVABLE_INVOICE",
+    "name": "Issuer_Debtor_Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1356,
+    "entityName": "PURCHASED_RECEIVABLE_INVOICE_TYPE",
+    "name": "Purchased_Invoice_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1356,
+    "entityName": "PURCHASED_RECEIVABLE_INVOICE_TYPE",
+    "name": "Purchased_Invoice_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1357,
+    "entityName": "REPAYMENT_METHOD_TYPE",
+    "name": "Debt_Repayment_Method_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1357,
+    "entityName": "REPAYMENT_METHOD_TYPE",
+    "name": "Debt_Repayment_Method_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1358,
+    "entityName": "SOCIAL_MEDIA_DOWNLOAD_TRANSFER",
+    "name": "Download_Transfer_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1358,
+    "entityName": "SOCIAL_MEDIA_DOWNLOAD_TRANSFER",
+    "name": "Download_Transfer_Destination_Path_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1358,
+    "entityName": "SOCIAL_MEDIA_DOWNLOAD_TRANSFER",
+    "name": "Download_Transfer_Source_URL_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Visitor_User_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": false
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Version_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Access_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Interaction_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Transfer_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Transfer_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Transfer_Failure_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Transfer_Protocol_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "From_IP_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "To_IP_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Transfer_Bytes_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Duration_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Online_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Transfer_Successful_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Retry_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Transfer_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Transfer_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Transfer_Duration_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Social_Media_Transfer_Bytes_Sent_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1359,
+    "entityName": "SOCIAL_MEDIA_TRANSFER",
+    "name": "Transfer_Bytes_Received_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1360,
+    "entityName": "SOCIAL_MEDIA_UPLOAD_TRANSFER",
+    "name": "Upload_Transfer_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1360,
+    "entityName": "SOCIAL_MEDIA_UPLOAD_TRANSFER",
+    "name": "Upload_Transfer_Content_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1360,
+    "entityName": "SOCIAL_MEDIA_UPLOAD_TRANSFER",
+    "name": "Upload_Transfer_Destination_URL_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1360,
+    "entityName": "SOCIAL_MEDIA_UPLOAD_TRANSFER",
+    "name": "Upload_Transfer_Source_Path_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1361,
+    "entityName": "STATEMENT",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1361,
+    "entityName": "STATEMENT",
+    "name": "Statement_Mail_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1361,
+    "entityName": "STATEMENT",
+    "name": "Statement_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1361,
+    "entityName": "STATEMENT",
+    "name": "Envelope_Message_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1361,
+    "entityName": "STATEMENT",
+    "name": "Statement_Data_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1361,
+    "entityName": "STATEMENT",
+    "name": "Statement_Issue_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1361,
+    "entityName": "STATEMENT",
+    "name": "Invoice_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1362,
+    "entityName": "STATEMENT_EVENT",
+    "name": "Statement_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1362,
+    "entityName": "STATEMENT_EVENT",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1363,
+    "entityName": "STATEMENT_EVENT_TYPE",
+    "name": "Statement_Event_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1363,
+    "entityName": "STATEMENT_EVENT_TYPE",
+    "name": "Statement_Event_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1365,
+    "entityName": "STATEMENT_MAIL_TYPE",
+    "name": "Statement_Mail_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1365,
+    "entityName": "STATEMENT_MAIL_TYPE",
+    "name": "Statement_Mail_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1366,
+    "entityName": "STATEMENT_METRIC",
+    "name": "Statement_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1366,
+    "entityName": "STATEMENT_METRIC",
+    "name": "Statement_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1366,
+    "entityName": "STATEMENT_METRIC",
+    "name": "Statement_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1366,
+    "entityName": "STATEMENT_METRIC",
+    "name": "Statement_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 1366,
+    "entityName": "STATEMENT_METRIC",
+    "name": "Statement_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1366,
+    "entityName": "STATEMENT_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1366,
+    "entityName": "STATEMENT_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1367,
+    "entityName": "STATEMENT_METRIC_TYPE",
+    "name": "Statement_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1367,
+    "entityName": "STATEMENT_METRIC_TYPE",
+    "name": "Statement_Amt_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1368,
+    "entityName": "STATEMENT_TYPE",
+    "name": "Statement_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1368,
+    "entityName": "STATEMENT_TYPE",
+    "name": "Statement_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1369,
+    "entityName": "SWAP_LEG_PAYMENT_SCHEDULE",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1369,
+    "entityName": "SWAP_LEG_PAYMENT_SCHEDULE",
+    "name": "Swap_Leg_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1369,
+    "entityName": "SWAP_LEG_PAYMENT_SCHEDULE",
+    "name": "Swap_Coupon_Payment_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1370,
+    "entityName": "SWAP_PAYMENT_TYPE",
+    "name": "Swap_Payment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1370,
+    "entityName": "SWAP_PAYMENT_TYPE",
+    "name": "Swap_Payment_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1371,
+    "entityName": "TRANSACTION_FRAUD_CASE",
+    "name": "Transaction_Fraud_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1372,
+    "entityName": "TRANSACTION_FRAUD_TYPE",
+    "name": "Transaction_Fraud_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1372,
+    "entityName": "TRANSACTION_FRAUD_TYPE",
+    "name": "Transaction_Fraud_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Event_Successful_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Event_Retry_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Failure_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Protocol_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Duration_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Bytes_Sent_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Bytes_Received_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Destination_Internet_Protocol_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Source_Internet_Protocol_Address_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Online_Document_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Transfer_Bytes_Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1373,
+    "entityName": "TRANSFER_EVENT",
+    "name": "Duration_Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1374,
+    "entityName": "TRANSFER_EVENT_SUBTYPE",
+    "name": "Transfer_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1374,
+    "entityName": "TRANSFER_EVENT_SUBTYPE",
+    "name": "Transfer_Event_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1375,
+    "entityName": "TRANSFER_FAILURE_REASON",
+    "name": "Transfer_Failure_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1375,
+    "entityName": "TRANSFER_FAILURE_REASON",
+    "name": "Transfer_Failure_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1376,
+    "entityName": "TRANSFER_PROTOCOL_TYPE",
+    "name": "Transfer_Protocol_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1376,
+    "entityName": "TRANSFER_PROTOCOL_TYPE",
+    "name": "Transfer_Event_Protocol_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1377,
+    "entityName": "USSGL_TRANSACTION_TYPE",
+    "name": "USSGL_Transaction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1377,
+    "entityName": "USSGL_TRANSACTION_TYPE",
+    "name": "USSGL_Transaction_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1378,
+    "entityName": "WATERFALL_PAYMENT_TYPE",
+    "name": "Waterfall_Payment_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1378,
+    "entityName": "WATERFALL_PAYMENT_TYPE",
+    "name": "Waterfall_Payment_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  }
+]

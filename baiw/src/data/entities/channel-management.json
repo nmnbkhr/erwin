@@ -1,0 +1,1157 @@
+[
+  {
+    "id": 808,
+    "name": "ASSET_VALUATION_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "A code that describes why this valuation was done such as: - Required for risk management regulatory capital calculations - Appraisal",
+    "attributeCount": 2
+  },
+  {
+    "id": 809,
+    "name": "ATM_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This entity represents a specific automated teller machine that is used as a channel instance.  If the ATM is owned by your institution then it is also a fixed asset and will have a Fixed Asset Id.",
+    "attributeCount": 7
+  },
+  {
+    "id": 810,
+    "name": "ATM_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "This is a type of channel that is an Automated Teller Machine (ATM).",
+    "attributeCount": 0
+  },
+  {
+    "id": 811,
+    "name": "BENEFIT_PLAN_OPTION_POSITION",
+    "domain": "Channel Management",
+    "description": "This entity defines which benefit plan options are available to a specific position. For example, full-time permanent positions may include different benefits than part-time or temporary positions may offer.",
+    "attributeCount": 7
+  },
+  {
+    "id": 812,
+    "name": "BILLBOARD_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "A type of CHANNEL INSTANCE that identifies communication through billboards. This represents a specific billboard.",
+    "attributeCount": 1
+  },
+  {
+    "id": 813,
+    "name": "BOND_ISSUE_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "A code for the reason the issuer issued the bond such as research and development, roads, equipment, or cash backup.",
+    "attributeCount": 2
+  },
+  {
+    "id": 814,
+    "name": "BRANCH_SITE",
+    "domain": "Channel Management",
+    "description": "This entity is a subtype of site, which is a physical branch.",
+    "attributeCount": 0
+  },
+  {
+    "id": 815,
+    "name": "CALL_CENTER_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "This is a type of channel that is a call center.",
+    "attributeCount": 0
+  },
+  {
+    "id": 816,
+    "name": "CALL_CENTER_TERMINAL_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This entity represents a specific call center terminal that is used as a channel.",
+    "attributeCount": 3
+  },
+  {
+    "id": 817,
+    "name": "CALL_CENTER_TYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity classifies the types of call center such as inbound, outbound, or inbound and outbound.",
+    "attributeCount": 2
+  },
+  {
+    "id": 818,
+    "name": "CAMPAIGN_CHANNEL_TYPE_MULTIMEDIA_OBJECT",
+    "domain": "Channel Management",
+    "description": "This associative entity identifies those multimedia objects that are used for this campaign for this channel type. For example, if the channel type is ATM, then this multimedia object (which may be a text message) is sent to all ATM's identified in CAMPAIGN CHANNEL TYPE XREF. This entity relates an",
+    "attributeCount": 3
+  },
+  {
+    "id": 819,
+    "name": "CAMPAIGN_CHANNEL_TYPE_XREF",
+    "domain": "Channel Management",
+    "description": "This associative entity identifies the types of channels that are planned for the campaign at any level. For example, a high-level campaign may use several channel types. The lowest level in the campaign (campaign event) uses one channel type.",
+    "attributeCount": 2
+  },
+  {
+    "id": 820,
+    "name": "CAMPAIGN_OBJECTIVE_POSITION_TYPE",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the positioning type used for the campaign.  Examples: - Guaranteed - Requested",
+    "attributeCount": 2
+  },
+  {
+    "id": 821,
+    "name": "CELL_TARGET_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This entity contains those channel instances that are the target of a marketing campaign cell.",
+    "attributeCount": 4
+  },
+  {
+    "id": 822,
+    "name": "CHANNEL_CAPACITY",
+    "domain": "Channel Management",
+    "description": "This associative entity identifies the volume of transaction per unit of time and, by channel characteristics set by bank business rules.",
+    "attributeCount": 6
+  },
+  {
+    "id": 823,
+    "name": "CHANNEL_CHANNEL_CLASS_XREF",
+    "domain": "Channel Management",
+    "description": "This entity relates a CHANNEL CLASS VALUE with a CHANNEL INSTANCE. A CHANNEL INSTANCE can be classified many ways.  This entity contains the various descriptive classifications for channels.  The business rule says that for a given classification scheme a channel has only one value at one point-in-t",
+    "attributeCount": 5
+  },
+  {
+    "id": 824,
+    "name": "CHANNEL_CLASS_SCHEME_TYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity describes the schemes for classifying channels. Examples of schemes include proximity to business and daytime usage (e.g., high, medium, and low).",
+    "attributeCount": 5
+  },
+  {
+    "id": 825,
+    "name": "CHANNEL_CLASS_VALUE",
+    "domain": "Channel Management",
+    "description": "For a given classification scheme these value codes represent the various values for a given classification scheme. For example, if the classification scheme is daytime usage then the possible values could be high, medium, or low.  The hierarchical structure allows you to create a relationship betwe",
+    "attributeCount": 10
+  },
+  {
+    "id": 826,
+    "name": "CHANNEL_COST",
+    "domain": "Channel Management",
+    "description": "This entity tracks allocated costs related to channels that cannot otherwise be derived from events and accounts.",
+    "attributeCount": 6
+  },
+  {
+    "id": 827,
+    "name": "CHANNEL_EVENT",
+    "domain": "Channel Management",
+    "description": "This entity tracks the servicing and downtime for each channel that is susceptible to downtime.",
+    "attributeCount": 6
+  },
+  {
+    "id": 828,
+    "name": "CHANNEL_EVENT_REASON_TYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity defines the reason for the downtime of the financial institution equipment.",
+    "attributeCount": 2
+  },
+  {
+    "id": 829,
+    "name": "CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This entity brings together all the specific touch points in the enterprise. It identifies all the specific channels that customers and other parties use to interact with the enterprise. One instance exists for each specific channel. For example, each ATM has its own ID; each point-of-sale terminal",
+    "attributeCount": 7
+  },
+  {
+    "id": 830,
+    "name": "CHANNEL_INSTANCE_RELATED",
+    "domain": "Channel Management",
+    "description": "This entity relates one channel instance to another channel instance and describes the relationship between the two channel instances. This structure allows for both a hierarchical relationship and a network relationship between channel instances.",
+    "attributeCount": 5
+  },
+  {
+    "id": 831,
+    "name": "CHANNEL_INSTANCE_RELATED_REASON",
+    "domain": "Channel Management",
+    "description": "A code for the role that one channel instance has with another channel instance such as \"replaces,\" \"is part of,\" or \"contains.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 832,
+    "name": "CHANNEL_INSTANCE_SITE_XREF",
+    "domain": "Channel Management",
+    "description": "This entity tracks the site of a channel instance over time.  Channels such as specific ATMs can move from site to site over time.",
+    "attributeCount": 4
+  },
+  {
+    "id": 833,
+    "name": "CHANNEL_INSTANCE_STATUS",
+    "domain": "Channel Management",
+    "description": "This entity tracks the change to the status of a channel instance over time.  Status examples could be active, in development, on hold, no new campaigns, or closed for deletion.",
+    "attributeCount": 3
+  },
+  {
+    "id": 834,
+    "name": "CHANNEL_INSTANCE_SUBTYPE",
+    "domain": "Channel Management",
+    "description": "A code for the subtype instance such as kiosk, electronic channel, call center terminal, party, radio station, print, television, and location.",
+    "attributeCount": 2
+  },
+  {
+    "id": 835,
+    "name": "CHANNEL_NETWORK",
+    "domain": "Channel Management",
+    "description": "This associative entity describes those networks to which a channel has access. ATMs and point-of-sale devices have access to third-party networks for communication between the device and the financial institution.",
+    "attributeCount": 2
+  },
+  {
+    "id": 836,
+    "name": "CHANNEL_OPERATING_HOURS",
+    "domain": "Channel Management",
+    "description": "This entity describes the operating hours for a channel. This structure allows for a channel to operate at different hours for different days. It also allows for the channel to have more than one-time range for a given day. For example, the branch is operating Monday from 8 am – 12 pm and then from",
+    "attributeCount": 4
+  },
+  {
+    "id": 837,
+    "name": "CHANNEL_PROCESSING_TYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity identifies the type of processing for a channel type for customer communications. It is specifically defined for the Teradata Relationship Management.  Examples: - 1 = use party channel link - 2 = allocate all parties to channel instance # 1",
+    "attributeCount": 2
+  },
+  {
+    "id": 838,
+    "name": "CHANNEL_PROFIT",
+    "domain": "Channel Management",
+    "description": "This derived entity contains the profit for a channel and is derivable from channel costs (CHANNEL COST) and event revenues. Technically, it does not belong in the model but is here for those banks that cannot yet derive profit from the model.",
+    "attributeCount": 6
+  },
+  {
+    "id": 839,
+    "name": "CHANNEL_REPLENISHMENT",
+    "domain": "Channel Management",
+    "description": "This entity identifies the quantity that was replenished when the channel ran out of its delivery product. Delivery products include anything returned to the customer such as cash, stamps, or tickets.",
+    "attributeCount": 3
+  },
+  {
+    "id": 840,
+    "name": "CHANNEL_STATUS_TYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity identifies the status of the channel for purposes of using it for customer communications. Examples would be active, in development, on hold, no new campaigns, or closed for deletion.",
+    "attributeCount": 2
+  },
+  {
+    "id": 841,
+    "name": "CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "This entity defines the major classifications of channels; consider, for example, call center, web site, and brick and mortar.  For financial services, examples include direct physical mail, kiosk, electronic mail, ATM, over-the-counter (face-to-face), statement insert mail, party type (such as fina",
+    "attributeCount": 8
+  },
+  {
+    "id": 842,
+    "name": "CHANNEL_TYPE_CAPACITY",
+    "domain": "Channel Management",
+    "description": "This associative entity identifies the volume of transaction per unit of time and, by channel type.",
+    "attributeCount": 6
+  },
+  {
+    "id": 843,
+    "name": "CHANNEL_TYPE_GROUP",
+    "domain": "Channel Management",
+    "description": "This entity is a grouping of channel types into higher levels. For example, a kiosk could be grouped into a self-service classification. A billboard could be grouped into a marketing classification.",
+    "attributeCount": 2
+  },
+  {
+    "id": 844,
+    "name": "CHANNEL_TYPE_GROUP_XREF",
+    "domain": "Channel Management",
+    "description": "This entity is the association of a channel type with a grouping of channel types. It allows for a channel type to belong to more than one group.",
+    "attributeCount": 4
+  },
+  {
+    "id": 845,
+    "name": "CHANNEL_TYPE_SITE",
+    "domain": "Channel Management",
+    "description": "This entity identifies the channel types related to a SITE. A SITE can have one type of channel that represents its main or major type of channel. This entity then identifies all other types of channels related to a SITE.",
+    "attributeCount": 4
+  },
+  {
+    "id": 846,
+    "name": "CHANNEL_TYPE_STATUS",
+    "domain": "Channel Management",
+    "description": "This is the status of the channel for purposes of using it for customer communications. Examples would be, active, in development, on hold, no new campaigns, or closed for deletion.",
+    "attributeCount": 3
+  },
+  {
+    "id": 847,
+    "name": "CHANNEL_TYPE_SUBTYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity is a subtype discriminator to CHANNEL TYPE. Examples include ATM, kiosk, and telephone.",
+    "attributeCount": 2
+  },
+  {
+    "id": 848,
+    "name": "CHANNEL_TYPE_SURVEY_RESPONSE",
+    "domain": "Channel Management",
+    "description": "This subentity identifies the channel type that is the subject of this survey question.",
+    "attributeCount": 1
+  },
+  {
+    "id": 849,
+    "name": "CHANNEL_TYPE_USAGE",
+    "domain": "Channel Management",
+    "description": "This entity identifies the ways this channel can be used such as for sales, marketing, fraud prevention, and general notification.",
+    "attributeCount": 2
+  },
+  {
+    "id": 850,
+    "name": "CHANNEL_USAGE_TYPE",
+    "domain": "Channel Management",
+    "description": "This is a code for the ways a channel can be used such as: - Sales - Marketing - Fraud prevention - Information delivery",
+    "attributeCount": 2
+  },
+  {
+    "id": 851,
+    "name": "CURRENCY_POSITION_METRIC",
+    "domain": "Channel Management",
+    "description": "This entity tracks metrics at the level of currency type for a given position - long or short. There is one instance for each type of currency (e.g., USD) for each type of position (long or short), for each type of metric and for each calculation scenario.  From this entity, the derived short and lo",
+    "attributeCount": 5
+  },
+  {
+    "id": 852,
+    "name": "DIRECT_MAIL_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "This is a type of channel that is physical mail.",
+    "attributeCount": 0
+  },
+  {
+    "id": 853,
+    "name": "ELECTRONIC_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This entity represents a specific electronic address (e.g., web site address, and email address) that is used as a channel instance.",
+    "attributeCount": 2
+  },
+  {
+    "id": 854,
+    "name": "EVENT_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This lists the channels that are involved with an event as specified by the event reason.",
+    "attributeCount": 5
+  },
+  {
+    "id": 855,
+    "name": "EVENT_CHANNEL_REASON",
+    "domain": "Channel Management",
+    "description": "This is the reason a channel instance is involved with an event such as for sales, for marketing, for fraud prevention, or for taking a survey.",
+    "attributeCount": 2
+  },
+  {
+    "id": 856,
+    "name": "EXTERNAL_CLAIM_VEHICLE_DISPOSITION_STATUS_TYPE",
+    "domain": "Channel Management",
+    "description": "A code for the status of the vehicle being claimed such as repaired, stolen, totaled, damaged, no compensation or other.",
+    "attributeCount": 2
+  },
+  {
+    "id": 857,
+    "name": "FINANCIAL_RULE_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "A code that identifies why this rule exists such as regulatory compliance or guideline.",
+    "attributeCount": 2
+  },
+  {
+    "id": 858,
+    "name": "HR_POSITION",
+    "domain": "Channel Management",
+    "description": "A HR POSITION that can be filled by an ASSOCIATE (e.g., manager, assistant manager, and sales clerk).  Specific functional role within an organization with defined job scope and responsibilities, usually identified by a job title and grade.",
+    "attributeCount": 7
+  },
+  {
+    "id": 859,
+    "name": "HR_POSITION_RELATED",
+    "domain": "Channel Management",
+    "description": "Indicates a relationship between positions. For example, one position may serve as relief backup to another in case of absence.",
+    "attributeCount": 5
+  },
+  {
+    "id": 860,
+    "name": "HR_POSITION_RELATED_ROLE",
+    "domain": "Channel Management",
+    "description": "Defines the role served by the related position. Sample values are relief and replacement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 861,
+    "name": "HR_POSITION_SITE",
+    "domain": "Channel Management",
+    "description": "This entity links human resource positions with sites such as the site(s) where these positions are valid or are filled.",
+    "attributeCount": 5
+  },
+  {
+    "id": 862,
+    "name": "HR_POSITION_SITE_REASON",
+    "domain": "Channel Management",
+    "description": "This is a code for the reason the site is associated with the human resources position such as \"is valid in\" or \"is filled in.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 863,
+    "name": "HR_POSITION_TRAIT",
+    "domain": "Channel Management",
+    "description": "A generic construct to describe characteristics of an HR POSITION, for example, spending approval limit or stock purchase eligibility grade.",
+    "attributeCount": 0
+  },
+  {
+    "id": 864,
+    "name": "HR_POSITION_TYPE",
+    "domain": "Channel Management",
+    "description": "The type of position that can be filled by an ASSOCIATE.  Examples: - Permanent full-time - Permanent part-time - Temporary full-time - Temporary part-time",
+    "attributeCount": 2
+  },
+  {
+    "id": 865,
+    "name": "INSTITUTIONAL_TREATMENT",
+    "domain": "Channel Management",
+    "description": "Treatment plan information reported on an institutional claim.  Required when Home Health Agencies (HHA) need to report \"Plan of Treatment\" information under various payer contracts.",
+    "attributeCount": 2
+  },
+  {
+    "id": 866,
+    "name": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "domain": "Channel Management",
+    "description": "This is a derived summary entity that reports the investment position by investment product and portfolio (agreement group). This is one example of potentially many such summary entities that could be created from the underlying detailed data. Variations that we have seen include reporting by cost c",
+    "attributeCount": 7
+  },
+  {
+    "id": 867,
+    "name": "INVESTMENT_POSITION",
+    "domain": "Channel Management",
+    "description": "This entity tracks the values of the investment over time for this holding. The values can include book value (as represented on the balance sheet), fair value, and market value. It gives a point-in-time position value for a holding in a financial instrument. The values could be actual or projected.",
+    "attributeCount": 9
+  },
+  {
+    "id": 868,
+    "name": "INVESTMENT_POSITION_SPECIFIC",
+    "domain": "Channel Management",
+    "description": "This entity tracks the values of the investment over time for this holding. The values can include book value (as represented on the balance sheet), fair value, and market value. It gives a point-in-time position value for a holding in a financial instrument. The values can be actual or projected.",
+    "attributeCount": 11
+  },
+  {
+    "id": 869,
+    "name": "INVESTMENT_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "A description of the purpose of this investment.  Examples: - Steady income for retirement - Maximize cash flow - Long-term - Short-term - College savings - Hedge another investment",
+    "attributeCount": 2
+  },
+  {
+    "id": 870,
+    "name": "IVR_ACTION",
+    "domain": "Channel Management",
+    "description": "User interaction function performed in an IVR step. Determined by override process and implemented by the application entry. A function combines operational characteristics such as language.",
+    "attributeCount": 7
+  },
+  {
+    "id": 871,
+    "name": "IVR_LEG",
+    "domain": "Channel Management",
+    "description": "An action performed within the Interactive Voice Response determined by a distinct call record. If the call is routed to a different call center or server then a new leg is created.",
+    "attributeCount": 8
+  },
+  {
+    "id": 872,
+    "name": "IVR_LEG_ACTION_TYPE",
+    "domain": "Channel Management",
+    "description": "A code identifying the IVR action that started the IVR leg.",
+    "attributeCount": 2
+  },
+  {
+    "id": 873,
+    "name": "IVR_STEP_NAVIGATION",
+    "domain": "Channel Management",
+    "description": "Processing segment of the call leg consisting of an interaction with the caller supported by a single action (override) begun with an entry into the application. The step may transfer to another step, transfer to a different call leg, or end with a caller disconnect.  Each step has a recorded result",
+    "attributeCount": 10
+  },
+  {
+    "id": 874,
+    "name": "IVR_TERMINATION_TYPE",
+    "domain": "Channel Management",
+    "description": "Identifies the type of outcome at termination of the step or leg.",
+    "attributeCount": 4
+  },
+  {
+    "id": 875,
+    "name": "JOB_TITLE_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "This entity contains channel types that are job titles. A job title such as Financial Planner, Relationship Manager, Branch Representative, or Call Center Representative may be treated as a type of channel for marketing, collections, or fraud prevention purposes. In this situation, persons with thes",
+    "attributeCount": 1
+  },
+  {
+    "id": 876,
+    "name": "KIOSK_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This entity represents a specific kiosk that is used as a channel instance.  If the kiosk is owned by your institution then it is also a fixed asset and will have a Fixed Asset Id.",
+    "attributeCount": 3
+  },
+  {
+    "id": 877,
+    "name": "LEDGER_POSTING_STATUS",
+    "domain": "Channel Management",
+    "description": "The entity that indicates the posting status of a general/subledger batch.  Possible examples may be: - Posted (ready to be entered in the general/subledger) - Do not post",
+    "attributeCount": 2
+  },
+  {
+    "id": 878,
+    "name": "LIENHOLDER_POSITION_TYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity identifies the position that the lienholder has with the asset such as first, second, and primary.",
+    "attributeCount": 2
+  },
+  {
+    "id": 879,
+    "name": "LOCK_BOX_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "Lock box is a channel provided by the bank where the bank establishes a 'Post Office Box' address for each corporate customer. It provides for more efficient delivery of mail (checks) by the postal service directly to the bank, processes them, and deposits the payments directly into the business' ac",
+    "attributeCount": 2
+  },
+  {
+    "id": 880,
+    "name": "MEASUREMENT_EVENT_PURPOSE",
+    "domain": "Channel Management",
+    "description": "This entity describes the purpose of the MEASUREMENT EVENT.  Examples: - Ensure product quality - Analyze equipment maintenance rates",
+    "attributeCount": 2
+  },
+  {
+    "id": 881,
+    "name": "METRIC_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "This is a code to describe the purpose of the metric. For example, a site that is a company building might measure physical characteristics such as square footage.",
+    "attributeCount": 2
+  },
+  {
+    "id": 882,
+    "name": "MODEL_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "Describes the purpose of the analytical model.  Examples: - Churn analysis - Growth analysis - Acquisition analysis - Defection analysis - Probability of default - Los given default",
+    "attributeCount": 2
+  },
+  {
+    "id": 883,
+    "name": "MODEL_RUN_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "This is a code for the purpose of the model run such as testing, training, ongoing maintenance, back testing, or forward prediction.",
+    "attributeCount": 2
+  },
+  {
+    "id": 884,
+    "name": "MORTALITY_TABLE_PURPOSE",
+    "domain": "Channel Management",
+    "description": "This entity captures the reason why the mortality table is assigned to the individual such as for pricing, repricing, or for reserves.",
+    "attributeCount": 2
+  },
+  {
+    "id": 885,
+    "name": "MULTIMEDIA_MESSAGE_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "Multimedia Messaging Service (MMS) is a standard for telephone messaging systems that allows sending messages that include multimedia objects (images, audio, video, rich text) and not just text as in Short Message Service (SMS). It is mainly deployed in cellular networks along with other messaging s",
+    "attributeCount": 0
+  },
+  {
+    "id": 886,
+    "name": "OBLIGOR_BORROWING_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "A code for the reason the obligor is borrowing money such as: - Home financing - Child education - Capital improvements for business - Car loan",
+    "attributeCount": 2
+  },
+  {
+    "id": 887,
+    "name": "ONLINE_APPLICATION_ACCESS",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding online applications programs that have been launched by users.",
+    "attributeCount": 22
+  },
+  {
+    "id": 888,
+    "name": "ONLINE_APPLICATION_ACCESS_AD_XREF",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding ads displayed on mobile applications.",
+    "attributeCount": 5
+  },
+  {
+    "id": 889,
+    "name": "ONLINE_APPLICATION_ACCESS_SUBTYPE",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the specific types of online applications that are run by users.  Examples: - Media Player - Audio Player - Interactive set-top box application - Video game - Content reader - Content downloader",
+    "attributeCount": 2
+  },
+  {
+    "id": 890,
+    "name": "ONLINE_APPLICATION_DEVELOPER_XREF",
+    "domain": "Channel Management",
+    "description": "This entity links an online application programs to the developer or developers that created it.",
+    "attributeCount": 3
+  },
+  {
+    "id": 891,
+    "name": "ONLINE_APPLICATION_GAME_TYPE",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the various types of online application games.  Examples: - Roulette - Poker - Blackjack - Racing - War - Social - Monopoly - Life - Strategy - Football - Baseball - Tennis",
+    "attributeCount": 3
+  },
+  {
+    "id": 892,
+    "name": "ONLINE_APPLICATION_PROGRAM",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the application programs used online that provides users access to information, entertainment, products or services. Online applications can be used on mobile devices as well as other types of online devices. These applications come in many forms and provid",
+    "attributeCount": 7
+  },
+  {
+    "id": 893,
+    "name": "ONLINE_APPLICATION_PROGRAM_CATEGORY",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the category classification of the application.  Examples: - Business - Educational - Leisure",
+    "attributeCount": 3
+  },
+  {
+    "id": 894,
+    "name": "ONLINE_APPLICATION_PROGRAM_COUNTRY_GROUP",
+    "domain": "Channel Management",
+    "description": "This entity captures information that specifies the countries targeted by a specific online application program. Multiple countries can be served by the same online application program.",
+    "attributeCount": 4
+  },
+  {
+    "id": 895,
+    "name": "ONLINE_APPLICATION_PROGRAM_DEVICE_XREF",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding devices the interactive application is supported on.",
+    "attributeCount": 2
+  },
+  {
+    "id": 896,
+    "name": "ONLINE_APPLICATION_PROGRAM_GENRE",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the nature/subject matter of an online application program.  Examples: - Music related - Movie related - Education related - Games related  Note: This is a recursive structure, allowing a hierarchy of genres.",
+    "attributeCount": 9
+  },
+  {
+    "id": 897,
+    "name": "ONLINE_APPLICATION_PROGRAM_METRIC",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding application metrics experienced by the user.  Examples: - How long the application was utilized - Specific features used during the application experience - Application experience level exhibited by the user  The measurement entities contain the actual valu",
+    "attributeCount": 6
+  },
+  {
+    "id": 898,
+    "name": "ONLINE_APPLICATION_PROGRAM_PAGE_VIEW_XREF",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding online application programs displayed on a given web page.",
+    "attributeCount": 5
+  },
+  {
+    "id": 899,
+    "name": "ONLINE_APPLICATION_PROGRAM_RATING",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding specific rating (or certification) that can be assigned to an online application program.",
+    "attributeCount": 2
+  },
+  {
+    "id": 900,
+    "name": "ONLINE_APPLICATION_PROGRAM_RATING_REASON",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the reason a certain online application program is assigned a rating.  Note: A recursive structure can be added if a hierarchy (or subdivisions) of reasons are required.  Examples: - Adult themes - Strong language - Sexual content - Violence",
+    "attributeCount": 2
+  },
+  {
+    "id": 901,
+    "name": "ONLINE_APPLICATION_PROGRAM_RATING_XREF",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding online application programs and their associated ratings and the reason for the ratings.",
+    "attributeCount": 7
+  },
+  {
+    "id": 902,
+    "name": "ONLINE_APPLICATION_PROGRAM_RELATED",
+    "domain": "Channel Management",
+    "description": "This entity identifies the relationships between online application programs.",
+    "attributeCount": 5
+  },
+  {
+    "id": 903,
+    "name": "ONLINE_APPLICATION_PROGRAM_STATUS",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the status of an online application program over time.  Examples: - Active - Canceled - Under trial test",
+    "attributeCount": 3
+  },
+  {
+    "id": 904,
+    "name": "ONLINE_APPLICATION_PROGRAM_STATUS_TYPE",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the status of an online application program.  Examples: - Active - Canceled - Under trial test",
+    "attributeCount": 2
+  },
+  {
+    "id": 905,
+    "name": "ONLINE_APPLICATION_PROGRAM_TRAIT",
+    "domain": "Channel Management",
+    "description": "These are traits related to online application programs.",
+    "attributeCount": 0
+  },
+  {
+    "id": 906,
+    "name": "ONLINE_APPLICATION_PROGRAM_TRAIT_VALUE",
+    "domain": "Channel Management",
+    "description": "The actual values for a type of trait for online application programs.  Examples: - Max number of users - Minimum online connection speed supported - Minimum amount of memory required",
+    "attributeCount": 8
+  },
+  {
+    "id": 907,
+    "name": "ONLINE_APPLICATION_PROGRAM_TRAIT_XREF",
+    "domain": "Channel Management",
+    "description": "This entity identifies the traits and characteristics associated with a specific online application program.  Examples: - Max number of users - Minimum online connection speed supported - Minimum amount of memory required",
+    "attributeCount": 5
+  },
+  {
+    "id": 908,
+    "name": "ONLINE_APPLICATION_PROGRAM_TYPE",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the classification of the type of application.  Examples: - Polling - Survey - Game - Purchase solicitation",
+    "attributeCount": 2
+  },
+  {
+    "id": 909,
+    "name": "ONLINE_APPLICATION_PROGRAM_VERSION",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the version of an online application program being used.  Note: If the intended environment does not use versioning, this entity can be removed and a direct link established from ONLINE APPLICATION PROGRAM entity to ONLINE APPLICATION ACCESS entity.",
+    "attributeCount": 2
+  },
+  {
+    "id": 910,
+    "name": "ONLINE_APPLICATION_RATING_DAYPART",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the standardized user rating. In the USA, this would typically be the VNU/Nielsen rating; the information is stored relative to the specific day part it is associated with.",
+    "attributeCount": 6
+  },
+  {
+    "id": 911,
+    "name": "ONLINE_APPLICATION_RELATED_ROLE",
+    "domain": "Channel Management",
+    "description": "This entity identifies the roles that can be filled when online application programs are related.",
+    "attributeCount": 2
+  },
+  {
+    "id": 912,
+    "name": "ONLINE_APPLICATION_SUBCATEGORY",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the subcategory classification of the application.  Examples: - Commercial business - Higher educational - Young adult leisure",
+    "attributeCount": 2
+  },
+  {
+    "id": 913,
+    "name": "ONLINE_CAMPAIGN_CHARACTERISTIC",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the attributes of a given online campaign during a session.",
+    "attributeCount": 3
+  },
+  {
+    "id": 914,
+    "name": "ONLINE_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "Captures generic information regarding online devices utilized for advertising.  Information relating to a specific type of online device.  Examples: - Motorola V9M wireless phone - Xbox 360 game console",
+    "attributeCount": 3
+  },
+  {
+    "id": 915,
+    "name": "ONLINE_CHANNEL_TYPE_2",
+    "domain": "Channel Management",
+    "description": "Captures information regarding audio, video, mobile and gaming devices and is a second level of classification of online channel type.  Examples: - Mobile device (phone/PDA) - Gaming device (Xbox, and Playstation) - Personal computer (Mac, Windows) - Audio device (iPod) - Cable set-top devices - Sat",
+    "attributeCount": 1
+  },
+  {
+    "id": 916,
+    "name": "ONLINE_CHANNEL_TYPE_3",
+    "domain": "Channel Management",
+    "description": "Identifies the online, interactive channel to which an Impression was delivered. This is the highest-level classification of channel type.  Examples: - Web - Interactive audio/video devices - Interactive audio devices - Interactive game devices",
+    "attributeCount": 0
+  },
+  {
+    "id": 917,
+    "name": "ONLINE_DOCUMENT_INFORMATION",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding online documents that do not have unique identification information. These types of documents usually are content provided by visitors to the company's web site. This also applies to social media sites where members share content.",
+    "attributeCount": 8
+  },
+  {
+    "id": 918,
+    "name": "ONLINE_IMPRESSION_EXPERIENCED",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the delivery of an impression to a user via an interactive, online device.  Interactive online devices receive impressions indicating actions the viewer is directed to take.",
+    "attributeCount": 7
+  },
+  {
+    "id": 919,
+    "name": "ONLINE_PROMOTION",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding promotions performed online. They usually have a specific start and end date and can contain multiple offers and ads.  The additional attributes captured during an online promotion are stored in this entity. Additionally, online promotions do not normally u",
+    "attributeCount": 11
+  },
+  {
+    "id": 920,
+    "name": "ONLINE_PROMOTION_ATTRIBUTE",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the attributes of a given online promotion during a session.",
+    "attributeCount": 4
+  },
+  {
+    "id": 921,
+    "name": "ONLINE_PROMOTION_SUMMARY",
+    "domain": "Channel Management",
+    "description": "This entity captures summary information regarding the online promotions associated with visitor session activities.",
+    "attributeCount": 7
+  },
+  {
+    "id": 922,
+    "name": "ONLINE_PROMOTION_TYPE",
+    "domain": "Channel Management",
+    "description": "This code captures information regarding the various types of online promotions presented during a session.  Examples: - Upsale - Cross-sale - Free shipping - Buy 1 and get 1 free - % Off",
+    "attributeCount": 2
+  },
+  {
+    "id": 923,
+    "name": "ONLINE_PROMOTION_VISIT_XREF",
+    "domain": "Channel Management",
+    "description": "This entity provides a cross-reference between online promotions and visitor sessions.",
+    "attributeCount": 2
+  },
+  {
+    "id": 924,
+    "name": "ONLINE_RADIO_STATION",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding radio stations where playlist are experienced.",
+    "attributeCount": 4
+  },
+  {
+    "id": 925,
+    "name": "ONLINE_VISITOR_AFFILIATION_TYPE",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the affiliations of web visitors.",
+    "attributeCount": 2
+  },
+  {
+    "id": 926,
+    "name": "OPPORTUNITY_PROPOSAL",
+    "domain": "Channel Management",
+    "description": "This entity allows for an opportunity to lead to many proposals and a proposal to be driven by many opportunities.",
+    "attributeCount": 3
+  },
+  {
+    "id": 927,
+    "name": "OTC_POST-TRADE_TYPE",
+    "domain": "Channel Management",
+    "description": "This describes the type of over-the-counter post-trade transaction in conformance with MiFID field 63. There may be one or more of the following for a transaction.  Possible values include: - BENC = benchmark - ACTX = agency cross - NPFT = non-price-forming - LRGS = large in scale - ILQD = illiquid",
+    "attributeCount": 2
+  },
+  {
+    "id": 928,
+    "name": "OVER-THE-COUNTER_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "This is a type of channel that is face-to-face or over-the-counter such as a visit to a branch.",
+    "attributeCount": 0
+  },
+  {
+    "id": 929,
+    "name": "OVER-THE-COUNTER_TERMINAL_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This subtype entity to CHANNEL INSTANCE identifies all the workstations in the enterprise that are used for sales or services that are staffed by employees. For example, in a bank, a workstation includes teller stations and customer service (platform) stations.",
+    "attributeCount": 2
+  },
+  {
+    "id": 930,
+    "name": "PACKAGE_CHANNEL_LINEUP",
+    "domain": "Channel Management",
+    "description": "Captures the programming package list of viewing channels.",
+    "attributeCount": 8
+  },
+  {
+    "id": 931,
+    "name": "PAGE_POSITION_TYPE",
+    "domain": "Channel Management",
+    "description": "This entity tracks different positions available on a page.  Note: The page could be physical such as in a print ad or catalog, or virtual, such as on a web page.  Examples: - Lower right-hand corner - Top middle - Middle left",
+    "attributeCount": 2
+  },
+  {
+    "id": 932,
+    "name": "PHYSICAL_MAIL_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This subtype entity to CHANNEL INSTANCE identifies all the physical mail channels such as the Postal Service regular mail, Postal Service Express Mail, or Federal Express overnight.",
+    "attributeCount": 2
+  },
+  {
+    "id": 933,
+    "name": "POINT-OF-SALE_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This subentity to CHANNEL INSTANCE contains information about the point-of-sale terminals that exist in stores that can be used by customers to make purchases with a debit, credit or prepaid (smart) card. The financial institution may or may not own the equipment. This entity has no attributes at th",
+    "attributeCount": 1
+  },
+  {
+    "id": 934,
+    "name": "POSITION_APPLICANT_INTERVIEW",
+    "domain": "Channel Management",
+    "description": "The planned, pending, or completed interview of a job applicant for a posted position. The parties involved in the interview process would be in the EVENT PARTY entity.",
+    "attributeCount": 7
+  },
+  {
+    "id": 935,
+    "name": "POSITION_APPLICANT_STATUS_TYPE",
+    "domain": "Channel Management",
+    "description": "This is the status of the applicant as related to the position applied for. Examples include unreviewed, reviewed, interviewing, rejected, offer extended, or withdrawn.",
+    "attributeCount": 2
+  },
+  {
+    "id": 936,
+    "name": "POSITION_ASSIGNMENT_STATUS",
+    "domain": "Channel Management",
+    "description": "This entity defines the types of status that can be assigned to an ORGANIZATION POSITION over time. Examples include vacant, offer extended, filled, on hold, or eliminated.",
+    "attributeCount": 2
+  },
+  {
+    "id": 937,
+    "name": "POSITION_FX_METRIC",
+    "domain": "Channel Management",
+    "description": "This entity contains the derived metrics for foreign exchange risk. For each type of position (e.g., long or short) across all currencies, it contains the net present value of that position.  For example, an enterprise may have $3M short position and $2M long position across all currencies. Using th",
+    "attributeCount": 4
+  },
+  {
+    "id": 938,
+    "name": "POSITION_GRADE",
+    "domain": "Channel Management",
+    "description": "This entity captures the grade level assigned to an HR POSITION and defines the associated pay range including the minimum, midpoint and maximum salary levels and any applicable incentive rate. Salary ranges may vary over time and are usually specific to a particular location.",
+    "attributeCount": 10
+  },
+  {
+    "id": 939,
+    "name": "POSITION_GRADE_TYPE",
+    "domain": "Channel Management",
+    "description": "As part of a job evaluation and compensation system, POSITION GRADE is assigned to a position based on job evaluation factors such as functional knowledge and business expertise. Grade levels rank positions or jobs based on value to the employer as defined by job scope and responsibilities.  Example",
+    "attributeCount": 2
+  },
+  {
+    "id": 940,
+    "name": "POSITION_POSTING",
+    "domain": "Channel Management",
+    "description": "The posting of availability of a position in a job posting and application system.",
+    "attributeCount": 9
+  },
+  {
+    "id": 941,
+    "name": "POSITION_POSTING_APPLICANT",
+    "domain": "Channel Management",
+    "description": "This is the association of a job applicant to a posted position in a job posting and application system.  An individual is registered as a job applicant within a job posting and application system.  Since an applicant is a role played by an individual, the individuals' details are stored in entities",
+    "attributeCount": 4
+  },
+  {
+    "id": 942,
+    "name": "POSITION_POSTING_APPLICANT_STATUS",
+    "domain": "Channel Management",
+    "description": "This tracks the status of the applicant as related to the position applied for. Examples include unreviewed, reviewed, interviewing, rejected, offer extended, or withdrawn.",
+    "attributeCount": 5
+  },
+  {
+    "id": 943,
+    "name": "POSITION_TRAIT_VALUE",
+    "domain": "Channel Management",
+    "description": "This entity defines the actual value of the TRAIT.  Examples: - Trait = maximum buying limit  Trait Value = 10,000 - Trait = stock eligibility grade  Trait Desc = employee position grades eligible to purchase company stock  Trait Values = 1, 2, 3, 4, S1",
+    "attributeCount": 7
+  },
+  {
+    "id": 944,
+    "name": "POSITION_TYPE",
+    "domain": "Channel Management",
+    "description": "Indicates whether the position is long or short.",
+    "attributeCount": 2
+  },
+  {
+    "id": 945,
+    "name": "POSSIBLE_ANSWER",
+    "domain": "Channel Management",
+    "description": "A preformed answer to a survey question. For an answer that covers a range, for example, \"Your present income: $8,000 - $9,999,\" the low and high values and the measurement are carried separately for analysis.  Examples: - Excellent - House and Garden - $10,000-$13,000 - Three or more - Yes",
+    "attributeCount": 6
+  },
+  {
+    "id": 946,
+    "name": "POSTAL_CODE",
+    "domain": "Channel Management",
+    "description": "A grouping of street addresses assigned by the post office. Frequently used in marketing analysis and planning.  Examples: - USA: 90210-3242 - Canada: G1S 1C1 - U.K.: GU21 4RY - Austria: 1150",
+    "attributeCount": 5
+  },
+  {
+    "id": 947,
+    "name": "POSTAL_CODE_JAPAN",
+    "domain": "Channel Management",
+    "description": "All locations in Japan have a postal code. After the reform of 1998 it begins with a postal mark (T), followed by a three-digit number, a hyphen, and a four-digit number, for example, T 123-456.",
+    "attributeCount": 2
+  },
+  {
+    "id": 948,
+    "name": "POST_OFFICE_BOX_ADDRESS",
+    "domain": "Channel Management",
+    "description": "An address that is a post office box.",
+    "attributeCount": 7
+  },
+  {
+    "id": 949,
+    "name": "PRINT_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This subentity to CHANNEL INSTANCE identifies those print media used for advertising. This includes newspapers and magazines. There is one instance for each print media used (e.g., Los Angeles Times).",
+    "attributeCount": 1
+  },
+  {
+    "id": 950,
+    "name": "PROGRAMMING_CHANNEL_GROUP_TYPE",
+    "domain": "Channel Management",
+    "description": "Captures information regarding the grouping of channels.  Examples: - Sports - Entertainment - Sci-fi",
+    "attributeCount": 2
+  },
+  {
+    "id": 951,
+    "name": "PROMOTION_CHANNEL",
+    "domain": "Channel Management",
+    "description": "This associative entity links promotions to channels, which allow a campaign to be carried out through many channels. An example of this would be a marketing message that appears on all the ATM's in a geographical area.",
+    "attributeCount": 2
+  },
+  {
+    "id": 952,
+    "name": "PROMOTION_CHANNEL_MM_OBJECT",
+    "domain": "Channel Management",
+    "description": "This contains the multimedia objects for this specific channel for this promotion.",
+    "attributeCount": 3
+  },
+  {
+    "id": 953,
+    "name": "PROPOSAL",
+    "domain": "Channel Management",
+    "description": "This entity includes information about the proposal making process that leads to a proposal document.  This proposal may be the result of an opportunity and may result in an agreement.  A proposal is an act of stating something for consideration by another party.",
+    "attributeCount": 5
+  },
+  {
+    "id": 954,
+    "name": "PROPOSAL_FINANCE",
+    "domain": "Channel Management",
+    "description": "This entity includes any financial information associated with this proposal such as proposal cost, projected revenue, or profit.",
+    "attributeCount": 6
+  },
+  {
+    "id": 955,
+    "name": "PROPOSAL_FINANCE_TYPE",
+    "domain": "Channel Management",
+    "description": "A code for the type of financial metric such as: - Proposal cost - Proposed price - Expected revenue - Expected profit - Spread rate - Term number",
+    "attributeCount": 2
+  },
+  {
+    "id": 956,
+    "name": "PROPOSAL_STATUS",
+    "domain": "Channel Management",
+    "description": "The status of this proposal over time.  Examples: - Not yet started - In process - Finished - Submitted",
+    "attributeCount": 5
+  },
+  {
+    "id": 957,
+    "name": "PROPOSAL_STATUS_REASON_TYPE",
+    "domain": "Channel Management",
+    "description": "The reason the status changes for this proposal including the reason the proposal was won or lost.  Examples: - Price - Competition - Product - People",
+    "attributeCount": 2
+  },
+  {
+    "id": 958,
+    "name": "PROPOSAL_STATUS_TYPE",
+    "domain": "Channel Management",
+    "description": "The status of this proposal:  Examples: - Not yet started - In process - Finished - Submitted",
+    "attributeCount": 2
+  },
+  {
+    "id": 959,
+    "name": "QUESTION_POSSIBLE_ANSWER",
+    "domain": "Channel Management",
+    "description": "The set of answers displayed with a survey question that is used in multiple-choice and \"all that apply\" types of questions.  Examples: \"Please check mark all activities that you are interested in\" - \"Skiing\" - \"Hiking\" - \"Bowling\" - \"Snowboarding\" - \"Bicycling\" - \"Other ________\"  \"Rate our Friendl",
+    "attributeCount": 3
+  },
+  {
+    "id": 960,
+    "name": "RADIO_STATION_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This entity represents a specific radio station that is used as a channel instance.",
+    "attributeCount": 1
+  },
+  {
+    "id": 961,
+    "name": "SCENARIO_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity describes the purpose of the calculation such as Basel II calculations or economic risk calculations.  Examples are stress testing, back testing, and current period calculation.",
+    "attributeCount": 2
+  },
+  {
+    "id": 962,
+    "name": "SITE_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This entity represents a specific location that is used as a channel instance.",
+    "attributeCount": 2
+  },
+  {
+    "id": 963,
+    "name": "SITE_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "A code for the primary purpose of this site such as customer branch, corporate office, technology center, and warehouse.",
+    "attributeCount": 2
+  },
+  {
+    "id": 964,
+    "name": "SOCIAL_MEDIA_POST",
+    "domain": "Channel Management",
+    "description": "This entity captures information regarding the content of various types' outlets visitors post to.  Examples: - Blogs - Forums - News - Facebook - Twitter - Comments",
+    "attributeCount": 11
+  },
+  {
+    "id": 965,
+    "name": "TELEVISION_CHANNEL_INSTANCE",
+    "domain": "Channel Management",
+    "description": "This subentity to CHANNEL INSTANCE identifies those channels that are television stations used for mass advertising.",
+    "attributeCount": 1
+  },
+  {
+    "id": 966,
+    "name": "TEXT_MESSAGE_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "Short Message Service (SMS) is a communications protocol allowing the interchange of short text messages between mobile telephone devices. The SMS technology has facilitated the development and growth of text messaging. The connection between the phenomenon of text messaging and the underlying techn",
+    "attributeCount": 0
+  },
+  {
+    "id": 967,
+    "name": "TIME_BAND_SCHEME_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "This minor entity describes the purpose of this scheme such as commodity risk time band and interest rate risk time band.",
+    "attributeCount": 2
+  },
+  {
+    "id": 968,
+    "name": "TRADE_EXECUTION_OTC_POST-TRADE",
+    "domain": "Channel Management",
+    "description": "This entity associates the trade execution with the over-the-counter post-trade indicators per the MiFID field 63 requirements. There can be more than one type of indicator for each trade execution.",
+    "attributeCount": 2
+  },
+  {
+    "id": 969,
+    "name": "TRADE_PURPOSE_TYPE",
+    "domain": "Channel Management",
+    "description": "This code identifies the reason for the trade such as to hedge the risk created from another trade or investment, or to mitigate the risk of another position.",
+    "attributeCount": 2
+  },
+  {
+    "id": 970,
+    "name": "TREATMENT_TYPE",
+    "domain": "Channel Management",
+    "description": "Identifies the plan of treatment. An example source could be treatment codes from CMS code set 359.",
+    "attributeCount": 2
+  },
+  {
+    "id": 971,
+    "name": "WEB_SITE_DATABASE_REPOSITORY",
+    "domain": "Channel Management",
+    "description": "This entity contains information regarding the database repository for the web site.",
+    "attributeCount": 2
+  },
+  {
+    "id": 972,
+    "name": "WIRELESS_PROTOCOL_CHANNEL_TYPE",
+    "domain": "Channel Management",
+    "description": "Wireless Application Protocol (WAP) is an open international standard for applications that use wireless communication. Its principal application is to enable access to the Internet from a mobile phone or PDA. A WAP browser provides all of the basic services of a computer-based web browser but simpl",
+    "attributeCount": 0
+  }
+]

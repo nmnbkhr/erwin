@@ -1,0 +1,1612 @@
+[
+  {
+    "id": 578,
+    "name": "ADVERTISEMENT_SPOT_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the SPOT type.  Examples: - Standard - Promotional",
+    "attributeCount": 2
+  },
+  {
+    "id": 579,
+    "name": "ADVERTISEMENT_USAGE_INFORMATION",
+    "domain": "Campaign & Marketing",
+    "description": "Captures information from a TV Receiver device regarding Advertisement usage.",
+    "attributeCount": 4
+  },
+  {
+    "id": 580,
+    "name": "AD_CAMPAIGN_OBJECTIVE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding ad campaigns objectives.  Note: The information in this entity is usually sourced from third-party ad management systems.",
+    "attributeCount": 25
+  },
+  {
+    "id": 581,
+    "name": "AD_CREATIVE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding multimedia objects involved in the creation of an advertisement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 582,
+    "name": "AD_DELIVERY_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This code defines the type of delivery utilized for an impression.  Examples: - Stream - Macromedia Flash - Pop-up",
+    "attributeCount": 2
+  },
+  {
+    "id": 583,
+    "name": "AD_EVENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding custom ad click-through events. Ad click-through events capture information regarding the ads displayed when a visitor performs a click-through action.",
+    "attributeCount": 5
+  },
+  {
+    "id": 584,
+    "name": "AD_EVENT_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This code captures information regarding ad event types.",
+    "attributeCount": 2
+  },
+  {
+    "id": 585,
+    "name": "AD_GROUP_PROMOTION_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding linkages between paid search ad groups and paid search promotions. Ad groups are actually groups of items that have linkages to the keywords or phrases.",
+    "attributeCount": 2
+  },
+  {
+    "id": 586,
+    "name": "AD_IDENTIFIER",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains information regarding the ad identifier structure. The full structure layout is described below. - Ad identifier codes are generated through a secure, web-accessible database located at www.ad-id.org. All ad identifier codes are 11 characters except for HD or 3D codes, which hav",
+    "attributeCount": 8
+  },
+  {
+    "id": 587,
+    "name": "AD_IDENTIFIER_DEFINITION_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is the indicator that is used to specify high-definition (HD) or 3D.  Note: Only high-definition (HD) and 3D codes have a 12th character. All HD codes have an H in the 12th character and all 3D codes have a D in the 12th character.",
+    "attributeCount": 2
+  },
+  {
+    "id": 588,
+    "name": "AD_IDENTIFIER_PREFIX_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is the four-character prefix, it is an identifier licensed to a company and used at the beginning of each advertisement identifier code. Prefixes cannot start with zero and they may be either locked or unlocked.  Note: Locked prefixes can only be used for the advertiser to which they are licens",
+    "attributeCount": 2
+  },
+  {
+    "id": 589,
+    "name": "AD_IMPRESSION_SUMMARY",
+    "domain": "Campaign & Marketing",
+    "description": "This entity provides periodic statistics about the advertisement objects that have been displayed. These values are usually collected by the ad agency.  Some ad agencies only capture summary information with regard to the delivery of advertisements and the actions taken by the viewers of the adverti",
+    "attributeCount": 6
+  },
+  {
+    "id": 590,
+    "name": "AD_NETWORK",
+    "domain": "Campaign & Marketing",
+    "description": "This entity represents a group of publisher sites that an ad or campaign is run on. Ad networks commonly have predefined networks that advertisers can choose to run their ads on. Examples include a computers and technology network that would include the entire computer and technology related sites t",
+    "attributeCount": 3
+  },
+  {
+    "id": 591,
+    "name": "AD_NETWORK_WEB_SITE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity relates the web sites that are contained in a specific ad network.",
+    "attributeCount": 2
+  },
+  {
+    "id": 592,
+    "name": "AD_OFFER",
+    "domain": "Campaign & Marketing",
+    "description": "This entity relates ads to offers. An offer is presented in an ad.",
+    "attributeCount": 2
+  },
+  {
+    "id": 593,
+    "name": "AD_ORDER_COMMISSION",
+    "domain": "Campaign & Marketing",
+    "description": "This is a cross-reference of sales persons and commissions associated with the ad order.  Example: - M. Stephenson will be receiving 10% on all revenue generated by Ad # 54298743.",
+    "attributeCount": 4
+  },
+  {
+    "id": 594,
+    "name": "AD_ORDER_DIGITAL_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This code is a classification of online channels for advertisements.  Examples: - Web - Interactive television - Interactive game play device",
+    "attributeCount": 2
+  },
+  {
+    "id": 595,
+    "name": "AD_ORDER_EVENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity enables the linking of ad orders to event activities. By providing a cross-reference between ad orders and events, the ad order function can be tracked within the event hierarchy.",
+    "attributeCount": 2
+  },
+  {
+    "id": 596,
+    "name": "AD_ORDER_EXPENSE_FORECAST",
+    "domain": "Campaign & Marketing",
+    "description": "This entity is used for future estimates, projections, and forecasts of ad order expenses by ad space buyers.  It accommodates multiple simultaneous methods and forecast sources (allowing for the selection of the most accurate method when the \"actuals\" become known).  It also houses the (derived) \"a",
+    "attributeCount": 7
+  },
+  {
+    "id": 597,
+    "name": "AD_ORDER_HEADER",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures header information regarding an advertisement order from a buyer (advertiser or ad agency) to an ad space seller (ad agency or publisher) indicating the buyer's desire to reserve space to display an advertisement.",
+    "attributeCount": 6
+  },
+  {
+    "id": 598,
+    "name": "AD_ORDER_HEADER_DETAIL",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains information regarding the details of an ad order header.",
+    "attributeCount": 11
+  },
+  {
+    "id": 599,
+    "name": "AD_ORDER_HEADER_PLATFORM_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity links ad orders to the platforms (channel instances) they are associated with.",
+    "attributeCount": 3
+  },
+  {
+    "id": 600,
+    "name": "AD_ORDER_HEADER_REVENUE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the ad order revenue type.  Examples: - Broadcast - Internet",
+    "attributeCount": 2
+  },
+  {
+    "id": 601,
+    "name": "AD_ORDER_HEADER_SUBTYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding ad order header types.  Examples: - Digital - Traditional - Makegood",
+    "attributeCount": 2
+  },
+  {
+    "id": 602,
+    "name": "AD_ORDER_HEADER_VALUE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the cash value associated with an ad order.  Examples: - Cash - Trade - Nonrevenue",
+    "attributeCount": 2
+  },
+  {
+    "id": 603,
+    "name": "AD_ORDER_LINE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures the line item details relating to an ad order.",
+    "attributeCount": 5
+  },
+  {
+    "id": 604,
+    "name": "AD_ORDER_LINE_CATEGORY",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding categories of ad order lines.",
+    "attributeCount": 2
+  },
+  {
+    "id": 605,
+    "name": "AD_ORDER_LINE_DETAIL",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains information regarding the details of an ad order line.",
+    "attributeCount": 15
+  },
+  {
+    "id": 606,
+    "name": "AD_ORDER_LINE_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the status of an ad order line over time.",
+    "attributeCount": 5
+  },
+  {
+    "id": 607,
+    "name": "AD_ORDER_LINE_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the status of an ad order line.  Examples: - Canceled - On hold - Complete",
+    "attributeCount": 2
+  },
+  {
+    "id": 608,
+    "name": "AD_ORDER_LINE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the type of ad order line entry.  Examples: - Ad spot - Ancillary fee",
+    "attributeCount": 2
+  },
+  {
+    "id": 609,
+    "name": "AD_ORDER_MAKE_GOOD_PLACEMENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding make good replacement requests.",
+    "attributeCount": 0
+  },
+  {
+    "id": 610,
+    "name": "AD_ORDER_MAKE_GOOD_REASON_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the reason for the make good request.",
+    "attributeCount": 2
+  },
+  {
+    "id": 611,
+    "name": "AD_ORDER_MAKE_GOOD_REFUND",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding a make good request for a refund. The customer refuses to accept a replacement and requests a refund of the order.",
+    "attributeCount": 2
+  },
+  {
+    "id": 612,
+    "name": "AD_ORDER_MAKE_GOOD_SUBTYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines ad order make good subtypes such as placement and refund.",
+    "attributeCount": 2
+  },
+  {
+    "id": 613,
+    "name": "AD_ORDER_REVENUE_FORECAST",
+    "domain": "Campaign & Marketing",
+    "description": "This entity is used for future estimates, projections, and forecasts of ad order purchases by ad space sellers. It accommodates multiple simultaneous methods and forecast sources (allowing for the selection of the most accurate method when the 'actuals' become known).  Note: Also houses the (derived",
+    "attributeCount": 7
+  },
+  {
+    "id": 614,
+    "name": "AD_ORDER_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the status of an ad order header over time.",
+    "attributeCount": 4
+  },
+  {
+    "id": 615,
+    "name": "AD_ORDER_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the status of an ad order.  Examples: - Canceled - On hold - Complete",
+    "attributeCount": 2
+  },
+  {
+    "id": 616,
+    "name": "AD_ORDER_TRADITIONAL_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding traditional channels for advertisements.  Examples: - Print - Television - Billboard - Radio",
+    "attributeCount": 2
+  },
+  {
+    "id": 617,
+    "name": "AD_ORDER_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the type of ad order.  Examples: - Normal - Per inquiry - Political - Sports - Direct response",
+    "attributeCount": 2
+  },
+  {
+    "id": 618,
+    "name": "AD_PERFORMANCE_RATING",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the standardized viewership ratings for ads. In the USA, this would typically be the VNU/Nielsen rating.",
+    "attributeCount": 5
+  },
+  {
+    "id": 619,
+    "name": "AD_PERFORMANCE_RATING_DAYPART",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the standardized viewership ratings for ads. In the USA, this would typically be the VNU/Nielsen rating; the information is stored relative to the specific day part it is associated with.",
+    "attributeCount": 5
+  },
+  {
+    "id": 620,
+    "name": "AD_PLACEMENT",
+    "domain": "Campaign & Marketing",
+    "description": "This is the placement request and delivery as specified by the ad order.  Examples: Traditional: - Totally solar ad on page 17 of March 2008 Wired magazine - Garden gnome ad on page 78 of House and Gardens magazine  Digital: - Dell student special ad in banner space of AOL.com - Norton antivirus ad",
+    "attributeCount": 9
+  },
+  {
+    "id": 621,
+    "name": "AD_PLACEMENT_BROADCAST_PLATFORM",
+    "domain": "Campaign & Marketing",
+    "description": "This captures information regarding broadcast output platform (channel instance) for this ad order.  Examples: - TV - Radio",
+    "attributeCount": 5
+  },
+  {
+    "id": 622,
+    "name": "AD_PLACEMENT_DISPLAY_TIME",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the date and time that an ad was shown.  Examples: - Ad 2005467 is shown Monday morning (9am-11am) - Ad 872364098 is shown on Weekends (24 hours a day)",
+    "attributeCount": 6
+  },
+  {
+    "id": 623,
+    "name": "AD_PLACEMENT_OUTDOOR_PLATFORM",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the display medium for outdoor advertisement placement. The outdoor medium covers billboards and advertisement displayed on vehicles.",
+    "attributeCount": 1
+  },
+  {
+    "id": 624,
+    "name": "AD_PLACEMENT_PRINT_PLATFORM",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the display medium for the advertisement placement. The print medium covers display mediums such as books, magazines, newspapers, and yellow pages.",
+    "attributeCount": 3
+  },
+  {
+    "id": 625,
+    "name": "AD_PLACEMENT_SUBTYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This code identifies the medium in which the ad appeared and is used as a category discriminator such as: - Print - TV - Radio - Web - Email",
+    "attributeCount": 2
+  },
+  {
+    "id": 626,
+    "name": "AD_RATING",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding a specific rating (or certification) that can be assigned to an ad for an audience type or age.",
+    "attributeCount": 3
+  },
+  {
+    "id": 627,
+    "name": "AD_RATING_REASON",
+    "domain": "Campaign & Marketing",
+    "description": "This entity provides the reason a certain ad rating is assigned.  Note: A recursive structure can be added if a hierarchy (or subdivisions) of reasons are required.  Examples: - Adult Themes - Strong Language - Sexual Content - Violence",
+    "attributeCount": 2
+  },
+  {
+    "id": 628,
+    "name": "AD_RATING_REASON_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding all the reasons a specific rating code of a specific rating system was assigned to an ad.",
+    "attributeCount": 3
+  },
+  {
+    "id": 629,
+    "name": "AD_RATING_SYSTEM",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding a rating (or certification) system devised to rate advertisements for an audience type or age.",
+    "attributeCount": 3
+  },
+  {
+    "id": 630,
+    "name": "AD_RATING_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding a specific rating (or certification) that has been assigned to an ad for an audience type or age.",
+    "attributeCount": 4
+  },
+  {
+    "id": 631,
+    "name": "AD_RELATED",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information that allows two related ads to be linked.  Note: Use this structure if a many-to-many relationship is desired between ads.",
+    "attributeCount": 5
+  },
+  {
+    "id": 632,
+    "name": "AD_RELATED_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information that specifies why two ads are related.",
+    "attributeCount": 2
+  },
+  {
+    "id": 633,
+    "name": "AD_SPONSORSHIP_CATEGORY_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding ad sponsorship categories.  Examples: - NBA - MLB - NFL - NHL - NASCAR - Music - Hollywood - Skiing - Surfing - Extreme sports - Other - None",
+    "attributeCount": 2
+  },
+  {
+    "id": 634,
+    "name": "AD_SPONSORSHIP_PROGRAM_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding ad sponsorship programs.  Examples: - NFL Playoffs - NFL Super Bowl - NFL Kickoff - NASCAR Daytona - March Madness - Ski championship - Olympics - Surf extravaganza - Surf Australia competition - Extreme sports battle",
+    "attributeCount": 2
+  },
+  {
+    "id": 635,
+    "name": "AD_SPOT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information that defines a type of media space that can be sold by a media publisher. It is used for pricing and order purposes to predefine rates and media spot placement specifications. It is also known as \"spot\".  Examples: - Page in a publication - Billboard - TV commercial",
+    "attributeCount": 3
+  },
+  {
+    "id": 636,
+    "name": "AD_SPOT_GROUP",
+    "domain": "Campaign & Marketing",
+    "description": "This is a grouping of ad spots.",
+    "attributeCount": 2
+  },
+  {
+    "id": 637,
+    "name": "AD_SPOT_GROUP_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This provides for an ad to be in many groups and a group to contain many ads.",
+    "attributeCount": 2
+  },
+  {
+    "id": 638,
+    "name": "AD_SPOT_PLACEMENT_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity links ads to their requested placement spots.",
+    "attributeCount": 4
+  },
+  {
+    "id": 639,
+    "name": "AD_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the status of an ad over time.",
+    "attributeCount": 4
+  },
+  {
+    "id": 640,
+    "name": "AD_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the status of an ad.  Examples: - Active - Canceled - Under trial test",
+    "attributeCount": 2
+  },
+  {
+    "id": 641,
+    "name": "AD_SUBCATEGORY",
+    "domain": "Campaign & Marketing",
+    "description": "This code provides a second higher level of classification of advertisement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 642,
+    "name": "AD_SUBTYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is a classification of advertisement delivery types such as radio, TV, and web.",
+    "attributeCount": 3
+  },
+  {
+    "id": 643,
+    "name": "AD_TRACKING_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the code assigned by the ad delivery system to enable tracking of ads.",
+    "attributeCount": 2
+  },
+  {
+    "id": 644,
+    "name": "AD_TRAIT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the actual value describing the specific trait of a specific ad. An ad can have an unlimited number of ad traits.",
+    "attributeCount": 3
+  },
+  {
+    "id": 645,
+    "name": "CALENDAR_SPREAD_OPTION",
+    "domain": "Campaign & Marketing",
+    "description": "A calendar spread option is similar to an ordinary spread option except the price differential is between two forward or futures contracts with different maturities on the same underlying asset.",
+    "attributeCount": 0
+  },
+  {
+    "id": 646,
+    "name": "CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "description": "A campaign is a concentrated effort to retain, acquire, or consolidate customers or to build an image. It has a specific start and end date and typically consist of multiple promotions. The goal of a campaign is usually to enhance the image of the enterprise, and/or drive more business and/or obtain",
+    "attributeCount": 19
+  },
+  {
+    "id": 647,
+    "name": "CAMPAIGN_AUDIENCE_REACH_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the type of audience the campaign will be targeted toward.  Examples: - Local - Regional - National - International",
+    "attributeCount": 2
+  },
+  {
+    "id": 648,
+    "name": "CAMPAIGN_CELL",
+    "domain": "Campaign & Marketing",
+    "description": "A group created in order to measure the effectiveness of the various elements employed in a campaign such as contact list, campaign message, media type, offering, and promotion.  A cell is a specialized treatment strategy for a grouping of parties for campaign promotion purposes. Parties in this cel",
+    "attributeCount": 12
+  },
+  {
+    "id": 649,
+    "name": "CAMPAIGN_CELL_AD",
+    "domain": "Campaign & Marketing",
+    "description": "The advertisements used by a campaign cell.",
+    "attributeCount": 3
+  },
+  {
+    "id": 650,
+    "name": "CAMPAIGN_CELL_CLASSIFICATION",
+    "domain": "Campaign & Marketing",
+    "description": "The business strategies used in the creation of a campaign cell.",
+    "attributeCount": 2
+  },
+  {
+    "id": 651,
+    "name": "CAMPAIGN_CELL_COST",
+    "domain": "Campaign & Marketing",
+    "description": "A summary of costs for a specific time period, by the type of cost.  Cost associated with marketing to a specific CAMPAIGN CELL.",
+    "attributeCount": 6
+  },
+  {
+    "id": 652,
+    "name": "CAMPAIGN_CELL_MANAGEMENT",
+    "domain": "Campaign & Marketing",
+    "description": "A history of the roles (as specified by campaign party role) that a party plays in the management and running of a campaign cell.",
+    "attributeCount": 6
+  },
+  {
+    "id": 653,
+    "name": "CAMPAIGN_CELL_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "All campaign responses related to an event for a given campaign cell.",
+    "attributeCount": 5
+  },
+  {
+    "id": 654,
+    "name": "CAMPAIGN_CELL_WEB_SITE_SECTION",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains the web site sections used by a campaign cell.",
+    "attributeCount": 4
+  },
+  {
+    "id": 655,
+    "name": "CAMPAIGN_CLASSIFICATION",
+    "domain": "Campaign & Marketing",
+    "description": "This is an additional way to classify the campaign such as campaigns to college students or campaigns to senior citizens.",
+    "attributeCount": 2
+  },
+  {
+    "id": 656,
+    "name": "CAMPAIGN_CONDITION",
+    "domain": "Campaign & Marketing",
+    "description": "This associative entity identifies the key conditions that are highlighted about this product during this campaign.",
+    "attributeCount": 3
+  },
+  {
+    "id": 657,
+    "name": "CAMPAIGN_COST",
+    "domain": "Campaign & Marketing",
+    "description": "A summary of costs for a specific time period, by the type of cost.  Cost associated with a specific marketing campaign.",
+    "attributeCount": 5
+  },
+  {
+    "id": 658,
+    "name": "CAMPAIGN_COST_CATEGORY",
+    "domain": "Campaign & Marketing",
+    "description": "This entity describes a high-level of grouping of campaign costs.  Examples: - Utilities - Operations - Staffing - Supplies - Advertising - Third-party - Material - Capital Acquisition",
+    "attributeCount": 2
+  },
+  {
+    "id": 659,
+    "name": "CAMPAIGN_COST_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity describes the types of costs that can be incurred for a campaign.  Examples - Mailing - Staffing - Print costs - Marketing consulting - Research - Material - Distribution",
+    "attributeCount": 3
+  },
+  {
+    "id": 660,
+    "name": "CAMPAIGN_INTEREST_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding this campaign's placement areas of interest.  Examples: - Magazine - Newspaper - Cable TV - Radio - Outdoor - Conference - Event - Email marketing - Web - Research - General",
+    "attributeCount": 2
+  },
+  {
+    "id": 661,
+    "name": "CAMPAIGN_LEVEL_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This minor entity describes the level in the campaign hierarchy. The campaign structure can be any number of levels depending on the requirements of the financial institution. This entity relates a level number to a description, such as the highest level may be strategy and the lowest level may be e",
+    "attributeCount": 2
+  },
+  {
+    "id": 662,
+    "name": "CAMPAIGN_LOYALTY_PROGRAM",
+    "domain": "Campaign & Marketing",
+    "description": "This entity identifies the loyalty program(s) that may be promoted as part of this campaign.",
+    "attributeCount": 2
+  },
+  {
+    "id": 663,
+    "name": "CAMPAIGN_MANAGEMENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains a history of the roles (as specified by the attribute Campaign Party Role Cd) that a party plays in the management and running of a campaign.",
+    "attributeCount": 1
+  },
+  {
+    "id": 664,
+    "name": "CAMPAIGN_MEDIA_MIX_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the media mix utilized by a campaign.  Examples: - Print - Digital - Broadcast - Mixed",
+    "attributeCount": 2
+  },
+  {
+    "id": 665,
+    "name": "CAMPAIGN_OBJECTIVE_AD_COLOR_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the color of the ad utilized for this campaign.  Examples: - 4c - B/w - B/w+1color - 2c - 5c - 4c bleed",
+    "attributeCount": 2
+  },
+  {
+    "id": 666,
+    "name": "CAMPAIGN_OBJECTIVE_AD_DIMENSION_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding campaign objective desired ad dimension.  Examples: - Square - Vertical - Horizontal - Digest - Second cover - Third cover - Fourth cover",
+    "attributeCount": 2
+  },
+  {
+    "id": 667,
+    "name": "CAMPAIGN_OBJECTIVE_CATEGORY",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the campaign objective category placement for the ad.  Examples: - Apparel - Baby - Beauty - Business - Family activity - Fashion/trends/celebrity - Food - Health - Home - Lifestyle - Technology - No position",
+    "attributeCount": 2
+  },
+  {
+    "id": 668,
+    "name": "CAMPAIGN_OBJECTIVE_DISPLAY_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding campaign objective display types.  Examples: - Run of book - ROB direct response - BOB direct response - Insert supplied - Insert provided - Word classified",
+    "attributeCount": 2
+  },
+  {
+    "id": 669,
+    "name": "CAMPAIGN_OBJECTIVE_RESEARCH_SOURCE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the research source for this campaign objective.  Examples: - MRI - MRR",
+    "attributeCount": 2
+  },
+  {
+    "id": 670,
+    "name": "CAMPAIGN_OBJECTIVE_UNIT_SIZE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding a campaign objective unit size.  Examples: - PG 4c - SP 4c - PG bw - SP bw - 2 consecutive pg 4c - 1/3 pg 4c - 1/3 pg bw - 1/2 vertical 4c - 1/2 horizontal 4c - 1/2 vertical bw - 1/2 horizontal bw - 2/3 pg 4c - 2/3 pg bw - 2/3 page bookends - Gatefold 4pg -",
+    "attributeCount": 2
+  },
+  {
+    "id": 671,
+    "name": "CAMPAIGN_OBJECTIVE_UNIT_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the desired unit type for this campaign objective.  Examples: - Display ad - Advertorial - Insert - BRC - We provide insert - Spread - Outsert - Booklet (catalog/brochure) - Gatefold",
+    "attributeCount": 2
+  },
+  {
+    "id": 672,
+    "name": "CAMPAIGN_RELATED",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the relationships between campaigns.",
+    "attributeCount": 5
+  },
+  {
+    "id": 673,
+    "name": "CAMPAIGN_RELATED_ROLE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the relationships between campaigns.",
+    "attributeCount": 2
+  },
+  {
+    "id": 674,
+    "name": "CAMPAIGN_RELATED_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "This entity tracks the history of status changes for a campaign relationship.",
+    "attributeCount": 7
+  },
+  {
+    "id": 675,
+    "name": "CAMPAIGN_RELATED_STATUS_REASON",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the reason why a particular campaign status type may be assigned to a campaign relationship.",
+    "attributeCount": 2
+  },
+  {
+    "id": 676,
+    "name": "CAMPAIGN_RELATED_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "The domain of classifications tracked to the relationship role for a campaign.  Examples: - Active - Inactive",
+    "attributeCount": 2
+  },
+  {
+    "id": 677,
+    "name": "CAMPAIGN_RESPONSE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity categorizes a customer response to a campaign message. Responses include \"buy,\" \"send me more information,\" \"check back in the future,\" \"not interested right now,\" and \"don't want it.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 678,
+    "name": "CAMPAIGN_SEGMENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity provides the linkage between campaigns and market segments and allows a campaign to target multiple segments, and a market segment to be targeted by many campaigns.",
+    "attributeCount": 2
+  },
+  {
+    "id": 679,
+    "name": "CAMPAIGN_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "This entity tracks the status of a campaign over time.",
+    "attributeCount": 3
+  },
+  {
+    "id": 680,
+    "name": "CAMPAIGN_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the status of a campaign.  Examples: - Active - Canceled - Under trial test",
+    "attributeCount": 2
+  },
+  {
+    "id": 681,
+    "name": "CAMPAIGN_STEP",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the phases processed during a campaign.  Examples: - Awareness/reputation - Demand generation - Sales enablement",
+    "attributeCount": 4
+  },
+  {
+    "id": 682,
+    "name": "CAMPAIGN_STEP_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains the next step given a response to a promotion step for a cell. The response may be no response in which case the next step is a \"timeout\" step. If the next step is null then no further action is taken.  These are planned responses to a step.",
+    "attributeCount": 5
+  },
+  {
+    "id": 683,
+    "name": "CAMPAIGN_STEP_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the phases that may be proceeded through during a campaign.  Examples: - Awareness/reputation - Demand generation - Sales enablement",
+    "attributeCount": 2
+  },
+  {
+    "id": 684,
+    "name": "CAMPAIGN_STRATEGY_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "The business objective or strategy of the campaign.  Example: - Increase sales of snowmobiles in America that are east of the Rocky Mountains. - Prevent fraudulent charges",
+    "attributeCount": 2
+  },
+  {
+    "id": 685,
+    "name": "CAMPAIGN_TARGET_MARKET",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the geography designations included in a specific campaign cell.  Note: This structure would be especially useful for indirect marketing campaigns.",
+    "attributeCount": 4
+  },
+  {
+    "id": 686,
+    "name": "CAMPAIGN_TRAIT",
+    "domain": "Campaign & Marketing",
+    "description": "These are traits related to a campaign.",
+    "attributeCount": 0
+  },
+  {
+    "id": 687,
+    "name": "CAMPAIGN_TRAIT_VALUE",
+    "domain": "Campaign & Marketing",
+    "description": "This is the set of possible values for a campaign trait.",
+    "attributeCount": 8
+  },
+  {
+    "id": 688,
+    "name": "CAMPAIGN_TRAIT_VALUE_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This relates the campaign trait value of a given trait to a given campaign.",
+    "attributeCount": 5
+  },
+  {
+    "id": 689,
+    "name": "CAMPAIGN_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "The types of campaigns that can be conducted by the organization.  Examples: - Mass media - Direct marketing blind - Direct marketing semiblind - Direct marketing known  An example of a blind campaign is when a third-party organization includes a bill insert to their customers. The third-party organ",
+    "attributeCount": 2
+  },
+  {
+    "id": 690,
+    "name": "CARD_NETWORK_CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "description": "This is a type of campaign that is a concerted effort to expand the third-party network business. This effort includes acquiring more credit card merchants, partnering with card issuers, encouraging merchant promotion of card acceptance at their location, or reciprocating network acceptance.",
+    "attributeCount": 0
+  },
+  {
+    "id": 691,
+    "name": "CLAIM_PROVIDER_SURVEY_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains the survey results about a provider to a claim.",
+    "attributeCount": 2
+  },
+  {
+    "id": 692,
+    "name": "CLAIM_SURVEY_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "This subentity identifies the claim that is the subject of this survey question.",
+    "attributeCount": 1
+  },
+  {
+    "id": 693,
+    "name": "COLLECTION_CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "description": "COLLECTION CAMPAIGN is a concentrated effort to collect payment on delinquent accounts in order to bring them current. COLLECTION CAMPAIGNs are defined primarily by the level of delinquency such as 30-day, 60-day, or prelegal. Examples of COLLECTION CAMPAIGN include making a right party contact, obt",
+    "attributeCount": 0
+  },
+  {
+    "id": 694,
+    "name": "COMPENSATORY_OFFER",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding an offer (or offers) made to a customer as compensation for feedback received. This could be to reward the customer for taking the time to provide feedback, or to compensate the customer for a less than perfect experience with the enterprise. This is one ex",
+    "attributeCount": 2
+  },
+  {
+    "id": 695,
+    "name": "CONSUMER_MARKETING_CAMPAIGN",
+    "domain": "Campaign & Marketing",
+    "description": "This is a type of CAMPAIGN related to the credit card and consumer product business. An acquisition campaign focuses on acquiring new customers for cards, banking products or other consumer products. A portfolio campaign focuses on existing customers for retention, increased usage or cross-sell.",
+    "attributeCount": 0
+  },
+  {
+    "id": 696,
+    "name": "DOWNLOAD_EVENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding download events.",
+    "attributeCount": 9
+  },
+  {
+    "id": 697,
+    "name": "DOWNLOAD_FAILURE_REASON_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is a code for the description of why a download failed.  Examples: - Link failed - User disconnected unexpectedly - Server failed",
+    "attributeCount": 2
+  },
+  {
+    "id": 698,
+    "name": "DOWNLOAD_ITEM",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding items that are downloaded from the web site.",
+    "attributeCount": 2
+  },
+  {
+    "id": 699,
+    "name": "EVENT_SURVEY_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity identifies the event that is the subject of the survey. For example, the survey may ask for feedback about a recent phone call event.",
+    "attributeCount": 1
+  },
+  {
+    "id": 700,
+    "name": "GROUP_SURVEY",
+    "domain": "Campaign & Marketing",
+    "description": "This defines an activity that was conducted to solicit feedback from a group of customers regarding the products and services of the enterprise. This is often done with a specifically targeted market segment.  Example: - A market research group is hired to obtain feedback from customers. This can be",
+    "attributeCount": 6
+  },
+  {
+    "id": 701,
+    "name": "KEYWORD_PLACEMENT_AD_GROUP_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding linkages between paid search keywords and paid search ad groups. Ad groups are actually groups of items that have linkages to the keywords or phrases.",
+    "attributeCount": 2
+  },
+  {
+    "id": 702,
+    "name": "LEAD_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains the history of the status of the lead.  Examples: - In nurturing - Marketing qualified - Marketing re-engaged - New - Opportunity accepted - Sales accepted - Sales qualified - Sales re-engaged - Working to sales qualified",
+    "attributeCount": 4
+  },
+  {
+    "id": 703,
+    "name": "LEAD_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding status types for leads.  Examples: - In nurturing - Marketing qualified - Marketing re-engaged - New - Opportunity accepted - Sales accepted - Sales qualified - Sales re-engaged - Working to sales qualified",
+    "attributeCount": 2
+  },
+  {
+    "id": 704,
+    "name": "LEAD_STEP",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the routing path for the lead. This designates the sales paths that leads with be routed to.",
+    "attributeCount": 4
+  },
+  {
+    "id": 705,
+    "name": "LEAD_STEP_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is a code for the type of step that a lead goes through such as qualification, education, finalization, and cancelation.",
+    "attributeCount": 2
+  },
+  {
+    "id": 706,
+    "name": "LEAD_TEXT_COMMENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding textual notes concerning a lead.",
+    "attributeCount": 5
+  },
+  {
+    "id": 707,
+    "name": "LEAD_TRAIT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains only those traits that are relevant to leads.",
+    "attributeCount": 0
+  },
+  {
+    "id": 708,
+    "name": "LEAD_TRAIT_VALUE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains the possible values for lead traits such as first-time home buyer.",
+    "attributeCount": 8
+  },
+  {
+    "id": 709,
+    "name": "LEAD_TRAIT_VALUE_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity associates the lead trait value with the lead.",
+    "attributeCount": 5
+  },
+  {
+    "id": 710,
+    "name": "LOYALTY_CONVERSION",
+    "domain": "Campaign & Marketing",
+    "description": "Calculation factor used to determine the unit equivalence of units in one program with that of another program or within the same program.",
+    "attributeCount": 4
+  },
+  {
+    "id": 711,
+    "name": "LOYALTY_LEVEL",
+    "domain": "Campaign & Marketing",
+    "description": "The domain of achievement ratings that may be associated with the reward benefits level.  Examples: - B: Bronze - S: Silver - G: Gold",
+    "attributeCount": 4
+  },
+  {
+    "id": 712,
+    "name": "LOYALTY_LEVEL_QUALIFYING_UNIT",
+    "domain": "Campaign & Marketing",
+    "description": "This is used to define a relationship between a program loyalty level, the loyalty units that are eligible toward that level and the number of units needed to qualify for a given loyalty level.",
+    "attributeCount": 6
+  },
+  {
+    "id": 713,
+    "name": "LOYALTY_PROGRAM",
+    "domain": "Campaign & Marketing",
+    "description": "This is the domain of programs for tracking and logging rewards and reward packages such as credit card usage rewards.  It is a type of product offered by the financial institution with its own set of terms and conditions and for which an account is set up once joined.",
+    "attributeCount": 1
+  },
+  {
+    "id": 714,
+    "name": "LOYALTY_PROGRAM_UNIT",
+    "domain": "Campaign & Marketing",
+    "description": "This represents a loyalty unit that is assigned to a loyalty program.",
+    "attributeCount": 4
+  },
+  {
+    "id": 715,
+    "name": "LOYALTY_UNIT",
+    "domain": "Campaign & Marketing",
+    "description": "This is a user-defined loyalty unit that, when accumulated, may be used to qualify for higher status levels within a loyalty program or special offers and may be used as a form of exchange for loyalty awards and purchases. Examples might be dollars spent, number of accounts, or longevity as a custom",
+    "attributeCount": 7
+  },
+  {
+    "id": 716,
+    "name": "LOYALTY_UNIT_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is a user-defined type used to further categorize a loyalty unit. For example, types might be used to identify loyalty units that are used for a promotion only, a specific bonus, to distinguish between regional and international distances flown or dollars spent internally versus with a partner",
+    "attributeCount": 3
+  },
+  {
+    "id": 717,
+    "name": "MASS_PROMOTION",
+    "domain": "Campaign & Marketing",
+    "description": "This is a subtype entity to PROMOTION. A lowest level campaign may be a mass promotion. A mass promotion is directed towards a group of people. This entity has no attributes other than the primary key but was created to show the different types of promotions.",
+    "attributeCount": 1
+  },
+  {
+    "id": 718,
+    "name": "NEXT_COMMUNICATION",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains information about the next communication with this customer such as collecting amounts past due for a given account.",
+    "attributeCount": 5
+  },
+  {
+    "id": 719,
+    "name": "NEXT_OFFER",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains the next offer to give to this party and the preferred channel instance or channel type.",
+    "attributeCount": 2
+  },
+  {
+    "id": 720,
+    "name": "OFFER",
+    "domain": "Campaign & Marketing",
+    "description": "A specific incentive made available to customers. Usually, contains two parts: a.) condition to be met and b.) the reward for a.). Apply online for equity loan and line of credit and pay no points or opening fees.",
+    "attributeCount": 8
+  },
+  {
+    "id": 721,
+    "name": "OFFER_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A classification for the type of offer such as discount offer, free product offer, interest rate offer, and fee waiver offer.",
+    "attributeCount": 2
+  },
+  {
+    "id": 722,
+    "name": "OPPORTUNITY",
+    "domain": "Campaign & Marketing",
+    "description": "An opportunity is the potential for a deal that could be revenue generating for the enterprise.  An opportunity may result in many proposals, which may result in many agreements.  An opportunity can involve many parties with different roles, many products, requirements, issues, and financial informa",
+    "attributeCount": 18
+  },
+  {
+    "id": 723,
+    "name": "OPPORTUNITY_ASSET",
+    "domain": "Campaign & Marketing",
+    "description": "This entity relates assets to the opportunity and allows for more than one asset to be related.  For example, if the opportunity is to finance the lease of an asset then this contains the details of the opportunity for this asset.",
+    "attributeCount": 3
+  },
+  {
+    "id": 724,
+    "name": "OPPORTUNITY_ASSET_ROLE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "The role of this asset to this opportunity such as is collateral, is subject of lease, or is subject of insurance.",
+    "attributeCount": 2
+  },
+  {
+    "id": 725,
+    "name": "OPPORTUNITY_COMPETITOR",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains information about the competitor for this opportunity.  The attributes will vary by type of product or service being proposed. A modeling alternative is to use the Feature entity to specify the various terms and conditions being proposed by the competitor.",
+    "attributeCount": 3
+  },
+  {
+    "id": 726,
+    "name": "OPPORTUNITY_COMPETITOR_FINANCE",
+    "domain": "Campaign & Marketing",
+    "description": "Financial information related to this competitor for this opportunity such as: - Spread rate (for loans) - Fee amount - Funding amount - Commitment amount",
+    "attributeCount": 9
+  },
+  {
+    "id": 727,
+    "name": "OPPORTUNITY_COMPETITOR_TEXT",
+    "domain": "Campaign & Marketing",
+    "description": "Textual notes about the competitor's proposal.",
+    "attributeCount": 6
+  },
+  {
+    "id": 728,
+    "name": "OPPORTUNITY_DOCUMENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity relates the opportunity to any supporting documents.",
+    "attributeCount": 4
+  },
+  {
+    "id": 729,
+    "name": "OPPORTUNITY_DOCUMENT_ROLE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "The role of this document for this opportunity such as \"provide ownership title,\" and \"provide claims to.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 730,
+    "name": "OPPORTUNITY_EVENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity relates an opportunity to an event. An opportunity can have many events, but an event is usually for one opportunity.  Examples of events include communication with the prospect via phone, email, mail, or internal events to research the prospect for creditworthiness, and other due dilige",
+    "attributeCount": 1
+  },
+  {
+    "id": 731,
+    "name": "OPPORTUNITY_FINANCE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains financial information related to this opportunity such as budgeted sales amount, expected revenue, actual revenue, expected cost, actual cost, and prospect budget.",
+    "attributeCount": 7
+  },
+  {
+    "id": 732,
+    "name": "OPPORTUNITY_FINANCE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "The type of metric that is described and can include amounts, rates, or numbers.  Examples: - Spread rate - Funding amount - Term length - Fee amount - Sales budget - Potential revenue - Actual revenue - Potential cost - Actual cost - Customer budget",
+    "attributeCount": 2
+  },
+  {
+    "id": 733,
+    "name": "OPPORTUNITY_ISSUE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity tracks issues related to this opportunity such as: - Cost of product or service - Product availability - Prospect finances - Prospect credit rating - Prospect approval cycle",
+    "attributeCount": 6
+  },
+  {
+    "id": 734,
+    "name": "OPPORTUNITY_ISSUE_RESOLVE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for the resolution of this issue such as: - Not resolved - Resolved",
+    "attributeCount": 2
+  },
+  {
+    "id": 735,
+    "name": "OPPORTUNITY_ISSUE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for the issues of this opportunity such as: - Cost of product or service - Product availability - Prospect finances - Prospect credit rating - Prospect approval cycle",
+    "attributeCount": 2
+  },
+  {
+    "id": 736,
+    "name": "OPPORTUNITY_LEAD_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "The source of the lead for this opportunity such as: - Marketing program - Workshop event - Training class - Product promotion - Referral - Personal network",
+    "attributeCount": 2
+  },
+  {
+    "id": 737,
+    "name": "OPPORTUNITY_PROMOTION",
+    "domain": "Campaign & Marketing",
+    "description": "This entity identifies the promotions that have led to the making of this opportunity.",
+    "attributeCount": 2
+  },
+  {
+    "id": 738,
+    "name": "OPPORTUNITY_QUOTATION",
+    "domain": "Campaign & Marketing",
+    "description": "An opportunity can lead to many quotations and a quotation can be the result of many opportunities. This entity provides for this possibility.",
+    "attributeCount": 3
+  },
+  {
+    "id": 739,
+    "name": "OPPORTUNITY_REVENUE_SIZE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is a code for the revenue size of this opportunity such as: - Unspecified - 250,000 - 500,000 - 500,000 - 1,000,000 - < 250,000 - > 1,000,000",
+    "attributeCount": 2
+  },
+  {
+    "id": 740,
+    "name": "OPPORTUNITY_REVENUE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for the revenue type of this opportunity such as: - Unspecified - Pipeline - Upside - Expected - Committed - Closed",
+    "attributeCount": 2
+  },
+  {
+    "id": 741,
+    "name": "OPPORTUNITY_SALES_STAGE",
+    "domain": "Campaign & Marketing",
+    "description": "The stage in the life cycle of the selling process for this opportunity.  Examples: - Received RFP - Planning first call - First call completed - Planning face-to-face meeting - Preparing proposal - Proposal submitted - Decision made",
+    "attributeCount": 5
+  },
+  {
+    "id": 742,
+    "name": "OPPORTUNITY_SALES_STAGE_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "The status of this sales stage as of a date such as: - Defining - Setting up - In final steps - Completed",
+    "attributeCount": 5
+  },
+  {
+    "id": 743,
+    "name": "OPPORTUNITY_SEGMENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity relates a market segment to an opportunity for the purpose of tracking over time the marketing related to this segment. Promotions may result from this association.",
+    "attributeCount": 4
+  },
+  {
+    "id": 744,
+    "name": "OPPORTUNITY_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "The status of this opportunity as of a date such as: - Pending acceptance or rejection - Accepted internally - Rejected internally - Won - Lost - Timed out (too costly in sales stage)",
+    "attributeCount": 3
+  },
+  {
+    "id": 745,
+    "name": "OPPORTUNITY_STATUS_REASON",
+    "domain": "Campaign & Marketing",
+    "description": "The reason(s) this opportunity was won or lost or changed status.  Examples: - Incorrect lead - Prospect financials - No sales budget - Lead not qualified - Good lead - Competition won - Lower price - Location - Product  This entity allows for more than one reason to be entered for this opportunity.",
+    "attributeCount": 3
+  },
+  {
+    "id": 746,
+    "name": "OPPORTUNITY_STATUS_REASON_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "The reason why a campaign opportunity has a given status such as the reason it was won or lost.  Examples: - Incorrect lead - Prospect financials - No sales budget - Lead not qualified - Good lead - Competition won - Lower price - Location - Product",
+    "attributeCount": 2
+  },
+  {
+    "id": 747,
+    "name": "OPPORTUNITY_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for the status of this opportunity such as: - Pending acceptance or rejection - Accepted internally - Rejected internally - Won - Lost",
+    "attributeCount": 2
+  },
+  {
+    "id": 748,
+    "name": "OPPORTUNITY_STEP",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding an action to be taken during an opportunity; each step is one action that could be taken.  Examples: - Send letter 1 via mail - Send application form 2 via mail - Send letter 2 via email - Phone call - Open agreement",
+    "attributeCount": 4
+  },
+  {
+    "id": 749,
+    "name": "OPPORTUNITY_STEP_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding the possible actions that may be taken during an opportunity.  Examples: - Send letter 1 via mail - Send application form 2 via mail - Send letter 2 via email - Phone call - Open agreement",
+    "attributeCount": 2
+  },
+  {
+    "id": 750,
+    "name": "OPPORTUNITY_STRATEGIC_VALUE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for the ranking of strategic value of this opportunity such as: - High - Medium - Low",
+    "attributeCount": 2
+  },
+  {
+    "id": 751,
+    "name": "OPPORTUNITY_TEXT",
+    "domain": "Campaign & Marketing",
+    "description": "Any textual notes about this opportunity.",
+    "attributeCount": 5
+  },
+  {
+    "id": 752,
+    "name": "OPPORTUNITY_TEXT_SECTION",
+    "domain": "Campaign & Marketing",
+    "description": "This entity is the link to opportunity text unstructured data.",
+    "attributeCount": 4
+  },
+  {
+    "id": 753,
+    "name": "OPPORTUNITY_TEXT_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for the type of text for this opportunity such as: - Product or service being offered - Status information - Conversation information",
+    "attributeCount": 2
+  },
+  {
+    "id": 754,
+    "name": "OPPORTUNITY_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A classification of the type of opportunity such as loan, lease, deposit, and investment.  This will be customized based on the enterprise offerings that are complex enough to go through the opportunity and proposal process.",
+    "attributeCount": 2
+  },
+  {
+    "id": 755,
+    "name": "OPPORTUNITY_VISIBLE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for how visible this opportunity is in the enterprise such as: - Board of directors - Executive management - Middle management - Line of business",
+    "attributeCount": 2
+  },
+  {
+    "id": 756,
+    "name": "PAID_SEARCH_PROMOTION_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding paid search promotion status types.  Examples: - Successful - Failed - Incomplete",
+    "attributeCount": 2
+  },
+  {
+    "id": 757,
+    "name": "PROMOTION",
+    "domain": "Campaign & Marketing",
+    "description": "A narrowly defined marketing effort designed for a specific purpose and can be part of a larger campaign. It usually has a specific start and end date. A promotion can contain multiple offers and ads. For example, a promotion is created to drive DVD sales. It consists of two offers (one for free shi",
+    "attributeCount": 16
+  },
+  {
+    "id": 758,
+    "name": "PROMOTION_CELL",
+    "domain": "Campaign & Marketing",
+    "description": "A cell is a specialized treatment strategy for a grouping of parties for campaign promotion purposes. Parties in this cell have a set sequence of steps (responses and actions) that are used during the promotion process.  A cell is different from a market segment in that parties in a cell can be plac",
+    "attributeCount": 4
+  },
+  {
+    "id": 759,
+    "name": "PROMOTION_CLASSIFICATION",
+    "domain": "Campaign & Marketing",
+    "description": "This entity provides information regarding the classifications of promotions.  Examples: - Increase brand awareness - Increase product sales",
+    "attributeCount": 2
+  },
+  {
+    "id": 760,
+    "name": "PROMOTION_EXPENSE_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "Identifies the type of expenses use in a campaign and/or promotion.  Examples: - Printing - TV spot - Consulting",
+    "attributeCount": 2
+  },
+  {
+    "id": 761,
+    "name": "PROMOTION_EXPENSE_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "Tracks the budgeted and actual expenses for a promotion.",
+    "attributeCount": 7
+  },
+  {
+    "id": 762,
+    "name": "PROMOTION_METRIC",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures any kind of metric associated with this promotion including results such as number of hits, number of purchases, number of positive responses, number of negative responses, and budget and actual costs.",
+    "attributeCount": 8
+  },
+  {
+    "id": 763,
+    "name": "PROMOTION_METRIC_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for the type of promotion metric such as number of hits, number of positive responses, number of negative responses, and number of sales.",
+    "attributeCount": 2
+  },
+  {
+    "id": 764,
+    "name": "PROMOTION_OFFER",
+    "domain": "Campaign & Marketing",
+    "description": "A specific incentive made available to customers. Usually, contains two parts: a.) condition(s) to be met, and b.) the reward for a.) It is usually a narrowly defined marketing effort designed for a specific purpose. Can be part of a larger campaign. It has a specific start and end date. A promotion",
+    "attributeCount": 9
+  },
+  {
+    "id": 765,
+    "name": "PROMOTION_OFFER_SEGMENT",
+    "domain": "Campaign & Marketing",
+    "description": "A mapping of a group of market segments to a specific promotion offer. A promotion offer can be made to more than one market segment.  Example: - All customers whose purchase went down over 50% over the last 6 months are offered $20 off their next order.",
+    "attributeCount": 3
+  },
+  {
+    "id": 766,
+    "name": "PROMOTION_OFFER_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is the type of promotion offer such as a product offer or a product feature offer.",
+    "attributeCount": 2
+  },
+  {
+    "id": 767,
+    "name": "PROMOTION_PROSPECT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains information about this promotion for this prospect.  For example, a threshold describes how many times this prospect can be offered this promotion before stopping or going to the next step.",
+    "attributeCount": 1
+  },
+  {
+    "id": 768,
+    "name": "PROMOTION_RESPONSE_SCORE",
+    "domain": "Campaign & Marketing",
+    "description": "This associative entity relates a response score with a party for this promotion. A response score is the probability that a party will respond positively to a promotion.",
+    "attributeCount": 5
+  },
+  {
+    "id": 769,
+    "name": "PROMOTION_SCRIPTED_MESSAGE_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity provides for a promotion to have more than one script and for a script to be used by more than one promotion.",
+    "attributeCount": 2
+  },
+  {
+    "id": 770,
+    "name": "PROMOTION_SEGMENT",
+    "domain": "Campaign & Marketing",
+    "description": "A mapping of a group of market segments to a specific promo offer. A promo offer can be made to more than one market segment.  Example: - All customers whose purchase went down over 50% over the last six months are offered $20 off their next order.",
+    "attributeCount": 2
+  },
+  {
+    "id": 771,
+    "name": "PROMOTION_STATUS",
+    "domain": "Campaign & Marketing",
+    "description": "This entity defines the status of a promotion over time.",
+    "attributeCount": 3
+  },
+  {
+    "id": 772,
+    "name": "PROMOTION_STATUS_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This minor entity identifies the status of the promotion. Examples would be active, under development, on hold after being active, and closed for deletion.",
+    "attributeCount": 2
+  },
+  {
+    "id": 773,
+    "name": "PROMOTION_STEP",
+    "domain": "Campaign & Marketing",
+    "description": "This entity represents an action to be taken during a promotion. Each step is one action that could be taken.  Examples: - Send letter one via mail - Send application form two via mail - Send letter two via email - Phone call - Open agreement",
+    "attributeCount": 5
+  },
+  {
+    "id": 774,
+    "name": "PROMOTION_STEP_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains the next step given a response to a promotion step for a cell. The response may be no response in which case the next step is a \"timeout\" step. If the next step is null then no further action is taken.  These are planned responses to a step.",
+    "attributeCount": 5
+  },
+  {
+    "id": 775,
+    "name": "PROMOTION_STEP_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A code for the classification of a step used during a promotion.  Examples: - Send letter - Send application - Follow-up phone call",
+    "attributeCount": 2
+  },
+  {
+    "id": 776,
+    "name": "PROMOTION_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This minor entity describes whether the promotion is a mass, micro, or target marketing. Mass marketing is usually radio, television, and newspaper and covers a wide area. Micromarketing targets a smaller audience, usually a geographical area that has certain characteristics. Target marketing refers",
+    "attributeCount": 2
+  },
+  {
+    "id": 777,
+    "name": "REWARD_EVENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity is a subtype to AGREEMENT EVENT and contains only those events that involve earning and redeeming loyalty points based on usage of an account such as a credit card account.",
+    "attributeCount": 5
+  },
+  {
+    "id": 778,
+    "name": "REWARD_EVENT_SUBTYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This code describes a kind of loyalty account action  Examples: - Loyalty account earning - Loyalty account redemption",
+    "attributeCount": 2
+  },
+  {
+    "id": 779,
+    "name": "REWARD_EVENT_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This minor entity describes the type of reward event such as initial bonus event, points earning, points redeeming, and reward points transfer.",
+    "attributeCount": 2
+  },
+  {
+    "id": 780,
+    "name": "ROAD_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is a code for the type of road. Possible values are highway, motorway, street, and dirt track.",
+    "attributeCount": 2
+  },
+  {
+    "id": 781,
+    "name": "SPREAD_OPTION",
+    "domain": "Campaign & Marketing",
+    "description": "A type of option that derives its value from the difference between the prices of two or more assets. Spread options can be written on all types of financial products including equities, bonds, and currencies. This type of position can be purchased on large exchanges, but is primarily traded in the",
+    "attributeCount": 3
+  },
+  {
+    "id": 782,
+    "name": "SURVEY_COST",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains the cost of surveys over time.",
+    "attributeCount": 6
+  },
+  {
+    "id": 783,
+    "name": "SURVEY_EVENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity associates a survey with events such as the event that issued the survey, the event that is the response to the survey or an event that is a question about the survey.",
+    "attributeCount": 3
+  },
+  {
+    "id": 784,
+    "name": "SURVEY_EVENT_REASON_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This is a code for the reason the event is related to the survey such as the event that issued the survey, the event that is the response to the survey, or the event that is a question about the survey.",
+    "attributeCount": 2
+  },
+  {
+    "id": 785,
+    "name": "SURVEY_FEEDBACK",
+    "domain": "Campaign & Marketing",
+    "description": "This is feedback received in a formal, controlled, or structured format, where specific responses are solicited, and responses (typically) are constrained to selecting one of several choices presented.",
+    "attributeCount": 2
+  },
+  {
+    "id": 786,
+    "name": "SURVEY_FEEDBACK_SURVEY_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "This associates survey feedback to a specific survey response.",
+    "attributeCount": 4
+  },
+  {
+    "id": 787,
+    "name": "SURVEY_QUESTION_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity associates a questionnaire question to a response to that question.  By capturing the date and time of the response (if known), the sequence of the survey responses may be reconstructed, and the overall time taken for the survey and time between responses may be calculated.",
+    "attributeCount": 5
+  },
+  {
+    "id": 788,
+    "name": "SURVEY_RESOLUTION",
+    "domain": "Campaign & Marketing",
+    "description": "Captures all the findings or resolutions made in response to a Survey that was conducted.  Examples: - Improve associate training - Improve item quality inspections",
+    "attributeCount": 3
+  },
+  {
+    "id": 789,
+    "name": "SURVEY_RESOLUTION_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "Defines a Global Quality-related resolution or action taken to resolve or address feedback received as part of a Survey.  Note: This is a global action, as opposed to the contact level resolution entity that captures the response to an individual party's feedback instead.  Examples: - Improve associ",
+    "attributeCount": 2
+  },
+  {
+    "id": 790,
+    "name": "SURVEY_RESPONSE",
+    "domain": "Campaign & Marketing",
+    "description": "This is a unique response to a questionnaire received by the enterprise. It represents the \"completed\" questionnaire or survey session with answers filled in.  Examples: - An anonymous questionnaire received in a \"suggestions\" box - A formal face-to-face interview - A web survey taken by a known cus",
+    "attributeCount": 6
+  },
+  {
+    "id": 791,
+    "name": "SURVEY_RESPONSE_ANSWER",
+    "domain": "Campaign & Marketing",
+    "description": "One or more preformed answers to a survey question given by the responding party.  This entity provides for: - Multiple-choice answers to a question (where only a single answer is expected), for example, income range or quality of service rating - \"All that apply\" answers (where none or many answers",
+    "attributeCount": 4
+  },
+  {
+    "id": 792,
+    "name": "SURVEY_RESPONSE_TEXT",
+    "domain": "Campaign & Marketing",
+    "description": "Records one or more free-form answers to a question.  Examples: - Question: \"Explain how we can best win your loyalty.\"  Response Text: \"Always give the best pricing you can\" - Question: \"Please enter the given names of your children\"  Response Text (3 instances): \"Sarah,\" \"Janice,\" and \"Luke\"",
+    "attributeCount": 5
+  },
+  {
+    "id": 793,
+    "name": "SURVEY_RESPONSE_TEXT_SECTION",
+    "domain": "Campaign & Marketing",
+    "description": "This entity is the link to survey response text unstructured data.",
+    "attributeCount": 5
+  },
+  {
+    "id": 794,
+    "name": "SURVEY_SUBJECT_SUBTYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This minor entity identifies the subject of the survey question such as employee (party), organization (party), channel, claim, or account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 795,
+    "name": "TARGET_PROMOTION",
+    "domain": "Campaign & Marketing",
+    "description": "This is a subtype entity to PROMOTION. A lowest level campaign may be a target promotion. A target promotion is directed towards individuals based on individual characteristics. This entity has no attributes other than the primary key but was created to show the different types of promotions.",
+    "attributeCount": 1
+  },
+  {
+    "id": 796,
+    "name": "TENDER_OFFER",
+    "domain": "Campaign & Marketing",
+    "description": "An offer to purchase some or all of shareholders' shares in a corporation. The price offered is usually at a premium to the market price.",
+    "attributeCount": 6
+  },
+  {
+    "id": 797,
+    "name": "TRAILER_AD_SUBTYPE",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information that provides a classification scheme used to organize trailer ads. The classification can be used to provide summary information about the performance of various trailer ads.  Examples: - Video game - TV show - Book - Concert event - Movie",
+    "attributeCount": 2
+  },
+  {
+    "id": 798,
+    "name": "UPLOAD_ITEM",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding items that are uploaded to the web site.",
+    "attributeCount": 2
+  },
+  {
+    "id": 799,
+    "name": "VISIT_PROMOTION_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information regarding visitor promotion offers received during their session.",
+    "attributeCount": 2
+  },
+  {
+    "id": 800,
+    "name": "WARRANT_OFFER",
+    "domain": "Campaign & Marketing",
+    "description": "Call options offered exclusively to shareholders.",
+    "attributeCount": 4
+  },
+  {
+    "id": 801,
+    "name": "WEB_AD_PLACEMENT_SUMMARY",
+    "domain": "Campaign & Marketing",
+    "description": "This provides statistics about web ads that are useful in measuring their effectiveness. These values are usually collected by the ad agency.  For example, banner ad 'blue sweater' on mysite.com has 100 impressions and 20 click-throughs over the last month.",
+    "attributeCount": 7
+  },
+  {
+    "id": 802,
+    "name": "WEB_AD_PLACEMENT_TEXT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity contains text associated with a web ad placement such as: - URI Text – the URI of the advertisement, whether that advertisement be a banner displayed on a publisher's page or a web page interposed between a link of interest to a visitor and the target of that link - URI Stem – the URI St",
+    "attributeCount": 5
+  },
+  {
+    "id": 803,
+    "name": "WEB_AD_PLACEMENT_TEXT_SECTION",
+    "domain": "Campaign & Marketing",
+    "description": "This entity is the link to web ad placement text unstructured data.",
+    "attributeCount": 5
+  },
+  {
+    "id": 804,
+    "name": "WEB_AD_TYPE",
+    "domain": "Campaign & Marketing",
+    "description": "A classification scheme used to organize WEB ADs. The classification can be used to provide summary information about the performance of various WEB ADs.  Examples: - Premium banner ad - Discounted banner ad - Keyword related banner ad",
+    "attributeCount": 2
+  },
+  {
+    "id": 805,
+    "name": "WEB_CAMPAIGN_EVENT",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures information specific to campaign events.",
+    "attributeCount": 6
+  },
+  {
+    "id": 806,
+    "name": "WEB_PAGE_AD_VIEW_XREF",
+    "domain": "Campaign & Marketing",
+    "description": "This entity provides linkage between web pages viewed and the advertisements displayed on those pages.",
+    "attributeCount": 3
+  },
+  {
+    "id": 807,
+    "name": "WEB_PAGE_VIEW_AD_SUMMARY",
+    "domain": "Campaign & Marketing",
+    "description": "This entity captures summary information regarding the advertisements associated with visitor session activities.",
+    "attributeCount": 7
+  }
+]

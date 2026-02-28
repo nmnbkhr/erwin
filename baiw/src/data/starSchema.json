@@ -1,0 +1,1014 @@
+{
+  "factTable": {
+    "name": "FACT_CUSTOMER_PROFITABILITY",
+    "type": "fact",
+    "columns": [
+      {
+        "name": "Customer_Party_Id",
+        "dataType": "BIGINT"
+      },
+      {
+        "name": "Agreement_Id",
+        "dataType": "BIGINT"
+      },
+      {
+        "name": "Product_Id",
+        "dataType": "BIGINT"
+      },
+      {
+        "name": "Branch_Org_Id",
+        "dataType": "BIGINT"
+      },
+      {
+        "name": "Business_Segment_Cd",
+        "dataType": "VARCHAR(50)"
+      },
+      {
+        "name": "Channel_Instance_Id",
+        "dataType": "BIGINT"
+      },
+      {
+        "name": "Time_Period_Key",
+        "dataType": "DATE"
+      },
+      {
+        "name": "Geography_Area_Id",
+        "dataType": "BIGINT"
+      },
+      {
+        "name": "Currency_Cd",
+        "dataType": "VARCHAR(3)"
+      },
+      {
+        "name": "Interest_Income_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Interest_Expense_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Fee_Income_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Commission_Income_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "FX_Income_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Other_Income_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Total_Revenue_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "FTP_Rate_Pct",
+        "dataType": "DECIMAL(10"
+      },
+      {
+        "name": "FTP_Credit_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "FTP_Debit_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Net_Interest_Income_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Direct_Cost_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Transaction_Cost_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Servicing_Cost_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Channel_Cost_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Allocated_Overhead_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Total_Cost_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Provision_Expense_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Expected_Loss_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Risk_Weighted_Asset_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Economic_Capital_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "IFRS9_Stage_Cd",
+        "dataType": "VARCHAR(10)"
+      },
+      {
+        "name": "Gross_Profit_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Net_Profit_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Pre_Tax_Profit_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "RAROC_Pct",
+        "dataType": "DECIMAL(10"
+      },
+      {
+        "name": "Cost_To_Income_Ratio",
+        "dataType": "DECIMAL(10"
+      },
+      {
+        "name": "ROE_Pct",
+        "dataType": "DECIMAL(10"
+      },
+      {
+        "name": "Net_Interest_Margin_Pct",
+        "dataType": "DECIMAL(10"
+      },
+      {
+        "name": "Average_Balance_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "EOP_Balance_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Original_Amount_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "WHT_Amount_Amt",
+        "dataType": "DECIMAL(18"
+      },
+      {
+        "name": "Zakat_Deduction_Amt",
+        "dataType": "DECIMAL(18",
+        "isPakistanSpecific": true
+      },
+      {
+        "name": "Is_Islamic_Ind",
+        "dataType": "CHAR(1)",
+        "isPakistanSpecific": true
+      },
+      {
+        "name": "Calculation_Method_Cd",
+        "dataType": "VARCHAR(20)"
+      },
+      {
+        "name": "Data_Source_Cd",
+        "dataType": "VARCHAR(50)"
+      },
+      {
+        "name": "ETL_Batch_Id",
+        "dataType": "BIGINT"
+      },
+      {
+        "name": "ETL_Load_Dttm",
+        "dataType": "TIMESTAMP"
+      }
+    ]
+  },
+  "dimensions": [
+    {
+      "name": "DIM_CUSTOMER",
+      "type": "dimension",
+      "columns": [
+        {
+          "name": "Customer_Party_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Customer_Type_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Customer_Name",
+          "dataType": "VARCHAR(200)"
+        },
+        {
+          "name": "Customer_Name_Urdu",
+          "dataType": "VARCHAR(200)"
+        },
+        {
+          "name": "Customer_Segment_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Customer_SubSegment_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Risk_Segment_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Profitability_Tier_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Value_Band_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Gender_Cd",
+          "dataType": "VARCHAR(10)"
+        },
+        {
+          "name": "Date_Of_Birth",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Age_Band_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Marital_Status_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Occupation_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Income_Band_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Education_Level_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "CNIC_Number",
+          "dataType": "VARCHAR(15)"
+        },
+        {
+          "name": "Industry_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Business_Size_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Annual_Turnover_Band_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "NTN_Number",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Relationship_Start_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Relationship_Tenure_Months",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Total_Products_Count",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "KYC_Status_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "KYC_Last_Review_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "AML_Risk_Rating_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "PEP_Indicator",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "City_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "District_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Province_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Country_Cd",
+          "dataType": "VARCHAR(10)"
+        },
+        {
+          "name": "Effective_From_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Effective_To_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Is_Current_Ind",
+          "dataType": "CHAR(1)"
+        }
+      ]
+    },
+    {
+      "name": "DIM_PRODUCT",
+      "type": "dimension",
+      "columns": [
+        {
+          "name": "Product_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Product_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Product_Type_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Product_SubType_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Product_Category_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Product_Family_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Asset_Liability_Cd",
+          "dataType": "VARCHAR(10)"
+        },
+        {
+          "name": "Is_Financial_Product",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Is_Islamic_Product",
+          "dataType": "CHAR(1)",
+          "isPakistanSpecific": true
+        },
+        {
+          "name": "Islamic_Mode_Cd",
+          "dataType": "VARCHAR(50)",
+          "isPakistanSpecific": true
+        },
+        {
+          "name": "SBP_Product_Code",
+          "dataType": "VARCHAR(20)",
+          "isPakistanSpecific": true
+        },
+        {
+          "name": "FTP_Rate_Pct",
+          "dataType": "DECIMAL(10"
+        },
+        {
+          "name": "Benchmark_Rate_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Spread_Bps",
+          "dataType": "DECIMAL(10"
+        },
+        {
+          "name": "Standard_Fee_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Standard_Cost_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Standard_Revenue_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Product_NPV_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Product_Start_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Product_End_Dt",
+          "dataType": "DATE"
+        }
+      ]
+    },
+    {
+      "name": "DIM_BRANCH",
+      "type": "dimension",
+      "columns": [
+        {
+          "name": "Branch_Org_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Branch_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Branch_Code",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Branch_Type_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "SBP_Branch_Code",
+          "dataType": "VARCHAR(20)",
+          "isPakistanSpecific": true
+        },
+        {
+          "name": "Region_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Zone_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Area_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Group_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "City_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "District_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Province_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Country_Cd",
+          "dataType": "VARCHAR(10)"
+        },
+        {
+          "name": "Latitude_Val",
+          "dataType": "DECIMAL(10"
+        },
+        {
+          "name": "Longitude_Val",
+          "dataType": "DECIMAL(10"
+        },
+        {
+          "name": "Branch_Open_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Branch_Manager_Party_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Employee_Count",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Cost_Center_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Overhead_Pool_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Monthly_Operating_Cost",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Is_Islamic_Branch",
+          "dataType": "CHAR(1)",
+          "isPakistanSpecific": true
+        },
+        {
+          "name": "Is_Digital_Branch",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Rural_Urban_Cd",
+          "dataType": "VARCHAR(10)"
+        }
+      ]
+    },
+    {
+      "name": "DIM_BUSINESS_SEGMENT",
+      "type": "dimension",
+      "columns": [
+        {
+          "name": "Business_Segment_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Segment_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Segment_Group_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Segment_Head_Party_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Capital_Allocation_Pct",
+          "dataType": "DECIMAL(7"
+        },
+        {
+          "name": "Target_ROE_Pct",
+          "dataType": "DECIMAL(7"
+        },
+        {
+          "name": "Target_CIR_Pct",
+          "dataType": "DECIMAL(7"
+        },
+        {
+          "name": "SBP_Sector_Code",
+          "dataType": "VARCHAR(20)",
+          "isPakistanSpecific": true
+        }
+      ]
+    },
+    {
+      "name": "DIM_CHANNEL",
+      "type": "dimension",
+      "columns": [
+        {
+          "name": "Channel_Instance_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Channel_Type_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Channel_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Channel_Cost_Per_Txn",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Is_Digital_Channel",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Is_Branchless_Channel",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Channel_Status_Cd",
+          "dataType": "VARCHAR(20)"
+        }
+      ]
+    },
+    {
+      "name": "DIM_TIME",
+      "type": "dimension",
+      "columns": [
+        {
+          "name": "Time_Period_Key",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Calendar_Year",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Calendar_Quarter",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Calendar_Month",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Calendar_Week",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Calendar_Day",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Day_Of_Week",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Month_Name",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Fiscal_Year",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Fiscal_Quarter",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Fiscal_Month",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Is_Business_Day",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Is_Friday",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Is_SBP_Reporting_Dt",
+          "dataType": "CHAR(1)",
+          "isPakistanSpecific": true
+        },
+        {
+          "name": "Is_Month_End",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Is_Quarter_End",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Is_Year_End",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Is_Eid_Holiday",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Is_National_Holiday",
+          "dataType": "CHAR(1)"
+        }
+      ]
+    },
+    {
+      "name": "DIM_AGREEMENT",
+      "type": "dimension",
+      "columns": [
+        {
+          "name": "Agreement_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Agreement_Type_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Agreement_Subtype_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Agreement_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Host_System_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Host_Agreement_Num",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Account_Status_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Agreement_Open_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Agreement_Close_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Last_Activity_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Maturity_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Next_Repricing_Dt",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Interest_Rate_Pct",
+          "dataType": "DECIMAL(10"
+        },
+        {
+          "name": "Rate_Type_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Benchmark_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "Tenure_Months",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Asset_Liability_Cd",
+          "dataType": "VARCHAR(10)"
+        },
+        {
+          "name": "Product_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Customer_Party_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Branch_Org_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Business_Segment_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Risk_Grade_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "SBP_Classification_Cd",
+          "dataType": "VARCHAR(50)",
+          "isPakistanSpecific": true
+        },
+        {
+          "name": "IFRS9_Stage_Cd",
+          "dataType": "VARCHAR(10)"
+        },
+        {
+          "name": "Collateral_Ind",
+          "dataType": "CHAR(1)"
+        },
+        {
+          "name": "Collateral_Value_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Collateral_Type_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "LTV_Ratio_Pct",
+          "dataType": "DECIMAL(10"
+        },
+        {
+          "name": "Is_Islamic_Ind",
+          "dataType": "CHAR(1)",
+          "isPakistanSpecific": true
+        },
+        {
+          "name": "Islamic_Mode_Cd",
+          "dataType": "VARCHAR(50)",
+          "isPakistanSpecific": true
+        }
+      ]
+    },
+    {
+      "name": "DIM_GEOGRAPHY",
+      "type": "dimension",
+      "columns": [
+        {
+          "name": "Geography_Area_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Country_Cd",
+          "dataType": "VARCHAR(10)"
+        },
+        {
+          "name": "Country_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Province_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Province_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Division_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "District_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Tehsil_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "City_Name",
+          "dataType": "VARCHAR(100)"
+        },
+        {
+          "name": "Area_Type_Cd",
+          "dataType": "VARCHAR(20)"
+        },
+        {
+          "name": "SBP_Region_Cd",
+          "dataType": "VARCHAR(20)",
+          "isPakistanSpecific": true
+        }
+      ]
+    }
+  ],
+  "aggregates": [
+    {
+      "name": "AGG_BRANCH_PROFITABILITY",
+      "type": "aggregate",
+      "columns": [
+        {
+          "name": "Branch_Org_Id",
+          "dataType": "BIGINT"
+        },
+        {
+          "name": "Business_Segment_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Time_Period_Key",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Customer_Count",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Agreement_Count",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Total_Revenue_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_NII_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_Fee_Income_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_Cost_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_Provision_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Net_Profit_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_Balance_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_RWA_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Avg_RAROC_Pct",
+          "dataType": "DECIMAL(10"
+        },
+        {
+          "name": "Cost_To_Income_Pct",
+          "dataType": "DECIMAL(10"
+        }
+      ]
+    },
+    {
+      "name": "AGG_SEGMENT_PROFITABILITY",
+      "type": "aggregate",
+      "columns": [
+        {
+          "name": "Business_Segment_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Product_Type_Cd",
+          "dataType": "VARCHAR(50)"
+        },
+        {
+          "name": "Time_Period_Key",
+          "dataType": "DATE"
+        },
+        {
+          "name": "Customer_Count",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Agreement_Count",
+          "dataType": "INTEGER"
+        },
+        {
+          "name": "Total_Revenue_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_NII_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_Fee_Income_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_Cost_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_Provision_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Net_Profit_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_Balance_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Total_RWA_Amt",
+          "dataType": "DECIMAL(18"
+        },
+        {
+          "name": "Avg_RAROC_Pct",
+          "dataType": "DECIMAL(10"
+        },
+        {
+          "name": "ROE_Pct",
+          "dataType": "DECIMAL(10"
+        }
+      ]
+    }
+  ],
+  "views": []
+}

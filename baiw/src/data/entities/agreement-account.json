@@ -1,0 +1,3544 @@
+[
+  {
+    "id": 1,
+    "name": "ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "For financial services, this entity is used for accounts that are external to the enterprise such as accounts payable payment accounts, and external standing order accounts. There is a one to zero/one relationship between AGREEMENT and ACCOUNT. For external accounts the enterprise only knows about t",
+    "attributeCount": 13
+  },
+  {
+    "id": 2,
+    "name": "ACCOUNTING_CALENDAR_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity supports all types of accounting or fiscal calendars as required by the enterprise.",
+    "attributeCount": 0
+  },
+  {
+    "id": 3,
+    "name": "ACCOUNTING_CURRENCY",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the changes to the Internal Accounting Currency (IAC) over time. For example, if the country is Germany, then the internal accounting currency could be marks. There is one instance for marks. When the change is made to go to the Euro as the IAC then there is an instance for Euro.",
+    "attributeCount": 5
+  },
+  {
+    "id": 4,
+    "name": "ACCOUNTING_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity specifies the type of accounting currency such as global or local currency.",
+    "attributeCount": 2
+  },
+  {
+    "id": 5,
+    "name": "ACCOUNTS_PAYABLE",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details of ACCOUNTS PAYABLE for a company. ACCOUNTS PAYABLE records how much a company owes suppliers for the purchase of supplies or services on credit.",
+    "attributeCount": 0
+  },
+  {
+    "id": 6,
+    "name": "ACCOUNTS_RECEIVABLE",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the ACCOUNTS RECEIVABLE accounts. ACCOUNTS RECEIVABLE is the payment a company expects to collect from a PARTY, generally from a completed transaction of sales or services rendered. ACCOUNTS RECEIVABLE accounts are types of current assets.",
+    "attributeCount": 0
+  },
+  {
+    "id": 7,
+    "name": "ACCOUNT_INVOLVEMENT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype discriminator that indicates whether the enterprise is one of the parties to the account. \"Internal\" indicates the enterprise is a party to the account, and \"external\" indicates that the enterprise is not a party to the account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 8,
+    "name": "ACCOUNT_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity contains any kind of metric applicable to this account over time such as current monetary balance, current point balance, and current past due balance amount. This entity can track any kind of metric over time.",
+    "attributeCount": 8
+  },
+  {
+    "id": 9,
+    "name": "ACCOUNT_METRIC_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a code for the type of metric such as current monetary balance, current point balance, and current past due balance amount.",
+    "attributeCount": 2
+  },
+  {
+    "id": 10,
+    "name": "ACCOUNT_PURPOSE_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype discriminator based on the purpose of the account such as a transaction account or a loyalty account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 11,
+    "name": "ACCOUNT_RENEWAL",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks history information regarding account renewal start and end dates for renewable accounts. Each instance is one renewal period including the original or first period.",
+    "attributeCount": 5
+  },
+  {
+    "id": 12,
+    "name": "ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a classification of the account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 13,
+    "name": "ACCRUED_LIABILITY_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the accrued liabilities. Accrued liabilities recognize expenses incurred during the accounting period but not yet paid.",
+    "attributeCount": 0
+  },
+  {
+    "id": 14,
+    "name": "AFFILIATE_PRODUCT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is an agreement between the financial institution and a company to provide financial products to that company's employees at a discount.",
+    "attributeCount": 0
+  },
+  {
+    "id": 15,
+    "name": "AGENCY_CREDIT_REPORT",
+    "domain": "Agreement & Account",
+    "description": "This is the credit report containing data elements specific to an agency such as Experian, Equifax, and Trans-Union. It can also include information from other reports such as Dunn & Bradstreet, Moody's, and Standard & Poor's.  The attributes in this entity will vary by reporting agency. A few attri",
+    "attributeCount": 16
+  },
+  {
+    "id": 16,
+    "name": "AGENT_BROKER_AGREEMENT_DETAIL",
+    "domain": "Agreement & Account",
+    "description": "This entity is a subtype of PARTY AGREEMENT and defines additional information for the combination of party and agreement when the role code indicates an agent or a broker relation.",
+    "attributeCount": 2
+  },
+  {
+    "id": 17,
+    "name": "AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about arrangements between two or more parties where there are terms and conditions. It includes legally binding contracts and arrangements that are not legally binding.",
+    "attributeCount": 22
+  },
+  {
+    "id": 18,
+    "name": "AGREEMENT_ABUSE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks abuses, such as first party fraud, second party fraud, or kiting that occur against an account over time. 'Kiting' is taking advantage of float. 'Float' is the time between the deposit of the check in a bank and payment.",
+    "attributeCount": 7
+  },
+  {
+    "id": 19,
+    "name": "AGREEMENT_ACCESS_DEVICE",
+    "domain": "Agreement & Account",
+    "description": "This entity relates an ACCESS DEVICE such as a credit or debit card to an account. An account can have many devices associated with it (e.g., one each for husband and wife) and a device can be used with many accounts (e.g., savings and checking). If a noncustomer used a channel such as an ATM, then",
+    "attributeCount": 5
+  },
+  {
+    "id": 20,
+    "name": "AGREEMENT_ACCESS_DEVICE_FEATURE",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the conditions (features) that are valid for this ACCESS DEVICE for this account.  Examples of conditions are: - Card can only be used for types of purchase types explicitly stated (e.g., supplies) - Card is temporary and will expire in 90 days  The standard yearly fee of $20",
+    "attributeCount": 7
+  },
+  {
+    "id": 21,
+    "name": "AGREEMENT_ACCESS_DEVICE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the relation between AGREEMENT and ACCESS DEVICE such as 'is primary card for' or 'is secondary card for.'",
+    "attributeCount": 2
+  },
+  {
+    "id": 22,
+    "name": "AGREEMENT_AGREEMENT_CLASS_XREF",
+    "domain": "Agreement & Account",
+    "description": "This entity provides for an AGREEMENT to be classified many ways. The classification scheme and classification value together will identity the specific classification.  The business rule says that for a given classification scheme an agreement has only one value at one point-in-time (that is why th",
+    "attributeCount": 5
+  },
+  {
+    "id": 23,
+    "name": "AGREEMENT_AGREEMENT_GROUP",
+    "domain": "Agreement & Account",
+    "description": "This associative entity relates agreements with the agreement group.",
+    "attributeCount": 5
+  },
+  {
+    "id": 24,
+    "name": "AGREEMENT_AGREEMENT_GROUP_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a code for the reason why the agreement is related to this group of agreements.  Examples: - The agreement is part of this securitization pool, - The securitization agreement resulted in this pool.",
+    "attributeCount": 2
+  },
+  {
+    "id": 25,
+    "name": "AGREEMENT_APPLICATION",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies relationships between agreements and applications.",
+    "attributeCount": 5
+  },
+  {
+    "id": 26,
+    "name": "AGREEMENT_APPLICATION_ROLE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the relationship between an agreement and an application.  Examples: - Agreement created from application - Agreement supplemented by application - Agreement is collateral of application",
+    "attributeCount": 2
+  },
+  {
+    "id": 27,
+    "name": "AGREEMENT_ASSET",
+    "domain": "Agreement & Account",
+    "description": "This associative entity relates agreement to an asset along with the role that the asset has with the agreement. An example of a role of an asset to an agreement is a collateral role.",
+    "attributeCount": 5
+  },
+  {
+    "id": 28,
+    "name": "AGREEMENT_ASSET_ROLE_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity contains the role of the asset to the contract and is used as a subtype code. Roles can include is collateral for, is insured asset for, or is subject of a lease.",
+    "attributeCount": 2
+  },
+  {
+    "id": 29,
+    "name": "AGREEMENT_BALANCE_TYPE_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity contains summary agreement metrics at the end of a time period (the time period to be determined by each financial institution using this model) for a particular balance category. Even though the information is technically derivable from events and should not be in a logical model, it is",
+    "attributeCount": 11
+  },
+  {
+    "id": 30,
+    "name": "AGREEMENT_CASE",
+    "domain": "Agreement & Account",
+    "description": "This entity relates a case to an agreement and allows a case to span agreements and an agreement to have many cases.",
+    "attributeCount": 2
+  },
+  {
+    "id": 31,
+    "name": "AGREEMENT_CHANNEL",
+    "domain": "Agreement & Account",
+    "description": "This associative entity identifies the various roles that a channel plays with a specific account. Roles include 'belongs to,' or 'is managed by.'",
+    "attributeCount": 7
+  },
+  {
+    "id": 32,
+    "name": "AGREEMENT_CHANNEL_ROLE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the role that the channel plays with the agreement.  Examples: - Belongs to - Is managed by - Was acquisition channel for - Is most used",
+    "attributeCount": 2
+  },
+  {
+    "id": 33,
+    "name": "AGREEMENT_CHANNEL_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the channel types related to this agreement with a role such as: - Is managed by - Was acquisition channel for - Is most used - Is preferred",
+    "attributeCount": 5
+  },
+  {
+    "id": 34,
+    "name": "AGREEMENT_CHART_OF_ACCOUNTS",
+    "domain": "Agreement & Account",
+    "description": "Over time an agreement that is an asset or liability account can relate to more than one chart of accounts number. For example, a loan account may be, at one point-in-time, active and another point-in-time it could be in write-off status.",
+    "attributeCount": 5
+  },
+  {
+    "id": 35,
+    "name": "AGREEMENT_CLAIM",
+    "domain": "Agreement & Account",
+    "description": "This associative entity relates claims to the insurance account the claim is reported against.",
+    "attributeCount": 5
+  },
+  {
+    "id": 36,
+    "name": "AGREEMENT_CLAIM_RELATIONSHIP_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity describes the relationship between an agreement and a claim.  Examples: - Policy of the party that caused the claim - Policy of the party that is making the claim - Group policy of claim - Individual policy of claim",
+    "attributeCount": 2
+  },
+  {
+    "id": 37,
+    "name": "AGREEMENT_CLASS_ADJUSTMENT_PARAMETER",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the adjustment rates to be applied to this classification of agreements when determining the value of the exposure for this agreement. These are often referred to as \"haircuts\" within risk management.",
+    "attributeCount": 6
+  },
+  {
+    "id": 38,
+    "name": "AGREEMENT_CLASS_RISK_GRADE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the risk grades for a given classification of agreements for a given period of time.  Examples of classifications include mortgages, commercial real estate loans, derivatives, personal loans, and purchased receivable debt.",
+    "attributeCount": 7
+  },
+  {
+    "id": 39,
+    "name": "AGREEMENT_CLASS_SCHEME_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the schemes for classifying agreements. Examples of schemes include tax purposes, Basel 1 purposes, Basel II purposes, and marketing purposes.  The hierarchy in this structure allows you to roll up a classification into another classification. For example, a swap agreemen",
+    "attributeCount": 5
+  },
+  {
+    "id": 40,
+    "name": "AGREEMENT_CLASS_SUBJECT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those subjects that are classifications of agreements. There is one instance for each agreement classification such as insurance policies that have been in force for over one year.",
+    "attributeCount": 2
+  },
+  {
+    "id": 41,
+    "name": "AGREEMENT_CLASS_VALUE",
+    "domain": "Agreement & Account",
+    "description": "For a given classification scheme, these codes represent the various values for that scheme. For example, for tax reporting purposes the possible values may be individual, joint, or corporate. For Basel II purposes the possible values could be corporate/sovereign/bank, retail, equity, purchased rece",
+    "attributeCount": 10
+  },
+  {
+    "id": 42,
+    "name": "AGREEMENT_COLLATERAL_ITEM",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those assets used as collateral where the assets are customer deposits or investment holdings held with your institution that are pledged as collateral. More than one agreement could be bundled into a collateral item.",
+    "attributeCount": 5
+  },
+  {
+    "id": 43,
+    "name": "AGREEMENT_COLLECTION_STATUS",
+    "domain": "Agreement & Account",
+    "description": "This entity keeps track of the collection status for an account that is past due and considered to be in collections. There is one instance for each type of amount (e.g., principal or interest) and for each past due type (e.g., 30, 60, or 90 days) and when that money became associated with that past",
+    "attributeCount": 8
+  },
+  {
+    "id": 44,
+    "name": "AGREEMENT_COST",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the changes to the cost of an agreement over time. Agreement costs are those costs allocated to each agreement such as facilities, data processing, product advertisement, underwriting, collections, customer service, or closing agreements.",
+    "attributeCount": 7
+  },
+  {
+    "id": 45,
+    "name": "AGREEMENT_COVERAGE_EVENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those events that are related to agreement coverage for each insurable interest.",
+    "attributeCount": 9
+  },
+  {
+    "id": 46,
+    "name": "AGREEMENT_COVERAGE_EVENT_BASE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies the basis of the policy coverage event.  Examples: - 1 = direct - 2 = assumed - 3 = ceded",
+    "attributeCount": 2
+  },
+  {
+    "id": 47,
+    "name": "AGREEMENT_COVERAGE_EVENT_CATEGORY",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies the policy coverage transaction category.  Examples: - 1 = billed - 2 = received - 3 = cancelation - 4 = retro/contingent - 5 = other adjustment",
+    "attributeCount": 2
+  },
+  {
+    "id": 48,
+    "name": "AGREEMENT_COVERAGE_EVENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies the types of policy coverage transactions.  Examples: - 1 = premium - 2 = fee - 3 = commission - 4 = underwriting expense - 5 = taxes",
+    "attributeCount": 2
+  },
+  {
+    "id": 49,
+    "name": "AGREEMENT_CREDIT_REPORT",
+    "domain": "Agreement & Account",
+    "description": "This links an agreement to a credit report that is run to determine the potential health of this agreement in light of the obligor's other obligations and credit standing.",
+    "attributeCount": 5
+  },
+  {
+    "id": 50,
+    "name": "AGREEMENT_CREDIT_RISK_TYPE_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the values of risk metrics for a given agreement/exposure as of a certain risk calculation date for a given type of risk metric. This entity can be used instead of AGREEMENT RISK METRIC, which gives the specific attributes.  Possible risk type values are:  1 – Basel 1 Acct Exposur",
+    "attributeCount": 7
+  },
+  {
+    "id": 51,
+    "name": "AGREEMENT_CURRENCY",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks changes to the account level currency over time. There is one instance for each account number, currency code, currency use, and date combination.",
+    "attributeCount": 5
+  },
+  {
+    "id": 52,
+    "name": "AGREEMENT_DATE",
+    "domain": "Agreement & Account",
+    "description": "This is a generic structure to contain the many possible dates associated with an agreement and tracks the changes to those dates. Examples of dates include due date, last payment date, processing date, original funding date and many more.",
+    "attributeCount": 4
+  },
+  {
+    "id": 53,
+    "name": "AGREEMENT_DATE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This code describes the type of date for agreements such as due date, last payment date, first payment date, processing date, approval date, funded date and more.",
+    "attributeCount": 2
+  },
+  {
+    "id": 54,
+    "name": "AGREEMENT_DIRECT_EXPENSE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the direct expense amounts for a given agreement for a given unit cost type (e.g., standard versus actual). This entity allows for many types of unit cost and direct expense calculations. There is one table for each profit cycle.",
+    "attributeCount": 3
+  },
+  {
+    "id": 55,
+    "name": "AGREEMENT_DOCUMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity associates documents with agreements such as financial reports, copies of identification documents, and copies of executor authority.",
+    "attributeCount": 2
+  },
+  {
+    "id": 56,
+    "name": "AGREEMENT_EVENT",
+    "domain": "Agreement & Account",
+    "description": "This entity is a subtype to EVENT and contains only those events that involve agreements.",
+    "attributeCount": 3
+  },
+  {
+    "id": 57,
+    "name": "AGREEMENT_EVENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity is a category discriminator for events that involve an account. If the event involves the posting of money to the account then it is a FINANCIAL AGREEMENT EVENT. If it involves a card (e.g., insurance card, and reward points) then this is an ACCESS DEVICE EVENT.",
+    "attributeCount": 2
+  },
+  {
+    "id": 58,
+    "name": "AGREEMENT_FEATURE",
+    "domain": "Agreement & Account",
+    "description": "This entity associates the agreement with features that are specific to the agreement. Examples could be to defer interest charges until account closes, or mail interest to account holder. This would include all agreement level features.  This entity also includes the possibility of one feature repl",
+    "attributeCount": 16
+  },
+  {
+    "id": 59,
+    "name": "AGREEMENT_FEATURE_GROUP",
+    "domain": "Agreement & Account",
+    "description": "This entity relates agreements to group of features.  Example: - Features can be grouped into tiers, and the agreement is related to the tier feature group. This is useful for deposit term agreements where the agreement is for Tier 1, which represents minimum balance of $10,000 for 5 years with a se",
+    "attributeCount": 5
+  },
+  {
+    "id": 60,
+    "name": "AGREEMENT_FEATURE_GROUP_ROLE",
+    "domain": "Agreement & Account",
+    "description": "The role that this feature group has with this agreement.  Examples: - Is included - Is excluded",
+    "attributeCount": 2
+  },
+  {
+    "id": 61,
+    "name": "AGREEMENT_FEATURE_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the \"sub-balance\" over time for a given account feature metric.  This is especially useful for credit card companies where a balance can be divided into portions (balance segments) and the amount of that balance needs to be tracked over time.",
+    "attributeCount": 12
+  },
+  {
+    "id": 62,
+    "name": "AGREEMENT_FEATURE_METRIC_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the various metrics that are reported about this account feature at a point-in-time.  Examples of metrics include principal balance owed and interest balance owed.",
+    "attributeCount": 2
+  },
+  {
+    "id": 63,
+    "name": "AGREEMENT_FEATURE_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This associative entity allows for an override of a subfeature by another subfeature or the override of subfeature metrics at the agreement level.  Examples of subfeatures include: - A credit card agreement has a card (feature), which has an annual card fee (subfeature), which is overridden by a des",
+    "attributeCount": 15
+  },
+  {
+    "id": 64,
+    "name": "AGREEMENT_FEATURE_ROLE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The relationship of the feature to account related subjects; account, application, quotation:  Examples: - Negotiated override standard product feature - Non-negotiated override of standard product feature - Underwriting exception",
+    "attributeCount": 2
+  },
+  {
+    "id": 65,
+    "name": "AGREEMENT_FINANCIAL_RULE",
+    "domain": "Agreement & Account",
+    "description": "This entity relates a financial rule to a specific agreement to identify a rule that governs this agreement.",
+    "attributeCount": 5
+  },
+  {
+    "id": 66,
+    "name": "AGREEMENT_FORMAT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This classifies the agreement as written, verbal or other format. You can also use this to distinguish signed in person contracts or electronically signed contracts.",
+    "attributeCount": 2
+  },
+  {
+    "id": 67,
+    "name": "AGREEMENT_FUNDING_SOURCE",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the third-party source of funding of various amounts for an agreement such as deposit monies and loan down payment monies. This entity allows for more than one source for a given amount.",
+    "attributeCount": 4
+  },
+  {
+    "id": 68,
+    "name": "AGREEMENT_GROUP",
+    "domain": "Agreement & Account",
+    "description": "This entity represents a grouping of agreements. For example, a group could be a securitized package of loan accounts or a \"tranche.\" Agreement groups can also be used internally by the Financial Institutions for account analysis and reporting purposes. An agreement group can also be considered a \"s",
+    "attributeCount": 11
+  },
+  {
+    "id": 69,
+    "name": "AGREEMENT_GROUP_BALANCE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains derived balance information at the AGREEMENT GROUP level over time. It could be derived from the individual agreements that make up the group. The balance is in the currency of the books.",
+    "attributeCount": 6
+  },
+  {
+    "id": 70,
+    "name": "AGREEMENT_GROUP_CHART_OF_ACCOUNTS",
+    "domain": "Agreement & Account",
+    "description": "Accounts may be grouped into portfolios and then that portfolio is related to a GL account number. For example, for a given portfolio a bank may set aside money for loan loss provisions. These are general provisions (at the portfolio level) versus specific provisions, which are at the account level.",
+    "attributeCount": 5
+  },
+  {
+    "id": 71,
+    "name": "AGREEMENT_GROUP_CRITERION",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the criterion that can be used to group agreements together, such as balance > 3000 or delinquent more than 120 days.",
+    "attributeCount": 2
+  },
+  {
+    "id": 72,
+    "name": "AGREEMENT_GROUP_EVENT",
+    "domain": "Agreement & Account",
+    "description": "This entity is a subtype entity of EVENT and is directly related to one agreement group.",
+    "attributeCount": 1
+  },
+  {
+    "id": 73,
+    "name": "AGREEMENT_GROUP_FEATURE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the terms and conditions for this group of agreements. For example, if agreements are grouped into \"tranches\" for securitization, that tranche may have some conditions such as duration and rate. This allows for that possibility.  Another example of features related to agreement",
+    "attributeCount": 5
+  },
+  {
+    "id": 74,
+    "name": "AGREEMENT_GROUP_FEATURE_ROLE",
+    "domain": "Agreement & Account",
+    "description": "The role of this feature to this agreement group.  For example, if the feature is used as selection criteria and if one feature is the beginning value of a time band and another feature is the ending value of the time band and a third feature is the currency then the role indicates: - Beginning band",
+    "attributeCount": 2
+  },
+  {
+    "id": 75,
+    "name": "AGREEMENT_GROUP_LIMIT",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the limit for groups of accounts over time. Examples of types of limits include \"gross limit\" (sum of debit balances only) and \"net limit\" (includes credit balances). Used by Basel II for on balance sheet netting arrangements.",
+    "attributeCount": 6
+  },
+  {
+    "id": 76,
+    "name": "AGREEMENT_GROUP_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks metrics for a grouping of agreements.",
+    "attributeCount": 11
+  },
+  {
+    "id": 77,
+    "name": "AGREEMENT_GROUP_METRIC_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the type of metric that measures one account group compared to another account group or that measures a group.  For example, for asset liability management, one of the metrics might be duration gap, which is the difference between the duration of an asset portfolio (account group) and a l",
+    "attributeCount": 2
+  },
+  {
+    "id": 78,
+    "name": "AGREEMENT_GROUP_REASON_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The reason for the grouping of accounts such as for securitization or risk retail pooling, and market risk banding.",
+    "attributeCount": 2
+  },
+  {
+    "id": 79,
+    "name": "AGREEMENT_GROUP_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This entity relates agreement groups to other agreement groups.  For market risk, one group of agreements can be used as a hedge against another group of agreements.",
+    "attributeCount": 5
+  },
+  {
+    "id": 80,
+    "name": "AGREEMENT_GROUP_RELATED_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity keeps track of metrics of the relationship of one group of accounts to another.  For example, for asset liability management, one of the metrics might be duration gap, which is the difference between the duration of an asset portfolio (account group) and the duration of a liability portf",
+    "attributeCount": 12
+  },
+  {
+    "id": 81,
+    "name": "AGREEMENT_GROUP_RELATED_ROLE",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the reasons why one group of agreements is related to another group of agreements. Possible values include one group hedges another group, and market risk.",
+    "attributeCount": 2
+  },
+  {
+    "id": 82,
+    "name": "AGREEMENT_GROUP_RISK",
+    "domain": "Agreement & Account",
+    "description": "This entity contains various calculations at the AGREEMENT GROUP level over time for the purposes of determining risk. Many of these attributes are required for Basel II and are derived from other elements in the model. This entity has an attribute for each metric.  For specific kinds of risk measur",
+    "attributeCount": 11
+  },
+  {
+    "id": 83,
+    "name": "AGREEMENT_GROUP_RISK_GRADE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the risk grade at the agreement group level. This entity contains both externally provided and internally calculated risk grades.",
+    "attributeCount": 7
+  },
+  {
+    "id": 84,
+    "name": "AGREEMENT_GROUP_RISK_TYPE_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity is used for metrics associated with groups of agreements or financial instruments for credit risk and market risk.  ================  For credit risk: This entity contains a history of various risk metrics over time for a given group of exposures. The metrics are usually an amount, a cou",
+    "attributeCount": 8
+  },
+  {
+    "id": 85,
+    "name": "AGREEMENT_GROUP_SCORE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains a score associated with this group of agreements for this scoring model (e.g., probability of default).",
+    "attributeCount": 4
+  },
+  {
+    "id": 86,
+    "name": "AGREEMENT_GROUP_SUBJECT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those subjects that are groupings of agreements. There is one instance for each agreement grouping such as all insurance policies written by a certain agent.",
+    "attributeCount": 1
+  },
+  {
+    "id": 87,
+    "name": "AGREEMENT_GROUP_TEXT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains free-form text information about a group of agreements.",
+    "attributeCount": 5
+  },
+  {
+    "id": 88,
+    "name": "AGREEMENT_GROUP_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the type of group such as a securitization group where a group of exposures are sold to a third party, or a group of exposures that share some characteristics such as past due 90 days, and high credit risk.",
+    "attributeCount": 2
+  },
+  {
+    "id": 89,
+    "name": "AGREEMENT_GROUP_TYPE_XREF",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the many ways to classify an agreement group. An agreement group can be classified as securitized, part of a risk pool, and whether it can be deducted from capital on the balance sheet. For insurance policies may be grouped into ring-fenced funds.",
+    "attributeCount": 4
+  },
+  {
+    "id": 90,
+    "name": "AGREEMENT_HOLDER",
+    "domain": "Agreement & Account",
+    "description": "This entity is a placeholder for the parties who are legally bound by the terms of the agreement - the customer. They could be the named insured for an insurance policy or the account holder in a banking agreement.  This entity is in the model to show completeness and may be removed.",
+    "attributeCount": 0
+  },
+  {
+    "id": 91,
+    "name": "AGREEMENT_ID_TYPE_JAPAN",
+    "domain": "Agreement & Account",
+    "description": "Indicates whether when the account matures if the rate goes to the liquid rate or to the new term rate.",
+    "attributeCount": 2
+  },
+  {
+    "id": 92,
+    "name": "AGREEMENT_INDIRECT_EXPENSE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the indirect expense amounts for a given account. This is an entity because there can be many indirect expense amounts – one for each version/view. There is one table for each profit cycle.",
+    "attributeCount": 3
+  },
+  {
+    "id": 93,
+    "name": "AGREEMENT_INSURANCE_RISK_CATEGORY",
+    "domain": "Agreement & Account",
+    "description": "This associative entity tracks the combination of agreement and risk category over time.",
+    "attributeCount": 4
+  },
+  {
+    "id": 94,
+    "name": "AGREEMENT_INSURED_ASSET",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype to AGREEMENT ASSET and contains details of the customer asset in relation to the agreement or policy in the role of being insured by.",
+    "attributeCount": 6
+  },
+  {
+    "id": 95,
+    "name": "AGREEMENT_INSURED_ASSET_COST",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the information on the costs incurred by the combination of the asset and account, such as estimation costs.",
+    "attributeCount": 9
+  },
+  {
+    "id": 96,
+    "name": "AGREEMENT_INSURED_ASSET_FEATURE",
+    "domain": "Agreement & Account",
+    "description": "This entity associates assets that are insured by a specific policy to the product features that apply to that insured asset. For example, property damage coverage applies to a specific automobile for a specific policy.  If two motor vehicles are insured by the same account (policy), a replacement v",
+    "attributeCount": 14
+  },
+  {
+    "id": 97,
+    "name": "AGREEMENT_INSURED_ASSET_FEATURE_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This entity associates subfeatures (e.g., limit and deductible) to the coverage features that apply to an insured asset for a specific policy. For example, a limit of $500 may apply to the property damage coverage. The limit amount and the coverage are each separate features.",
+    "attributeCount": 10
+  },
+  {
+    "id": 98,
+    "name": "AGREEMENT_INVESTOR",
+    "domain": "Agreement & Account",
+    "description": "In a banking Securitization Agreement or Reinsurance Agreement, one party sells the risk (or part of the risk) and another party buys the risk. This is the party that bought the risk or has assumed the exposure in some manner. This may or may not be your enterprise.  This is a subtype entity to the",
+    "attributeCount": 1
+  },
+  {
+    "id": 99,
+    "name": "AGREEMENT_IVR_STEP_TRANSACTION",
+    "domain": "Agreement & Account",
+    "description": "This links the agreement to the IVR step transaction.",
+    "attributeCount": 1
+  },
+  {
+    "id": 100,
+    "name": "AGREEMENT_LEASING_ASSET",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype to AGREEMENT ASSET and contains details of the customer asset in relation to the account in the role of being leased.",
+    "attributeCount": 6
+  },
+  {
+    "id": 101,
+    "name": "AGREEMENT_LEGAL_ACTION",
+    "domain": "Agreement & Account",
+    "description": "This entity keeps track of the legal history applicable to an account.",
+    "attributeCount": 5
+  },
+  {
+    "id": 102,
+    "name": "AGREEMENT_LIMIT",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the changes to an agreement's limit over time. There is one instance for each agreement-limit change date combination.",
+    "attributeCount": 9
+  },
+  {
+    "id": 103,
+    "name": "AGREEMENT_LIMIT_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity keeps track of metrics for limits that are related to agreements such as the approved limit amount, the amount used or the amount on hold.",
+    "attributeCount": 12
+  },
+  {
+    "id": 104,
+    "name": "AGREEMENT_LIMIT_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This entity relates one limit approval to another limit approval along with the reason for the relationship such as overrides or replaces.",
+    "attributeCount": 8
+  },
+  {
+    "id": 105,
+    "name": "AGREEMENT_MARKET_RISK_FACTOR",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the factors that affect the price sensitivity of this agreement to market factors. For holdings, there is one investment agreement for each holding.  For example, an option's price can be influenced by the price sensitivity of the underlying instrument, by the time to expiration",
+    "attributeCount": 4
+  },
+  {
+    "id": 106,
+    "name": "AGREEMENT_MARKET_RISK_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the interim and final metrics when calculating market risk for a given agreement. These agreements can be either in the banking book or the trading book.  This entity can be used as a generic way of capturing any market risk metrics at the agreement/account level.",
+    "attributeCount": 7
+  },
+  {
+    "id": 107,
+    "name": "AGREEMENT_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity contains derived metrics at the agreement level for a given point-in-time or time period. If it is a point-in-time then the start and end dates are the same. Examples of metrics include point-in-time cleared balance, number of withdrawal transactions for a month and reward points.  For i",
+    "attributeCount": 13
+  },
+  {
+    "id": 108,
+    "name": "AGREEMENT_METRIC_PROJECTION",
+    "domain": "Agreement & Account",
+    "description": "This entity contains a projection of metrics for this agreement.",
+    "attributeCount": 11
+  },
+  {
+    "id": 109,
+    "name": "AGREEMENT_METRIC_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity classifies the types of account metric.  Examples: - Average cleared balance amount - Average ledger balance amount - Ending ledger balance amount - Ending cleared balance amount - Fee income amount - Total credit count - Total debit count - Collateral balance amount - Reserve loan balan",
+    "attributeCount": 2
+  },
+  {
+    "id": 110,
+    "name": "AGREEMENT_OBJECTIVE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity contains the objective for this agreement or quotation. For example, for a loan it might be for education, home improvement, and pension.",
+    "attributeCount": 2
+  },
+  {
+    "id": 111,
+    "name": "AGREEMENT_OBTAINED_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes how the agreement was obtained such as existing agreement, and promotion.",
+    "attributeCount": 2
+  },
+  {
+    "id": 112,
+    "name": "AGREEMENT_PAYMENT_OPTION",
+    "domain": "Agreement & Account",
+    "description": "This entity defines the payment amount that is due each period for this account. The customer may be given several choices of payment types such as for a loan – minimum payment due, 15-year payment due, 30-year payment due. This is commonly used for fixed price real estate loans where the payer has",
+    "attributeCount": 6
+  },
+  {
+    "id": 113,
+    "name": "AGREEMENT_PORTFOLIO",
+    "domain": "Agreement & Account",
+    "description": "This entity associates an agreement with a customer portfolio. This entity is used when the financial institution is providing a service related to trades in securities, commodity contracts or their derivatives and where the holdings move in and out of a portfolio. The financial institution receives",
+    "attributeCount": 5
+  },
+  {
+    "id": 114,
+    "name": "AGREEMENT_PORTFOLIO_EVENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those events that affect an agreement/portfolio combination such as an investment holding within a portfolio within an agreement/account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 115,
+    "name": "AGREEMENT_PORTFOLIO_RELATIONSHIP_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity translates the code into a description.  Examples of relations between agreements and portfolios are: - Agreement is contract for investment services - Agreement is for paying investment purchases - Agreement is for receiving dividends and interest - Agreement is for receiving dividends",
+    "attributeCount": 2
+  },
+  {
+    "id": 116,
+    "name": "AGREEMENT_PRIVACY_PREFERENCE",
+    "domain": "Agreement & Account",
+    "description": "A customer's privacy preferences for the collection and use of personal data at the agreement level.",
+    "attributeCount": 8
+  },
+  {
+    "id": 117,
+    "name": "AGREEMENT_PRODUCT",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the products associated with an AGREEMENT at one point-in-time and over time.  In banking, it is possible for an account to be associated with more than one product over time, but with only one product at any given time. An example of this is the account may be a certificate of de",
+    "attributeCount": 5
+  },
+  {
+    "id": 118,
+    "name": "AGREEMENT_PRODUCT_FEATURE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks terms and conditions at the level of product for an agreement.",
+    "attributeCount": 16
+  },
+  {
+    "id": 119,
+    "name": "AGREEMENT_PRODUCT_FEATURE_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This entity contains features that can describe/override other features that are related to a product for an agreement.  For example, if an insurance policy is for more than one insurance product then this could be the limit for a coverage for a given product for a given policy.",
+    "attributeCount": 16
+  },
+  {
+    "id": 120,
+    "name": "AGREEMENT_PRODUCT_ROLE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the role that this product has with this agreement:  Examples: - Is offered product (e.g., stock option), - Is primary purpose of agreement (insurance policy, deposit, swap investment) - Is underlying financial instrument (Teradata stock, U.S. dollars) - Is a product that",
+    "attributeCount": 2
+  },
+  {
+    "id": 121,
+    "name": "AGREEMENT_PROFIT",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the changes to an agreement's profitability over time. This entity has the agreement profitability that is calculated outside of this system. There is one instance for each agreement, date, and profit type combination. This entity can be derived from other entities in the model th",
+    "attributeCount": 7
+  },
+  {
+    "id": 122,
+    "name": "AGREEMENT_PROFIT_COMPONENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the final profit numbers for this account along with the amounts for other components that make up the profit number such as net interest revenue, other revenue, cost/value of funds, and economic value add.",
+    "attributeCount": 3
+  },
+  {
+    "id": 123,
+    "name": "AGREEMENT_PROJECT",
+    "domain": "Agreement & Account",
+    "description": "This entity relates agreements with projects such as a loan to fund a project for a customer.",
+    "attributeCount": 5
+  },
+  {
+    "id": 124,
+    "name": "AGREEMENT_PROJECT_ROLE",
+    "domain": "Agreement & Account",
+    "description": "This entity describes the role the project has with the agreement such as is the subject or a loan (when the loan funds the project for a customer).",
+    "attributeCount": 2
+  },
+  {
+    "id": 125,
+    "name": "AGREEMENT_PROMOTION_OFFER",
+    "domain": "Agreement & Account",
+    "description": "This associative entity tracks offers targeted to specific accounts for a given promotion.",
+    "attributeCount": 4
+  },
+  {
+    "id": 126,
+    "name": "AGREEMENT_PROMOTION_OFFER_ROLE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies the various roles that how an account relates to the promotion offer, for example, targets account and created account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 127,
+    "name": "AGREEMENT_PROVISION",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the amount of provision allocated to this agreement over time. This would normally be specific provision as opposed to general provision. Specific provision can be calculated to the account level and is the expected loss should this account default. If the provision is a general p",
+    "attributeCount": 4
+  },
+  {
+    "id": 128,
+    "name": "AGREEMENT_QUOTATION_ROLE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies the role that accounts have with insurance quotations. Possible roles include 'is subaccount for,' and 'was converted from.'",
+    "attributeCount": 2
+  },
+  {
+    "id": 129,
+    "name": "AGREEMENT_RATE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains rate for this account, for this time period, for this \"as of date\" and for this type of rate. Types of rates could include simple rate, compound rate, rate adjusted for day basis, insurance rate and more. This structure gives you flexibility in keeping track of any kind of rate",
+    "attributeCount": 7
+  },
+  {
+    "id": 130,
+    "name": "AGREEMENT_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies relationships between agreements and identifies the type of relationship. For example, one agreement replaces another agreement, one agreement is a subset of another agreement, and one agreement is an amendment to another agreement.  An example would agreements that are linked",
+    "attributeCount": 6
+  },
+  {
+    "id": 131,
+    "name": "AGREEMENT_RELATED_REASON",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the type of relationship between two agreements such as one agreement replaces another agreement, one agreement is a subset of another agreement, and one agreement is an amendment to another agreement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 132,
+    "name": "AGREEMENT_REMEDIATION_PLAN",
+    "domain": "Agreement & Account",
+    "description": "If an agreement looks like it is going into default or indications are that it is in trouble of meeting the terms of the agreement then this entity contains the plans to mitigate the risk of this agreement going into default. Usually, a loan will be considered troubled when no payment has been made",
+    "attributeCount": 5
+  },
+  {
+    "id": 133,
+    "name": "AGREEMENT_REMEDIATION_STATUS",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the status of the remediation plan.  Examples: - Remediation plan established - Remediation plan in process - Remediation plan was able to prevent default - Remediation plan had no effect",
+    "attributeCount": 5
+  },
+  {
+    "id": 134,
+    "name": "AGREEMENT_RENEWAL",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks actual history information regarding agreement renewal start and end date for renewable contracts. Each instance is one renewal period or term including the original for those kinds of agreements that have the concept of renewals such as time deposits and insurance policies. If th",
+    "attributeCount": 6
+  },
+  {
+    "id": 135,
+    "name": "AGREEMENT_REVENUE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the direct and indirect revenue allocated to an agreement.",
+    "attributeCount": 6
+  },
+  {
+    "id": 136,
+    "name": "AGREEMENT_RISK_GRADE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the risk grade assignment for this account for this date for this type of grading.",
+    "attributeCount": 8
+  },
+  {
+    "id": 137,
+    "name": "AGREEMENT_RISK_GRADE_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This entity relates one risk grade assessment to another risk grade assessment to identify when one risk assessment replaces or overrides another risk assessment for an account. Risk assessments done by different methods or parties can result in different assessments.  This structure allows for one",
+    "attributeCount": 10
+  },
+  {
+    "id": 138,
+    "name": "AGREEMENT_RISK_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity contains various calculations and credit risk related metrics at the account/exposure level over time for the purposes of determining risk. Many of these attributes are required for Basel II and are derived from other elements in the model. This entity would only exist for those agreemen",
+    "attributeCount": 54
+  },
+  {
+    "id": 139,
+    "name": "AGREEMENT_RISK_METRIC_INTERNAL_INVESTMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks credit risk metrics for internal investments, which are investments in security instruments held by your enterprise where there may be some credit risk involved.",
+    "attributeCount": 3
+  },
+  {
+    "id": 140,
+    "name": "AGREEMENT_RISK_METRIC_OFF_BALANCE_SHEET",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks credit risk metrics for off balance sheet exposures.  Some facilities may be included in this scope.",
+    "attributeCount": 4
+  },
+  {
+    "id": 141,
+    "name": "AGREEMENT_RISK_METRIC_OTC_DERIVATIVE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks credit risk metrics for over-the-counter derivative exposures.",
+    "attributeCount": 1
+  },
+  {
+    "id": 142,
+    "name": "AGREEMENT_RISK_METRIC_PURCHASED_RECEIVABLE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks credit risk metrics for purchased receivable exposures.",
+    "attributeCount": 2
+  },
+  {
+    "id": 143,
+    "name": "AGREEMENT_RISK_METRIC_SECURITIZATION",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks credit risk metrics for securitization exposures.",
+    "attributeCount": 7
+  },
+  {
+    "id": 144,
+    "name": "AGREEMENT_SCORE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the changes to an account's score value over time. This entity has the account score value that is calculated outside of this system. There is one instance for each account-score model combination. Types of account related scores include delinquency score, propensity to refinance",
+    "attributeCount": 4
+  },
+  {
+    "id": 145,
+    "name": "AGREEMENT_SCORE_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about one score related to another score for an agreement. For example, if one way of determining loss given default overrides another way for this specific agreement then this shows which scores were overridden and why.",
+    "attributeCount": 9
+  },
+  {
+    "id": 146,
+    "name": "AGREEMENT_SELLER",
+    "domain": "Agreement & Account",
+    "description": "In a banking securitization or insurance reinsurance agreement, one party sells the risk (or part of the risk) and another party buys the risk. This is the party that sold the risk or has reduced the exposure in some manner. This may or may not be your enterprise.  This entity is in the model to sho",
+    "attributeCount": 0
+  },
+  {
+    "id": 147,
+    "name": "AGREEMENT_STATEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity associates an account with the statement general information.",
+    "attributeCount": 2
+  },
+  {
+    "id": 148,
+    "name": "AGREEMENT_STATEMENT_LINE_AMOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The type of amount that is reflected in the line item such as direct debit, standing order, check deposit, interest posting, card (line) amount, no amount, total amount for purchase or sale (investment), amount for costs (investment), amount for commission (investment), amount for trader's fees (inv",
+    "attributeCount": 2
+  },
+  {
+    "id": 149,
+    "name": "AGREEMENT_STATEMENT_LINE_ITEM",
+    "domain": "Agreement & Account",
+    "description": "The summary of detail that appears on the statement of the account.",
+    "attributeCount": 9
+  },
+  {
+    "id": 150,
+    "name": "AGREEMENT_STATEMENT_LINE_ITEM_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity is a category discriminator for agreement statement line items, for example, card, investment, or other.",
+    "attributeCount": 2
+  },
+  {
+    "id": 151,
+    "name": "AGREEMENT_STATEMENT_LINE_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the metrics for a statement detail line item for a given account/agreement for a given statement. These details lines are usually transactions and activities that occurred for this account.  Metrics can be amounts, counts, or rates.  Amount examples are cash withdrawal amount, f",
+    "attributeCount": 9
+  },
+  {
+    "id": 152,
+    "name": "AGREEMENT_STATEMENT_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity shows metrics for a given account/agreement for a given statement.  Metrics can be amounts, counts, or rates.  Amount examples: - For banking, it could be cash withdrawal total, fee total, previous balance, past due amount, current due amount, penalty amount, finance charge amount, new b",
+    "attributeCount": 8
+  },
+  {
+    "id": 153,
+    "name": "AGREEMENT_STATUS",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the history of the status of the agreement such as active, inactive, or pending closure. This structure provides for the agreement to be in more than one status classification scheme at the same time but for a given classification scheme the agreement has one value.  Examples: -",
+    "attributeCount": 5
+  },
+  {
+    "id": 154,
+    "name": "AGREEMENT_STATUS_REASON_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the reason the agreement status changed such as the agreement was terminated because the customer has moved, is deceased, or was dissatisfied with the arrangement. Examples for insurance include late payment of premium, renewed period, and customer-initiated change of pay",
+    "attributeCount": 2
+  },
+  {
+    "id": 155,
+    "name": "AGREEMENT_STATUS_SCHEME_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a code for the classification of status for agreements.  Examples: - Scheme 1 = accrual status or not - Scheme 2 = pending approval, active, inactive, closed - Scheme 3 = written off, foreclosed, past due - Scheme 3 = frozen or not",
+    "attributeCount": 2
+  },
+  {
+    "id": 156,
+    "name": "AGREEMENT_STATUS_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the type of agreement status such as active, inactive, canceled or pending closure.",
+    "attributeCount": 3
+  },
+  {
+    "id": 157,
+    "name": "AGREEMENT_SUBJECT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those subjects that are accounts, contracts and other kinds of agreements. There is one instance for each agreement.",
+    "attributeCount": 1
+  },
+  {
+    "id": 158,
+    "name": "AGREEMENT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity is a subtype discriminator for AGREEMENT.  Examples: - Financial agreement - Insurance agreement - Network service agreement - Collection payment agreement - Labor agreement",
+    "attributeCount": 2
+  },
+  {
+    "id": 159,
+    "name": "AGREEMENT_SUMMARY",
+    "domain": "Agreement & Account",
+    "description": "This entity contains summary account information at the end of a time period (the time period to be determined by each financial institution using this model). Even though the information is technically derivable from events and should not be in a logical model, it is included here because it is pra",
+    "attributeCount": 44
+  },
+  {
+    "id": 160,
+    "name": "AGREEMENT_SURVEY_RESPONSE",
+    "domain": "Agreement & Account",
+    "description": "This subtype entity identifies the account number that is the subject of this survey question.",
+    "attributeCount": 1
+  },
+  {
+    "id": 161,
+    "name": "AGREEMENT_TAX_RULE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the tax rules for a given agreement/account at a point-in-time. Rules can vary by country and should be customized. Possible rules include local and federal marital status, number of allowances/dependents, additional withholding amount, and tax status (exempt, not exempt, and fo",
+    "attributeCount": 12
+  },
+  {
+    "id": 162,
+    "name": "AGREEMENT_TEXT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains free-form text related to the account. This can include any notes attached to this account.",
+    "attributeCount": 5
+  },
+  {
+    "id": 163,
+    "name": "AGREEMENT_TEXT_SECTION",
+    "domain": "Agreement & Account",
+    "description": "This entity is the link to agreement text unstructured data.",
+    "attributeCount": 3
+  },
+  {
+    "id": 164,
+    "name": "AGREEMENT_TO_AGREEMENT_GROUP_OTHER",
+    "domain": "Agreement & Account",
+    "description": "Other reasons for the accounts to be related to this account group.",
+    "attributeCount": 0
+  },
+  {
+    "id": 165,
+    "name": "AGREEMENT_TO_SECURITIZATION_POOL",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those accounts or exposures that are related to an account group (pool) for securitization purposes. These accounts are being securitized and placed into this pool.",
+    "attributeCount": 2
+  },
+  {
+    "id": 166,
+    "name": "AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A classification of the agreement.  For financial services, it is a major classification based on the scope of the agreement such as banking, insurance, human resources, and investment.",
+    "attributeCount": 2
+  },
+  {
+    "id": 167,
+    "name": "ALERT_SETUP_FOR_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those alerts that are set up based on account activity such as a financial transaction over a certain amount. The threshold amount or quantity is indicated in this entity.",
+    "attributeCount": 3
+  },
+  {
+    "id": 168,
+    "name": "ALLOWANCE_FOR_LOAN_LOSS_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "Banks are allowed to build up a reserve for future loan losses from their flow of income based on their recent loan-loss experience. This is a contra-asset account, which represents an accumulated reserve against which loans declared to be uncollectible can be charged off.",
+    "attributeCount": 0
+  },
+  {
+    "id": 169,
+    "name": "AMERICAN_DEPOSITORY_RECEIPT",
+    "domain": "Agreement & Account",
+    "description": "American Depository Receipt. The ADR is a certificate issued by a U.S. bank representing shares of a non-U.S. company that have been deposited with the bank or its custodian. An ADR may represent a multiple or a fraction of a share of the foreign company deposited in the program, a relationship desi",
+    "attributeCount": 0
+  },
+  {
+    "id": 170,
+    "name": "APPLICATION_COLLATERAL_ASSET",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype to entity APPLICATION ASSET and contains details of the asset in relation to the application in the role of to be collateral.",
+    "attributeCount": 2
+  },
+  {
+    "id": 171,
+    "name": "APPLICATION_CREDIT_REPORT",
+    "domain": "Agreement & Account",
+    "description": "This entity relates an application to a credit report that was used to make a decision about the application.  Roles that a report may have with the application include: - Initial = the initial report pulled for this application - Interim = a periodic report to see trends or changes - Decision = thi",
+    "attributeCount": 5
+  },
+  {
+    "id": 172,
+    "name": "ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates a general ledger account is an ASSET ACCOUNT. These accounts represent tangible or intangible property owned by a company or business. Types of ASSET ACCOUNTs include cash, accounts receivable, and inventory.",
+    "attributeCount": 1
+  },
+  {
+    "id": 173,
+    "name": "ASSET_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of asset like fixed asset, current asset, or other asset.",
+    "attributeCount": 2
+  },
+  {
+    "id": 174,
+    "name": "ASSET_COLLATERAL_ITEM",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those assets used as collateral where the assets are tangible or intangible property held outside your institution. This includes real estate, automobiles, and financial instruments or cash not held at your institution. More than one party asset could be bundled into a collatera",
+    "attributeCount": 5
+  },
+  {
+    "id": 175,
+    "name": "ASSET_COLLATERAL_ROLE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Code indicating the type of relationship between the asset and the collateral item, for example, primary, first claim, second claim.",
+    "attributeCount": 2
+  },
+  {
+    "id": 176,
+    "name": "AVAILABLE_CASH_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the AVAILABLE CASH ACCOUNTs or cash on hand. These asset accounts represent any cash in currency, checks, marketable securities, or near cash items. AVAILABLE CASH ACCOUNTs are types of current assets.",
+    "attributeCount": 0
+  },
+  {
+    "id": 177,
+    "name": "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates a general ledger account is in the balance sheet statement category. Types of this category include asset, liability, and equity accounts.",
+    "attributeCount": 2
+  },
+  {
+    "id": 178,
+    "name": "BALANCE_SHEET_GL_MAIN_ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the types of general ledger accounts are on the balance sheet financial statement. Examples are asset account, liability account, and equity account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 179,
+    "name": "BARRIER_OPTION_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A barrier option is a type of financial option where the option to exercise depends on the underlying crossing or reaching a given barrier level. Barrier options were created to provide the insurance value of an option without charging as much premium. For example, if you believe that company X's st",
+    "attributeCount": 7
+  },
+  {
+    "id": 180,
+    "name": "BASEL_COLLATERAL_HAIRCUT_PARAMETER",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the haircut (adjustment) to be applied in the standardized supervisory haircut approach when calculating collateral haircut for this classification of financial instruments for Basel II Accord (June Accord paragraph 151).  This rule contains the haircut factor for financial inst",
+    "attributeCount": 15
+  },
+  {
+    "id": 181,
+    "name": "BASEL_ELIGIBLE_COLLATERAL_PARAMETER",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies those types of collateral including financial instruments that are eligible as collateral when calculating risk per Basel II specifications. The eligibility is a function of the collateral type, the risk grade, and the Basel II approach.  Reference paragraph 145 in June 2004 A",
+    "attributeCount": 10
+  },
+  {
+    "id": 182,
+    "name": "BASEL_ELIGIBLE_GUARANTEE_PARAMETER",
+    "domain": "Agreement & Account",
+    "description": "This entity contains all of the information related to whether a guarantee is eligible as a risk mitigant for Basel II. It is a function of the guarantor credit rating, the Basel II approach, and the type of guarantor.",
+    "attributeCount": 9
+  },
+  {
+    "id": 183,
+    "name": "BASEL_II_LGD_NO_COLLATERAL_PARAMETER",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the parameters to be used when calculating Loss Given Default for exposures that are not secured by recognized collateral under the Foundation IRB approach.  Agreements (exposures) are classified as \"senior claim not collateralized\" and \"subordinated claim not collateralized.\"",
+    "attributeCount": 5
+  },
+  {
+    "id": 184,
+    "name": "CAMPAIGN_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This associative entity allows for a campaign to be related to an account and for an account to be related to campaign. Such as the campaign is targeted to this account or the campaign is the cause of creation of this account.",
+    "attributeCount": 5
+  },
+  {
+    "id": 185,
+    "name": "CAMPAIGN_AGREEMENT_ROLE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the role that the campaign has with the account. Examples are 'targets to' or 'caused creation of.'",
+    "attributeCount": 2
+  },
+  {
+    "id": 186,
+    "name": "CAMPAIGN_COLLATERAL",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the communication collateral associated with a campaign.",
+    "attributeCount": 3
+  },
+  {
+    "id": 187,
+    "name": "CASH_SETTLEMENT",
+    "domain": "Agreement & Account",
+    "description": "This subtype identifies that the settlement for this contract is with cash.",
+    "attributeCount": 0
+  },
+  {
+    "id": 188,
+    "name": "CELL_TARGET_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "The agreements included in a specific campaign cell.",
+    "attributeCount": 4
+  },
+  {
+    "id": 189,
+    "name": "CHANGED_UNEARNED_PREMIUM_RESERVE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the unearned premium at the end of a period minus unearned premium at the beginning of the period.",
+    "attributeCount": 0
+  },
+  {
+    "id": 190,
+    "name": "CHART_OF_ACCOUNTS_CLASSIFICATION",
+    "domain": "Agreement & Account",
+    "description": "A code that identifies the accounting use of this CHART OF ACCOUNTS CLASSIFICATION. The type indicates the potential to be a balance sheet or income statement.  Sample value set: - A = asset - E = expense - L = liability - N = unknown description - O = owner's equity - R = revenue",
+    "attributeCount": 2
+  },
+  {
+    "id": 191,
+    "name": "CHART_OF_ACCOUNTS_CODE",
+    "domain": "Agreement & Account",
+    "description": "This entity allows the grouping of COA CODE SEGMENTs to represent the structure of a CHART OF ACCOUNTS CODE. In Oracle Financials, the key of \"Code Combination Id\" is similar to our \"COA Code Id\" It represents one financial account.  Example: - If you were filling out an expense report, you might ha",
+    "attributeCount": 5
+  },
+  {
+    "id": 192,
+    "name": "CHART_OF_ACCOUNTS_CODE_TO_SEGMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity associates a COA CODE SEGMENT with a CHART OF ACCOUNTS CODE.",
+    "attributeCount": 6
+  },
+  {
+    "id": 193,
+    "name": "CLEARING_AND_SETTLEMENT",
+    "domain": "Agreement & Account",
+    "description": "Services that clear and settle payments for financial transactions other than trades of securities and commodity contracts.",
+    "attributeCount": 0
+  },
+  {
+    "id": 194,
+    "name": "COLLATERALIZED_DEBT_OBLIGATION",
+    "domain": "Agreement & Account",
+    "description": "An investment-grade security backed by a pool of bonds, loans and other assets. CDOs do not specialize in one type of debt but are often nonmortgage loans or bonds.",
+    "attributeCount": 0
+  },
+  {
+    "id": 195,
+    "name": "COLLATERALIZED_EXPOSURE",
+    "domain": "Agreement & Account",
+    "description": "This entity represents the portion of the exposure that is covered by a given credit protection instrument such as collateral or guarantee. It contains the amount of the exposure that is covered by the risk mitigant agreement at this point-in-time along with the risk weight of that portion and the L",
+    "attributeCount": 14
+  },
+  {
+    "id": 196,
+    "name": "COLLATERALIZED_EXPOSURE_ADJUSTMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the adjustment rates that are applied to this collateralized portion of the exposure for a given adjustment type and calculation date.",
+    "attributeCount": 10
+  },
+  {
+    "id": 197,
+    "name": "COLLATERALIZED_MORTGAGE_OBLIGATION",
+    "domain": "Agreement & Account",
+    "description": "This is a type of mortgage-backed security that creates separate pools of pass-through rates for different classes of bondholders with varying maturities, called tranches. The repayments from the pool of pass-through securities are used to retire the bonds in the order specified by the bonds' prospe",
+    "attributeCount": 0
+  },
+  {
+    "id": 198,
+    "name": "COLLATERAL_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A contract between the customer and your bank or your customer and another party where the customer agrees to pledge collateral to another agreement. This collateral agreement may have a maximum amount pledged along with a contract expiration date. This entity is used to understand all the parties t",
+    "attributeCount": 2
+  },
+  {
+    "id": 199,
+    "name": "COLLATERAL_AGREEMENT_COVERAGE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the amount of collateral that is covered by this collateral item for this agreement. Since the value of the collateral can change over time so does the coverage.",
+    "attributeCount": 8
+  },
+  {
+    "id": 200,
+    "name": "COLLATERAL_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity is a subtype discriminator and identifies whether this collateral agreement is for customer assets that are held outside the bank (e.g., real estate or securities held at another institution) or customer assets held within your bank (e.g., a deposit account or investment account).",
+    "attributeCount": 2
+  },
+  {
+    "id": 201,
+    "name": "COLLATERAL_ITEM",
+    "domain": "Agreement & Account",
+    "description": "This entity contains assets that are held by parties, usually customers, and which are pledged to loans as collateral. This could be an asset that is held outside of the bank such as real estate or automobile. It could also be an asset that is held in an account by the bank such as securities or dep",
+    "attributeCount": 4
+  },
+  {
+    "id": 202,
+    "name": "COLLATERAL_ITEM_ADJUSTMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains adjustments to the value of the collateral item for various reasons including Basel II \"haircuts.\"  These adjustments are at the whole collateral item level and not at the portion that protects the exposure/account.",
+    "attributeCount": 8
+  },
+  {
+    "id": 203,
+    "name": "COLLATERAL_ITEM_CLASS_XREF",
+    "domain": "Agreement & Account",
+    "description": "This entity classifies a collateral item many ways. For example, it may be classified as real estate, debt instrument with AAA rating, time deposit account, automobile, or inventory.",
+    "attributeCount": 5
+  },
+  {
+    "id": 204,
+    "name": "COLLATERAL_ITEM_GROUP",
+    "domain": "Agreement & Account",
+    "description": "This entity represents a grouping or pool of collateral items. For risk calculation and collateral value allocation purposes, there may be a limit applied to a collection of collateral items.  The pool limit is an optional limit applied to pools of collateral, which is used in the collateral allocat",
+    "attributeCount": 5
+  },
+  {
+    "id": 205,
+    "name": "COLLATERAL_ITEM_GROUPED",
+    "domain": "Agreement & Account",
+    "description": "This entity relates a collateral item to one or more groupings.",
+    "attributeCount": 4
+  },
+  {
+    "id": 206,
+    "name": "COLLATERAL_ITEM_RISK_METRIC",
+    "domain": "Agreement & Account",
+    "description": "Risk metrics and calculation parameters associated with a collateral item, which includes customer assets used as collateral (e.g., real estate), customer assets held as accounts within the bank (e.g., deposits or bonds outside a portfolio), and securities held at your bank in a portfolio.",
+    "attributeCount": 7
+  },
+  {
+    "id": 207,
+    "name": "COLLATERAL_ITEM_STATUS",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the status of this collateral item over time such as: - Asset held for sale - Asset held by counterparty - Asset sold - Asset claimed - In process of being repossessed by your bank - In process of being repossessed by other bank - Repossessed by your bank",
+    "attributeCount": 3
+  },
+  {
+    "id": 208,
+    "name": "COLLATERAL_ITEM_STATUS_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the status values for a collateral item such as: - Asset held for sale - Asset held by counterparty - Asset sold - Asset claimed - In process of being repossessed by your bank - In process of being repossessed by other bank - Repossessed by your bank.",
+    "attributeCount": 2
+  },
+  {
+    "id": 209,
+    "name": "COLLATERAL_ITEM_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity defines code for the type of collateral item such as: - Customer asset held outside the bank - Customer agreement held inside the bank (e.g., time deposit or security instrument) - Investment product within a portfolio  This will designate which entity in the model to link to for t",
+    "attributeCount": 2
+  },
+  {
+    "id": 210,
+    "name": "COLLATERAL_ITEM_VALUE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the value of this collateral item over time. It contains the values before and after any adjustments due to Basel II haircuts (adjustments).",
+    "attributeCount": 14
+  },
+  {
+    "id": 211,
+    "name": "COLLECTION_ISSUER_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity represents the agreement between the financial institution and its customer (the issuer) to collect debt on the issuer's behalf. The issuer retains the debt and the risk for the debt. The financial institution is providing a collection service.",
+    "attributeCount": 1
+  },
+  {
+    "id": 212,
+    "name": "COLLECTION_PAYMENT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A formal or informal agreement or arrangement with the obligor to collect monies due.  Formal agreements, known as a payment program, is a product offered to delinquent, high credit risk or charged off customers that has a time limit, terms and conditions and incentives. Depending on the type of pro",
+    "attributeCount": 1
+  },
+  {
+    "id": 213,
+    "name": "COMMODITY_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is a type of derivative agreement that is specifically for a commodity. These attributes are common for all types of commodity agreements including futures and swaps.",
+    "attributeCount": 5
+  },
+  {
+    "id": 214,
+    "name": "COMMON_STOCK_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies a general ledger equity account as common stock. Common stocks are units of ownership of a public corporation. Common stock, the most frequently issued class of stock, usually provides a voting right, but is secondary to preferred stock in dividend and liquidation rights.",
+    "attributeCount": 4
+  },
+  {
+    "id": 215,
+    "name": "COMMON_STOCK_ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of common stock accounts. Types of common stock include voting stock and nonvoting stock.",
+    "attributeCount": 2
+  },
+  {
+    "id": 216,
+    "name": "COMMUNICATION_COLLATERAL",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about a piece of communication collateral that supports a communication plan with customers and prospects. Examples can include brochures, papers, scripts, web page content, instructions, and presentation material.",
+    "attributeCount": 7
+  },
+  {
+    "id": 217,
+    "name": "COMMUNICATION_COLLATERAL_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the type of communication collateral such as brochure, paper, script, web page content, instruction, poster, and sign.",
+    "attributeCount": 2
+  },
+  {
+    "id": 218,
+    "name": "CONSTRUCTION_LOAN",
+    "domain": "Agreement & Account",
+    "description": "This subtype contains information specific to construction loans.",
+    "attributeCount": 1
+  },
+  {
+    "id": 219,
+    "name": "CONSUMER_SERVICE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "CONSUMER SERVICE AGREEMENT is a type of AGREEMENT the company enters into with a consumer to provide a service such as wallet protection, fraud protection, account guard, and portfolio reporting.",
+    "attributeCount": 1
+  },
+  {
+    "id": 220,
+    "name": "CONSUMER_SERVICE_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A classification of consumer service agreements such as wallet protection, fraud protection, account guard, and portfolio reporting. This is a separate agreement that could be related to another agreement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 221,
+    "name": "CONTRACT_SETTLEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Forward and Futures contracts can have either physical or cash settlement. Physical delivery requires delivery of the underlying physical commodity. Cash settlement requires delivery of the cash difference between the contract strike price and the spot market price for the underlying commodity.",
+    "attributeCount": 2
+  },
+  {
+    "id": 222,
+    "name": "COST_OF_SALES_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies an expense account as a cost of sales. Cost of sales represents expenses a company incurs to purchase products or services that it sells. Cost of sales expenses includes labor costs, raw materials, and overhead.",
+    "attributeCount": 0
+  },
+  {
+    "id": 223,
+    "name": "CREDIT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "Credit agreements are services that provide money or credit to businesses, consumers, and governments. It includes loans, mortgages, current accounts, purchased receivables (factoring), credit cards or lines of credit (transaction accounts), and leasing.",
+    "attributeCount": 16
+  },
+  {
+    "id": 224,
+    "name": "CREDIT_AGREEMENT_SECONDARY_MARKET_STATUS",
+    "domain": "Agreement & Account",
+    "description": "This tracks the status of this asset in the secondary market and the enterprise's involvement with the buy or sale of this asset.  Possible values: - Bought – direct sale - Sold – direct sale - Sold – as part of a securitization pool - Not bought or sold on secondary market - In process of direct sa",
+    "attributeCount": 4
+  },
+  {
+    "id": 225,
+    "name": "CREDIT_AGREEMENT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity is used as a category discriminator for credit agreements.  Examples: - Loan agreement - Current agreement - Purchased receivables invoice - Facility agreement - Letter of credit agreement",
+    "attributeCount": 2
+  },
+  {
+    "id": 226,
+    "name": "CREDIT_APPLICATION",
+    "domain": "Agreement & Account",
+    "description": "This is an application for a loan or mortgage.",
+    "attributeCount": 6
+  },
+  {
+    "id": 227,
+    "name": "CREDIT_APPLICATION_PRECREDIT_CHARGE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the precredit charges that a credit application might have such as prepayment charge and preinterest charge.",
+    "attributeCount": 5
+  },
+  {
+    "id": 228,
+    "name": "CREDIT_AUTHORIZATION",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about the credit card authorization request and response. The request comes from the merchant bank, through a network provider (e.g., Visa or Mastercard) and to the credit card issuing bank. The merchant information in this example is \"tightly\" modeled meaning there",
+    "attributeCount": 9
+  },
+  {
+    "id": 229,
+    "name": "CREDIT_CARD",
+    "domain": "Agreement & Account",
+    "description": "This entity is a subtype to CARD entity and contains information about cards that may allow the cardholder a revolving line of credit.",
+    "attributeCount": 1
+  },
+  {
+    "id": 230,
+    "name": "CREDIT_CARD_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "CREDIT CARD AGREEMENT is a type of FINANCIAL AGREEMENT that provides a line of credit to card members through a credit card such as consumer, corporate, or small business card. This entity captures only those card member agreements that are assets from the company's perspective.",
+    "attributeCount": 2
+  },
+  {
+    "id": 231,
+    "name": "CREDIT_CARD_AGREEMENT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity classifies credit card agreements into types such as purchase credit card, small business card, corporate card, student card, family card, and individual card. This classification is used as a subtype discriminator.",
+    "attributeCount": 2
+  },
+  {
+    "id": 232,
+    "name": "CREDIT_CARD_BALANCE_SEGMENT",
+    "domain": "Agreement & Account",
+    "description": "This is a type of balance used by credit card companies to divide up a balance into portions or \"segments\" where each segment might have its own terms and conditions and where payments can get applied to a specific segment.",
+    "attributeCount": 1
+  },
+  {
+    "id": 233,
+    "name": "CREDIT_CARD_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This a subtype discriminator to classify the physical credit card for subtyping purposes such as a purchase card.",
+    "attributeCount": 2
+  },
+  {
+    "id": 234,
+    "name": "CREDIT_CONVERSION_FACTOR_PARAMETER",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the Basel II credit conversion factors for exposures that do not have an early amortization feature.",
+    "attributeCount": 11
+  },
+  {
+    "id": 235,
+    "name": "CREDIT_DEFAULT_SWAP",
+    "domain": "Agreement & Account",
+    "description": "A credit default swap is a hedging instrument where the protection buyer (e.g., a bank) pays the seller (e.g., the insurer) a fixed regular fee and the seller of protection provides the buyer with an exchange contingent on the maturity of the swap or the underlying instrument (e.g., loan or bond). T",
+    "attributeCount": 2
+  },
+  {
+    "id": 236,
+    "name": "CREDIT_DERIVATIVE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "Also known as synthetic securitization, this is a type of agreement where the bank buys protection for counterparty default (or downgrade) from a protection seller, similar to buying insurance against a counterparty default. Types of credit derivatives include Credit Default Swap (CDS), Total Return",
+    "attributeCount": 6
+  },
+  {
+    "id": 237,
+    "name": "CREDIT_DERIVATIVE_PRODUCT",
+    "domain": "Agreement & Account",
+    "description": "A credit derivative is a financial instrument or derivative (finance) whose price and value derives from the creditworthiness of the obligations of a third party, which is isolated and traded.  Credit default products are the most commonly traded credit derivative products and include unfunded produ",
+    "attributeCount": 1
+  },
+  {
+    "id": 238,
+    "name": "CREDIT_DERIVATIVE_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "There are many types of credit derivatives. Credit derivatives are fundamentally divided into two categories of product: funded credit derivatives and unfunded credit derivatives.  An unfunded credit derivative is a bilateral contract between two counterparties, where each party is responsible for m",
+    "attributeCount": 2
+  },
+  {
+    "id": 239,
+    "name": "CREDIT_EVENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A type of event that could trigger a credit default such as bankruptcy, foreclosure, or past due payment.",
+    "attributeCount": 2
+  },
+  {
+    "id": 240,
+    "name": "CREDIT_INQUIRY_REASON_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity contains reason codes for credit inquiries such as applying for a loan or a credit card.",
+    "attributeCount": 2
+  },
+  {
+    "id": 241,
+    "name": "CREDIT_LINKED_NOTE",
+    "domain": "Agreement & Account",
+    "description": "Credit linked note is a technique to hedge against the risk of the credit default and total return swaps. If the protector goes bankrupt then to avoid this, the protector puts the payments to the bank into a trust and the trust pays the bank.  It is a security with an embedded credit default swap al",
+    "attributeCount": 0
+  },
+  {
+    "id": 242,
+    "name": "CREDIT_MATURITY_SUMMARY",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the residual contractual maturity breakdown of the whole portfolio of the bank or a subsidiary. It is classified by major types of exposure and is intended to support Basel Pillar 3 reporting for Table 4.",
+    "attributeCount": 10
+  },
+  {
+    "id": 243,
+    "name": "CREDIT_RATING_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for a classification of the credit rating such as excellent, good, poor, or bankrupt.",
+    "attributeCount": 2
+  },
+  {
+    "id": 244,
+    "name": "CREDIT_REPORT_COMMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity classifies the comments that are received from external credit reports at the obligor party level.  Examples: - 2 = level of delinquency on accounts - 18 = number of accounts with delinquency - 24 = no recent revolving balances - 11 = amount owed on revolving accounts is too high -",
+    "attributeCount": 2
+  },
+  {
+    "id": 245,
+    "name": "CREDIT_REPORT_ROLE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the role that the credit report has with the application or the agreement such as: - Initial – the initial report pulled for this application - Regular – a normal periodic report, often quarterly - Decision – this is the report that was used for the approval decision",
+    "attributeCount": 2
+  },
+  {
+    "id": 246,
+    "name": "CREDIT_RISK_SUMMARY",
+    "domain": "Agreement & Account",
+    "description": "This summary entity tracks credit risk metrics for the bank or one of its subsidiaries over time with respect to various dimensions such as exposure type and geographic area. Credit risk metrics are defined in line with the Basel II Accord and are intended to support Basel market disclosure (Pillar",
+    "attributeCount": 23
+  },
+  {
+    "id": 247,
+    "name": "CREDIT_STATUS_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the credit status such as agreed, paid off, inactive, and collection.",
+    "attributeCount": 2
+  },
+  {
+    "id": 248,
+    "name": "CURRENT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains all current accounts. It inherits attributes from both the asset (loan) and liability (deposit) aspects of accounts. It is a type of account that is highly liquid, high volume and goes back and forth between asset and liability. This is a type of account that is offered in Europ",
+    "attributeCount": 9
+  },
+  {
+    "id": 249,
+    "name": "CURRENT_ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates assets of a company that could be liquidated or converted to cash in less than one year. CURRENT ASSET ACCOUNTs provide a source of funds for ongoing operations and are important to investors in the event the company goes bankrupt.",
+    "attributeCount": 1
+  },
+  {
+    "id": 250,
+    "name": "CURRENT_ASSET_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of current asset like available cash, prepaid expenses, inventory, accounts receivable, or securities.",
+    "attributeCount": 2
+  },
+  {
+    "id": 251,
+    "name": "CURRENT_LIABILITY_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the types of CURRENT LIABILITY ACCOUNTs, or liabilities owed by a company that are due within one year.",
+    "attributeCount": 1
+  },
+  {
+    "id": 252,
+    "name": "CURRENT_LIABILITY_ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of CURRENT LIABILITY ACCOUNTs. Types of current liabilities include accrued liability, deferred revenue, short-term debt, current long-term debt, income taxes, and accounts payable.",
+    "attributeCount": 2
+  },
+  {
+    "id": 253,
+    "name": "CURRENT_LONG_TERM_DEBT_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the current long-term debt. Long-term debt is the principal on the long-term debt due in the next year.",
+    "attributeCount": 0
+  },
+  {
+    "id": 254,
+    "name": "DEALER_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "For the financing business unit of a manufacturer, this would be the agreement between the manufacturer and the dealer that is selling the merchandise (e.g., automobile) and the financial arrangements between the two parties.",
+    "attributeCount": 0
+  },
+  {
+    "id": 255,
+    "name": "DEBIT_CREDIT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code as to whether the account is being increased in value (debit) or decreased in value (credit).  From the enterprise perspective, a debit increases assets and decreases liabilities. A credit increases liability and decreases asset.",
+    "attributeCount": 2
+  },
+  {
+    "id": 256,
+    "name": "DEBT_RECEIVABLE_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity classifies the debt receivable agreement as either a factoring agreement or a collection service agreement.  A factoring service is where the bank purchases the receivable from its customer and takes on the risk of the obligor defaulting.  A collection service is where the bank's custome",
+    "attributeCount": 2
+  },
+  {
+    "id": 257,
+    "name": "DEFERRED_CHARGE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for deferred charges. These are expenditures that will be gradually written off over a future period of time.",
+    "attributeCount": 0
+  },
+  {
+    "id": 258,
+    "name": "DEFERRED_INCOME_TAX_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the deferred income taxes. Deferred income taxes are the tax liabilities a company may postpone paying until some future time.",
+    "attributeCount": 0
+  },
+  {
+    "id": 259,
+    "name": "DEFERRED_REVENUE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the deferred revenue. Deferred revenue is sales or revenues the company has been paid but has not yet earned, such as advance deposits on a contract.",
+    "attributeCount": 0
+  },
+  {
+    "id": 260,
+    "name": "DEPOSIT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains only those customer agreements that are deposits (liabilities) from the financial institution's perspective. Liability agreements include deposits such as checking account, certificate of deposits and the deposit aspect of current accounts. Current accounts are considered both a",
+    "attributeCount": 6
+  },
+  {
+    "id": 261,
+    "name": "DEPOSIT_AGREEMENT_JAPAN",
+    "domain": "Agreement & Account",
+    "description": "This entity contains only those customer accounts that are deposits (liabilities) from the financial institution's perspective. Liability accounts include deposits such as checking account, certificate of deposits, and the deposit aspect of current accounts. Current accounts are considered both asse",
+    "attributeCount": 3
+  },
+  {
+    "id": 262,
+    "name": "DEPOSIT_BOX_SIZE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity describes the size of the safe deposit box such as small, medium, or large.",
+    "attributeCount": 2
+  },
+  {
+    "id": 263,
+    "name": "DEPOSIT_GL_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for deposit LIABILITY ACCOUNT. The principal liability of any bank is its deposits, representing the financial claims held by businesses and individuals against the bank.",
+    "attributeCount": 0
+  },
+  {
+    "id": 264,
+    "name": "DEPOSIT_MATURITY_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies whether this deposit account has a maturity period as part of its conditions. For example, certificates of deposit have maturity dates.  Values: - Has maturity - Does not have a maturity",
+    "attributeCount": 2
+  },
+  {
+    "id": 265,
+    "name": "DEPOSIT_OWNERSHIP_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a classification of a deposit account based on its ownership.  Examples in the United States are: - Single account - Joint account - Revocable trust - Irrevocable trust - Retirement account - Employee benefit plan account - Business/organization account - Government account - Mortgage servic",
+    "attributeCount": 2
+  },
+  {
+    "id": 266,
+    "name": "DEPOSIT_SLIP",
+    "domain": "Agreement & Account",
+    "description": "This entity is a subtype to DOCUMENT. It contains information on a deposit slip.",
+    "attributeCount": 8
+  },
+  {
+    "id": 267,
+    "name": "DEPOSIT_SLIP_TRANSACTION_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies the different types of transaction types for deposit slips.",
+    "attributeCount": 2
+  },
+  {
+    "id": 268,
+    "name": "DEPOSIT_TERM_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about deposit agreements that have a term associated with it such as IRA, Keogh, and Certificate of Deposit.  This is a subtype entity to DEPOSIT AGREEMENT.",
+    "attributeCount": 2
+  },
+  {
+    "id": 269,
+    "name": "DEPOSIT_TRANSACTION_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those accounts that are deposits (liabilities) without a term such as checking and savings accounts.  It currently has no attributes so is a placeholder for future attributes specific to deposit transaction accounts.  This is a subtype entity to DEPOSIT AGREEMENT.",
+    "attributeCount": 0
+  },
+  {
+    "id": 270,
+    "name": "DEPRECIABLE_ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the DEPRECIABLE ASSET ACCOUNT. DEPRECIABLE FIXED ASSETs include property, plant, and equipment.",
+    "attributeCount": 0
+  },
+  {
+    "id": 271,
+    "name": "DEPRECIABLE_ASSET_ACCOUNT_PAYABLE",
+    "domain": "Agreement & Account",
+    "description": "This associative entity provides details of ACCOUNTS PAYABLE for a company and identifies the depreciable fixed asset general ledger account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 272,
+    "name": "DERIVATIVE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "Derivatives are contracts bearing a contractual relationship to some underlying instrument. Options, futures, forwards, and swap contracts are examples of derivative contracts.  The underlying instrument(s) may be a commodity, stock, stock index, bond, currency, or interest rate or a combination, gr",
+    "attributeCount": 9
+  },
+  {
+    "id": 273,
+    "name": "DIVIDEND_EQUITY_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of dividend equity. Types of dividend equities are common stock and preferred stock.",
+    "attributeCount": 1
+  },
+  {
+    "id": 274,
+    "name": "DIVIDEND_EQUITY_ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of dividend for DIVIDEND EQUITY ACCOUNTs. Types of dividend equities are common stock and preferred stock.",
+    "attributeCount": 2
+  },
+  {
+    "id": 275,
+    "name": "DOCUMENT_PAYMENT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "Services that provide documents that can be used as payment instruments, such as money orders, traveler's checks, certified checks, and letters of credit. Includes services of certifying checks. A document payment agreement would only be relevant if an agreement or account was established to provide",
+    "attributeCount": 0
+  },
+  {
+    "id": 276,
+    "name": "EARNED_PREMIUM_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for EARNED PREMIUM ACCOUNT. For an insurance company, this is the income from the paid insurance premium.",
+    "attributeCount": 0
+  },
+  {
+    "id": 277,
+    "name": "EQUITY_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "These general ledger accounts are related to ownership interest in a company in the form of common stock or preferred stock. Types of EQUITY ACCOUNTs include dividend equity and nondividend equity.",
+    "attributeCount": 1
+  },
+  {
+    "id": 278,
+    "name": "EQUITY_ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Types of EQUITY ACCOUNTs include dividend equity and nondividend equity.",
+    "attributeCount": 2
+  },
+  {
+    "id": 279,
+    "name": "EQUITY_SURPLUS_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the net worth that is from stock issued at a premium over par or stated value.",
+    "attributeCount": 0
+  },
+  {
+    "id": 280,
+    "name": "EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates a general ledger account is an EXPENSE ACCOUNT. An expense is any cost of doing business resulting from revenue generating activities. Types of EXPENSE ACCOUNTs include operating expense, interest expense and other expense.",
+    "attributeCount": 1
+  },
+  {
+    "id": 281,
+    "name": "EXPENSE_ACCOUNT_COST_TYPE_XREF",
+    "domain": "Agreement & Account",
+    "description": "This entity associates a COST TYPE with EXPENSE ACCOUNT. The many-to-many relationship allows for a more flexible way to roll up GL accounts to various cost types. For example, roll up all GL expense accounts for a given channel cost type.",
+    "attributeCount": 3
+  },
+  {
+    "id": 282,
+    "name": "EXPENSE_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the type of expense account. Types of expense accounts include cost of sales, operating expense, interest expense, interest income, and other expense.",
+    "attributeCount": 2
+  },
+  {
+    "id": 283,
+    "name": "EXPOSURE_AGREEMENT_ASSET_VALUE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the value and adjustments to the value of the asset over time as it relates to the exposure being protected by this asset. There is one instance for each valuation of the asset as it relates to this exposure. The adjustments are due to haircuts to the value of the asset.",
+    "attributeCount": 16
+  },
+  {
+    "id": 284,
+    "name": "EXPOSURE_AGREEMENT_ASSET_VALUE_ADJUSTMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains adjustments to the value of the asset as it relates to the exposure being covered for various reasons including Basel II \"haircuts.\"  For example, in Basel II there could be the following adjustments to the value of the asset as it relates to the exposure being covered: - Maturi",
+    "attributeCount": 10
+  },
+  {
+    "id": 285,
+    "name": "EXPOSURE_AGREEMENT_COLLATERAL_ITEM",
+    "domain": "Agreement & Account",
+    "description": "This entity relates the agreement that creates an exposure (e.g., loan) to the asset that is covering the exposure (e.g., real estate or a customer account). A role code is not needed between the asset and the agreement because the role is always a collateral role.  This relationship provides for ad",
+    "attributeCount": 5
+  },
+  {
+    "id": 286,
+    "name": "EXPOSURE_AGREEMENT_RISK_MITIGANT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype to entity AGREEMENT RELATED and contains details of the relationship between agreements that have an exposure (e.g., loan agreement) and agreements that mitigate risk (e.g., collateral, third-party guarantees, and internal accounts such as deposits or investments).",
+    "attributeCount": 4
+  },
+  {
+    "id": 287,
+    "name": "EXTERNAL_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "This is an account between two third parties where the enterprise is not an active party (either on the debit or credit side) or is not a signatory on the account agreement.",
+    "attributeCount": 1
+  },
+  {
+    "id": 288,
+    "name": "EXTERNAL_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies agreements where your institution is not a party to the agreement but has an interest in knowing information about that agreement.  This may be of interest for mortgages to understand the fire and earthquake insurance for the structure being mortgaged.  It is also if interest",
+    "attributeCount": 2
+  },
+  {
+    "id": 289,
+    "name": "EXTERNAL_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity converts the other insurance type code into a description. Examples are external collateral agreement where another bank has claim to an asset, and external insurance policy of dental, health, property and casualty, or life.",
+    "attributeCount": 2
+  },
+  {
+    "id": 290,
+    "name": "EXTERNAL_MARGIN_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is a margin agreement where your enterprise holds a margin brokerage account with another institution that is a broker. In this situation the other institution is loaning your enterprise cash to purchase securities where those securities act as collateral for the account. If a margin call happe",
+    "attributeCount": 3
+  },
+  {
+    "id": 291,
+    "name": "FACILITY_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A facility is an umbrella agreement that sets the broad terms and conditions of 'subagreements' that are linked to it.  For example, commercial bill is an agreement that has a limit. This agreement sets the limit and has open and expiration dates.  Within this facility are the deals that draw upon t",
+    "attributeCount": 0
+  },
+  {
+    "id": 292,
+    "name": "FACILITY_OPERATING_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the operating expense pertains to facilities. Facility expenses are related to the maintenance of a physical facility.",
+    "attributeCount": 0
+  },
+  {
+    "id": 293,
+    "name": "FINANCE_EXPOSURE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about those agreements that have some credit risk (exposure) associated with it. This includes risk associated with banking agreements and internal investment (trade) agreements. It includes credit derivative agreements where your enterprise is the seller of protecti",
+    "attributeCount": 3
+  },
+  {
+    "id": 294,
+    "name": "FINANCIAL_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those agreements where your enterprise is performing a banking function and offering a banking service to your customers. This also includes internal agreements that your bank may have with other banks or businesses for asset/liability management or for your own internal investm",
+    "attributeCount": 8
+  },
+  {
+    "id": 295,
+    "name": "FINANCIAL_AGREEMENT_ADJUSTMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains adjustments to the value of the exposure or the value of the risk mitigation as a result of volatility of the underlying financial instrument. These are referred to as \"haircuts.\" It also contains any metrics that were used to calculate the haircuts for this exposure such as the",
+    "attributeCount": 7
+  },
+  {
+    "id": 296,
+    "name": "FINANCIAL_AGREEMENT_BASEL_II_APPROACH",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the Basel II approach that is assigned at this point-in-time to this agreement for this type of risk (e.g., credit risk, operational risk, and market risk).",
+    "attributeCount": 5
+  },
+  {
+    "id": 297,
+    "name": "FINANCIAL_AGREEMENT_EVENT",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype entity to EVENT and includes those events that involve both agreements and money. Examples are deposit, withdrawal, payment, and interest payment. This entity also includes the requests for authorization and for settlement where the amounts are specified on the requests.  If the fi",
+    "attributeCount": 3
+  },
+  {
+    "id": 298,
+    "name": "FINANCIAL_AGREEMENT_JAPAN",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information that is specific to the Value Family application used in Japan. It contains various codes that direct the processing and calculation for profitability for a given account.",
+    "attributeCount": 17
+  },
+  {
+    "id": 299,
+    "name": "FINANCIAL_AGREEMENT_PASSBOOK",
+    "domain": "Agreement & Account",
+    "description": "This entity allows an agreement to have more than one passbook over time.",
+    "attributeCount": 4
+  },
+  {
+    "id": 300,
+    "name": "FINANCIAL_AGREEMENT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity is used as a category discriminator for financial agreements.  Examples: - Investment agreements - Credit agreements - Cash management agreements - Other financial services agreements  There are many other types of accounts that are included in the domain of financial agreements that are",
+    "attributeCount": 2
+  },
+  {
+    "id": 301,
+    "name": "FINANCIAL_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity defines the classification of this financial agreement into major relevant classes such as: - Mortgage loan - Credit card - Term loan - Checking/saving - Time deposit - Internal investment - Foreign exchange agreement - Derivative agreement - Financial services agreement - Purchase",
+    "attributeCount": 2
+  },
+  {
+    "id": 302,
+    "name": "FINANCIAL_AGREEMENT_TYPE_JAPAN",
+    "domain": "Agreement & Account",
+    "description": "Identifies whether this agreement is cash at other banks, cash from central bank or a customer term deposit.",
+    "attributeCount": 2
+  },
+  {
+    "id": 303,
+    "name": "FIXED_ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the types of fixed asset accounts. Fixed assets are long-term, tangible property not expected to be converted to cash in the current fiscal year. Examples are manufacturing equipment, real estate, and furniture.",
+    "attributeCount": 1
+  },
+  {
+    "id": 304,
+    "name": "FIXED_ASSET_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of FIXED ASSET ACCOUNT like DEPRECIABLE ASSET ACCOUNT or NONDEPRECIABLE ASSET ACCOUNT.",
+    "attributeCount": 2
+  },
+  {
+    "id": 305,
+    "name": "FOREIGN_CURRENCY_ADJUSTMENT_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies a NONDIVIDEND EQUITY ACCOUNT as a foreign currency adjustment. Foreign currency adjustments are the gains or losses resulting from a translation of one currency into another.",
+    "attributeCount": 0
+  },
+  {
+    "id": 306,
+    "name": "FOREIGN_EXCHANGE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those agreements for spot foreign exchange between two parties. Your bank may or may not be the buyer or seller but may be the broker to the deal. The role that your institution and any other party play with this deal is found in PARTY AGREEMENT (e.g., buyer versus seller versus",
+    "attributeCount": 12
+  },
+  {
+    "id": 307,
+    "name": "FORWARD_CONTRACT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about the holding of a forward contract.  A forward contract or simply a \"forward\" is a nonstandardized contract between two parties to buy or to sell an asset at a specified future time at a price agreed upon today. This is in contrast to a spot contract, which is a",
+    "attributeCount": 10
+  },
+  {
+    "id": 308,
+    "name": "FORWARD_RATE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "Forward Rate Agreement (FRA) allows the purchasers and sellers to fix the interest rate on a certain principal for a specified period in advance. They are similar to Eurocurrency Futures contracts but can be customized for any maturity. One party pays fixed, the other an agreed upon floating rate. F",
+    "attributeCount": 6
+  },
+  {
+    "id": 309,
+    "name": "FUTURES_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the details about holdings in future contracts.  A futures is a contract to purchase or sell a given amount of an item for a given price by a certain date in the future. It is a deal made now to take place in the future. The seller of a futures contract agrees to deliver the ite",
+    "attributeCount": 2
+  },
+  {
+    "id": 310,
+    "name": "FUTURES_CONTRACT_PRODUCT",
+    "domain": "Agreement & Account",
+    "description": "A standardized traded contract traded on a futures exchange, to buy or sell a certain underlying instrument at a certain date in the future, at a specified price. The future date is called the delivery date or final settlement date. The preset price is called the futures price. The price of the unde",
+    "attributeCount": 10
+  },
+  {
+    "id": 311,
+    "name": "FX_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity classifies a foreign exchange agreement as to the method the exchange is accomplished. Possible values include: - \"Nostra\" spot agreement is where your bank has an agreement with another bank to provide foreign currency in the country of the other bank. Your knowledge of your accou",
+    "attributeCount": 2
+  },
+  {
+    "id": 312,
+    "name": "GENERAL_AND_ADMINISTRATIVE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the operating expense pertains to general and administrative. These expenses are typically classified as administrative in nature, for example, advertising, salaries, commissions, and office expense.",
+    "attributeCount": 0
+  },
+  {
+    "id": 313,
+    "name": "GL_ACCOUNT_COA_CODE_SEGMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity provides an association between a GL MAIN ACCOUNT and subtypes of COA CODE SEGMENT for the purpose of financial reporting. For example, a product segment could be associated to a specific GL MAIN ACCOUNT to report the product revenue on an income statement. Not all segments relate to a G",
+    "attributeCount": 4
+  },
+  {
+    "id": 314,
+    "name": "GL_MAIN_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates accounts used in financial transactions for a company. This includes both the general ledger and subsidiary ledger transactions.",
+    "attributeCount": 9
+  },
+  {
+    "id": 315,
+    "name": "GL_MAIN_ACCOUNT_CATEGORY",
+    "domain": "Agreement & Account",
+    "description": "This entity categorizes GL MAIN ACCOUNTs according to the type of financial reporting related components it contains, for example, balance sheet or income statement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 316,
+    "name": "GL_MAIN_ACCOUNT_CLASS_VALUE",
+    "domain": "Agreement & Account",
+    "description": "This is a code for the value within the scheme. For example, if the scheme is Basel III classification for an asset that is a high-quality liquid asset for purposes of calculating the liquidity coverage ratio then this value could be cash.",
+    "attributeCount": 10
+  },
+  {
+    "id": 317,
+    "name": "GL_MAIN_ACCOUNT_CLASS_XREF",
+    "domain": "Agreement & Account",
+    "description": "This entity relates a GL main account to a classification scheme value. For example, it would classify a GL account as cash for the purposes of Basel III calculation of liquidity coverage ratio.",
+    "attributeCount": 5
+  },
+  {
+    "id": 318,
+    "name": "GL_MAIN_ACCOUNT_SCHEME_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a classification scheme for the GL main account. An example is Basel III classifies certain assets as a \"high-quality liquid asset\" when calculating the liquidity coverage ratio (LCR). The scheme would be \"Basel III classification scheme for high quality liquid assets.\"",
+    "attributeCount": 5
+  },
+  {
+    "id": 319,
+    "name": "GL_MAIN_ACCOUNT_SEGMENT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the GL MAIN ACCOUNT SEGMENT of the accounts used in financial reporting for a company. Selling expense is an example of a GL MAIN ACCOUNT.",
+    "attributeCount": 1
+  },
+  {
+    "id": 320,
+    "name": "GL_MAIN_ACCOUNT_SET_OF_BOOKS_XREF",
+    "domain": "Agreement & Account",
+    "description": "This associative entity links GL MAIN ACCOUNT to SET OF BOOKS for this date.",
+    "attributeCount": 4
+  },
+  {
+    "id": 321,
+    "name": "GL_MAIN_ACCOUNT_STATUS",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the status of a GL main account over time. An account can be suspended and then lifted.",
+    "attributeCount": 3
+  },
+  {
+    "id": 322,
+    "name": "GL_MAIN_ACCOUNT_STATUS_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the status of the GL main account. An account can be suspended and then later the suspension could be lifted.",
+    "attributeCount": 2
+  },
+  {
+    "id": 323,
+    "name": "GL_SUBACCOUNT_SEGMENT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the subaccounts used in financial reporting for a company.",
+    "attributeCount": 1
+  },
+  {
+    "id": 324,
+    "name": "GOODWILL_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for goodwill. These details could include the cost differential between the acquisition cost of a business and the market value of the asset acquired.",
+    "attributeCount": 0
+  },
+  {
+    "id": 325,
+    "name": "GUARANTEE_CRITERIA_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Code to define the criteria for the types of guarantors a financial institution will recognize for regulatory capital purposes such as certified check, personal guarantee, government mortgage, government paper, letter of credit, maintenance bond, performance bond, rate lock, and signature guarantee.",
+    "attributeCount": 2
+  },
+  {
+    "id": 326,
+    "name": "HOME_EQUITY_LINE_OF_CREDIT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A home equity line of credit is a form of revolving credit in which a house serves as collateral. Because the house is likely to be a consumer's largest asset, many homeowners use their credit lines only for major items such as education, home improvements, or medical bills, and not for day-to-day e",
+    "attributeCount": 0
+  },
+  {
+    "id": 327,
+    "name": "IBAN_AGREEMENT_IDENTIFIER",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the IBAN associated with the account.  The International Bank Agreement Number (IBAN) is an international standard for numbering bank accounts. It was originally adopted by the European Committee for Banking Standards, and was later adopted as ISO 13616:1997 and now as ISO 13616",
+    "attributeCount": 3
+  },
+  {
+    "id": 328,
+    "name": "INCOME_STATEMENT_GL_MAIN_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates a general ledger account is in the income statement reporting category. Types of this category include expense, and revenue accounts.",
+    "attributeCount": 1
+  },
+  {
+    "id": 329,
+    "name": "INCOME_STATEMENT_GL_MAIN_ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity indicates the types of general ledger accounts that are on the Income Statement financial statement. Examples are revenue account and expense account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 330,
+    "name": "INCOME_TAX_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides the expense details for the income taxes.",
+    "attributeCount": 0
+  },
+  {
+    "id": 331,
+    "name": "INCOME_TAX_PAYABLE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the income taxes. Income taxes are the amount due to taxing authorities.",
+    "attributeCount": 0
+  },
+  {
+    "id": 332,
+    "name": "INFORMATION_RELEASE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Indicates whether the provider has received permission for release of medical data.  Examples: - Appropriate release of information on file at health care service provider or at utilization review organization - Informed consent to release medical information for conditions or diagnoses regulated by",
+    "attributeCount": 2
+  },
+  {
+    "id": 333,
+    "name": "INSURANCE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about all insurance related contracts, such as insurance policies.  This is a subtype entity to AGREEMENT.",
+    "attributeCount": 4
+  },
+  {
+    "id": 334,
+    "name": "INSURANCE_AGREEMENT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "A subtype category discriminator that classifies the type of insurance agreement.  Examples: - Insurance policy – individual - Insurance policy – group - insurance policy – group member - Reinsurance agreement (buy or sell)",
+    "attributeCount": 2
+  },
+  {
+    "id": 335,
+    "name": "INSURANCE_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Classifies this agreement as an insurance policy, a reinsurance agreement, or other kind agreement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 336,
+    "name": "INTANGIBLE_ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the other asset is intangible. Types of intangible assets are patents and goodwill. These assets have no physical existence, such as a brand, franchise, trademark, or patent; yet have a substantial value to the company.",
+    "attributeCount": 3
+  },
+  {
+    "id": 337,
+    "name": "INTANGIBLE_ASSET_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the type of an intangible asset account, for example, patent or goodwill.",
+    "attributeCount": 2
+  },
+  {
+    "id": 338,
+    "name": "INTEREST_BASED_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "These are agreements where the pricing is based on interest rates such as loans, deposits, and debt instruments (bonds).",
+    "attributeCount": 8
+  },
+  {
+    "id": 339,
+    "name": "INTEREST_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the expense account is an interest expense. Interest expense is paid to bondholders for the use of their money.",
+    "attributeCount": 0
+  },
+  {
+    "id": 340,
+    "name": "INTEREST_INCOME_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the REVENUE ACCOUNT is for interest income. Interest income is received by the company from its investment in stocks and bonds.  Note: Some business might treat interest income as a negative expense. In this case, the entity is a subtype of EXPENSE ACCOUNT.",
+    "attributeCount": 0
+  },
+  {
+    "id": 341,
+    "name": "INTERNAL_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "An account where the enterprise is an active party (either on the debit or credit side) and a signatory to the agreement.",
+    "attributeCount": 1
+  },
+  {
+    "id": 342,
+    "name": "INTERNAL_CREDIT_REPORT",
+    "domain": "Agreement & Account",
+    "description": "This entity includes the data elements that went into the internal calculation of a credit report and score. The elements will vary by institution and this entity will be customized by adding the additional data elements. There is one instance for each run of the report. The creation of this report",
+    "attributeCount": 2
+  },
+  {
+    "id": 343,
+    "name": "INVESTMENT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks investment agreements involving investment instruments (e.g., stocks, bonds, commodities, derivatives, cash, and foreign exchange) that your enterprise is interested in tracking. This does not include brokerage investments where securities trade in and out of a portfolio related t",
+    "attributeCount": 6
+  },
+  {
+    "id": 344,
+    "name": "INVESTMENT_AGREEMENT_ALLOCATION",
+    "domain": "Agreement & Account",
+    "description": "This entity keeps track of investment allocation objectives for this investment account. It varies by asset class or product group such as stock, bonds, and cash.  This is related to agreement because it could include investment accounts and life insurance policies.",
+    "attributeCount": 5
+  },
+  {
+    "id": 345,
+    "name": "INVESTMENT_ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for investments. These investments in debt securities with a positive intent and the ability to hold these securities until they mature.",
+    "attributeCount": 0
+  },
+  {
+    "id": 346,
+    "name": "LABOR_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "For a specific HR POSITION, LABOR AGREEMENT is a contract that defines the related employment terms and conditions. For example, an HR POSITION may be subject to a collective bargaining agreement reached with a labor union. Certain executive positions may involve an employment contract containing co",
+    "attributeCount": 2
+  },
+  {
+    "id": 347,
+    "name": "LEASE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A lease agreement is a contract giving the right or possession and use of an asset for a specified period in exchange for payments. A lease contract may be written for a single piece of equipment, or it may be a master lease governing a continuing arrangement regardless of the equipment leased. On t",
+    "attributeCount": 1
+  },
+  {
+    "id": 348,
+    "name": "LEASE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A classification of the lease such as business or personal.",
+    "attributeCount": 2
+  },
+  {
+    "id": 349,
+    "name": "LETTER_OF_CREDIT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is an agreement where one party pledges to meet the obligation on another agreement should the obligor on that agreement (third party) not meet the obligation. The parties to the agreement and their roles are in the entity PARTY AGREEMENT. This entity represents your bank as the guarantor. If o",
+    "attributeCount": 1
+  },
+  {
+    "id": 350,
+    "name": "LIABILITY_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates a general ledger account is a LIABILITY ACCOUNT. These accounts are related to a potential loss, or a financial obligation, debt or claim of money owed to owner party. Types of LIABILITY ACCOUNTs include current liability and noncurrent liability.",
+    "attributeCount": 1
+  },
+  {
+    "id": 351,
+    "name": "LIABILITY_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of liability account. Types of liability accounts are current liability and noncurrent liability.",
+    "attributeCount": 2
+  },
+  {
+    "id": 352,
+    "name": "LIFE_LINE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype to INSURANCE AGREEMENT and describes policies for the line of life insurance.",
+    "attributeCount": 3
+  },
+  {
+    "id": 353,
+    "name": "LOAN_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains only those customer accounts that are loans (assets) from the financial institution's perspective. Loan accounts include mortgages, loans, credit cards, and leases.  It is a subtype to CREDIT AGREEMENT.",
+    "attributeCount": 7
+  },
+  {
+    "id": 354,
+    "name": "LOAN_CHANGE_REASON",
+    "domain": "Agreement & Account",
+    "description": "This describes the reason the loan terms and conditions are being changed such as financial difficulty/troubled debt of customer, to keep customer, or customer seeking better terms,.",
+    "attributeCount": 2
+  },
+  {
+    "id": 355,
+    "name": "LOAN_GL_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the loan account. Loan is by far the largest asset item for a bank.",
+    "attributeCount": 0
+  },
+  {
+    "id": 356,
+    "name": "LOAN_MATURITY_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies whether this loan account has a maturity period as part of its conditions. For example, mortgages have a maturity date.  Values: - Has maturity - Does not have a maturity",
+    "attributeCount": 2
+  },
+  {
+    "id": 357,
+    "name": "LOAN_MODIFICATION",
+    "domain": "Agreement & Account",
+    "description": "Loan modifications are loans where the terms and conditions have been modified or the original loan expiration date has been adjusted. Loan modifications do not result in a new agreement being established. If a borrower is having trouble paying back the loan then it may be eligible for a modificatio",
+    "attributeCount": 9
+  },
+  {
+    "id": 358,
+    "name": "LOAN_MODIFICATION_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The modification type that identifies the specific terms that were altered through loss mitigation efforts.  Valid values in the United States could be: - 0 = Loan has not been modified - 6 = ASF Streamline - 8 = FHFA Streamline (Specific to program announced 12/15/08) - 9 = FDIC Streamline (\"Mod in",
+    "attributeCount": 2
+  },
+  {
+    "id": 359,
+    "name": "LOAN_PROVISION_BALANCE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the balances of general and specific provisions for losses that have not been recorded directly to the income statement. It is intended to support Pillar 3 of the Basel Accord, specifically Table 4's requirement for the \"reconciliation in changes in the allowances for loan impairm",
+    "attributeCount": 7
+  },
+  {
+    "id": 360,
+    "name": "LOAN_PROVISION_CHANGE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks changes to general and specific provisions for losses that have not been recorded directly to the income statement. It is intended to support Pillar 3 of the Basel Accord, specifically Table 4's requirement for the \"reconciliation in changes in the allowances for loan impairment.\"",
+    "attributeCount": 8
+  },
+  {
+    "id": 361,
+    "name": "LOAN_RESTRUCTURE",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about restructuring the loan, which may be due to the inability of the borrower to pay, but it may also be due to the borrower seeking better terms and conditions for the loan such as a refinance. This may be a result of the remediation plan.  A loan that is restruct",
+    "attributeCount": 5
+  },
+  {
+    "id": 362,
+    "name": "LOAN_REVIEW",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the results of the loan review procedures over time.",
+    "attributeCount": 6
+  },
+  {
+    "id": 363,
+    "name": "LOAN_REVIEW_RESULT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity identifies the result of the loan review process.  Examples: - No further action required - More detail review required - More information required",
+    "attributeCount": 2
+  },
+  {
+    "id": 364,
+    "name": "LOAN_REVIEW_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity defines the various review categories for the loan account.  Examples: - Payment records - Collateral quality - Collateral condition - Completeness of loan documentation - Borrower's financial condition - Conforms to the landing policies - Receivable values - Inventory values",
+    "attributeCount": 2
+  },
+  {
+    "id": 365,
+    "name": "LOAN_TERM_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about accounts that are loans (assets) and have a term associated with it such as mortgages. It includes home equity loans, mortgages, personal loans, standby letters of credit, bill of exchange and other types of loans.  This is a subtype entity to LOAN AGREEMENT.",
+    "attributeCount": 27
+  },
+  {
+    "id": 366,
+    "name": "LOAN_TERM_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity contains the code for the type of loan such as consumer loan, real estate mortgage, automobile loan, lease, or letter of credit.",
+    "attributeCount": 2
+  },
+  {
+    "id": 367,
+    "name": "LOAN_TRANSACTION_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about loans that do not have a term such as credit card and current accounts. It currently has no attributes so is a placeholder for future attributes specific to loan transaction accounts.  This is a subentity to LOAN AGREEMENT.",
+    "attributeCount": 1
+  },
+  {
+    "id": 368,
+    "name": "LOAN_TRANSACTION_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity classifies the type of loan transaction account such as credit card or home equity line of credit.",
+    "attributeCount": 2
+  },
+  {
+    "id": 369,
+    "name": "LONG_TERM_DEBT_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the long-term debt. Long-term debt is the liability amount due in a year or more.",
+    "attributeCount": 0
+  },
+  {
+    "id": 370,
+    "name": "LOSS_ADJUSTED_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity is the GL account for the loss and loss adjustment expenses incurred.",
+    "attributeCount": 0
+  },
+  {
+    "id": 371,
+    "name": "LOSS_ADJUSTED_RESERVE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity is the GL account for loss and loss adjustment reserves.",
+    "attributeCount": 0
+  },
+  {
+    "id": 372,
+    "name": "LOYALTY_ACCOUNT_EARNING",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype of transaction associated with an account balance transaction that tracks all reward earnings posted to a rewards account.  It tracks the quantity of loyalty/reward units earned for a business transaction.  An example is a credit card purchase where one point is earned for each dol",
+    "attributeCount": 6
+  },
+  {
+    "id": 373,
+    "name": "LOYALTY_ACCOUNT_EARNING_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity groups loyalty account earnings by type.  Examples: - Rebate earning - Merchandise earning - Travel earning",
+    "attributeCount": 2
+  },
+  {
+    "id": 374,
+    "name": "LOYALTY_ACCOUNT_REDEMPTION",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype of transaction associated with an account balance transaction that tracks all award disbursements from a rewards account.  Examples: - Usage of credit card points for airline travel or merchandise purchase",
+    "attributeCount": 1
+  },
+  {
+    "id": 375,
+    "name": "LOYALTY_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is an agreement issued by an enterprise to a customer to encourage purchase or usage behavior by issuing rewards in the form of discounts or the accumulation of points.",
+    "attributeCount": 1
+  },
+  {
+    "id": 376,
+    "name": "LOYALTY_AGREEMENT_LEVEL",
+    "domain": "Agreement & Account",
+    "description": "This associates a loyalty program level to a loyalty account over time.",
+    "attributeCount": 5
+  },
+  {
+    "id": 377,
+    "name": "MARGIN_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A brokerage account in which the broker lends the customer cash to purchase securities. The loan in the account is collateralized by the securities and cash. If the value of the stock drops sufficiently, the account holder will be required to deposit more cash or sell a portion of the stock, which i",
+    "attributeCount": 1
+  },
+  {
+    "id": 378,
+    "name": "MARKETING_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the operating expense pertains to marketing. Marketing expenses are related the actual marketing of a product (i.e., advertising).",
+    "attributeCount": 0
+  },
+  {
+    "id": 379,
+    "name": "MERCHANT_SERVICE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "MERCHANT SERVICE AGREEMENT is a type of AGREEMENT the company enters into with a merchant to provide a service such as fraud checking, debit service, interchange, and merchant discount.",
+    "attributeCount": 0
+  },
+  {
+    "id": 380,
+    "name": "MORTGAGE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A contract for a loan for real estate and is usually long-term. It is a debt instrument giving conditional ownership of an asset secured by the asset being financed. The borrower gives the lender a mortgage in exchange for the right to use the property while the mortgage is in effect, and agrees to",
+    "attributeCount": 9
+  },
+  {
+    "id": 381,
+    "name": "MORTGAGE_BACKED_SECURITY",
+    "domain": "Agreement & Account",
+    "description": "A mortgage-backed security (MBS) is an asset-backed security whose cash flows are backed by the principal and interest payments of a set of mortgage loans. Payments are typically made monthly over the lifetime of the underlying loans.",
+    "attributeCount": 0
+  },
+  {
+    "id": 382,
+    "name": "MORTGAGE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Code to indicate the type of mortgage, for example, first time borrower, refinance, or standard.",
+    "attributeCount": 2
+  },
+  {
+    "id": 383,
+    "name": "MOTOR_VEHICLE_LOAN_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information specific to motor vehicle loan agreements that are not leases.",
+    "attributeCount": 2
+  },
+  {
+    "id": 384,
+    "name": "NEGOTIABLE_CERTIFICATE_OF_DEPOSIT",
+    "domain": "Agreement & Account",
+    "description": "A certificate of deposit with a minimum face value of $100,000. These are guaranteed by the bank and can usually be sold in a highly liquid secondary market, but they cannot be cashed in before maturity.  Due to their large denominations, negotiable certificates of deposit are bought most often by l",
+    "attributeCount": 3
+  },
+  {
+    "id": 385,
+    "name": "NETTING_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A netting agreement is a written contract to settle a mutual obligation at the net value of the underlying contracts as opposed to the gross value. This is used as a risk mitigant technique to reduce the exposure in the underlying contracts. For example, two banks owing the other money will settle o",
+    "attributeCount": 2
+  },
+  {
+    "id": 386,
+    "name": "NETTING_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the type of netting agreement such as payment netting, closeout netting, bilateral netting, or multilateral netting.",
+    "attributeCount": 2
+  },
+  {
+    "id": 387,
+    "name": "NETWORK_PARTNER_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "NETWORK PARTNER AGREEMENT tracks transactions and balances for a network service partner contract.  Examples include agreements with ATM network service partners such as Cirrus and Pulse.",
+    "attributeCount": 0
+  },
+  {
+    "id": 388,
+    "name": "NETWORK_SERVICE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "NETWORK SERVICE AGREEMENT is an AGREEMENT the company enters into with network participants such as merchants, acquirers, issuers, and processors to provide a network related service such as fraud checking, debit service, and interchange.",
+    "attributeCount": 1
+  },
+  {
+    "id": 389,
+    "name": "NETWORK_SERVICE_AGREEMENT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "A classification of a network service agreement into a merchant service agreement or a network partner agreement. Used as a category discriminator.",
+    "attributeCount": 2
+  },
+  {
+    "id": 390,
+    "name": "NONCURRENT_LIABILITY_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the liability account is a noncurrent liability. Noncurrent liabilities are not due in the next twelve months. Types of noncurrent liabilities include deferred income taxes, long-term debt, and reserves.",
+    "attributeCount": 1
+  },
+  {
+    "id": 391,
+    "name": "NONCURRENT_LIABILITY_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of NONCURRENT LIABILITY ACCOUNTs. Types of noncurrent liabilities include deferred income taxes, long-term debt, and reserves.",
+    "attributeCount": 2
+  },
+  {
+    "id": 392,
+    "name": "NONDEPRECIABLE_ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the NONDEPRECIABLE ASSET ACCOUNT. NONDEPRECIABLE FIXED ASSETs include things like raw land.",
+    "attributeCount": 0
+  },
+  {
+    "id": 393,
+    "name": "NONDIVIDEND_EQUITY_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of NONDIVIDEND EQUITY ACCOUNT. Types of NONDIVIDEND EQUITY ACCOUNTs include retained earnings, Treasury stock, and foreign currency adjustments.",
+    "attributeCount": 1
+  },
+  {
+    "id": 394,
+    "name": "NONDIVIDEND_EQUITY_ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies the type of nondividend equity accounts. Types of nondividend equity accounts include retained earnings, Treasury stock, and foreign currency adjustments.",
+    "attributeCount": 2
+  },
+  {
+    "id": 395,
+    "name": "NONINTEREST_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for expenses that are not interest.",
+    "attributeCount": 0
+  },
+  {
+    "id": 396,
+    "name": "NONINTEREST_INCOME_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details on noninterest income, which includes loan service fees, other service fees and service charges, and security fees and commissions.",
+    "attributeCount": 0
+  },
+  {
+    "id": 397,
+    "name": "NONVOTING_STOCK_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies common stock dividend equity as a nonvoting stock. Nonvoting stock equities of a public corporation do not possess voting rights.",
+    "attributeCount": 0
+  },
+  {
+    "id": 398,
+    "name": "OFFER_COLLATERAL",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the communication collateral associated with an offer.",
+    "attributeCount": 3
+  },
+  {
+    "id": 399,
+    "name": "OFF_BALANCE_SHEET_SECURITIZATION_TYPE",
+    "domain": "Agreement & Account",
+    "description": "For risk-based capital purposes, banks must determine whether, according to certain criteria, an off-balance sheet securitization exposure qualifies as an \"eligible liquidity facility\" or a \"servicer cash advance facility.\" All other off-balance sheet securitization exposures will receive a 100% CCF",
+    "attributeCount": 2
+  },
+  {
+    "id": 400,
+    "name": "OPERATING_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the expense account is an operating expense. Operating expenses are those that are required to run a company.",
+    "attributeCount": 1
+  },
+  {
+    "id": 401,
+    "name": "OPERATING_EXPENSE_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the type of OPERATING EXPENSE ACCOUNTs. Operating expenses include selling, marketing, general and administrative, research and development, and facilities.",
+    "attributeCount": 2
+  },
+  {
+    "id": 402,
+    "name": "OPPORTUNITY_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity relates an agreement to a proposal/opportunity combination that may have triggered the creation of this agreement. It allows for an agreement to be triggered by many proposal/opportunity combinations and for a proposal/opportunity to create many agreements.",
+    "attributeCount": 4
+  },
+  {
+    "id": 403,
+    "name": "OPTION_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "An option is a contract giving you the right (not the obligation) to buy or sell a specified number of shares of an asset at a set price for a given time period. Options can be call options (right to buy) or put options (right to sell). You can also sell the right to sell (writing a put) and sell th",
+    "attributeCount": 2
+  },
+  {
+    "id": 404,
+    "name": "OTHER_AGREEMENT_IDENTIFIER",
+    "domain": "Agreement & Account",
+    "description": "Identifiers other than the ones explicitly described in the other subtypes.",
+    "attributeCount": 1
+  },
+  {
+    "id": 405,
+    "name": "OTHER_ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the ASSET ACCOUNT is an OTHER ASSET ACCOUNT. Types of OTHER ASSET ACCOUNTs include investments, deferred charges, or intangible assets.",
+    "attributeCount": 1
+  },
+  {
+    "id": 406,
+    "name": "OTHER_ASSET_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the type of other asset, for example, investments, deferred charges, or intangible asset.",
+    "attributeCount": 2
+  },
+  {
+    "id": 407,
+    "name": "OTHER_CURRENT_ASSET_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the asset account is an OTHER CURRENT ASSET ACCOUNT. Types of OTHER CURRENT ASSET ACCOUNTs include business leasehold improvements, employee leasehold improvements, and other refundable deposits.",
+    "attributeCount": 0
+  },
+  {
+    "id": 408,
+    "name": "OTHER_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the expense account is for other operating expense. Other expenses are those that are required to run a company and cannot be classified as one of the other types of expenses.",
+    "attributeCount": 1
+  },
+  {
+    "id": 409,
+    "name": "OTHER_EXPENSE_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity classifies the other expense account type, such as provision for loan loss, underwriting expense, and loss and loss adjustment expense.",
+    "attributeCount": 2
+  },
+  {
+    "id": 410,
+    "name": "OTHER_LIABILITY_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the OTHER LIABILITY ACCOUNT. For an insurance company includes: unearned premium reserves, policyholder funds, and loss and loss adjustment reserves.",
+    "attributeCount": 1
+  },
+  {
+    "id": 411,
+    "name": "OTHER_LIABILITY_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that describes the type of another liability account, for example, policyholder fund account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 412,
+    "name": "OTHER_OPERATING_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the operating expense pertains to other operating expenses. These expenses are general in nature and cannot be classified as one of the other types of operating expenses.",
+    "attributeCount": 0
+  },
+  {
+    "id": 413,
+    "name": "OTHER_REVENUE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that represents income from activities other than normal business operations, such as investment interest, foreign exchange gains, rent income, and profit from the sale of noninventory assets.",
+    "attributeCount": 0
+  },
+  {
+    "id": 414,
+    "name": "PATENTS_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for patents. These details could include the legal cost a company paid an individual or a company to obtain a patent.",
+    "attributeCount": 0
+  },
+  {
+    "id": 415,
+    "name": "PAYMENT_INSTRUCTION_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "If the money originated from a different financial institution, then this is the external account number.",
+    "attributeCount": 3
+  },
+  {
+    "id": 416,
+    "name": "PAYMENT_INSTRUCTION_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is the internal account where the money will be deposited. It may also be another account from which the money originated.",
+    "attributeCount": 3
+  },
+  {
+    "id": 417,
+    "name": "PAYMENT_INSTRUCTION_AGREEMENT_ROLE",
+    "domain": "Agreement & Account",
+    "description": "This describes the relationship between an agreement or account and the payment instruction such as \"is originating account\" or \"is destination account\".",
+    "attributeCount": 2
+  },
+  {
+    "id": 418,
+    "name": "POLICY_HOLDER_FUND_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "Policyholder surplus representing the difference between admitted assets and liabilities on a statutory accounting basis and subdivided on a statutory basis into special surplus funds, capital paid up, gross paid in and contributed surplus, unassigned funds, and Treasury stock.",
+    "attributeCount": 0
+  },
+  {
+    "id": 419,
+    "name": "PORTFOLIO_COLLATERAL_ITEM",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those assets used as collateral where the assets are investment holdings within a customer portfolio managed by your institution. More than one portfolio asset could be bundled into a collateral item.",
+    "attributeCount": 10
+  },
+  {
+    "id": 420,
+    "name": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING",
+    "domain": "Agreement & Account",
+    "description": "This entity associates portfolios for a given agreement with investment products. This entity tracks investment holdings that come in and out of the portfolio for a given account. The quantity of the holding and the value of the holding are in separate entities.  For those portfolio(s) that distribu",
+    "attributeCount": 10
+  },
+  {
+    "id": 421,
+    "name": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING_QUANTITY",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the changes to the number of units held of this investment product as part of this portfolio over time.",
+    "attributeCount": 10
+  },
+  {
+    "id": 422,
+    "name": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING_VALUE",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the values of the investment over time for this holding. The values can include book value (as represented on the balance sheet), fair value, and market value. This value changes frequently.",
+    "attributeCount": 11
+  },
+  {
+    "id": 423,
+    "name": "POSITION_LABOR_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "The relationship of LABOR AGREEMENTs to ORGANIZATION POSITIONs. The organizational positions could be related to different labor agreements over time.  Example: - Union contract with bank teller position",
+    "attributeCount": 8
+  },
+  {
+    "id": 424,
+    "name": "PO_DELIVERY_RELEASE",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the enterprise-supplied request for immediate scheduling of a delivery against a VENDOR PO LINE. The PO DELIVERY RELEASE can, for example, allow a blanket purchase order to be delivered in pieces over time and to specify the delivery schedule just in time.",
+    "attributeCount": 7
+  },
+  {
+    "id": 425,
+    "name": "PO_DELIVERY_RELEASE_LINE_ITEM",
+    "domain": "Agreement & Account",
+    "description": "This entity defines the authorization by enterprise of a particular delivery of a release quantity that was requested, based on a particular PO LINE DELIVERY RELEASE LINE.",
+    "attributeCount": 5
+  },
+  {
+    "id": 426,
+    "name": "PO_DELIVERY_RELEASE_STATUS",
+    "domain": "Agreement & Account",
+    "description": "The entity tracks the various status or condition changes of a PO DELIVERY RELEASE LINE ITEM over time.",
+    "attributeCount": 6
+  },
+  {
+    "id": 427,
+    "name": "PO_LINE_DELIVERY_RELEASE_LINE",
+    "domain": "Agreement & Account",
+    "description": "This entity associates the VENDOR PO LINE to the PO DELIVERY RELEASE LINE ITEM. It identifies the quantity of the VENDOR PO LINE that has been authorized for release.",
+    "attributeCount": 6
+  },
+  {
+    "id": 428,
+    "name": "PO_RELEASE_STATUS_REASON_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Lists the possible reasons for a PO DELIVERY RELEASE STATUS.  For example, the reason a PO release reflects a status of on hold could be due to a pending change in delivery schedule.",
+    "attributeCount": 2
+  },
+  {
+    "id": 429,
+    "name": "PO_RELEASE_STATUS_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This is a code for the types of purchase order release status.  Examples: - Incomplete - In process - Approved - Preapproved - Rejected - Returned - Requires reapproval - On hold - Frozen - Open - Closed - Finally closed - Canceled",
+    "attributeCount": 2
+  },
+  {
+    "id": 430,
+    "name": "PRECREDIT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The charges before starting the actual regular payments on a mortgage. Sample values are prepayment charges and preinterest amount.",
+    "attributeCount": 2
+  },
+  {
+    "id": 431,
+    "name": "PREFERRED_STOCK_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies dividend equity as preferred stock. Preferred stock has preference over common stock in the payment of dividends and the liquidation of assets.",
+    "attributeCount": 1
+  },
+  {
+    "id": 432,
+    "name": "PREMIUM_WRITTEN_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The GL account for the amount of policy premiums billed less premiums returned to the insured.",
+    "attributeCount": 0
+  },
+  {
+    "id": 433,
+    "name": "PREPAID_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the PREPAID EXPENSE ACCOUNTs. Prepaid expenses are those expenses that have been paid in advance like insurance. PREPAID EXPENSE ACCOUNTs are types of current assets.",
+    "attributeCount": 0
+  },
+  {
+    "id": 434,
+    "name": "PRODUCT_TO_AGREEMENT_CLASS_VALUE",
+    "domain": "Agreement & Account",
+    "description": "This entity was created for the Loss Give Default Business Function View for enterprise risk management.  This entity classifies a product according to a certain classification scheme.  In this context, a product is associated with an exposure type where the exposure type is a classification of agre",
+    "attributeCount": 5
+  },
+  {
+    "id": 435,
+    "name": "PROJECT_TASK_CHART_OF_ACCOUNTS",
+    "domain": "Agreement & Account",
+    "description": "This entity associates project tasks and resources to a chart of accounts number to enable revenue and expense reporting for the project.",
+    "attributeCount": 8
+  },
+  {
+    "id": 436,
+    "name": "PROMOTION_COLLATERAL",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the communication collateral associated with a promotion.",
+    "attributeCount": 3
+  },
+  {
+    "id": 437,
+    "name": "PROPERTY_CASUALTY_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity is a subtype to INSURANCE AGREEMENT and contains the details of applications for property and casualty insurance.",
+    "attributeCount": 0
+  },
+  {
+    "id": 438,
+    "name": "PROPOSAL_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity relates an agreement to a proposal that may have triggered the creation of this agreement. It allows for an agreement to be triggered by many proposals and for a proposal to result in many agreements.  This allows for the creation of an agreement without the existence of an opportunity.",
+    "attributeCount": 3
+  },
+  {
+    "id": 439,
+    "name": "PROVIDER_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Code indicating the type of agreement under which the provider is submitting this claim. One example is a nonparticipating provider is sending a participating claim as allowed under certain plans.",
+    "attributeCount": 2
+  },
+  {
+    "id": 440,
+    "name": "PROVISION_FOR_LOAN_LOSS_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "This provision account is really a noncash expense. Its purpose is to shelter a portion of the bank's current earnings from taxes in order to help prepare for a bad loan. The annual loan loss provision is deducted from the current revenues before taxes are applied to earnings.",
+    "attributeCount": 0
+  },
+  {
+    "id": 441,
+    "name": "PURCHASED_RECEIVABLE_ISSUER_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This agreement contains information about the agreement between the bank and the issuer for whom the bank is to collect receivables for. This may also be known as the \"factoring contract.\"  The financial institution (the factor) may have factoring contracts with the issuer party who provides to debt",
+    "attributeCount": 19
+  },
+  {
+    "id": 442,
+    "name": "PURCHASED_RECEIVABLE_ISSUER_DEBTOR_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A purchased receivable contract in which the following parties are involved.  Examples: - The bank that purchases the receivables (the factor) - The bank's client that issues the receivables (the issuer) - The bank's client's customer (debtor) who owes the money  Related to a factoring contract, the",
+    "attributeCount": 2
+  },
+  {
+    "id": 443,
+    "name": "PURCHASE_TRANSACTION_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is a type of credit card and represents accounts that allow purchasing only at specific business organization types.",
+    "attributeCount": 1
+  },
+  {
+    "id": 444,
+    "name": "QUOTATION_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This associative entity defines the hierarchical relationship that will exist between existing accounts and the account that this quotation might be converted into. A quotation may have many subaccounts; an account may be subaccount to many quotations.  In addition, this associative entity can be us",
+    "attributeCount": 3
+  },
+  {
+    "id": 445,
+    "name": "QUOTATION_COLLATERAL_ASSET",
+    "domain": "Agreement & Account",
+    "description": "This is a subtype to entity QUOTATION ASSET and contains details of the asset in relation to the quotation in the role of to be collateral.",
+    "attributeCount": 2
+  },
+  {
+    "id": 446,
+    "name": "REINSURANCE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "Reinsurance is a means by which an insurance company can protect itself against the risk of losses with other insurance companies. Individuals and corporations obtain insurance policies to provide protection for various risks (e.g., hurricanes, earthquakes, and lawsuits ).",
+    "attributeCount": 6
+  },
+  {
+    "id": 447,
+    "name": "REINSURANCE_AGREEMENT_RESTRICTION",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies each restriction to the reinsurance agreement. This is in addition to the terms and conditions as described in Features. These are actually the rules that define the kinds of policies that this reinsurance agreement covers.  For example, if the reinsurance agreement is restric",
+    "attributeCount": 3
+  },
+  {
+    "id": 448,
+    "name": "REINSURANCE_CONTRACT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity converts the reinsurance contract type code into a description.  Examples are: - Automatic - Facultative - Facultative-obligatory  Automatic reinsurance treaty: - This is a reinsurance agreement in which the reinsurer agrees, for a stipulated type of risk, to accept each risk or a",
+    "attributeCount": 2
+  },
+  {
+    "id": 449,
+    "name": "RELEASE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Describes whether release is for a blanket or planned purchase order. Possible values are therefore \"Blanket\" or \"Planned.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 450,
+    "name": "REPURCHASE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is a form of short-term borrowing for dealers in government securities. The dealer sells the government securities to investors, usually on an overnight basis, and buys them back the following day. Also known as, \"repo\" and \"reverse repo.\" Securities Lending is also included in this entity.  Fo",
+    "attributeCount": 14
+  },
+  {
+    "id": 451,
+    "name": "REPURCHASE_AGREEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This minor entity indicates if this is a repurchase agreement, or a reverse repurchase agreement, or a securities lending agreement.",
+    "attributeCount": 2
+  },
+  {
+    "id": 452,
+    "name": "RESEARCH_DEVELOPMENT_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the operating expense pertains to research and development. Research and development expenses are related to research and development of products or services for a company.",
+    "attributeCount": 0
+  },
+  {
+    "id": 453,
+    "name": "RESERVES_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the reserves. Reserves are the accrual of anticipated expenses to be paid out in the future, such as product liability, and litigation.",
+    "attributeCount": 0
+  },
+  {
+    "id": 454,
+    "name": "RETAINED_EARNING_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies a NONDIVIDEND EQUITY ACCOUNT as retained earnings. Retained earnings are net profits kept to accumulate in a business after dividends are paid.",
+    "attributeCount": 0
+  },
+  {
+    "id": 455,
+    "name": "REVENUE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates a general ledger account is a REVENUE ACCOUNT. Types of REVENUE ACCOUNTs include interest income and other revenue.",
+    "attributeCount": 1
+  },
+  {
+    "id": 456,
+    "name": "REVENUE_ACCOUNT_REVENUE_TYPE_XREF",
+    "domain": "Agreement & Account",
+    "description": "This entity associates a REVENUE TYPE with REVENUE ACCOUNT. The many-to-many relationship allows for a more flexible way to roll up GL accounts to various revenue types. For example, roll up all GL revenue account for product revenue types.",
+    "attributeCount": 3
+  },
+  {
+    "id": 457,
+    "name": "REVENUE_ACCOUNT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "The entity that indicates the type of revenue account. Types of revenue accounts include sales revenue and other revenue.",
+    "attributeCount": 2
+  },
+  {
+    "id": 458,
+    "name": "RISK_MITIGANT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains agreements that that are being used to mitigate the risk of another agreement (e.g., loan). It includes agreements that mitigate your enterprise's risk and also agreements that mitigate other institution's risk where you both share claim to the same collateral item.  These risk",
+    "attributeCount": 3
+  },
+  {
+    "id": 459,
+    "name": "RISK_MITIGANT_AGREEMENT_ITEM",
+    "domain": "Agreement & Account",
+    "description": "This entity relates a risk mitigant agreement (e.g., collateral agreement) to the customer asset that the agreement is for (e.g., real estate or customer account). The terms of the agreement describe how this asset can be used as collateral.",
+    "attributeCount": 5
+  },
+  {
+    "id": 460,
+    "name": "RISK_MITIGANT_AGREEMENT_RELATED",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about the relationship between two different risk mitigant agreements. Examples of the relationship could be \"is senior to\" or \"is equal in seniority to\" when both risk mitigant agreements cover the same exposure.",
+    "attributeCount": 0
+  },
+  {
+    "id": 461,
+    "name": "RISK_MITIGANT_AGREEMENT_SENIORITY",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks the history of seniority of one risk mitigant agreement to another risk mitigant agreement. The seniority designates who gets paid in which order if the customer defaults using the asset associated with the collateral agreement as the basis for payment. The party with the highest",
+    "attributeCount": 7
+  },
+  {
+    "id": 462,
+    "name": "RISK_MITIGANT_AGREEMENT_SUBTYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity classifies the type of risk mitigant agreement such as a collateral agreements, credit derivative, third-party guarantee agreements, securitization sell agreements, deposit agreements (internal customer asset pledged as collateral), investment agreements (internal customer asset pledged",
+    "attributeCount": 3
+  },
+  {
+    "id": 463,
+    "name": "SAFE_DEPOSIT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about safe deposit boxes.",
+    "attributeCount": 2
+  },
+  {
+    "id": 464,
+    "name": "SALES_REVENUE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "A type of REVENUE ACCOUNT that provides details on revenue from delivery of goods and services. Sales revenue is the primary source of revenue earned by the company from its customers.",
+    "attributeCount": 0
+  },
+  {
+    "id": 465,
+    "name": "SEARCH_ENGINE_ACCOUNT_CAMPAIGN_XREF",
+    "domain": "Agreement & Account",
+    "description": "This entity captures information that provides a linkage between paid search accounts and paid search campaigns.",
+    "attributeCount": 2
+  },
+  {
+    "id": 466,
+    "name": "SEARCH_ENGINE_SYSTEM_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "This entity captures customer paid search engine system access account information.",
+    "attributeCount": 8
+  },
+  {
+    "id": 467,
+    "name": "SECURITIES_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the SECURITIES ACCOUNTs. Securities are short-term investments with a maturity of three to twelve months. Securities accounts are types of current assets.",
+    "attributeCount": 0
+  },
+  {
+    "id": 468,
+    "name": "SECURITIZATION_AGREEMENT_TO_SECURITIZATION_POOL",
+    "domain": "Agreement & Account",
+    "description": "This entity shows those securitization agreements that caused this pool to be formed.",
+    "attributeCount": 0
+  },
+  {
+    "id": 469,
+    "name": "SECURITIZATION_CLEAN_UP_CALL_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the option to call a securitized bond when the balance of the outstanding deal assets (collateral) falls below some threshold (typically 10%).",
+    "attributeCount": 2
+  },
+  {
+    "id": 470,
+    "name": "SECURITIZATION_EXPOSURE",
+    "domain": "Agreement & Account",
+    "description": "This summary entity tracks various measures of a bank's asset securitization activity, including total current outstanding securitization exposures, and the amount of securitization exposures incurred during the period.",
+    "attributeCount": 19
+  },
+  {
+    "id": 471,
+    "name": "SECURITIZATION_POOL",
+    "domain": "Agreement & Account",
+    "description": "This entity is a type of AGREEMENT GROUP and contains only those groups that are a collection of loans and other bank assets that are offered for sale to investors. This process is known as securitization and this entity contains one instance for each group or pool of assets that are offered for sal",
+    "attributeCount": 13
+  },
+  {
+    "id": 472,
+    "name": "SECURITIZATION_POOL_OBLIGOR_METRIC",
+    "domain": "Agreement & Account",
+    "description": "In the case where the agreement group is a securitization pool, it is a requirement in Basel to determine all the exposures to the same obligor and the total EAD and LGD for those exposures for that pool for that obligor.  Securitization June 2004 Accord paragraph 633/634",
+    "attributeCount": 5
+  },
+  {
+    "id": 473,
+    "name": "SECURITIZATION_POOL_RISK",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks risk related metrics for a securitization pool (group of accounts that are securitized) over time.",
+    "attributeCount": 25
+  },
+  {
+    "id": 474,
+    "name": "SECURITIZATION_POOL_STRUCTURE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for whether this securitization pool is traditional or synthetic.  Traditional securitization involves the pooling of assets where the assets are divided into tranches and the tranches are sold as bond securities on the open market and are collateralized by the cash flow of the underlying ins",
+    "attributeCount": 2
+  },
+  {
+    "id": 475,
+    "name": "SECURITIZATION_ROLE",
+    "domain": "Agreement & Account",
+    "description": "The role played by the bank in an asset securitization transaction, for example, originator, investor, servicer, and sponsor of asset-backed commercial paper facility.",
+    "attributeCount": 2
+  },
+  {
+    "id": 476,
+    "name": "SECURITIZATION_SELL_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is an agreement between the loan-originating bank (your enterprise as the seller) and an investing bank (or other investor) that is purchasing and assuming the risk on an underlying exposure (e.g., loan). The originating bank may be performing a collection service and would also be considered a",
+    "attributeCount": 8
+  },
+  {
+    "id": 477,
+    "name": "SECURITIZATION_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A classification of the type of securitization sale this agreement represents.  Examples: - Mortgage-backed security - Loan backed bonds - Sponsoring agreement to an asset-backed commercial paper (issuing notes against receivable",
+    "attributeCount": 2
+  },
+  {
+    "id": 478,
+    "name": "SELLING_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The operating expense category that indicates selling expenses, related to the actual selling of a product, for example, sales salaries and commissions.",
+    "attributeCount": 0
+  },
+  {
+    "id": 479,
+    "name": "SETTLEMENT_DELIVERY_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the method of delivery of the goods such as: - B = Book (security being traded is registered in the street name where the brokerage is designated the security nominee by the client. This allows securities to settle electronically as book entries in the broker's account at the depository t",
+    "attributeCount": 2
+  },
+  {
+    "id": 480,
+    "name": "SETTLEMENT_DIRECTION_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Indicates whether your enterprise is the deliverer, the receiver or both of the settlement.  Examples: - D = delivery - R = receive - B = delivery and receive",
+    "attributeCount": 2
+  },
+  {
+    "id": 481,
+    "name": "SETTLEMENT_PRODUCT_REASON_TYPE",
+    "domain": "Agreement & Account",
+    "description": "A code for the reason this group of products is associated with this settlement instruction such as \"applies to\" and \"does not apply to.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 482,
+    "name": "SHORT_TERM_DEBT_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that provides details for the short-term debt. Short-term debt is all debt obligations coming due within one year.",
+    "attributeCount": 0
+  },
+  {
+    "id": 483,
+    "name": "SPLIT_SETTLEMENT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "Indicates whether the settlement of securities is handled separate from cash settlement.  Examples: - Together - Separate",
+    "attributeCount": 2
+  },
+  {
+    "id": 484,
+    "name": "STORED_VALUE_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "STORED VALUE AGREEMENT is a type of FINANCIAL AGREEMENT, implemented as a prepaid card, single use or renewable with new deposits of money. This entity contains only those card member agreements that are liabilities from the company's perspective. An example of a STORED VALUE AGREEMENT is a gift car",
+    "attributeCount": 0
+  },
+  {
+    "id": 485,
+    "name": "STRESS_TEST_AGREEMENT_GROUP",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the group of agreements or 'portfolio' that is being tested or stressed as a result of this test.",
+    "attributeCount": 2
+  },
+  {
+    "id": 486,
+    "name": "SWAP_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "A swap is an agreement between two parties to exchange future streams of cash flows generated from other agreements (e.g., loans). Swaps involve exchanging the terms of one asset (loan) for another to improve the quality of a loan portfolio for risk management or asset/liability management purposes.",
+    "attributeCount": 6
+  },
+  {
+    "id": 487,
+    "name": "SWAP_AGREEMENT_LEG",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the cash flow terms for a swap agreement. A swap can have many \"legs\" where one leg represents a unidirectional exchange of money with associated terms and conditions. Examples of types of legs can be \"flat,\" \"amortizing,\" \"zero coupon,\" and \"capped/floored.\"  A leg represents",
+    "attributeCount": 9
+  },
+  {
+    "id": 488,
+    "name": "SWAP_AGREEMENT_LEG_METRIC",
+    "domain": "Agreement & Account",
+    "description": "This entity tracks metrics for swap leg. This can be any calculated metric associated with the swap leg (other than what is specified in the other entities) such as exposure amount and volatility.",
+    "attributeCount": 12
+  },
+  {
+    "id": 489,
+    "name": "SWAP_LEG_AGREEMENT_EVENT",
+    "domain": "Agreement & Account",
+    "description": "This entity contains information about events that affects the leg of a swap such as payments against a specific leg.",
+    "attributeCount": 2
+  },
+  {
+    "id": 490,
+    "name": "TARGET_PROMOTION_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This associative entity allows for a campaign strategy, such as a collection/recovery campaign promotion, to target more than one account and for an account to be targeted by more than one promotion.",
+    "attributeCount": 2
+  },
+  {
+    "id": 491,
+    "name": "TARGET_PROMOTION_AGREEMENT_GROUP",
+    "domain": "Agreement & Account",
+    "description": "This associative entity allows for a campaign, such as a collection/recovery campaign promotion, to target more than one account group and for an account group to be targeted by more than one promotion.",
+    "attributeCount": 2
+  },
+  {
+    "id": 492,
+    "name": "TRADE_SETTLEMENT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This is an agreement between the firm and a third party (e.g., custodian or agency) and specifies the terms and conditions for all trades under this agreement with these third parties. This entity contains the third-party identifiers.",
+    "attributeCount": 2
+  },
+  {
+    "id": 493,
+    "name": "TRADE_SETTLEMENT_INSTRUCTION",
+    "domain": "Agreement & Account",
+    "description": "This entity contains those predefined settlement instructions that are considered standing instructions at the account level and do not vary by trade. These would be related to the investment account but the values of the various instructions for an account (code values) can change over time.  These",
+    "attributeCount": 11
+  },
+  {
+    "id": 494,
+    "name": "TRADE_SETTLEMENT_PRODUCT_GROUP",
+    "domain": "Agreement & Account",
+    "description": "This entity contains the group of products that are the class of securities that this settlement instruction covers at the account level. This allows for an instruction to cover multiple product groups for different reasons.",
+    "attributeCount": 13
+  },
+  {
+    "id": 495,
+    "name": "TRANCHE_TO_AGREEMENT",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies any agreement or account that is related to a tranche.  If the agreement is the exposure (e.g., a loan) then this shows which tranches that loan was put into. It is possible for one loan to be split between more than one tranche such as when interest goes to one tranche and pr",
+    "attributeCount": 5
+  },
+  {
+    "id": 496,
+    "name": "TRANCHE_TO_AGREEMENT_ROLE_TYPE",
+    "domain": "Agreement & Account",
+    "description": "The role that the agreement has with the tranche such as \"is being securitized by\" or \"is risk mitigant for.\"",
+    "attributeCount": 2
+  },
+  {
+    "id": 497,
+    "name": "TRANSACTION_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "This is the account that is used by the financial institution to pay for invoices and other debt. It is not a customer account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 498,
+    "name": "TRANSACTION_ACCOUNT_TYPE",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies the type of transaction account such as credit card account, checking account, or current account.",
+    "attributeCount": 2
+  },
+  {
+    "id": 499,
+    "name": "TREASURY_STOCK_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The entity that identifies a NONDIVIDEND EQUITY ACCOUNT as Treasury stock. Treasury stock is reacquired by a corporation to be retired or resold to the public. Treasury stock is issued but not outstanding, and is not taken into consideration when calculating earnings per share or dividends, or for v",
+    "attributeCount": 1
+  },
+  {
+    "id": 500,
+    "name": "UNDERWRITING_EXPENSE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "A broad classification of expense excluding loss adjustment and investment expenses. Underwriting expenses include acquisition, field supervision, collections, taxes, licenses, and fees.",
+    "attributeCount": 0
+  },
+  {
+    "id": 501,
+    "name": "UNEARNED_PREMIUM_RESERVE_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The unearned premium reserve is the liability for the unearned portion of premium of a policy in force or the amount required to provide for losses and expenses during the unexpired term of the policy.",
+    "attributeCount": 0
+  },
+  {
+    "id": 502,
+    "name": "UNITED_STATES_BANK_ACCOUNT_IDENTIFIER",
+    "domain": "Agreement & Account",
+    "description": "This is the bank account number that is assigned to a bank account for a financial institution in the United States, and which follows the numbering system as assigned by the American Bankers Association including a routing transit number.  This entity tracks the history of account numbers associate",
+    "attributeCount": 2
+  },
+  {
+    "id": 503,
+    "name": "UNPAID_CLAIM_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "The unpaid claim account is the liability provision for unpaid losses and includes claims approved for payment not yet paid, pending claims, and closed claims reopened for payment.",
+    "attributeCount": 0
+  },
+  {
+    "id": 504,
+    "name": "VOTING_STOCK_ACCOUNT",
+    "domain": "Agreement & Account",
+    "description": "This entity identifies common stock equity as a voting stock. Voting stock equities of a public corporation have voting rights.",
+    "attributeCount": 0
+  },
+  {
+    "id": 505,
+    "name": "WEB_AD_PLACEMENT_CONTRACT",
+    "domain": "Agreement & Account",
+    "description": "The entity represents the agreement made between the one party and another (e.g., ad service provider and the advertiser) that states the time period for the contract, the number of impressions and click-throughs guaranteed to the advertisers and the cost for each impression and click-through.",
+    "attributeCount": 5
+  },
+  {
+    "id": 506,
+    "name": "WORK_PROCESS_LOAN",
+    "domain": "Agreement & Account",
+    "description": "This is the work process required for this loan. The types of work processes could be processing a loan, default remediation, or repossession steps.",
+    "attributeCount": 1
+  }
+]

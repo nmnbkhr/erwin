@@ -1,0 +1,590 @@
+[
+  {
+    "entityId": 1379,
+    "entityName": "ADJUSTED_EARNING",
+    "name": "Adjusted_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1380,
+    "entityName": "ADJUSTED_EARNING_SUBTYPE",
+    "name": "Adjusted_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1380,
+    "entityName": "ADJUSTED_EARNING_SUBTYPE",
+    "name": "Adjusted_Earning_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1381,
+    "entityName": "AFTER_TAX_DEDUCTION",
+    "name": "After_Tax_Deduction_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1382,
+    "entityName": "AFTER_TAX_DEDUCTION_SUBTYPE",
+    "name": "After_Tax_Deduction_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1382,
+    "entityName": "AFTER_TAX_DEDUCTION_SUBTYPE",
+    "name": "After_Tax_Deduction_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1383,
+    "entityName": "BEFORE_TAX_DEDUCTION",
+    "name": "Before_Tax_Deduction_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1384,
+    "entityName": "BEFORE_TAX_DEDUCTION_SUBTYPE",
+    "name": "Before_Tax_Deduction_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1384,
+    "entityName": "BEFORE_TAX_DEDUCTION_SUBTYPE",
+    "name": "Before_Tax_Deduction_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1385,
+    "entityName": "BENEFIT_PLAN",
+    "name": "Benefit_Plan_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1385,
+    "entityName": "BENEFIT_PLAN",
+    "name": "Benefit_Plan_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1385,
+    "entityName": "BENEFIT_PLAN",
+    "name": "Benefit_Plan_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1386,
+    "entityName": "BENEFIT_PLAN_ELIGIBILITY_TERM_TYPE",
+    "name": "Benefit_Plan_Eligibility_Term_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1386,
+    "entityName": "BENEFIT_PLAN_ELIGIBILITY_TERM_TYPE",
+    "name": "Benefit_Plan_Eligibility_Term_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1387,
+    "entityName": "BENEFIT_RULE_TYPE",
+    "name": "Benefit_Rule_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1387,
+    "entityName": "BENEFIT_RULE_TYPE",
+    "name": "Benefit_Rule_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1388,
+    "entityName": "DIRECT_EARNING",
+    "name": "Direct_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1388,
+    "entityName": "DIRECT_EARNING",
+    "name": "Form_Of_Payment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1389,
+    "entityName": "DIRECT_EARNINGS_FINANCIAL_INSTRUMENT",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1390,
+    "entityName": "DIRECT_EARNING_SUBTYPE",
+    "name": "Direct_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1390,
+    "entityName": "DIRECT_EARNING_SUBTYPE",
+    "name": "Direct_Earning_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 1392,
+    "entityName": "INDIRECT_EARNING",
+    "name": "Benefit_Plan_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1392,
+    "entityName": "INDIRECT_EARNING",
+    "name": "Benefit_Plan_Option_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1392,
+    "entityName": "INDIRECT_EARNING",
+    "name": "Associate_Benefit_Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1392,
+    "entityName": "INDIRECT_EARNING",
+    "name": "Indirect_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1392,
+    "entityName": "INDIRECT_EARNING",
+    "name": "Indirect_Earning_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1393,
+    "entityName": "INDIRECT_EARNING_SUBTYPE",
+    "name": "Indirect_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1393,
+    "entityName": "INDIRECT_EARNING_SUBTYPE",
+    "name": "Indirect_Earning_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1394,
+    "entityName": "JOB_CLASSIFICATION",
+    "name": "Job_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1394,
+    "entityName": "JOB_CLASSIFICATION",
+    "name": "Job_Classification_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1395,
+    "entityName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "name": "Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1395,
+    "entityName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "name": "Work_Shift_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1395,
+    "entityName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "name": "Job_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1395,
+    "entityName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "name": "Labor_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1395,
+    "entityName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "name": "Job_Classification_Schedule_Hours_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1395,
+    "entityName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "name": "Job_Classification_Schedule_Overtime_Hours_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1395,
+    "entityName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "name": "Job_Classification_Regular_Head_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1395,
+    "entityName": "JOB_CLASSIFICATION_LABOR_SHIFT_SCHEDULE",
+    "name": "Job_Classification_Overtime_Head_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 1396,
+    "entityName": "JOB_LABOR_TASK_CROSS-REFERENCE",
+    "name": "Labor_Task_Type_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1396,
+    "entityName": "JOB_LABOR_TASK_CROSS-REFERENCE",
+    "name": "Job_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1398,
+    "entityName": "LEAVE_PLAN",
+    "name": "Holiday_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1398,
+    "entityName": "LEAVE_PLAN",
+    "name": "Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1400,
+    "entityName": "PAYROLL_BALANCE_TYPE",
+    "name": "Payroll_Balance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1400,
+    "entityName": "PAYROLL_BALANCE_TYPE",
+    "name": "Payroll_Balance_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1401,
+    "entityName": "PAYROLL_PAY_PERIOD",
+    "name": "Payroll_Register_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1401,
+    "entityName": "PAYROLL_PAY_PERIOD",
+    "name": "Payroll_Pay_Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1401,
+    "entityName": "PAYROLL_PAY_PERIOD",
+    "name": "Payroll_Pay_Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1402,
+    "entityName": "PAYROLL_REGISTER",
+    "name": "Payroll_Register_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1402,
+    "entityName": "PAYROLL_REGISTER",
+    "name": "Payroll_Register_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 1402,
+    "entityName": "PAYROLL_REGISTER",
+    "name": "Payroll_Register_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 1402,
+    "entityName": "PAYROLL_REGISTER",
+    "name": "Payroll_Register_Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1402,
+    "entityName": "PAYROLL_REGISTER",
+    "name": "Payroll_Register_COA_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1402,
+    "entityName": "PAYROLL_REGISTER",
+    "name": "Ledger_Batch_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1402,
+    "entityName": "PAYROLL_REGISTER",
+    "name": "Internal_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1404,
+    "entityName": "REGULAR_EARNING",
+    "name": "Regular_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1405,
+    "entityName": "REGULAR_EARNING_SUBTYPE",
+    "name": "Regular_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1405,
+    "entityName": "REGULAR_EARNING_SUBTYPE",
+    "name": "Regular_Earning_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1406,
+    "entityName": "REGULATED_BENEFIT",
+    "name": "Benefit_Plan_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 1406,
+    "entityName": "REGULATED_BENEFIT",
+    "name": "Regulated_Benefit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1406,
+    "entityName": "REGULATED_BENEFIT",
+    "name": "Regulated_Benefit_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1406,
+    "entityName": "REGULATED_BENEFIT",
+    "name": "Regulated_Benefit_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 1406,
+    "entityName": "REGULATED_BENEFIT",
+    "name": "Regulated_Benefit_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1406,
+    "entityName": "REGULATED_BENEFIT",
+    "name": "Regulated_Benefit_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 1407,
+    "entityName": "REGULATED_BENEFIT_TYPE",
+    "name": "Regulated_Benefit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1407,
+    "entityName": "REGULATED_BENEFIT_TYPE",
+    "name": "Regulated_Benefit_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1408,
+    "entityName": "VARIABLE_EARNING",
+    "name": "Variable_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1409,
+    "entityName": "VARIABLE_EARNING_SUBTYPE",
+    "name": "Variable_Earning_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1409,
+    "entityName": "VARIABLE_EARNING_SUBTYPE",
+    "name": "Variable_Earning_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1410,
+    "entityName": "WITHHOLDING_TAX",
+    "name": "Withholding_Tax_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 1410,
+    "entityName": "WITHHOLDING_TAX",
+    "name": "Tax_Authority_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 1411,
+    "entityName": "WITHHOLDING_TAX_SUBTYPE",
+    "name": "Withholding_Tax_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1411,
+    "entityName": "WITHHOLDING_TAX_SUBTYPE",
+    "name": "Withholding_Tax_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 1412,
+    "entityName": "WORK_SHIFT_DAILY_HOURS",
+    "name": "Gregorian_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 1412,
+    "entityName": "WORK_SHIFT_DAILY_HOURS",
+    "name": "Site_Schedule_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1412,
+    "entityName": "WORK_SHIFT_DAILY_HOURS",
+    "name": "Work_Shift_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1412,
+    "entityName": "WORK_SHIFT_DAILY_HOURS",
+    "name": "Work_Shift_Start_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1412,
+    "entityName": "WORK_SHIFT_DAILY_HOURS",
+    "name": "Work_Shift_Duration_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1413,
+    "entityName": "WORK_SHIFT_DAY_OF_WEEK_HOURS",
+    "name": "Site_Schedule_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1413,
+    "entityName": "WORK_SHIFT_DAY_OF_WEEK_HOURS",
+    "name": "Day_Of_Week_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1413,
+    "entityName": "WORK_SHIFT_DAY_OF_WEEK_HOURS",
+    "name": "Work_Shift_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1413,
+    "entityName": "WORK_SHIFT_DAY_OF_WEEK_HOURS",
+    "name": "Work_Shift_Start_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1413,
+    "entityName": "WORK_SHIFT_DAY_OF_WEEK_HOURS",
+    "name": "Work_Shift_Duration_Tm",
+    "dataType": "TIME",
+    "nullable": true
+  },
+  {
+    "entityId": 1414,
+    "entityName": "WORK_SHIFT_TYPE",
+    "name": "Work_Shift_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 1414,
+    "entityName": "WORK_SHIFT_TYPE",
+    "name": "Work_Shift_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  }
+]

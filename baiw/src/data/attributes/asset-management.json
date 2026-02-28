@@ -1,0 +1,1871 @@
+[
+  {
+    "entityId": 507,
+    "entityName": "APPLICATION_ASSET",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 507,
+    "entityName": "APPLICATION_ASSET",
+    "name": "Application_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 507,
+    "entityName": "APPLICATION_ASSET",
+    "name": "Application_Asset_Role_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 507,
+    "entityName": "APPLICATION_ASSET",
+    "name": "Application_Asset_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 508,
+    "entityName": "APPLICATION_ASSET_ROLE_SUBTYPE",
+    "name": "Application_Asset_Role_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 508,
+    "entityName": "APPLICATION_ASSET_ROLE_SUBTYPE",
+    "name": "Application_Asset_Role_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 509,
+    "entityName": "APPLICATION_INSURED_ASSET",
+    "name": "Application_Insured_Asset_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 509,
+    "entityName": "APPLICATION_INSURED_ASSET",
+    "name": "Application_Currency_Insured_Asset_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 510,
+    "entityName": "ASSET_APPRAISAL_REASON_TYPE",
+    "name": "Asset_Appraisal_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 510,
+    "entityName": "ASSET_APPRAISAL_REASON_TYPE",
+    "name": "Asset_Appraisal_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 511,
+    "entityName": "ASSET_CLASSIFICATION_SUBJECT",
+    "name": "Party_Asset_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 511,
+    "entityName": "ASSET_CLASSIFICATION_SUBJECT",
+    "name": "Party_Asset_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 512,
+    "entityName": "ASSET_CLASS_TO_OBLIGOR_TYPE",
+    "name": "Party_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 512,
+    "entityName": "ASSET_CLASS_TO_OBLIGOR_TYPE",
+    "name": "Party_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 512,
+    "entityName": "ASSET_CLASS_TO_OBLIGOR_TYPE",
+    "name": "Asset_To_Obligor_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 512,
+    "entityName": "ASSET_CLASS_TO_OBLIGOR_TYPE",
+    "name": "Basel_II_Asset_Class_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 512,
+    "entityName": "ASSET_CLASS_TO_OBLIGOR_TYPE",
+    "name": "Asset_To_Obligor_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Xref_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Xref_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Asset_Detail_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 513,
+    "entityName": "ASSET_DETAIL_CODE_XREF",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 514,
+    "entityName": "ASSET_DETAIL_SCHEME_TYPE",
+    "name": "Asset_Detail_Scheme_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 514,
+    "entityName": "ASSET_DETAIL_SCHEME_TYPE",
+    "name": "Asset_Detail_Scheme_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 515,
+    "entityName": "ASSET_DETAIL_TYPE",
+    "name": "Asset_Detail_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 515,
+    "entityName": "ASSET_DETAIL_TYPE",
+    "name": "Asset_Detail_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 515,
+    "entityName": "ASSET_DETAIL_TYPE",
+    "name": "Asset_Detail_Scheme_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 516,
+    "entityName": "ASSET_INSPECTION",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 516,
+    "entityName": "ASSET_INSPECTION",
+    "name": "Inspection_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 516,
+    "entityName": "ASSET_INSPECTION",
+    "name": "Inspection_Evaluation_Method_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 517,
+    "entityName": "ASSET_INSPECTION_RESULT",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 517,
+    "entityName": "ASSET_INSPECTION_RESULT",
+    "name": "Inspection_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 517,
+    "entityName": "ASSET_INSPECTION_RESULT",
+    "name": "Inspection_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 517,
+    "entityName": "ASSET_INSPECTION_RESULT",
+    "name": "Inspection_Result_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 517,
+    "entityName": "ASSET_INSPECTION_RESULT",
+    "name": "Asset_Inspection_Result_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 517,
+    "entityName": "ASSET_INSPECTION_RESULT",
+    "name": "Asset_Inspection_Result_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 518,
+    "entityName": "ASSET_INSURANCE_REFUSED_TYPE",
+    "name": "Asset_Insurance_Refused_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 518,
+    "entityName": "ASSET_INSURANCE_REFUSED_TYPE",
+    "name": "Asset_Insurance_Refused_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 519,
+    "entityName": "ASSET_LIABILITY_TYPE",
+    "name": "Asset_Liability_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 519,
+    "entityName": "ASSET_LIABILITY_TYPE",
+    "name": "Asset_Liability_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 520,
+    "entityName": "ASSET_MAINTENANCE_TYPE",
+    "name": "Asset_Maintenance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 520,
+    "entityName": "ASSET_MAINTENANCE_TYPE",
+    "name": "Asset_Maintenance_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 521,
+    "entityName": "ASSET_ROLE_TYPE",
+    "name": "Asset_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 521,
+    "entityName": "ASSET_ROLE_TYPE",
+    "name": "Asset_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 522,
+    "entityName": "ASSET_SCORE",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 522,
+    "entityName": "ASSET_SCORE",
+    "name": "Analytical_Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 522,
+    "entityName": "ASSET_SCORE",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 522,
+    "entityName": "ASSET_SCORE",
+    "name": "Asset_Score_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 523,
+    "entityName": "ASSET_USE_TYPE",
+    "name": "Asset_Use_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 523,
+    "entityName": "ASSET_USE_TYPE",
+    "name": "Asset_Use_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 524,
+    "entityName": "ASSET_VALUATION_AMOUNT_TYPE",
+    "name": "Asset_Valuation_Amount_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 524,
+    "entityName": "ASSET_VALUATION_AMOUNT_TYPE",
+    "name": "Asset_Valuation_Amount_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 525,
+    "entityName": "ASSET_VALUATION_METHOD_TYPE",
+    "name": "Asset_Valuation_Method_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 525,
+    "entityName": "ASSET_VALUATION_METHOD_TYPE",
+    "name": "Asset_Valuation_Method_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Asset_Valuation_Amount_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Asset_Value_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Asset_Value_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Evaluator_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Asset_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Asset_Currency_Asset_Value_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Asset_Valuation_Method_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Asset_Valuation_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Inspection_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Data_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 526,
+    "entityName": "ASSET_VALUE",
+    "name": "Economic_Measure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 527,
+    "entityName": "CASH_ASSET",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 528,
+    "entityName": "DEPRECIABLE_ASSET_DEPRECIATION",
+    "name": "Depreciable_Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 528,
+    "entityName": "DEPRECIABLE_ASSET_DEPRECIATION",
+    "name": "Depreciation_Method_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 528,
+    "entityName": "DEPRECIABLE_ASSET_DEPRECIATION",
+    "name": "Depreciable_Asset_Depreciation_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 528,
+    "entityName": "DEPRECIABLE_ASSET_DEPRECIATION",
+    "name": "Depreciable_Asset_Depreciation_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 529,
+    "entityName": "DEPRECIABLE_ASSET_TYPE",
+    "name": "Depreciable_Asset_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 529,
+    "entityName": "DEPRECIABLE_ASSET_TYPE",
+    "name": "Depreciable_Asset_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 530,
+    "entityName": "DEPRECIABLE_FIXED_ASSET",
+    "name": "Depreciable_Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 530,
+    "entityName": "DEPRECIABLE_FIXED_ASSET",
+    "name": "Depreciable_Asset_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 531,
+    "entityName": "DEPRECIABLE_PROPERTY",
+    "name": "Depreciable_Property_Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 532,
+    "entityName": "DWELLING_TYPE",
+    "name": "Dwelling_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 532,
+    "entityName": "DWELLING_TYPE",
+    "name": "Dwelling_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 533,
+    "entityName": "EQUIPMENT_ASSET",
+    "name": "Equipment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 534,
+    "entityName": "FINANCIAL_ASSET",
+    "name": "Financial_Asset_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 534,
+    "entityName": "FINANCIAL_ASSET",
+    "name": "Financial_Asset_Maturity_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 534,
+    "entityName": "FINANCIAL_ASSET",
+    "name": "Financial_Asset_Short_Maturity_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 534,
+    "entityName": "FINANCIAL_ASSET",
+    "name": "Financial_Asset_Open_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 535,
+    "entityName": "FINANCIAL_ASSET_SUBTYPE",
+    "name": "Financial_Asset_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 535,
+    "entityName": "FINANCIAL_ASSET_SUBTYPE",
+    "name": "Financial_Asset_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Acquire_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Useful_Life_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_New_Used_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Ownership_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Managing_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Manufacturing_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Locator_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Fixed_Asset_Site_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 536,
+    "entityName": "FIXED_ASSET",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Fixed_Asset_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Fixed_Asset_Amount_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Fixed_Asset_Amount_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Fixed_Asset_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Fixed_Asset_Amount_Depreciation_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Fixed_Asset_COA_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Ledger_Batch_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 537,
+    "entityName": "FIXED_ASSET_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 538,
+    "entityName": "FIXED_ASSET_AMOUNT_TYPE",
+    "name": "Fixed_Asset_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 538,
+    "entityName": "FIXED_ASSET_AMOUNT_TYPE",
+    "name": "Fixed_Asset_Amount_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 539,
+    "entityName": "FIXED_ASSET_BOOK",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 539,
+    "entityName": "FIXED_ASSET_BOOK",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 540,
+    "entityName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "name": "Fixed_Asset_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 540,
+    "entityName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "name": "Parent_Fixed_Asset_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 540,
+    "entityName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "name": "Fixed_Asset_Class_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 540,
+    "entityName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "name": "Fixed_Asset_Class_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 540,
+    "entityName": "FIXED_ASSET_CLASS_SCHEME_TYPE",
+    "name": "Fixed_Asset_Class_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Fixed_Asset_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Fixed_Asset_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Parent_Fixed_Asset_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Fixed_Asset_Class_From_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Fixed_Asset_Class_To_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Fixed_Asset_Class_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Fixed_Asset_Class_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 541,
+    "entityName": "FIXED_ASSET_CLASS_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 542,
+    "entityName": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 542,
+    "entityName": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "name": "Fixed_Asset_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 542,
+    "entityName": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "name": "Fixed_Asset_Class_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 542,
+    "entityName": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "name": "Fixed_Asset_Class_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 542,
+    "entityName": "FIXED_ASSET_CLASS_VALUE_XREF",
+    "name": "Fixed_Asset_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 543,
+    "entityName": "FIXED_ASSET_GROUP",
+    "name": "Fixed_Asset_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 543,
+    "entityName": "FIXED_ASSET_GROUP",
+    "name": "Fixed_Asset_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 543,
+    "entityName": "FIXED_ASSET_GROUP",
+    "name": "Fixed_Asset_Group_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 544,
+    "entityName": "FIXED_ASSET_GROUP_XREF",
+    "name": "Fixed_Asset_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 544,
+    "entityName": "FIXED_ASSET_GROUP_XREF",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 544,
+    "entityName": "FIXED_ASSET_GROUP_XREF",
+    "name": "Fixed_Asset_Group_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 544,
+    "entityName": "FIXED_ASSET_GROUP_XREF",
+    "name": "Fixed_Asset_Group_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 545,
+    "entityName": "FIXED_ASSET_OWNERSHIP_TYPE",
+    "name": "Fixed_Asset_Ownership_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 545,
+    "entityName": "FIXED_ASSET_OWNERSHIP_TYPE",
+    "name": "Fixed_Asset_Ownership_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 546,
+    "entityName": "FIXED_ASSET_PO",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 546,
+    "entityName": "FIXED_ASSET_PO",
+    "name": "Vendor_PO_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 546,
+    "entityName": "FIXED_ASSET_PO",
+    "name": "Vendor_PO_Line_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 547,
+    "entityName": "FIXED_ASSET_STATUS",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 547,
+    "entityName": "FIXED_ASSET_STATUS",
+    "name": "Fixed_Asset_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 547,
+    "entityName": "FIXED_ASSET_STATUS",
+    "name": "Fixed_Asset_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 547,
+    "entityName": "FIXED_ASSET_STATUS",
+    "name": "Fixed_Asset_Status_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 548,
+    "entityName": "FIXED_ASSET_STATUS_TYPE",
+    "name": "Fixed_Asset_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 548,
+    "entityName": "FIXED_ASSET_STATUS_TYPE",
+    "name": "Fixed_Asset_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 549,
+    "entityName": "FIXED_ASSET_TYPE",
+    "name": "Fixed_Asset_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 549,
+    "entityName": "FIXED_ASSET_TYPE",
+    "name": "Fixed_Asset_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 550,
+    "entityName": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "name": "Agreement_Asset_Role_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 550,
+    "entityName": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 550,
+    "entityName": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "name": "Underwrite_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 550,
+    "entityName": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 550,
+    "entityName": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "name": "Agreement_Asset_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 550,
+    "entityName": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "name": "Asset_Underwrite_Class_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 550,
+    "entityName": "INSURED_ASSET_UNDERWRITE_CLASS",
+    "name": "Asset_Underwrite_Class_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 551,
+    "entityName": "INTELLECTUAL_PROPERTY",
+    "name": "Intellectual_Property_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 552,
+    "entityName": "INTELLECTUAL_PROPERTY_TYPE",
+    "name": "Intellectual_Property_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 552,
+    "entityName": "INTELLECTUAL_PROPERTY_TYPE",
+    "name": "Intellectual_Property_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 553,
+    "entityName": "INTERNAL_ASSET_SUBTYPE",
+    "name": "Internal_Asset_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 553,
+    "entityName": "INTERNAL_ASSET_SUBTYPE",
+    "name": "Internal_Asset_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 554,
+    "entityName": "INTERNAL_ASSET_TYPE",
+    "name": "Internal_Asset_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 554,
+    "entityName": "INTERNAL_ASSET_TYPE",
+    "name": "Internal_Asset_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 554,
+    "entityName": "INTERNAL_ASSET_TYPE",
+    "name": "Internal_Asset_Type_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 554,
+    "entityName": "INTERNAL_ASSET_TYPE",
+    "name": "Internal_Asset_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 556,
+    "entityName": "INTERNAL_FIXED_ASSET_TYPE",
+    "name": "Fixed_Asset_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 557,
+    "entityName": "JEWELRY",
+    "name": "Jewelry_Metal_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 557,
+    "entityName": "JEWELRY",
+    "name": "Jewelry_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 557,
+    "entityName": "JEWELRY",
+    "name": "Jewelry_Gem_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 558,
+    "entityName": "JEWELRY_GEM_TYPE",
+    "name": "Jewelry_Gem_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 558,
+    "entityName": "JEWELRY_GEM_TYPE",
+    "name": "Jewelry_Gem_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 559,
+    "entityName": "JEWELRY_METAL_TYPE",
+    "name": "Jewelry_Metal_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 559,
+    "entityName": "JEWELRY_METAL_TYPE",
+    "name": "Jewelry_Metal_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 560,
+    "entityName": "JEWELRY_TYPE",
+    "name": "Jewelry_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 560,
+    "entityName": "JEWELRY_TYPE",
+    "name": "Jewelry_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 561,
+    "entityName": "MOTOR_VEHICLE",
+    "name": "Motor_Vehicle_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 561,
+    "entityName": "MOTOR_VEHICLE",
+    "name": "Body_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 561,
+    "entityName": "MOTOR_VEHICLE",
+    "name": "Transmission_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 561,
+    "entityName": "MOTOR_VEHICLE",
+    "name": "Modification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 561,
+    "entityName": "MOTOR_VEHICLE",
+    "name": "Motor_Vehicle_Serial_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 561,
+    "entityName": "MOTOR_VEHICLE",
+    "name": "Vehicle_Make_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 561,
+    "entityName": "MOTOR_VEHICLE",
+    "name": "Vehicle_Model_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 561,
+    "entityName": "MOTOR_VEHICLE",
+    "name": "Vehicle_Model_Year_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Motor_Vehicle_Detail_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Motor_Vehicle_Detail_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Drivable_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Motor_Vehicle_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Seat_Belt_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Airbag_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Alarm_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "License_Plate_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Annual_Distance_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Daily_Commute_Distance_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Commuting_Days_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Lead_Paint_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 562,
+    "entityName": "MOTOR_VEHICLE_DETAIL",
+    "name": "Color_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 563,
+    "entityName": "MOTOR_VEHICLE_SPECIFICATION",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 563,
+    "entityName": "MOTOR_VEHICLE_SPECIFICATION",
+    "name": "Vehicle_Specification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 563,
+    "entityName": "MOTOR_VEHICLE_SPECIFICATION",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 563,
+    "entityName": "MOTOR_VEHICLE_SPECIFICATION",
+    "name": "Vehicle_Specification_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 563,
+    "entityName": "MOTOR_VEHICLE_SPECIFICATION",
+    "name": "Vehicle_Specification_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 563,
+    "entityName": "MOTOR_VEHICLE_SPECIFICATION",
+    "name": "Vehicle_Specification_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 564,
+    "entityName": "MOTOR_VEHICLE_TYPE",
+    "name": "Motor_Vehicle_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 564,
+    "entityName": "MOTOR_VEHICLE_TYPE",
+    "name": "Motor_Vehicle_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 565,
+    "entityName": "MOTOR_VEHICLE_USAGE_METRIC",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 565,
+    "entityName": "MOTOR_VEHICLE_USAGE_METRIC",
+    "name": "Motor_Vehicle_Usage_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 565,
+    "entityName": "MOTOR_VEHICLE_USAGE_METRIC",
+    "name": "Motor_Vehicle_Usage_Metric_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 565,
+    "entityName": "MOTOR_VEHICLE_USAGE_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 565,
+    "entityName": "MOTOR_VEHICLE_USAGE_METRIC",
+    "name": "Motor_Vehicle_Usage_Metric_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 566,
+    "entityName": "MOTOR_VEHICLE_USAGE_METRIC_TYPE",
+    "name": "Motor_Vehicle_Usage_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 566,
+    "entityName": "MOTOR_VEHICLE_USAGE_METRIC_TYPE",
+    "name": "Motor_Vehicle_Usage_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 567,
+    "entityName": "NONDEPRECIABLE_ASSET_TYPE",
+    "name": "Nondepreciable_Asset_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 567,
+    "entityName": "NONDEPRECIABLE_ASSET_TYPE",
+    "name": "Nondepreciable_Asset_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 568,
+    "entityName": "NONDEPRECIABLE_FIXED_ASSET",
+    "name": "Nondepreciable_Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 568,
+    "entityName": "NONDEPRECIABLE_FIXED_ASSET",
+    "name": "Nondepreciable_Asset_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Agreement_Asset_Role_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Agreement_Asset_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Agreement_Asset_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Insurance_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Policy_Asset_Coverage_Metric_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Policy_Asset_Coverage_Metric_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Policy_Asset_Coverage_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Policy_Asset_Coverage_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Policy_Asset_Coverage_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Agreement_Currency_Policy_Asset_Coverage_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 570,
+    "entityName": "POLICY_ASSET_COVERAGE_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 571,
+    "entityName": "PROJECT_RESOURCE_FIXED_ASSET",
+    "name": "Fixed_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 572,
+    "entityName": "VEHICLE_MAKE_MODEL",
+    "name": "Vehicle_Make_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 572,
+    "entityName": "VEHICLE_MAKE_MODEL",
+    "name": "Vehicle_Model_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 572,
+    "entityName": "VEHICLE_MAKE_MODEL",
+    "name": "Vehicle_Model_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 573,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR",
+    "name": "Vehicle_Make_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 573,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR",
+    "name": "Vehicle_Model_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 573,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR",
+    "name": "Vehicle_Model_Year_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 573,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR",
+    "name": "Vehicle_Series_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Vehicle_Make_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Vehicle_Model_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Vehicle_Model_Year_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Vehicle_Standard_Specification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Vehicle_Standard_Specification_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Vehicle_Standard_Specification_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Vehicle_Standard_Specification_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 574,
+    "entityName": "VEHICLE_MAKE_MODEL_YEAR_SPECIFICATION",
+    "name": "Fuel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 575,
+    "entityName": "VEHICLE_MAKE_TYPE",
+    "name": "Vehicle_Make_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 575,
+    "entityName": "VEHICLE_MAKE_TYPE",
+    "name": "Vehicle_Make_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 575,
+    "entityName": "VEHICLE_MAKE_TYPE",
+    "name": "Manufacturer_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 576,
+    "entityName": "VEHICLE_SERIES_TYPE",
+    "name": "Vehicle_Series_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 576,
+    "entityName": "VEHICLE_SERIES_TYPE",
+    "name": "Vehicle_Series_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 577,
+    "entityName": "VEHICLE_SPECIFICATION_TYPE",
+    "name": "Vehicle_Specification_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 577,
+    "entityName": "VEHICLE_SPECIFICATION_TYPE",
+    "name": "Vehicle_Specification_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  }
+]

@@ -1,0 +1,1143 @@
+[
+  {
+    "parentId": 1415,
+    "parentName": "AGENT_COMMISSION_OPTION_TYPE",
+    "childId": 1672,
+    "childName": "AGENT_APPLICATION_DETAIL",
+    "type": "association"
+  },
+  {
+    "parentId": 1419,
+    "parentName": "ASIAN_OPTION_TYPE",
+    "childId": 1418,
+    "childName": "ASIAN_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1421,
+    "parentName": "ASSET-BACKED_SECURITY_TYPE",
+    "childId": 3467,
+    "childName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 1424,
+    "parentName": "BANK_TRADE_BOOK_TYPE",
+    "childId": 294,
+    "childName": "FINANCIAL_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1425,
+    "parentName": "BARRIER_OPTION_TYPE",
+    "childId": 179,
+    "childName": "BARRIER_OPTION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1425,
+    "parentName": "BARRIER_OPTION_TYPE",
+    "childId": 3471,
+    "childName": "BARRIER_OPTION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 1426,
+    "parentName": "BENEFIT_PLAN_OPTION",
+    "childId": 2859,
+    "childName": "ASSOCIATE_BENEFIT_PLAN",
+    "type": "association"
+  },
+  {
+    "parentId": 1426,
+    "parentName": "BENEFIT_PLAN_OPTION",
+    "childId": 1427,
+    "childName": "BENEFIT_PLAN_OPTION_ELIGIBILITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1426,
+    "parentName": "BENEFIT_PLAN_OPTION",
+    "childId": 811,
+    "childName": "BENEFIT_PLAN_OPTION_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 1428,
+    "parentName": "BENEFIT_PLAN_OPTION_STATUS_TYPE",
+    "childId": 1426,
+    "childName": "BENEFIT_PLAN_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1429,
+    "parentName": "BENEFIT_PLAN_OPTION_SUBTYPE",
+    "childId": 1426,
+    "childName": "BENEFIT_PLAN_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1430,
+    "parentName": "BERMUDA_EXERCISE_OPTION",
+    "childId": 1763,
+    "childName": "BERMUDA_EXERCISE_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1433,
+    "parentName": "BOND",
+    "childId": 1434,
+    "childName": "BOND_AMORTIZATION_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1433,
+    "parentName": "BOND",
+    "childId": 1435,
+    "childName": "BOND_CALL_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1433,
+    "parentName": "BOND",
+    "childId": 1258,
+    "childName": "BOND_PAYMENT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1433,
+    "parentName": "BOND",
+    "childId": 1444,
+    "childName": "BOND_PUT_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1436,
+    "parentName": "BOND_CALL_TYPE",
+    "childId": 1433,
+    "childName": "BOND",
+    "type": "association"
+  },
+  {
+    "parentId": 1438,
+    "parentName": "BOND_CONVERSION_STYLE_TYPE",
+    "childId": 1456,
+    "childName": "CONVERTIBLE_BOND",
+    "type": "association"
+  },
+  {
+    "parentId": 1439,
+    "parentName": "BOND_DELIVERY_FORM_TYPE",
+    "childId": 1433,
+    "childName": "BOND",
+    "type": "association"
+  },
+  {
+    "parentId": 1446,
+    "parentName": "BOND_SUBTYPE",
+    "childId": 1433,
+    "childName": "BOND",
+    "type": "association"
+  },
+  {
+    "parentId": 1456,
+    "parentName": "CONVERTIBLE_BOND",
+    "childId": 1437,
+    "childName": "BOND_CONVERSION_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1457,
+    "parentName": "CORPORATE_BOND",
+    "childId": 1562,
+    "childName": "SINKING_FUND_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1458,
+    "parentName": "CORPORATE_BOND_TYPE",
+    "childId": 1457,
+    "childName": "CORPORATE_BOND",
+    "type": "association"
+  },
+  {
+    "parentId": 1459,
+    "parentName": "COUPON_TYPE",
+    "childId": 1475,
+    "childName": "EXTERNAL_COUPON",
+    "type": "association"
+  },
+  {
+    "parentId": 1463,
+    "parentName": "CURRENCY_SWAP_TYPE",
+    "childId": 1462,
+    "childName": "CURRENCY_SWAP",
+    "type": "association"
+  },
+  {
+    "parentId": 1464,
+    "parentName": "DERIVATIVE_NOTIONAL_CHANGE_TYPE",
+    "childId": 1578,
+    "childName": "TRADE_EXECUTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1465,
+    "parentName": "DERIVATIVE_SUBTYPE",
+    "childId": 272,
+    "childName": "DERIVATIVE_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1466,
+    "parentName": "DESIGNATED_MARKET_AREA__GEO",
+    "childId": 3842,
+    "childName": "BROWSER_GEOGRAPHIC_ADDRESS_INFORMATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1466,
+    "parentName": "DESIGNATED_MARKET_AREA__GEO",
+    "childId": 1617,
+    "childName": "INTERNET_PROTOCOL_ADDRESS_GEOGRAPHICAL_MAP",
+    "type": "association"
+  },
+  {
+    "parentId": 1466,
+    "parentName": "DESIGNATED_MARKET_AREA__GEO",
+    "childId": 887,
+    "childName": "ONLINE_APPLICATION_ACCESS",
+    "type": "association"
+  },
+  {
+    "parentId": 1469,
+    "parentName": "DIVIDEND_TYPE",
+    "childId": 1468,
+    "childName": "DIVIDEND_DECLARE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1470,
+    "parentName": "EQUITY_FUTURES",
+    "childId": 1471,
+    "childName": "EQUITY_FUTURES_DIVIDEND_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1475,
+    "parentName": "EXTERNAL_COUPON",
+    "childId": 1115,
+    "childName": "PHARMACY_CLAIM_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1480,
+    "parentName": "FORWARD_SUBTYPE",
+    "childId": 307,
+    "childName": "FORWARD_CONTRACT",
+    "type": "association"
+  },
+  {
+    "parentId": 1482,
+    "parentName": "FUNDING_AMOUNT_TYPE",
+    "childId": 67,
+    "childName": "AGREEMENT_FUNDING_SOURCE",
+    "type": "association"
+  },
+  {
+    "parentId": 1483,
+    "parentName": "FUND_SOURCE_TYPE",
+    "childId": 67,
+    "childName": "AGREEMENT_FUNDING_SOURCE",
+    "type": "association"
+  },
+  {
+    "parentId": 1483,
+    "parentName": "FUND_SOURCE_TYPE",
+    "childId": 226,
+    "childName": "CREDIT_APPLICATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1483,
+    "parentName": "FUND_SOURCE_TYPE",
+    "childId": 1502,
+    "childName": "LIFE_LINE_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1484,
+    "parentName": "FUND_TYPE",
+    "childId": 1481,
+    "childName": "FUND",
+    "type": "association"
+  },
+  {
+    "parentId": 1488,
+    "parentName": "INTEREST_RATE_SWAP_SUBTYPE",
+    "childId": 1487,
+    "childName": "INTEREST_RATE_SWAP",
+    "type": "association"
+  },
+  {
+    "parentId": 1489,
+    "parentName": "INVESTMENT_CORPORATE_ACTION",
+    "childId": 1468,
+    "childName": "DIVIDEND_DECLARE_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1491,
+    "parentName": "INVESTMENT_COST_BASIS_CHANGE_REASON",
+    "childId": 1490,
+    "childName": "INVESTMENT_COST_BASIS",
+    "type": "association"
+  },
+  {
+    "parentId": 1491,
+    "parentName": "INVESTMENT_COST_BASIS_CHANGE_REASON",
+    "childId": 3558,
+    "childName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "type": "association"
+  },
+  {
+    "parentId": 1492,
+    "parentName": "INVESTMENT_EVENT_SUBTYPE",
+    "childId": 3527,
+    "childName": "INVESTMENT_PRODUCT_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1495,
+    "parentName": "INVESTMENT_OBJECTIVE_TYPE",
+    "childId": 3276,
+    "childName": "PARTY_INVESTMENT_OBJECTIVE",
+    "type": "association"
+  },
+  {
+    "parentId": 1497,
+    "parentName": "INVESTMENT_SERVICE_SUBTYPE",
+    "childId": 1496,
+    "childName": "INVESTMENT_SERVICE",
+    "type": "association"
+  },
+  {
+    "parentId": 1498,
+    "parentName": "INVESTMENT_SUBTYPE",
+    "childId": 343,
+    "childName": "INVESTMENT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1499,
+    "parentName": "INVESTMENT_VALUE_TYPE",
+    "childId": 866,
+    "childName": "INVESTMENT_PORTFOLIO_POSITION_SUMMARY",
+    "type": "association"
+  },
+  {
+    "parentId": 1499,
+    "parentName": "INVESTMENT_VALUE_TYPE",
+    "childId": 867,
+    "childName": "INVESTMENT_POSITION",
+    "type": "association"
+  },
+  {
+    "parentId": 1500,
+    "parentName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "childId": 1500,
+    "childName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1500,
+    "parentName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "childId": 3286,
+    "childName": "PARTY_MARKET_IDENTIFIER_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1501,
+    "parentName": "ISO_10383_MARKET_IDENTIFIER_CODE_STATUS",
+    "childId": 1500,
+    "childName": "ISO_10383_MARKET_IDENTIFIER_CODE",
+    "type": "association"
+  },
+  {
+    "parentId": 1504,
+    "parentName": "MARKETING_GOAL_TYPE",
+    "childId": 2130,
+    "childName": "INSURANCE_AGENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1505,
+    "parentName": "MARKETING_SUPPORT_TYPE",
+    "childId": 2129,
+    "childName": "INSURANCE_AGENCY",
+    "type": "association"
+  },
+  {
+    "parentId": 1505,
+    "parentName": "MARKETING_SUPPORT_TYPE",
+    "childId": 2130,
+    "childName": "INSURANCE_AGENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1506,
+    "parentName": "MARKET_INDEX",
+    "childId": 1507,
+    "childName": "MARKET_INDEX_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 1510,
+    "parentName": "MARKET_QUOTATION",
+    "childId": 1511,
+    "childName": "MARKET_QUOTATION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1510,
+    "parentName": "MARKET_QUOTATION",
+    "childId": 1513,
+    "childName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1512,
+    "parentName": "MARKET_QUOTATION_METRIC_TYPE",
+    "childId": 2024,
+    "childName": "FOREIGN_EXCHANGE_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1512,
+    "parentName": "MARKET_QUOTATION_METRIC_TYPE",
+    "childId": 1486,
+    "childName": "INTEREST_RATE_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1512,
+    "parentName": "MARKET_QUOTATION_METRIC_TYPE",
+    "childId": 1511,
+    "childName": "MARKET_QUOTATION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1512,
+    "parentName": "MARKET_QUOTATION_METRIC_TYPE",
+    "childId": 1513,
+    "childName": "MARKET_QUOTATION_TIME_PERIOD_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 678,
+    "childName": "CAMPAIGN_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 700,
+    "childName": "GROUP_SURVEY",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 3070,
+    "childName": "MARKET_SEGMENT_DEMOGRAPHIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 3081,
+    "childName": "ONLINE_APPLICATION_ACCESS_SEGMENT_DEMOGRAPHIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 743,
+    "childName": "OPPORTUNITY_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 3084,
+    "childName": "ORDER_PLACEMENT_DEMOGRAPHIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 3329,
+    "childName": "PARTY_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 3330,
+    "childName": "PARTY_SEGMENT_SCORE",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 3605,
+    "childName": "PRODUCT_MARKET_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 765,
+    "childName": "PROMOTION_OFFER_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 770,
+    "childName": "PROMOTION_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 2543,
+    "childName": "SEGMENT_PAGE_INTEREST_MAP",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 2545,
+    "childName": "SEGMENT_SITE_INTEREST_MAP",
+    "type": "association"
+  },
+  {
+    "parentId": 1514,
+    "parentName": "MARKET_SEGMENT",
+    "childId": 2737,
+    "childName": "TRADITIONAL_REQUEST_PLACEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1515,
+    "parentName": "MARKET_SEGMENT_GROUP",
+    "childId": 1514,
+    "childName": "MARKET_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1516,
+    "parentName": "MARKET_SEGMENT_SCHEME",
+    "childId": 1514,
+    "childName": "MARKET_SEGMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1516,
+    "parentName": "MARKET_SEGMENT_SCHEME",
+    "childId": 2542,
+    "childName": "SEGMENT_CRITERION",
+    "type": "association"
+  },
+  {
+    "parentId": 1518,
+    "parentName": "MENU_OPTION_TYPE",
+    "childId": 2952,
+    "childName": "CONTACT_MENU_OPTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1521,
+    "parentName": "OPTION_EXERCISE_TYPE",
+    "childId": 3550,
+    "childName": "OPTION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 1522,
+    "parentName": "OPTION_PUT_CALL_TYPE",
+    "childId": 403,
+    "childName": "OPTION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1522,
+    "parentName": "OPTION_PUT_CALL_TYPE",
+    "childId": 3550,
+    "childName": "OPTION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 1523,
+    "parentName": "OPTION_STYLE_SUBTYPE",
+    "childId": 403,
+    "childName": "OPTION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1523,
+    "parentName": "OPTION_STYLE_SUBTYPE",
+    "childId": 3550,
+    "childName": "OPTION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 1525,
+    "parentName": "PORTFOLIO",
+    "childId": 113,
+    "childName": "AGREEMENT_PORTFOLIO",
+    "type": "association"
+  },
+  {
+    "parentId": 1525,
+    "parentName": "PORTFOLIO",
+    "childId": 114,
+    "childName": "AGREEMENT_PORTFOLIO_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1525,
+    "parentName": "PORTFOLIO",
+    "childId": 2964,
+    "childName": "CUSTOMER_PORTFOLIO_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1525,
+    "parentName": "PORTFOLIO",
+    "childId": 1289,
+    "childName": "INVESTMENT_HOLDING_STATEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1525,
+    "parentName": "PORTFOLIO",
+    "childId": 3294,
+    "childName": "PARTY_PORTFOLIO",
+    "type": "association"
+  },
+  {
+    "parentId": 1525,
+    "parentName": "PORTFOLIO",
+    "childId": 1526,
+    "childName": "PORTFOLIO_INVESTMENT_ALLOCATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1525,
+    "parentName": "PORTFOLIO",
+    "childId": 3559,
+    "childName": "PORTFOLIO_PRODUCT_HOLDING",
+    "type": "association"
+  },
+  {
+    "parentId": 1527,
+    "parentName": "PORTFOLIO_METRIC_TYPE",
+    "childId": 422,
+    "childName": "PORTFOLIO_PRODUCT_AGREEMENT_HOLDING_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 1527,
+    "parentName": "PORTFOLIO_METRIC_TYPE",
+    "childId": 3560,
+    "childName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 1081,
+    "childName": "EXTERNALLY_REPORTED_CLAIM",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 738,
+    "childName": "OPPORTUNITY_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 3306,
+    "childName": "PARTY_QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 444,
+    "childName": "QUOTATION_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 1530,
+    "childName": "QUOTATION_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 1533,
+    "childName": "QUOTATION_EVENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 3645,
+    "childName": "QUOTATION_FEATURE",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 3410,
+    "childName": "QUOTATION_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 1535,
+    "childName": "QUOTATION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 3647,
+    "childName": "QUOTATION_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 0,
+    "childName": "QUOTATION_RELATED_is_related_to",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 0,
+    "childName": "QUOTATION_RELATED_is_related_with",
+    "type": "association"
+  },
+  {
+    "parentId": 1529,
+    "parentName": "QUOTATION",
+    "childId": 1540,
+    "childName": "QUOTATION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1531,
+    "parentName": "QUOTATION_ASSET_ROLE_SUBTYPE",
+    "childId": 1530,
+    "childName": "QUOTATION_ASSET",
+    "type": "association"
+  },
+  {
+    "parentId": 1532,
+    "parentName": "QUOTATION_CLOSE_REASON_TYPE",
+    "childId": 1529,
+    "childName": "QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1536,
+    "parentName": "QUOTATION_METRIC_TYPE",
+    "childId": 1535,
+    "childName": "QUOTATION_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1537,
+    "parentName": "QUOTATION_ORIGIN_TYPE",
+    "childId": 1529,
+    "childName": "QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1539,
+    "parentName": "QUOTATION_RELATIONSHIP_TYPE",
+    "childId": 1538,
+    "childName": "QUOTATION_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 1540,
+    "parentName": "QUOTATION_STATUS",
+    "childId": 1541,
+    "childName": "QUOTATION_STATUS_REASON",
+    "type": "association"
+  },
+  {
+    "parentId": 1542,
+    "parentName": "QUOTATION_STATUS_REASON_TYPE",
+    "childId": 1541,
+    "childName": "QUOTATION_STATUS_REASON",
+    "type": "association"
+  },
+  {
+    "parentId": 1543,
+    "parentName": "QUOTATION_STATUS_TYPE",
+    "childId": 1540,
+    "childName": "QUOTATION_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1544,
+    "parentName": "QUOTATION_SUBTYPE",
+    "childId": 1529,
+    "childName": "QUOTATION",
+    "type": "association"
+  },
+  {
+    "parentId": 1545,
+    "parentName": "REAL_ESTATE_INVESTMENT_TRUST",
+    "childId": 1547,
+    "childName": "REIT_DIVIDEND_SCHEDULE",
+    "type": "association"
+  },
+  {
+    "parentId": 1546,
+    "parentName": "REGULATORY_INVESTMENT_TYPE",
+    "childId": 343,
+    "childName": "INVESTMENT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1548,
+    "parentName": "SALES_MARKET",
+    "childId": 1549,
+    "childName": "SALES_MARKETING_ACTIVITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1549,
+    "parentName": "SALES_MARKETING_ACTIVITY",
+    "childId": 3415,
+    "childName": "SALES_MARKETING_ACTIVITY_CONTACT",
+    "type": "association"
+  },
+  {
+    "parentId": 1549,
+    "parentName": "SALES_MARKETING_ACTIVITY",
+    "childId": 3416,
+    "childName": "SALES_MARKETING_ACTIVITY_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 1549,
+    "parentName": "SALES_MARKETING_ACTIVITY",
+    "childId": 3417,
+    "childName": "SALES_MARKETING_ACTIVITY_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 1549,
+    "parentName": "SALES_MARKETING_ACTIVITY",
+    "childId": 0,
+    "childName": "SALES_MARKETING_ACTIVITY_RELATED_is_related",
+    "type": "association"
+  },
+  {
+    "parentId": 1549,
+    "parentName": "SALES_MARKETING_ACTIVITY",
+    "childId": 0,
+    "childName": "SALES_MARKETING_ACTIVITY_RELATED_relates",
+    "type": "association"
+  },
+  {
+    "parentId": 1549,
+    "parentName": "SALES_MARKETING_ACTIVITY",
+    "childId": 1555,
+    "childName": "SALES_MARKETING_ACTIVITY_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1549,
+    "parentName": "SALES_MARKETING_ACTIVITY",
+    "childId": 1557,
+    "childName": "SALES_MARKETING_ACTIVITY_TEXT_COMMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1550,
+    "parentName": "SALES_MARKETING_ACTIVITY_RELATED",
+    "childId": 1552,
+    "childName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1551,
+    "parentName": "SALES_MARKETING_ACTIVITY_RELATED_ROLE",
+    "childId": 1550,
+    "childName": "SALES_MARKETING_ACTIVITY_RELATED",
+    "type": "association"
+  },
+  {
+    "parentId": 1553,
+    "parentName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS_REASON",
+    "childId": 1552,
+    "childName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1554,
+    "parentName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS_TYPE",
+    "childId": 1552,
+    "childName": "SALES_MARKETING_ACTIVITY_RELATED_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1556,
+    "parentName": "SALES_MARKETING_ACTIVITY_STATUS_TYPE",
+    "childId": 1555,
+    "childName": "SALES_MARKETING_ACTIVITY_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1558,
+    "parentName": "SECONDARY_MARKET_STATUS_TYPE",
+    "childId": 224,
+    "childName": "CREDIT_AGREEMENT_SECONDARY_MARKET_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1560,
+    "parentName": "SECURITY_TYPE",
+    "childId": 248,
+    "childName": "CURRENT_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1560,
+    "parentName": "SECURITY_TYPE",
+    "childId": 353,
+    "childName": "LOAN_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1566,
+    "parentName": "SWAP_DIRECTION_TYPE",
+    "childId": 487,
+    "childName": "SWAP_AGREEMENT_LEG",
+    "type": "association"
+  },
+  {
+    "parentId": 1571,
+    "parentName": "SWAP_LEG_TYPE",
+    "childId": 487,
+    "childName": "SWAP_AGREEMENT_LEG",
+    "type": "association"
+  },
+  {
+    "parentId": 1572,
+    "parentName": "SWAP_METRIC_TYPE",
+    "childId": 488,
+    "childName": "SWAP_AGREEMENT_LEG_METRIC",
+    "type": "association"
+  },
+  {
+    "parentId": 1573,
+    "parentName": "SWAP_OBLIGATION_SUBTYPE",
+    "childId": 486,
+    "childName": "SWAP_AGREEMENT",
+    "type": "association"
+  },
+  {
+    "parentId": 1573,
+    "parentName": "SWAP_OBLIGATION_SUBTYPE",
+    "childId": 3660,
+    "childName": "SWAP_PRODUCT",
+    "type": "association"
+  },
+  {
+    "parentId": 1576,
+    "parentName": "TRADE_CANCEL_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1577,
+    "parentName": "TRADE_EVENT_SETTLE_INSTRUCTION",
+    "childId": 3444,
+    "childName": "TRADE_EVENT_SETTLE_PARTY",
+    "type": "association"
+  },
+  {
+    "parentId": 1578,
+    "parentName": "TRADE_EXECUTION",
+    "childId": 968,
+    "childName": "TRADE_EXECUTION_OTC_POST-TRADE",
+    "type": "association"
+  },
+  {
+    "parentId": 1578,
+    "parentName": "TRADE_EXECUTION",
+    "childId": 1580,
+    "childName": "TRADE_EXECUTION_WAIVER",
+    "type": "association"
+  },
+  {
+    "parentId": 1579,
+    "parentName": "TRADE_EXECUTION_STATUS_TYPE",
+    "childId": 1578,
+    "childName": "TRADE_EXECUTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1581,
+    "parentName": "TRADE_EXECUTION_WAIVER_TYPE",
+    "childId": 1580,
+    "childName": "TRADE_EXECUTION_WAIVER",
+    "type": "association"
+  },
+  {
+    "parentId": 1582,
+    "parentName": "TRADE_METHOD_TYPE",
+    "childId": 1578,
+    "childName": "TRADE_EXECUTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1583,
+    "parentName": "TRADE_ORDER",
+    "childId": 1589,
+    "childName": "TRADE_ORDER_RESTRICTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1583,
+    "parentName": "TRADE_ORDER",
+    "childId": 1591,
+    "childName": "TRADE_ORDER_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1583,
+    "parentName": "TRADE_ORDER",
+    "childId": 1594,
+    "childName": "TRADE_ORDER_VENUE_PRIORITY",
+    "type": "association"
+  },
+  {
+    "parentId": 1584,
+    "parentName": "TRADE_ORDER_BUY_SELL_TYPE",
+    "childId": 1578,
+    "childName": "TRADE_EXECUTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1584,
+    "parentName": "TRADE_ORDER_BUY_SELL_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1585,
+    "parentName": "TRADE_ORDER_EVENT_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1586,
+    "parentName": "TRADE_ORDER_INVESTMENT_DECIDER_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1587,
+    "parentName": "TRADE_ORDER_PHASE_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1588,
+    "parentName": "TRADE_ORDER_PRICE_NOTATION_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1590,
+    "parentName": "TRADE_ORDER_RESTRICTION_TYPE",
+    "childId": 1589,
+    "childName": "TRADE_ORDER_RESTRICTION",
+    "type": "association"
+  },
+  {
+    "parentId": 1592,
+    "parentName": "TRADE_ORDER_STATUS_TYPE",
+    "childId": 1591,
+    "childName": "TRADE_ORDER_STATUS",
+    "type": "association"
+  },
+  {
+    "parentId": 1593,
+    "parentName": "TRADE_ORDER_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1595,
+    "parentName": "TRADE_ORDER_VENUE_TYPE",
+    "childId": 1583,
+    "childName": "TRADE_ORDER",
+    "type": "association"
+  },
+  {
+    "parentId": 1598,
+    "parentName": "TRADE_SETTLE_PHYSICAL_DELIVERY",
+    "childId": 3443,
+    "childName": "TRADE_EVENT_SETTLE_LOCATOR",
+    "type": "association"
+  },
+  {
+    "parentId": 1599,
+    "parentName": "TREASURY_BOND_SUBTYPE",
+    "childId": 1600,
+    "childName": "U.S._TREASURY_BOND",
+    "type": "association"
+  },
+  {
+    "parentId": 1603,
+    "parentName": "YIELD_CURVE_MATURITY_SEGMENT_TYPE",
+    "childId": 2155,
+    "childName": "INTEREST_RATE_INDEX",
+    "type": "association"
+  },
+  {
+    "parentId": 1603,
+    "parentName": "YIELD_CURVE_MATURITY_SEGMENT_TYPE",
+    "childId": 3840,
+    "childName": "YIELD_CURVE_MATURITY_RISK_FACTOR",
+    "type": "association"
+  }
+]

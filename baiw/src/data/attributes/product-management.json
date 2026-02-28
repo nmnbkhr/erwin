@@ -1,0 +1,6316 @@
+[
+  {
+    "entityId": 3461,
+    "entityName": "ACCESS_DEVICE_FEATURE",
+    "name": "Access_Device_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3461,
+    "entityName": "ACCESS_DEVICE_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3462,
+    "entityName": "AD_PRODUCT_XREF",
+    "name": "Ad_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3462,
+    "entityName": "AD_PRODUCT_XREF",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3462,
+    "entityName": "AD_PRODUCT_XREF",
+    "name": "Ad_Item_Relationship_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3462,
+    "entityName": "AD_PRODUCT_XREF",
+    "name": "Ad_Item_Relationship_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3463,
+    "entityName": "AMOUNT_FEATURE",
+    "name": "From_Feature_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3463,
+    "entityName": "AMOUNT_FEATURE",
+    "name": "To_Feature_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3463,
+    "entityName": "AMOUNT_FEATURE",
+    "name": "Amount_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3463,
+    "entityName": "AMOUNT_FEATURE",
+    "name": "Amount_Time_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3463,
+    "entityName": "AMOUNT_FEATURE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Feature_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Overridden_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Feature_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Feature_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Feature_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Feature_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Application_Feature_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3464,
+    "entityName": "APPLICATION_FEATURE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Feature_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Related_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Related_Application_Feature_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Related_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Related_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Feature_Overridden_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Feature_Related_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Feature_Related_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Feature_Related_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Feature_Related_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Application_Feature_Related_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3465,
+    "entityName": "APPLICATION_FEATURE_RELATED",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3466,
+    "entityName": "APPLICATION_PRODUCT",
+    "name": "Application_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3466,
+    "entityName": "APPLICATION_PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3467,
+    "entityName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "name": "Asset-backed_Security_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3467,
+    "entityName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "name": "Securitization_Pool_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3467,
+    "entityName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "name": "ABS_Original_Principal_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3467,
+    "entityName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "name": "ABS_Coupon_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3467,
+    "entityName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "name": "ABS_Pool_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3467,
+    "entityName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "name": "ABS_Weighted_Average_Coupon_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3467,
+    "entityName": "ASSET-BACKED_SECURITY_PRODUCT",
+    "name": "ABS_Weighted_Average_Maturity_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3468,
+    "entityName": "ASSET_FEATURE",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3468,
+    "entityName": "ASSET_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3468,
+    "entityName": "ASSET_FEATURE",
+    "name": "Asset_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3468,
+    "entityName": "ASSET_FEATURE",
+    "name": "Asset_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3469,
+    "entityName": "BANKING_PRODUCT",
+    "name": "Banking_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3469,
+    "entityName": "BANKING_PRODUCT",
+    "name": "Banking_Line_Of_Business_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3470,
+    "entityName": "BANKING_PRODUCT_TYPE",
+    "name": "Banking_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3470,
+    "entityName": "BANKING_PRODUCT_TYPE",
+    "name": "Banking_Product_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3471,
+    "entityName": "BARRIER_OPTION_PRODUCT",
+    "name": "Barrier_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3471,
+    "entityName": "BARRIER_OPTION_PRODUCT",
+    "name": "Barrier_Option_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3472,
+    "entityName": "CAMPAIGN_PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3472,
+    "entityName": "CAMPAIGN_PRODUCT",
+    "name": "Campaign_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3472,
+    "entityName": "CAMPAIGN_PRODUCT",
+    "name": "Campaign_Product_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3473,
+    "entityName": "CAMPAIGN_PRODUCT_ROLE",
+    "name": "Campaign_Product_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3473,
+    "entityName": "CAMPAIGN_PRODUCT_ROLE",
+    "name": "Campaign_Product_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3474,
+    "entityName": "CHANNEL_FEATURE",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3474,
+    "entityName": "CHANNEL_FEATURE",
+    "name": "Channel_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3474,
+    "entityName": "CHANNEL_FEATURE",
+    "name": "Channel_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3474,
+    "entityName": "CHANNEL_FEATURE",
+    "name": "Channel_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3474,
+    "entityName": "CHANNEL_FEATURE",
+    "name": "Channel_Feature_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3474,
+    "entityName": "CHANNEL_FEATURE",
+    "name": "Channel_Feature_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3474,
+    "entityName": "CHANNEL_FEATURE",
+    "name": "Channel_Feature_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3475,
+    "entityName": "CLAIM_PRICING_RULE_TYPE",
+    "name": "Claim_Pricing_Rule_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3475,
+    "entityName": "CLAIM_PRICING_RULE_TYPE",
+    "name": "Claim_Pricing_Rule_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3476,
+    "entityName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3476,
+    "entityName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3476,
+    "entityName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "name": "Claim_Service_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3476,
+    "entityName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "name": "Claim_Service_Sequence_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3476,
+    "entityName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "name": "Claim_Service_Status_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3476,
+    "entityName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "name": "Claim_Service_Status_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3476,
+    "entityName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "name": "Claim_Service_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3476,
+    "entityName": "CLAIM_SERVICE_FEATURE_STATUS",
+    "name": "Claim_Service_Status_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3477,
+    "entityName": "COVERAGE_FEATURE",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3477,
+    "entityName": "COVERAGE_FEATURE",
+    "name": "Insurance_Coverage_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3477,
+    "entityName": "COVERAGE_FEATURE",
+    "name": "Insurance_Line_Of_Business_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3478,
+    "entityName": "CURRENCY_PRODUCT",
+    "name": "Currency_Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3480,
+    "entityName": "CUSIP_PRODUCT_IDENTIFIER",
+    "name": "CUSIP_Alpha-9_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3481,
+    "entityName": "DATE_FEATURE",
+    "name": "Feature_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3482,
+    "entityName": "DERIVATIVE_UNDERLYING_PRODUCT_TYPE",
+    "name": "Derivative_Underlying_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3482,
+    "entityName": "DERIVATIVE_UNDERLYING_PRODUCT_TYPE",
+    "name": "Derivative_Underlying_Product_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3483,
+    "entityName": "DESCRIPTIVE_FEATURE",
+    "name": "Descriptive_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3483,
+    "entityName": "DESCRIPTIVE_FEATURE",
+    "name": "Descriptive_Feature_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3484,
+    "entityName": "DESCRIPTIVE_FEATURE_TYPE",
+    "name": "Descriptive_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3484,
+    "entityName": "DESCRIPTIVE_FEATURE_TYPE",
+    "name": "Descriptive_Feature_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3485,
+    "entityName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "name": "Document_Production_Cycle_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3485,
+    "entityName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3485,
+    "entityName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "name": "Document_Cycle_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3485,
+    "entityName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "name": "Document_Cycle_Frequency_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3485,
+    "entityName": "DOCUMENT_PRODUCTION_CYCLE_TYPE",
+    "name": "Document_Cycle_Frequency_Day_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3486,
+    "entityName": "EVENT_FEATURE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3486,
+    "entityName": "EVENT_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3486,
+    "entityName": "EVENT_FEATURE",
+    "name": "Event_Feature_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3487,
+    "entityName": "EVENT_FEATURE_ROLE",
+    "name": "Event_Feature_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3487,
+    "entityName": "EVENT_FEATURE_ROLE",
+    "name": "Event_Feature_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3488,
+    "entityName": "EVENT_PRODUCT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3488,
+    "entityName": "EVENT_PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3488,
+    "entityName": "EVENT_PRODUCT",
+    "name": "Event_Product_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3489,
+    "entityName": "EVENT_PRODUCT_ROLE",
+    "name": "Event_Product_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3489,
+    "entityName": "EVENT_PRODUCT_ROLE",
+    "name": "Event_Product_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3490,
+    "entityName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "name": "Listed_Product_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3490,
+    "entityName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "name": "Product_Party_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3490,
+    "entityName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "name": "Related_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3490,
+    "entityName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3490,
+    "entityName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "name": "Exchange_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3490,
+    "entityName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "name": "Related_Exchange_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3490,
+    "entityName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "name": "Product_Party_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3490,
+    "entityName": "EXCHANGE_LISTED_PRODUCT_RELATED",
+    "name": "Related_Product_Party_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "name": "Feature_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "name": "Feature_Insurance_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "name": "Feature_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "name": "Feature_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "name": "Feature_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "name": "Common_Feature_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3491,
+    "entityName": "FEATURE",
+    "name": "Feature_Level_Subtype_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3492,
+    "entityName": "FEATURE-TO-FEATURE_GROUP",
+    "name": "Feature_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3492,
+    "entityName": "FEATURE-TO-FEATURE_GROUP",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3492,
+    "entityName": "FEATURE-TO-FEATURE_GROUP",
+    "name": "Feature-to-feature_Group_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3492,
+    "entityName": "FEATURE-TO-FEATURE_GROUP",
+    "name": "Feature-to-feature_Group_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3493,
+    "entityName": "FEATURE_CLASSIFICATION_TYPE",
+    "name": "Feature_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3493,
+    "entityName": "FEATURE_CLASSIFICATION_TYPE",
+    "name": "Feature_Classification_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3494,
+    "entityName": "FEATURE_CLASS_SCHEME_TYPE",
+    "name": "Feature_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3494,
+    "entityName": "FEATURE_CLASS_SCHEME_TYPE",
+    "name": "Parent_Feature_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3494,
+    "entityName": "FEATURE_CLASS_SCHEME_TYPE",
+    "name": "Feature_Class_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3494,
+    "entityName": "FEATURE_CLASS_SCHEME_TYPE",
+    "name": "Feature_Class_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3494,
+    "entityName": "FEATURE_CLASS_SCHEME_TYPE",
+    "name": "Feature_Class_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Feature_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Feature_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Parent_Feature_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Feature_Class_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Feature_Class_From_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Feature_Class_To_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Feature_Class_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3495,
+    "entityName": "FEATURE_CLASS_VALUE",
+    "name": "Feature_Class_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3496,
+    "entityName": "FEATURE_CLASS_VALUE_XREF",
+    "name": "Feature_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3496,
+    "entityName": "FEATURE_CLASS_VALUE_XREF",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3496,
+    "entityName": "FEATURE_CLASS_VALUE_XREF",
+    "name": "Feature_Class_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3496,
+    "entityName": "FEATURE_CLASS_VALUE_XREF",
+    "name": "Feature_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3496,
+    "entityName": "FEATURE_CLASS_VALUE_XREF",
+    "name": "Feature_Class_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3497,
+    "entityName": "FEATURE_ELIGIBILITY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3497,
+    "entityName": "FEATURE_ELIGIBILITY",
+    "name": "Product_Feature_Eligibility_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3497,
+    "entityName": "FEATURE_ELIGIBILITY",
+    "name": "Feature_Eligibility_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3497,
+    "entityName": "FEATURE_ELIGIBILITY",
+    "name": "Feature_Eligibility_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3497,
+    "entityName": "FEATURE_ELIGIBILITY",
+    "name": "Feature_Eligibility_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3498,
+    "entityName": "FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3498,
+    "entityName": "FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Event_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3498,
+    "entityName": "FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Feature_Event_Activity_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3498,
+    "entityName": "FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Feature_Event_Activity_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3498,
+    "entityName": "FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3499,
+    "entityName": "FEATURE_GEOGRAPHICAL_AREA",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3499,
+    "entityName": "FEATURE_GEOGRAPHICAL_AREA",
+    "name": "Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3499,
+    "entityName": "FEATURE_GEOGRAPHICAL_AREA",
+    "name": "Feature_Geographical_Area_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3499,
+    "entityName": "FEATURE_GEOGRAPHICAL_AREA",
+    "name": "Feature_Geographical_Area_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3499,
+    "entityName": "FEATURE_GEOGRAPHICAL_AREA",
+    "name": "Feature_Geographical_Area_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3500,
+    "entityName": "FEATURE_GEOGRAPHICAL_AREA_ROLE",
+    "name": "Feature_Geographical_Area_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3500,
+    "entityName": "FEATURE_GEOGRAPHICAL_AREA_ROLE",
+    "name": "Feature_Geographical_Area_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3501,
+    "entityName": "FEATURE_GROUP",
+    "name": "Feature_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3501,
+    "entityName": "FEATURE_GROUP",
+    "name": "Feature_Group_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3501,
+    "entityName": "FEATURE_GROUP",
+    "name": "Feature_Group_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3501,
+    "entityName": "FEATURE_GROUP",
+    "name": "Feature_Group_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3501,
+    "entityName": "FEATURE_GROUP",
+    "name": "Parent_Feature_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3501,
+    "entityName": "FEATURE_GROUP",
+    "name": "Feature_Group_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3501,
+    "entityName": "FEATURE_GROUP",
+    "name": "Feature_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3501,
+    "entityName": "FEATURE_GROUP",
+    "name": "Feature_Group_Host_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3502,
+    "entityName": "FEATURE_GROUP_METRIC",
+    "name": "Feature_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3502,
+    "entityName": "FEATURE_GROUP_METRIC",
+    "name": "Insurance_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3502,
+    "entityName": "FEATURE_GROUP_METRIC",
+    "name": "Feature_Group_Metric_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3502,
+    "entityName": "FEATURE_GROUP_METRIC",
+    "name": "Feature_Group_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3502,
+    "entityName": "FEATURE_GROUP_METRIC",
+    "name": "Feature_Group_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3502,
+    "entityName": "FEATURE_GROUP_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3502,
+    "entityName": "FEATURE_GROUP_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3503,
+    "entityName": "FEATURE_GROUP_TYPE",
+    "name": "Feature_Group_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3503,
+    "entityName": "FEATURE_GROUP_TYPE",
+    "name": "Feature_Group_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3504,
+    "entityName": "FEATURE_INSURANCE_SUBTYPE",
+    "name": "Feature_Insurance_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3504,
+    "entityName": "FEATURE_INSURANCE_SUBTYPE",
+    "name": "Feature_Insurance_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3505,
+    "entityName": "FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3505,
+    "entityName": "FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Occupation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3505,
+    "entityName": "FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Feature_Occupation_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3505,
+    "entityName": "FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Feature_Occupation_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3505,
+    "entityName": "FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3506,
+    "entityName": "FEATURE_RELATED",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3506,
+    "entityName": "FEATURE_RELATED",
+    "name": "Related_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3506,
+    "entityName": "FEATURE_RELATED",
+    "name": "Feature_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3506,
+    "entityName": "FEATURE_RELATED",
+    "name": "Feature_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3506,
+    "entityName": "FEATURE_RELATED",
+    "name": "Feature_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3507,
+    "entityName": "FEATURE_RELATIONSHIP_TYPE",
+    "name": "Feature_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3507,
+    "entityName": "FEATURE_RELATIONSHIP_TYPE",
+    "name": "Feature_Relationship_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3508,
+    "entityName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3508,
+    "entityName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3508,
+    "entityName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Feature_Credit_Rating_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3508,
+    "entityName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3508,
+    "entityName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Feature_Credit_Rating_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3508,
+    "entityName": "FEATURE_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3509,
+    "entityName": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3509,
+    "entityName": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3509,
+    "entityName": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Analytical_Model_Value_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3509,
+    "entityName": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Analytical_Model_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3509,
+    "entityName": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Feature_Score_Model_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3509,
+    "entityName": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Feature_Score_Model_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3509,
+    "entityName": "FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3510,
+    "entityName": "FEATURE_SUBJECT",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3511,
+    "entityName": "FEATURE_SUBTYPE",
+    "name": "Feature_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3511,
+    "entityName": "FEATURE_SUBTYPE",
+    "name": "Feature_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3512,
+    "entityName": "FEATURE_UNIFIED_COVERAGE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3512,
+    "entityName": "FEATURE_UNIFIED_COVERAGE",
+    "name": "Unified_Coverage_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3512,
+    "entityName": "FEATURE_UNIFIED_COVERAGE",
+    "name": "Feature_Unified_Coverage_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3512,
+    "entityName": "FEATURE_UNIFIED_COVERAGE",
+    "name": "Feature_Unified_Coverage_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3513,
+    "entityName": "FINANCIAL_EVENT_AMOUNT_FEATURE",
+    "name": "Financial_Event_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3513,
+    "entityName": "FINANCIAL_EVENT_AMOUNT_FEATURE",
+    "name": "Financial_Event_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3513,
+    "entityName": "FINANCIAL_EVENT_AMOUNT_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3513,
+    "entityName": "FINANCIAL_EVENT_AMOUNT_FEATURE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3514,
+    "entityName": "FINANCIAL_PRODUCT",
+    "name": "Balance_Sheet_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3514,
+    "entityName": "FINANCIAL_PRODUCT",
+    "name": "Asset_Liability_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3515,
+    "entityName": "FISN_PRODUCT_IDENTIFIER",
+    "name": "FISN_Issuer_Name",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3515,
+    "entityName": "FISN_PRODUCT_IDENTIFIER",
+    "name": "FISN_Instrument_Name",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3516,
+    "entityName": "FIXED_INTEREST_RATE_FEATURE",
+    "name": "Fixed_Interest_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3517,
+    "entityName": "GL_NONSERVICE_PRODUCT_TYPE",
+    "name": "GL_Nonservice_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3517,
+    "entityName": "GL_NONSERVICE_PRODUCT_TYPE",
+    "name": "GL_Nonservice_Product_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3519,
+    "entityName": "GL_PRODUCT_SEGMENT",
+    "name": "GL_Product_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3520,
+    "entityName": "GL_REPORTING_NONSERVICE_PRODUCT",
+    "name": "GL_Nonservice_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3521,
+    "entityName": "GL_REPORTING_SERVICE_PRODUCT",
+    "name": "GL_Service_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3522,
+    "entityName": "GL_SERVICE_PRODUCT_TYPE",
+    "name": "GL_Service_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3522,
+    "entityName": "GL_SERVICE_PRODUCT_TYPE",
+    "name": "GL_Service_Product_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3523,
+    "entityName": "INSURANCE_PRODUCT",
+    "name": "Insurance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3524,
+    "entityName": "INTEREST_INDEX_PRODUCT",
+    "name": "Interest_Rate_Index_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Investment_Product_Trade_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Investment_Product_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Day_Count_Basis_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Seniority_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Basel_III_Capital_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Request_For_Venue_Trading_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Trading_Venue_Admission_Approval_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Trading_Venue_Admission_Request_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3525,
+    "entityName": "INVESTMENT_PRODUCT",
+    "name": "Trading_Venue_Admission_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3526,
+    "entityName": "INVESTMENT_PRODUCT_CFI",
+    "name": "CFI_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3526,
+    "entityName": "INVESTMENT_PRODUCT_CFI",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3526,
+    "entityName": "INVESTMENT_PRODUCT_CFI",
+    "name": "Investment_Product_CFI_Code_Assignment_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3527,
+    "entityName": "INVESTMENT_PRODUCT_EVENT",
+    "name": "Investment_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3527,
+    "entityName": "INVESTMENT_PRODUCT_EVENT",
+    "name": "Investment_Event_Unit_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3527,
+    "entityName": "INVESTMENT_PRODUCT_EVENT",
+    "name": "Investment_Event_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3527,
+    "entityName": "INVESTMENT_PRODUCT_EVENT",
+    "name": "Foreign_Exchange_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3527,
+    "entityName": "INVESTMENT_PRODUCT_EVENT",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3527,
+    "entityName": "INVESTMENT_PRODUCT_EVENT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3527,
+    "entityName": "INVESTMENT_PRODUCT_EVENT",
+    "name": "Deciding_Model_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3528,
+    "entityName": "INVESTMENT_PRODUCT_EXTERNAL_EVENT_SUBTYPE",
+    "name": "Investment_Product_External_Event_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3528,
+    "entityName": "INVESTMENT_PRODUCT_EXTERNAL_EVENT_SUBTYPE",
+    "name": "Investment_Product_Event_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3529,
+    "entityName": "INVESTMENT_PRODUCT_GROUP_RISK_FACTOR",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3529,
+    "entityName": "INVESTMENT_PRODUCT_GROUP_RISK_FACTOR",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3529,
+    "entityName": "INVESTMENT_PRODUCT_GROUP_RISK_FACTOR",
+    "name": "Investment_Product_Group_Risk_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3529,
+    "entityName": "INVESTMENT_PRODUCT_GROUP_RISK_FACTOR",
+    "name": "Investment_Product_Group_Risk_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3530,
+    "entityName": "INVESTMENT_PRODUCT_INDEX",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3530,
+    "entityName": "INVESTMENT_PRODUCT_INDEX",
+    "name": "Interest_Rate_Index_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3530,
+    "entityName": "INVESTMENT_PRODUCT_INDEX",
+    "name": "Investment_Product_Index_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3531,
+    "entityName": "INVESTMENT_PRODUCT_INDEX_PURPOSE_TYPE",
+    "name": "Investment_Product_Index_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3531,
+    "entityName": "INVESTMENT_PRODUCT_INDEX_PURPOSE_TYPE",
+    "name": "Investment_Product_Index_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3532,
+    "entityName": "INVESTMENT_PRODUCT_RISK_FACTOR",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3532,
+    "entityName": "INVESTMENT_PRODUCT_RISK_FACTOR",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3532,
+    "entityName": "INVESTMENT_PRODUCT_RISK_FACTOR",
+    "name": "Investment_Product_Risk_Factor_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3532,
+    "entityName": "INVESTMENT_PRODUCT_RISK_FACTOR",
+    "name": "Investment_Product_Risk_Factor_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3533,
+    "entityName": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3533,
+    "entityName": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3533,
+    "entityName": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "name": "Investment_Product_Zero_Haircut_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3533,
+    "entityName": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "name": "Investment_Product_Internal_Haircut_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3533,
+    "entityName": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "name": "Investment_Product_Remargining_Day_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3533,
+    "entityName": "INVESTMENT_PRODUCT_RISK_METRIC",
+    "name": "Investment_Product_Hold_Period_Day_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3534,
+    "entityName": "INVESTMENT_PRODUCT_SUBTYPE",
+    "name": "Investment_Product_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3534,
+    "entityName": "INVESTMENT_PRODUCT_SUBTYPE",
+    "name": "Investment_Product_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3535,
+    "entityName": "INVESTMENT_PRODUCT_TRADE_SUBTYPE",
+    "name": "Investment_Product_Trade_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3535,
+    "entityName": "INVESTMENT_PRODUCT_TRADE_SUBTYPE",
+    "name": "Investment_Product_Trade_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3536,
+    "entityName": "INVESTMENT_PRODUCT_TRADING_SUSPENSION",
+    "name": "Investment_Product_Suspension_Day_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3537,
+    "entityName": "INVOICE_FEATURE",
+    "name": "Invoice_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3537,
+    "entityName": "INVOICE_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3537,
+    "entityName": "INVOICE_FEATURE",
+    "name": "Invoice_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3537,
+    "entityName": "INVOICE_FEATURE",
+    "name": "Invoice_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3538,
+    "entityName": "ISIN_PRODUCT_IDENTIFIER",
+    "name": "ISO_3166_Country_Alpha-2_Cd",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3538,
+    "entityName": "ISIN_PRODUCT_IDENTIFIER",
+    "name": "NSIN_Alpha-9_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3538,
+    "entityName": "ISIN_PRODUCT_IDENTIFIER",
+    "name": "ISIN_Check_Digit_Alpha-1_Num",
+    "dataType": "VARCHAR(255)",
+    "nullable": true
+  },
+  {
+    "entityId": 3539,
+    "entityName": "LIABILITY_FEATURE",
+    "name": "Party_Liability_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3539,
+    "entityName": "LIABILITY_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3539,
+    "entityName": "LIABILITY_FEATURE",
+    "name": "Liability_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3539,
+    "entityName": "LIABILITY_FEATURE",
+    "name": "Liability_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3540,
+    "entityName": "LISTED_PRODUCT_RELATED_ROLE_TYPE",
+    "name": "Listed_Product_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3540,
+    "entityName": "LISTED_PRODUCT_RELATED_ROLE_TYPE",
+    "name": "Listed_Product_Related_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3541,
+    "entityName": "MONEY_MARKET_PRODUCT",
+    "name": "Money_Market_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3542,
+    "entityName": "MONEY_MARKET_PRODUCT_TYPE",
+    "name": "Money_Market_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3542,
+    "entityName": "MONEY_MARKET_PRODUCT_TYPE",
+    "name": "Money_Market_Product_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3543,
+    "entityName": "NEXT_OFFER_FEATURE",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3543,
+    "entityName": "NEXT_OFFER_FEATURE",
+    "name": "Event_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3543,
+    "entityName": "NEXT_OFFER_FEATURE",
+    "name": "Next_Activity_Sequence_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3543,
+    "entityName": "NEXT_OFFER_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3545,
+    "entityName": "NSIN_PRODUCT_IDENTIFIER",
+    "name": "NSIN_Alpha-9_Val",
+    "dataType": "VARCHAR(255)",
+    "nullable": false
+  },
+  {
+    "entityId": 3545,
+    "entityName": "NSIN_PRODUCT_IDENTIFIER",
+    "name": "Product_Identification_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3546,
+    "entityName": "OFFER_FEATURE",
+    "name": "Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3546,
+    "entityName": "OFFER_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3547,
+    "entityName": "OPPORTUNITY_FEATURE",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3547,
+    "entityName": "OPPORTUNITY_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3548,
+    "entityName": "OPPORTUNITY_PRODUCT",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3548,
+    "entityName": "OPPORTUNITY_PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3548,
+    "entityName": "OPPORTUNITY_PRODUCT",
+    "name": "Opportunity_Product_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3548,
+    "entityName": "OPPORTUNITY_PRODUCT",
+    "name": "Opportunity_Product_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3549,
+    "entityName": "OPPORTUNITY_PRODUCT_FEATURE",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3549,
+    "entityName": "OPPORTUNITY_PRODUCT_FEATURE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3549,
+    "entityName": "OPPORTUNITY_PRODUCT_FEATURE",
+    "name": "Opportunity_Product_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3549,
+    "entityName": "OPPORTUNITY_PRODUCT_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Underlying_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Style_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Exercise_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Put_Call_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Strike_Price_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Strike_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Premium_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_LEAP_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Expiration_Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Expiration_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Premium_Settlement_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Option_Value_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3550,
+    "entityName": "OPTION_PRODUCT",
+    "name": "Holiday_Calendar_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3551,
+    "entityName": "OTHER_PRODUCT_IDENTIFIER",
+    "name": "Other_Product_Id_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3552,
+    "entityName": "OTHER_RATE_FEATURE",
+    "name": "From_Other_Feature_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3552,
+    "entityName": "OTHER_RATE_FEATURE",
+    "name": "To_Other_Feature_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3553,
+    "entityName": "PACKAGE_OFFERING",
+    "name": "Package_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3554,
+    "entityName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "name": "Cart_Action_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3554,
+    "entityName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3554,
+    "entityName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "name": "Current_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3554,
+    "entityName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "name": "Visitor_Path_Analysis_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3554,
+    "entityName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3554,
+    "entityName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3554,
+    "entityName": "PATH_ANALYSIS_PRODUCT_XREF",
+    "name": "Visitor_Purchased_Item_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3555,
+    "entityName": "PAYMENT_CARD_PRODUCT",
+    "name": "Card_Association_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3556,
+    "entityName": "PLANNED_PRODUCT_REVENUE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3556,
+    "entityName": "PLANNED_PRODUCT_REVENUE",
+    "name": "Revenue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3556,
+    "entityName": "PLANNED_PRODUCT_REVENUE",
+    "name": "Planned_Product_Revenue_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3556,
+    "entityName": "PLANNED_PRODUCT_REVENUE",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3556,
+    "entityName": "PLANNED_PRODUCT_REVENUE",
+    "name": "Planned_Product_Revenue_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3556,
+    "entityName": "PLANNED_PRODUCT_REVENUE",
+    "name": "Planned_Product_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Agreement_Insurable_Interest_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Agreement_Insurable_Interest_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Insurable_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Related_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Insurable_Feature_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3557,
+    "entityName": "POLICY_INSURABLE_INTEREST_FEATURE_RELATED",
+    "name": "Insurable_Feature_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3558,
+    "entityName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3558,
+    "entityName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3558,
+    "entityName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "name": "Portfolio_Product_Holding_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3558,
+    "entityName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "name": "Portfolio_Product_Cost_Basis_Effective_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3558,
+    "entityName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "name": "Data_Source_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3558,
+    "entityName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "name": "Portfolio_Product_Cost_Basis_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3558,
+    "entityName": "PORTFOLIO_PRODUCT_COST_BASIS",
+    "name": "Investment_Cost_Basis_Change_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3559,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3559,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3559,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING",
+    "name": "Portfolio_Product_Holding_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3559,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING",
+    "name": "Portfolio_Product_Holding_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3559,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING",
+    "name": "Portfolio_Product_Investment_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3559,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING",
+    "name": "Position_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3559,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3560,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3560,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3560,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "name": "Portfolio_Product_Holding_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3560,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "name": "Portfolio_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3560,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "name": "Portfolio_Product_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3560,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "name": "Portfolio_Product_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3560,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "name": "Portfolio_Product_Holding_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3560,
+    "entityName": "PORTFOLIO_PRODUCT_HOLDING_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Portfolio_Product_Agreement_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Product_Margin_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Agreement_Portfolio_Relationship_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Agreement_Portfolio_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Product_Margin_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3561,
+    "entityName": "PORTFOLIO_PRODUCT_MARGIN_DETAIL",
+    "name": "Product_Margin_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3562,
+    "entityName": "PORTFOLIO_PRODUCT_QUANTITY",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3562,
+    "entityName": "PORTFOLIO_PRODUCT_QUANTITY",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3562,
+    "entityName": "PORTFOLIO_PRODUCT_QUANTITY",
+    "name": "Portfolio_Product_Holding_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3562,
+    "entityName": "PORTFOLIO_PRODUCT_QUANTITY",
+    "name": "Portfolio_Product_Quantity_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3562,
+    "entityName": "PORTFOLIO_PRODUCT_QUANTITY",
+    "name": "Portfolio_Product_Unit_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3562,
+    "entityName": "PORTFOLIO_PRODUCT_QUANTITY",
+    "name": "Portfolio_Product_Nominal_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Portfolio_Product_Agreement_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "COA_Code_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Agreement_Portfolio_Relationship_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Agreement_Portfolio_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Portfolio_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Set_Of_Books_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Portfolio_Product_COA_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3563,
+    "entityName": "PORTFOLIO_PRODUCT_TO_COA",
+    "name": "Portfolio_Product_COA_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3564,
+    "entityName": "PRICING_METHODOLOGY_TYPE",
+    "name": "Pricing_Methodology_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3564,
+    "entityName": "PRICING_METHODOLOGY_TYPE",
+    "name": "Pricing_Methodology_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3565,
+    "entityName": "PRICING_METHOD_SUBTYPE",
+    "name": "Pricing_Method_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3565,
+    "entityName": "PRICING_METHOD_SUBTYPE",
+    "name": "Pricing_Method_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Script_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Host_Product_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Package_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Financial_Product_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3567,
+    "entityName": "PRODUCT",
+    "name": "Product_Creation_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3568,
+    "entityName": "PRODUCT_CHANNEL_ROLE_TYPE",
+    "name": "Product_Channel_Type_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3568,
+    "entityName": "PRODUCT_CHANNEL_ROLE_TYPE",
+    "name": "Product_Channel_Type_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3569,
+    "entityName": "PRODUCT_CHANNEL_TYPE_XREF",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3569,
+    "entityName": "PRODUCT_CHANNEL_TYPE_XREF",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3569,
+    "entityName": "PRODUCT_CHANNEL_TYPE_XREF",
+    "name": "Product_Channel_Type_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3569,
+    "entityName": "PRODUCT_CHANNEL_TYPE_XREF",
+    "name": "Product_Channel_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3569,
+    "entityName": "PRODUCT_CHANNEL_TYPE_XREF",
+    "name": "Product_Channel_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3570,
+    "entityName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "name": "Product_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3570,
+    "entityName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "name": "Parent_Product_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3570,
+    "entityName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "name": "Product_Class_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3570,
+    "entityName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "name": "Product_Class_Scheme_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3570,
+    "entityName": "PRODUCT_CLASS_SCHEME_TYPE",
+    "name": "Product_Class_Scheme_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Product_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Product_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Parent_Product_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Product_Class_Value_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Product_Class_From_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Product_Class_To_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Product_Class_Value_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3571,
+    "entityName": "PRODUCT_CLASS_VALUE",
+    "name": "Product_Class_Value_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3572,
+    "entityName": "PRODUCT_CLASS_VALUE_XREF",
+    "name": "Product_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3572,
+    "entityName": "PRODUCT_CLASS_VALUE_XREF",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3572,
+    "entityName": "PRODUCT_CLASS_VALUE_XREF",
+    "name": "Product_Class_Xref_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3572,
+    "entityName": "PRODUCT_CLASS_VALUE_XREF",
+    "name": "Product_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3572,
+    "entityName": "PRODUCT_CLASS_VALUE_XREF",
+    "name": "Product_Class_Xref_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3573,
+    "entityName": "PRODUCT_COMPONENT_SHARE",
+    "name": "Investment_Product_Share_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3573,
+    "entityName": "PRODUCT_COMPONENT_SHARE",
+    "name": "Investment_Product_Share_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3574,
+    "entityName": "PRODUCT_COST",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3574,
+    "entityName": "PRODUCT_COST",
+    "name": "Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3574,
+    "entityName": "PRODUCT_COST",
+    "name": "Product_Cost_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3574,
+    "entityName": "PRODUCT_COST",
+    "name": "Product_Cost_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3574,
+    "entityName": "PRODUCT_COST",
+    "name": "Product_Cost_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3574,
+    "entityName": "PRODUCT_COST",
+    "name": "Product_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3575,
+    "entityName": "PRODUCT_DOCUMENT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3575,
+    "entityName": "PRODUCT_DOCUMENT",
+    "name": "Document_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3575,
+    "entityName": "PRODUCT_DOCUMENT",
+    "name": "Product_Document_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3575,
+    "entityName": "PRODUCT_DOCUMENT",
+    "name": "Product_Document_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3576,
+    "entityName": "PRODUCT_DOCUMENT_ROLE_TYPE",
+    "name": "Product_Document_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3576,
+    "entityName": "PRODUCT_DOCUMENT_ROLE_TYPE",
+    "name": "Product_Document_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3577,
+    "entityName": "PRODUCT_ELIGIBILITY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3577,
+    "entityName": "PRODUCT_ELIGIBILITY",
+    "name": "Product_Feature_Eligibility_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3577,
+    "entityName": "PRODUCT_ELIGIBILITY",
+    "name": "Product_Eligibility_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3577,
+    "entityName": "PRODUCT_ELIGIBILITY",
+    "name": "Product_Eligibility_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3577,
+    "entityName": "PRODUCT_ELIGIBILITY",
+    "name": "Product_Eligibility_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3578,
+    "entityName": "PRODUCT_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3578,
+    "entityName": "PRODUCT_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Event_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3578,
+    "entityName": "PRODUCT_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Product_Event_Activity_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3578,
+    "entityName": "PRODUCT_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Product_Event_Activity_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3578,
+    "entityName": "PRODUCT_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Product_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Product_Feature_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Product_Feature_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Product_Feature_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Product_Feature_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3579,
+    "entityName": "PRODUCT_FEATURE",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3580,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3580,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3580,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "name": "Product_Feature_Eligibility_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3580,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3580,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3580,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "name": "Product_Feature_Eligibility_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3580,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "name": "Product_Feature_Eligibility_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3580,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY",
+    "name": "Product_Feature_Eligibility_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3581,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY_CATEGORY_TYPE",
+    "name": "Product_Feature_Eligibility_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3581,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY_CATEGORY_TYPE",
+    "name": "Product_Feature_Eligibility_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3582,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "name": "Product_Feature_Eligibility_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3582,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "name": "Product_Feature_Eligibility_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3582,
+    "entityName": "PRODUCT_FEATURE_ELIGIBILITY_TYPE",
+    "name": "Product_Feature_Eligibility_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3583,
+    "entityName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3583,
+    "entityName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3583,
+    "entityName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3583,
+    "entityName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3583,
+    "entityName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Event_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3583,
+    "entityName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Product_Feature_Event_Activity_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3583,
+    "entityName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Product_Feature_Event_Activity_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3583,
+    "entityName": "PRODUCT_FEATURE_EVENT_ACTIVITY_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3584,
+    "entityName": "PRODUCT_FEATURE_GROUP",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3584,
+    "entityName": "PRODUCT_FEATURE_GROUP",
+    "name": "Feature_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3584,
+    "entityName": "PRODUCT_FEATURE_GROUP",
+    "name": "Product_Feature_Group_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3584,
+    "entityName": "PRODUCT_FEATURE_GROUP",
+    "name": "Dependent_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3584,
+    "entityName": "PRODUCT_FEATURE_GROUP",
+    "name": "Product_Feature_Group_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Job_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Leeway_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Leeway_Spread_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Leeway_Term_Day_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3585,
+    "entityName": "PRODUCT_FEATURE_LEEWAY",
+    "name": "Leeway_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3586,
+    "entityName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3586,
+    "entityName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3586,
+    "entityName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3586,
+    "entityName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3586,
+    "entityName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Occupation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3586,
+    "entityName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Product_Feature_Occupation_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3586,
+    "entityName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Product_Feature_Occupation_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3586,
+    "entityName": "PRODUCT_FEATURE_OCCUPATION_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3587,
+    "entityName": "PRODUCT_FEATURE_PERIL",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3587,
+    "entityName": "PRODUCT_FEATURE_PERIL",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3587,
+    "entityName": "PRODUCT_FEATURE_PERIL",
+    "name": "Peril_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3587,
+    "entityName": "PRODUCT_FEATURE_PERIL",
+    "name": "Product_Feature_Peril_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3587,
+    "entityName": "PRODUCT_FEATURE_PERIL",
+    "name": "Product_Feature_Peril_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3587,
+    "entityName": "PRODUCT_FEATURE_PERIL",
+    "name": "Exclusion_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3587,
+    "entityName": "PRODUCT_FEATURE_PERIL",
+    "name": "Product_Feature_Peril_Premium_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3588,
+    "entityName": "PRODUCT_FEATURE_RELATED",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3588,
+    "entityName": "PRODUCT_FEATURE_RELATED",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3588,
+    "entityName": "PRODUCT_FEATURE_RELATED",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3588,
+    "entityName": "PRODUCT_FEATURE_RELATED",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3588,
+    "entityName": "PRODUCT_FEATURE_RELATED",
+    "name": "Related_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3588,
+    "entityName": "PRODUCT_FEATURE_RELATED",
+    "name": "Product_Feature_Related_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3588,
+    "entityName": "PRODUCT_FEATURE_RELATED",
+    "name": "Product_Feature_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3588,
+    "entityName": "PRODUCT_FEATURE_RELATED",
+    "name": "Product_Feature_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Product_Feature_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Product_Feature_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3589,
+    "entityName": "PRODUCT_FEATURE_RISK_ELIGIBILITY_RULE",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Analytical_Model_Value_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Analytical_Model_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Product_Feature_Score_Model_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Product_Feature_Score_Model_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3590,
+    "entityName": "PRODUCT_FEATURE_SCORE_MODEL_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3591,
+    "entityName": "PRODUCT_FEATURE_STATUS",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3591,
+    "entityName": "PRODUCT_FEATURE_STATUS",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3591,
+    "entityName": "PRODUCT_FEATURE_STATUS",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3591,
+    "entityName": "PRODUCT_FEATURE_STATUS",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3591,
+    "entityName": "PRODUCT_FEATURE_STATUS",
+    "name": "Product_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3591,
+    "entityName": "PRODUCT_FEATURE_STATUS",
+    "name": "Product_Feature_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3592,
+    "entityName": "PRODUCT_FEATURE_STATUS_TYPE",
+    "name": "Product_Feature_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3592,
+    "entityName": "PRODUCT_FEATURE_STATUS_TYPE",
+    "name": "Product_Feature_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3593,
+    "entityName": "PRODUCT_FEATURE_TYPE",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3593,
+    "entityName": "PRODUCT_FEATURE_TYPE",
+    "name": "Product_Feature_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3594,
+    "entityName": "PRODUCT_FINANCIAL_RULE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3594,
+    "entityName": "PRODUCT_FINANCIAL_RULE",
+    "name": "Financial_Rule_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3595,
+    "entityName": "PRODUCT_GROUP",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3595,
+    "entityName": "PRODUCT_GROUP",
+    "name": "Parent_Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3595,
+    "entityName": "PRODUCT_GROUP",
+    "name": "Product_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3595,
+    "entityName": "PRODUCT_GROUP",
+    "name": "Product_Group_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3595,
+    "entityName": "PRODUCT_GROUP",
+    "name": "Product_Group_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3595,
+    "entityName": "PRODUCT_GROUP",
+    "name": "Product_Group_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3595,
+    "entityName": "PRODUCT_GROUP",
+    "name": "Product_Group_Level_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3595,
+    "entityName": "PRODUCT_GROUP",
+    "name": "Product_Group_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3596,
+    "entityName": "PRODUCT_GROUP_BASEL_1_WEIGHT",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3596,
+    "entityName": "PRODUCT_GROUP_BASEL_1_WEIGHT",
+    "name": "Asset_Liability_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3596,
+    "entityName": "PRODUCT_GROUP_BASEL_1_WEIGHT",
+    "name": "Basel_1_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3597,
+    "entityName": "PRODUCT_GROUP_LIMIT",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3597,
+    "entityName": "PRODUCT_GROUP_LIMIT",
+    "name": "Limit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3597,
+    "entityName": "PRODUCT_GROUP_LIMIT",
+    "name": "Product_Group_Limit_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3597,
+    "entityName": "PRODUCT_GROUP_LIMIT",
+    "name": "Product_Group_Limit_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3597,
+    "entityName": "PRODUCT_GROUP_LIMIT",
+    "name": "Product_Group_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3597,
+    "entityName": "PRODUCT_GROUP_LIMIT",
+    "name": "Product_Group_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3598,
+    "entityName": "PRODUCT_GROUP_MARGIN",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3598,
+    "entityName": "PRODUCT_GROUP_MARGIN",
+    "name": "Product_Group_Margin_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3598,
+    "entityName": "PRODUCT_GROUP_MARGIN",
+    "name": "Product_Group_Margin_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3598,
+    "entityName": "PRODUCT_GROUP_MARGIN",
+    "name": "Product_Group_Margin_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Metric_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Metric_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Metric_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Product_Group_Metric_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3599,
+    "entityName": "PRODUCT_GROUP_METRIC",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3600,
+    "entityName": "PRODUCT_GROUP_METRIC_TYPE",
+    "name": "Product_Group_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3600,
+    "entityName": "PRODUCT_GROUP_METRIC_TYPE",
+    "name": "Product_Group_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3601,
+    "entityName": "PRODUCT_GROUP_REASON_TYPE",
+    "name": "Product_Group_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3601,
+    "entityName": "PRODUCT_GROUP_REASON_TYPE",
+    "name": "Product_Group_Reason_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3602,
+    "entityName": "PRODUCT_GROUP_RISK_GRADE",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3602,
+    "entityName": "PRODUCT_GROUP_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3602,
+    "entityName": "PRODUCT_GROUP_RISK_GRADE",
+    "name": "Product_Group_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3602,
+    "entityName": "PRODUCT_GROUP_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3602,
+    "entityName": "PRODUCT_GROUP_RISK_GRADE",
+    "name": "Product_Group_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3602,
+    "entityName": "PRODUCT_GROUP_RISK_GRADE",
+    "name": "Product_Group_Risk_Grade_Rated_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3603,
+    "entityName": "PRODUCT_GROUP_SUBJECT",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3604,
+    "entityName": "PRODUCT_LIMIT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3604,
+    "entityName": "PRODUCT_LIMIT",
+    "name": "Limit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3604,
+    "entityName": "PRODUCT_LIMIT",
+    "name": "Product_Limit_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3604,
+    "entityName": "PRODUCT_LIMIT",
+    "name": "Product_Limit_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3604,
+    "entityName": "PRODUCT_LIMIT",
+    "name": "Product_Limit_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3604,
+    "entityName": "PRODUCT_LIMIT",
+    "name": "Product_Limit_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3605,
+    "entityName": "PRODUCT_MARKET_SEGMENT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3605,
+    "entityName": "PRODUCT_MARKET_SEGMENT",
+    "name": "Market_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3605,
+    "entityName": "PRODUCT_MARKET_SEGMENT",
+    "name": "Product_Market_Segment_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3605,
+    "entityName": "PRODUCT_MARKET_SEGMENT",
+    "name": "Product_Market_Segment_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Metric_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Metric_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Metric_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Metric_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Metric_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Metric_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Product_Metric_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3606,
+    "entityName": "PRODUCT_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3607,
+    "entityName": "PRODUCT_METRIC_TYPE",
+    "name": "Product_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3607,
+    "entityName": "PRODUCT_METRIC_TYPE",
+    "name": "Product_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3608,
+    "entityName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3608,
+    "entityName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER",
+    "name": "Minimum_Holding_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3608,
+    "entityName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER",
+    "name": "Minimum_Holding_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3608,
+    "entityName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER",
+    "name": "Minimum_Holding_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3608,
+    "entityName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER",
+    "name": "Minimum_Holding_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3608,
+    "entityName": "PRODUCT_MINIMUM_HOLDING_PERIOD_PARAMETER",
+    "name": "Remargining_Minimum_Hold_Time_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3609,
+    "entityName": "PRODUCT_OCCUPATION_ELIGIBILITY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3609,
+    "entityName": "PRODUCT_OCCUPATION_ELIGIBILITY",
+    "name": "Occupation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3609,
+    "entityName": "PRODUCT_OCCUPATION_ELIGIBILITY",
+    "name": "Product_Occupation_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3609,
+    "entityName": "PRODUCT_OCCUPATION_ELIGIBILITY",
+    "name": "Product_Occupation_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3609,
+    "entityName": "PRODUCT_OCCUPATION_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3610,
+    "entityName": "PRODUCT_OFFER",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3610,
+    "entityName": "PRODUCT_OFFER",
+    "name": "Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3611,
+    "entityName": "PRODUCT_PACKAGE",
+    "name": "Package_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3611,
+    "entityName": "PRODUCT_PACKAGE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3612,
+    "entityName": "PRODUCT_PACKAGE_FEATURE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3612,
+    "entityName": "PRODUCT_PACKAGE_FEATURE",
+    "name": "Package_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3612,
+    "entityName": "PRODUCT_PACKAGE_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3612,
+    "entityName": "PRODUCT_PACKAGE_FEATURE",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3612,
+    "entityName": "PRODUCT_PACKAGE_FEATURE",
+    "name": "Product_Package_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3612,
+    "entityName": "PRODUCT_PACKAGE_FEATURE",
+    "name": "Product_Package_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Package_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Job_Classification_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Product_Package_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Leeway_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Product_Package_Leeway_Spread_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Product_Package_Leeway_Term_Day_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3613,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_LEEWAY",
+    "name": "Product_Package_Leeway_Balance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Package_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Product_Package_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Related_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Product_Package_Feature_Relationship_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Product_Package_Feature_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3614,
+    "entityName": "PRODUCT_PACKAGE_FEATURE_RELATED",
+    "name": "Product_Package_Feature_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3615,
+    "entityName": "PRODUCT_PACKAGE_TYPE",
+    "name": "Product_Package_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3615,
+    "entityName": "PRODUCT_PACKAGE_TYPE",
+    "name": "Product_Package_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3616,
+    "entityName": "PRODUCT_PAYMENT_OPTION",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3616,
+    "entityName": "PRODUCT_PAYMENT_OPTION",
+    "name": "Payment_Option_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3617,
+    "entityName": "PRODUCT_PROFIT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3617,
+    "entityName": "PRODUCT_PROFIT",
+    "name": "Profit_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3617,
+    "entityName": "PRODUCT_PROFIT",
+    "name": "Product_Profit_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3617,
+    "entityName": "PRODUCT_PROFIT",
+    "name": "Product_Profit_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3617,
+    "entityName": "PRODUCT_PROFIT",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3617,
+    "entityName": "PRODUCT_PROFIT",
+    "name": "Product_Profit_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3618,
+    "entityName": "PRODUCT_RELATED",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3618,
+    "entityName": "PRODUCT_RELATED",
+    "name": "Related_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3618,
+    "entityName": "PRODUCT_RELATED",
+    "name": "Product_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3618,
+    "entityName": "PRODUCT_RELATED",
+    "name": "Product_Structure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3618,
+    "entityName": "PRODUCT_RELATED",
+    "name": "Product_Related_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3618,
+    "entityName": "PRODUCT_RELATED",
+    "name": "Product_Related_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3618,
+    "entityName": "PRODUCT_RELATED",
+    "name": "Product_Related_Correlation_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3618,
+    "entityName": "PRODUCT_RELATED",
+    "name": "Product_Related_Level_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3619,
+    "entityName": "PRODUCT_RELATIONSHIP_TYPE",
+    "name": "Product_Relationship_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3619,
+    "entityName": "PRODUCT_RELATIONSHIP_TYPE",
+    "name": "Product_Relationship_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3620,
+    "entityName": "PRODUCT_REVENUE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3620,
+    "entityName": "PRODUCT_REVENUE",
+    "name": "Revenue_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3620,
+    "entityName": "PRODUCT_REVENUE",
+    "name": "Product_Revenue_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3620,
+    "entityName": "PRODUCT_REVENUE",
+    "name": "Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3620,
+    "entityName": "PRODUCT_REVENUE",
+    "name": "Product_Revenue_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3620,
+    "entityName": "PRODUCT_REVENUE",
+    "name": "Product_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3621,
+    "entityName": "PRODUCT_REVIEW_EVENT",
+    "name": "Product_Review_Rating_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3621,
+    "entityName": "PRODUCT_REVIEW_EVENT",
+    "name": "Product_Review_Information_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3621,
+    "entityName": "PRODUCT_REVIEW_EVENT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3622,
+    "entityName": "PRODUCT_RISK_GRADE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3622,
+    "entityName": "PRODUCT_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3622,
+    "entityName": "PRODUCT_RISK_GRADE",
+    "name": "Product_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3622,
+    "entityName": "PRODUCT_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3622,
+    "entityName": "PRODUCT_RISK_GRADE",
+    "name": "Product_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3622,
+    "entityName": "PRODUCT_RISK_GRADE",
+    "name": "Product_Risk_Grade_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3623,
+    "entityName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3623,
+    "entityName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3623,
+    "entityName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Product_Eligibility_Risk_Grade_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3623,
+    "entityName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Product_Eligibility_Risk_Grade_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3623,
+    "entityName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3623,
+    "entityName": "PRODUCT_RISK_GRADE_ELIGIBILITY_RULE",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Product_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Related_Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Related_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Risk_Assessment_Related_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Product_Risk_Override_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Risk_Assess_Override_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Override_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3624,
+    "entityName": "PRODUCT_RISK_GRADE_RELATED",
+    "name": "Product_Risk_Override_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3625,
+    "entityName": "PRODUCT_SCORE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3625,
+    "entityName": "PRODUCT_SCORE",
+    "name": "Analytical_Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3625,
+    "entityName": "PRODUCT_SCORE",
+    "name": "Model_Run_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3625,
+    "entityName": "PRODUCT_SCORE",
+    "name": "Product_Score_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3626,
+    "entityName": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3626,
+    "entityName": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3626,
+    "entityName": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "name": "Analytical_Model_Value_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3626,
+    "entityName": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "name": "Product_Score_Model_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3626,
+    "entityName": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "name": "Analytical_Model_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3626,
+    "entityName": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "name": "Product_Score_Model_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3626,
+    "entityName": "PRODUCT_SCORE_MODEL_ELIGIBILITY",
+    "name": "Eligibility_Restriction_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3627,
+    "entityName": "PRODUCT_STATUS",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3627,
+    "entityName": "PRODUCT_STATUS",
+    "name": "Product_Status_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3627,
+    "entityName": "PRODUCT_STATUS",
+    "name": "Product_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3628,
+    "entityName": "PRODUCT_STATUS_TYPE",
+    "name": "Product_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3628,
+    "entityName": "PRODUCT_STATUS_TYPE",
+    "name": "Product_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3629,
+    "entityName": "PRODUCT_STRUCTURE_TYPE",
+    "name": "Product_Structure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3629,
+    "entityName": "PRODUCT_STRUCTURE_TYPE",
+    "name": "Product_Structure_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3630,
+    "entityName": "PRODUCT_SUBTYPE",
+    "name": "Product_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3630,
+    "entityName": "PRODUCT_SUBTYPE",
+    "name": "Product_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3631,
+    "entityName": "PRODUCT_TAX_STATUS",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3631,
+    "entityName": "PRODUCT_TAX_STATUS",
+    "name": "Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3631,
+    "entityName": "PRODUCT_TAX_STATUS",
+    "name": "Product_Tax_Status_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3631,
+    "entityName": "PRODUCT_TAX_STATUS",
+    "name": "Tax_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3632,
+    "entityName": "PRODUCT_TO_PRODUCT_GROUP",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3632,
+    "entityName": "PRODUCT_TO_PRODUCT_GROUP",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3632,
+    "entityName": "PRODUCT_TO_PRODUCT_GROUP",
+    "name": "Product_To_Product_Group_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3632,
+    "entityName": "PRODUCT_TO_PRODUCT_GROUP",
+    "name": "Product_To_Product_Group_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3632,
+    "entityName": "PRODUCT_TO_PRODUCT_GROUP",
+    "name": "Product_To_Product_Group_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3633,
+    "entityName": "PRODUCT_TO_PRODUCT_GROUP_ROLE_TYPE",
+    "name": "Product_To_Product_Group_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3633,
+    "entityName": "PRODUCT_TO_PRODUCT_GROUP_ROLE_TYPE",
+    "name": "Product_To_Product_Group_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3634,
+    "entityName": "PRODUCT_TO_PRODUCT_IDENTIFIER",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3634,
+    "entityName": "PRODUCT_TO_PRODUCT_IDENTIFIER",
+    "name": "Product_Identification_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3634,
+    "entityName": "PRODUCT_TO_PRODUCT_IDENTIFIER",
+    "name": "Product_To_Product_Id_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3634,
+    "entityName": "PRODUCT_TO_PRODUCT_IDENTIFIER",
+    "name": "Product_To_Product_Id_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3635,
+    "entityName": "PRODUCT_VALUE_AT_RISK",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3635,
+    "entityName": "PRODUCT_VALUE_AT_RISK",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3635,
+    "entityName": "PRODUCT_VALUE_AT_RISK",
+    "name": "Product_Holding_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3635,
+    "entityName": "PRODUCT_VALUE_AT_RISK",
+    "name": "Product_Holding_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3635,
+    "entityName": "PRODUCT_VALUE_AT_RISK",
+    "name": "Product_VAR_Confidence_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3635,
+    "entityName": "PRODUCT_VALUE_AT_RISK",
+    "name": "Product_VAR_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3635,
+    "entityName": "PRODUCT_VALUE_AT_RISK",
+    "name": "Product_VAR_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3636,
+    "entityName": "PRODUCT_VIEW_WEB_EVENT",
+    "name": "Viewed_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3636,
+    "entityName": "PRODUCT_VIEW_WEB_EVENT",
+    "name": "Viewed_Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3637,
+    "entityName": "PROJECT_TASK_RESOURCE_PRODUCT",
+    "name": "Fixed_Asset_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3638,
+    "entityName": "PROMOTED_PRODUCT_EVENT",
+    "name": "Shopping_Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3638,
+    "entityName": "PROMOTED_PRODUCT_EVENT",
+    "name": "Shopping_Cart_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3638,
+    "entityName": "PROMOTED_PRODUCT_EVENT",
+    "name": "Shopping_Cart_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3638,
+    "entityName": "PROMOTED_PRODUCT_EVENT",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3638,
+    "entityName": "PROMOTED_PRODUCT_EVENT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3638,
+    "entityName": "PROMOTED_PRODUCT_EVENT",
+    "name": "Promotion_Tracking_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3639,
+    "entityName": "PROMOTION_PRODUCT_OFFER",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3639,
+    "entityName": "PROMOTION_PRODUCT_OFFER",
+    "name": "Promotion_Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3639,
+    "entityName": "PROMOTION_PRODUCT_OFFER",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3640,
+    "entityName": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3640,
+    "entityName": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "name": "Promotion_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3640,
+    "entityName": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "name": "Promotion_Offer_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3640,
+    "entityName": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3640,
+    "entityName": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "name": "Product_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3640,
+    "entityName": "PROMOTION_PRODUCT_OFFER_FEATURE",
+    "name": "Product_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3641,
+    "entityName": "PROPOSAL_FEATURE",
+    "name": "Proposal_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3641,
+    "entityName": "PROPOSAL_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3642,
+    "entityName": "PROPOSAL_PRODUCT",
+    "name": "Proposal_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3642,
+    "entityName": "PROPOSAL_PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3643,
+    "entityName": "PROPOSAL_PRODUCT_FEATURE",
+    "name": "Proposal_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3643,
+    "entityName": "PROPOSAL_PRODUCT_FEATURE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3643,
+    "entityName": "PROPOSAL_PRODUCT_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3644,
+    "entityName": "QUANTITY_FEATURE",
+    "name": "Quantity_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3644,
+    "entityName": "QUANTITY_FEATURE",
+    "name": "Quantity_Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3644,
+    "entityName": "QUANTITY_FEATURE",
+    "name": "Feature_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3644,
+    "entityName": "QUANTITY_FEATURE",
+    "name": "Feature_Time_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Feature_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Overridden_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Feature_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Feature_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Feature_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Feature_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Quotation_Feature_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3645,
+    "entityName": "QUOTATION_FEATURE",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Related_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Related_Quotation_Feature_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Related_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Related_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Overridden_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Related_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Related_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Related_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Related_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Quotation_Feature_Related_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3646,
+    "entityName": "QUOTATION_FEATURE_RELATED",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3647,
+    "entityName": "QUOTATION_PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3647,
+    "entityName": "QUOTATION_PRODUCT",
+    "name": "Quotation_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3648,
+    "entityName": "RATE_FEATURE",
+    "name": "Rate_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3648,
+    "entityName": "RATE_FEATURE",
+    "name": "Rate_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3648,
+    "entityName": "RATE_FEATURE",
+    "name": "Rate_Time_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3649,
+    "entityName": "RATE_FEATURE_TYPE",
+    "name": "Rate_Feature_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3649,
+    "entityName": "RATE_FEATURE_TYPE",
+    "name": "Rate_Feature_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3650,
+    "entityName": "REFERRAL_WEB_SITE_FEATURE_SUBTYPE",
+    "name": "Referral_Web_Site_Feature_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3650,
+    "entityName": "REFERRAL_WEB_SITE_FEATURE_SUBTYPE",
+    "name": "Referral_Feature_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3651,
+    "entityName": "REPORTING_PRODUCT",
+    "name": "GL_Product_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3651,
+    "entityName": "REPORTING_PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3652,
+    "entityName": "REPORTING_PRODUCT_GROUP",
+    "name": "GL_Product_Group_Segment_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3652,
+    "entityName": "REPORTING_PRODUCT_GROUP",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3652,
+    "entityName": "REPORTING_PRODUCT_GROUP",
+    "name": "Parent_Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3652,
+    "entityName": "REPORTING_PRODUCT_GROUP",
+    "name": "GL_Reporting_Product_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3652,
+    "entityName": "REPORTING_PRODUCT_GROUP",
+    "name": "GL_Reporting_Product_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3653,
+    "entityName": "SEARCH_PRODUCT_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3653,
+    "entityName": "SEARCH_PRODUCT_XREF",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3653,
+    "entityName": "SEARCH_PRODUCT_XREF",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3653,
+    "entityName": "SEARCH_PRODUCT_XREF",
+    "name": "Searched_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3656,
+    "entityName": "SERVICE_FEATURE",
+    "name": "Service_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3656,
+    "entityName": "SERVICE_FEATURE",
+    "name": "Insurance_Line_Of_Business_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3657,
+    "entityName": "SITE_PRODUCT",
+    "name": "Site_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3657,
+    "entityName": "SITE_PRODUCT",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3657,
+    "entityName": "SITE_PRODUCT",
+    "name": "Site_Product_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3657,
+    "entityName": "SITE_PRODUCT",
+    "name": "Site_Product_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3657,
+    "entityName": "SITE_PRODUCT",
+    "name": "Site_Product_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3658,
+    "entityName": "SITE_PRODUCT_ROLE",
+    "name": "Site_Product_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3658,
+    "entityName": "SITE_PRODUCT_ROLE",
+    "name": "Site_Product_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3659,
+    "entityName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "name": "Swap_Leg_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3659,
+    "entityName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3659,
+    "entityName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3659,
+    "entityName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "name": "Swap_Payment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3659,
+    "entityName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "name": "Swap_Leg_Feature_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3659,
+    "entityName": "SWAP_LEG_CASH_FLOW_FEATURE",
+    "name": "Swap_Leg_Feature_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3660,
+    "entityName": "SWAP_PRODUCT",
+    "name": "Swap_Obligation_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3660,
+    "entityName": "SWAP_PRODUCT",
+    "name": "Swapped_Underlying_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3660,
+    "entityName": "SWAP_PRODUCT",
+    "name": "Swap_Underlying_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3661,
+    "entityName": "TERM_FEATURE",
+    "name": "From_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3661,
+    "entityName": "TERM_FEATURE",
+    "name": "To_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3661,
+    "entityName": "TERM_FEATURE",
+    "name": "Until_Age_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3661,
+    "entityName": "TERM_FEATURE",
+    "name": "From_Time_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3661,
+    "entityName": "TERM_FEATURE",
+    "name": "To_Time_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3661,
+    "entityName": "TERM_FEATURE",
+    "name": "Until_Age_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3661,
+    "entityName": "TERM_FEATURE",
+    "name": "Term_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3662,
+    "entityName": "TRADED_INVESTMENT_PRODUCT",
+    "name": "Exchange_Product_Symbol_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3662,
+    "entityName": "TRADED_INVESTMENT_PRODUCT",
+    "name": "Exchange_Product_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3662,
+    "entityName": "TRADED_INVESTMENT_PRODUCT",
+    "name": "Business_Party_Exchange_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3662,
+    "entityName": "TRADED_INVESTMENT_PRODUCT",
+    "name": "Business_Party_Pricing_Source_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3663,
+    "entityName": "VARIABLE_INTEREST_RATE_FEATURE",
+    "name": "Spread_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3663,
+    "entityName": "VARIABLE_INTEREST_RATE_FEATURE",
+    "name": "Interest_Rate_Index_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3663,
+    "entityName": "VARIABLE_INTEREST_RATE_FEATURE",
+    "name": "Upper_Limit_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3663,
+    "entityName": "VARIABLE_INTEREST_RATE_FEATURE",
+    "name": "Lower_Limit_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Visitor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Web_Visit_Summary_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Total_Visit_Product_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Total_Visit_Product_Cost_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Total_Visit_Product_Revenue_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3664,
+    "entityName": "VISIT_PRODUCT_FEATURE_SUMMARY",
+    "name": "Product_Abandoned_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3665,
+    "entityName": "WEB_PAGE_PRODUCT_XREF",
+    "name": "Web_Page_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3665,
+    "entityName": "WEB_PAGE_PRODUCT_XREF",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3666,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "name": "Web_Visit_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3666,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "name": "Interaction_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3666,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "name": "Visitor_Interaction_Event_Sequence_Cnt",
+    "dataType": "INTEGER",
+    "nullable": false
+  },
+  {
+    "entityId": 3666,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "name": "Shopping_Experience_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3666,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "name": "Shopping_Experience_Item_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3666,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "name": "Shopping_Experience_Item_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3666,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "name": "Web_Site_Substitute_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3666,
+    "entityName": "WEB_SHOPPING_EXPERIENCE_EVENT_PRODUCT_XREF",
+    "name": "Web_Site_Section_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3667,
+    "entityName": "WORK_PRODUCT",
+    "name": "Work_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3667,
+    "entityName": "WORK_PRODUCT",
+    "name": "Work_Product_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3667,
+    "entityName": "WORK_PRODUCT",
+    "name": "Work_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3668,
+    "entityName": "WORK_PRODUCT_TYPE",
+    "name": "Work_Product_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3668,
+    "entityName": "WORK_PRODUCT_TYPE",
+    "name": "Work_Product_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  }
+]

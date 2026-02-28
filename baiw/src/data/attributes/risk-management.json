@@ -1,0 +1,4398 @@
+[
+  {
+    "entityId": 3708,
+    "entityName": "ACCESS_DEVICE_EVENT_RISK_REASON_TYPE",
+    "name": "Access_Device_Event_Risk_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3708,
+    "entityName": "ACCESS_DEVICE_EVENT_RISK_REASON_TYPE",
+    "name": "Access_Device_Event_Risk_Reason_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3709,
+    "entityName": "ANALYTICAL_MODEL_RISK_FACTOR",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3709,
+    "entityName": "ANALYTICAL_MODEL_RISK_FACTOR",
+    "name": "Risk_Factor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3709,
+    "entityName": "ANALYTICAL_MODEL_RISK_FACTOR",
+    "name": "Analytical_Model_Risk_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3709,
+    "entityName": "ANALYTICAL_MODEL_RISK_FACTOR",
+    "name": "Analytical_Model_Risk_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3709,
+    "entityName": "ANALYTICAL_MODEL_RISK_FACTOR",
+    "name": "Analytical_Model_Risk_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3710,
+    "entityName": "ANALYTICAL_MODEL_RISK_FACTOR_ROLE",
+    "name": "Analytical_Model_Risk_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3710,
+    "entityName": "ANALYTICAL_MODEL_RISK_FACTOR_ROLE",
+    "name": "Analytical_Model_Risk_Role_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3711,
+    "entityName": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3711,
+    "entityName": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "name": "Analytical_Model_Value_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3711,
+    "entityName": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3711,
+    "entityName": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3711,
+    "entityName": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "name": "Analytical_Model_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3711,
+    "entityName": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "name": "Analytical_Model_Risk_Grade_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3711,
+    "entityName": "ANALYTICAL_MODEL_TO_RISK_GRADE",
+    "name": "Analytical_Model_Risk_Grade_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3712,
+    "entityName": "APPLICATION_INSURANCE_RISK_CATEGORY",
+    "name": "Application_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3712,
+    "entityName": "APPLICATION_INSURANCE_RISK_CATEGORY",
+    "name": "Application_Risk_Category_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3712,
+    "entityName": "APPLICATION_INSURANCE_RISK_CATEGORY",
+    "name": "Insurance_Risk_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3712,
+    "entityName": "APPLICATION_INSURANCE_RISK_CATEGORY",
+    "name": "Application_Risk_Category_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Party_Asset_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Party_Asset_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Time_Band_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Time_Band_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Asset_Class_Maturity_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Asset_Class_Maturity_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3713,
+    "entityName": "ASSET_CLASS_MATURITY_RISK_GRADE",
+    "name": "Asset_Class_Maturity_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3714,
+    "entityName": "ASSET_INSURANCE_RISK_CATEGORY",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3714,
+    "entityName": "ASSET_INSURANCE_RISK_CATEGORY",
+    "name": "Insurance_Risk_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3715,
+    "entityName": "ASSET_INSURANCE_RISK_FACTOR",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3715,
+    "entityName": "ASSET_INSURANCE_RISK_FACTOR",
+    "name": "Insurance_Risk_Factor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3715,
+    "entityName": "ASSET_INSURANCE_RISK_FACTOR",
+    "name": "Asset_Risk_Factor_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3715,
+    "entityName": "ASSET_INSURANCE_RISK_FACTOR",
+    "name": "Asset_Risk_Factor_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3716,
+    "entityName": "ASSET_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3716,
+    "entityName": "ASSET_RISK_GRADE",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3716,
+    "entityName": "ASSET_RISK_GRADE",
+    "name": "Asset_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3716,
+    "entityName": "ASSET_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3716,
+    "entityName": "ASSET_RISK_GRADE",
+    "name": "Asset_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3716,
+    "entityName": "ASSET_RISK_GRADE",
+    "name": "Asset_Risk_Grade_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Asset_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Related_Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Related_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Risk_Assessment_Related_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Asset_Risk_Override_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Asset_Risk_Override_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Risk_Assess_Override_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3717,
+    "entityName": "ASSET_RISK_GRADE_RELATED",
+    "name": "Asset_Risk_Override_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3718,
+    "entityName": "BANK_ACTUAL_RISK_LOSS",
+    "name": "Bank_Actual_Loss_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3718,
+    "entityName": "BANK_ACTUAL_RISK_LOSS",
+    "name": "Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3718,
+    "entityName": "BANK_ACTUAL_RISK_LOSS",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3718,
+    "entityName": "BANK_ACTUAL_RISK_LOSS",
+    "name": "Bank_Loss_Reporting_Start_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3718,
+    "entityName": "BANK_ACTUAL_RISK_LOSS",
+    "name": "Bank_Loss_Reporting_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3718,
+    "entityName": "BANK_ACTUAL_RISK_LOSS",
+    "name": "Bank_Actual_Loss_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3718,
+    "entityName": "BANK_ACTUAL_RISK_LOSS",
+    "name": "Bank_Loss_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Share_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Reserve_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Subsidiary_Minority_Interest_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Innovative_Instrument_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Other_Capital_Instrument_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_1_Disclosed_Reserve_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_1_Retained_Earning_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_1_Regulatory_Deduction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_1_Other_Deduction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_1_Unrealized_Equity_Gain_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_1_Latent_Equity_Gain_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_2_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_2_Unrealized_Equity_Gain_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_2_Latent_Equity_Gain_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_2_Revalued_Reserve_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_2_General_Provision_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_2_Hybrid_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_2_Subordinated_Debt_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Tier_3_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Other_Capital_Deduction_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Party_Economic_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Party_Strategic_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3719,
+    "entityName": "BANK_CAPITAL_SUMMARY",
+    "name": "Party_Risk_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3720,
+    "entityName": "BANK_LOSS_TYPE",
+    "name": "Bank_Loss_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3720,
+    "entityName": "BANK_LOSS_TYPE",
+    "name": "Bank_Loss_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3721,
+    "entityName": "BASEL_1_WEIGHT",
+    "name": "Basel_1_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3721,
+    "entityName": "BASEL_1_WEIGHT",
+    "name": "Basel_1_Weight_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": false
+  },
+  {
+    "entityId": 3721,
+    "entityName": "BASEL_1_WEIGHT",
+    "name": "Basel_1_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Agreement_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Party_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Basel_II_Approach_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Basel_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Agreement_Status_Scheme_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Basel_Default_Status_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Basel_Default_Status_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Party_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Basel_Agreement_Status_Default_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3722,
+    "entityName": "BASEL_DEFAULT_STATUS_PARAMETER",
+    "name": "Basel_Default_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3723,
+    "entityName": "BASEL_EQUITY_RISK_WEIGHT_PARAMETER",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3723,
+    "entityName": "BASEL_EQUITY_RISK_WEIGHT_PARAMETER",
+    "name": "Basel_Equity_Parameter_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3723,
+    "entityName": "BASEL_EQUITY_RISK_WEIGHT_PARAMETER",
+    "name": "Basel_Equity_Parameter_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3723,
+    "entityName": "BASEL_EQUITY_RISK_WEIGHT_PARAMETER",
+    "name": "Basel_Equity_Simple_RW_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3723,
+    "entityName": "BASEL_EQUITY_RISK_WEIGHT_PARAMETER",
+    "name": "Basel_Equity_Internal_RW_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3723,
+    "entityName": "BASEL_EQUITY_RISK_WEIGHT_PARAMETER",
+    "name": "Basel_Equity_PD_LGD_RW_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Party_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Maturity_Time_Band_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Maturity_Time_Band_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Exposure_Haircut_Parameter_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Party_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Exposure_Haircut_Parameter_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Exposure_Supervisor_Haircut_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Exposure_Internal_Haircut_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Exposure_Holding_Period_Day_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3724,
+    "entityName": "BASEL_EXPOSURE_HAIRCUT_PARAMETER",
+    "name": "Exposure_Remargining_Day_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3725,
+    "entityName": "BASEL_FUNCTION_TYPE",
+    "name": "Basel_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3725,
+    "entityName": "BASEL_FUNCTION_TYPE",
+    "name": "Basel_Function_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3726,
+    "entityName": "BASEL_III_CAPITAL_TYPE",
+    "name": "Basel_III_Capital_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3726,
+    "entityName": "BASEL_III_CAPITAL_TYPE",
+    "name": "Basel_III_Capital_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3727,
+    "entityName": "BASEL_II_APPROACH",
+    "name": "Basel_II_Approach_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3727,
+    "entityName": "BASEL_II_APPROACH",
+    "name": "Basel_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3727,
+    "entityName": "BASEL_II_APPROACH",
+    "name": "Basel_II_Approach_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3728,
+    "entityName": "BASEL_II_ASSET_CLASS",
+    "name": "Basel_II_Asset_Class_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3728,
+    "entityName": "BASEL_II_ASSET_CLASS",
+    "name": "Parent_Basel_II_Asset_Class_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3728,
+    "entityName": "BASEL_II_ASSET_CLASS",
+    "name": "Basel_II_Asset_Class_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3728,
+    "entityName": "BASEL_II_ASSET_CLASS",
+    "name": "Basel_II_Asset_Class_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3728,
+    "entityName": "BASEL_II_ASSET_CLASS",
+    "name": "Haircut_Adjusted_Formula_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3729,
+    "entityName": "BASEL_II_MINIMUM_LGD_PARAMETER",
+    "name": "Party_Asset_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3729,
+    "entityName": "BASEL_II_MINIMUM_LGD_PARAMETER",
+    "name": "Party_Asset_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3729,
+    "entityName": "BASEL_II_MINIMUM_LGD_PARAMETER",
+    "name": "Minimum_LGD_Parameter_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3729,
+    "entityName": "BASEL_II_MINIMUM_LGD_PARAMETER",
+    "name": "Minimum_LGD_Parameter_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3729,
+    "entityName": "BASEL_II_MINIMUM_LGD_PARAMETER",
+    "name": "Minimum_Threshold_LGD_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3729,
+    "entityName": "BASEL_II_MINIMUM_LGD_PARAMETER",
+    "name": "Maximum_Threshold_LGD_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3729,
+    "entityName": "BASEL_II_MINIMUM_LGD_PARAMETER",
+    "name": "Minimum_Loss_Given_Default_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3730,
+    "entityName": "BASEL_IRB_RISK_MITIGANT_TYPE",
+    "name": "Basel_IRB_Risk_Mitigant_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3730,
+    "entityName": "BASEL_IRB_RISK_MITIGANT_TYPE",
+    "name": "Basel_IRB_Risk_Mitigant_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3731,
+    "entityName": "BASEL_MARKET_PARTICIPANT_TYPE",
+    "name": "Basel_Market_Participant_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3731,
+    "entityName": "BASEL_MARKET_PARTICIPANT_TYPE",
+    "name": "Basel_Market_Participant_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3732,
+    "entityName": "BASEL_OPERATIONAL_RISK_BETA_PARAMETER",
+    "name": "Basel_Operational_Risk_Beta_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3732,
+    "entityName": "BASEL_OPERATIONAL_RISK_BETA_PARAMETER",
+    "name": "Internal_Organization_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3732,
+    "entityName": "BASEL_OPERATIONAL_RISK_BETA_PARAMETER",
+    "name": "Basel_Operational_Risk_Beta_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3732,
+    "entityName": "BASEL_OPERATIONAL_RISK_BETA_PARAMETER",
+    "name": "Basel_Operational_Risk_Beta_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3733,
+    "entityName": "BASEL_PARAMETER",
+    "name": "Basel_Parameter_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3733,
+    "entityName": "BASEL_PARAMETER",
+    "name": "Basel_Parameter_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3733,
+    "entityName": "BASEL_PARAMETER",
+    "name": "Basel_Parameter_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3733,
+    "entityName": "BASEL_PARAMETER",
+    "name": "Basel_Parameter_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3733,
+    "entityName": "BASEL_PARAMETER",
+    "name": "Basel_Parameter_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3733,
+    "entityName": "BASEL_PARAMETER",
+    "name": "Basel_Parameter_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3734,
+    "entityName": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "name": "Agreement_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3734,
+    "entityName": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3734,
+    "entityName": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "name": "Basel_Retail_Default_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3734,
+    "entityName": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "name": "Agreement_Status_Scheme_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3734,
+    "entityName": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "name": "Basel_Retail_Default_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3734,
+    "entityName": "BASEL_RETAIL_DEFAULT_PARAMETER",
+    "name": "Basel_Retail_Default_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Basel_II_Approach_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Basel_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Basel_Portfolio_Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Credit_Risk_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Securitization_Exposure_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Equity_Exposure_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Market_Interest_Rate_Risk_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Market_Equity_Risk_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Market_FX_Risk_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Market_Commodity_Risk_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Operational_Risk_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Product_Group_Economic_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Product_Group_Strategic_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3735,
+    "entityName": "CAPITAL_REQUIREMENTS_SUMMARY",
+    "name": "Product_Group_Risk_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3736,
+    "entityName": "CHANNEL_RISK_GRADE",
+    "name": "Channel_Instance_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3736,
+    "entityName": "CHANNEL_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3736,
+    "entityName": "CHANNEL_RISK_GRADE",
+    "name": "Channel_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3736,
+    "entityName": "CHANNEL_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3736,
+    "entityName": "CHANNEL_RISK_GRADE",
+    "name": "Channel_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3736,
+    "entityName": "CHANNEL_RISK_GRADE",
+    "name": "Channel_Risk_Grade_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3737,
+    "entityName": "CHANNEL_TYPE_RISK_GRADE",
+    "name": "Channel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3737,
+    "entityName": "CHANNEL_TYPE_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3737,
+    "entityName": "CHANNEL_TYPE_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3737,
+    "entityName": "CHANNEL_TYPE_RISK_GRADE",
+    "name": "Channel_Type_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3737,
+    "entityName": "CHANNEL_TYPE_RISK_GRADE",
+    "name": "Channel_Type_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3737,
+    "entityName": "CHANNEL_TYPE_RISK_GRADE",
+    "name": "Channel_Type_Risk_Grade_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3738,
+    "entityName": "CLAIM_EXPOSURE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3738,
+    "entityName": "CLAIM_EXPOSURE",
+    "name": "Claim_Exposure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3738,
+    "entityName": "CLAIM_EXPOSURE",
+    "name": "Coverage_Feature_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3738,
+    "entityName": "CLAIM_EXPOSURE",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3738,
+    "entityName": "CLAIM_EXPOSURE",
+    "name": "Claimant_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Cost_Recovery_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Cost_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Cost_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Activity_Payment_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Activity_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Activity_Created_By_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Activity_Recovery_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Activity_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Activity_Reserve_Item_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3739,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY",
+    "name": "Claim_Exposure_Does_Not_Erode_Exposure_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3740,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "name": "Claim_Exposure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3740,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "name": "Claim_Exposure_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3740,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "name": "Claim_Exposure_Activity_Amount_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3740,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "name": "Claim_Exposure_Amount_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3740,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "name": "Claim_Exposure_Activity_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3740,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3740,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "name": "Claim_Exposure_Activity_Amount_Txt",
+    "dataType": "VARCHAR(2000)",
+    "nullable": true
+  },
+  {
+    "entityId": 3740,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_AMOUNT",
+    "name": "Claim_Amount_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3741,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_TYPE",
+    "name": "Claim_Exposure_Activity_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3741,
+    "entityName": "CLAIM_EXPOSURE_ACTIVITY_TYPE",
+    "name": "Claim_Exposure_Activity_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3742,
+    "entityName": "CLAIM_EXPOSURE_COST_CATEGORY",
+    "name": "Claim_Exposure_Cost_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3742,
+    "entityName": "CLAIM_EXPOSURE_COST_CATEGORY",
+    "name": "Claim_Exposure_Cost_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3743,
+    "entityName": "CLAIM_EXPOSURE_COST_RECOVERY_TYPE",
+    "name": "Claim_Exposure_Cost_Recovery_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3743,
+    "entityName": "CLAIM_EXPOSURE_COST_RECOVERY_TYPE",
+    "name": "Claim_Exposure_Cost_Recovery_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3744,
+    "entityName": "CLAIM_EXPOSURE_EVENT",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3744,
+    "entityName": "CLAIM_EXPOSURE_EVENT",
+    "name": "Claim_Exposure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3744,
+    "entityName": "CLAIM_EXPOSURE_EVENT",
+    "name": "Claim_Exposure_Activity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3745,
+    "entityName": "CLAIM_EXPOSURE_STATUS",
+    "name": "Claim_Exposure_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3745,
+    "entityName": "CLAIM_EXPOSURE_STATUS",
+    "name": "Claim_Exposure_Status_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3745,
+    "entityName": "CLAIM_EXPOSURE_STATUS",
+    "name": "Claim_Exposure_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3746,
+    "entityName": "CLAIM_EXPOSURE_STATUS_TYPE",
+    "name": "Claim_Exposure_Status_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3746,
+    "entityName": "CLAIM_EXPOSURE_STATUS_TYPE",
+    "name": "Claim_Exposure_Status_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3747,
+    "entityName": "CLAIM_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3747,
+    "entityName": "CLAIM_RISK_GRADE",
+    "name": "Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3747,
+    "entityName": "CLAIM_RISK_GRADE",
+    "name": "Claim_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3747,
+    "entityName": "CLAIM_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3747,
+    "entityName": "CLAIM_RISK_GRADE",
+    "name": "Claim_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3748,
+    "entityName": "CURRENCY_EXCHANGE_RISK_FACTOR",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3748,
+    "entityName": "CURRENCY_EXCHANGE_RISK_FACTOR",
+    "name": "Source_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3748,
+    "entityName": "CURRENCY_EXCHANGE_RISK_FACTOR",
+    "name": "Target_Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3748,
+    "entityName": "CURRENCY_EXCHANGE_RISK_FACTOR",
+    "name": "Currency_Exchange_Risk_Factor_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3748,
+    "entityName": "CURRENCY_EXCHANGE_RISK_FACTOR",
+    "name": "Currency_Exchange_Risk_Factor_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3749,
+    "entityName": "CURRENCY_RISK_FACTOR",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3749,
+    "entityName": "CURRENCY_RISK_FACTOR",
+    "name": "Currency_Risk_Factor_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3749,
+    "entityName": "CURRENCY_RISK_FACTOR",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3749,
+    "entityName": "CURRENCY_RISK_FACTOR",
+    "name": "Currency_Risk_Factor_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3750,
+    "entityName": "DEBT_ISSUE_DEFAULT",
+    "name": "Debt_Issue_Default_Announce_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3751,
+    "entityName": "DEFAULT_OCCURRENCE",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3751,
+    "entityName": "DEFAULT_OCCURRENCE",
+    "name": "Default_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3751,
+    "entityName": "DEFAULT_OCCURRENCE",
+    "name": "Default_Outcome_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3751,
+    "entityName": "DEFAULT_OCCURRENCE",
+    "name": "Default_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3751,
+    "entityName": "DEFAULT_OCCURRENCE",
+    "name": "Default_Exposure_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3751,
+    "entityName": "DEFAULT_OCCURRENCE",
+    "name": "Agreement_Currency_Exposure_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3752,
+    "entityName": "DEFAULT_OUTCOME_TYPE",
+    "name": "Default_Outcome_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3752,
+    "entityName": "DEFAULT_OUTCOME_TYPE",
+    "name": "Default_Outcome_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3753,
+    "entityName": "DEFAULT_REASON_TYPE",
+    "name": "Default_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3753,
+    "entityName": "DEFAULT_REASON_TYPE",
+    "name": "Default_Reason_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3754,
+    "entityName": "DEFAULT_RECOVERY",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3754,
+    "entityName": "DEFAULT_RECOVERY",
+    "name": "Default_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3754,
+    "entityName": "DEFAULT_RECOVERY",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3755,
+    "entityName": "DEFAULT_RECOVERY_ITEM",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3755,
+    "entityName": "DEFAULT_RECOVERY_ITEM",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3755,
+    "entityName": "DEFAULT_RECOVERY_ITEM",
+    "name": "Default_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3755,
+    "entityName": "DEFAULT_RECOVERY_ITEM",
+    "name": "Deed_In_Lieu_Of_Foreclosure_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3756,
+    "entityName": "DEFAULT_RECOVERY_ITEM_STATUS",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3756,
+    "entityName": "DEFAULT_RECOVERY_ITEM_STATUS",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3756,
+    "entityName": "DEFAULT_RECOVERY_ITEM_STATUS",
+    "name": "Default_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3756,
+    "entityName": "DEFAULT_RECOVERY_ITEM_STATUS",
+    "name": "Default_Recovery_Status_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3756,
+    "entityName": "DEFAULT_RECOVERY_ITEM_STATUS",
+    "name": "Recovery_Status_Change_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3756,
+    "entityName": "DEFAULT_RECOVERY_ITEM_STATUS",
+    "name": "Recovery_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Party_Asset_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Default_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Default_Recovery_Item_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Default_Recovery_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Default_Recovery_Qty",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Party_Default_Recovery_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3757,
+    "entityName": "DEFAULT_RECOVERY_METRIC",
+    "name": "Income_Statement_GL_Main_Account_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3758,
+    "entityName": "DEFAULT_RECOVERY_METRIC_TYPE",
+    "name": "Default_Recovery_Item_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3758,
+    "entityName": "DEFAULT_RECOVERY_METRIC_TYPE",
+    "name": "Default_Recovery_Item_Metric_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3759,
+    "entityName": "ELIGIBLE_RISK_MITIGANT_TYPE",
+    "name": "Eligible_Risk_Mitigant_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3759,
+    "entityName": "ELIGIBLE_RISK_MITIGANT_TYPE",
+    "name": "Eligible_Risk_Mitigant_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3760,
+    "entityName": "EQUITY_BASEL_TYPE",
+    "name": "Equity_Basel_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3760,
+    "entityName": "EQUITY_BASEL_TYPE",
+    "name": "Equity_Basel_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3761,
+    "entityName": "EQUITY_NETTED_GROUP_RISK",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3761,
+    "entityName": "EQUITY_NETTED_GROUP_RISK",
+    "name": "Agreement_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3761,
+    "entityName": "EQUITY_NETTED_GROUP_RISK",
+    "name": "Equity_Netted_Position_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3761,
+    "entityName": "EQUITY_NETTED_GROUP_RISK",
+    "name": "Position_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3763,
+    "entityName": "EVENT_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3763,
+    "entityName": "EVENT_RISK_GRADE",
+    "name": "Event_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3763,
+    "entityName": "EVENT_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3765,
+    "entityName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "name": "External_Claim_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3765,
+    "entityName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "name": "External_Claim_Id_Loss_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3765,
+    "entityName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "name": "External_Claim_Loss_Paid_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3765,
+    "entityName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "name": "External_Claim_Payment_Insurer_Name",
+    "dataType": "VARCHAR(100)",
+    "nullable": true
+  },
+  {
+    "entityId": 3765,
+    "entityName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "name": "External_Claim_Loss_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3765,
+    "entityName": "EXTERNAL_CLAIM_LOSS_DETAIL",
+    "name": "External_Claim_Loss_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3766,
+    "entityName": "EXTERNAL_CLAIM_LOSS_STATUS_TYPE",
+    "name": "External_Claim_Loss_Status_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3766,
+    "entityName": "EXTERNAL_CLAIM_LOSS_STATUS_TYPE",
+    "name": "External_Claim_Loss_Status_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3767,
+    "entityName": "EXTERNAL_CLAIM_LOSS_TYPE",
+    "name": "External_Claim_Loss_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3767,
+    "entityName": "EXTERNAL_CLAIM_LOSS_TYPE",
+    "name": "External_Claim_Loss_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3768,
+    "entityName": "FINANCE_EXPOSURE_RISK_TYPE",
+    "name": "Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3768,
+    "entityName": "FINANCE_EXPOSURE_RISK_TYPE",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3769,
+    "entityName": "FINANCIAL_RISK_FACTOR",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3769,
+    "entityName": "FINANCIAL_RISK_FACTOR",
+    "name": "Underlying_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3769,
+    "entityName": "FINANCIAL_RISK_FACTOR",
+    "name": "Financial_Risk_Factor_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3769,
+    "entityName": "FINANCIAL_RISK_FACTOR",
+    "name": "Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3769,
+    "entityName": "FINANCIAL_RISK_FACTOR",
+    "name": "Unit_Of_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3770,
+    "entityName": "GENERAL_MARKET_RISK_CHARGE_TYPE",
+    "name": "General_Market_Risk_Charge_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3770,
+    "entityName": "GENERAL_MARKET_RISK_CHARGE_TYPE",
+    "name": "General_Market_Risk_Charge_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3771,
+    "entityName": "GEOGRAPHIC_AREA_RISK",
+    "name": "Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3771,
+    "entityName": "GEOGRAPHIC_AREA_RISK",
+    "name": "Geographic_Area_Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3771,
+    "entityName": "GEOGRAPHIC_AREA_RISK",
+    "name": "Geographic_Area_Risk_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3772,
+    "entityName": "GEOGRAPHIC_AREA_RISK_TYPE",
+    "name": "Geographic_Area_Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3772,
+    "entityName": "GEOGRAPHIC_AREA_RISK_TYPE",
+    "name": "Geographic_Area_Risk_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3773,
+    "entityName": "GEOGRAPHY_RISK_GRADE",
+    "name": "Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3773,
+    "entityName": "GEOGRAPHY_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3773,
+    "entityName": "GEOGRAPHY_RISK_GRADE",
+    "name": "Geography_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3773,
+    "entityName": "GEOGRAPHY_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3773,
+    "entityName": "GEOGRAPHY_RISK_GRADE",
+    "name": "Geography_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3773,
+    "entityName": "GEOGRAPHY_RISK_GRADE",
+    "name": "Geography_Risk_Grade_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3774,
+    "entityName": "HOLDING_VALUE_AT_RISK",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3774,
+    "entityName": "HOLDING_VALUE_AT_RISK",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3774,
+    "entityName": "HOLDING_VALUE_AT_RISK",
+    "name": "Holding_Time_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3774,
+    "entityName": "HOLDING_VALUE_AT_RISK",
+    "name": "Holding_Time_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3774,
+    "entityName": "HOLDING_VALUE_AT_RISK",
+    "name": "Holding_VAR_Confidence_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3774,
+    "entityName": "HOLDING_VALUE_AT_RISK",
+    "name": "Holding_VAR_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3774,
+    "entityName": "HOLDING_VALUE_AT_RISK",
+    "name": "Holding_VAR_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3775,
+    "entityName": "INSURABLE_INTEREST_EXPOSURE_TYPE",
+    "name": "Insurable_Interest_Exposure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3775,
+    "entityName": "INSURABLE_INTEREST_EXPOSURE_TYPE",
+    "name": "Insurable_Interest_Exposure_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3776,
+    "entityName": "INSURABLE_INTEREST_TO_EXPOSURE_TYPE",
+    "name": "Insurable_Interest_Exposure_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3776,
+    "entityName": "INSURABLE_INTEREST_TO_EXPOSURE_TYPE",
+    "name": "Insurable_Interest_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3777,
+    "entityName": "INSURANCE_RISK_CATEGORY",
+    "name": "Insurance_Risk_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3777,
+    "entityName": "INSURANCE_RISK_CATEGORY",
+    "name": "Parent_Insurance_Risk_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3777,
+    "entityName": "INSURANCE_RISK_CATEGORY",
+    "name": "Insurance_Risk_Category_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3778,
+    "entityName": "INSURANCE_RISK_FACTOR_RELATED",
+    "name": "Related_Insurance_Risk_Factor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3778,
+    "entityName": "INSURANCE_RISK_FACTOR_RELATED",
+    "name": "Insurance_Risk_Factor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3778,
+    "entityName": "INSURANCE_RISK_FACTOR_RELATED",
+    "name": "Insurance_Risk_Factor_Relationship_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3778,
+    "entityName": "INSURANCE_RISK_FACTOR_RELATED",
+    "name": "Insurance_Risk_Factor_Related_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3778,
+    "entityName": "INSURANCE_RISK_FACTOR_RELATED",
+    "name": "Insurance_Risk_Factor_Related_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3779,
+    "entityName": "INSURANCE_RISK_FACTOR_RELATIONSHIP_TYPE",
+    "name": "Insurance_Risk_Factor_Relationship_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3779,
+    "entityName": "INSURANCE_RISK_FACTOR_RELATIONSHIP_TYPE",
+    "name": "Insurance_Risk_Factor_Relationship_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3780,
+    "entityName": "INSURANCE_RISK_FACTOR_RISK_CATEGORY",
+    "name": "Insurance_Risk_Category_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3780,
+    "entityName": "INSURANCE_RISK_FACTOR_RISK_CATEGORY",
+    "name": "Insurance_Risk_Factor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3780,
+    "entityName": "INSURANCE_RISK_FACTOR_RISK_CATEGORY",
+    "name": "Risk_Factor_Risk_Category_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3780,
+    "entityName": "INSURANCE_RISK_FACTOR_RISK_CATEGORY",
+    "name": "Risk_Factor_Risk_Category_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3781,
+    "entityName": "INSURANCE_RISK_FACTOR_TYPE",
+    "name": "Insurance_Risk_Factor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3781,
+    "entityName": "INSURANCE_RISK_FACTOR_TYPE",
+    "name": "Insurance_Risk_Factor_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3782,
+    "entityName": "INSURANCE_RISK_UNDERWRITE_CLASS",
+    "name": "Insurance_Risk_Factor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3782,
+    "entityName": "INSURANCE_RISK_UNDERWRITE_CLASS",
+    "name": "Underwrite_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3783,
+    "entityName": "INTEREST_INDEX_RISK_FACTOR",
+    "name": "Interest_Rate_Index_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3783,
+    "entityName": "INTEREST_INDEX_RISK_FACTOR",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3783,
+    "entityName": "INTEREST_INDEX_RISK_FACTOR",
+    "name": "Interest_Index_Risk_Factor_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3783,
+    "entityName": "INTEREST_INDEX_RISK_FACTOR",
+    "name": "Interest_Index_Risk_Factor_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3784,
+    "entityName": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3784,
+    "entityName": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "name": "Time_To_Maturity_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3784,
+    "entityName": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "name": "Time_To_Maturity_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3784,
+    "entityName": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "name": "Interest_Rate_Capital_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3784,
+    "entityName": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "name": "Interest_Rate_Capital_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3784,
+    "entityName": "INTEREST_RATE_CAPITAL_PARAMETER",
+    "name": "Interest_Rate_Capital_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Agreement_Product_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Agreement_Product_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Agreement_Market_Risk_Capital_Charge_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Instrument_Position_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Time_Band_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Next_Position_Time_Band_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Final_Position_Time_Band_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3785,
+    "entityName": "INTEREST_RATE_RISK_CALCULATION",
+    "name": "Specific_Interest_Rate_Risk_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3786,
+    "entityName": "INVESTMENT_RISK_TOLERANCE_TYPE",
+    "name": "Investment_Risk_Tolerance_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3786,
+    "entityName": "INVESTMENT_RISK_TOLERANCE_TYPE",
+    "name": "Investment_Risk_Tolerance_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3787,
+    "entityName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3787,
+    "entityName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3787,
+    "entityName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "name": "Investment_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3787,
+    "entityName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3787,
+    "entityName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "name": "Investment_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3787,
+    "entityName": "INVESTMENT_SECURITY_RISK_GRADE",
+    "name": "Investment_Risk_Grade_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3788,
+    "entityName": "LOCATION_OF_LOSS_TYPE",
+    "name": "Location_Of_Loss_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3788,
+    "entityName": "LOCATION_OF_LOSS_TYPE",
+    "name": "Location_Of_Loss_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3789,
+    "entityName": "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+    "name": "Agreement_Class_Value_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3789,
+    "entityName": "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+    "name": "Agreement_Class_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3789,
+    "entityName": "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3790,
+    "entityName": "MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER",
+    "name": "Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3790,
+    "entityName": "MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER",
+    "name": "Interest_Rate_Risk_Start_Dttm",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3790,
+    "entityName": "MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER",
+    "name": "Interest_Rate_Risk_End_Dttm",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3790,
+    "entityName": "MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER",
+    "name": "General_Market_Risk_Charge_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3790,
+    "entityName": "MARKET_RISK_DERIVATIVE_TREATMENT_PARAMETER",
+    "name": "Specific_Risk_Charge_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3791,
+    "entityName": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3791,
+    "entityName": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "name": "Time_Band_Zone_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3791,
+    "entityName": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "name": "Related_Time_Band_Zone_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3791,
+    "entityName": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "name": "Zone_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3791,
+    "entityName": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "name": "Related_Zone_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3791,
+    "entityName": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "name": "Time_Band_Related_Role_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3791,
+    "entityName": "MARKET_RISK_HORIZONTAL_DISALLOWANCE_CALCULATION",
+    "name": "Market_Risk_Horizontal_Disallowance_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3792,
+    "entityName": "MARKET_RISK_NATIONAL_MARKET_GROUP",
+    "name": "National_Market_Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3793,
+    "entityName": "MARKET_RISK_TYPE",
+    "name": "Market_Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3793,
+    "entityName": "MARKET_RISK_TYPE",
+    "name": "Market_Risk_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3794,
+    "entityName": "MORTALITY_TABLE_RISK_FACTOR",
+    "name": "Insurance_Risk_Factor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3794,
+    "entityName": "MORTALITY_TABLE_RISK_FACTOR",
+    "name": "Mortality_Table_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3795,
+    "entityName": "NETTED_MARKET_RISK_GROUP",
+    "name": "Netted_Market_Risk_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3796,
+    "entityName": "NETTED_MARKET_RISK_GROUP_TYPE",
+    "name": "Netted_Market_Risk_Group_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3796,
+    "entityName": "NETTED_MARKET_RISK_GROUP_TYPE",
+    "name": "Netted_Market_Risk_Group_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3797,
+    "entityName": "NETTING_POOL",
+    "name": "Netting_Pool_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3797,
+    "entityName": "NETTING_POOL",
+    "name": "Netting_Pool_Basel_Eligible_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Basel_II_Approach_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Basel_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Exposure_Type_Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Exposure_At_Default_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3798,
+    "entityName": "NON-IRB_EXPOSURE_SUMMARY",
+    "name": "Risk_Mitigation_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Basel_Portfolio_Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Nonretail_Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Nonretail_Average_PD_Risk_Weight_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Nonretail_Total_Exposure_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Nonretail_Average_LGD_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Nonretail_Average_Risk_Weight_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Undrawn_Commitment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Nonretail_Average_EAD_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3799,
+    "entityName": "NONRETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Average_Residual_Maturity_Year_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3800,
+    "entityName": "OPERATIONAL_LOSS_TYPE",
+    "name": "Operational_Loss_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3800,
+    "entityName": "OPERATIONAL_LOSS_TYPE",
+    "name": "Operational_Loss_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3801,
+    "entityName": "OPERATIONAL_RISK_MEASURE",
+    "name": "Operational_Risk_Measure_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3801,
+    "entityName": "OPERATIONAL_RISK_MEASURE",
+    "name": "Operational_Risk_Measure_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3802,
+    "entityName": "OPPORTUNITY_RISK_GRADE",
+    "name": "Opportunity_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3802,
+    "entityName": "OPPORTUNITY_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3802,
+    "entityName": "OPPORTUNITY_RISK_GRADE",
+    "name": "Opportunity_Risk_Grade_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3802,
+    "entityName": "OPPORTUNITY_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3802,
+    "entityName": "OPPORTUNITY_RISK_GRADE",
+    "name": "Opportunity_Risk_Grade_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3802,
+    "entityName": "OPPORTUNITY_RISK_GRADE",
+    "name": "Opportunity_Risk_Grade_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3803,
+    "entityName": "PORTFOLIO_VALUE_AT_RISK",
+    "name": "Agreement_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3803,
+    "entityName": "PORTFOLIO_VALUE_AT_RISK",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3803,
+    "entityName": "PORTFOLIO_VALUE_AT_RISK",
+    "name": "Portfolio_Holding_Period_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3803,
+    "entityName": "PORTFOLIO_VALUE_AT_RISK",
+    "name": "Portfolio_Holding_Period_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3803,
+    "entityName": "PORTFOLIO_VALUE_AT_RISK",
+    "name": "Portfolio_VAR_Confidence_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3803,
+    "entityName": "PORTFOLIO_VALUE_AT_RISK",
+    "name": "Portfolio_VAR_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3803,
+    "entityName": "PORTFOLIO_VALUE_AT_RISK",
+    "name": "Portfolio_VAR_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3804,
+    "entityName": "PROBABILITY_DEFAULT_FLOOR_TYPE",
+    "name": "PD_Floor_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3804,
+    "entityName": "PROBABILITY_DEFAULT_FLOOR_TYPE",
+    "name": "PD_Floor_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3805,
+    "entityName": "PROBABILITY_OF_DEFAULT_MODEL",
+    "name": "PD_Score_To_PD_Value_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3805,
+    "entityName": "PROBABILITY_OF_DEFAULT_MODEL",
+    "name": "PD_Score_To_PD_Offset_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3806,
+    "entityName": "PROVISION_TYPE",
+    "name": "Provision_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3806,
+    "entityName": "PROVISION_TYPE",
+    "name": "Provision_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_Dilution_Exposure_Loss_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_Dilution_Guarantee_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_IRB_Default_Charge_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Purchased_Receivable_Risk_Charge_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_Dilution_Exposure_Loss_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_Seniority_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_Default_Exposure_Loss_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_Firm_Size_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_PD_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3807,
+    "entityName": "PURCHASED_RECEIVABLE_POOL_RISK",
+    "name": "Agreement_Group_LGD_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Retail_Pool_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Basel_Portfolio_Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Retail_Weighted_Average_PD_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Total_Exposure_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Retail_Average_LGD_Pct",
+    "dataType": "DECIMAL(7,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Retail_Average_Risk_Weight_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Undrawn_Commitment_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Retail_Average_EAD_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3808,
+    "entityName": "RETAIL_RISK_ASSESSMENT_SUMMARY",
+    "name": "Average_Residual_Maturity_Years_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3809,
+    "entityName": "RISK_ADJUSTMENT_METRIC_TYPE",
+    "name": "Risk_Adjustment_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3809,
+    "entityName": "RISK_ADJUSTMENT_METRIC_TYPE",
+    "name": "Risk_Adjustment_Metric_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3810,
+    "entityName": "RISK_ADJUSTMENT_REASON_TYPE",
+    "name": "Risk_Adjustment_Reason_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3810,
+    "entityName": "RISK_ADJUSTMENT_REASON_TYPE",
+    "name": "Risk_Adjustment_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3811,
+    "entityName": "RISK_ASSESSMENT_RELATED_TYPE",
+    "name": "Risk_Assessment_Related_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3811,
+    "entityName": "RISK_ASSESSMENT_RELATED_TYPE",
+    "name": "Risk_Assessment_Related_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3812,
+    "entityName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "name": "Risk_Assess_Override_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3812,
+    "entityName": "RISK_ASSESS_OVERRIDE_TYPE",
+    "name": "Risk_Assess_Override_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Risk_Calculation_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Scenario_Trial_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Scenario_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Risk_Calculation_Scenario_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Risk_Calculation_Data_Valid_From_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Risk_Calculation_Data_Valid_To_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Regulating_Geographical_Area_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3813,
+    "entityName": "RISK_CALCULATION_SCENARIO",
+    "name": "Model_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3814,
+    "entityName": "RISK_CALCULATION_SCENARIO_BASEL_APPROACH",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3814,
+    "entityName": "RISK_CALCULATION_SCENARIO_BASEL_APPROACH",
+    "name": "Basel_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3814,
+    "entityName": "RISK_CALCULATION_SCENARIO_BASEL_APPROACH",
+    "name": "Basel_II_Approach_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3815,
+    "entityName": "RISK_EXPOSURE_MITIGANT_SUBTYPE",
+    "name": "Risk_Exposure_Mitigant_Subtype_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3815,
+    "entityName": "RISK_EXPOSURE_MITIGANT_SUBTYPE",
+    "name": "Risk_Exposure_Mitigant_Subtype_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3816,
+    "entityName": "RISK_FACTOR_INSTRUMENT",
+    "name": "Risk_Factor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3816,
+    "entityName": "RISK_FACTOR_INSTRUMENT",
+    "name": "Underlying_Risk_Factor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3816,
+    "entityName": "RISK_FACTOR_INSTRUMENT",
+    "name": "Hedging_Set_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3816,
+    "entityName": "RISK_FACTOR_INSTRUMENT",
+    "name": "Risk_Factor_Maturity_Cnt",
+    "dataType": "INTEGER",
+    "nullable": true
+  },
+  {
+    "entityId": 3816,
+    "entityName": "RISK_FACTOR_INSTRUMENT",
+    "name": "Risk_Factor_Maturity_UOM_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3817,
+    "entityName": "RISK_GRADE_CHANGE_REASON",
+    "name": "Risk_Grade_Change_Reason_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3817,
+    "entityName": "RISK_GRADE_CHANGE_REASON",
+    "name": "Risk_Grade_Change_Reason_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3818,
+    "entityName": "RISK_GRADE_RELATION_TYPE",
+    "name": "Risk_Grade_Relation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3818,
+    "entityName": "RISK_GRADE_RELATION_TYPE",
+    "name": "Risk_Grade_Relation_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3819,
+    "entityName": "RISK_GRADE_SCHEME",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3819,
+    "entityName": "RISK_GRADE_SCHEME",
+    "name": "Risk_Rating_Method_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3819,
+    "entityName": "RISK_GRADE_SCHEME",
+    "name": "Risk_Rating_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3819,
+    "entityName": "RISK_GRADE_SCHEME",
+    "name": "Risk_Grade_Scheme_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3819,
+    "entityName": "RISK_GRADE_SCHEME",
+    "name": "Short-term_Grading_Scheme_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3819,
+    "entityName": "RISK_GRADE_SCHEME",
+    "name": "Credit_Mitigant_Adjustment_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": false
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_From_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_To_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Val",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Level_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Id_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Grade_Id_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3820,
+    "entityName": "RISK_GRADE_VALUE",
+    "name": "Risk_Investment_Grade_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3821,
+    "entityName": "RISK_GRADE_VALUE_RELATED",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3821,
+    "entityName": "RISK_GRADE_VALUE_RELATED",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3821,
+    "entityName": "RISK_GRADE_VALUE_RELATED",
+    "name": "Related_Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3821,
+    "entityName": "RISK_GRADE_VALUE_RELATED",
+    "name": "Related_Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3821,
+    "entityName": "RISK_GRADE_VALUE_RELATED",
+    "name": "Risk_Grade_Relation_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3821,
+    "entityName": "RISK_GRADE_VALUE_RELATED",
+    "name": "Risk_Grade_Related_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3821,
+    "entityName": "RISK_GRADE_VALUE_RELATED",
+    "name": "Risk_Grade_Related_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3822,
+    "entityName": "RISK_METRIC_TYPE",
+    "name": "Risk_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3822,
+    "entityName": "RISK_METRIC_TYPE",
+    "name": "Risk_Metric_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "Party_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "Basel_II_Approach_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "Basel_Function_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "Basel_Portfolio_Product_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "Period_Start_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "Period_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "EAD_With_Financial_Collateral_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "EAD_With_Other_IRB_Collateral_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3823,
+    "entityName": "RISK_MITIGATION_SUMMARY",
+    "name": "EAD_Guarantee_Credit_Derivative_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Risk_Factor_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Risk_Position_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Risk_Position_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Second_Risk_Factor_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Hedging_Set_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Investment_Product_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Agreement_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Risk_Position_Component_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3824,
+    "entityName": "RISK_POSITION",
+    "name": "Currency_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3825,
+    "entityName": "RISK_RATING_METHOD",
+    "name": "Risk_Rating_Method_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3825,
+    "entityName": "RISK_RATING_METHOD",
+    "name": "Reporting_Party_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3825,
+    "entityName": "RISK_RATING_METHOD",
+    "name": "Analytical_Model_Id",
+    "dataType": "BIGINT",
+    "nullable": true
+  },
+  {
+    "entityId": 3825,
+    "entityName": "RISK_RATING_METHOD",
+    "name": "Risk_Rating_Method_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3826,
+    "entityName": "RISK_RATING_PURPOSE_TYPE",
+    "name": "Risk_Rating_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3826,
+    "entityName": "RISK_RATING_PURPOSE_TYPE",
+    "name": "Risk_Rating_Purpose_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3826,
+    "entityName": "RISK_RATING_PURPOSE_TYPE",
+    "name": "Parent_Risk_Rating_Purpose_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3827,
+    "entityName": "RISK_TYPE",
+    "name": "Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3827,
+    "entityName": "RISK_TYPE",
+    "name": "Risk_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3828,
+    "entityName": "ROADWAY_SEGMENT_RISK_GRADE",
+    "name": "Geospatial_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3828,
+    "entityName": "ROADWAY_SEGMENT_RISK_GRADE",
+    "name": "Risk_Grade_Scheme_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3828,
+    "entityName": "ROADWAY_SEGMENT_RISK_GRADE",
+    "name": "Roadway_Segment_Risk_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3828,
+    "entityName": "ROADWAY_SEGMENT_RISK_GRADE",
+    "name": "Risk_Grade_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3828,
+    "entityName": "ROADWAY_SEGMENT_RISK_GRADE",
+    "name": "Roadway_Segment_Risk_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3828,
+    "entityName": "ROADWAY_SEGMENT_RISK_GRADE",
+    "name": "Roadway_Segment_Risk_Rate_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3829,
+    "entityName": "SENIORITY_LEVEL_PARAMETER",
+    "name": "Seniority_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3829,
+    "entityName": "SENIORITY_LEVEL_PARAMETER",
+    "name": "Seniority_Level_Parameter_Start_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3829,
+    "entityName": "SENIORITY_LEVEL_PARAMETER",
+    "name": "Seniority_Level_Parameter_End_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": true
+  },
+  {
+    "entityId": 3829,
+    "entityName": "SENIORITY_LEVEL_PARAMETER",
+    "name": "Basel_II_FIRB_Senior_Ind",
+    "dataType": "CHAR(1)",
+    "nullable": true
+  },
+  {
+    "entityId": 3829,
+    "entityName": "SENIORITY_LEVEL_PARAMETER",
+    "name": "Seniority_Level_LGD_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3830,
+    "entityName": "SENIORITY_LEVEL_TYPE",
+    "name": "Seniority_Level_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3830,
+    "entityName": "SENIORITY_LEVEL_TYPE",
+    "name": "Seniority_Level_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3831,
+    "entityName": "STRESS_TEST_CALCULATION_SCENARIO",
+    "name": "Stress_Test_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3831,
+    "entityName": "STRESS_TEST_CALCULATION_SCENARIO",
+    "name": "Stress_Test_Begin_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3831,
+    "entityName": "STRESS_TEST_CALCULATION_SCENARIO",
+    "name": "Stress_Test_End_Dt",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3832,
+    "entityName": "STRESS_TEST_CRITERION",
+    "name": "Selection_Criterion_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3832,
+    "entityName": "STRESS_TEST_CRITERION",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3833,
+    "entityName": "STRESS_TEST_RESULT",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3833,
+    "entityName": "STRESS_TEST_RESULT",
+    "name": "Stress_Test_Result_Metric_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3833,
+    "entityName": "STRESS_TEST_RESULT",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3833,
+    "entityName": "STRESS_TEST_RESULT",
+    "name": "Stress_Test_Result_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3833,
+    "entityName": "STRESS_TEST_RESULT",
+    "name": "Stress_Test_Risk_Factor_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3834,
+    "entityName": "STRESS_TEST_TYPE",
+    "name": "Stress_Test_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3834,
+    "entityName": "STRESS_TEST_TYPE",
+    "name": "Stress_Test_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Credit_Enhancement_Level_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Thickness_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Supervisory_Capital_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Omega_Supervisory_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Total_Swap_NPV_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Funded_Reserve_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Size_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Swap_Potential_Future_Exposure_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Current_Factor_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Loss_Rank_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Waterfall_Payment_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3835,
+    "entityName": "TRANCHE_RISK_METRIC",
+    "name": "Tranche_Tau_Supervisory_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3836,
+    "entityName": "VALUE_AT_RISK_BACKTEST_PARAMETER",
+    "name": "Party_Group_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3836,
+    "entityName": "VALUE_AT_RISK_BACKTEST_PARAMETER",
+    "name": "Backtest_Dt",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3836,
+    "entityName": "VALUE_AT_RISK_BACKTEST_PARAMETER",
+    "name": "Estimated_Value_At_Risk_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3836,
+    "entityName": "VALUE_AT_RISK_BACKTEST_PARAMETER",
+    "name": "Party_Group_Exposure_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3836,
+    "entityName": "VALUE_AT_RISK_BACKTEST_PARAMETER",
+    "name": "Party_Group_Exposure_Difference_Amt",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  },
+  {
+    "entityId": 3837,
+    "entityName": "VALUE_AT_RISK_MULTIPLIER_PARAMETER",
+    "name": "Value_At_Risk_Multiplier_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3837,
+    "entityName": "VALUE_AT_RISK_MULTIPLIER_PARAMETER",
+    "name": "VAR_Multiplier_Start_Dttm",
+    "dataType": "DATE",
+    "nullable": false
+  },
+  {
+    "entityId": 3837,
+    "entityName": "VALUE_AT_RISK_MULTIPLIER_PARAMETER",
+    "name": "VAR_Multiplier_End_Dttm",
+    "dataType": "DATE",
+    "nullable": true
+  },
+  {
+    "entityId": 3837,
+    "entityName": "VALUE_AT_RISK_MULTIPLIER_PARAMETER",
+    "name": "From_Exception_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3837,
+    "entityName": "VALUE_AT_RISK_MULTIPLIER_PARAMETER",
+    "name": "To_Exception_Num",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3837,
+    "entityName": "VALUE_AT_RISK_MULTIPLIER_PARAMETER",
+    "name": "VAR_Multiplier_Rate",
+    "dataType": "DECIMAL(10,6)",
+    "nullable": true
+  },
+  {
+    "entityId": 3837,
+    "entityName": "VALUE_AT_RISK_MULTIPLIER_PARAMETER",
+    "name": "Exception_Range_Zone_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": true
+  },
+  {
+    "entityId": 3838,
+    "entityName": "VOLATILITY_RISK_CALCULATION",
+    "name": "Product_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3838,
+    "entityName": "VOLATILITY_RISK_CALCULATION",
+    "name": "Risk_Metric_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3838,
+    "entityName": "VOLATILITY_RISK_CALCULATION",
+    "name": "Risk_Scenario_Id",
+    "dataType": "BIGINT",
+    "nullable": false
+  },
+  {
+    "entityId": 3839,
+    "entityName": "WATCH_LIST_RISK_TYPE",
+    "name": "Watch_List_Risk_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3839,
+    "entityName": "WATCH_LIST_RISK_TYPE",
+    "name": "Watch_List_Risk_Type_Desc",
+    "dataType": "VARCHAR(500)",
+    "nullable": true
+  },
+  {
+    "entityId": 3840,
+    "entityName": "YIELD_CURVE_MATURITY_RISK_FACTOR",
+    "name": "Yield_Curve_Maturity_Segment_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3840,
+    "entityName": "YIELD_CURVE_MATURITY_RISK_FACTOR",
+    "name": "Financial_Risk_Factor_Type_Cd",
+    "dataType": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "entityId": 3840,
+    "entityName": "YIELD_CURVE_MATURITY_RISK_FACTOR",
+    "name": "Yield_Curve_Maturity_Segment_Dttm",
+    "dataType": "TIMESTAMP",
+    "nullable": false
+  },
+  {
+    "entityId": 3840,
+    "entityName": "YIELD_CURVE_MATURITY_RISK_FACTOR",
+    "name": "Yield_Curve_Maturity_Segment_Meas",
+    "dataType": "DECIMAL(18,4)",
+    "nullable": true
+  }
+]

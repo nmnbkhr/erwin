@@ -1,0 +1,1219 @@
+[
+  {
+    "id": "abc",
+    "name": "Activity Based Costing",
+    "description": "Activity Based Costing gap extension tables.",
+    "tables": [
+      {
+        "name": "COST_POOL",
+        "columns": [
+          {
+            "name": "Cost_Pool_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Cost_Pool_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Cost_Pool_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Cost_Pool_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Cost_Category_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Parent_Cost_Pool_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "GL_Main_Account_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Organization_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Effective_From_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Effective_To_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Is_Active_Ind",
+            "dataType": "CHAR(1)"
+          }
+        ]
+      },
+      {
+        "name": "ACTIVITY",
+        "columns": [
+          {
+            "name": "Activity_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Activity_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Activity_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Activity_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Cost_Pool_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Channel_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Product_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Is_Customer_Facing_Ind",
+            "dataType": "CHAR(1)"
+          },
+          {
+            "name": "Effective_From_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Effective_To_Dt",
+            "dataType": "DATE"
+          }
+        ]
+      },
+      {
+        "name": "COST_DRIVER",
+        "columns": [
+          {
+            "name": "Cost_Driver_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Cost_Driver_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Cost_Driver_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Cost_Driver_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Unit_Of_Measure_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Cost_Pool_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Activity_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Effective_From_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Effective_To_Dt",
+            "dataType": "DATE"
+          }
+        ]
+      },
+      {
+        "name": "COST_ALLOCATION_RULE",
+        "columns": [
+          {
+            "name": "Allocation_Rule_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Allocation_Rule_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Cost_Pool_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Cost_Driver_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Target_Level_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Allocation_Method_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Allocation_Weight_Pct",
+            "dataType": "DECIMAL(7"
+          },
+          {
+            "name": "Effective_From_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Effective_To_Dt",
+            "dataType": "DATE"
+          }
+        ]
+      },
+      {
+        "name": "COST_ALLOCATION_RESULT",
+        "columns": [
+          {
+            "name": "Allocation_Result_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Allocation_Rule_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Cost_Pool_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Activity_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Time_Period_Key",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Customer_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Product_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Branch_Org_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Agreement_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Cost_Driver_Quantity",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Total_Pool_Cost_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Allocated_Cost_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Unit_Cost_Rate_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Currency_Cd",
+            "dataType": "VARCHAR(3)"
+          }
+        ]
+      },
+      {
+        "name": "ACTIVITY_RATE",
+        "columns": [
+          {
+            "name": "Activity_Rate_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Activity_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Channel_Instance_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Unit_Cost_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Currency_Cd",
+            "dataType": "VARCHAR(3)"
+          },
+          {
+            "name": "Effective_From_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Effective_To_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Source_Cd",
+            "dataType": "VARCHAR(50)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clv",
+    "name": "Customer Lifetime Value",
+    "description": "Customer Lifetime Value gap extension tables.",
+    "tables": [
+      {
+        "name": "CLV_MODEL",
+        "columns": [
+          {
+            "name": "CLV_Model_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "CLV_Model_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "CLV_Model_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Model_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Analytical_Model_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Discount_Rate_Pct",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Projection_Horizon_Months",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Attrition_Model_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Revenue_Growth_Rate_Pct",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Cost_Inflation_Rate_Pct",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Version_Num",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Approved_By_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Approved_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Status_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Effective_From_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Effective_To_Dt",
+            "dataType": "DATE"
+          }
+        ]
+      },
+      {
+        "name": "CUSTOMER_LIFETIME_VALUE",
+        "columns": [
+          {
+            "name": "Customer_LTV_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Customer_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "CLV_Model_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Calculation_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Historical_Revenue_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Historical_Cost_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Historical_Profit_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Tenure_Months",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Predicted_Revenue_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Predicted_Cost_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Predicted_Profit_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Retention_Probability_Pct",
+            "dataType": "DECIMAL(7"
+          },
+          {
+            "name": "Total_CLV_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "CLV_Percentile_Pct",
+            "dataType": "DECIMAL(7"
+          },
+          {
+            "name": "CLV_Tier_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "CLV_Trend_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Deposit_CLV_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Lending_CLV_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Fee_CLV_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "FX_CLV_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Currency_Cd",
+            "dataType": "VARCHAR(3)"
+          }
+        ]
+      },
+      {
+        "name": "CLV_SCENARIO",
+        "columns": [
+          {
+            "name": "CLV_Scenario_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "CLV_Model_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Scenario_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Scenario_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Discount_Rate_Override_Pct",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Attrition_Rate_Override_Pct",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Revenue_Growth_Override_Pct",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Created_Dt",
+            "dataType": "DATE"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "budget",
+    "name": "Budgets & Forecasts",
+    "description": "Budgets & Forecasts gap extension tables.",
+    "tables": [
+      {
+        "name": "BUDGET",
+        "columns": [
+          {
+            "name": "Budget_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Budget_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Budget_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Budget_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Financial_Plan_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Fiscal_Year",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Fiscal_Quarter",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Organization_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Business_Segment_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Status_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Approved_By_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Approved_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Version_Num",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Currency_Cd",
+            "dataType": "VARCHAR(3)"
+          }
+        ]
+      },
+      {
+        "name": "BUDGET_LINE_ITEM",
+        "columns": [
+          {
+            "name": "Budget_Line_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Budget_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "GL_Main_Account_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "COA_Code_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Cost_Pool_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Time_Period_Key",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Budget_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Revised_Budget_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Forecast_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Actual_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Budget_Variance_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Budget_Variance_Pct",
+            "dataType": "DECIMAL(7"
+          },
+          {
+            "name": "Forecast_Variance_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Line_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Product_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Currency_Cd",
+            "dataType": "VARCHAR(3)"
+          }
+        ]
+      },
+      {
+        "name": "FORECAST_VERSION",
+        "columns": [
+          {
+            "name": "Forecast_Version_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Budget_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Forecast_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Forecast_As_Of_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Forecast_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Months_Actual",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Months_Forecast",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Status_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Created_By_Party_Id",
+            "dataType": "BIGINT"
+          }
+        ]
+      },
+      {
+        "name": "KPI_TARGET",
+        "columns": [
+          {
+            "name": "KPI_Target_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "KPI_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "KPI_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "KPI_Category_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Budget_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Organization_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Business_Segment_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Time_Period_Key",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Target_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Stretch_Target_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Actual_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Prior_Year_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "RAG_Status_Cd",
+            "dataType": "VARCHAR(10)"
+          },
+          {
+            "name": "Unit_Cd",
+            "dataType": "VARCHAR(20)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bpm",
+    "name": "Business Process Management",
+    "description": "Business Process Management gap extension tables.",
+    "tables": [
+      {
+        "name": "BUSINESS_PROCESS",
+        "columns": [
+          {
+            "name": "Business_Process_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Process_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Process_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Process_Category_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Parent_Process_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Process_Owner_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Organization_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "SLA_Target_Duration_Minutes",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Expected_Cost_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Is_Automated_Ind",
+            "dataType": "CHAR(1)"
+          },
+          {
+            "name": "Status_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Version_Num",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Effective_From_Dt",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Effective_To_Dt",
+            "dataType": "DATE"
+          }
+        ]
+      },
+      {
+        "name": "PROCESS_STEP",
+        "columns": [
+          {
+            "name": "Process_Step_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Business_Process_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Step_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Step_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Step_Sequence_Num",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Step_Type_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Responsible_Role_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Expected_Duration_Minutes",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Is_Optional_Ind",
+            "dataType": "CHAR(1)"
+          },
+          {
+            "name": "Next_Step_Id_Success",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Next_Step_Id_Failure",
+            "dataType": "BIGINT"
+          }
+        ]
+      },
+      {
+        "name": "PROCESS_INSTANCE",
+        "columns": [
+          {
+            "name": "Process_Instance_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Business_Process_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Event_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Customer_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Agreement_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Application_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Branch_Org_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Start_Dttm",
+            "dataType": "TIMESTAMP"
+          },
+          {
+            "name": "End_Dttm",
+            "dataType": "TIMESTAMP"
+          },
+          {
+            "name": "Duration_Minutes",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Status_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Outcome_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "SLA_Met_Ind",
+            "dataType": "CHAR(1)"
+          },
+          {
+            "name": "Actual_Cost_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Steps_Completed_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Rework_Count",
+            "dataType": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "PROCESS_STEP_INSTANCE",
+        "columns": [
+          {
+            "name": "Step_Instance_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Process_Instance_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Process_Step_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Executed_By_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Channel_Instance_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Start_Dttm",
+            "dataType": "TIMESTAMP"
+          },
+          {
+            "name": "End_Dttm",
+            "dataType": "TIMESTAMP"
+          },
+          {
+            "name": "Duration_Minutes",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Queue_Wait_Minutes",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Status_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Is_Rework_Ind",
+            "dataType": "CHAR(1)"
+          },
+          {
+            "name": "Notes_Txt",
+            "dataType": "VARCHAR(2000)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ops",
+    "name": "Operational Metrics",
+    "description": "Operational Metrics gap extension tables.",
+    "tables": [
+      {
+        "name": "OPERATIONAL_METRIC_TYPE",
+        "columns": [
+          {
+            "name": "Metric_Type_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Metric_Name",
+            "dataType": "VARCHAR(100)"
+          },
+          {
+            "name": "Metric_Description",
+            "dataType": "VARCHAR(500)"
+          },
+          {
+            "name": "Metric_Category_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Unit_Of_Measure_Cd",
+            "dataType": "VARCHAR(50)"
+          },
+          {
+            "name": "Aggregation_Method_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Target_Direction_Cd",
+            "dataType": "VARCHAR(10)"
+          },
+          {
+            "name": "SLA_Threshold_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Warning_Threshold_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Is_SBP_Reportable_Ind",
+            "dataType": "CHAR(1)",
+            "isPakistanSpecific": true
+          }
+        ]
+      },
+      {
+        "name": "OPERATIONAL_METRIC_VALUE",
+        "columns": [
+          {
+            "name": "Metric_Value_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Metric_Type_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Time_Period_Key",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Granularity_Cd",
+            "dataType": "VARCHAR(20)"
+          },
+          {
+            "name": "Organization_Party_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Channel_Instance_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Business_Process_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Metric_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Target_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Prior_Period_Value",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "SLA_Met_Ind",
+            "dataType": "CHAR(1)"
+          },
+          {
+            "name": "RAG_Status_Cd",
+            "dataType": "VARCHAR(10)"
+          },
+          {
+            "name": "Variance_Pct",
+            "dataType": "DECIMAL(7"
+          }
+        ]
+      },
+      {
+        "name": "CHANNEL_OPERATIONAL_METRIC",
+        "columns": [
+          {
+            "name": "Channel_Metric_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Channel_Instance_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Time_Period_Key",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Avg_Wait_Time_Minutes",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Max_Wait_Time_Minutes",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "P95_Wait_Time_Minutes",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Avg_Queue_Length_Count",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Max_Queue_Length_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Transaction_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Avg_Handle_Time_Minutes",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Uptime_Pct",
+            "dataType": "DECIMAL(7"
+          },
+          {
+            "name": "Downtime_Minutes",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Utilization_Pct",
+            "dataType": "DECIMAL(7"
+          },
+          {
+            "name": "Staff_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Cost_Per_Transaction_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Total_Operating_Cost_Amt",
+            "dataType": "DECIMAL(18"
+          }
+        ]
+      },
+      {
+        "name": "BRANCH_OPERATIONAL_METRIC",
+        "columns": [
+          {
+            "name": "Branch_Metric_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Branch_Org_Id",
+            "dataType": "BIGINT"
+          },
+          {
+            "name": "Time_Period_Key",
+            "dataType": "DATE"
+          },
+          {
+            "name": "Customer_Visit_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "New_Account_Open_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Account_Close_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Cash_Transaction_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Non_Cash_Transaction_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Total_Cash_Handled_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Avg_Service_Time_Minutes",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Avg_Wait_Time_Minutes",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Customer_Complaint_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Staff_Present_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Staff_Absent_Count",
+            "dataType": "INTEGER"
+          },
+          {
+            "name": "Overtime_Hours",
+            "dataType": "DECIMAL(10"
+          },
+          {
+            "name": "Cash_Vault_Balance_Amt",
+            "dataType": "DECIMAL(18"
+          },
+          {
+            "name": "Cash_In_Transit_Amt",
+            "dataType": "DECIMAL(18"
+          }
+        ]
+      }
+    ]
+  }
+]
