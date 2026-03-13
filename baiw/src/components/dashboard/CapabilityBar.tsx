@@ -37,7 +37,7 @@ export default function CapabilityBar({ capabilities }: Props) {
           <Bar
             dataKey="count"
             radius={[0, 4, 4, 0]}
-            onClick={(entry) => navigate(`/capabilities?theme=${encodeURIComponent(entry.name)}`)}
+            onClick={(entry) => navigate(`/capabilities?theme=${encodeURIComponent(String(entry.name))}`)}
             className="cursor-pointer"
           >
             {data.map((entry, index) => (

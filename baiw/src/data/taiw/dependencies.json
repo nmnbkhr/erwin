@@ -1,0 +1,3034 @@
+{
+  "declared_value_verification": {
+    "elements": [
+      "Currency code",
+      "Customs value",
+      "Customs value method code",
+      "Exchange rate",
+      "Invoice amount",
+      "Price influence indicator",
+      "Statistical value",
+      "Transaction value",
+      "Valuation method code",
+      "Value declared for customs"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Brand & Model Data",
+      "Certificate of Origin Data",
+      "Clearance Timestamps",
+      "Commercial Invoice Data",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Exchange Rate Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "Goods Item Valuation",
+      "HS Classification Data",
+      "International Commodity Prices",
+      "Mirror Trade Statistics",
+      "Quantity & Weight Data",
+      "Reference Price Database",
+      "Tax Calculation Details",
+      "Trade Finance Instruments"
+    ],
+    "elementCount": 10,
+    "domainCount": 3
+  },
+  "transfer_pricing_detection": {
+    "elements": [
+      "Adjustment amount",
+      "Customs value",
+      "Customs value method code",
+      "Invoice amount",
+      "Price influence indicator",
+      "Transaction value",
+      "Valuation adjustment code",
+      "Value declared for customs"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Beneficial Ownership",
+      "Clearance Timestamps",
+      "Commercial Invoice Data",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Tax Calculation Details",
+      "Vendor & Supplier Data"
+    ],
+    "elementCount": 8,
+    "domainCount": 3
+  },
+  "transaction_value_database": {
+    "elements": [
+      "Customs value",
+      "Exchange rate",
+      "Freight cost",
+      "Insurance cost",
+      "Invoice amount",
+      "Transaction value",
+      "Value declared for customs"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Item Valuation",
+      "Reference Price Database",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "valuation_method_selection": {
+    "elements": [
+      "Customs value",
+      "Customs value method code",
+      "Freight cost",
+      "Insurance cost",
+      "Item customs value",
+      "Value declared for customs"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Quantity & Weight Data",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "exchange_rate_impact_analysis": {
+    "elements": [
+      "Currency code",
+      "Exchange rate",
+      "Exchange rate date",
+      "Total CIF value"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Exchange Rate Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 4,
+    "domainCount": 2
+  },
+  "retrospective_valuation_audit": {
+    "elements": [
+      "Adjustment amount",
+      "Customs value",
+      "Customs value method code",
+      "Exchange rate",
+      "Invoice amount",
+      "Transaction value",
+      "Value declared for customs"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "advance_ruling_compliance": {
+    "elements": [
+      "Adjustment amount",
+      "Binding origin information ref",
+      "Commodity code (HS)",
+      "Customs value",
+      "Customs value method code"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Goods",
+      "Origin"
+    ],
+    "dataRequirements": [
+      "Certificate of Origin Data",
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Preferential Treatment Data",
+      "Quantity & Weight Data",
+      "Rules of Origin Compliance",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 5,
+    "domainCount": 4
+  },
+  "value_trend_analytics": {
+    "elements": [
+      "Customs value",
+      "Invoice amount",
+      "Price influence indicator",
+      "Statistical value",
+      "Transaction value",
+      "Value declared for customs"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "Goods Item Valuation",
+      "HS Classification Data",
+      "Quantity & Weight Data",
+      "Reference Price Database",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "hs_code_classification_engine": {
+    "elements": [
+      "Additional tariff code",
+      "Commodity classification code (HS6)",
+      "Commodity code (HS)",
+      "Commodity code type",
+      "HS heading description",
+      "HS subheading code",
+      "HS subheading description",
+      "HS version year",
+      "National tariff line code"
+    ],
+    "domains": [
+      "Classification",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Brand & Model Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Quantity & Weight Data",
+      "Tariff Schedule Data"
+    ],
+    "elementCount": 9,
+    "domainCount": 2
+  },
+  "tariff_schedule_management": {
+    "elements": [
+      "Additional tariff code",
+      "Applied duty rate",
+      "Commodity code (HS)",
+      "National tariff line code",
+      "Preference code",
+      "Statutory duty rate",
+      "Tariff quantity"
+    ],
+    "domains": [
+      "Classification",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Quantity & Weight Data",
+      "Quota Allocation Data",
+      "Tariff Schedule Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "sro_concession_tracking": {
+    "elements": [
+      "Applied duty rate",
+      "Commodity code (HS)",
+      "Concession certificate number",
+      "Preference code",
+      "SRO applicability code",
+      "SRO concession reference",
+      "SRO number",
+      "SRO saving amount"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Procedure Codes",
+      "Quantity & Weight Data",
+      "Regulatory Change Data",
+      "SRO Concession Data",
+      "SRO Register",
+      "Tariff Schedule Data",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 8,
+    "domainCount": 4
+  },
+  "fta_preference_management": {
+    "elements": [
+      "Commodity code (HS)",
+      "FTA agreement code",
+      "FTA preference declaration",
+      "FTA preference rate",
+      "Preference certificate reference",
+      "Preference code",
+      "Preferential origin country"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Goods",
+      "Origin"
+    ],
+    "dataRequirements": [
+      "Certificate Data",
+      "Certificate of Origin Data",
+      "Clearance Timestamps",
+      "Cumulation Data",
+      "FTA Utilization Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Preferential Treatment Data",
+      "Quantity & Weight Data",
+      "Rules of Origin Compliance",
+      "Tariff Schedule Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 4
+  },
+  "duty_drawback_analytics": {
+    "elements": [
+      "Commodity code (HS)",
+      "Commodity code type",
+      "Duty/tax/fee amount",
+      "HS subheading code",
+      "Refund amount"
+    ],
+    "domains": [
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Goods Description",
+      "HS Classification Data",
+      "Inward Processing Data",
+      "Previous Document References",
+      "Quantity & Weight Data",
+      "Refund & Drawback Data",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 5,
+    "domainCount": 2
+  },
+  "regulatory_duty_impact": {
+    "elements": [
+      "Additional customs duty rate",
+      "Applied duty rate",
+      "Commodity code (HS)",
+      "Duty/tax/fee amount",
+      "Duty/tax/fee type code",
+      "Regulatory duty rate"
+    ],
+    "domains": [
+      "Classification",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Preferential Treatment Data",
+      "Quantity & Weight Data",
+      "Regulatory Change Data",
+      "SRO Concession Data",
+      "SRO Register",
+      "Tariff Schedule Data",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "revenue_dashboarding": {
+    "elements": [
+      "Currency code for duties",
+      "Customs value",
+      "Duty/tax/fee amount",
+      "Duty/tax/fee rate",
+      "Item duty amount",
+      "Payment method code",
+      "Total duty amount",
+      "Total regulatory duty amount",
+      "Total sales tax amount",
+      "Total taxes paid amount"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Auction & Confiscation Data",
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "E-Payment Transaction Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Payment Data",
+      "Quantity & Weight Data",
+      "Revenue Collection Figures",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 10,
+    "domainCount": 3
+  },
+  "revenue_forecasting": {
+    "elements": [
+      "Currency code for duties",
+      "Customs value",
+      "Duty/tax/fee amount",
+      "Duty/tax/fee rate",
+      "Duty/tax/fee type code",
+      "Payment method code",
+      "Statistical value",
+      "Total duty amount",
+      "Total taxes paid amount"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "De Minimis Threshold Data",
+      "Duty Assessment Data",
+      "Economic Indicators",
+      "Exchange Rate Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Quantity & Weight Data",
+      "Revenue Collection Figures",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 9,
+    "domainCount": 3
+  },
+  "leakage_detection": {
+    "elements": [
+      "Currency code for duties",
+      "Customs value",
+      "Duty/tax/fee amount",
+      "Duty/tax/fee rate",
+      "Duty/tax/fee type code",
+      "Payment method code",
+      "Total duty amount",
+      "Total taxes paid amount"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Revenue Collection Figures",
+      "Risk Score Data",
+      "SRO Concession Data",
+      "SRO Register",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "refund_and_drawback_management": {
+    "elements": [
+      "Commodity code (HS)",
+      "Drawback amount",
+      "Drawback claim reference",
+      "Duty/tax/fee amount",
+      "Payment method code",
+      "Refund amount",
+      "Total taxes paid amount"
+    ],
+    "domains": [
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Goods Description",
+      "HS Classification Data",
+      "Quantity & Weight Data",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "duty_differential_analysis": {
+    "elements": [
+      "Duty/tax/fee amount",
+      "Duty/tax/fee rate",
+      "Duty/tax/fee type code",
+      "Total duty amount",
+      "Total sales tax amount"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Preferential Treatment Data",
+      "SRO Concession Data",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 5,
+    "domainCount": 2
+  },
+  "budget_vs_actual_tracking": {
+    "elements": [
+      "Applied duty rate",
+      "Currency code for duties",
+      "Duty/tax/fee amount",
+      "Duty/tax/fee type code",
+      "Payment method code",
+      "Total taxes paid amount"
+    ],
+    "domains": [
+      "Classification",
+      "Financial"
+    ],
+    "dataRequirements": [
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Economic Indicators",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Revenue Collection Figures",
+      "Tariff Schedule Data",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "risk_profiling_engine": {
+    "elements": [
+      "Commodity code (HS)",
+      "Country of origin code",
+      "Examination request indicator",
+      "Intelligence reference",
+      "Origin country risk score",
+      "Party identifier",
+      "Risk assessment indicator",
+      "Risk category code",
+      "Risk rule identifier",
+      "Risk score value",
+      "Selectivity channel assigned",
+      "Selectivity channel code"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Origin",
+      "Party",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Certificate of Origin Data",
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Non-Intrusive Inspection Data",
+      "Party Roles & Functions",
+      "Preferential Treatment Data",
+      "Quantity & Weight Data",
+      "Risk Score Data",
+      "Rules of Origin Compliance",
+      "Selectivity & Channel Data",
+      "Selectivity Results",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 12,
+    "domainCount": 5
+  },
+  "selectivity_channel_assignment": {
+    "elements": [
+      "Examination type code",
+      "Green channel eligibility",
+      "Risk assessment indicator",
+      "Risk rule hit count",
+      "Risk rule identifier",
+      "Risk rule name",
+      "Risk score value",
+      "Selectivity channel assigned",
+      "Selectivity channel code"
+    ],
+    "domains": [
+      "Declaration",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Risk Score Data",
+      "Selectivity & Channel Data",
+      "Selectivity Results"
+    ],
+    "elementCount": 9,
+    "domainCount": 2
+  },
+  "trader_risk_scoring": {
+    "elements": [
+      "Examination result code",
+      "Lab test indicator",
+      "NTC alert indicator",
+      "Risk assessment indicator",
+      "Risk category code",
+      "Risk rule identifier",
+      "Risk score value",
+      "Specific circumstance indicator",
+      "TIN/NTN number",
+      "Trader compliance score"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Party",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Beneficial Ownership",
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Risk Score Data",
+      "Selectivity Results",
+      "Trader Financial Profile",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 10,
+    "domainCount": 4
+  },
+  "commodity_risk_matrix": {
+    "elements": [
+      "Commodity code (HS)",
+      "Risk assessment indicator",
+      "Risk category code",
+      "Risk rule identifier",
+      "Risk score value",
+      "Selectivity channel assigned",
+      "Selectivity channel code",
+      "Trader risk category"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Quantity & Weight Data",
+      "Risk Score Data",
+      "Selectivity Results"
+    ],
+    "elementCount": 8,
+    "domainCount": 3
+  },
+  "intelligence_led_targeting": {
+    "elements": [
+      "Intelligence reference",
+      "NTC alert indicator",
+      "Risk category code",
+      "Risk rule identifier",
+      "Risk score value",
+      "Selectivity channel assigned",
+      "Selectivity channel code"
+    ],
+    "domains": [
+      "Declaration",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Intelligence Feeds",
+      "Risk Score Data",
+      "Selectivity Results"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "post_clearance_audit_selection": {
+    "elements": [
+      "Goods sample taken indicator",
+      "Post-clearance audit indicator",
+      "Risk rule identifier",
+      "Selectivity channel assigned",
+      "Selectivity channel code"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Post-Clearance Audit Data",
+      "Quantity & Weight Data",
+      "Risk Score Data",
+      "Selectivity Results"
+    ],
+    "elementCount": 5,
+    "domainCount": 3
+  },
+  "ml_risk_models": {
+    "elements": [
+      "Intelligence reference",
+      "Origin country risk score",
+      "Risk assessment indicator",
+      "Risk category code",
+      "Risk rule identifier",
+      "Risk score value",
+      "Selectivity channel assigned",
+      "Selectivity channel code"
+    ],
+    "domains": [
+      "Declaration",
+      "Origin",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Certificate of Origin Data",
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Preferential Treatment Data",
+      "Risk Score Data",
+      "Rules of Origin Compliance",
+      "Selectivity Results"
+    ],
+    "elementCount": 8,
+    "domainCount": 3
+  },
+  "risk_rule_management": {
+    "elements": [
+      "Risk assessment indicator",
+      "Risk category code",
+      "Risk rule hit count",
+      "Risk rule identifier",
+      "Risk rule name",
+      "Risk score value",
+      "Selectivity channel assigned"
+    ],
+    "domains": [
+      "Declaration",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Risk Score Data",
+      "Selectivity Results"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "smuggling_pattern_detection": {
+    "elements": [
+      "Container identification",
+      "Customs office of declaration",
+      "Date of declaration",
+      "Identification of declaration",
+      "Intelligence reference",
+      "Risk score value",
+      "Seal condition code (control)",
+      "Seizure indicator",
+      "Seizure report reference",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Risk & Control",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Afghan Transit Trade Data",
+      "Anti-Smuggling Intelligence",
+      "Clearance Timestamps",
+      "Container Tracking Data",
+      "Dangerous Goods Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "Intelligence Feeds",
+      "Non-Intrusive Inspection Data",
+      "Penalty & Adjudication Data",
+      "Risk Score Data",
+      "Seal Data",
+      "Seizure & Violation Data",
+      "Selectivity Results",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 10,
+    "domainCount": 3
+  },
+  "afghan_transit_trade_monitoring": {
+    "elements": [
+      "ATIC classification",
+      "ATTA permit number",
+      "Afghan transit flag",
+      "Afghan transit indicator",
+      "Border crossing point code",
+      "Container identification",
+      "Destination customs office",
+      "Seal number"
+    ],
+    "domains": [
+      "Classification",
+      "Consignment",
+      "Declaration",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Afghan Transit Trade Data",
+      "Bill of Lading Data",
+      "Clearance Timestamps",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "GD Header Data",
+      "GD Line Items",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Manifest/IGM Data",
+      "Seal Data",
+      "Tariff Schedule Data",
+      "Transit Movement Data",
+      "Vehicle & Driver Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 8,
+    "domainCount": 4
+  },
+  "trade_based_money_laundering": {
+    "elements": [
+      "Container scan result",
+      "Date of declaration",
+      "Identification of declaration",
+      "Money laundering risk indicator",
+      "Party identifier",
+      "Seal condition code (control)",
+      "Transaction value",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Party",
+      "Risk & Control",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Beneficial Ownership",
+      "Clearance Timestamps",
+      "Container Tracking Data",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Intelligence Feeds",
+      "Party Roles & Functions",
+      "Risk Score Data",
+      "Seal Data",
+      "Selectivity Results",
+      "Tax Calculation Details",
+      "Trade Finance Instruments",
+      "Trade-Based Money Laundering Data",
+      "Trader Identity & Registration",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 8,
+    "domainCount": 5
+  },
+  "controlled_delivery_tracking": {
+    "elements": [
+      "GPS tracking identifier",
+      "Intelligence reference",
+      "NLC tracking number",
+      "Reference number of consignment",
+      "Seal condition code (control)"
+    ],
+    "domains": [
+      "Consignment",
+      "Risk & Control",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Anti-Smuggling Intelligence",
+      "Bill of Lading Data",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Examination Outcomes",
+      "Manifest/IGM Data",
+      "Risk Score Data",
+      "Seal Data",
+      "Selectivity Results",
+      "Vehicle & Driver Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 5,
+    "domainCount": 3
+  },
+  "border_intelligence_analytics": {
+    "elements": [
+      "Border crossing name",
+      "Border crossing point code",
+      "Intelligence reference",
+      "Mode of transport at border",
+      "NTC alert indicator",
+      "Risk category code",
+      "Risk score value"
+    ],
+    "domains": [
+      "Location",
+      "Risk & Control",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Anti-Smuggling Intelligence",
+      "Border Crossing Data",
+      "Container Tracking Data",
+      "Dangerous Goods Data",
+      "Dual-Use Goods Classification",
+      "Examination Outcomes",
+      "Free Zone Activity Data",
+      "Intelligence Feeds",
+      "Port & Terminal Data",
+      "Risk Score Data",
+      "Seal Data",
+      "Seizure & Violation Data",
+      "Selectivity Results",
+      "Vehicle & Driver Data",
+      "Vessel/Flight Details",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 3
+  },
+  "sanctions_and_embargo_screening": {
+    "elements": [
+      "Country code",
+      "Date of declaration",
+      "Dual-use indicator",
+      "Identification of declaration",
+      "Party identifier",
+      "Party name",
+      "Seal condition code (control)",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Party",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Intelligence Feeds",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Risk Score Data",
+      "Selectivity Results",
+      "Trade Restrictions Data",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 8,
+    "domainCount": 4
+  },
+  "post_clearance_audit_analytics": {
+    "elements": [
+      "AEO authorization number",
+      "AEO tier level",
+      "Amendment reason code",
+      "Decision code",
+      "Discrepancy description",
+      "Discrepancy indicator",
+      "Mirror statistics indicator",
+      "Penalty code",
+      "Post-clearance audit indicator"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Party",
+      "Response",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Amendment History",
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Penalty & Adjudication Data",
+      "Post-Clearance Audit Data",
+      "Previous Document References",
+      "Quantity & Weight Data",
+      "Query & Response Data",
+      "Risk Score Data",
+      "Selectivity Results",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 9,
+    "domainCount": 5
+  },
+  "self_assessment_verification": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Decision code",
+      "Identification of declaration",
+      "Penalty code",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Party",
+      "Response"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Party Roles & Functions",
+      "Penalty & Adjudication Data",
+      "Post-Clearance Audit Data",
+      "Query & Response Data",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 7,
+    "domainCount": 3
+  },
+  "aeo_compliance_monitoring": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Examination waiver indicator",
+      "Party identifier",
+      "Risk score value",
+      "TIN/NTN number",
+      "Trader compliance score"
+    ],
+    "domains": [
+      "Party",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "AEO Authorization Data",
+      "Agent & Broker Details",
+      "Compliance Rate Data",
+      "Examination Outcomes",
+      "Party Roles & Functions",
+      "Risk Score Data",
+      "Selectivity Results",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "trader_compliance_scorecard": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Historical violation count",
+      "Penalty code",
+      "Trader compliance score"
+    ],
+    "domains": [
+      "Party",
+      "Response"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Compliance Rate Data",
+      "Customs Decision Data",
+      "Party Roles & Functions",
+      "Penalty & Adjudication Data",
+      "Query & Response Data",
+      "Seizure & Violation Data",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "document_fraud_detection": {
+    "elements": [
+      "Certificate number",
+      "Customs declaration document identifier",
+      "Document reference number",
+      "Document status code",
+      "Document verification status",
+      "Previous document reference",
+      "Risk assessment indicator"
+    ],
+    "domains": [
+      "Declaration",
+      "Document",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Amendment History",
+      "Certificate Data",
+      "Clearance Timestamps",
+      "Commercial Invoice Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "Intelligence Feeds",
+      "Licences & Permits Data",
+      "Risk Score Data",
+      "Rules of Origin Compliance",
+      "Selectivity Results",
+      "Supporting Document Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 3
+  },
+  "regulatory_compliance_reporting": {
+    "elements": [
+      "AEO last review date",
+      "Compliance percentage",
+      "ISPM-15 compliance indicator",
+      "Trader compliance score"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Auction & Confiscation Data",
+      "Certificate Data",
+      "Certificate of Origin Data",
+      "Clearance Timestamps",
+      "Compliance Rate Data",
+      "Customs Decision Data",
+      "De Minimis Threshold Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Licences & Permits Data",
+      "Party Roles & Functions",
+      "Penalty & Adjudication Data",
+      "Procedure Codes",
+      "Quantity & Weight Data",
+      "Rules of Origin Compliance",
+      "Trade Restrictions Data",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 4,
+    "domainCount": 3
+  },
+  "clearance_time_analytics": {
+    "elements": [
+      "Acceptance date and time",
+      "Clearance time minutes",
+      "Customs office of declaration",
+      "Date of declaration",
+      "Lodgement date time",
+      "Release date and time",
+      "Selectivity channel code",
+      "Time-release study indicator",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Response",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Clearance Time Metrics",
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "Customs Office Data",
+      "Customs Staffing Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Penalty & Adjudication Data",
+      "Postal & Courier Data",
+      "Query & Response Data",
+      "Risk Score Data",
+      "Selectivity Results"
+    ],
+    "elementCount": 9,
+    "domainCount": 3
+  },
+  "bottleneck_identification": {
+    "elements": [
+      "Acceptance date and time",
+      "Customs office of declaration",
+      "Date of declaration",
+      "Lodgement date time",
+      "Processing officer count",
+      "Release date and time",
+      "Selectivity channel code",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Response",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Clearance Time Metrics",
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "Customs Office Data",
+      "Customs Staffing Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Penalty & Adjudication Data",
+      "Query & Response Data",
+      "Risk Score Data",
+      "Selectivity Results"
+    ],
+    "elementCount": 8,
+    "domainCount": 3
+  },
+  "green_channel_optimization": {
+    "elements": [
+      "AEO authorization number",
+      "AEO tier level",
+      "Acceptance date and time",
+      "Date of declaration",
+      "Lodgement date time",
+      "Selectivity channel assigned",
+      "Selectivity channel code"
+    ],
+    "domains": [
+      "Declaration",
+      "Party",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Party Roles & Functions",
+      "Risk Score Data",
+      "Selectivity & Channel Data",
+      "Selectivity Results",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 7,
+    "domainCount": 3
+  },
+  "pre_arrival_processing": {
+    "elements": [
+      "Acceptance date and time",
+      "Carrier assigned identifier",
+      "Date of declaration",
+      "Estimated arrival date",
+      "Manifest reference number",
+      "Pre-arrival indicator",
+      "Priority processing indicator",
+      "Release date and time",
+      "Voyage/flight number"
+    ],
+    "domains": [
+      "Consignment",
+      "Declaration",
+      "Response",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Clearance Timestamps",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Customs Decision Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Manifest/IGM Data",
+      "Penalty & Adjudication Data",
+      "Query & Response Data",
+      "Seal Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 9,
+    "domainCount": 4
+  },
+  "single_window_integration": {
+    "elements": [
+      "Acceptance date and time",
+      "Certificate number",
+      "Date of declaration",
+      "Licence number",
+      "OGA clearance reference",
+      "PSW clearance status",
+      "PSW document reference",
+      "Single window reference"
+    ],
+    "domains": [
+      "Declaration",
+      "Document"
+    ],
+    "dataRequirements": [
+      "Certificate Data",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Licences & Permits Data",
+      "PSW Integration Metrics",
+      "Supporting Document Data"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "24_7_clearance_analytics": {
+    "elements": [
+      "24/7 clearance indicator",
+      "Acceptance date and time",
+      "Date of declaration",
+      "Lodgement date time"
+    ],
+    "domains": [
+      "Declaration"
+    ],
+    "dataRequirements": [
+      "Clearance Time Metrics",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items"
+    ],
+    "elementCount": 4,
+    "domainCount": 1
+  },
+  "queue_management": {
+    "elements": [
+      "Acceptance date and time",
+      "Customs office of declaration",
+      "Date of declaration",
+      "Priority processing indicator",
+      "Processing officer count",
+      "Release date and time"
+    ],
+    "domains": [
+      "Declaration",
+      "Response"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "Customs Staffing Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Penalty & Adjudication Data",
+      "Query & Response Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "sla_tracking": {
+    "elements": [
+      "Acceptance date and time",
+      "Customs office of declaration",
+      "Date of declaration",
+      "Lodgement date time",
+      "Release date and time",
+      "Release date time"
+    ],
+    "domains": [
+      "Declaration",
+      "Response"
+    ],
+    "dataRequirements": [
+      "Clearance Time Metrics",
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "Customs Office Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Penalty & Adjudication Data",
+      "Query & Response Data",
+      "Trader Feedback & Complaints"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "port_throughput_analytics": {
+    "elements": [
+      "Berth number",
+      "Exit port UN/LOCODE",
+      "First port of entry UN/LOCODE",
+      "First port of entry name",
+      "Port of discharge UN/LOCODE",
+      "Port of discharge name",
+      "Rotation number",
+      "Terminal code",
+      "Transport means name"
+    ],
+    "domains": [
+      "Consignment",
+      "Location",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Dangerous Goods Data",
+      "Free Zone Activity Data",
+      "Geographic & Mapping Data",
+      "Manifest/IGM Data",
+      "Packaging Details",
+      "Port & Terminal Data",
+      "Postal & Courier Data",
+      "Seal Data",
+      "Temporary Storage Data",
+      "Terminal Operations Data",
+      "Vessel/Flight Details",
+      "Warehouse Inventory Data",
+      "Warehouse Operations Data"
+    ],
+    "elementCount": 9,
+    "domainCount": 3
+  },
+  "container_dwell_time": {
+    "elements": [
+      "Container dwell time hours",
+      "Container identification",
+      "Container size and type code",
+      "Container yard code",
+      "Container yard location",
+      "Dwell time hours",
+      "Seal number"
+    ],
+    "domains": [
+      "Location",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Free Zone Activity Data",
+      "Packaging Details",
+      "Port & Terminal Data",
+      "Seal Data",
+      "Temporary Storage Data",
+      "Terminal Operations Data",
+      "Vessel/Flight Details",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "terminal_performance_benchmarking": {
+    "elements": [
+      "Berth number",
+      "Consignment special instruction",
+      "Container dwell time hours",
+      "Dwell time hours",
+      "Terminal code",
+      "Terminal operator code"
+    ],
+    "domains": [
+      "Consignment",
+      "Location",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Free Zone Activity Data",
+      "International Benchmark Data",
+      "Manifest/IGM Data",
+      "Port & Terminal Data",
+      "Seal Data",
+      "Terminal Operations Data",
+      "Vessel/Flight Details",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "warehouse_and_bonded_area_utilization": {
+    "elements": [
+      "Bonded warehouse type",
+      "Free zone activity type",
+      "Storage period days",
+      "Warehouse entry number",
+      "Warehouse identifier",
+      "Warehouse location code",
+      "Warehouse temperature recorded",
+      "Warehouse type code"
+    ],
+    "domains": [
+      "Location",
+      "Warehouse"
+    ],
+    "dataRequirements": [
+      "Free Zone Activity Data",
+      "Free Zone Operations",
+      "Inward Processing Data",
+      "Port & Terminal Data",
+      "Warehouse Inventory Data",
+      "Warehouse Operations Data"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "free_zone_performance": {
+    "elements": [
+      "Free zone identifier",
+      "Free zone investment amount",
+      "Free zone production output value",
+      "Gwadar zone code"
+    ],
+    "domains": [
+      "Location",
+      "Warehouse"
+    ],
+    "dataRequirements": [
+      "Free Zone Activity Data",
+      "Free Zone Operations",
+      "Inward Processing Data",
+      "Port & Terminal Data",
+      "Warehouse Inventory Data",
+      "Warehouse Operations Data"
+    ],
+    "elementCount": 4,
+    "domainCount": 2
+  },
+  "dry_port_operations": {
+    "elements": [
+      "Berth number",
+      "Container identification",
+      "Dry port identifier",
+      "Dwell time hours",
+      "Inland mode of transport",
+      "Mode of transport at border"
+    ],
+    "domains": [
+      "Location",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Container Tracking Data",
+      "Dry Port Operations Data",
+      "Free Zone Activity Data",
+      "Port & Terminal Data",
+      "Seal Data",
+      "Vessel/Flight Details",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "afghan_transit_trade_analytics": {
+    "elements": [
+      "ATTA permit number",
+      "Afghan transit flag",
+      "Afghan transit indicator",
+      "Border crossing point code",
+      "Container identification",
+      "Destination customs office",
+      "Mode of transport at border",
+      "Seal number"
+    ],
+    "domains": [
+      "Consignment",
+      "Declaration",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Afghan Transit Trade Data",
+      "Bill of Lading Data",
+      "Border Crossing Data",
+      "Clearance Timestamps",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Manifest/IGM Data",
+      "Route & Itinerary Data",
+      "Seal Data",
+      "Transit Movement Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 8,
+    "domainCount": 3
+  },
+  "cpec_route_analytics": {
+    "elements": [
+      "CPEC corridor indicator",
+      "CPEC route identifier",
+      "Container identification",
+      "Country code",
+      "Inland mode of transport",
+      "Mode of transport at border",
+      "SEZ identifier"
+    ],
+    "domains": [
+      "Consignment",
+      "Location",
+      "Party",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Bill of Lading Data",
+      "Border Crossing Data",
+      "CPEC Trade Data",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Free Zone Activity Data",
+      "Free Zone Operations",
+      "Geographic & Mapping Data",
+      "Manifest/IGM Data",
+      "Party Roles & Functions",
+      "Port & Terminal Data",
+      "Route & Itinerary Data",
+      "Seal Data",
+      "Trader Identity & Registration",
+      "Vessel/Flight Details",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 4
+  },
+  "transshipment_hub_performance": {
+    "elements": [
+      "First port of entry UN/LOCODE",
+      "Port of discharge UN/LOCODE",
+      "Port of discharge name",
+      "Port of transshipment code",
+      "Transhipment port code",
+      "Transshipment indicator"
+    ],
+    "domains": [
+      "Consignment",
+      "Location",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "CPEC Trade Data",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Free Zone Activity Data",
+      "Manifest/IGM Data",
+      "Port & Terminal Data",
+      "Seal Data",
+      "Vessel/Flight Details",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "tir_convention_compliance": {
+    "elements": [
+      "Afghan transit indicator",
+      "Customs transit number",
+      "Destination customs office",
+      "TIR carnet number"
+    ],
+    "domains": [
+      "Consignment",
+      "Declaration"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Clearance Timestamps",
+      "Consolidation Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Manifest/IGM Data",
+      "Seal Data",
+      "Transit Movement Data"
+    ],
+    "elementCount": 4,
+    "domainCount": 2
+  },
+  "trade_balance_dashboard": {
+    "elements": [
+      "Annual export volume",
+      "Annual import volume",
+      "Commodity code (HS)",
+      "Country of origin code",
+      "Export licence number",
+      "Import permit number",
+      "Import/export ratio",
+      "Licence type code",
+      "Statistical value",
+      "Trade movement type"
+    ],
+    "domains": [
+      "Declaration",
+      "Document",
+      "Goods",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Certificate Data",
+      "Clearance Timestamps",
+      "E-Commerce Transaction Data",
+      "Energy Import Data",
+      "Export Performance Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Licences & Permits Data",
+      "Mirror Trade Statistics",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Supporting Document Data",
+      "Textile Export Data",
+      "Trade Volume Statistics",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 10,
+    "domainCount": 4
+  },
+  "commodity_flow_analysis": {
+    "elements": [
+      "Annual export volume",
+      "Annual import volume",
+      "Commodity code (HS)",
+      "Commodity code type",
+      "Gross mass",
+      "Net mass",
+      "Statistical value",
+      "Trade movement type"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Energy Import Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Trade Volume Statistics",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 8,
+    "domainCount": 3
+  },
+  "trading_partner_analytics": {
+    "elements": [
+      "Country code",
+      "Country of origin code",
+      "Cumulation partner country",
+      "Mirror statistics indicator",
+      "Party identifier",
+      "Preferential origin country",
+      "Trader mutual recognition ID"
+    ],
+    "domains": [
+      "Goods",
+      "Origin",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Certificate of Origin Data",
+      "Cumulation Data",
+      "FTA Utilization Data",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Preferential Treatment Data",
+      "Quantity & Weight Data",
+      "Rules of Origin Compliance",
+      "Trade Volume Statistics",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 7,
+    "domainCount": 3
+  },
+  "export_diversification_metrics": {
+    "elements": [
+      "Annual export volume",
+      "Commodity code (HS)",
+      "Import/export ratio",
+      "Statistical value",
+      "Trade movement type",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Export Performance Data",
+      "FTA Utilization Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Textile Export Data",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "import_dependency_analysis": {
+    "elements": [
+      "Annual import volume",
+      "Commodity code (HS)",
+      "Country of origin code",
+      "Import permit number",
+      "Import/export ratio",
+      "Trade movement type",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Energy Import Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Quota Allocation Data",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 7,
+    "domainCount": 3
+  },
+  "trade_data_reconciliation": {
+    "elements": [
+      "Cumulation partner country",
+      "Identification of declaration",
+      "Mirror statistics indicator",
+      "Trader mutual recognition ID"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Origin",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Certificate of Origin Data",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Mirror Trade Statistics",
+      "Party Roles & Functions",
+      "Preferential Treatment Data",
+      "Previous Document References",
+      "Quantity & Weight Data",
+      "Rules of Origin Compliance",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 4,
+    "domainCount": 4
+  },
+  "revenue_per_unit": {
+    "elements": [
+      "Commodity code (HS)",
+      "Revenue per unit collected",
+      "Statistical value",
+      "Trade movement type"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "Export Performance Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Quantity & Weight Data",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 4,
+    "domainCount": 3
+  },
+  "seasonal_trade_patterns": {
+    "elements": [
+      "Commodity code (HS)",
+      "Country of origin code",
+      "Date of declaration",
+      "Net mass",
+      "Statistical value",
+      "Trade movement type"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Historical Trade Trends",
+      "Quantity & Weight Data",
+      "Textile Export Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "end_to_end_shipment_tracking": {
+    "elements": [
+      "Carrier assigned identifier",
+      "Consignment identification",
+      "Container demurrage indicator",
+      "Container identification",
+      "Container indicator",
+      "Courier tracking number",
+      "Manifest reference number",
+      "Postal item number",
+      "Transport means identification"
+    ],
+    "domains": [
+      "Consignment",
+      "E-Commerce",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Carrier Performance Metrics",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "De Minimis Threshold Data",
+      "E-Commerce Transaction Data",
+      "Logistics Lead Time Data",
+      "Manifest/IGM Data",
+      "Multi-Modal Transport Data",
+      "Postal & Courier Data",
+      "Seal Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 9,
+    "domainCount": 3
+  },
+  "carrier_performance_analytics": {
+    "elements": [
+      "Carrier assigned identifier",
+      "Rotation number",
+      "Transport means identification",
+      "Transport means name",
+      "Transport means nationality",
+      "Vessel IMO number",
+      "Voyage/flight number"
+    ],
+    "domains": [
+      "Consignment",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Carrier Performance Metrics",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Manifest/IGM Data",
+      "Seal Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "route_optimization": {
+    "elements": [
+      "Container identification",
+      "Country of routing code",
+      "Inland mode of transport",
+      "Mode of transport at border",
+      "Port of discharge UN/LOCODE",
+      "Trade lane code"
+    ],
+    "domains": [
+      "Consignment",
+      "Location",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Dry Port Operations Data",
+      "Free Zone Activity Data",
+      "Geographic & Mapping Data",
+      "Logistics Lead Time Data",
+      "Manifest/IGM Data",
+      "Multi-Modal Transport Data",
+      "Port & Terminal Data",
+      "Route & Itinerary Data",
+      "Seal Data",
+      "Vessel/Flight Details",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "container_tracking_integration": {
+    "elements": [
+      "Container freight station",
+      "Container identification",
+      "Container size and type code",
+      "Container status code",
+      "Equipment identification number",
+      "GPS tracking identifier",
+      "Seal number",
+      "Stuffing location"
+    ],
+    "domains": [
+      "Consignment",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Manifest/IGM Data",
+      "Seal Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "vendor_supplier_risk_mapping": {
+    "elements": [
+      "Container identification",
+      "Party identifier",
+      "Party name",
+      "Related party indicator",
+      "Sealing party code",
+      "Selectivity channel assigned",
+      "TIN/NTN number"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods",
+      "Party",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Container Tracking Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Seal Data",
+      "Trader Identity & Registration",
+      "Vendor & Supplier Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 7,
+    "domainCount": 4
+  },
+  "lead_time_analytics": {
+    "elements": [
+      "Container identification",
+      "Container indicator",
+      "Delivery order number",
+      "Place of delivery"
+    ],
+    "domains": [
+      "Consignment",
+      "Transport"
+    ],
+    "dataRequirements": [
+      "Bill of Lading Data",
+      "Consolidation Data",
+      "Container Tracking Data",
+      "Logistics Lead Time Data",
+      "Manifest/IGM Data",
+      "Multi-Modal Transport Data",
+      "Seal Data",
+      "Vessel/Flight Details"
+    ],
+    "elementCount": 4,
+    "domainCount": 2
+  },
+  "trade_volume_forecasting": {
+    "elements": [
+      "Commodity code (HS)",
+      "Country of origin code",
+      "Customs office of declaration",
+      "Date of declaration",
+      "Identification of declaration",
+      "Net mass",
+      "Statistical value",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "E-Commerce Transaction Data",
+      "Economic Indicators",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Historical Trade Trends",
+      "Predictive Analytics Inputs",
+      "Quantity & Weight Data",
+      "Trade Volume Statistics"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "price_prediction_models": {
+    "elements": [
+      "Commodity code (HS)",
+      "Commodity code type",
+      "Country of origin code",
+      "Date of declaration",
+      "Price influence indicator",
+      "Statistical value",
+      "Unit price"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Brand & Model Data",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Historical Trade Trends",
+      "International Commodity Prices",
+      "Predictive Analytics Inputs",
+      "Quantity & Weight Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "demand_supply_gap_analysis": {
+    "elements": [
+      "Date of declaration",
+      "Goods sample taken indicator",
+      "Identification of declaration",
+      "Net mass",
+      "Statistical value",
+      "Type of declaration"
+    ],
+    "domains": [
+      "Declaration",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "International Commodity Prices",
+      "Quantity & Weight Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "early_warning_system": {
+    "elements": [
+      "Intelligence reference",
+      "Low-value consignment indicator",
+      "NTC alert indicator",
+      "Price influence indicator",
+      "Risk score value",
+      "Specific circumstance indicator"
+    ],
+    "domains": [
+      "Declaration",
+      "E-Commerce",
+      "Goods",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "De Minimis Threshold Data",
+      "E-Commerce Transaction Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "Postal & Courier Data",
+      "Predictive Analytics Inputs",
+      "Quantity & Weight Data",
+      "Regulatory Change Data",
+      "Risk Score Data",
+      "Selectivity Results"
+    ],
+    "elementCount": 6,
+    "domainCount": 4
+  },
+  "trader_360_profile": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Communication number",
+      "Examination waiver indicator",
+      "Party function code",
+      "Party identifier",
+      "Party name",
+      "TIN/NTN number",
+      "Trader mutual recognition ID"
+    ],
+    "domains": [
+      "Party",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "AEO Authorization Data",
+      "Agent & Broker Details",
+      "Examination Outcomes",
+      "Party Roles & Functions",
+      "Risk Score Data",
+      "Selectivity Results",
+      "Trader Contact & Communication",
+      "Trader Financial Profile",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 10,
+    "domainCount": 2
+  },
+  "new_trader_onboarding_analytics": {
+    "elements": [
+      "Export licence number",
+      "Party STRN",
+      "Party identifier",
+      "Party name",
+      "Registration number",
+      "TIN/NTN number",
+      "Trader registration date"
+    ],
+    "domains": [
+      "Declaration",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Party Roles & Functions",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "trader_segmentation": {
+    "elements": [
+      "AEO tier level",
+      "Annual import volume",
+      "Party identifier",
+      "Statistical value",
+      "TIN/NTN number",
+      "Trader risk category"
+    ],
+    "domains": [
+      "Goods",
+      "Party",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Examination Outcomes",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Risk Score Data",
+      "Selectivity Results",
+      "Trader Financial Profile",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "dormant_inactive_trader_detection": {
+    "elements": [
+      "Party function code",
+      "Party identifier",
+      "Party name",
+      "TIN/NTN number"
+    ],
+    "domains": [
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Party Roles & Functions",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 4,
+    "domainCount": 1
+  },
+  "related_party_network_analysis": {
+    "elements": [
+      "AEO authorization number",
+      "AEO tier level",
+      "Communication number",
+      "Party function code",
+      "Party identifier",
+      "Party name",
+      "Related party indicator",
+      "TIN/NTN number"
+    ],
+    "domains": [
+      "Goods",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Beneficial Ownership",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Trade-Based Money Laundering Data",
+      "Trader Identity & Registration",
+      "Vendor & Supplier Data"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "trader_communication_and_outreach": {
+    "elements": [
+      "Communication number",
+      "Contact person name",
+      "Party email address"
+    ],
+    "domains": [
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Party Roles & Functions",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 3,
+    "domainCount": 1
+  },
+  "aeo_application_pipeline": {
+    "elements": [
+      "AEO authorization number",
+      "AEO certification date",
+      "AEO last review date",
+      "AEO tier level",
+      "Decision code",
+      "Party identifier",
+      "Penalty code",
+      "TIN/NTN number"
+    ],
+    "domains": [
+      "Party",
+      "Response"
+    ],
+    "dataRequirements": [
+      "AEO Authorization Data",
+      "Agent & Broker Details",
+      "Compliance Rate Data",
+      "Customs Decision Data",
+      "Party Roles & Functions",
+      "Penalty & Adjudication Data",
+      "Query & Response Data",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "aeo_benefit_measurement": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Party identifier",
+      "TIN/NTN number",
+      "Trader mutual recognition ID"
+    ],
+    "domains": [
+      "Party"
+    ],
+    "dataRequirements": [
+      "AEO Authorization Data",
+      "Agent & Broker Details",
+      "Guarantee & Bond Data",
+      "Party Roles & Functions",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 6,
+    "domainCount": 1
+  },
+  "aeo_compliance_monitoring_aeo": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Compliance percentage",
+      "Examination waiver indicator",
+      "Party identifier",
+      "Penalty code",
+      "TIN/NTN number"
+    ],
+    "domains": [
+      "Declaration",
+      "Party",
+      "Response",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Party Roles & Functions",
+      "Penalty & Adjudication Data",
+      "Query & Response Data",
+      "Risk Score Data",
+      "Selectivity Results",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 8,
+    "domainCount": 4
+  },
+  "aeo_mutual_recognition": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Trader mutual recognition ID"
+    ],
+    "domains": [
+      "Party"
+    ],
+    "dataRequirements": [
+      "AEO Authorization Data",
+      "Agent & Broker Details",
+      "Compliance Rate Data",
+      "FTA Utilization Data",
+      "Party Roles & Functions",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 4,
+    "domainCount": 1
+  },
+  "aeo_tier_analytics": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Party identifier",
+      "Statistical value",
+      "TIN/NTN number"
+    ],
+    "domains": [
+      "Goods",
+      "Party"
+    ],
+    "dataRequirements": [
+      "AEO Authorization Data",
+      "Agent & Broker Details",
+      "Goods Description",
+      "HS Classification Data",
+      "Party Roles & Functions",
+      "Quantity & Weight Data",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "aeo_program_roi": {
+    "elements": [
+      "AEO authorization number",
+      "AEO last review date",
+      "AEO tier level",
+      "Party identifier",
+      "TIN/NTN number",
+      "Trader mutual recognition ID"
+    ],
+    "domains": [
+      "Party"
+    ],
+    "dataRequirements": [
+      "AEO Authorization Data",
+      "Agent & Broker Details",
+      "Party Roles & Functions",
+      "Trader Identity & Registration"
+    ],
+    "elementCount": 6,
+    "domainCount": 1
+  },
+  "weboc_system_performance": {
+    "elements": [
+      "Acceptance date and time",
+      "Commodity classification type",
+      "Commodity code (HS)",
+      "Date of declaration",
+      "Error code",
+      "Identification of declaration",
+      "Type of declaration",
+      "WeBOC GD number",
+      "WeBOC user identifier"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Goods",
+      "Party",
+      "Response"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Automation Level Metrics",
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "EDI Message Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Party Roles & Functions",
+      "Penalty & Adjudication Data",
+      "Quantity & Weight Data",
+      "Query & Response Data",
+      "Tariff Schedule Data",
+      "Trader Identity & Registration",
+      "WeBOC System Metrics"
+    ],
+    "elementCount": 9,
+    "domainCount": 5
+  },
+  "gd_processing_analytics": {
+    "elements": [
+      "Date of declaration",
+      "Green channel eligibility",
+      "Identification of declaration",
+      "Processing officer count",
+      "Re-assessment indicator",
+      "Risk assessment indicator",
+      "Type of declaration",
+      "WeBOC GD number"
+    ],
+    "domains": [
+      "Declaration",
+      "Risk & Control"
+    ],
+    "dataRequirements": [
+      "Cancellation Data",
+      "Clearance Timestamps",
+      "Customs Decision Data",
+      "Examination Outcomes",
+      "GD Header Data",
+      "GD Line Items",
+      "Procedure Codes",
+      "Query & Response Data",
+      "Risk Score Data",
+      "Selectivity Results",
+      "WeBOC System Metrics"
+    ],
+    "elementCount": 8,
+    "domainCount": 2
+  },
+  "psw_integration_dashboard": {
+    "elements": [
+      "Certificate number",
+      "Licence number",
+      "OGA clearance reference",
+      "PSW clearance status",
+      "PSW document reference",
+      "Permit issuing OGA",
+      "WeBOC GD number"
+    ],
+    "domains": [
+      "Declaration",
+      "Document"
+    ],
+    "dataRequirements": [
+      "Certificate Data",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Licences & Permits Data",
+      "PSW Integration Metrics",
+      "Supporting Document Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 2
+  },
+  "electronic_payment_analytics": {
+    "elements": [
+      "E-payment transaction ID",
+      "Guarantee type code",
+      "Payment channel code",
+      "Payment method code",
+      "Total taxes paid amount",
+      "WeBOC GD number"
+    ],
+    "domains": [
+      "Declaration",
+      "Financial"
+    ],
+    "dataRequirements": [
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "E-Payment Transaction Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Payment Data",
+      "Revenue Collection Figures",
+      "Tax Calculation Details"
+    ],
+    "elementCount": 6,
+    "domainCount": 2
+  },
+  "mobile_api_channel_adoption": {
+    "elements": [
+      "Green channel eligibility",
+      "Identification of declaration",
+      "Selectivity channel assigned",
+      "Submission channel code"
+    ],
+    "domains": [
+      "Declaration"
+    ],
+    "dataRequirements": [
+      "Automation Level Metrics",
+      "Clearance Timestamps",
+      "EDI Message Data",
+      "GD Header Data",
+      "GD Line Items"
+    ],
+    "elementCount": 4,
+    "domainCount": 1
+  },
+  "system_modernization_roadmap": {
+    "elements": [
+      "Digital signature hash",
+      "Identification of declaration",
+      "Type of declaration",
+      "WeBOC GD number"
+    ],
+    "domains": [
+      "Declaration",
+      "Document"
+    ],
+    "dataRequirements": [
+      "Automation Level Metrics",
+      "Certificate Data",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Licences & Permits Data",
+      "Supporting Document Data",
+      "WeBOC System Metrics"
+    ],
+    "elementCount": 4,
+    "domainCount": 2
+  },
+  "wco_dm_conformity_assessment": {
+    "elements": [
+      "Certificate type code",
+      "Commodity code (HS)",
+      "Data quality score",
+      "Identification of declaration",
+      "PSQCA certificate number",
+      "Sales tax rate",
+      "Type of declaration",
+      "WCO DM element reference"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Document",
+      "Financial",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Certificate Data",
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Data Quality Metrics",
+      "Duty Assessment Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "International Benchmark Data",
+      "Licences & Permits Data",
+      "Master Data Quality",
+      "Quantity & Weight Data",
+      "Supporting Document Data",
+      "Tariff Schedule Data",
+      "Tax Calculation Details",
+      "WCO DM Mapping Data"
+    ],
+    "elementCount": 8,
+    "domainCount": 5
+  },
+  "data_quality_scorecarding": {
+    "elements": [
+      "Commodity code (HS)",
+      "Country code",
+      "Data quality score",
+      "Licence validity date",
+      "Party identifier",
+      "Port of discharge UN/LOCODE",
+      "WCO DM element reference"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Document",
+      "Goods",
+      "Location",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Amendment History",
+      "Cancellation Data",
+      "Certificate Data",
+      "Clearance Timestamps",
+      "Data Quality Metrics",
+      "Free Zone Activity Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Licences & Permits Data",
+      "Master Data Quality",
+      "Party Roles & Functions",
+      "Port & Terminal Data",
+      "Quantity & Weight Data",
+      "Supporting Document Data",
+      "Tariff Schedule Data",
+      "Trader Identity & Registration",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 7,
+    "domainCount": 6
+  },
+  "master_data_management": {
+    "elements": [
+      "Commodity code (HS)",
+      "Country code",
+      "Currency code",
+      "National data requirement ID",
+      "Party identifier",
+      "Port of discharge UN/LOCODE",
+      "Previous document reference",
+      "Trader reference (UCR)",
+      "WCO DM element reference"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Goods",
+      "Location",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Clearance Timestamps",
+      "Data Quality Metrics",
+      "Free Zone Activity Data",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Master Data Quality",
+      "Party Roles & Functions",
+      "Port & Terminal Data",
+      "Quantity & Weight Data",
+      "Tariff Schedule Data",
+      "Trader Identity & Registration",
+      "Warehouse Inventory Data"
+    ],
+    "elementCount": 9,
+    "domainCount": 5
+  },
+  "data_lineage_and_audit_trail": {
+    "elements": [
+      "Data quality score",
+      "Identification of declaration",
+      "PSQCA certificate number",
+      "Type of declaration",
+      "WCO DM element reference",
+      "WeBOC GD number"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Document"
+    ],
+    "dataRequirements": [
+      "Certificate Data",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Licences & Permits Data",
+      "Supporting Document Data",
+      "Tariff Schedule Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 3
+  },
+  "code_list_harmonization": {
+    "elements": [
+      "Country of origin code",
+      "Currency code",
+      "PSQCA certificate number",
+      "WCO DM element reference"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Document",
+      "Goods"
+    ],
+    "dataRequirements": [
+      "Certificate Data",
+      "Clearance Timestamps",
+      "GD Header Data",
+      "GD Line Items",
+      "Goods Description",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Licences & Permits Data",
+      "Master Data Quality",
+      "Quantity & Weight Data",
+      "Supporting Document Data",
+      "Tariff Schedule Data",
+      "WCO DM Mapping Data"
+    ],
+    "elementCount": 4,
+    "domainCount": 4
+  },
+  "data_sharing_framework": {
+    "elements": [
+      "Country code",
+      "Data quality score",
+      "Exchange rate",
+      "PSQCA certificate number",
+      "Party identifier",
+      "WCO DM element reference"
+    ],
+    "domains": [
+      "Classification",
+      "Declaration",
+      "Document",
+      "Financial",
+      "Party"
+    ],
+    "dataRequirements": [
+      "Agent & Broker Details",
+      "Certificate Data",
+      "Clearance Timestamps",
+      "Customs Valuation Data",
+      "Duty Assessment Data",
+      "EDI Message Data",
+      "GD Header Data",
+      "GD Line Items",
+      "HS Classification Data",
+      "HS Nomenclature Updates",
+      "Licences & Permits Data",
+      "Party Roles & Functions",
+      "Supporting Document Data",
+      "Tariff Schedule Data",
+      "Tax Calculation Details",
+      "Trader Identity & Registration",
+      "WCO DM Mapping Data"
+    ],
+    "elementCount": 6,
+    "domainCount": 5
+  }
+}

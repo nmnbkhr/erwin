@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link, useLocation } from 'react-router-dom'
 import {
   LayoutDashboard,
   Database,
@@ -11,10 +11,11 @@ import {
   Landmark,
   ChevronLeft,
   ChevronRight,
+  Home,
 } from 'lucide-react'
 
 const navItems = [
-  { path: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/model', label: 'Model Explorer', icon: Database },
   { path: '/capabilities', label: 'Capabilities', icon: Layers },
   { path: '/graph', label: 'Dependency Graph', icon: Network },
@@ -26,6 +27,8 @@ const navItems = [
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
+  const location = useLocation()
+  const isBaiw = !location.pathname.startsWith('/taiw')
 
   return (
     <aside
@@ -42,12 +45,29 @@ export default function Sidebar() {
         )}
       </div>
 
+      {/* Module Switcher */}
+      {!collapsed && (
+        <div className="px-3 pt-3 pb-1">
+          <div className="flex bg-slate-800 rounded-lg p-1">
+            <Link to="/" className="text-center text-xs py-1.5 px-2 rounded-md transition-colors text-slate-400 hover:text-white" title="Suite Home">
+              <Home size={14} className="mx-auto" />
+            </Link>
+            <Link to="/dashboard" className={`flex-1 text-center text-xs py-1.5 rounded-md transition-colors ${isBaiw ? 'bg-purple-600 text-white' : 'text-slate-400 hover:text-white'}`}>
+              BAIW
+            </Link>
+            <Link to="/taiw" className={`flex-1 text-center text-xs py-1.5 rounded-md transition-colors ${!isBaiw ? 'bg-teal-600 text-white' : 'text-slate-400 hover:text-white'}`}>
+              TAIW
+            </Link>
+          </div>
+        </div>
+      )}
+
       <nav className="flex-1 py-4 overflow-y-auto">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
-            end={item.path === '/'}
+            end={item.path === '/dashboard'}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 mx-2 rounded-lg transition-colors ${
                 isActive

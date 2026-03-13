@@ -1,0 +1,20 @@
+{
+  "module": "COE",
+  "version": "1.0",
+  "generatedAt": "2026-03-12T08:51:27.210933",
+  "useCaseCount": 10,
+  "dataFiles": [
+    "useCases.json",
+    "revenueModel.json",
+    "systemArchitecture.json",
+    "branchTypology.json",
+    "regulatoryContext.json",
+    "implementationRoadmap.json",
+    "gameTheoryMatrix.json",
+    "cashMetrics.json",
+    "index.json"
+  ],
+  "description": "Cash Optimization Engine — Game-Theoretic & Predictive Analytics Framework for Pakistan Commercial Banking",
+  "referenceBank": "UBL (United Bank Limited)",
+  "annualImpactRange": "PKR 7.8–12.7 Billion"
+}

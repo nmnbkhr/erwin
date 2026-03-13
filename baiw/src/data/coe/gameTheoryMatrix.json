@@ -1,0 +1,72 @@
+[
+  {
+    "ucId": "UC-01",
+    "players": "Branch Manager vs Treasury",
+    "gameType": "Principal-Agent",
+    "equilibrium": "Nash (trust + guarantee)",
+    "mechanism": "Cash Efficiency Score KPI"
+  },
+  {
+    "ucId": "UC-02",
+    "players": "Bank vs CIT Provider",
+    "gameType": "Stackelberg Leader-Follower",
+    "equilibrium": "Stackelberg (bank leads)",
+    "mechanism": "Performance-based CIT contracts"
+  },
+  {
+    "ucId": "UC-03",
+    "players": "Surplus vs Deficit Branches",
+    "gameType": "Auction",
+    "equilibrium": "Dominant Strategy Truthful",
+    "mechanism": "VCG auction for cash netting"
+  },
+  {
+    "ucId": "UC-04",
+    "players": "Bank vs SBP",
+    "gameType": "Repeated Game",
+    "equilibrium": "Tit-for-Tat Moderation",
+    "mechanism": "Consistent compliance for normal monitoring"
+  },
+  {
+    "ucId": "UC-05",
+    "players": "Bank vs Correspondent Bank",
+    "gameType": "Nash Bargaining",
+    "equilibrium": "Nash Bargaining (fee-for-service)",
+    "mechanism": "Balance requirements negotiation"
+  },
+  {
+    "ucId": "UC-06",
+    "players": "Bank vs Foreign Banks",
+    "gameType": "Cooperative Iterated",
+    "equilibrium": "Reciprocal Stability",
+    "mechanism": "Stable deposits earn preferential rates"
+  },
+  {
+    "ucId": "UC-07",
+    "players": "Bank vs Nature/Demand",
+    "gameType": "Game Against Nature",
+    "equilibrium": "Minimax Regret",
+    "mechanism": "Robust denomination mix under uncertainty"
+  },
+  {
+    "ucId": "UC-08",
+    "players": "CIT Vehicles/Fleet",
+    "gameType": "Cooperative Coalition",
+    "equilibrium": "Core/Shapley Value",
+    "mechanism": "Fair cost allocation via Shapley value"
+  },
+  {
+    "ucId": "UC-09",
+    "players": "Bank vs Customers",
+    "gameType": "Mechanism Design",
+    "equilibrium": "Subgame Perfect",
+    "mechanism": "Incentive-compatible digital adoption"
+  },
+  {
+    "ucId": "UC-10",
+    "players": "Branches (Tournament)",
+    "gameType": "Tournament/Contest",
+    "equilibrium": "Effort Equilibrium",
+    "mechanism": "CES-based branch ranking competition"
+  }
+]

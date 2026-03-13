@@ -1,0 +1,372 @@
+[
+  {
+    "id": "BIP_DECL",
+    "name": "Declaration BIP",
+    "type": "BIP",
+    "description": "Base Information Package defining the core declaration structure shared across all declaration types",
+    "classes": [
+      "Declaration",
+      "DeclarationGovernment",
+      "Party",
+      "Location",
+      "AdditionalDocument"
+    ],
+    "elementCount": 120,
+    "pakRelevance": "FOUNDATION \u2014 Underlies all WeBOC GD types",
+    "webocMapping": "Core GD structure"
+  },
+  {
+    "id": "BIP_RESP",
+    "name": "Response BIP",
+    "type": "BIP",
+    "description": "Base Information Package for all customs response messages \u2014 decisions, releases, queries, errors",
+    "classes": [
+      "Response",
+      "DecisionNotification",
+      "ReleaseNotification",
+      "QueryNotification",
+      "ErrorNotification",
+      "PenaltyAssessment"
+    ],
+    "elementCount": 45,
+    "pakRelevance": "FOUNDATION \u2014 Maps to WeBOC response messages",
+    "webocMapping": "GD status responses"
+  },
+  {
+    "id": "BIP_CBM",
+    "name": "Cross-Border Movement BIP",
+    "type": "BIP",
+    "description": "Base Information Package for cross-border goods movement covering transport and routing",
+    "classes": [
+      "TransportMeans",
+      "BorderTransportMeans",
+      "TransportEquipment",
+      "Seal",
+      "Itinerary",
+      "Location"
+    ],
+    "elementCount": 80,
+    "pakRelevance": "FOUNDATION \u2014 Underlies all movement types (sea, air, land, rail)",
+    "webocMapping": "Transport details in GD"
+  },
+  {
+    "id": "DIP_GD",
+    "name": "Goods Declaration",
+    "type": "DIP",
+    "description": "Import/export goods declaration \u2014 the core customs document for clearance of goods",
+    "classes": [
+      "Declaration",
+      "DeclarationGovernment",
+      "GoodsItem",
+      "Party",
+      "TransportMeans",
+      "Classification",
+      "DutyTaxFee",
+      "AdditionalDocument",
+      "CustomsValuation"
+    ],
+    "elementCount": 280,
+    "pakRelevance": "PRIMARY \u2014 Maps to WeBOC GD (Home Consumption, Export, Warehousing)",
+    "webocMapping": "Goods Declaration (GD) in WeBOC"
+  },
+  {
+    "id": "DIP_CARGO",
+    "name": "Cargo Declaration (Manifest)",
+    "type": "DIP",
+    "description": "Cargo manifest declaration for arriving/departing conveyances \u2014 IGM and EGM",
+    "classes": [
+      "Consignment",
+      "ConsignmentItem",
+      "TransportMeans",
+      "TransportEquipment",
+      "Carrier",
+      "Location"
+    ],
+    "elementCount": 150,
+    "pakRelevance": "PRIMARY \u2014 Maps to IGM (Import General Manifest) and EGM in WeBOC",
+    "webocMapping": "IGM/EGM modules"
+  },
+  {
+    "id": "DIP_CONV",
+    "name": "Conveyance Report",
+    "type": "DIP",
+    "description": "Report on the arriving/departing conveyance including crew, stores, and cargo summary",
+    "classes": [
+      "TransportMeans",
+      "BorderTransportMeans",
+      "Carrier",
+      "Itinerary",
+      "Location"
+    ],
+    "elementCount": 60,
+    "pakRelevance": "SECONDARY \u2014 Vessel/aircraft arrival/departure reports at ports",
+    "webocMapping": "Vessel/Aircraft arrival in WeBOC"
+  },
+  {
+    "id": "DIP_AEI",
+    "name": "Advanced Electronic Information (AEI/SAFE)",
+    "type": "DIP",
+    "description": "Pre-arrival advance cargo information per WCO SAFE Framework of Standards",
+    "classes": [
+      "Consignment",
+      "GoodsItem",
+      "Party",
+      "TransportMeans",
+      "Location"
+    ],
+    "elementCount": 100,
+    "pakRelevance": "HIGH \u2014 NTC pre-arrival risk targeting for imports",
+    "webocMapping": "Pre-arrival manifest data"
+  },
+  {
+    "id": "DIP_TRANSIT",
+    "name": "Transit Declaration",
+    "type": "DIP",
+    "description": "Declaration for goods moving under customs transit across the territory",
+    "classes": [
+      "Declaration",
+      "Consignment",
+      "TransportMeans",
+      "Seal",
+      "Itinerary",
+      "ObligationGuarantee"
+    ],
+    "elementCount": 130,
+    "pakRelevance": "HIGH \u2014 Afghan Transit Trade (ATTA), CPEC transit movements",
+    "webocMapping": "Transit GD (TR type) in WeBOC"
+  },
+  {
+    "id": "DIP_LPC",
+    "name": "License/Permit/Certificate",
+    "type": "DIP",
+    "description": "Supporting regulatory documents \u2014 import/export licences, permits from OGAs",
+    "classes": [
+      "License",
+      "Permit",
+      "Certificate",
+      "Party",
+      "GoodsItem"
+    ],
+    "elementCount": 45,
+    "pakRelevance": "HIGH \u2014 70+ OGAs issue L/P/C via Pakistan Single Window (PSW)",
+    "webocMapping": "PSW integrated L/P/C"
+  },
+  {
+    "id": "DIP_PHYTO",
+    "name": "Phytosanitary Certificate",
+    "type": "DIP",
+    "description": "Certificate for plant health clearance per IPPC standards",
+    "classes": [
+      "Certificate",
+      "GoodsItem",
+      "Party",
+      "Location"
+    ],
+    "elementCount": 30,
+    "pakRelevance": "HIGH \u2014 DPP (Dept of Plant Protection) certificates for agri exports",
+    "webocMapping": "PSW DPP integration"
+  },
+  {
+    "id": "DIP_VET",
+    "name": "Veterinary Certificate",
+    "type": "DIP",
+    "description": "Certificate for animal health and food safety clearance",
+    "classes": [
+      "Certificate",
+      "GoodsItem",
+      "Party",
+      "Location"
+    ],
+    "elementCount": 30,
+    "pakRelevance": "HIGH \u2014 AQSD certificates for livestock/meat/dairy",
+    "webocMapping": "PSW AQSD integration"
+  },
+  {
+    "id": "DIP_CO",
+    "name": "Certificate of Origin (v4.2)",
+    "type": "DIP",
+    "description": "Certificate proving the origin of goods for preferential tariff treatment",
+    "classes": [
+      "CertificateOfOrigin",
+      "PreferentialTreatment",
+      "RulesOfOrigin",
+      "OriginDeclaration",
+      "RegionalValueContent",
+      "GoodsItem",
+      "Exporter"
+    ],
+    "elementCount": 55,
+    "pakRelevance": "HIGH \u2014 CPFTA-II, SAFTA, GSP+ preference claims",
+    "webocMapping": "Origin certificate in GD"
+  },
+  {
+    "id": "DIP_BOND",
+    "name": "Customs Bond (v4.2)",
+    "type": "DIP",
+    "description": "Customs bond and guarantee information for securing duty obligations",
+    "classes": [
+      "ObligationGuarantee",
+      "BankAccount",
+      "Party",
+      "Declaration"
+    ],
+    "elementCount": 25,
+    "pakRelevance": "HIGH \u2014 Surety bonds for warehousing, transit, temporary admission",
+    "webocMapping": "Bond management in WeBOC"
+  },
+  {
+    "id": "DIP_BOOK",
+    "name": "Booking Reservation Information (v4.1)",
+    "type": "DIP",
+    "description": "Advance booking and reservation of transport capacity",
+    "classes": [
+      "Consignment",
+      "TransportMeans",
+      "Carrier",
+      "Location"
+    ],
+    "elementCount": 35,
+    "pakRelevance": "LOW \u2014 Shipping line booking (not customs-managed)",
+    "webocMapping": "N/A (shipping line systems)"
+  },
+  {
+    "id": "DIP_ECOMM",
+    "name": "Postal/E-Commerce Items",
+    "type": "DIP",
+    "description": "Cross-border e-commerce and postal shipment declarations",
+    "classes": [
+      "ECommerceItem",
+      "DeMinimisDeclaration",
+      "SimplifiedDeclaration",
+      "PostalItem",
+      "CourierShipment",
+      "GoodsItem"
+    ],
+    "elementCount": 40,
+    "pakRelevance": "GROWING \u2014 Pakistan Post, courier companies (DHL, FedEx, TCS)",
+    "webocMapping": "Simplified GD for e-commerce"
+  },
+  {
+    "id": "DIP_TA",
+    "name": "Temporary Admission",
+    "type": "DIP",
+    "description": "Declaration for temporary import of goods with re-export obligation",
+    "classes": [
+      "Declaration",
+      "GoodsItem",
+      "ObligationGuarantee",
+      "TemporaryStorage"
+    ],
+    "elementCount": 45,
+    "pakRelevance": "MEDIUM \u2014 Exhibition goods, project equipment, vehicles",
+    "webocMapping": "TA type GD in WeBOC"
+  },
+  {
+    "id": "DIP_ATA",
+    "name": "ATA Carnet",
+    "type": "DIP",
+    "description": "International customs document for temporary admission under ATA Convention",
+    "classes": [
+      "Declaration",
+      "GoodsItem",
+      "Party",
+      "Location"
+    ],
+    "elementCount": 35,
+    "pakRelevance": "LOW \u2014 Limited ATA carnet usage in Pakistan",
+    "webocMapping": "Manual process (not in WeBOC)"
+  },
+  {
+    "id": "DIP_PAX",
+    "name": "Passenger Declaration",
+    "type": "DIP",
+    "description": "Customs declaration for passenger accompanied baggage",
+    "classes": [
+      "Declaration",
+      "Party",
+      "GoodsItem",
+      "DutyTaxFee"
+    ],
+    "elementCount": 30,
+    "pakRelevance": "MEDIUM \u2014 Airport passenger customs (green/red channel)",
+    "webocMapping": "Baggage GD type (PB)"
+  },
+  {
+    "id": "DIP_GOV",
+    "name": "GOVCBR (Gov Cross-Border Regulatory)",
+    "type": "DIP",
+    "description": "Government cross-border regulatory information exchange between agencies",
+    "classes": [
+      "Declaration",
+      "RiskAssessment",
+      "ExaminationNotice",
+      "GovernmentProcedure",
+      "Certificate"
+    ],
+    "elementCount": 50,
+    "pakRelevance": "HIGH \u2014 Inter-agency risk data sharing (NTC, ANF, ISI)",
+    "webocMapping": "Risk module in WeBOC"
+  },
+  {
+    "id": "DIP_WH",
+    "name": "Warehouse Declaration",
+    "type": "DIP",
+    "description": "Declaration for placing goods in a customs bonded warehouse",
+    "classes": [
+      "Declaration",
+      "Warehouse",
+      "CustomsBondedArea",
+      "GoodsItem",
+      "ObligationGuarantee"
+    ],
+    "elementCount": 50,
+    "pakRelevance": "HIGH \u2014 WeBOC WH type GDs, bonded warehousing",
+    "webocMapping": "Warehouse GD (WH) in WeBOC"
+  },
+  {
+    "id": "DIP_FZ",
+    "name": "Free Zone Declaration",
+    "type": "DIP",
+    "description": "Declaration for goods entering or leaving a free trade zone",
+    "classes": [
+      "Declaration",
+      "FreeZone",
+      "GoodsItem",
+      "Party"
+    ],
+    "elementCount": 40,
+    "pakRelevance": "GROWING \u2014 Gwadar Free Zone, CPEC SEZs",
+    "webocMapping": "Free zone procedures"
+  },
+  {
+    "id": "DIP_REEXP",
+    "name": "Re-Export Declaration",
+    "type": "DIP",
+    "description": "Declaration for re-export of previously imported goods",
+    "classes": [
+      "Declaration",
+      "GoodsItem",
+      "PreviousDocument",
+      "Party"
+    ],
+    "elementCount": 40,
+    "pakRelevance": "MEDIUM \u2014 Re-export from bonded warehouses, transit goods",
+    "webocMapping": "RE type GD in WeBOC"
+  },
+  {
+    "id": "DIP_DRAW",
+    "name": "Drawback Claim",
+    "type": "DIP",
+    "description": "Claim for refund of duties paid on imported inputs used in exported goods",
+    "classes": [
+      "Declaration",
+      "GoodsItem",
+      "Payment",
+      "PreviousDocument",
+      "DutyTaxFee"
+    ],
+    "elementCount": 45,
+    "pakRelevance": "HIGH \u2014 Duty drawback claims by export manufacturers",
+    "webocMapping": "Drawback module in WeBOC"
+  }
+]

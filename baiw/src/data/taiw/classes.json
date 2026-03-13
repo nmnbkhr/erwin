@@ -1,0 +1,1041 @@
+[
+  {
+    "id": "CLS_001",
+    "name": "Declaration",
+    "domain": "Declaration",
+    "description": "A formal request made to customs to place goods under a given customs procedure",
+    "elementCount": 25,
+    "parentClass": null,
+    "childClasses": [
+      "DeclarationGovernment",
+      "DeclarationGoodShipment"
+    ],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_002",
+    "name": "DeclarationGovernment",
+    "domain": "Declaration",
+    "description": "Government-specific declaration processing information and procedures",
+    "elementCount": 15,
+    "parentClass": "Declaration",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_003",
+    "name": "DeclarationGoodShipment",
+    "domain": "Declaration",
+    "description": "Link between a declaration and the goods shipment it covers",
+    "elementCount": 12,
+    "parentClass": "Declaration",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_004",
+    "name": "CustomsDeclarationDocument",
+    "domain": "Declaration",
+    "description": "The physical or electronic customs declaration document",
+    "elementCount": 10,
+    "parentClass": "Declaration",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_005",
+    "name": "Amendment",
+    "domain": "Declaration",
+    "description": "A modification to a previously accepted declaration",
+    "elementCount": 12,
+    "parentClass": "Declaration",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_006",
+    "name": "Cancellation",
+    "domain": "Declaration",
+    "description": "A request to cancel a previously accepted declaration",
+    "elementCount": 11,
+    "parentClass": "Declaration",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_007",
+    "name": "Consignment",
+    "domain": "Consignment",
+    "description": "A separately identifiable collection of goods items transported together",
+    "elementCount": 18,
+    "parentClass": null,
+    "childClasses": [
+      "ConsignmentItem"
+    ],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_008",
+    "name": "ConsignmentItem",
+    "domain": "Consignment",
+    "description": "An individual item within a consignment",
+    "elementCount": 15,
+    "parentClass": "Consignment",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_009",
+    "name": "TransportContractDocument",
+    "domain": "Consignment",
+    "description": "A document evidencing a contract of carriage (B/L, AWB)",
+    "elementCount": 12,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_010",
+    "name": "AssociatedTransportDocument",
+    "domain": "Consignment",
+    "description": "Additional transport documentation linked to the consignment",
+    "elementCount": 10,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_011",
+    "name": "ConsolidatedConsignment",
+    "domain": "Consignment",
+    "description": "Multiple consignments grouped under a single transport contract",
+    "elementCount": 10,
+    "parentClass": "Consignment",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_012",
+    "name": "Commodity",
+    "domain": "Goods",
+    "description": "A tradeable article or product classified under a tariff nomenclature",
+    "elementCount": 12,
+    "parentClass": null,
+    "childClasses": [
+      "GoodsItem"
+    ],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_013",
+    "name": "GoodsItem",
+    "domain": "Goods",
+    "description": "An individual goods line item in a declaration or consignment",
+    "elementCount": 10,
+    "parentClass": "Commodity",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_014",
+    "name": "GoodsMeasure",
+    "domain": "Goods",
+    "description": "Quantitative measurements of goods \u2014 weight, volume, supplementary units",
+    "elementCount": 8,
+    "parentClass": "GoodsItem",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_015",
+    "name": "Packaging",
+    "domain": "Goods",
+    "description": "Details of how goods are packed \u2014 type, quantity, marks and numbers",
+    "elementCount": 7,
+    "parentClass": "GoodsItem",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_016",
+    "name": "DangerousGoods",
+    "domain": "Goods",
+    "description": "Hazardous materials classification per UN dangerous goods regulations",
+    "elementCount": 6,
+    "parentClass": "GoodsItem",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_017",
+    "name": "Classification",
+    "domain": "Goods",
+    "description": "Tariff classification of goods under HS or national nomenclature",
+    "elementCount": 8,
+    "parentClass": "GoodsItem",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_018",
+    "name": "TariffQuantity",
+    "domain": "Goods",
+    "description": "Quantity expressed in tariff-specific units for duty calculation",
+    "elementCount": 5,
+    "parentClass": "GoodsItem",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_019",
+    "name": "AdditionalInformation",
+    "domain": "Goods",
+    "description": "Supplementary coded or free-text information about the goods",
+    "elementCount": 7,
+    "parentClass": "GoodsItem",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_020",
+    "name": "PreviousDocument",
+    "domain": "Goods",
+    "description": "Reference to a prior customs document related to the goods",
+    "elementCount": 7,
+    "parentClass": "GoodsItem",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_021",
+    "name": "TransportMeans",
+    "domain": "Transport",
+    "description": "Any vehicle or vessel used to carry goods across borders",
+    "elementCount": 10,
+    "parentClass": null,
+    "childClasses": [
+      "BorderTransportMeans"
+    ],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_022",
+    "name": "BorderTransportMeans",
+    "domain": "Transport",
+    "description": "The active transport means crossing the customs border",
+    "elementCount": 8,
+    "parentClass": "TransportMeans",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_023",
+    "name": "TransitTransportMeans",
+    "domain": "Transport",
+    "description": "Transport means used during transit movement",
+    "elementCount": 5,
+    "parentClass": "TransportMeans",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_024",
+    "name": "ArrivalTransportMeans",
+    "domain": "Transport",
+    "description": "Transport means on arrival at destination",
+    "elementCount": 5,
+    "parentClass": "TransportMeans",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_025",
+    "name": "DepartureTransportMeans",
+    "domain": "Transport",
+    "description": "Transport means at point of departure",
+    "elementCount": 5,
+    "parentClass": "TransportMeans",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_026",
+    "name": "TransportEquipment",
+    "domain": "Transport",
+    "description": "Containers, swap bodies, and other transport equipment",
+    "elementCount": 7,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_027",
+    "name": "Seal",
+    "domain": "Transport",
+    "description": "Physical or electronic seal affixed to transport equipment",
+    "elementCount": 5,
+    "parentClass": "TransportEquipment",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_028",
+    "name": "Itinerary",
+    "domain": "Transport",
+    "description": "The planned or actual route of transport",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_029",
+    "name": "TransportEvent",
+    "domain": "Transport",
+    "description": "A significant event during transport \u2014 loading, departure, arrival",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_030",
+    "name": "Party",
+    "domain": "Party",
+    "description": "Any organization or person involved in international trade",
+    "elementCount": 8,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_031",
+    "name": "Agent",
+    "domain": "Party",
+    "description": "A person or company authorized to act on behalf of another party",
+    "elementCount": 4,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_032",
+    "name": "Buyer",
+    "domain": "Party",
+    "description": "The party purchasing the goods in a trade transaction",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_033",
+    "name": "Seller",
+    "domain": "Party",
+    "description": "The party selling the goods in a trade transaction",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_034",
+    "name": "Consignor",
+    "domain": "Party",
+    "description": "The party consigning goods for shipment (shipper)",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_035",
+    "name": "Consignee",
+    "domain": "Party",
+    "description": "The party to whom the goods are consigned (receiver)",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_036",
+    "name": "Declarant",
+    "domain": "Party",
+    "description": "The party making the customs declaration",
+    "elementCount": 4,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_037",
+    "name": "Carrier",
+    "domain": "Party",
+    "description": "The party responsible for the transport of goods",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_038",
+    "name": "CustomsBroker",
+    "domain": "Party",
+    "description": "A licensed professional handling customs formalities",
+    "elementCount": 4,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_039",
+    "name": "Importer",
+    "domain": "Party",
+    "description": "The party importing goods into a customs territory",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_040",
+    "name": "Exporter",
+    "domain": "Party",
+    "description": "The party exporting goods from a customs territory",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_041",
+    "name": "Manufacturer",
+    "domain": "Party",
+    "description": "The party that manufactured or produced the goods",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_042",
+    "name": "NotifyParty",
+    "domain": "Party",
+    "description": "The party to be notified upon arrival of goods",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_043",
+    "name": "FreightForwarder",
+    "domain": "Party",
+    "description": "An intermediary arranging transport and logistics",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_044",
+    "name": "WarehouseKeeper",
+    "domain": "Party",
+    "description": "The operator of a customs bonded warehouse",
+    "elementCount": 3,
+    "parentClass": "Party",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_045",
+    "name": "Location",
+    "domain": "Location",
+    "description": "A geographic place relevant to trade and customs operations",
+    "elementCount": 8,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_046",
+    "name": "Address",
+    "domain": "Location",
+    "description": "A structured postal address associated with a location or party",
+    "elementCount": 7,
+    "parentClass": "Location",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_047",
+    "name": "LoadingLocation",
+    "domain": "Location",
+    "description": "The place where goods are loaded onto transport",
+    "elementCount": 4,
+    "parentClass": "Location",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_048",
+    "name": "UnloadingLocation",
+    "domain": "Location",
+    "description": "The place where goods are unloaded from transport",
+    "elementCount": 4,
+    "parentClass": "Location",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_049",
+    "name": "CustomsOffice",
+    "domain": "Location",
+    "description": "A government office where customs formalities are performed",
+    "elementCount": 6,
+    "parentClass": "Location",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_050",
+    "name": "EntryPort",
+    "domain": "Location",
+    "description": "The first port of arrival in the importing country",
+    "elementCount": 4,
+    "parentClass": "Location",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_051",
+    "name": "ExitPort",
+    "domain": "Location",
+    "description": "The last port of departure from the exporting country",
+    "elementCount": 4,
+    "parentClass": "Location",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_052",
+    "name": "DestinationCountry",
+    "domain": "Location",
+    "description": "The final country of destination for the goods",
+    "elementCount": 3,
+    "parentClass": "Location",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_053",
+    "name": "CustomsValuation",
+    "domain": "Financial",
+    "description": "Determination of the customs value of imported goods per WTO rules",
+    "elementCount": 10,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_054",
+    "name": "DutyTaxFee",
+    "domain": "Financial",
+    "description": "Individual duty, tax, or fee line applied to goods",
+    "elementCount": 8,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_055",
+    "name": "ObligationGuarantee",
+    "domain": "Financial",
+    "description": "Financial security ensuring payment of customs duties",
+    "elementCount": 6,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_056",
+    "name": "Payment",
+    "domain": "Financial",
+    "description": "Record of duty/tax payment made to customs",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_057",
+    "name": "AccountingEntry",
+    "domain": "Financial",
+    "description": "A booking entry in the customs duty accounts",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_058",
+    "name": "ExchangeRate",
+    "domain": "Financial",
+    "description": "Currency conversion rate applied to value calculations",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_059",
+    "name": "BankAccount",
+    "domain": "Financial",
+    "description": "Bank account details for payment or refund",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_060",
+    "name": "TradeFinanceDocument",
+    "domain": "Financial",
+    "description": "Letter of credit, bank guarantee, or other trade finance instrument",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_061",
+    "name": "AdditionalDocument",
+    "domain": "Document",
+    "description": "Any supporting document attached to a declaration",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_062",
+    "name": "Certificate",
+    "domain": "Document",
+    "description": "An official document certifying a fact (origin, health, conformity)",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_063",
+    "name": "License",
+    "domain": "Document",
+    "description": "A government authorization to import/export specific goods",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_064",
+    "name": "Permit",
+    "domain": "Document",
+    "description": "A permission document required by regulatory agencies",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_065",
+    "name": "Invoice",
+    "domain": "Document",
+    "description": "Commercial invoice detailing the trade transaction",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_066",
+    "name": "PackingList",
+    "domain": "Document",
+    "description": "Detailed list of goods and their packaging",
+    "elementCount": 3,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_067",
+    "name": "BillOfLading",
+    "domain": "Document",
+    "description": "Transport document for sea freight",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_068",
+    "name": "AirWaybill",
+    "domain": "Document",
+    "description": "Transport document for air cargo",
+    "elementCount": 3,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_069",
+    "name": "InsuranceDocument",
+    "domain": "Document",
+    "description": "Cargo insurance certificate or policy",
+    "elementCount": 2,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_070",
+    "name": "HarmonizedSystem",
+    "domain": "Classification",
+    "description": "The WCO Harmonized System commodity classification (HS)",
+    "elementCount": 10,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_071",
+    "name": "NationalTariffLine",
+    "domain": "Classification",
+    "description": "Country-specific tariff line extending HS to 8+ digits",
+    "elementCount": 7,
+    "parentClass": "HarmonizedSystem",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_072",
+    "name": "PreferenceCode",
+    "domain": "Classification",
+    "description": "Code indicating preferential tariff treatment under FTA/GSP",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_073",
+    "name": "QuotaAllocation",
+    "domain": "Classification",
+    "description": "Allocation of import quota quantities for restricted goods",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_074",
+    "name": "Restriction",
+    "domain": "Classification",
+    "description": "Trade restriction or prohibition applicable to the goods",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_075",
+    "name": "RiskAssessment",
+    "domain": "Risk & Control",
+    "description": "Automated or manual risk evaluation of a declaration",
+    "elementCount": 7,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_076",
+    "name": "ExaminationNotice",
+    "domain": "Risk & Control",
+    "description": "Notification that goods have been selected for examination",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_077",
+    "name": "ExaminationResult",
+    "domain": "Risk & Control",
+    "description": "Outcome of a physical or documentary examination",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_078",
+    "name": "GovernmentProcedure",
+    "domain": "Risk & Control",
+    "description": "A customs procedure code (CPC) governing the goods movement",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_079",
+    "name": "Selectivity",
+    "domain": "Risk & Control",
+    "description": "Criteria and rules for automated risk-based channel assignment",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_080",
+    "name": "CertificateOfOrigin",
+    "domain": "Origin",
+    "description": "Document certifying the country of origin of goods",
+    "elementCount": 7,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_081",
+    "name": "PreferentialTreatment",
+    "domain": "Origin",
+    "description": "Application of reduced duty rates under trade agreements",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_082",
+    "name": "RulesOfOrigin",
+    "domain": "Origin",
+    "description": "Criteria determining whether goods qualify for preferential origin",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_083",
+    "name": "OriginDeclaration",
+    "domain": "Origin",
+    "description": "Self-certification of origin by the exporter",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_084",
+    "name": "RegionalValueContent",
+    "domain": "Origin",
+    "description": "Calculation of regional value for origin determination",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_085",
+    "name": "CumulationRule",
+    "domain": "Origin",
+    "description": "Rules allowing materials from partner countries to count as originating",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_086",
+    "name": "Warehouse",
+    "domain": "Warehouse",
+    "description": "A customs-approved storage facility for goods under customs control",
+    "elementCount": 6,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_087",
+    "name": "CustomsBondedArea",
+    "domain": "Warehouse",
+    "description": "A designated area where goods are stored under bond",
+    "elementCount": 4,
+    "parentClass": "Warehouse",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_088",
+    "name": "FreeZone",
+    "domain": "Warehouse",
+    "description": "A designated area with special customs and tax treatment",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_089",
+    "name": "TemporaryStorage",
+    "domain": "Warehouse",
+    "description": "Short-term storage of goods pending customs clearance",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_090",
+    "name": "InwardProcessing",
+    "domain": "Warehouse",
+    "description": "Import of goods for processing and re-export",
+    "elementCount": 3,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_091",
+    "name": "OutwardProcessing",
+    "domain": "Warehouse",
+    "description": "Export of goods for processing and re-import",
+    "elementCount": 3,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_092",
+    "name": "ECommerceItem",
+    "domain": "E-Commerce",
+    "description": "A goods item sold through an online platform or marketplace",
+    "elementCount": 5,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_093",
+    "name": "DeMinimisDeclaration",
+    "domain": "E-Commerce",
+    "description": "Simplified declaration for low-value e-commerce shipments",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_094",
+    "name": "SimplifiedDeclaration",
+    "domain": "E-Commerce",
+    "description": "Reduced data requirement declaration for trusted traders",
+    "elementCount": 4,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_095",
+    "name": "ReturnGoods",
+    "domain": "E-Commerce",
+    "description": "Declaration for return of previously exported e-commerce goods",
+    "elementCount": 3,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_096",
+    "name": "PostalItem",
+    "domain": "E-Commerce",
+    "description": "Goods shipped via postal service subject to customs clearance",
+    "elementCount": 3,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_097",
+    "name": "CourierShipment",
+    "domain": "E-Commerce",
+    "description": "Express courier shipments with expedited customs clearance",
+    "elementCount": 3,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_098",
+    "name": "Response",
+    "domain": "Response",
+    "description": "A formal reply from customs to a submitted declaration or request",
+    "elementCount": 6,
+    "parentClass": null,
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_099",
+    "name": "DecisionNotification",
+    "domain": "Response",
+    "description": "Notification of a customs decision (acceptance, rejection, query)",
+    "elementCount": 5,
+    "parentClass": "Response",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_100",
+    "name": "ReleaseNotification",
+    "domain": "Response",
+    "description": "Authorization to release goods from customs control",
+    "elementCount": 4,
+    "parentClass": "Response",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_101",
+    "name": "QueryNotification",
+    "domain": "Response",
+    "description": "A request from customs for additional information",
+    "elementCount": 4,
+    "parentClass": "Response",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_102",
+    "name": "ErrorNotification",
+    "domain": "Response",
+    "description": "Notification of errors found in a submitted declaration",
+    "elementCount": 3,
+    "parentClass": "Response",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  },
+  {
+    "id": "CLS_103",
+    "name": "PenaltyAssessment",
+    "domain": "Response",
+    "description": "Assessment of fines or penalties for customs violations",
+    "elementCount": 3,
+    "parentClass": "Response",
+    "childClasses": [],
+    "stereotype": "ABIE"
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "layers": [
+    {
+      "name": "Data Layer",
+      "sources": [
+        {
+          "name": "Core Banking (T24/Flexcube)",
+          "feeds": "Account balances, transactions, deposit base",
+          "frequency": "Real-time (CDC) + EOD"
+        },
+        {
+          "name": "ATM Switch (Euronet/TPS)",
+          "feeds": "ATM transactions, cassette levels, uptime",
+          "frequency": "Real-time (5-60 sec)"
+        },
+        {
+          "name": "Treasury/Dealing System",
+          "feeds": "Repo positions, T-bill holdings, FX deals",
+          "frequency": "Real-time + EOD"
+        },
+        {
+          "name": "SWIFT/Correspondent Banking",
+          "feeds": "Nostro/vostro positions, pending LCs",
+          "frequency": "Intraday MT940/950 + EOD"
+        },
+        {
+          "name": "CIT Management System",
+          "feeds": "Vehicle routes, trip logs, cash movement",
+          "frequency": "Real-time GPS + trip completion"
+        },
+        {
+          "name": "SBP Regulatory Feeds",
+          "feeds": "CRR position, policy rate, circulars",
+          "frequency": "Daily + event-driven"
+        },
+        {
+          "name": "Branch Vault System",
+          "feeds": "Vault balances, denomination breakdown",
+          "frequency": "EOD + intraday snapshots"
+        },
+        {
+          "name": "External: Weather/Events",
+          "feeds": "Islamic calendar, crop cycles, events",
+          "frequency": "Daily refresh"
+        }
+      ]
+    },
+    {
+      "name": "Analytics & Optimization Layer",
+      "components": [
+        "LSTM Forecasters",
+        "RL Agents (DQN)",
+        "Stochastic Programming",
+        "Network Flow Solver",
+        "VRPTW (ALNS)",
+        "VCG Auction Engine",
+        "Multi-Armed Bandit",
+        "NSGA-II Optimizer",
+        "Chance-Constrained Programming",
+        "ABC Costing Engine"
+      ]
+    },
+    {
+      "name": "Operations & Execution Layer",
+      "components": [
+        "Branch Cash Dashboard",
+        "ATM Management Console",
+        "Treasury Cockpit",
+        "CIT Dispatch System"
+      ]
+    },
+    {
+      "name": "Governance & Monitoring Layer",
+      "components": [
+        "Cash Efficiency Scores",
+        "CRR Compliance Monitor",
+        "Forecast Accuracy Tracker",
+        "Cash P&L Attribution"
+      ]
+    }
+  ],
+  "techStack": [
+    {
+      "component": "Data Warehouse",
+      "tech": "Teradata / Snowflake",
+      "rationale": "Leverages existing DWH (FSDM)"
+    },
+    {
+      "component": "Streaming/CDC",
+      "tech": "Apache Kafka + Debezium",
+      "rationale": "Real-time vault and ATM feeds"
+    },
+    {
+      "component": "ML Framework",
+      "tech": "PyTorch + MLflow",
+      "rationale": "LSTM, RL agents, model versioning"
+    },
+    {
+      "component": "Optimization Solver",
+      "tech": "Gurobi / OR-Tools",
+      "rationale": "MIP, network flow, VRPTW"
+    },
+    {
+      "component": "Dashboards",
+      "tech": "React + TradingView Charts",
+      "rationale": "Real-time cash visualization"
+    },
+    {
+      "component": "API Layer",
+      "tech": "FastAPI (Python)",
+      "rationale": "Serve optimization results"
+    },
+    {
+      "component": "Orchestration",
+      "tech": "Apache Airflow",
+      "rationale": "Schedule model runs, pipelines"
+    }
+  ]
+}

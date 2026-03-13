@@ -1,0 +1,86 @@
+[
+  {
+    "type": "Cash-Surplus",
+    "cashProfile": "High cash inflows from bazaar/trade hub activity. Daily deposits exceed withdrawals by 40-60%. Branches accumulate excess vault cash requiring frequent pick-up by CIT.",
+    "exampleLocations": [
+      "Bolton Market Karachi",
+      "Anarkali Lahore",
+      "Saddar Rawalpindi",
+      "Namak Mandi Peshawar",
+      "Resham Gali Faisalabad"
+    ],
+    "optimizationFocus": "Rapid surplus extraction — deploy idle cash to repo/T-bills within same day. Reduce vault holding to minimum operational level.",
+    "avgDailyVolumePKR": {
+      "min": 80,
+      "max": 200
+    },
+    "vaultIdlePct": 55
+  },
+  {
+    "type": "Cash-Deficit",
+    "cashProfile": "High withdrawal demand from salary disbursements, government payments, and pension payouts. Cash outflows exceed inflows by 30-50%. Requires frequent CIT replenishment from central vault.",
+    "exampleLocations": [
+      "Government offices area Islamabad",
+      "Cantonment branches",
+      "Industrial area Karachi (SITE)",
+      "University towns",
+      "Pension disbursement centers"
+    ],
+    "optimizationFocus": "Accurate demand forecasting to pre-position correct amounts. Minimize emergency replenishment trips. Coordinate with surplus branches for direct netting.",
+    "avgDailyVolumePKR": {
+      "min": 50,
+      "max": 120
+    },
+    "vaultIdlePct": 25
+  },
+  {
+    "type": "Balanced",
+    "cashProfile": "Residential/mixed commercial areas with roughly balanced inflows and outflows. Moderate transaction volumes with predictable daily patterns. Standard vault management applies.",
+    "exampleLocations": [
+      "DHA branches",
+      "Gulberg Lahore",
+      "F-sectors Islamabad",
+      "Clifton Karachi",
+      "Hayatabad Peshawar"
+    ],
+    "optimizationFocus": "Fine-tune vault levels using LSTM forecasting. Modest float recovery opportunity. Focus on denomination mix optimization.",
+    "avgDailyVolumePKR": {
+      "min": 30,
+      "max": 80
+    },
+    "vaultIdlePct": 35
+  },
+  {
+    "type": "Seasonal",
+    "cashProfile": "Agricultural belt branches with extreme seasonal variation. Cash demand spikes 200-400% during crop harvest (Rabi: Mar-Apr, Kharif: Sep-Oct), Eid festivals, and wedding season. Off-season demand drops to 30-40% of peak.",
+    "exampleLocations": [
+      "Multan agricultural area",
+      "Rahim Yar Khan",
+      "Sukkur barrage zone",
+      "Dera Ismail Khan",
+      "Sahiwal mandi"
+    ],
+    "optimizationFocus": "Seasonal forecasting with crop cycle integration. Dynamic vault sizing — scale up pre-harvest, scale down post-season. Critical for avoiding both stock-outs and excessive idle cash.",
+    "avgDailyVolumePKR": {
+      "min": 20,
+      "max": 300
+    },
+    "vaultIdlePct": 45
+  },
+  {
+    "type": "Hub/CPC",
+    "cashProfile": "Regional aggregation hubs and Cash Processing Centres that serve as intermediate nodes between SBP and branch network. Handle bulk cash sorting, authentication, and redistribution. Very high volumes.",
+    "exampleLocations": [
+      "SBP chest branches",
+      "Regional cash hubs (Karachi, Lahore, Islamabad)",
+      "Airport currency exchange hubs",
+      "Central vault facilities"
+    ],
+    "optimizationFocus": "Network optimization — minimize transit time and float. Coordinate with UC-03 netting and UC-08 CIT routing. Denomination sorting efficiency (UC-07). Critical node in the cash supply chain.",
+    "avgDailyVolumePKR": {
+      "min": 500,
+      "max": 2000
+    },
+    "vaultIdlePct": 20
+  }
+]

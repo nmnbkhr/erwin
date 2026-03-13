@@ -1,0 +1,1402 @@
+[
+  {
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "score": 100,
+    "tier": "P1",
+    "capabilitiesSupported": 72
+  },
+  {
+    "element": "Party identifier",
+    "domain": "Party",
+    "score": 99,
+    "tier": "P1",
+    "capabilitiesSupported": 65
+  },
+  {
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "score": 99,
+    "tier": "P1",
+    "capabilitiesSupported": 62
+  },
+  {
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "score": 98,
+    "tier": "P1",
+    "capabilitiesSupported": 60
+  },
+  {
+    "element": "Country of origin code",
+    "domain": "Goods",
+    "score": 97,
+    "tier": "P1",
+    "capabilitiesSupported": 58
+  },
+  {
+    "element": "Value declared for customs",
+    "domain": "Financial",
+    "score": 97,
+    "tier": "P1",
+    "capabilitiesSupported": 55
+  },
+  {
+    "element": "Customs value",
+    "domain": "Financial",
+    "score": 96,
+    "tier": "P1",
+    "capabilitiesSupported": 53
+  },
+  {
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "score": 96,
+    "tier": "P1",
+    "capabilitiesSupported": 52
+  },
+  {
+    "element": "Duty/tax/fee amount",
+    "domain": "Financial",
+    "score": 95,
+    "tier": "P1",
+    "capabilitiesSupported": 50
+  },
+  {
+    "element": "Port of discharge UN/LOCODE",
+    "domain": "Location",
+    "score": 94,
+    "tier": "P1",
+    "capabilitiesSupported": 48
+  },
+  {
+    "element": "Selectivity channel code",
+    "domain": "Risk & Control",
+    "score": 94,
+    "tier": "P1",
+    "capabilitiesSupported": 47
+  },
+  {
+    "element": "Mode of transport at border",
+    "domain": "Transport",
+    "score": 93,
+    "tier": "P1",
+    "capabilitiesSupported": 46
+  },
+  {
+    "element": "WeBOC GD number",
+    "domain": "Declaration",
+    "score": 92,
+    "tier": "P1",
+    "capabilitiesSupported": 45
+  },
+  {
+    "element": "Net mass",
+    "domain": "Goods",
+    "score": 92,
+    "tier": "P1",
+    "capabilitiesSupported": 44
+  },
+  {
+    "element": "Container identification",
+    "domain": "Transport",
+    "score": 91,
+    "tier": "P1",
+    "capabilitiesSupported": 43
+  },
+  {
+    "element": "Gross mass",
+    "domain": "Goods",
+    "score": 90,
+    "tier": "P1",
+    "capabilitiesSupported": 42
+  },
+  {
+    "element": "Statistical value",
+    "domain": "Goods",
+    "score": 90,
+    "tier": "P1",
+    "capabilitiesSupported": 41
+  },
+  {
+    "element": "Currency code",
+    "domain": "Declaration",
+    "score": 89,
+    "tier": "P1",
+    "capabilitiesSupported": 40
+  },
+  {
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "score": 88,
+    "tier": "P1",
+    "capabilitiesSupported": 39
+  },
+  {
+    "element": "AEO authorization number",
+    "domain": "Party",
+    "score": 88,
+    "tier": "P1",
+    "capabilitiesSupported": 38
+  },
+  {
+    "element": "Exchange rate",
+    "domain": "Financial",
+    "score": 87,
+    "tier": "P1",
+    "capabilitiesSupported": 37
+  },
+  {
+    "element": "Invoice amount",
+    "domain": "Declaration",
+    "score": 87,
+    "tier": "P1",
+    "capabilitiesSupported": 36
+  },
+  {
+    "element": "Seal number",
+    "domain": "Transport",
+    "score": 86,
+    "tier": "P1",
+    "capabilitiesSupported": 35
+  },
+  {
+    "element": "Examination result code",
+    "domain": "Risk & Control",
+    "score": 85,
+    "tier": "P1",
+    "capabilitiesSupported": 34
+  },
+  {
+    "element": "TIN/NTN number",
+    "domain": "Party",
+    "score": 85,
+    "tier": "P1",
+    "capabilitiesSupported": 33
+  },
+  {
+    "element": "Risk score value",
+    "domain": "Risk & Control",
+    "score": 84,
+    "tier": "P1",
+    "capabilitiesSupported": 32
+  },
+  {
+    "element": "Party name",
+    "domain": "Party",
+    "score": 83,
+    "tier": "P1",
+    "capabilitiesSupported": 31
+  },
+  {
+    "element": "Commodity classification code (HS6)",
+    "domain": "Classification",
+    "score": 83,
+    "tier": "P1",
+    "capabilitiesSupported": 30
+  },
+  {
+    "element": "Country code",
+    "domain": "Party",
+    "score": 82,
+    "tier": "P1",
+    "capabilitiesSupported": 29
+  },
+  {
+    "element": "Duty/tax/fee rate",
+    "domain": "Financial",
+    "score": 81,
+    "tier": "P1",
+    "capabilitiesSupported": 28
+  },
+  {
+    "element": "Payment method code",
+    "domain": "Financial",
+    "score": 81,
+    "tier": "P1",
+    "capabilitiesSupported": 27
+  },
+  {
+    "element": "National tariff line code",
+    "domain": "Classification",
+    "score": 80,
+    "tier": "P1",
+    "capabilitiesSupported": 26
+  },
+  {
+    "element": "Consignment identification",
+    "domain": "Consignment",
+    "score": 79,
+    "tier": "P1",
+    "capabilitiesSupported": 25
+  },
+  {
+    "element": "Manifest reference number",
+    "domain": "Consignment",
+    "score": 79,
+    "tier": "P1",
+    "capabilitiesSupported": 24
+  },
+  {
+    "element": "Voyage/flight number",
+    "domain": "Transport",
+    "score": 78,
+    "tier": "P1",
+    "capabilitiesSupported": 23
+  },
+  {
+    "element": "Transport means identification",
+    "domain": "Transport",
+    "score": 78,
+    "tier": "P1",
+    "capabilitiesSupported": 22
+  },
+  {
+    "element": "Goods description",
+    "domain": "Goods",
+    "score": 77,
+    "tier": "P1",
+    "capabilitiesSupported": 21
+  },
+  {
+    "element": "Number of packages",
+    "domain": "Goods",
+    "score": 76,
+    "tier": "P1",
+    "capabilitiesSupported": 20
+  },
+  {
+    "element": "Certificate of origin number",
+    "domain": "Origin",
+    "score": 76,
+    "tier": "P1",
+    "capabilitiesSupported": 19
+  },
+  {
+    "element": "FTA agreement code",
+    "domain": "Origin",
+    "score": 75,
+    "tier": "P1",
+    "capabilitiesSupported": 18
+  },
+  {
+    "element": "AEO tier level",
+    "domain": "Party",
+    "score": 74,
+    "tier": "P2",
+    "capabilitiesSupported": 14
+  },
+  {
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "score": 74,
+    "tier": "P2",
+    "capabilitiesSupported": 10
+  },
+  {
+    "element": "Risk assessment indicator",
+    "domain": "Risk & Control",
+    "score": 73,
+    "tier": "P2",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Trader reference (UCR)",
+    "domain": "Declaration",
+    "score": 73,
+    "tier": "P2",
+    "capabilitiesSupported": 15
+  },
+  {
+    "element": "Previous document reference",
+    "domain": "Declaration",
+    "score": 72,
+    "tier": "P2",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "Customs office of declaration",
+    "domain": "Declaration",
+    "score": 72,
+    "tier": "P2",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Total gross mass",
+    "domain": "Declaration",
+    "score": 72,
+    "tier": "P2",
+    "capabilitiesSupported": 20
+  },
+  {
+    "element": "Total packages quantity",
+    "domain": "Declaration",
+    "score": 71,
+    "tier": "P2",
+    "capabilitiesSupported": 19
+  },
+  {
+    "element": "Preferential origin country",
+    "domain": "Goods",
+    "score": 71,
+    "tier": "P2",
+    "capabilitiesSupported": 19
+  },
+  {
+    "element": "Commodity code type",
+    "domain": "Goods",
+    "score": 70,
+    "tier": "P2",
+    "capabilitiesSupported": 16
+  },
+  {
+    "element": "Trade movement type",
+    "domain": "Declaration",
+    "score": 70,
+    "tier": "P2",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Intelligence reference",
+    "domain": "Risk & Control",
+    "score": 70,
+    "tier": "P2",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Risk rule identifier",
+    "domain": "Risk & Control",
+    "score": 69,
+    "tier": "P2",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Risk category code",
+    "domain": "Risk & Control",
+    "score": 69,
+    "tier": "P2",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Examination type code",
+    "domain": "Risk & Control",
+    "score": 68,
+    "tier": "P2",
+    "capabilitiesSupported": 15
+  },
+  {
+    "element": "Warehouse identifier",
+    "domain": "Warehouse",
+    "score": 68,
+    "tier": "P2",
+    "capabilitiesSupported": 14
+  },
+  {
+    "element": "Free zone identifier",
+    "domain": "Warehouse",
+    "score": 67,
+    "tier": "P2",
+    "capabilitiesSupported": 25
+  },
+  {
+    "element": "Container size and type code",
+    "domain": "Transport",
+    "score": 67,
+    "tier": "P2",
+    "capabilitiesSupported": 13
+  },
+  {
+    "element": "Seal number (control)",
+    "domain": "Risk & Control",
+    "score": 67,
+    "tier": "P2",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "Seal condition code (control)",
+    "domain": "Risk & Control",
+    "score": 66,
+    "tier": "P2",
+    "capabilitiesSupported": 14
+  },
+  {
+    "element": "Carrier assigned identifier",
+    "domain": "Consignment",
+    "score": 66,
+    "tier": "P2",
+    "capabilitiesSupported": 18
+  },
+  {
+    "element": "Bill of lading number",
+    "domain": "Document",
+    "score": 65,
+    "tier": "P2",
+    "capabilitiesSupported": 19
+  },
+  {
+    "element": "Transport means nationality",
+    "domain": "Transport",
+    "score": 65,
+    "tier": "P2",
+    "capabilitiesSupported": 28
+  },
+  {
+    "element": "Inland mode of transport",
+    "domain": "Transport",
+    "score": 65,
+    "tier": "P2",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "Customs value method code",
+    "domain": "Declaration",
+    "score": 64,
+    "tier": "P2",
+    "capabilitiesSupported": 5
+  },
+  {
+    "element": "Valuation method code",
+    "domain": "Financial",
+    "score": 64,
+    "tier": "P2",
+    "capabilitiesSupported": 18
+  },
+  {
+    "element": "Price influence indicator",
+    "domain": "Goods",
+    "score": 63,
+    "tier": "P2",
+    "capabilitiesSupported": 5
+  },
+  {
+    "element": "Transaction value",
+    "domain": "Financial",
+    "score": 63,
+    "tier": "P2",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Adjustment amount",
+    "domain": "Financial",
+    "score": 63,
+    "tier": "P2",
+    "capabilitiesSupported": 25
+  },
+  {
+    "element": "Valuation adjustment code",
+    "domain": "Goods",
+    "score": 62,
+    "tier": "P2",
+    "capabilitiesSupported": 19
+  },
+  {
+    "element": "Decision code",
+    "domain": "Response",
+    "score": 62,
+    "tier": "P2",
+    "capabilitiesSupported": 26
+  },
+  {
+    "element": "Release date and time",
+    "domain": "Response",
+    "score": 61,
+    "tier": "P2",
+    "capabilitiesSupported": 5
+  },
+  {
+    "element": "Amendment reason code",
+    "domain": "Declaration",
+    "score": 61,
+    "tier": "P2",
+    "capabilitiesSupported": 20
+  },
+  {
+    "element": "Registration number",
+    "domain": "Declaration",
+    "score": 61,
+    "tier": "P2",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "Declarant reference number",
+    "domain": "Declaration",
+    "score": 60,
+    "tier": "P2",
+    "capabilitiesSupported": 17
+  },
+  {
+    "element": "Total duty amount",
+    "domain": "Declaration",
+    "score": 60,
+    "tier": "P2",
+    "capabilitiesSupported": 25
+  },
+  {
+    "element": "Total statistical value",
+    "domain": "Declaration",
+    "score": 59,
+    "tier": "P2",
+    "capabilitiesSupported": 22
+  },
+  {
+    "element": "Deferred payment indicator",
+    "domain": "Declaration",
+    "score": 59,
+    "tier": "P2",
+    "capabilitiesSupported": 20
+  },
+  {
+    "element": "Total taxes paid amount",
+    "domain": "Financial",
+    "score": 59,
+    "tier": "P2",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Currency code for duties",
+    "domain": "Financial",
+    "score": 58,
+    "tier": "P2",
+    "capabilitiesSupported": 16
+  },
+  {
+    "element": "Guarantee type code",
+    "domain": "Financial",
+    "score": 58,
+    "tier": "P2",
+    "capabilitiesSupported": 18
+  },
+  {
+    "element": "Guarantee reference number",
+    "domain": "Financial",
+    "score": 57,
+    "tier": "P2",
+    "capabilitiesSupported": 22
+  },
+  {
+    "element": "Preference code",
+    "domain": "Classification",
+    "score": 57,
+    "tier": "P2",
+    "capabilitiesSupported": 15
+  },
+  {
+    "element": "Applied duty rate",
+    "domain": "Classification",
+    "score": 57,
+    "tier": "P2",
+    "capabilitiesSupported": 14
+  },
+  {
+    "element": "Statutory duty rate",
+    "domain": "Classification",
+    "score": 56,
+    "tier": "P2",
+    "capabilitiesSupported": 24
+  },
+  {
+    "element": "Additional tariff code",
+    "domain": "Classification",
+    "score": 56,
+    "tier": "P2",
+    "capabilitiesSupported": 15
+  },
+  {
+    "element": "Insurance cost",
+    "domain": "Financial",
+    "score": 55,
+    "tier": "P2",
+    "capabilitiesSupported": 23
+  },
+  {
+    "element": "Supplementary quantity",
+    "domain": "Goods",
+    "score": 55,
+    "tier": "P2",
+    "capabilitiesSupported": 23
+  },
+  {
+    "element": "Tariff quantity",
+    "domain": "Goods",
+    "score": 54,
+    "tier": "P2",
+    "capabilitiesSupported": 20
+  },
+  {
+    "element": "AEO last review date",
+    "domain": "Party",
+    "score": 54,
+    "tier": "P2",
+    "capabilitiesSupported": 11
+  },
+  {
+    "element": "Trader mutual recognition ID",
+    "domain": "Party",
+    "score": 54,
+    "tier": "P2",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "WCO DM element reference",
+    "domain": "Classification",
+    "score": 53,
+    "tier": "P2",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Data quality score",
+    "domain": "Declaration",
+    "score": 53,
+    "tier": "P2",
+    "capabilitiesSupported": 13
+  },
+  {
+    "element": "Estimated arrival date",
+    "domain": "Consignment",
+    "score": 52,
+    "tier": "P2",
+    "capabilitiesSupported": 26
+  },
+  {
+    "element": "Actual arrival date",
+    "domain": "Consignment",
+    "score": 52,
+    "tier": "P2",
+    "capabilitiesSupported": 15
+  },
+  {
+    "element": "Duty/tax/fee type code",
+    "domain": "Financial",
+    "score": 52,
+    "tier": "P2",
+    "capabilitiesSupported": 14
+  },
+  {
+    "element": "Lodgement date time",
+    "domain": "Declaration",
+    "score": 51,
+    "tier": "P2",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "Penalty code",
+    "domain": "Response",
+    "score": 51,
+    "tier": "P2",
+    "capabilitiesSupported": 16
+  },
+  {
+    "element": "Trader compliance score",
+    "domain": "Party",
+    "score": 50,
+    "tier": "P2",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "NTC alert indicator",
+    "domain": "Risk & Control",
+    "score": 50,
+    "tier": "P2",
+    "capabilitiesSupported": 18
+  },
+  {
+    "element": "Additional document type code",
+    "domain": "Document",
+    "score": 49,
+    "tier": "P3",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "Document reference number",
+    "domain": "Document",
+    "score": 49,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Document date",
+    "domain": "Document",
+    "score": 48,
+    "tier": "P3",
+    "capabilitiesSupported": 5
+  },
+  {
+    "element": "Document status code",
+    "domain": "Document",
+    "score": 48,
+    "tier": "P3",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "Document issuing authority",
+    "domain": "Document",
+    "score": 47,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Certificate type code",
+    "domain": "Document",
+    "score": 47,
+    "tier": "P3",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Certificate number",
+    "domain": "Document",
+    "score": 47,
+    "tier": "P3",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Certificate date of issue",
+    "domain": "Document",
+    "score": 46,
+    "tier": "P3",
+    "capabilitiesSupported": 5
+  },
+  {
+    "element": "Certificate expiry date",
+    "domain": "Document",
+    "score": 46,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Licence type code",
+    "domain": "Document",
+    "score": 45,
+    "tier": "P3",
+    "capabilitiesSupported": 5
+  },
+  {
+    "element": "Licence number",
+    "domain": "Document",
+    "score": 45,
+    "tier": "P3",
+    "capabilitiesSupported": 10
+  },
+  {
+    "element": "Package type code",
+    "domain": "Goods",
+    "score": 45,
+    "tier": "P3",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Marks and numbers",
+    "domain": "Goods",
+    "score": 44,
+    "tier": "P3",
+    "capabilitiesSupported": 11
+  },
+  {
+    "element": "Dangerous goods class",
+    "domain": "Goods",
+    "score": 44,
+    "tier": "P3",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "UN dangerous goods number",
+    "domain": "Goods",
+    "score": 43,
+    "tier": "P3",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Equipment identification number",
+    "domain": "Transport",
+    "score": 43,
+    "tier": "P3",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "Container status code",
+    "domain": "Transport",
+    "score": 42,
+    "tier": "P3",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "Vessel IMO number",
+    "domain": "Transport",
+    "score": 42,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Aircraft registration",
+    "domain": "Transport",
+    "score": 42,
+    "tier": "P3",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Vehicle registration plate",
+    "domain": "Transport",
+    "score": 41,
+    "tier": "P3",
+    "capabilitiesSupported": 5
+  },
+  {
+    "element": "Berth number",
+    "domain": "Transport",
+    "score": 41,
+    "tier": "P3",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Terminal code",
+    "domain": "Transport",
+    "score": 40,
+    "tier": "P3",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Location identifier (UN/LOCODE)",
+    "domain": "Location",
+    "score": 40,
+    "tier": "P3",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "Location function code",
+    "domain": "Location",
+    "score": 40,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Country sub-entity code",
+    "domain": "Location",
+    "score": 39,
+    "tier": "P3",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Loading location UN/LOCODE",
+    "domain": "Location",
+    "score": 39,
+    "tier": "P3",
+    "capabilitiesSupported": 11
+  },
+  {
+    "element": "Unloading location UN/LOCODE",
+    "domain": "Location",
+    "score": 38,
+    "tier": "P3",
+    "capabilitiesSupported": 10
+  },
+  {
+    "element": "First port of entry UN/LOCODE",
+    "domain": "Location",
+    "score": 38,
+    "tier": "P3",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Exit port UN/LOCODE",
+    "domain": "Location",
+    "score": 38,
+    "tier": "P3",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "Warehouse type code",
+    "domain": "Warehouse",
+    "score": 37,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Bonded warehouse type",
+    "domain": "Warehouse",
+    "score": 37,
+    "tier": "P3",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "Storage period days",
+    "domain": "Warehouse",
+    "score": 36,
+    "tier": "P3",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "Warehouse entry number",
+    "domain": "Warehouse",
+    "score": 36,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Warehouse stock quantity",
+    "domain": "Warehouse",
+    "score": 36,
+    "tier": "P3",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "Free zone operator code",
+    "domain": "Warehouse",
+    "score": 35,
+    "tier": "P3",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "Free zone activity type",
+    "domain": "Warehouse",
+    "score": 35,
+    "tier": "P3",
+    "capabilitiesSupported": 10
+  },
+  {
+    "element": "Preferential treatment code",
+    "domain": "Origin",
+    "score": 34,
+    "tier": "P3",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Origin criterion code",
+    "domain": "Origin",
+    "score": 34,
+    "tier": "P3",
+    "capabilitiesSupported": 5
+  },
+  {
+    "element": "Origin declaration reference",
+    "domain": "Origin",
+    "score": 34,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Regional value content percentage",
+    "domain": "Origin",
+    "score": 33,
+    "tier": "P3",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "Certificate of origin date",
+    "domain": "Origin",
+    "score": 33,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Certificate of origin issuing body",
+    "domain": "Origin",
+    "score": 32,
+    "tier": "P3",
+    "capabilitiesSupported": 11
+  },
+  {
+    "element": "Cumulation type code",
+    "domain": "Origin",
+    "score": 32,
+    "tier": "P3",
+    "capabilitiesSupported": 10
+  },
+  {
+    "element": "Cumulation partner country",
+    "domain": "Origin",
+    "score": 32,
+    "tier": "P3",
+    "capabilitiesSupported": 11
+  },
+  {
+    "element": "Examination location code",
+    "domain": "Risk & Control",
+    "score": 31,
+    "tier": "P3",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Examination officer code",
+    "domain": "Risk & Control",
+    "score": 31,
+    "tier": "P3",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Examination date",
+    "domain": "Risk & Control",
+    "score": 30,
+    "tier": "P3",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Response date",
+    "domain": "Response",
+    "score": 30,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Release notification code",
+    "domain": "Response",
+    "score": 29,
+    "tier": "P3",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "Query code",
+    "domain": "Response",
+    "score": 29,
+    "tier": "P3",
+    "capabilitiesSupported": 12
+  },
+  {
+    "element": "Error code",
+    "domain": "Response",
+    "score": 29,
+    "tier": "P3",
+    "capabilitiesSupported": 8
+  },
+  {
+    "element": "Refund amount",
+    "domain": "Financial",
+    "score": 28,
+    "tier": "P3",
+    "capabilitiesSupported": 10
+  },
+  {
+    "element": "Guarantee amount",
+    "domain": "Financial",
+    "score": 28,
+    "tier": "P3",
+    "capabilitiesSupported": 10
+  },
+  {
+    "element": "E-commerce indicator",
+    "domain": "E-Commerce",
+    "score": 27,
+    "tier": "P3",
+    "capabilitiesSupported": 9
+  },
+  {
+    "element": "De minimis value",
+    "domain": "E-Commerce",
+    "score": 27,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Annual import volume",
+    "domain": "Party",
+    "score": 27,
+    "tier": "P3",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "PSQCA certificate number",
+    "domain": "Document",
+    "score": 26,
+    "tier": "P3",
+    "capabilitiesSupported": 7
+  },
+  {
+    "element": "Green channel eligibility",
+    "domain": "Declaration",
+    "score": 26,
+    "tier": "P3",
+    "capabilitiesSupported": 6
+  },
+  {
+    "element": "Afghan transit indicator",
+    "domain": "Consignment",
+    "score": 25,
+    "tier": "P3",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Border crossing point code",
+    "domain": "Transport",
+    "score": 25,
+    "tier": "P3",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Platform identifier",
+    "domain": "E-Commerce",
+    "score": 24,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Buyer/seller marketplace ID",
+    "domain": "E-Commerce",
+    "score": 23,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Return goods indicator",
+    "domain": "E-Commerce",
+    "score": 23,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Simplified declaration indicator (e-comm)",
+    "domain": "E-Commerce",
+    "score": 22,
+    "tier": "P4",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "Unique shipment reference (e-comm)",
+    "domain": "E-Commerce",
+    "score": 22,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Order number",
+    "domain": "E-Commerce",
+    "score": 21,
+    "tier": "P4",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "Order date",
+    "domain": "E-Commerce",
+    "score": 20,
+    "tier": "P4",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "Payment method (e-comm)",
+    "domain": "E-Commerce",
+    "score": 20,
+    "tier": "P4",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "URL of goods listing",
+    "domain": "E-Commerce",
+    "score": 19,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Postal item number",
+    "domain": "E-Commerce",
+    "score": 19,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Postal service provider",
+    "domain": "E-Commerce",
+    "score": 18,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Courier tracking number",
+    "domain": "E-Commerce",
+    "score": 18,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "HS version year",
+    "domain": "Classification",
+    "score": 17,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "HS chapter description",
+    "domain": "Classification",
+    "score": 16,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "HS heading description",
+    "domain": "Classification",
+    "score": 16,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "HS subheading description",
+    "domain": "Classification",
+    "score": 15,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "National tariff description",
+    "domain": "Classification",
+    "score": 15,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Quota order number",
+    "domain": "Classification",
+    "score": 14,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Anti-dumping duty indicator",
+    "domain": "Classification",
+    "score": 13,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Inward processing authorization",
+    "domain": "Warehouse",
+    "score": 13,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Temporary storage declaration ref",
+    "domain": "Warehouse",
+    "score": 12,
+    "tier": "P4",
+    "capabilitiesSupported": 4
+  },
+  {
+    "element": "Temporary storage period",
+    "domain": "Warehouse",
+    "score": 12,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Cross-border transport document",
+    "domain": "Transport",
+    "score": 11,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Cancellation acceptance indicator",
+    "domain": "Declaration",
+    "score": 10,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Origin country risk score",
+    "domain": "Origin",
+    "score": 10,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Customs broker identifier",
+    "domain": "Party",
+    "score": 9,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Shipping line code",
+    "domain": "Consignment",
+    "score": 9,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Examination start time",
+    "domain": "Risk & Control",
+    "score": 8,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Exchange rate date",
+    "domain": "Financial",
+    "score": 7,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Post-clearance audit indicator",
+    "domain": "Risk & Control",
+    "score": 7,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "GSP Plus eligibility indicator",
+    "domain": "Origin",
+    "score": 6,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "SRO concession reference",
+    "domain": "Declaration",
+    "score": 6,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Warehouse capacity utilization",
+    "domain": "Warehouse",
+    "score": 5,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Appeal status code",
+    "domain": "Response",
+    "score": 5,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Simplified procedure type",
+    "domain": "E-Commerce",
+    "score": 4,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Party function code",
+    "domain": "Party",
+    "score": 3,
+    "tier": "P4",
+    "capabilitiesSupported": 3
+  },
+  {
+    "element": "Lab test result",
+    "domain": "Goods",
+    "score": 3,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  },
+  {
+    "element": "Drug regulatory certificate",
+    "domain": "Document",
+    "score": 2,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Payment date",
+    "domain": "Financial",
+    "score": 2,
+    "tier": "P4",
+    "capabilitiesSupported": 2
+  },
+  {
+    "element": "Customs transit number",
+    "domain": "Consignment",
+    "score": 1,
+    "tier": "P4",
+    "capabilitiesSupported": 1
+  }
+]

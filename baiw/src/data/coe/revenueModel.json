@@ -1,0 +1,125 @@
+{
+  "totalImpact": {
+    "min": 7800,
+    "max": 12700,
+    "unit": "PKR Millions"
+  },
+  "floatRevenueTiers": [
+    {
+      "tier": 1,
+      "name": "Overnight Repo",
+      "yield": 10.5,
+      "risk": "Lowest",
+      "liquidity": "T+0"
+    },
+    {
+      "tier": 2,
+      "name": "Short-Term T-Bills",
+      "yield": "11-12%",
+      "risk": "Low",
+      "liquidity": "Hours"
+    },
+    {
+      "tier": 3,
+      "name": "Lending Deployment",
+      "yield": "15-22%",
+      "risk": "Medium-High",
+      "liquidity": "Tenor-based"
+    },
+    {
+      "tier": 4,
+      "name": "FX Carry (Nostro)",
+      "yield": "4.5% USD / 10.5% PKR swap",
+      "risk": "FX Risk",
+      "liquidity": "T+1"
+    }
+  ],
+  "costReduction": [
+    {
+      "category": "CIT Transportation",
+      "currentCostMin": 1500,
+      "currentCostMax": 2000,
+      "reductionPct": "25-35%",
+      "savingMin": 375,
+      "savingMax": 700
+    },
+    {
+      "category": "Vault Insurance",
+      "currentCostMin": 600,
+      "currentCostMax": 800,
+      "reductionPct": "30%",
+      "savingMin": 180,
+      "savingMax": 240
+    },
+    {
+      "category": "Cash Sorting/CPC",
+      "currentCostMin": 400,
+      "currentCostMax": 600,
+      "reductionPct": "20%",
+      "savingMin": 80,
+      "savingMax": 120
+    },
+    {
+      "category": "SBP Penalties",
+      "currentCostMin": 80,
+      "currentCostMax": 150,
+      "reductionPct": "90%",
+      "savingMin": 72,
+      "savingMax": 135
+    },
+    {
+      "category": "Security Personnel",
+      "currentCostMin": 800,
+      "currentCostMax": 1200,
+      "reductionPct": "10%",
+      "savingMin": 80,
+      "savingMax": 120
+    },
+    {
+      "category": "Teller Overtime",
+      "currentCostMin": 200,
+      "currentCostMax": 300,
+      "reductionPct": "40%",
+      "savingMin": 80,
+      "savingMax": 120
+    }
+  ],
+  "leverBreakdown": [
+    {
+      "lever": "Vault Cash Reduction",
+      "savingMin": 4500,
+      "savingMax": 7000,
+      "mechanism": "Redeploy idle vault to repo/T-bills"
+    },
+    {
+      "lever": "ATM Cash Optimization",
+      "savingMin": 1500,
+      "savingMax": 2500,
+      "mechanism": "Reduce float-in-cassette by 30-40%"
+    },
+    {
+      "lever": "CIT Route Optimization",
+      "savingMin": 300,
+      "savingMax": 600,
+      "mechanism": "Fewer trips, dynamic routing"
+    },
+    {
+      "lever": "CRR Float Engineering",
+      "savingMin": 800,
+      "savingMax": 1200,
+      "mechanism": "Weekly averaging arbitrage"
+    },
+    {
+      "lever": "Nostro/Vostro Optimization",
+      "savingMin": 500,
+      "savingMax": 1000,
+      "mechanism": "Reduce idle FX balances abroad"
+    },
+    {
+      "lever": "Denomination Management",
+      "savingMin": 200,
+      "savingMax": 400,
+      "mechanism": "Reduce SBP penalty + sorting costs"
+    }
+  ]
+}

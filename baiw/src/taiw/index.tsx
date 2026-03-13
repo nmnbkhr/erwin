@@ -1,0 +1,32 @@
+import { lazy, Suspense } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import TaiwLayout from './components/TaiwLayout'
+import PageSkeleton from '../components/layout/PageSkeleton'
+
+const TaiwDashboard = lazy(() => import('./components/TaiwDashboard'))
+const WCOModelExplorer = lazy(() => import('./components/WCOModelExplorer'))
+const TCFCapabilityNavigator = lazy(() => import('./components/TCFCapabilityNavigator'))
+const TradeDependencyGraph = lazy(() => import('./components/TradeDependencyGraph'))
+const TradeMaturityAssessment = lazy(() => import('./components/TradeMaturityAssessment'))
+const TradeAnalyticsEngine = lazy(() => import('./components/TradeAnalyticsEngine'))
+const TradeRoadmapBuilder = lazy(() => import('./components/TradeRoadmapBuilder'))
+const PakistanTradeReference = lazy(() => import('./components/PakistanTradeReference'))
+
+export default function TaiwRoutes() {
+  return (
+    <TaiwLayout>
+      <Suspense fallback={<PageSkeleton />}>
+        <Routes>
+          <Route path="/" element={<TaiwDashboard />} />
+          <Route path="/model" element={<WCOModelExplorer />} />
+          <Route path="/capabilities" element={<TCFCapabilityNavigator />} />
+          <Route path="/graph" element={<TradeDependencyGraph />} />
+          <Route path="/maturity" element={<TradeMaturityAssessment />} />
+          <Route path="/analytics" element={<TradeAnalyticsEngine />} />
+          <Route path="/roadmap" element={<TradeRoadmapBuilder />} />
+          <Route path="/pakistan" element={<PakistanTradeReference />} />
+        </Routes>
+      </Suspense>
+    </TaiwLayout>
+  )
+}

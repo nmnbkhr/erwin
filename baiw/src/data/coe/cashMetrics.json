@@ -1,0 +1,14 @@
+{
+  "branches": 1500,
+  "atms": 2000,
+  "deposits": "PKR 2.5T+",
+  "avgVaultIdleCash": 35,
+  "targetVaultCash": 15,
+  "avgATMCassette": 4,
+  "targetATMCassette": 2.2,
+  "citTripsPerDay": 200,
+  "sbpPolicyRate": 11,
+  "annualImpactMin": 7800,
+  "annualImpactMax": 12700,
+  "roaImprovement": "2-4%"
+}

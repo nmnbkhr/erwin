@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Search } from 'lucide-react'
 
 interface Props {
@@ -10,6 +11,12 @@ export default function Header({ onOpenSearch }: Props) {
       <span className="text-lg font-semibold text-slate-700">
         Banking Analytics Intelligence Workbench
       </span>
+      <div className="flex items-center gap-2 ml-4">
+        <span className="bg-purple-600 text-white px-2 py-0.5 rounded text-xs font-medium">BAIW</span>
+        <Link to="/taiw" className="bg-gray-700 text-gray-300 hover:bg-teal-600 hover:text-white px-2 py-0.5 rounded text-xs transition-colors">
+          TAIW &rarr;
+        </Link>
+      </div>
       <button
         onClick={onOpenSearch}
         className="flex-1 max-w-md mx-auto flex items-center gap-2 px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-400 hover:border-slate-300 hover:bg-slate-100 transition-colors"

@@ -47,7 +47,7 @@ export default function DomainDonut({ domains }: Props) {
               <Cell key={index} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
-          <Tooltip formatter={(value: number) => value.toLocaleString()} />
+          <Tooltip formatter={((value: number) => value.toLocaleString()) as never} />
           <Legend
             layout="vertical"
             align="right"

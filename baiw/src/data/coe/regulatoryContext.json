@@ -1,0 +1,29 @@
+{
+  "crr": {
+    "weeklyAverage": 6,
+    "dailyMinimum": 4,
+    "applicableTo": "Demand liabilities + time liabilities < 1yr",
+    "exempt": "Time liabilities > 1yr",
+    "penaltyRate": "SBP penalty rate on shortfall",
+    "interestEarning": false
+  },
+  "currencyManagement": {
+    "cpcRequired": true,
+    "sortingRequirement": "Machine-authenticated, issuable/non-issuable",
+    "penalties": {
+      "min": 5000,
+      "max": 100000,
+      "currency": "PKR",
+      "per": "instance"
+    },
+    "cctvRequired": true
+  },
+  "cdmMandate": {
+    "targetPct": 25,
+    "targetYear": 2028,
+    "requirement": "25% of branches with CDMs by CY2028",
+    "instantCredit": true
+  },
+  "policyRate": 11,
+  "cashToGDPRatio": "12-14%"
+}

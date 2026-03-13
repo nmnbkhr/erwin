@@ -1,0 +1,3012 @@
+[
+  {
+    "capability": "declared_value_verification",
+    "element": "Customs value method code",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for declared value verification"
+  },
+  {
+    "capability": "declared_value_verification",
+    "element": "Price influence indicator",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Essential for declared value verification processing"
+  },
+  {
+    "capability": "declared_value_verification",
+    "element": "Value declared for customs",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Primary data point for declared value verification"
+  },
+  {
+    "capability": "declared_value_verification",
+    "element": "Transaction value",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for declared value verification"
+  },
+  {
+    "capability": "declared_value_verification",
+    "element": "Customs value",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for declared value verification"
+  },
+  {
+    "capability": "transfer_pricing_detection",
+    "element": "Customs value",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Core element for transfer pricing detection"
+  },
+  {
+    "capability": "transfer_pricing_detection",
+    "element": "Customs value method code",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Key input for transfer pricing detection analysis"
+  },
+  {
+    "capability": "transfer_pricing_detection",
+    "element": "Price influence indicator",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for transfer pricing detection"
+  },
+  {
+    "capability": "transfer_pricing_detection",
+    "element": "Transaction value",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during transfer pricing detection"
+  },
+  {
+    "capability": "transfer_pricing_detection",
+    "element": "Adjustment amount",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Used in transfer pricing detection validation"
+  },
+  {
+    "capability": "transfer_pricing_detection",
+    "element": "Valuation adjustment code",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for transfer pricing detection"
+  },
+  {
+    "capability": "transaction_value_database",
+    "element": "Customs value",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Core element for transaction value database"
+  },
+  {
+    "capability": "transaction_value_database",
+    "element": "Insurance cost",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for transaction value database"
+  },
+  {
+    "capability": "transaction_value_database",
+    "element": "Freight cost",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for transaction value database"
+  },
+  {
+    "capability": "valuation_method_selection",
+    "element": "Customs value method code",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Key input for valuation method selection analysis"
+  },
+  {
+    "capability": "valuation_method_selection",
+    "element": "Customs value",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Core element for valuation method selection"
+  },
+  {
+    "capability": "valuation_method_selection",
+    "element": "Insurance cost",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during valuation method selection"
+  },
+  {
+    "capability": "valuation_method_selection",
+    "element": "Freight cost",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for valuation method selection"
+  },
+  {
+    "capability": "valuation_method_selection",
+    "element": "Item customs value",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during valuation method selection"
+  },
+  {
+    "capability": "exchange_rate_impact_analysis",
+    "element": "Exchange rate",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Primary data point for exchange rate impact analysis"
+  },
+  {
+    "capability": "exchange_rate_impact_analysis",
+    "element": "Exchange rate date",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Directly required by exchange rate impact analysis"
+  },
+  {
+    "capability": "exchange_rate_impact_analysis",
+    "element": "Currency code",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Key input for exchange rate impact analysis analysis"
+  },
+  {
+    "capability": "exchange_rate_impact_analysis",
+    "element": "Total CIF value",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for exchange rate impact analysis"
+  },
+  {
+    "capability": "retrospective_valuation_audit",
+    "element": "Customs value",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Primary data point for retrospective valuation audit"
+  },
+  {
+    "capability": "retrospective_valuation_audit",
+    "element": "Customs value method code",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Used in retrospective valuation audit validation"
+  },
+  {
+    "capability": "retrospective_valuation_audit",
+    "element": "Adjustment amount",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Enhances retrospective valuation audit accuracy"
+  },
+  {
+    "capability": "advance_ruling_compliance",
+    "element": "Customs value",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Primary data point for advance ruling compliance"
+  },
+  {
+    "capability": "advance_ruling_compliance",
+    "element": "Binding origin information ref",
+    "domain": "Origin",
+    "confidence": "HIGH",
+    "notes": "Primary data point for advance ruling compliance"
+  },
+  {
+    "capability": "advance_ruling_compliance",
+    "element": "Customs value method code",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Enhances advance ruling compliance accuracy"
+  },
+  {
+    "capability": "advance_ruling_compliance",
+    "element": "Adjustment amount",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for advance ruling compliance"
+  },
+  {
+    "capability": "value_trend_analytics",
+    "element": "Price influence indicator",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Directly required by value trend analytics"
+  },
+  {
+    "capability": "value_trend_analytics",
+    "element": "Transaction value",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for value trend analytics"
+  },
+  {
+    "capability": "value_trend_analytics",
+    "element": "Statistical value",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Enhances value trend analytics accuracy"
+  },
+  {
+    "capability": "hs_code_classification_engine",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Key input for hs code classification engine analysis"
+  },
+  {
+    "capability": "hs_code_classification_engine",
+    "element": "HS subheading description",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Essential for hs code classification engine processing"
+  },
+  {
+    "capability": "hs_code_classification_engine",
+    "element": "Commodity code type",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for hs code classification engine"
+  },
+  {
+    "capability": "hs_code_classification_engine",
+    "element": "HS subheading code",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Used in hs code classification engine validation"
+  },
+  {
+    "capability": "hs_code_classification_engine",
+    "element": "HS heading description",
+    "domain": "Classification",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during hs code classification engine"
+  },
+  {
+    "capability": "tariff_schedule_management",
+    "element": "Statutory duty rate",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Directly required by tariff schedule management"
+  },
+  {
+    "capability": "tariff_schedule_management",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Core element for tariff schedule management"
+  },
+  {
+    "capability": "tariff_schedule_management",
+    "element": "Preference code",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during tariff schedule management"
+  },
+  {
+    "capability": "sro_concession_tracking",
+    "element": "SRO applicability code",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Key input for sro concession tracking analysis"
+  },
+  {
+    "capability": "sro_concession_tracking",
+    "element": "SRO concession reference",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Essential for sro concession tracking processing"
+  },
+  {
+    "capability": "sro_concession_tracking",
+    "element": "SRO number",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during sro concession tracking"
+  },
+  {
+    "capability": "sro_concession_tracking",
+    "element": "Concession certificate number",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for sro concession tracking"
+  },
+  {
+    "capability": "sro_concession_tracking",
+    "element": "SRO saving amount",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for sro concession tracking"
+  },
+  {
+    "capability": "fta_preference_management",
+    "element": "Preference certificate reference",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Primary data point for fta preference management"
+  },
+  {
+    "capability": "fta_preference_management",
+    "element": "FTA preference declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Enhances fta preference management accuracy"
+  },
+  {
+    "capability": "fta_preference_management",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for fta preference management"
+  },
+  {
+    "capability": "duty_drawback_analytics",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Core element for duty drawback analytics"
+  },
+  {
+    "capability": "duty_drawback_analytics",
+    "element": "Commodity code type",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Used in duty drawback analytics validation"
+  },
+  {
+    "capability": "duty_drawback_analytics",
+    "element": "HS subheading code",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Background data for duty drawback analytics"
+  },
+  {
+    "capability": "regulatory_duty_impact",
+    "element": "Applied duty rate",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Essential for regulatory duty impact processing"
+  },
+  {
+    "capability": "regulatory_duty_impact",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Primary data point for regulatory duty impact"
+  },
+  {
+    "capability": "regulatory_duty_impact",
+    "element": "Regulatory duty rate",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Enhances regulatory duty impact accuracy"
+  },
+  {
+    "capability": "regulatory_duty_impact",
+    "element": "Additional customs duty rate",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Enhances regulatory duty impact accuracy"
+  },
+  {
+    "capability": "revenue_dashboarding",
+    "element": "Duty/tax/fee amount",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Essential for revenue dashboarding processing"
+  },
+  {
+    "capability": "revenue_dashboarding",
+    "element": "Total duty amount",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for revenue dashboarding"
+  },
+  {
+    "capability": "revenue_dashboarding",
+    "element": "Total sales tax amount",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during revenue dashboarding"
+  },
+  {
+    "capability": "revenue_dashboarding",
+    "element": "Total regulatory duty amount",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for revenue dashboarding"
+  },
+  {
+    "capability": "revenue_dashboarding",
+    "element": "Item duty amount",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during revenue dashboarding"
+  },
+  {
+    "capability": "revenue_dashboarding",
+    "element": "Total taxes paid amount",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for revenue dashboarding"
+  },
+  {
+    "capability": "revenue_forecasting",
+    "element": "Duty/tax/fee amount",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Directly required by revenue forecasting"
+  },
+  {
+    "capability": "revenue_forecasting",
+    "element": "Duty/tax/fee type code",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Directly required by revenue forecasting"
+  },
+  {
+    "capability": "revenue_forecasting",
+    "element": "Duty/tax/fee rate",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Enhances revenue forecasting accuracy"
+  },
+  {
+    "capability": "revenue_forecasting",
+    "element": "Total duty amount",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during revenue forecasting"
+  },
+  {
+    "capability": "leakage_detection",
+    "element": "Duty/tax/fee amount",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Essential for leakage detection processing"
+  },
+  {
+    "capability": "leakage_detection",
+    "element": "Duty/tax/fee type code",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Core element for leakage detection"
+  },
+  {
+    "capability": "leakage_detection",
+    "element": "Duty/tax/fee rate",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for leakage detection"
+  },
+  {
+    "capability": "leakage_detection",
+    "element": "Total duty amount",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Peripheral context for leakage detection"
+  },
+  {
+    "capability": "refund_and_drawback_management",
+    "element": "Drawback amount",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Directly required by refund & drawback management"
+  },
+  {
+    "capability": "refund_and_drawback_management",
+    "element": "Drawback claim reference",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Essential for refund & drawback management processing"
+  },
+  {
+    "capability": "refund_and_drawback_management",
+    "element": "Duty/tax/fee amount",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Core element for refund & drawback management"
+  },
+  {
+    "capability": "refund_and_drawback_management",
+    "element": "Refund amount",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for refund & drawback management"
+  },
+  {
+    "capability": "duty_differential_analysis",
+    "element": "Duty/tax/fee amount",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Essential for duty differential analysis processing"
+  },
+  {
+    "capability": "duty_differential_analysis",
+    "element": "Duty/tax/fee type code",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Primary data point for duty differential analysis"
+  },
+  {
+    "capability": "duty_differential_analysis",
+    "element": "Duty/tax/fee rate",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Used in duty differential analysis validation"
+  },
+  {
+    "capability": "duty_differential_analysis",
+    "element": "Total duty amount",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for duty differential analysis"
+  },
+  {
+    "capability": "duty_differential_analysis",
+    "element": "Total sales tax amount",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for duty differential analysis"
+  },
+  {
+    "capability": "budget_vs_actual_tracking",
+    "element": "Duty/tax/fee amount",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Essential for budget vs actual tracking processing"
+  },
+  {
+    "capability": "budget_vs_actual_tracking",
+    "element": "Applied duty rate",
+    "domain": "Classification",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for budget vs actual tracking"
+  },
+  {
+    "capability": "budget_vs_actual_tracking",
+    "element": "Duty/tax/fee type code",
+    "domain": "Financial",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for budget vs actual tracking"
+  },
+  {
+    "capability": "risk_profiling_engine",
+    "element": "Selectivity channel code",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Key input for risk profiling engine analysis"
+  },
+  {
+    "capability": "risk_profiling_engine",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by risk profiling engine"
+  },
+  {
+    "capability": "risk_profiling_engine",
+    "element": "Risk score value",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Key input for risk profiling engine analysis"
+  },
+  {
+    "capability": "risk_profiling_engine",
+    "element": "Risk assessment indicator",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Used in risk profiling engine validation"
+  },
+  {
+    "capability": "risk_profiling_engine",
+    "element": "Origin country risk score",
+    "domain": "Origin",
+    "confidence": "MEDIUM",
+    "notes": "Enhances risk profiling engine accuracy"
+  },
+  {
+    "capability": "risk_profiling_engine",
+    "element": "Examination request indicator",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for risk profiling engine"
+  },
+  {
+    "capability": "risk_profiling_engine",
+    "element": "Risk category code",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for risk profiling engine"
+  },
+  {
+    "capability": "selectivity_channel_assignment",
+    "element": "Selectivity channel code",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Directly required by selectivity channel assignment"
+  },
+  {
+    "capability": "selectivity_channel_assignment",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for selectivity channel assignment"
+  },
+  {
+    "capability": "selectivity_channel_assignment",
+    "element": "Green channel eligibility",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for selectivity channel assignment"
+  },
+  {
+    "capability": "selectivity_channel_assignment",
+    "element": "Risk rule identifier",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for selectivity channel assignment"
+  },
+  {
+    "capability": "selectivity_channel_assignment",
+    "element": "Risk rule name",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for selectivity channel assignment"
+  },
+  {
+    "capability": "selectivity_channel_assignment",
+    "element": "Risk rule hit count",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for selectivity channel assignment"
+  },
+  {
+    "capability": "trader_risk_scoring",
+    "element": "Trader compliance score",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Key input for trader risk scoring analysis"
+  },
+  {
+    "capability": "trader_risk_scoring",
+    "element": "Risk score value",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Core element for trader risk scoring"
+  },
+  {
+    "capability": "trader_risk_scoring",
+    "element": "Risk assessment indicator",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Directly required by trader risk scoring"
+  },
+  {
+    "capability": "trader_risk_scoring",
+    "element": "NTC alert indicator",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Used in trader risk scoring validation"
+  },
+  {
+    "capability": "trader_risk_scoring",
+    "element": "Specific circumstance indicator",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during trader risk scoring"
+  },
+  {
+    "capability": "trader_risk_scoring",
+    "element": "Lab test indicator",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Contextual reference for trader risk scoring"
+  },
+  {
+    "capability": "trader_risk_scoring",
+    "element": "TIN/NTN number",
+    "domain": "Party",
+    "confidence": "LOW",
+    "notes": "Background data for trader risk scoring"
+  },
+  {
+    "capability": "trader_risk_scoring",
+    "element": "Examination result code",
+    "domain": "Risk & Control",
+    "confidence": "LOW",
+    "notes": "Peripheral context for trader risk scoring"
+  },
+  {
+    "capability": "commodity_risk_matrix",
+    "element": "Risk category code",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Core element for commodity risk matrix"
+  },
+  {
+    "capability": "commodity_risk_matrix",
+    "element": "Trader risk category",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Key input for commodity risk matrix analysis"
+  },
+  {
+    "capability": "commodity_risk_matrix",
+    "element": "Selectivity channel code",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Essential for commodity risk matrix processing"
+  },
+  {
+    "capability": "commodity_risk_matrix",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Essential for commodity risk matrix processing"
+  },
+  {
+    "capability": "commodity_risk_matrix",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for commodity risk matrix"
+  },
+  {
+    "capability": "commodity_risk_matrix",
+    "element": "Risk score value",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Enhances commodity risk matrix accuracy"
+  },
+  {
+    "capability": "intelligence_led_targeting",
+    "element": "NTC alert indicator",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Primary data point for intelligence-led targeting"
+  },
+  {
+    "capability": "intelligence_led_targeting",
+    "element": "Selectivity channel code",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Directly required by intelligence-led targeting"
+  },
+  {
+    "capability": "intelligence_led_targeting",
+    "element": "Intelligence reference",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for intelligence-led targeting"
+  },
+  {
+    "capability": "intelligence_led_targeting",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for intelligence-led targeting"
+  },
+  {
+    "capability": "post_clearance_audit_selection",
+    "element": "Post-clearance audit indicator",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Primary data point for post-clearance audit selection"
+  },
+  {
+    "capability": "post_clearance_audit_selection",
+    "element": "Risk rule identifier",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Key input for post-clearance audit selection analysis"
+  },
+  {
+    "capability": "post_clearance_audit_selection",
+    "element": "Selectivity channel code",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for post-clearance audit selection"
+  },
+  {
+    "capability": "post_clearance_audit_selection",
+    "element": "Goods sample taken indicator",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Background data for post-clearance audit selection"
+  },
+  {
+    "capability": "post_clearance_audit_selection",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for post-clearance audit selection"
+  },
+  {
+    "capability": "ml_risk_models",
+    "element": "Risk score value",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Essential for ml risk models processing"
+  },
+  {
+    "capability": "ml_risk_models",
+    "element": "Selectivity channel code",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Primary data point for ml risk models"
+  },
+  {
+    "capability": "ml_risk_models",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during ml risk models"
+  },
+  {
+    "capability": "ml_risk_models",
+    "element": "Origin country risk score",
+    "domain": "Origin",
+    "confidence": "LOW",
+    "notes": "Peripheral context for ml risk models"
+  },
+  {
+    "capability": "risk_rule_management",
+    "element": "Risk rule identifier",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Essential for risk rule management processing"
+  },
+  {
+    "capability": "risk_rule_management",
+    "element": "Risk rule name",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Directly required by risk rule management"
+  },
+  {
+    "capability": "risk_rule_management",
+    "element": "Risk rule hit count",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for risk rule management"
+  },
+  {
+    "capability": "risk_rule_management",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Peripheral context for risk rule management"
+  },
+  {
+    "capability": "risk_rule_management",
+    "element": "Risk score value",
+    "domain": "Risk & Control",
+    "confidence": "LOW",
+    "notes": "Background data for risk rule management"
+  },
+  {
+    "capability": "smuggling_pattern_detection",
+    "element": "Seizure indicator",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Primary data point for smuggling pattern detection"
+  },
+  {
+    "capability": "smuggling_pattern_detection",
+    "element": "Seizure report reference",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Core element for smuggling pattern detection"
+  },
+  {
+    "capability": "smuggling_pattern_detection",
+    "element": "Seal condition code (control)",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Primary data point for smuggling pattern detection"
+  },
+  {
+    "capability": "smuggling_pattern_detection",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during smuggling pattern detection"
+  },
+  {
+    "capability": "smuggling_pattern_detection",
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for smuggling pattern detection"
+  },
+  {
+    "capability": "smuggling_pattern_detection",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Peripheral context for smuggling pattern detection"
+  },
+  {
+    "capability": "smuggling_pattern_detection",
+    "element": "Customs office of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for smuggling pattern detection"
+  },
+  {
+    "capability": "afghan_transit_trade_monitoring",
+    "element": "Afghan transit flag",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Key input for afghan transit trade monitoring analysis"
+  },
+  {
+    "capability": "afghan_transit_trade_monitoring",
+    "element": "ATTA permit number",
+    "domain": "Consignment",
+    "confidence": "HIGH",
+    "notes": "Primary data point for afghan transit trade monitoring"
+  },
+  {
+    "capability": "afghan_transit_trade_monitoring",
+    "element": "Afghan transit indicator",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for afghan transit trade monitoring"
+  },
+  {
+    "capability": "afghan_transit_trade_monitoring",
+    "element": "ATIC classification",
+    "domain": "Classification",
+    "confidence": "LOW",
+    "notes": "Contextual reference for afghan transit trade monitoring"
+  },
+  {
+    "capability": "trade_based_money_laundering",
+    "element": "Money laundering risk indicator",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Primary data point for trade-based money laundering"
+  },
+  {
+    "capability": "trade_based_money_laundering",
+    "element": "Seal condition code (control)",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Essential for trade-based money laundering processing"
+  },
+  {
+    "capability": "trade_based_money_laundering",
+    "element": "Container scan result",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during trade-based money laundering"
+  },
+  {
+    "capability": "trade_based_money_laundering",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during trade-based money laundering"
+  },
+  {
+    "capability": "trade_based_money_laundering",
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for trade-based money laundering"
+  },
+  {
+    "capability": "trade_based_money_laundering",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for trade-based money laundering"
+  },
+  {
+    "capability": "controlled_delivery_tracking",
+    "element": "Intelligence reference",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Primary data point for controlled delivery tracking"
+  },
+  {
+    "capability": "controlled_delivery_tracking",
+    "element": "Seal condition code (control)",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Essential for controlled delivery tracking processing"
+  },
+  {
+    "capability": "controlled_delivery_tracking",
+    "element": "Reference number of consignment",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Used in controlled delivery tracking validation"
+  },
+  {
+    "capability": "controlled_delivery_tracking",
+    "element": "GPS tracking identifier",
+    "domain": "Transport",
+    "confidence": "LOW",
+    "notes": "Background data for controlled delivery tracking"
+  },
+  {
+    "capability": "controlled_delivery_tracking",
+    "element": "NLC tracking number",
+    "domain": "Transport",
+    "confidence": "LOW",
+    "notes": "Contextual reference for controlled delivery tracking"
+  },
+  {
+    "capability": "border_intelligence_analytics",
+    "element": "Mode of transport at border",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Directly required by border intelligence analytics"
+  },
+  {
+    "capability": "border_intelligence_analytics",
+    "element": "Border crossing point code",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Core element for border intelligence analytics"
+  },
+  {
+    "capability": "border_intelligence_analytics",
+    "element": "Border crossing name",
+    "domain": "Location",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for border intelligence analytics"
+  },
+  {
+    "capability": "border_intelligence_analytics",
+    "element": "Intelligence reference",
+    "domain": "Risk & Control",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for border intelligence analytics"
+  },
+  {
+    "capability": "border_intelligence_analytics",
+    "element": "NTC alert indicator",
+    "domain": "Risk & Control",
+    "confidence": "LOW",
+    "notes": "Peripheral context for border intelligence analytics"
+  },
+  {
+    "capability": "sanctions_and_embargo_screening",
+    "element": "Dual-use indicator",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Core element for sanctions & embargo screening"
+  },
+  {
+    "capability": "sanctions_and_embargo_screening",
+    "element": "Seal condition code (control)",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Key input for sanctions & embargo screening analysis"
+  },
+  {
+    "capability": "sanctions_and_embargo_screening",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during sanctions & embargo screening"
+  },
+  {
+    "capability": "sanctions_and_embargo_screening",
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for sanctions & embargo screening"
+  },
+  {
+    "capability": "sanctions_and_embargo_screening",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for sanctions & embargo screening"
+  },
+  {
+    "capability": "post_clearance_audit_analytics",
+    "element": "Post-clearance audit indicator",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Core element for post-clearance audit analytics"
+  },
+  {
+    "capability": "post_clearance_audit_analytics",
+    "element": "Discrepancy indicator",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Core element for post-clearance audit analytics"
+  },
+  {
+    "capability": "post_clearance_audit_analytics",
+    "element": "Discrepancy description",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for post-clearance audit analytics"
+  },
+  {
+    "capability": "post_clearance_audit_analytics",
+    "element": "Mirror statistics indicator",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Peripheral context for post-clearance audit analytics"
+  },
+  {
+    "capability": "self_assessment_verification",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Essential for self-assessment verification processing"
+  },
+  {
+    "capability": "self_assessment_verification",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for self-assessment verification"
+  },
+  {
+    "capability": "self_assessment_verification",
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for self-assessment verification"
+  },
+  {
+    "capability": "aeo_compliance_monitoring",
+    "element": "AEO authorization number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by aeo compliance monitoring"
+  },
+  {
+    "capability": "aeo_compliance_monitoring",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Primary data point for aeo compliance monitoring"
+  },
+  {
+    "capability": "aeo_compliance_monitoring",
+    "element": "Trader compliance score",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during aeo compliance monitoring"
+  },
+  {
+    "capability": "aeo_compliance_monitoring",
+    "element": "Examination waiver indicator",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for aeo compliance monitoring"
+  },
+  {
+    "capability": "aeo_compliance_monitoring",
+    "element": "Risk score value",
+    "domain": "Risk & Control",
+    "confidence": "LOW",
+    "notes": "Contextual reference for aeo compliance monitoring"
+  },
+  {
+    "capability": "trader_compliance_scorecard",
+    "element": "Trader compliance score",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by trader compliance scorecard"
+  },
+  {
+    "capability": "trader_compliance_scorecard",
+    "element": "Historical violation count",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Used in trader compliance scorecard validation"
+  },
+  {
+    "capability": "trader_compliance_scorecard",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for trader compliance scorecard"
+  },
+  {
+    "capability": "document_fraud_detection",
+    "element": "Document verification status",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Core element for document fraud detection"
+  },
+  {
+    "capability": "document_fraud_detection",
+    "element": "Previous document reference",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by document fraud detection"
+  },
+  {
+    "capability": "document_fraud_detection",
+    "element": "Customs declaration document identifier",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for document fraud detection"
+  },
+  {
+    "capability": "regulatory_compliance_reporting",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by regulatory compliance reporting"
+  },
+  {
+    "capability": "regulatory_compliance_reporting",
+    "element": "Trader compliance score",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by regulatory compliance reporting"
+  },
+  {
+    "capability": "regulatory_compliance_reporting",
+    "element": "Compliance percentage",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for regulatory compliance reporting"
+  },
+  {
+    "capability": "regulatory_compliance_reporting",
+    "element": "ISPM-15 compliance indicator",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Peripheral context for regulatory compliance reporting"
+  },
+  {
+    "capability": "clearance_time_analytics",
+    "element": "Clearance time minutes",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by clearance time analytics"
+  },
+  {
+    "capability": "clearance_time_analytics",
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Essential for clearance time analytics processing"
+  },
+  {
+    "capability": "clearance_time_analytics",
+    "element": "Lodgement date time",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for clearance time analytics"
+  },
+  {
+    "capability": "clearance_time_analytics",
+    "element": "Release date and time",
+    "domain": "Response",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for clearance time analytics"
+  },
+  {
+    "capability": "clearance_time_analytics",
+    "element": "Time-release study indicator",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for clearance time analytics"
+  },
+  {
+    "capability": "bottleneck_identification",
+    "element": "Processing officer count",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Key input for bottleneck identification analysis"
+  },
+  {
+    "capability": "bottleneck_identification",
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by bottleneck identification"
+  },
+  {
+    "capability": "bottleneck_identification",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for bottleneck identification"
+  },
+  {
+    "capability": "bottleneck_identification",
+    "element": "Lodgement date time",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for bottleneck identification"
+  },
+  {
+    "capability": "green_channel_optimization",
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Essential for green channel optimization processing"
+  },
+  {
+    "capability": "green_channel_optimization",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Used in green channel optimization validation"
+  },
+  {
+    "capability": "green_channel_optimization",
+    "element": "Lodgement date time",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for green channel optimization"
+  },
+  {
+    "capability": "pre_arrival_processing",
+    "element": "Pre-arrival indicator",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by pre-arrival processing"
+  },
+  {
+    "capability": "pre_arrival_processing",
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Key input for pre-arrival processing analysis"
+  },
+  {
+    "capability": "pre_arrival_processing",
+    "element": "Priority processing indicator",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for pre-arrival processing"
+  },
+  {
+    "capability": "pre_arrival_processing",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Peripheral context for pre-arrival processing"
+  },
+  {
+    "capability": "single_window_integration",
+    "element": "PSW document reference",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Key input for single window integration analysis"
+  },
+  {
+    "capability": "single_window_integration",
+    "element": "OGA clearance reference",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Core element for single window integration"
+  },
+  {
+    "capability": "single_window_integration",
+    "element": "PSW clearance status",
+    "domain": "Document",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for single window integration"
+  },
+  {
+    "capability": "single_window_integration",
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for single window integration"
+  },
+  {
+    "capability": "single_window_integration",
+    "element": "Single window reference",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for single window integration"
+  },
+  {
+    "capability": "single_window_integration",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for single window integration"
+  },
+  {
+    "capability": "24_7_clearance_analytics",
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by 24/7 clearance analytics"
+  },
+  {
+    "capability": "24_7_clearance_analytics",
+    "element": "24/7 clearance indicator",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Primary data point for 24/7 clearance analytics"
+  },
+  {
+    "capability": "24_7_clearance_analytics",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Used in 24/7 clearance analytics validation"
+  },
+  {
+    "capability": "24_7_clearance_analytics",
+    "element": "Lodgement date time",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Peripheral context for 24/7 clearance analytics"
+  },
+  {
+    "capability": "queue_management",
+    "element": "Processing officer count",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by queue management"
+  },
+  {
+    "capability": "queue_management",
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for queue management"
+  },
+  {
+    "capability": "queue_management",
+    "element": "Priority processing indicator",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for queue management"
+  },
+  {
+    "capability": "sla_tracking",
+    "element": "Acceptance date and time",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by sla tracking"
+  },
+  {
+    "capability": "sla_tracking",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Essential for sla tracking processing"
+  },
+  {
+    "capability": "sla_tracking",
+    "element": "Lodgement date time",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Used in sla tracking validation"
+  },
+  {
+    "capability": "sla_tracking",
+    "element": "Release date time",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for sla tracking"
+  },
+  {
+    "capability": "port_throughput_analytics",
+    "element": "Berth number",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Primary data point for port throughput analytics"
+  },
+  {
+    "capability": "port_throughput_analytics",
+    "element": "Terminal code",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Essential for port throughput analytics processing"
+  },
+  {
+    "capability": "port_throughput_analytics",
+    "element": "Rotation number",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for port throughput analytics"
+  },
+  {
+    "capability": "port_throughput_analytics",
+    "element": "Transport means name",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for port throughput analytics"
+  },
+  {
+    "capability": "container_dwell_time",
+    "element": "Dwell time hours",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Key input for container dwell time analysis"
+  },
+  {
+    "capability": "container_dwell_time",
+    "element": "Container dwell time hours",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Core element for container dwell time"
+  },
+  {
+    "capability": "container_dwell_time",
+    "element": "Container yard code",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Enhances container dwell time accuracy"
+  },
+  {
+    "capability": "container_dwell_time",
+    "element": "Container yard location",
+    "domain": "Location",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for container dwell time"
+  },
+  {
+    "capability": "container_dwell_time",
+    "element": "Container identification",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for container dwell time"
+  },
+  {
+    "capability": "terminal_performance_benchmarking",
+    "element": "Berth number",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Directly required by terminal performance benchmarking"
+  },
+  {
+    "capability": "terminal_performance_benchmarking",
+    "element": "Dwell time hours",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Key input for terminal performance benchmarking analysis"
+  },
+  {
+    "capability": "terminal_performance_benchmarking",
+    "element": "Container dwell time hours",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during terminal performance benchmarking"
+  },
+  {
+    "capability": "terminal_performance_benchmarking",
+    "element": "Consignment special instruction",
+    "domain": "Consignment",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for terminal performance benchmarking"
+  },
+  {
+    "capability": "terminal_performance_benchmarking",
+    "element": "Terminal operator code",
+    "domain": "Location",
+    "confidence": "LOW",
+    "notes": "Peripheral context for terminal performance benchmarking"
+  },
+  {
+    "capability": "warehouse_and_bonded_area_utilization",
+    "element": "Warehouse location code",
+    "domain": "Location",
+    "confidence": "HIGH",
+    "notes": "Core element for warehouse & bonded area utilization"
+  },
+  {
+    "capability": "warehouse_and_bonded_area_utilization",
+    "element": "Warehouse temperature recorded",
+    "domain": "Warehouse",
+    "confidence": "HIGH",
+    "notes": "Primary data point for warehouse & bonded area utilization"
+  },
+  {
+    "capability": "warehouse_and_bonded_area_utilization",
+    "element": "Warehouse identifier",
+    "domain": "Warehouse",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for warehouse & bonded area utilization"
+  },
+  {
+    "capability": "warehouse_and_bonded_area_utilization",
+    "element": "Bonded warehouse type",
+    "domain": "Warehouse",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during warehouse & bonded area utilization"
+  },
+  {
+    "capability": "warehouse_and_bonded_area_utilization",
+    "element": "Warehouse entry number",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Peripheral context for warehouse & bonded area utilization"
+  },
+  {
+    "capability": "warehouse_and_bonded_area_utilization",
+    "element": "Free zone activity type",
+    "domain": "Warehouse",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for warehouse & bonded area utilization"
+  },
+  {
+    "capability": "free_zone_performance",
+    "element": "Free zone production output value",
+    "domain": "Warehouse",
+    "confidence": "HIGH",
+    "notes": "Core element for free zone performance"
+  },
+  {
+    "capability": "free_zone_performance",
+    "element": "Free zone investment amount",
+    "domain": "Warehouse",
+    "confidence": "HIGH",
+    "notes": "Key input for free zone performance analysis"
+  },
+  {
+    "capability": "free_zone_performance",
+    "element": "Free zone identifier",
+    "domain": "Location",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for free zone performance"
+  },
+  {
+    "capability": "free_zone_performance",
+    "element": "Gwadar zone code",
+    "domain": "Location",
+    "confidence": "LOW",
+    "notes": "Peripheral context for free zone performance"
+  },
+  {
+    "capability": "dry_port_operations",
+    "element": "Dry port identifier",
+    "domain": "Location",
+    "confidence": "HIGH",
+    "notes": "Core element for dry port operations"
+  },
+  {
+    "capability": "dry_port_operations",
+    "element": "Inland mode of transport",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Directly required by dry port operations"
+  },
+  {
+    "capability": "dry_port_operations",
+    "element": "Container identification",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during dry port operations"
+  },
+  {
+    "capability": "dry_port_operations",
+    "element": "Berth number",
+    "domain": "Transport",
+    "confidence": "LOW",
+    "notes": "Background data for dry port operations"
+  },
+  {
+    "capability": "dry_port_operations",
+    "element": "Dwell time hours",
+    "domain": "Transport",
+    "confidence": "LOW",
+    "notes": "Background data for dry port operations"
+  },
+  {
+    "capability": "afghan_transit_trade_analytics",
+    "element": "Afghan transit flag",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Essential for afghan transit trade analytics processing"
+  },
+  {
+    "capability": "afghan_transit_trade_analytics",
+    "element": "ATTA permit number",
+    "domain": "Consignment",
+    "confidence": "HIGH",
+    "notes": "Primary data point for afghan transit trade analytics"
+  },
+  {
+    "capability": "afghan_transit_trade_analytics",
+    "element": "Afghan transit indicator",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Enhances afghan transit trade analytics accuracy"
+  },
+  {
+    "capability": "afghan_transit_trade_analytics",
+    "element": "Mode of transport at border",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Used in afghan transit trade analytics validation"
+  },
+  {
+    "capability": "cpec_route_analytics",
+    "element": "CPEC route identifier",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Essential for cpec route analytics processing"
+  },
+  {
+    "capability": "cpec_route_analytics",
+    "element": "CPEC corridor indicator",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Used in cpec route analytics validation"
+  },
+  {
+    "capability": "cpec_route_analytics",
+    "element": "SEZ identifier",
+    "domain": "Location",
+    "confidence": "MEDIUM",
+    "notes": "Enhances cpec route analytics accuracy"
+  },
+  {
+    "capability": "transshipment_hub_performance",
+    "element": "Transshipment indicator",
+    "domain": "Consignment",
+    "confidence": "HIGH",
+    "notes": "Core element for transshipment hub performance"
+  },
+  {
+    "capability": "transshipment_hub_performance",
+    "element": "Transhipment port code",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Used in transshipment hub performance validation"
+  },
+  {
+    "capability": "transshipment_hub_performance",
+    "element": "Port of transshipment code",
+    "domain": "Transport",
+    "confidence": "LOW",
+    "notes": "Peripheral context for transshipment hub performance"
+  },
+  {
+    "capability": "tir_convention_compliance",
+    "element": "TIR carnet number",
+    "domain": "Consignment",
+    "confidence": "HIGH",
+    "notes": "Key input for tir convention compliance analysis"
+  },
+  {
+    "capability": "tir_convention_compliance",
+    "element": "Customs transit number",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for tir convention compliance"
+  },
+  {
+    "capability": "tir_convention_compliance",
+    "element": "Afghan transit indicator",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during tir convention compliance"
+  },
+  {
+    "capability": "trade_balance_dashboard",
+    "element": "Trade movement type",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Primary data point for trade balance dashboard"
+  },
+  {
+    "capability": "trade_balance_dashboard",
+    "element": "Annual import volume",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Essential for trade balance dashboard processing"
+  },
+  {
+    "capability": "trade_balance_dashboard",
+    "element": "Annual export volume",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Core element for trade balance dashboard"
+  },
+  {
+    "capability": "trade_balance_dashboard",
+    "element": "Import/export ratio",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for trade balance dashboard"
+  },
+  {
+    "capability": "trade_balance_dashboard",
+    "element": "Licence type code",
+    "domain": "Document",
+    "confidence": "MEDIUM",
+    "notes": "Enhances trade balance dashboard accuracy"
+  },
+  {
+    "capability": "trade_balance_dashboard",
+    "element": "Export licence number",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for trade balance dashboard"
+  },
+  {
+    "capability": "trade_balance_dashboard",
+    "element": "Import permit number",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for trade balance dashboard"
+  },
+  {
+    "capability": "commodity_flow_analysis",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Key input for commodity flow analysis analysis"
+  },
+  {
+    "capability": "commodity_flow_analysis",
+    "element": "Annual import volume",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Essential for commodity flow analysis processing"
+  },
+  {
+    "capability": "commodity_flow_analysis",
+    "element": "Annual export volume",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during commodity flow analysis"
+  },
+  {
+    "capability": "commodity_flow_analysis",
+    "element": "Commodity code type",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during commodity flow analysis"
+  },
+  {
+    "capability": "commodity_flow_analysis",
+    "element": "Trade movement type",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for commodity flow analysis"
+  },
+  {
+    "capability": "trading_partner_analytics",
+    "element": "Country of origin code",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Key input for trading partner analytics analysis"
+  },
+  {
+    "capability": "trading_partner_analytics",
+    "element": "Mirror statistics indicator",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Essential for trading partner analytics processing"
+  },
+  {
+    "capability": "trading_partner_analytics",
+    "element": "Trader mutual recognition ID",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for trading partner analytics"
+  },
+  {
+    "capability": "trading_partner_analytics",
+    "element": "Preferential origin country",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for trading partner analytics"
+  },
+  {
+    "capability": "trading_partner_analytics",
+    "element": "Cumulation partner country",
+    "domain": "Origin",
+    "confidence": "LOW",
+    "notes": "Background data for trading partner analytics"
+  },
+  {
+    "capability": "export_diversification_metrics",
+    "element": "Trade movement type",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for export diversification metrics"
+  },
+  {
+    "capability": "export_diversification_metrics",
+    "element": "Annual export volume",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during export diversification metrics"
+  },
+  {
+    "capability": "export_diversification_metrics",
+    "element": "Import/export ratio",
+    "domain": "Party",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for export diversification metrics"
+  },
+  {
+    "capability": "import_dependency_analysis",
+    "element": "Trade movement type",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Essential for import dependency analysis processing"
+  },
+  {
+    "capability": "import_dependency_analysis",
+    "element": "Annual import volume",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Key input for import dependency analysis analysis"
+  },
+  {
+    "capability": "import_dependency_analysis",
+    "element": "Import/export ratio",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for import dependency analysis"
+  },
+  {
+    "capability": "import_dependency_analysis",
+    "element": "Import permit number",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for import dependency analysis"
+  },
+  {
+    "capability": "trade_data_reconciliation",
+    "element": "Mirror statistics indicator",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Essential for trade data reconciliation processing"
+  },
+  {
+    "capability": "trade_data_reconciliation",
+    "element": "Trader mutual recognition ID",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during trade data reconciliation"
+  },
+  {
+    "capability": "trade_data_reconciliation",
+    "element": "Cumulation partner country",
+    "domain": "Origin",
+    "confidence": "LOW",
+    "notes": "Contextual reference for trade data reconciliation"
+  },
+  {
+    "capability": "revenue_per_unit",
+    "element": "Revenue per unit collected",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Core element for revenue per unit"
+  },
+  {
+    "capability": "revenue_per_unit",
+    "element": "Trade movement type",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for revenue per unit"
+  },
+  {
+    "capability": "revenue_per_unit",
+    "element": "Statistical value",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Used in revenue per unit validation"
+  },
+  {
+    "capability": "revenue_per_unit",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Background data for revenue per unit"
+  },
+  {
+    "capability": "seasonal_trade_patterns",
+    "element": "Trade movement type",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for seasonal trade patterns"
+  },
+  {
+    "capability": "seasonal_trade_patterns",
+    "element": "Statistical value",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Enhances seasonal trade patterns accuracy"
+  },
+  {
+    "capability": "seasonal_trade_patterns",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for seasonal trade patterns"
+  },
+  {
+    "capability": "end_to_end_shipment_tracking",
+    "element": "Container identification",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Essential for end-to-end shipment tracking processing"
+  },
+  {
+    "capability": "end_to_end_shipment_tracking",
+    "element": "Container indicator",
+    "domain": "Consignment",
+    "confidence": "HIGH",
+    "notes": "Primary data point for end-to-end shipment tracking"
+  },
+  {
+    "capability": "end_to_end_shipment_tracking",
+    "element": "Container demurrage indicator",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Used in end-to-end shipment tracking validation"
+  },
+  {
+    "capability": "end_to_end_shipment_tracking",
+    "element": "Postal item number",
+    "domain": "E-Commerce",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during end-to-end shipment tracking"
+  },
+  {
+    "capability": "end_to_end_shipment_tracking",
+    "element": "Courier tracking number",
+    "domain": "E-Commerce",
+    "confidence": "LOW",
+    "notes": "Contextual reference for end-to-end shipment tracking"
+  },
+  {
+    "capability": "end_to_end_shipment_tracking",
+    "element": "Transport means identification",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during end-to-end shipment tracking"
+  },
+  {
+    "capability": "carrier_performance_analytics",
+    "element": "Transport means name",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Core element for carrier performance analytics"
+  },
+  {
+    "capability": "carrier_performance_analytics",
+    "element": "Carrier assigned identifier",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for carrier performance analytics"
+  },
+  {
+    "capability": "carrier_performance_analytics",
+    "element": "Rotation number",
+    "domain": "Consignment",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for carrier performance analytics"
+  },
+  {
+    "capability": "route_optimization",
+    "element": "Country of routing code",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Core element for route optimization"
+  },
+  {
+    "capability": "route_optimization",
+    "element": "Mode of transport at border",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Essential for route optimization processing"
+  },
+  {
+    "capability": "route_optimization",
+    "element": "Inland mode of transport",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during route optimization"
+  },
+  {
+    "capability": "route_optimization",
+    "element": "Trade lane code",
+    "domain": "Consignment",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for route optimization"
+  },
+  {
+    "capability": "route_optimization",
+    "element": "Container identification",
+    "domain": "Transport",
+    "confidence": "LOW",
+    "notes": "Contextual reference for route optimization"
+  },
+  {
+    "capability": "container_tracking_integration",
+    "element": "Container freight station",
+    "domain": "Consignment",
+    "confidence": "HIGH",
+    "notes": "Core element for container tracking integration"
+  },
+  {
+    "capability": "container_tracking_integration",
+    "element": "Stuffing location",
+    "domain": "Consignment",
+    "confidence": "HIGH",
+    "notes": "Essential for container tracking integration processing"
+  },
+  {
+    "capability": "container_tracking_integration",
+    "element": "Container status code",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Enhances container tracking integration accuracy"
+  },
+  {
+    "capability": "container_tracking_integration",
+    "element": "GPS tracking identifier",
+    "domain": "Transport",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for container tracking integration"
+  },
+  {
+    "capability": "vendor_supplier_risk_mapping",
+    "element": "Container identification",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Primary data point for vendor/supplier risk mapping"
+  },
+  {
+    "capability": "vendor_supplier_risk_mapping",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Primary data point for vendor/supplier risk mapping"
+  },
+  {
+    "capability": "vendor_supplier_risk_mapping",
+    "element": "Related party indicator",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for vendor/supplier risk mapping"
+  },
+  {
+    "capability": "vendor_supplier_risk_mapping",
+    "element": "Sealing party code",
+    "domain": "Transport",
+    "confidence": "LOW",
+    "notes": "Background data for vendor/supplier risk mapping"
+  },
+  {
+    "capability": "lead_time_analytics",
+    "element": "Container identification",
+    "domain": "Transport",
+    "confidence": "HIGH",
+    "notes": "Key input for lead time analytics analysis"
+  },
+  {
+    "capability": "lead_time_analytics",
+    "element": "Place of delivery",
+    "domain": "Consignment",
+    "confidence": "HIGH",
+    "notes": "Primary data point for lead time analytics"
+  },
+  {
+    "capability": "lead_time_analytics",
+    "element": "Delivery order number",
+    "domain": "Consignment",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for lead time analytics"
+  },
+  {
+    "capability": "lead_time_analytics",
+    "element": "Container indicator",
+    "domain": "Consignment",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for lead time analytics"
+  },
+  {
+    "capability": "trade_volume_forecasting",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by trade volume forecasting"
+  },
+  {
+    "capability": "trade_volume_forecasting",
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for trade volume forecasting"
+  },
+  {
+    "capability": "trade_volume_forecasting",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for trade volume forecasting"
+  },
+  {
+    "capability": "trade_volume_forecasting",
+    "element": "Customs office of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for trade volume forecasting"
+  },
+  {
+    "capability": "price_prediction_models",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Primary data point for price prediction models"
+  },
+  {
+    "capability": "price_prediction_models",
+    "element": "Unit price",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Essential for price prediction models processing"
+  },
+  {
+    "capability": "price_prediction_models",
+    "element": "Price influence indicator",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for price prediction models"
+  },
+  {
+    "capability": "price_prediction_models",
+    "element": "Commodity code type",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Peripheral context for price prediction models"
+  },
+  {
+    "capability": "demand_supply_gap_analysis",
+    "element": "Goods sample taken indicator",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Core element for demand-supply gap analysis"
+  },
+  {
+    "capability": "demand_supply_gap_analysis",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by demand-supply gap analysis"
+  },
+  {
+    "capability": "demand_supply_gap_analysis",
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for demand-supply gap analysis"
+  },
+  {
+    "capability": "demand_supply_gap_analysis",
+    "element": "Date of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for demand-supply gap analysis"
+  },
+  {
+    "capability": "early_warning_system",
+    "element": "Price influence indicator",
+    "domain": "Goods",
+    "confidence": "HIGH",
+    "notes": "Essential for early warning system processing"
+  },
+  {
+    "capability": "early_warning_system",
+    "element": "NTC alert indicator",
+    "domain": "Risk & Control",
+    "confidence": "HIGH",
+    "notes": "Essential for early warning system processing"
+  },
+  {
+    "capability": "early_warning_system",
+    "element": "Low-value consignment indicator",
+    "domain": "E-Commerce",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for early warning system"
+  },
+  {
+    "capability": "early_warning_system",
+    "element": "Specific circumstance indicator",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for early warning system"
+  },
+  {
+    "capability": "trader_360_profile",
+    "element": "Party identifier",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Primary data point for trader 360 profile"
+  },
+  {
+    "capability": "trader_360_profile",
+    "element": "TIN/NTN number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by trader 360 profile"
+  },
+  {
+    "capability": "trader_360_profile",
+    "element": "Party function code",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Enhances trader 360 profile accuracy"
+  },
+  {
+    "capability": "trader_360_profile",
+    "element": "Examination waiver indicator",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Enhances trader 360 profile accuracy"
+  },
+  {
+    "capability": "trader_360_profile",
+    "element": "Trader mutual recognition ID",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for trader 360 profile"
+  },
+  {
+    "capability": "new_trader_onboarding_analytics",
+    "element": "Party STRN",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Essential for new trader onboarding analytics processing"
+  },
+  {
+    "capability": "new_trader_onboarding_analytics",
+    "element": "Trader registration date",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Key input for new trader onboarding analytics analysis"
+  },
+  {
+    "capability": "new_trader_onboarding_analytics",
+    "element": "Registration number",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Used in new trader onboarding analytics validation"
+  },
+  {
+    "capability": "new_trader_onboarding_analytics",
+    "element": "Export licence number",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for new trader onboarding analytics"
+  },
+  {
+    "capability": "trader_segmentation",
+    "element": "AEO tier level",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Core element for trader segmentation"
+  },
+  {
+    "capability": "trader_segmentation",
+    "element": "Trader risk category",
+    "domain": "Risk & Control",
+    "confidence": "MEDIUM",
+    "notes": "Enhances trader segmentation accuracy"
+  },
+  {
+    "capability": "trader_segmentation",
+    "element": "Annual import volume",
+    "domain": "Party",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for trader segmentation"
+  },
+  {
+    "capability": "dormant_inactive_trader_detection",
+    "element": "Party identifier",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Core element for dormant/inactive trader detection"
+  },
+  {
+    "capability": "dormant_inactive_trader_detection",
+    "element": "TIN/NTN number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Core element for dormant/inactive trader detection"
+  },
+  {
+    "capability": "dormant_inactive_trader_detection",
+    "element": "Party name",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during dormant/inactive trader detection"
+  },
+  {
+    "capability": "dormant_inactive_trader_detection",
+    "element": "Party function code",
+    "domain": "Party",
+    "confidence": "LOW",
+    "notes": "Contextual reference for dormant/inactive trader detection"
+  },
+  {
+    "capability": "related_party_network_analysis",
+    "element": "Party identifier",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Essential for related party network analysis processing"
+  },
+  {
+    "capability": "related_party_network_analysis",
+    "element": "TIN/NTN number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by related party network analysis"
+  },
+  {
+    "capability": "related_party_network_analysis",
+    "element": "Related party indicator",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during related party network analysis"
+  },
+  {
+    "capability": "related_party_network_analysis",
+    "element": "Party name",
+    "domain": "Party",
+    "confidence": "LOW",
+    "notes": "Peripheral context for related party network analysis"
+  },
+  {
+    "capability": "related_party_network_analysis",
+    "element": "Party function code",
+    "domain": "Party",
+    "confidence": "LOW",
+    "notes": "Contextual reference for related party network analysis"
+  },
+  {
+    "capability": "trader_communication_and_outreach",
+    "element": "Communication number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Essential for trader communication & outreach processing"
+  },
+  {
+    "capability": "trader_communication_and_outreach",
+    "element": "Contact person name",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for trader communication & outreach"
+  },
+  {
+    "capability": "trader_communication_and_outreach",
+    "element": "Party email address",
+    "domain": "Party",
+    "confidence": "LOW",
+    "notes": "Contextual reference for trader communication & outreach"
+  },
+  {
+    "capability": "aeo_application_pipeline",
+    "element": "AEO certification date",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Key input for aeo application pipeline analysis"
+  },
+  {
+    "capability": "aeo_application_pipeline",
+    "element": "AEO authorization number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Key input for aeo application pipeline analysis"
+  },
+  {
+    "capability": "aeo_application_pipeline",
+    "element": "AEO tier level",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for aeo application pipeline"
+  },
+  {
+    "capability": "aeo_benefit_measurement",
+    "element": "AEO authorization number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by aeo benefit measurement"
+  },
+  {
+    "capability": "aeo_benefit_measurement",
+    "element": "AEO tier level",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Core element for aeo benefit measurement"
+  },
+  {
+    "capability": "aeo_benefit_measurement",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Enhances aeo benefit measurement accuracy"
+  },
+  {
+    "capability": "aeo_benefit_measurement",
+    "element": "Trader mutual recognition ID",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during aeo benefit measurement"
+  },
+  {
+    "capability": "aeo_compliance_monitoring_aeo",
+    "element": "AEO authorization number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Core element for aeo compliance monitoring"
+  },
+  {
+    "capability": "aeo_compliance_monitoring_aeo",
+    "element": "AEO tier level",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Essential for aeo compliance monitoring processing"
+  },
+  {
+    "capability": "aeo_compliance_monitoring_aeo",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during aeo compliance monitoring"
+  },
+  {
+    "capability": "aeo_compliance_monitoring_aeo",
+    "element": "Compliance percentage",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for aeo compliance monitoring"
+  },
+  {
+    "capability": "aeo_compliance_monitoring_aeo",
+    "element": "Examination waiver indicator",
+    "domain": "Risk & Control",
+    "confidence": "LOW",
+    "notes": "Contextual reference for aeo compliance monitoring"
+  },
+  {
+    "capability": "aeo_mutual_recognition",
+    "element": "Trader mutual recognition ID",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by aeo mutual recognition"
+  },
+  {
+    "capability": "aeo_mutual_recognition",
+    "element": "AEO authorization number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Essential for aeo mutual recognition processing"
+  },
+  {
+    "capability": "aeo_mutual_recognition",
+    "element": "AEO tier level",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during aeo mutual recognition"
+  },
+  {
+    "capability": "aeo_mutual_recognition",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for aeo mutual recognition"
+  },
+  {
+    "capability": "aeo_tier_analytics",
+    "element": "AEO tier level",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by aeo tier analytics"
+  },
+  {
+    "capability": "aeo_tier_analytics",
+    "element": "AEO authorization number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by aeo tier analytics"
+  },
+  {
+    "capability": "aeo_tier_analytics",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for aeo tier analytics"
+  },
+  {
+    "capability": "aeo_program_roi",
+    "element": "AEO authorization number",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by aeo program roi"
+  },
+  {
+    "capability": "aeo_program_roi",
+    "element": "AEO tier level",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Key input for aeo program roi analysis"
+  },
+  {
+    "capability": "aeo_program_roi",
+    "element": "AEO last review date",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for aeo program roi"
+  },
+  {
+    "capability": "aeo_program_roi",
+    "element": "Trader mutual recognition ID",
+    "domain": "Party",
+    "confidence": "MEDIUM",
+    "notes": "Enhances aeo program roi accuracy"
+  },
+  {
+    "capability": "weboc_system_performance",
+    "element": "WeBOC GD number",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Primary data point for weboc system performance"
+  },
+  {
+    "capability": "weboc_system_performance",
+    "element": "WeBOC user identifier",
+    "domain": "Party",
+    "confidence": "HIGH",
+    "notes": "Directly required by weboc system performance"
+  },
+  {
+    "capability": "weboc_system_performance",
+    "element": "Commodity code (HS)",
+    "domain": "Goods",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during weboc system performance"
+  },
+  {
+    "capability": "weboc_system_performance",
+    "element": "Commodity classification type",
+    "domain": "Classification",
+    "confidence": "LOW",
+    "notes": "Background data for weboc system performance"
+  },
+  {
+    "capability": "weboc_system_performance",
+    "element": "Error code",
+    "domain": "Response",
+    "confidence": "LOW",
+    "notes": "Contextual reference for weboc system performance"
+  },
+  {
+    "capability": "gd_processing_analytics",
+    "element": "Processing officer count",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Directly required by gd processing analytics"
+  },
+  {
+    "capability": "gd_processing_analytics",
+    "element": "Re-assessment indicator",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Primary data point for gd processing analytics"
+  },
+  {
+    "capability": "gd_processing_analytics",
+    "element": "WeBOC GD number",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during gd processing analytics"
+  },
+  {
+    "capability": "gd_processing_analytics",
+    "element": "Risk assessment indicator",
+    "domain": "Risk & Control",
+    "confidence": "LOW",
+    "notes": "Contextual reference for gd processing analytics"
+  },
+  {
+    "capability": "gd_processing_analytics",
+    "element": "Green channel eligibility",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for gd processing analytics"
+  },
+  {
+    "capability": "psw_integration_dashboard",
+    "element": "OGA clearance reference",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Core element for psw integration dashboard"
+  },
+  {
+    "capability": "psw_integration_dashboard",
+    "element": "PSW clearance status",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Essential for psw integration dashboard processing"
+  },
+  {
+    "capability": "psw_integration_dashboard",
+    "element": "PSW document reference",
+    "domain": "Document",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during psw integration dashboard"
+  },
+  {
+    "capability": "psw_integration_dashboard",
+    "element": "WeBOC GD number",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for psw integration dashboard"
+  },
+  {
+    "capability": "psw_integration_dashboard",
+    "element": "Permit issuing OGA",
+    "domain": "Document",
+    "confidence": "LOW",
+    "notes": "Peripheral context for psw integration dashboard"
+  },
+  {
+    "capability": "electronic_payment_analytics",
+    "element": "E-payment transaction ID",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Essential for electronic payment analytics processing"
+  },
+  {
+    "capability": "electronic_payment_analytics",
+    "element": "Payment channel code",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for electronic payment analytics"
+  },
+  {
+    "capability": "electronic_payment_analytics",
+    "element": "WeBOC GD number",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for electronic payment analytics"
+  },
+  {
+    "capability": "mobile_api_channel_adoption",
+    "element": "Submission channel code",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for mobile/api channel adoption"
+  },
+  {
+    "capability": "mobile_api_channel_adoption",
+    "element": "Selectivity channel assigned",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for mobile/api channel adoption"
+  },
+  {
+    "capability": "mobile_api_channel_adoption",
+    "element": "Green channel eligibility",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Supplementary data for mobile/api channel adoption"
+  },
+  {
+    "capability": "system_modernization_roadmap",
+    "element": "WeBOC GD number",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Key input for system modernization roadmap analysis"
+  },
+  {
+    "capability": "system_modernization_roadmap",
+    "element": "Digital signature hash",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Core element for system modernization roadmap"
+  },
+  {
+    "capability": "system_modernization_roadmap",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Used in system modernization roadmap validation"
+  },
+  {
+    "capability": "system_modernization_roadmap",
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for system modernization roadmap"
+  },
+  {
+    "capability": "wco_dm_conformity_assessment",
+    "element": "WCO DM element reference",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Key input for wco dm conformity assessment analysis"
+  },
+  {
+    "capability": "wco_dm_conformity_assessment",
+    "element": "PSQCA certificate number",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Primary data point for wco dm conformity assessment"
+  },
+  {
+    "capability": "wco_dm_conformity_assessment",
+    "element": "Certificate type code",
+    "domain": "Document",
+    "confidence": "MEDIUM",
+    "notes": "Used in wco dm conformity assessment validation"
+  },
+  {
+    "capability": "wco_dm_conformity_assessment",
+    "element": "Sales tax rate",
+    "domain": "Financial",
+    "confidence": "MEDIUM",
+    "notes": "Used in wco dm conformity assessment validation"
+  },
+  {
+    "capability": "wco_dm_conformity_assessment",
+    "element": "Data quality score",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for wco dm conformity assessment"
+  },
+  {
+    "capability": "wco_dm_conformity_assessment",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for wco dm conformity assessment"
+  },
+  {
+    "capability": "data_quality_scorecarding",
+    "element": "Data quality score",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Core element for data quality scorecarding"
+  },
+  {
+    "capability": "data_quality_scorecarding",
+    "element": "WCO DM element reference",
+    "domain": "Classification",
+    "confidence": "MEDIUM",
+    "notes": "Supporting element for data quality scorecarding"
+  },
+  {
+    "capability": "data_quality_scorecarding",
+    "element": "Licence validity date",
+    "domain": "Document",
+    "confidence": "LOW",
+    "notes": "Contextual reference for data quality scorecarding"
+  },
+  {
+    "capability": "master_data_management",
+    "element": "WCO DM element reference",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Primary data point for master data management"
+  },
+  {
+    "capability": "master_data_management",
+    "element": "Previous document reference",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Key input for master data management analysis"
+  },
+  {
+    "capability": "master_data_management",
+    "element": "National data requirement ID",
+    "domain": "Classification",
+    "confidence": "MEDIUM",
+    "notes": "Used in master data management validation"
+  },
+  {
+    "capability": "master_data_management",
+    "element": "Trader reference (UCR)",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Peripheral context for master data management"
+  },
+  {
+    "capability": "data_lineage_and_audit_trail",
+    "element": "WCO DM element reference",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Primary data point for data lineage & audit trail"
+  },
+  {
+    "capability": "data_lineage_and_audit_trail",
+    "element": "PSQCA certificate number",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Core element for data lineage & audit trail"
+  },
+  {
+    "capability": "data_lineage_and_audit_trail",
+    "element": "Data quality score",
+    "domain": "Declaration",
+    "confidence": "MEDIUM",
+    "notes": "Used in data lineage & audit trail validation"
+  },
+  {
+    "capability": "data_lineage_and_audit_trail",
+    "element": "Identification of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Optional enrichment for data lineage & audit trail"
+  },
+  {
+    "capability": "data_lineage_and_audit_trail",
+    "element": "Type of declaration",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Contextual reference for data lineage & audit trail"
+  },
+  {
+    "capability": "code_list_harmonization",
+    "element": "PSQCA certificate number",
+    "domain": "Document",
+    "confidence": "HIGH",
+    "notes": "Directly required by code list harmonization"
+  },
+  {
+    "capability": "code_list_harmonization",
+    "element": "Currency code",
+    "domain": "Declaration",
+    "confidence": "HIGH",
+    "notes": "Key input for code list harmonization analysis"
+  },
+  {
+    "capability": "code_list_harmonization",
+    "element": "WCO DM element reference",
+    "domain": "Classification",
+    "confidence": "MEDIUM",
+    "notes": "Referenced during code list harmonization"
+  },
+  {
+    "capability": "code_list_harmonization",
+    "element": "Country of origin code",
+    "domain": "Goods",
+    "confidence": "LOW",
+    "notes": "Contextual reference for code list harmonization"
+  },
+  {
+    "capability": "data_sharing_framework",
+    "element": "WCO DM element reference",
+    "domain": "Classification",
+    "confidence": "HIGH",
+    "notes": "Primary data point for data sharing framework"
+  },
+  {
+    "capability": "data_sharing_framework",
+    "element": "Exchange rate",
+    "domain": "Financial",
+    "confidence": "HIGH",
+    "notes": "Directly required by data sharing framework"
+  },
+  {
+    "capability": "data_sharing_framework",
+    "element": "PSQCA certificate number",
+    "domain": "Document",
+    "confidence": "MEDIUM",
+    "notes": "Used in data sharing framework validation"
+  },
+  {
+    "capability": "data_sharing_framework",
+    "element": "Data quality score",
+    "domain": "Declaration",
+    "confidence": "LOW",
+    "notes": "Background data for data sharing framework"
+  }
+]

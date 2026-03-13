@@ -1,0 +1,77 @@
+[
+  {
+    "phaseNumber": 1,
+    "name": "Foundation",
+    "months": "1-6",
+    "useCases": [
+      "UC-01"
+    ],
+    "milestones": [
+      "Data integration from core banking and branch vault systems",
+      "LSTM model training on 3+ years of branch transaction history",
+      "Pilot vault optimization at 50 branches across 5 branch types",
+      "Cash Efficiency Score (CES) framework development",
+      "Branch manager incentive program design and rollout",
+      "Treasury emergency replenishment SLA established (4-hour guarantee)"
+    ],
+    "keyDeliverables": "Working vault forecasting model for 50 branches with measurable idle cash reduction of 20-30%. CES dashboard live. Branch manager buy-in achieved through incentive alignment."
+  },
+  {
+    "phaseNumber": 2,
+    "name": "Optimization",
+    "months": "7-12",
+    "useCases": [
+      "UC-02",
+      "UC-03",
+      "UC-04",
+      "UC-05",
+      "UC-08"
+    ],
+    "milestones": [
+      "ATM RL agent trained and deployed across 500 ATMs",
+      "Inter-branch netting marketplace operational in 3 regions",
+      "CRR dynamic positioning model live with SBP compliance verified",
+      "Nostro optimization for top 5 currencies implemented",
+      "CIT route optimization reducing trips by 25%+",
+      "Vault optimization scaled to all 1,500 branches",
+      "Real-time dashboards for Treasury and Operations"
+    ],
+    "keyDeliverables": "Five additional use cases operational. ATM float reduced 30-40%. CRR arbitrage generating measurable repo income. CIT trips reduced by 25%. Total realized savings tracking toward PKR 5-7B annual run rate."
+  },
+  {
+    "phaseNumber": 3,
+    "name": "Scale & Refine",
+    "months": "13-18",
+    "useCases": [
+      "UC-06",
+      "UC-07",
+      "UC-09"
+    ],
+    "milestones": [
+      "Vostro stability analysis and tenor extension program",
+      "NSGA-II denomination optimizer deployed across all branches",
+      "Digital incentivization engine launched with 3 customer segments",
+      "SBP penalty rate reduced by 80%+",
+      "Model retraining pipeline automated via MLflow",
+      "Cross-use-case synergies identified and exploited"
+    ],
+    "keyDeliverables": "Full branch network optimized across vault, ATM, denomination, and CIT. Digital channel shift program underway. Vostro/nostro optimization mature. Savings approaching PKR 7-10B annual run rate."
+  },
+  {
+    "phaseNumber": 4,
+    "name": "Attribution & Continuous Improvement",
+    "months": "19-24",
+    "useCases": [
+      "UC-10"
+    ],
+    "milestones": [
+      "Full Cash P&L attribution engine operational",
+      "Branch tournament/leaderboard system launched",
+      "Executive dashboard showing PKR 7.8-12.7B impact tracking",
+      "Regional Cash Efficiency rankings published monthly",
+      "Continuous model improvement program established",
+      "Knowledge transfer and operational handover complete"
+    ],
+    "keyDeliverables": "Complete measurement and attribution layer. All 10 use cases operational and measured. Branch profitability includes true cash costs. Sustained PKR 7.8-12.7B annual impact verified and attributed."
+  }
+]
