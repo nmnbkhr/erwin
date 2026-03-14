@@ -1,0 +1,44 @@
+{
+  "pakistanBankingAverage": {
+    "Business": 2.1,
+    "Culture": 1.9,
+    "Governance": 1.7,
+    "Information": 2.0,
+    "Applications": 1.8,
+    "Systems": 2.3,
+    "Agility": 1.6,
+    "Outcomes": 1.5,
+    "Overall Assessment": 1.86
+  },
+  "regionalLeaders": {
+    "Business": 3.5,
+    "Culture": 3.2,
+    "Governance": 3.0,
+    "Information": 3.4,
+    "Applications": 3.6,
+    "Systems": 3.8,
+    "Agility": 3.1,
+    "Outcomes": 2.8,
+    "Overall Assessment": 3.18,
+    "examples": "UAE National Bank, Maybank (MY), DBS (SG)"
+  },
+  "globalBest": {
+    "Business": 4.5,
+    "Culture": 4.2,
+    "Governance": 4.0,
+    "Information": 4.3,
+    "Applications": 4.6,
+    "Systems": 4.5,
+    "Agility": 4.1,
+    "Outcomes": 3.8,
+    "Overall Assessment": 4.13,
+    "examples": "JPMorgan Chase, Goldman Sachs, ICBC"
+  },
+  "maturityLevelDescriptions": {
+    "1": { "label": "Ad-Hoc", "description": "No formal analytics. Decisions based on intuition and spreadsheets." },
+    "2": { "label": "Developing", "description": "Basic reporting exists. Some BI tools deployed. Siloed data." },
+    "3": { "label": "Defined", "description": "Enterprise DWH in place. Standardized reporting. Some predictive models." },
+    "4": { "label": "Managed", "description": "Advanced analytics embedded in operations. Real-time dashboards. ML models in production." },
+    "5": { "label": "Optimizing", "description": "AI-driven decisions. Autonomous processes. Continuous learning systems." }
+  }
+}

@@ -5,6 +5,7 @@ import { loadBacrQuestions } from '../utils/dataLoader'
 import { downloadJSON, downloadPDF } from '../utils/export'
 import type { BacrQuestion } from '../types'
 import { ChevronLeft, ChevronRight, Download, RotateCcw, FileText } from 'lucide-react'
+import ReportGenerator from '../components/ReportGenerator'
 
 const MATURITY_LABELS = ['', 'Emerging', 'Developing', 'Practicing', 'Innovating', 'Leading']
 const MATURITY_DESCRIPTIONS: Record<number, string> = {
@@ -83,6 +84,10 @@ export default function MaturityAssessment() {
     const total = CATEGORIES.length * QUESTIONS_PER_CATEGORY
     return Math.round((Object.keys(state.answers).length / total) * 100)
   }, [state.answers])
+
+  const answeredCategoryCount = useMemo(() => {
+    return categoryProgress.filter(cp => cp.answered > 0).length
+  }, [categoryProgress])
 
   if (loading) {
     return <div className="bg-white rounded-lg shadow-sm h-[calc(100vh-120px)] animate-pulse" />
@@ -360,6 +365,14 @@ export default function MaturityAssessment() {
               </table>
             </div>
           </div>
+
+          {/* Report Generator */}
+          <ReportGenerator
+            scores={radarData.map(r => ({ category: r.fullName, current: r.current, desired: r.desired, gap: r.gap }))}
+            overallScore={overallScore}
+            answeredCategories={answeredCategoryCount}
+            totalCategories={CATEGORIES.length}
+          />
         </div>
       )}
     </div>
