@@ -1,0 +1,294 @@
+{
+  "title": "Quick Analytics Maturity Scan",
+  "description": "24 high-signal questions answerable by a CTO in 10 minutes",
+  "questions": [
+    {
+      "id": "quick_bus_01",
+      "category": "Business",
+      "questionText": "Does your bank have a Board-approved analytics strategy with defined KPIs?",
+      "levelDescriptions": {
+        "1": "No analytics strategy exists. Decisions are purely intuition-based.",
+        "2": "Informal analytics goals discussed but no documented strategy.",
+        "3": "Board-approved analytics strategy exists with annual review cycle.",
+        "4": "Analytics strategy drives budget allocation and is linked to business KPIs.",
+        "5": "Analytics strategy is embedded in enterprise strategy with real-time performance tracking."
+      }
+    },
+    {
+      "id": "quick_bus_02",
+      "category": "Business",
+      "questionText": "Are analytics insights regularly used in executive decision-making?",
+      "levelDescriptions": {
+        "1": "Executives rely on gut feeling and anecdotal evidence.",
+        "2": "Basic MIS reports are shared but rarely influence decisions.",
+        "3": "Dashboards reviewed in monthly management meetings.",
+        "4": "Analytics-driven recommendations are standard in strategy sessions.",
+        "5": "Real-time analytics are embedded in all executive workflows."
+      }
+    },
+    {
+      "id": "quick_bus_03",
+      "category": "Business",
+      "questionText": "Can you quantify the revenue impact of your analytics investments?",
+      "levelDescriptions": {
+        "1": "No measurement of analytics ROI exists.",
+        "2": "Anecdotal evidence of value but no formal measurement.",
+        "3": "Basic ROI tracking for major analytics projects.",
+        "4": "Comprehensive analytics P&L with attributed revenue impact.",
+        "5": "Continuous ROI optimization with automated attribution models."
+      }
+    },
+    {
+      "id": "quick_cul_01",
+      "category": "Culture",
+      "questionText": "Do you have a dedicated analytics team with defined roles and career paths?",
+      "levelDescriptions": {
+        "1": "No dedicated analytics roles. IT handles ad-hoc reporting.",
+        "2": "A few analysts exist but without clear roles or structure.",
+        "3": "Dedicated analytics team with defined roles and reporting lines.",
+        "4": "Center of Excellence with specialized roles (data engineers, scientists, analysts).",
+        "5": "Analytics talent embedded across all business units with robust career paths."
+      }
+    },
+    {
+      "id": "quick_cul_02",
+      "category": "Culture",
+      "questionText": "Is there executive sponsorship for data-driven transformation?",
+      "levelDescriptions": {
+        "1": "No executive sponsor for analytics initiatives.",
+        "2": "IT head informally champions analytics.",
+        "3": "Dedicated executive sponsor (CIO or CDO) with analytics mandate.",
+        "4": "C-suite actively champions analytics with dedicated budget.",
+        "5": "Board-level analytics committee with transformation authority."
+      }
+    },
+    {
+      "id": "quick_cul_03",
+      "category": "Culture",
+      "questionText": "Do business users have self-service access to data and analytics tools?",
+      "levelDescriptions": {
+        "1": "All data requests go through IT with weeks-long turnaround.",
+        "2": "Limited self-service for basic reports only.",
+        "3": "BI tools available to trained business users.",
+        "4": "Widespread self-service analytics with governance guardrails.",
+        "5": "Natural language querying and AI-assisted analytics for all users."
+      }
+    },
+    {
+      "id": "quick_gov_01",
+      "category": "Governance",
+      "questionText": "Is there a Chief Data Officer or equivalent role?",
+      "levelDescriptions": {
+        "1": "No dedicated data governance role exists.",
+        "2": "Data management is an informal responsibility of IT.",
+        "3": "CDO role established with data governance framework.",
+        "4": "CDO with enterprise authority, data stewards in each business unit.",
+        "5": "Mature data governance with automated policy enforcement and compliance."
+      }
+    },
+    {
+      "id": "quick_gov_02",
+      "category": "Governance",
+      "questionText": "Do you have documented data quality standards and monitoring?",
+      "levelDescriptions": {
+        "1": "No data quality standards. Issues discovered reactively.",
+        "2": "Basic data validation rules in some systems.",
+        "3": "Documented data quality standards with periodic audits.",
+        "4": "Automated data quality monitoring with SLA-based alerts.",
+        "5": "AI-driven data quality management with self-healing pipelines."
+      }
+    },
+    {
+      "id": "quick_gov_03",
+      "category": "Governance",
+      "questionText": "Is sensitive data classified and access controlled per SBP guidelines?",
+      "levelDescriptions": {
+        "1": "No data classification or access control framework.",
+        "2": "Basic access controls exist but no formal classification.",
+        "3": "Data classified per SBP guidelines with role-based access.",
+        "4": "Automated classification with dynamic access controls and audit trails.",
+        "5": "Zero-trust data access with real-time compliance monitoring."
+      }
+    },
+    {
+      "id": "quick_inf_01",
+      "category": "Information",
+      "questionText": "Do you have an enterprise data warehouse or data lake?",
+      "levelDescriptions": {
+        "1": "No centralized data store. Data lives in operational system silos.",
+        "2": "Department-level data marts with manual ETL processes.",
+        "3": "Enterprise data warehouse in place with scheduled ETL.",
+        "4": "Modern data platform (warehouse + lake) with real-time pipelines.",
+        "5": "Lakehouse architecture with streaming ingestion and unified governance."
+      }
+    },
+    {
+      "id": "quick_inf_02",
+      "category": "Information",
+      "questionText": "Is your data architecture aligned with an industry reference model (e.g., FSDM)?",
+      "levelDescriptions": {
+        "1": "No reference data model. Each system has its own schema.",
+        "2": "Awareness of industry models but no formal adoption.",
+        "3": "Partial adoption of reference model for key domains.",
+        "4": "Enterprise data model aligned with FSDM or equivalent.",
+        "5": "Full reference model adoption with automated conformity checking."
+      }
+    },
+    {
+      "id": "quick_inf_03",
+      "category": "Information",
+      "questionText": "Can you create a single view of the customer across all channels?",
+      "levelDescriptions": {
+        "1": "Customer data is fragmented across multiple systems.",
+        "2": "Partial customer view in CRM but missing many touchpoints.",
+        "3": "Customer 360 view available but requires manual assembly.",
+        "4": "Automated Customer 360 with real-time updates across all channels.",
+        "5": "AI-enriched customer profiles with predictive insights and next-best-action."
+      }
+    },
+    {
+      "id": "quick_app_01",
+      "category": "Applications",
+      "questionText": "Are predictive models used in any business decisions (credit, fraud, churn)?",
+      "levelDescriptions": {
+        "1": "No predictive models. All decisions are rule-based or manual.",
+        "2": "Experimental models in development but not in production.",
+        "3": "1-3 predictive models in production (e.g., credit scoring).",
+        "4": "Multiple models across domains with model monitoring and retraining.",
+        "5": "ML models embedded in real-time decision engines across all business lines."
+      }
+    },
+    {
+      "id": "quick_app_02",
+      "category": "Applications",
+      "questionText": "Do you use analytics for customer segmentation and targeting?",
+      "levelDescriptions": {
+        "1": "No customer segmentation beyond basic product categories.",
+        "2": "Manual segmentation based on demographics only.",
+        "3": "Behavioral segmentation with campaign targeting.",
+        "4": "Dynamic micro-segmentation with personalized offers.",
+        "5": "Real-time, AI-driven hyper-personalization across all touchpoints."
+      }
+    },
+    {
+      "id": "quick_app_03",
+      "category": "Applications",
+      "questionText": "Is your anti-money laundering (AML) system analytics-driven?",
+      "levelDescriptions": {
+        "1": "Manual transaction monitoring with basic threshold rules.",
+        "2": "Rule-based AML system with high false positive rates.",
+        "3": "Enhanced rules with some pattern detection capabilities.",
+        "4": "ML-based AML with network analysis and reduced false positives.",
+        "5": "AI-driven AML with real-time graph analytics and behavioral profiling."
+      }
+    },
+    {
+      "id": "quick_sys_01",
+      "category": "Systems",
+      "questionText": "Is your analytics infrastructure cloud-enabled?",
+      "levelDescriptions": {
+        "1": "All analytics runs on on-premises legacy hardware.",
+        "2": "Some cloud experimentation but core analytics is on-premises.",
+        "3": "Hybrid cloud with some workloads migrated.",
+        "4": "Cloud-first analytics with elastic scaling and cost optimization.",
+        "5": "Multi-cloud analytics platform with serverless processing."
+      }
+    },
+    {
+      "id": "quick_sys_02",
+      "category": "Systems",
+      "questionText": "Can your systems handle real-time data processing for analytics?",
+      "levelDescriptions": {
+        "1": "Only batch processing with T+1 or longer latency.",
+        "2": "Near-real-time for a few critical feeds (e.g., ATM monitoring).",
+        "3": "Streaming pipeline for key use cases with minutes-level latency.",
+        "4": "Enterprise streaming platform with sub-second processing.",
+        "5": "Event-driven architecture with real-time analytics across all systems."
+      }
+    },
+    {
+      "id": "quick_sys_03",
+      "category": "Systems",
+      "questionText": "Do you have a modern BI/visualization platform deployed?",
+      "levelDescriptions": {
+        "1": "Reports are Excel-based and manually distributed.",
+        "2": "Basic BI tool deployed but limited to IT users.",
+        "3": "Enterprise BI platform (Tableau, Power BI) with business user access.",
+        "4": "Embedded analytics in operational applications with mobile access.",
+        "5": "AI-augmented analytics with automated insight generation."
+      }
+    },
+    {
+      "id": "quick_agi_01",
+      "category": "Agility",
+      "questionText": "How quickly can you deploy a new analytics use case from idea to production?",
+      "levelDescriptions": {
+        "1": "6+ months for any analytics project. No standard process.",
+        "2": "3-6 months with significant manual effort and approvals.",
+        "3": "1-3 months with defined analytics delivery methodology.",
+        "4": "2-4 weeks with automated pipelines and CI/CD for models.",
+        "5": "Days to production with self-service platforms and automated governance."
+      }
+    },
+    {
+      "id": "quick_agi_02",
+      "category": "Agility",
+      "questionText": "Are any business processes automated using analytics outputs?",
+      "levelDescriptions": {
+        "1": "All processes are manual with no analytics integration.",
+        "2": "Analytics reports inform manual process decisions.",
+        "3": "Some processes partially automated (e.g., loan decisioning).",
+        "4": "Multiple processes automated with human-in-the-loop oversight.",
+        "5": "Autonomous decision-making for routine processes with exception handling."
+      }
+    },
+    {
+      "id": "quick_agi_03",
+      "category": "Agility",
+      "questionText": "Do you use A/B testing or experimentation for product and marketing decisions?",
+      "levelDescriptions": {
+        "1": "No experimentation culture. Changes are rolled out without testing.",
+        "2": "Occasional manual testing with no formal framework.",
+        "3": "A/B testing platform deployed for digital channels.",
+        "4": "Systematic experimentation across products and campaigns.",
+        "5": "Continuous experimentation with multi-armed bandit optimization."
+      }
+    },
+    {
+      "id": "quick_out_01",
+      "category": "Outcomes",
+      "questionText": "Can you measure the revenue impact of analytics initiatives?",
+      "levelDescriptions": {
+        "1": "No attribution of business outcomes to analytics.",
+        "2": "Anecdotal success stories but no systematic measurement.",
+        "3": "KPI dashboards track analytics project outcomes.",
+        "4": "Formal analytics value framework with quarterly business reviews.",
+        "5": "Real-time value attribution with automated impact measurement."
+      }
+    },
+    {
+      "id": "quick_out_02",
+      "category": "Outcomes",
+      "questionText": "Has analytics measurably reduced operational costs in the past year?",
+      "levelDescriptions": {
+        "1": "No evidence of cost reduction from analytics.",
+        "2": "Some cost savings identified but not formally tracked.",
+        "3": "Documented cost savings of 5-10% in targeted areas.",
+        "4": "Systematic cost optimization achieving 10-20% reduction.",
+        "5": "AI-driven continuous optimization with 20%+ cost reduction."
+      }
+    },
+    {
+      "id": "quick_out_03",
+      "category": "Outcomes",
+      "questionText": "Do analytics insights feed into regulatory reporting (SBP, SECP)?",
+      "levelDescriptions": {
+        "1": "Regulatory reports are manually prepared from operational data.",
+        "2": "Some automated data extraction for regulatory submissions.",
+        "3": "Dedicated regulatory reporting system with analytics integration.",
+        "4": "Automated regulatory reporting with analytics-driven insights.",
+        "5": "Proactive regulatory analytics with predictive compliance monitoring."
+      }
+    }
+  ]
+}

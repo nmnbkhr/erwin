@@ -6,11 +6,14 @@ import {
 import {
   ChevronLeft, ChevronRight, ChevronDown, ChevronUp,
   RotateCcw, Check, Circle, CircleDot, BarChart3, Download,
+  Zap, ClipboardList, Microscope, Mail,
 } from 'lucide-react'
 import { downloadJSON, downloadCSV } from '../utils/export'
 import TradeReportGenerator from './TradeReportGenerator'
+import QuickAssessment from '../../components/QuickAssessment'
 import { loadTacrQuestions } from '../data'
 import type { TacrData, TacrCategory, TacrSection } from '../types'
+import tradeQuickData from '../../data/taiw/quickAssessment.json'
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -57,6 +60,7 @@ export default function TradeMaturityAssessment() {
   const [answers, setAnswers] = useState<AnswerMap>(loadAnswers)
   const [catIdx, setCatIdx] = useState(0)
   const [secIdx, setSecIdx] = useState(0)
+  const [assessmentMode, setAssessmentMode] = useState<'select' | 'quick' | 'standard' | 'deep'>('select')
   const [viewMode, setViewMode] = useState<'assessment' | 'results'>('assessment')
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
 
@@ -192,6 +196,116 @@ export default function TradeMaturityAssessment() {
     )
   }
 
+  // ---- Quick Assessment Mode ----
+  if (assessmentMode === 'quick') {
+    return (
+      <QuickAssessment
+        questions={tradeQuickData.questions}
+        title={tradeQuickData.title}
+        variant="trade"
+        onBack={() => setAssessmentMode('select')}
+      />
+    )
+  }
+
+  // ---- Deep mode: contact CTA ----
+  if (assessmentMode === 'deep') {
+    return (
+      <div className="space-y-6">
+        <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+          <Microscope size={48} className="text-teal-600 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">Deep Dive Workshop</h2>
+          <p className="text-slate-600 mb-6 max-w-xl mx-auto">
+            A half-day facilitated workshop with your trade and customs leadership. Produces a detailed
+            WCO DM conformity plan with implementation roadmap and capacity building recommendations.
+          </p>
+          <div className="flex items-center justify-center gap-4">
+            <a href="mailto:info@godai.tech" className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700">
+              <Mail size={16} /> Contact Godaitec
+            </a>
+            <button onClick={() => setAssessmentMode('select')} className="px-6 py-3 bg-white text-slate-600 rounded-lg border border-slate-200 hover:bg-slate-50">
+              Back
+            </button>
+          </div>
+          <p className="text-sm text-slate-400 mt-4">godai.tech | info@godai.tech</p>
+        </div>
+      </div>
+    )
+  }
+
+  // ---- Mode Selector ----
+  if (assessmentMode === 'select') {
+    return (
+      <div className="space-y-6">
+        <h2 className="text-xl font-bold text-slate-800 text-center">Choose Your Assessment Mode</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {/* Quick */}
+          <div className="bg-white rounded-xl shadow-sm border-2 border-teal-200 hover:border-teal-400 transition-colors p-6 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center">
+                <Zap size={20} className="text-teal-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-800">Quick</h3>
+                <p className="text-xs text-teal-600 font-medium">FREE</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate-600 mb-1">24 questions</p>
+            <p className="text-sm text-slate-600 mb-1">10 minutes</p>
+            <p className="text-xs text-slate-400 mb-4">3-page Quick Scan PDF with radar chart, strengths, and gaps</p>
+            <div className="mt-auto">
+              <button onClick={() => setAssessmentMode('quick')} className="w-full px-4 py-2.5 bg-teal-600 text-white text-sm rounded-lg hover:bg-teal-700">
+                Start Quick Scan
+              </button>
+            </div>
+          </div>
+
+          {/* Standard */}
+          <div className="bg-white rounded-xl shadow-sm border-2 border-cyan-200 hover:border-cyan-400 transition-colors p-6 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center">
+                <ClipboardList size={20} className="text-cyan-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-800">Standard</h3>
+                <p className="text-xs text-cyan-600 font-medium">FULL REPORT</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate-600 mb-1">640+ questions (TACR)</p>
+            <p className="text-sm text-slate-600 mb-1">45 minutes</p>
+            <p className="text-xs text-slate-400 mb-4">18-page PDF with WCO DM conformity, TCF gaps, roadmap</p>
+            <div className="mt-auto">
+              <button onClick={() => setAssessmentMode('standard')} className="w-full px-4 py-2.5 bg-cyan-600 text-white text-sm rounded-lg hover:bg-cyan-700">
+                Start Assessment
+              </button>
+            </div>
+          </div>
+
+          {/* Deep */}
+          <div className="bg-white rounded-xl shadow-sm border-2 border-slate-200 hover:border-slate-400 transition-colors p-6 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center">
+                <Microscope size={20} className="text-slate-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-800">Deep</h3>
+                <p className="text-xs text-slate-600 font-medium">WORKSHOP</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate-600 mb-1">Facilitated session</p>
+            <p className="text-sm text-slate-600 mb-1">Half day</p>
+            <p className="text-xs text-slate-400 mb-4">WCO DM conformity plan with capacity building roadmap</p>
+            <div className="mt-auto">
+              <button onClick={() => setAssessmentMode('deep')} className="w-full px-4 py-2.5 bg-slate-600 text-white text-sm rounded-lg hover:bg-slate-700">
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   // ---- Results view ----
   if (viewMode === 'results') {
     return (
@@ -200,6 +314,12 @@ export default function TradeMaturityAssessment() {
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-slate-800">TACR Maturity Assessment Results</h2>
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => setAssessmentMode('select')}
+              className="px-3 py-2 text-sm rounded-lg bg-white text-slate-600 hover:bg-slate-50 border border-slate-200"
+            >
+              Modes
+            </button>
             <button
               onClick={() => downloadJSON({
                 answers,
@@ -327,6 +447,12 @@ export default function TradeMaturityAssessment() {
       {/* Top bar: mode toggle + progress */}
       <div className="flex items-center justify-between">
         <div className="flex gap-2">
+          <button
+            onClick={() => setAssessmentMode('select')}
+            className="px-3 py-2 text-sm rounded-lg bg-white text-slate-600 hover:bg-slate-50 border border-slate-200"
+          >
+            Modes
+          </button>
           <button
             onClick={() => setViewMode('assessment')}
             className="px-4 py-2 text-sm rounded-lg bg-teal-600 text-white"

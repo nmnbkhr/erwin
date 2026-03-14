@@ -1,0 +1,294 @@
+{
+  "title": "Quick Trade Analytics Maturity Scan",
+  "description": "24 high-signal questions answerable by a customs director in 10 minutes",
+  "questions": [
+    {
+      "id": "tq_str_01",
+      "category": "Strategy & Vision",
+      "questionText": "Does your customs administration have a documented digital transformation strategy?",
+      "levelDescriptions": {
+        "1": "No digital transformation strategy exists. Operations are paper-based.",
+        "2": "Informal modernization goals discussed but not documented.",
+        "3": "Board-approved digital strategy aligned with WCO Framework of Standards.",
+        "4": "Digital strategy drives budget allocation with measurable KPIs.",
+        "5": "Continuously refined strategy using performance data and WCO benchmarks."
+      }
+    },
+    {
+      "id": "tq_str_02",
+      "category": "Strategy & Vision",
+      "questionText": "Is your modernization aligned with WTO Trade Facilitation Agreement (TFA) commitments?",
+      "levelDescriptions": {
+        "1": "No TFA alignment. Category C notifications pending.",
+        "2": "Basic awareness of TFA obligations but limited implementation.",
+        "3": "TFA Category A measures implemented. Category B timeline set.",
+        "4": "Full TFA Category A+B compliance with capacity building for C.",
+        "5": "All TFA measures implemented with continuous improvement monitoring."
+      }
+    },
+    {
+      "id": "tq_str_03",
+      "category": "Strategy & Vision",
+      "questionText": "Does leadership actively champion data-driven customs modernization?",
+      "levelDescriptions": {
+        "1": "No executive sponsor for analytics or modernization.",
+        "2": "IT department informally leads modernization efforts.",
+        "3": "Dedicated DG-level sponsor with modernization mandate.",
+        "4": "Cross-agency steering committee with ministerial support.",
+        "5": "National trade facilitation committee with analytics-driven agenda."
+      }
+    },
+    {
+      "id": "tq_org_01",
+      "category": "Organization & Skills",
+      "questionText": "Is there a dedicated data analytics unit within customs?",
+      "levelDescriptions": {
+        "1": "No dedicated analytics roles. IT handles basic reporting.",
+        "2": "A few analysts exist but without formal structure.",
+        "3": "Dedicated analytics unit with defined roles and mandate.",
+        "4": "Specialized teams (risk, revenue, trade facilitation) with analytics skills.",
+        "5": "Analytics talent embedded across all customs operations with career paths."
+      }
+    },
+    {
+      "id": "tq_org_02",
+      "category": "Organization & Skills",
+      "questionText": "Do customs officers receive training in data analytics and modern tools?",
+      "levelDescriptions": {
+        "1": "No analytics training. Officers use only legacy systems.",
+        "2": "Occasional workshops on basic Excel reporting.",
+        "3": "Structured training program with BI tools and data literacy.",
+        "4": "Advanced analytics training including statistics and ML concepts.",
+        "5": "Continuous learning program with certifications and WCO academy courses."
+      }
+    },
+    {
+      "id": "tq_org_03",
+      "category": "Organization & Skills",
+      "questionText": "Is there collaboration between customs, border agencies, and trade stakeholders on data?",
+      "levelDescriptions": {
+        "1": "Siloed operations. No data sharing between agencies.",
+        "2": "Ad-hoc data requests between agencies.",
+        "3": "Formal data sharing agreements with key agencies.",
+        "4": "Integrated data platform shared across border agencies.",
+        "5": "Real-time coordinated border management with unified analytics."
+      }
+    },
+    {
+      "id": "tq_dg_01",
+      "category": "Data Governance",
+      "questionText": "Has your country published a WCO Data Model My Information Package (MIP)?",
+      "levelDescriptions": {
+        "1": "No awareness of WCO DM MIP concept.",
+        "2": "Awareness of WCO DM but no MIP development started.",
+        "3": "MIP development in progress with partial WCO DM mapping.",
+        "4": "Published MIP covering all customs procedures.",
+        "5": "Comprehensive MIP with regular updates aligned to WCO DM releases."
+      }
+    },
+    {
+      "id": "tq_dg_02",
+      "category": "Data Governance",
+      "questionText": "Are data quality standards defined for customs declarations and trade data?",
+      "levelDescriptions": {
+        "1": "No data quality standards. High error rates in declarations.",
+        "2": "Basic validation rules in electronic filing system.",
+        "3": "Documented data quality standards with periodic audits.",
+        "4": "Automated data quality monitoring with rejection and correction flows.",
+        "5": "AI-driven data quality with predictive error detection."
+      }
+    },
+    {
+      "id": "tq_dg_03",
+      "category": "Data Governance",
+      "questionText": "Is there a master data management strategy for traders, tariffs, and commodities?",
+      "levelDescriptions": {
+        "1": "No master data management. Duplicate records are common.",
+        "2": "Basic trader registration but no systematic MDM.",
+        "3": "Master data governance for traders and tariff codes.",
+        "4": "Enterprise MDM with golden records and automated matching.",
+        "5": "Real-time MDM with AI-assisted entity resolution and enrichment."
+      }
+    },
+    {
+      "id": "tq_ii_01",
+      "category": "Information & Integration",
+      "questionText": "Is your customs system integrated with a National Single Window (PSW)?",
+      "levelDescriptions": {
+        "1": "No single window. Paper-based clearance with multiple agencies.",
+        "2": "Basic electronic filing but separate systems per agency.",
+        "3": "PSW operational with basic inter-agency data sharing.",
+        "4": "Full PSW integration with automated cross-agency workflows.",
+        "5": "Advanced PSW with real-time risk sharing and coordinated border management."
+      }
+    },
+    {
+      "id": "tq_ii_02",
+      "category": "Information & Integration",
+      "questionText": "Can you track a shipment end-to-end from origin to clearance?",
+      "levelDescriptions": {
+        "1": "No shipment tracking. Status only known at customs point.",
+        "2": "Basic status tracking within customs system only.",
+        "3": "Integration with shipping lines and freight forwarders for tracking.",
+        "4": "End-to-end visibility with carrier, port, and customs data linked.",
+        "5": "Predictive shipment analytics with estimated arrival and risk pre-screening."
+      }
+    },
+    {
+      "id": "tq_ii_03",
+      "category": "Information & Integration",
+      "questionText": "Does your data architecture conform to WCO Data Model standards?",
+      "levelDescriptions": {
+        "1": "Proprietary data formats with no WCO DM alignment.",
+        "2": "Awareness of WCO DM but customs system uses legacy schema.",
+        "3": "Partial WCO DM conformity for key data elements.",
+        "4": "Full WCO DM conformity across all customs procedures.",
+        "5": "WCO DM native architecture with automated conformity validation."
+      }
+    },
+    {
+      "id": "tq_at_01",
+      "category": "Analytics & Technology",
+      "questionText": "Is risk-based selectivity for inspections driven by analytics?",
+      "levelDescriptions": {
+        "1": "Random or 100% inspection with no risk-based selectivity.",
+        "2": "Basic rule-based selectivity (e.g., country of origin, HS code).",
+        "3": "Statistical risk profiling with historical compliance data.",
+        "4": "ML-based risk scoring with multiple data sources and real-time updates.",
+        "5": "AI-driven predictive risk with network analysis and behavioral profiling."
+      }
+    },
+    {
+      "id": "tq_at_02",
+      "category": "Analytics & Technology",
+      "questionText": "Are predictive models used for revenue forecasting or fraud detection?",
+      "levelDescriptions": {
+        "1": "No predictive models. Revenue estimates are manual.",
+        "2": "Basic trend analysis using historical data.",
+        "3": "Statistical models for revenue forecasting.",
+        "4": "ML models for fraud detection and revenue optimization in production.",
+        "5": "Ensemble models with real-time fraud alerts and automated interventions."
+      }
+    },
+    {
+      "id": "tq_at_03",
+      "category": "Analytics & Technology",
+      "questionText": "Do you use analytics for customs valuation verification?",
+      "levelDescriptions": {
+        "1": "Manual valuation checks with no analytical support.",
+        "2": "Basic price database for comparison only.",
+        "3": "Transaction value database with statistical outlier detection.",
+        "4": "ML-based valuation models with transfer pricing detection.",
+        "5": "Real-time valuation intelligence with global price benchmarking."
+      }
+    },
+    {
+      "id": "tq_inf_01",
+      "category": "Infrastructure",
+      "questionText": "Is your customs IT infrastructure cloud-enabled or modernized?",
+      "levelDescriptions": {
+        "1": "Legacy mainframe or client-server systems only.",
+        "2": "Some web-based applications but core systems are legacy.",
+        "3": "Hybrid infrastructure with cloud for some workloads.",
+        "4": "Cloud-first architecture with elastic scaling.",
+        "5": "Multi-cloud platform with serverless processing and edge computing."
+      }
+    },
+    {
+      "id": "tq_inf_02",
+      "category": "Infrastructure",
+      "questionText": "Can your systems handle the current declaration volume with acceptable performance?",
+      "levelDescriptions": {
+        "1": "System slowdowns and outages during peak periods.",
+        "2": "Adequate for current volume but no headroom for growth.",
+        "3": "Scalable architecture handling 2-3x current volume.",
+        "4": "Auto-scaling infrastructure with sub-second response times.",
+        "5": "Globally distributed platform handling any volume with 99.99% uptime."
+      }
+    },
+    {
+      "id": "tq_inf_03",
+      "category": "Infrastructure",
+      "questionText": "Do you have a centralized data warehouse for trade analytics?",
+      "levelDescriptions": {
+        "1": "No data warehouse. Analytics done on operational databases.",
+        "2": "Basic reporting database with periodic data extracts.",
+        "3": "Enterprise data warehouse with scheduled ETL from customs systems.",
+        "4": "Modern data platform with real-time ingestion and analytics.",
+        "5": "Lakehouse architecture with streaming, ML, and unified governance."
+      }
+    },
+    {
+      "id": "tq_pa_01",
+      "category": "Processes & Automation",
+      "questionText": "What percentage of customs declarations are filed electronically?",
+      "levelDescriptions": {
+        "1": "Less than 20% electronic. Most declarations are paper-based.",
+        "2": "20-50% electronic filing through WeBOC or equivalent.",
+        "3": "50-80% electronic filing with remaining paper for special cases.",
+        "4": "90%+ electronic filing with exception-only paper processing.",
+        "5": "100% electronic with automated processing and straight-through clearance."
+      }
+    },
+    {
+      "id": "tq_pa_02",
+      "category": "Processes & Automation",
+      "questionText": "Is there an Authorized Economic Operator (AEO) program with data-driven benefits?",
+      "levelDescriptions": {
+        "1": "No AEO program or trusted trader concept.",
+        "2": "AEO framework exists but limited implementation.",
+        "3": "Operational AEO program with compliance-based benefits.",
+        "4": "Data-driven AEO with continuous monitoring and dynamic benefits.",
+        "5": "Mutual recognition with other countries and AI-based compliance scoring."
+      }
+    },
+    {
+      "id": "tq_pa_03",
+      "category": "Processes & Automation",
+      "questionText": "Is post-clearance audit driven by analytics and risk assessment?",
+      "levelDescriptions": {
+        "1": "No systematic post-clearance audit program.",
+        "2": "Random post-clearance audits with no analytics input.",
+        "3": "Risk-based audit selection using historical compliance data.",
+        "4": "Analytics-driven audit with predictive targeting and revenue recovery.",
+        "5": "Continuous compliance monitoring with automated audit triggers."
+      }
+    },
+    {
+      "id": "tq_oi_01",
+      "category": "Outcomes & Impact",
+      "questionText": "Can you measure the impact of trade facilitation measures on clearance times?",
+      "levelDescriptions": {
+        "1": "No measurement of clearance times or facilitation impact.",
+        "2": "Manual Time Release Studies conducted occasionally.",
+        "3": "Automated clearance time tracking with regular TRS reporting.",
+        "4": "Real-time performance dashboards with trend analysis.",
+        "5": "Predictive analytics for clearance time optimization with SLA management."
+      }
+    },
+    {
+      "id": "tq_oi_02",
+      "category": "Outcomes & Impact",
+      "questionText": "Has analytics measurably increased customs revenue collection?",
+      "levelDescriptions": {
+        "1": "No evidence of analytics impact on revenue.",
+        "2": "Some revenue recovery from ad-hoc investigations.",
+        "3": "Documented revenue uplift of 3-5% from analytics-driven interventions.",
+        "4": "Systematic revenue optimization achieving 5-15% improvement.",
+        "5": "AI-driven revenue assurance with predictive leakage detection."
+      }
+    },
+    {
+      "id": "tq_oi_03",
+      "category": "Outcomes & Impact",
+      "questionText": "Do you share trade intelligence with other government agencies and WCO?",
+      "levelDescriptions": {
+        "1": "No trade intelligence sharing beyond customs.",
+        "2": "Ad-hoc information sharing on specific cases.",
+        "3": "Formal intelligence sharing framework with key agencies.",
+        "4": "Real-time intelligence sharing via Regional Intelligence Liaison Office.",
+        "5": "Automated cross-border intelligence with WCO CEN and partner countries."
+      }
+    }
+  ]
+}

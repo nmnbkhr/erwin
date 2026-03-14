@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Building2, Globe, Banknote, ArrowRight } from 'lucide-react'
+import { Building2, Globe, Banknote, ArrowRight, Zap } from 'lucide-react'
 
 export default function SuiteLanding() {
   const navigate = useNavigate()
@@ -141,8 +141,40 @@ export default function SuiteLanding() {
         </button>
       </div>
 
+      {/* Quick Scan Callout */}
+      <div className="mt-10 max-w-2xl w-full">
+        <div className="relative bg-gradient-to-r from-purple-900/50 to-teal-900/50 rounded-2xl border border-gray-700 p-6">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
+              <Zap size={18} className="text-amber-400" />
+            </div>
+            <div>
+              <span className="text-xs font-medium text-amber-400 uppercase tracking-wider">New</span>
+              <h3 className="text-white font-semibold">Free 10-Minute Quick Maturity Scan</h3>
+            </div>
+          </div>
+          <p className="text-sm text-gray-400 mb-4">
+            24 CTO-answerable questions. Get a 3-page PDF with your maturity radar, strengths, and gaps — instantly.
+          </p>
+          <div className="flex gap-3">
+            <button
+              onClick={() => navigate('/maturity')}
+              className="px-5 py-2.5 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition-colors flex items-center gap-2"
+            >
+              <Building2 size={14} /> Banking Quick Scan
+            </button>
+            <button
+              onClick={() => navigate('/taiw/maturity')}
+              className="px-5 py-2.5 bg-teal-600 text-white text-sm rounded-lg hover:bg-teal-700 transition-colors flex items-center gap-2"
+            >
+              <Globe size={14} /> Trade Quick Scan
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Footer */}
-      <div className="mt-12 text-center text-sm text-gray-600">
+      <div className="mt-8 text-center text-sm text-gray-600">
         Built for Pakistan | Powered by Claude Code
       </div>
     </div>

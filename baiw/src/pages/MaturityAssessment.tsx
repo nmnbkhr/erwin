@@ -4,8 +4,10 @@ import { useAssessment } from '../context/AssessmentContext'
 import { loadBacrQuestions } from '../utils/dataLoader'
 import { downloadJSON, downloadPDF } from '../utils/export'
 import type { BacrQuestion } from '../types'
-import { ChevronLeft, ChevronRight, Download, RotateCcw, FileText } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Download, RotateCcw, FileText, Zap, ClipboardList, Microscope, Mail } from 'lucide-react'
 import ReportGenerator from '../components/ReportGenerator'
+import QuickAssessment from '../components/QuickAssessment'
+import quickData from '../data/quickAssessment.json'
 
 const MATURITY_LABELS = ['', 'Emerging', 'Developing', 'Practicing', 'Innovating', 'Leading']
 const MATURITY_DESCRIPTIONS: Record<number, string> = {
@@ -26,6 +28,7 @@ export default function MaturityAssessment() {
   const { state, dispatch } = useAssessment()
   const [questions, setQuestions] = useState<BacrQuestion[]>([])
   const [loading, setLoading] = useState(true)
+  const [assessmentMode, setAssessmentMode] = useState<'select' | 'quick' | 'standard' | 'deep'>('select')
   const [viewMode, setViewMode] = useState<'assessment' | 'results'>(
     state.completed ? 'results' : 'assessment'
   )
@@ -93,11 +96,128 @@ export default function MaturityAssessment() {
     return <div className="bg-white rounded-lg shadow-sm h-[calc(100vh-120px)] animate-pulse" />
   }
 
+  // ── Quick Assessment Mode ──
+  if (assessmentMode === 'quick') {
+    return (
+      <QuickAssessment
+        questions={quickData.questions}
+        title={quickData.title}
+        variant="banking"
+        onBack={() => setAssessmentMode('select')}
+      />
+    )
+  }
+
+  // ── Deep mode: contact CTA ──
+  if (assessmentMode === 'deep') {
+    return (
+      <div className="space-y-6">
+        <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+          <Microscope size={48} className="text-purple-600 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">Deep Dive Workshop</h2>
+          <p className="text-slate-600 mb-6 max-w-xl mx-auto">
+            A half-day facilitated workshop with your leadership team. Produces a detailed implementation plan
+            with PKR investment estimates, vendor recommendations, and quick-win identification.
+          </p>
+          <div className="flex items-center justify-center gap-4">
+            <a href="mailto:info@godai.tech" className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+              <Mail size={16} /> Contact Godaitec
+            </a>
+            <button onClick={() => setAssessmentMode('select')} className="px-6 py-3 bg-white text-slate-600 rounded-lg border border-slate-200 hover:bg-slate-50">
+              Back
+            </button>
+          </div>
+          <p className="text-sm text-slate-400 mt-4">godai.tech | info@godai.tech</p>
+        </div>
+      </div>
+    )
+  }
+
+  // ── Mode Selector ──
+  if (assessmentMode === 'select') {
+    return (
+      <div className="space-y-6">
+        <h2 className="text-xl font-bold text-slate-800 text-center">Choose Your Assessment Mode</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {/* Quick */}
+          <div className="bg-white rounded-xl shadow-sm border-2 border-purple-200 hover:border-purple-400 transition-colors p-6 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
+                <Zap size={20} className="text-purple-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-800">Quick</h3>
+                <p className="text-xs text-purple-600 font-medium">FREE</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate-600 mb-1">24 questions</p>
+            <p className="text-sm text-slate-600 mb-1">10 minutes</p>
+            <p className="text-xs text-slate-400 mb-4">3-page Quick Scan PDF with radar chart, strengths, and gaps</p>
+            <div className="mt-auto">
+              <button onClick={() => setAssessmentMode('quick')} className="w-full px-4 py-2.5 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700">
+                Start Quick Scan
+              </button>
+            </div>
+          </div>
+
+          {/* Standard */}
+          <div className="bg-white rounded-xl shadow-sm border-2 border-blue-200 hover:border-blue-400 transition-colors p-6 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                <ClipboardList size={20} className="text-blue-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-800">Standard</h3>
+                <p className="text-xs text-blue-600 font-medium">FULL REPORT</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate-600 mb-1">793 questions (BACR)</p>
+            <p className="text-sm text-slate-600 mb-1">45 minutes</p>
+            <p className="text-xs text-slate-400 mb-4">18-page PDF, CSV gap analysis, roadmap with PKR estimates</p>
+            <div className="mt-auto">
+              <button onClick={() => setAssessmentMode('standard')} className="w-full px-4 py-2.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700">
+                Start Assessment
+              </button>
+            </div>
+          </div>
+
+          {/* Deep */}
+          <div className="bg-white rounded-xl shadow-sm border-2 border-slate-200 hover:border-slate-400 transition-colors p-6 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center">
+                <Microscope size={20} className="text-slate-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-800">Deep</h3>
+                <p className="text-xs text-slate-600 font-medium">WORKSHOP</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate-600 mb-1">Facilitated session</p>
+            <p className="text-sm text-slate-600 mb-1">Half day</p>
+            <p className="text-xs text-slate-400 mb-4">Detailed plan with vendor recommendations and quick wins</p>
+            <div className="mt-auto">
+              <button onClick={() => setAssessmentMode('deep')} className="w-full px-4 py-2.5 bg-slate-600 text-white text-sm rounded-lg hover:bg-slate-700">
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // ── Standard Assessment Mode (existing) ──
   return (
     <div className="space-y-6">
       {/* Mode Toggle */}
       <div className="flex items-center justify-between">
         <div className="flex gap-2">
+          <button
+            onClick={() => setAssessmentMode('select')}
+            className="px-3 py-2 text-sm rounded-lg bg-white text-slate-600 hover:bg-slate-50 border border-slate-200"
+          >
+            Modes
+          </button>
           <button
             onClick={() => setViewMode('assessment')}
             className={`px-4 py-2 text-sm rounded-lg ${
