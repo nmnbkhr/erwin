@@ -1,0 +1,44 @@
+{
+  "pakistanCustomsAverage": {
+    "Strategy & Vision": 1.8,
+    "Organization & Skills": 1.5,
+    "Data Governance": 1.3,
+    "Information & Integration": 1.6,
+    "Analytics & Technology": 1.4,
+    "Infrastructure": 2.0,
+    "Processes & Automation": 1.7,
+    "Outcomes & Impact": 1.2,
+    "Overall Assessment": 1.56
+  },
+  "regionalLeaders": {
+    "Strategy & Vision": 3.6,
+    "Organization & Skills": 3.3,
+    "Data Governance": 3.1,
+    "Information & Integration": 3.5,
+    "Analytics & Technology": 3.7,
+    "Infrastructure": 3.8,
+    "Processes & Automation": 3.4,
+    "Outcomes & Impact": 3.0,
+    "Overall Assessment": 3.43,
+    "examples": "Singapore Customs, Korea Customs (KCS), Malaysia Royal Customs (JKDM)"
+  },
+  "wcoTargets": {
+    "Strategy & Vision": 4.2,
+    "Organization & Skills": 4.0,
+    "Data Governance": 4.3,
+    "Information & Integration": 4.5,
+    "Analytics & Technology": 4.6,
+    "Infrastructure": 4.4,
+    "Processes & Automation": 4.5,
+    "Outcomes & Impact": 4.0,
+    "Overall Assessment": 4.31,
+    "description": "WCO Data Model v4.2 full conformity + TFA Category A targets"
+  },
+  "maturityLevelDescriptions": {
+    "1": { "label": "Initial", "description": "No formal trade analytics. Paper-based processes. Manual risk assessment." },
+    "2": { "label": "Developing", "description": "Basic electronic declarations. Some statistical reporting. Siloed customs data." },
+    "3": { "label": "Defined", "description": "WCO DM partially adopted. Automated risk profiling. Integrated Single Window." },
+    "4": { "label": "Managed", "description": "Full WCO DM conformity. Predictive risk models in production. Real-time trade monitoring." },
+    "5": { "label": "Optimizing", "description": "AI-driven customs decisions. Autonomous clearance. Continuous learning risk systems." }
+  }
+}

@@ -8,6 +8,7 @@ import {
   RotateCcw, Check, Circle, CircleDot, BarChart3, Download,
 } from 'lucide-react'
 import { downloadJSON, downloadCSV } from '../utils/export'
+import TradeReportGenerator from './TradeReportGenerator'
 import { loadTacrQuestions } from '../data'
 import type { TacrData, TacrCategory, TacrSection } from '../types'
 
@@ -103,6 +104,10 @@ export default function TradeMaturityAssessment() {
       return { total, done, complete: total > 0 && done === total }
     })
   }, [categories, answers])
+
+  const answeredCategoryCount = useMemo(() => {
+    return categoryCompletion.filter(cp => cp.done > 0).length
+  }, [categoryCompletion])
 
   // ---- Handlers ----
   const setAnswer = useCallback(
@@ -304,6 +309,14 @@ export default function TradeMaturityAssessment() {
             </table>
           </div>
         </div>
+
+        {/* Report Generator */}
+        <TradeReportGenerator
+          scores={radarData.map(r => ({ category: r.fullName, current: r.current, desired: r.desired, gap: r.gap }))}
+          overallScore={Math.round(radarData.reduce((s, r) => s + r.current, 0) / radarData.length * 10) / 10}
+          answeredCategories={answeredCategoryCount}
+          totalCategories={categories.length}
+        />
       </div>
     )
   }
