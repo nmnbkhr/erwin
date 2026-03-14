@@ -1,0 +1,392 @@
+{
+  "meta": {
+    "title": "Cash Optimization Engine",
+    "subtitle": "A Game-Theoretic & Predictive Analytics Framework for Pakistan Commercial Banking",
+    "referenceCase": "UBL (1,500+ Branches, 2,000+ ATMs, PKR 2.5T+ Deposits)",
+    "totalImpact": { "min": 7800, "max": 12700, "unit": "PKR Millions/Year" },
+    "sbpPolicyRate": 11,
+    "cashToGDPRatio": "12-14%"
+  },
+  "useCases": [
+    {
+      "id": "UC-01",
+      "name": "Branch Vault Cash Forecasting & Right-Sizing",
+      "objective": "Predict each branch's daily cash demand with 95%+ accuracy and set optimal vault opening balances that eliminate both excess idle cash and stock-out risk.",
+      "problemStatement": "Branch managers currently set vault cash levels based on experience and conservatism. A branch disbursing PKR 15M/day might hold PKR 50M in the vault. Across 1,500 branches, this over-provisioning locks up PKR 80–120 billion in non-productive cash. At 11% SBP policy rate, this represents PKR 8.8–13.2 billion in annualized opportunity cost.",
+      "optimizationTechnique": {
+        "name": "Stochastic Programming + LSTM Forecasting",
+        "description": "Two-layer approach: (1) LSTM neural network trained on 3–5 years of daily branch transaction data with features including day-of-week, salary cycles, Islamic calendar, crop cycles, and macro signals outputs a probability distribution of daily cash demand. (2) Two-stage stochastic program where Stage 1 decides vault opening balance and Stage 2 recourses after observing actual demand.",
+        "algorithmType": "ML + Mathematical Programming",
+        "keyModels": ["LSTM Neural Network", "Two-Stage Stochastic Program", "Sample Average Approximation"]
+      },
+      "gameTheory": {
+        "players": "Branch Manager vs Treasury",
+        "gameType": "Principal-Agent",
+        "equilibrium": "Nash (trust + guarantee)",
+        "mechanism": "Cash Efficiency Score (CES) KPI in branch manager performance scorecard",
+        "explanation": "Branch managers hoard cash to avoid stock-outs. Treasury wants to minimize idle cash system-wide. Solution: scoring mechanism rewarding proximity to model-recommended vault level, plus Treasury guarantees emergency CIT within 4 hours."
+      },
+      "impact": { "min": 3300, "max": 4300, "mechanism": "Reduce average vault idle cash from PKR 35M to PKR 15M per branch → release PKR 30B aggregate → repo/T-bill at 11%", "category": "Float Recovery" },
+      "phase": 1,
+      "phaseMonths": "1-6",
+      "bvfCapabilities": [
+        { "id": 96, "name": "Financial Budgeting, Planning & Forecasting", "theme": "Finance & Performance Management" },
+        { "id": 94, "name": "Performance Management and KPIs", "theme": "Finance & Performance Management" },
+        { "id": 103, "name": "Liquidity Management", "theme": "Finance & Performance Management" },
+        { "id": 2, "name": "Predictive Models", "theme": "Marketing and Customer Experience" }
+      ],
+      "fsdmEntities": [
+        { "entity": "AGREEMENT_BALANCE_TYPE_METRIC", "domain": "Agreement & Account", "usage": "Daily vault cash position tracking per branch" },
+        { "entity": "FINANCIAL_TRANSACTION", "domain": "Financial Transaction", "usage": "Historical deposit/withdrawal patterns for LSTM training" },
+        { "entity": "PARTY", "domain": "Party Management", "usage": "Branch master data — type, region, capacity" },
+        { "entity": "CUSTOMER_LOCATION_TYPE", "domain": "Party Management", "usage": "Branch geographic attributes for clustering" },
+        { "entity": "ACCOUNTING_CALENDAR_TYPE", "domain": "Agreement & Account", "usage": "Islamic calendar events, salary cycles, crop seasons" }
+      ],
+      "inputs": ["Core Banking EOD balances", "3-5 years daily transaction history", "Branch master data", "Islamic calendar", "Crop cycle calendar", "Weather data"],
+      "outputs": ["7-day cash demand forecast with confidence intervals", "Optimal vault opening balance", "Cash Efficiency Score per branch", "Emergency CIT trigger alerts"]
+    },
+    {
+      "id": "UC-02",
+      "name": "ATM Cash Replenishment Optimization",
+      "objective": "Optimize ATM cassette loading using reinforcement learning to minimize cash-in-cassette float while maintaining service levels above 98%.",
+      "problemStatement": "With 2,000+ ATMs, banks load an average of PKR 4M per cassette with a 40–50% idle rate between replenishments. This locks PKR 3–4B in zero-yield float across the ATM network. CIT trips cost PKR 15,000–25,000 each, with 200+ daily trips often based on fixed schedules rather than demand patterns.",
+      "optimizationTechnique": {
+        "name": "Inventory Theory (s,S Policy) + Reinforcement Learning (DQN)",
+        "description": "Deep Q-Network agents learn optimal replenishment policies through trial-and-error interaction with a simulated ATM environment. The agent balances the cost of a CIT trip against the opportunity cost of excess cash and the penalty of a stock-out (ATM downtime). Inventory theory provides the baseline (s,S) policy that RL improves upon.",
+        "algorithmType": "RL + Inventory Theory",
+        "keyModels": ["Deep Q-Network (DQN)", "Newsvendor Model", "(s,S) Inventory Policy"]
+      },
+      "gameTheory": {
+        "players": "Bank vs CIT Provider",
+        "gameType": "Stackelberg Leader-Follower",
+        "equilibrium": "Stackelberg Equilibrium",
+        "mechanism": "Performance-based CIT contracts with shared savings",
+        "explanation": "Bank sets the replenishment schedule (leader); CIT provider optimizes routes given the schedule (follower). Performance-based CIT contracts with penalties for missed SLAs and bonuses for efficiency gains create aligned incentives."
+      },
+      "impact": { "min": 396, "max": 796, "mechanism": "Cassette float reduction (30–40%) redeployed to overnight instruments + CIT trip savings (fewer trips × PKR 15–25K per trip)", "category": "Float Recovery" },
+      "phase": 2,
+      "phaseMonths": "7-12",
+      "bvfCapabilities": [
+        { "id": 20, "name": "Channel Coverage", "theme": "Marketing and Customer Experience" },
+        { "id": 27, "name": "Channel Support & Engagement", "theme": "Marketing and Customer Experience" },
+        { "id": 98, "name": "Business Process Analytics & Optimisation", "theme": "Finance & Performance Management" },
+        { "id": 2, "name": "Predictive Models", "theme": "Marketing and Customer Experience" }
+      ],
+      "fsdmEntities": [
+        { "entity": "AGREEMENT_ACCESS_DEVICE", "domain": "Agreement & Account", "usage": "ATM device master data — location, type, capacity" },
+        { "entity": "CHANNEL", "domain": "Channel Management", "usage": "ATM as self-service channel classification" },
+        { "entity": "FINANCIAL_TRANSACTION", "domain": "Financial Transaction", "usage": "ATM withdrawal/deposit transaction volumes" },
+        { "entity": "AGREEMENT", "domain": "Agreement & Account", "usage": "CIT service agreements and SLAs" }
+      ],
+      "inputs": ["ATM transaction logs (per-hour)", "Cassette level sensors", "ATM location/type data", "Local event calendars", "CIT trip logs & costs"],
+      "outputs": ["Per-ATM replenishment schedule", "Optimal cassette load amount", "CIT route assignments", "Service level predictions", "Float savings dashboard"]
+    },
+    {
+      "id": "UC-03",
+      "name": "Inter-Branch Cash Netting & Routing",
+      "objective": "Create an internal cash market where surplus branches supply deficit branches directly, reducing dependency on central vault and CIT logistics.",
+      "problemStatement": "On any given day, 30–40% of branches have surplus cash while 20–25% face deficits. Currently, surplus branches return cash to central vault via CIT, and deficit branches order from central vault — creating redundant, expensive round-trips. Direct branch-to-branch transfers could save PKR 560–760M annually.",
+      "optimizationTechnique": {
+        "name": "Network Flow (Min Cost) + VCG Auction",
+        "description": "Minimum-cost network flow optimization matches surplus branches to deficit branches, minimizing total CIT transportation cost. VCG (Vickrey-Clarke-Groves) auction mechanism ensures truthful reporting of cash surpluses/deficits by making it individually rational for each branch to report honestly.",
+        "algorithmType": "Network Optimization + Mechanism Design",
+        "keyModels": ["Min-Cost Network Flow", "VCG Auction", "Hungarian Algorithm"]
+      },
+      "gameTheory": {
+        "players": "Surplus vs Deficit Branches",
+        "gameType": "Auction (VCG)",
+        "equilibrium": "Dominant Strategy Truthful",
+        "mechanism": "Internal cash market with VCG pricing",
+        "explanation": "Branches may misreport surpluses to avoid lending. VCG mechanism makes truthful reporting a dominant strategy — each branch pays/receives the externality it imposes on the network, ensuring honest participation."
+      },
+      "impact": { "min": 560, "max": 760, "mechanism": "Eliminate redundant CIT round-trips + reduce central vault throughput by 25–35%", "category": "Logistics Savings" },
+      "phase": 2,
+      "phaseMonths": "7-12",
+      "bvfCapabilities": [
+        { "id": 103, "name": "Liquidity Management", "theme": "Finance & Performance Management" },
+        { "id": 99, "name": "Funds Transfer Pricing", "theme": "Finance & Performance Management" },
+        { "id": 98, "name": "Business Process Analytics & Optimisation", "theme": "Finance & Performance Management" }
+      ],
+      "fsdmEntities": [
+        { "entity": "PARTY", "domain": "Party Management", "usage": "Branch entities with surplus/deficit classification" },
+        { "entity": "CUSTOMER_LOCATION_TYPE", "domain": "Party Management", "usage": "Branch locations for routing optimization" },
+        { "entity": "AGREEMENT_GROUP", "domain": "Agreement & Account", "usage": "Internal transfer arrangements between branches" },
+        { "entity": "FINANCIAL_TRANSACTION", "domain": "Financial Transaction", "usage": "Inter-branch cash movement records" }
+      ],
+      "inputs": ["Real-time branch cash positions", "Branch-to-branch distance matrix", "CIT vehicle availability", "Daily netting window schedule"],
+      "outputs": ["Optimal netting pairs", "Transfer amounts and routes", "VCG pricing per transfer", "Central vault load reduction report"]
+    },
+    {
+      "id": "UC-04",
+      "name": "CRR Float Engineering & Regulatory Arbitrage",
+      "objective": "Exploit SBP's weekly CRR averaging provision to minimize idle reserves while maintaining 100% compliance, unlocking PKR 800M–1.2B in deployable float.",
+      "problemStatement": "SBP requires banks to maintain a Cash Reserve Requirement (CRR) of 5% of time & demand liabilities, calculated as a weekly average. Most banks hold a flat buffer above the minimum daily. By strategically varying daily CRR balances (high early in the week, lower later), banks can free up significant float for overnight deployment without violating the weekly average requirement.",
+      "optimizationTechnique": {
+        "name": "Dynamic Programming + Chance-Constrained Programming",
+        "description": "Dynamic programming optimizes the daily CRR balance trajectory over each reporting week. Chance-constrained programming ensures the probability of violating the weekly average stays below a threshold (e.g., 0.1%), accounting for uncertain deposit flows that affect the liability base.",
+        "algorithmType": "Mathematical Programming",
+        "keyModels": ["Bellman Equation (DP)", "Chance-Constrained Optimization", "Monte Carlo Simulation"]
+      },
+      "gameTheory": {
+        "players": "Bank vs SBP",
+        "gameType": "Repeated Game",
+        "equilibrium": "Tit-for-Tat Moderation",
+        "mechanism": "Conservative CRR band usage to maintain regulatory trust",
+        "explanation": "Aggressive CRR manipulation risks regulatory scrutiny. In this repeated game, the bank uses a moderate strategy — staying well within legal bounds — to maintain SBP's trust. Tit-for-tat: if SBP signals concern, the bank immediately reverts to flat CRR."
+      },
+      "impact": { "min": 800, "max": 1200, "mechanism": "Weekly CRR averaging arbitrage releases PKR 7–11B in deployable float at 11% policy rate", "category": "CRR Float" },
+      "phase": 2,
+      "phaseMonths": "7-12",
+      "bvfCapabilities": [
+        { "id": 107, "name": "Regulatory & Compliance Reporting", "theme": "Finance & Performance Management" },
+        { "id": 100, "name": "Asset & Liability Management", "theme": "Finance & Performance Management" },
+        { "id": 103, "name": "Liquidity Management", "theme": "Finance & Performance Management" },
+        { "id": 102, "name": "Cashflow Generation", "theme": "Finance & Performance Management" }
+      ],
+      "fsdmEntities": [
+        { "entity": "REGULATION", "domain": "Other", "usage": "SBP CRR requirement parameters and thresholds" },
+        { "entity": "AGREEMENT_BALANCE_TYPE_METRIC", "domain": "Agreement & Account", "usage": "Daily reserve balance positions" },
+        { "entity": "MARKET_MEASURE", "domain": "Investment Management", "usage": "SBP policy rate and money market rates" }
+      ],
+      "inputs": ["SBP CRR requirement (5% of TDTL)", "Daily deposit/liability flows", "SBP policy rate", "Historical CRR compliance data", "Money market rates"],
+      "outputs": ["Optimal daily CRR balance trajectory", "Compliance probability dashboard", "Freed float amount", "Regulatory risk score", "Alert on compliance boundary"]
+    },
+    {
+      "id": "UC-05",
+      "name": "Nostro Account Balance Optimization",
+      "objective": "Optimize foreign currency nostro account balances across 15–20 correspondent banks to minimize idle FX balances while meeting settlement obligations.",
+      "problemStatement": "Pakistani banks maintain nostro accounts in USD, EUR, GBP, AED, CNY and other currencies with correspondent banks globally. Conservative treasury management keeps excess balances to avoid overdraft fees and failed settlements. Across all nostro accounts, PKR 4–8B equivalent sits idle, earning sub-market rates or zero return.",
+      "optimizationTechnique": {
+        "name": "Multi-Currency Portfolio Optimization + MDP",
+        "description": "Markov Decision Process models the state of each nostro account (balance, expected inflows/outflows, FX rates) and finds the optimal rebalancing policy. Portfolio optimization across currencies considers correlation structure, settlement timing, and correspondent bank fee schedules.",
+        "algorithmType": "Stochastic Optimization",
+        "keyModels": ["Markov Decision Process", "Mean-Variance Portfolio Optimization", "Currency Overlay Model"]
+      },
+      "gameTheory": {
+        "players": "Bank vs Correspondent Bank",
+        "gameType": "Nash Bargaining",
+        "equilibrium": "Fee-for-Service Tradeoff",
+        "mechanism": "Explicit fee model replacing implicit balance requirements",
+        "explanation": "Correspondent banks prefer high nostro balances (free funding). The bank wants minimal balances. Nash bargaining solution: negotiate explicit fee schedules that replace implicit balance requirements, making the true cost transparent and optimizable."
+      },
+      "impact": { "min": 500, "max": 1000, "mechanism": "Reduce idle FX balances by 30–50% across nostro accounts and redeploy to FX forwards/swaps", "category": "FX Float Recovery" },
+      "phase": 2,
+      "phaseMonths": "7-12",
+      "bvfCapabilities": [
+        { "id": 104, "name": "FX & Trading Book Management", "theme": "Finance & Performance Management" },
+        { "id": 64, "name": "Market & Liquidity Risk Likelihood Modelling", "theme": "Risk Management & Regulation" },
+        { "id": 91, "name": "Profitability Modelling", "theme": "Finance & Performance Management" },
+        { "id": 103, "name": "Liquidity Management", "theme": "Finance & Performance Management" }
+      ],
+      "fsdmEntities": [
+        { "entity": "AGREEMENT", "domain": "Agreement & Account", "usage": "Nostro account agreements with correspondent banks" },
+        { "entity": "PARTY", "domain": "Party Management", "usage": "Correspondent bank entities" },
+        { "entity": "MARKET_MEASURE", "domain": "Investment Management", "usage": "FX rates and money market benchmarks" },
+        { "entity": "FINANCIAL_TRANSACTION", "domain": "Financial Transaction", "usage": "Trade finance settlement flows" }
+      ],
+      "inputs": ["Nostro account balances (real-time)", "Expected settlement flows", "FX forward curves", "Correspondent bank fee schedules", "Trade finance pipeline"],
+      "outputs": ["Optimal nostro balance per currency per correspondent", "Rebalancing recommendations", "Fee vs balance tradeoff analysis", "Settlement risk score"]
+    },
+    {
+      "id": "UC-06",
+      "name": "Vostro Account Liability Optimization",
+      "objective": "Optimize vostro account management to reduce liability cost while maintaining reciprocal correspondent banking relationships.",
+      "problemStatement": "Foreign banks maintain vostro (PKR) accounts at Pakistani banks. These represent low-cost funding but also operational overhead. Sub-optimal vostro management means paying implicit returns on idle foreign bank balances or losing correspondent relationships. Managing PKR 15–25B in vostro liabilities efficiently can yield PKR 75–250M in annual value.",
+      "optimizationTechnique": {
+        "name": "Liquidity-at-Risk (LaR) Framework",
+        "description": "LaR framework quantifies the probability distribution of net vostro flows, identifying the minimum balance needed to service correspondent obligations at a given confidence level. Excess above LaR threshold is redeployed into higher-yielding PKR assets.",
+        "algorithmType": "Risk Modelling",
+        "keyModels": ["Liquidity-at-Risk (LaR)", "Extreme Value Theory", "Copula Models"]
+      },
+      "gameTheory": {
+        "players": "Bank vs Foreign Banks",
+        "gameType": "Cooperative Iterated",
+        "equilibrium": "Reciprocal Stability",
+        "mechanism": "Preferential rate exchange agreements",
+        "explanation": "Both parties benefit from stable correspondent relationships. Cooperative iterated game: bank offers competitive PKR rates on vostro balances in exchange for favorable nostro terms abroad. Defection (cutting rates unilaterally) risks losing the correspondent relationship entirely."
+      },
+      "impact": { "min": 75, "max": 250, "mechanism": "Optimize vostro liability cost through better fund deployment and reciprocal rate negotiations", "category": "Liability Management" },
+      "phase": 3,
+      "phaseMonths": "13-18",
+      "bvfCapabilities": [
+        { "id": 103, "name": "Liquidity Management", "theme": "Finance & Performance Management" },
+        { "id": 100, "name": "Asset & Liability Management", "theme": "Finance & Performance Management" },
+        { "id": 64, "name": "Market & Liquidity Risk Likelihood Modelling", "theme": "Risk Management & Regulation" }
+      ],
+      "fsdmEntities": [
+        { "entity": "AGREEMENT", "domain": "Agreement & Account", "usage": "Vostro account agreements with foreign banks" },
+        { "entity": "PARTY", "domain": "Party Management", "usage": "Foreign bank correspondent entities" },
+        { "entity": "MARKET_MEASURE", "domain": "Investment Management", "usage": "PKR money market rates for deployment" }
+      ],
+      "inputs": ["Vostro account balances", "Historical flow patterns", "Correspondent bank relationship data", "PKR money market rates", "Reciprocal nostro terms"],
+      "outputs": ["Optimal vostro buffer per correspondent", "Excess deployment recommendations", "Reciprocal rate negotiation briefs", "Relationship health scores"]
+    },
+    {
+      "id": "UC-07",
+      "name": "Denomination Mix Optimization & SBP Penalty Avoidance",
+      "objective": "Optimize the denomination mix (PKR 10 to PKR 5,000 notes) across all branches to minimize SBP soiled note penalties and customer complaints while reducing sorting/handling costs.",
+      "problemStatement": "SBP imposes penalties for banks that circulate soiled notes or fail to meet denomination mix requirements. Banks spend PKR 200–400M annually on note sorting, SBP penalties, and denomination mismatches (too many large notes in rural branches, too few in urban). Multi-objective optimization can simultaneously minimize penalties, sorting costs, and customer wait times.",
+      "optimizationTechnique": {
+        "name": "NSGA-II Multi-Objective Optimization",
+        "description": "Non-dominated Sorting Genetic Algorithm II (NSGA-II) optimizes three competing objectives simultaneously: (1) minimize SBP soiled note penalties, (2) minimize denomination mismatch costs, (3) minimize note sorting/handling costs. Pareto frontier reveals tradeoffs for management decision-making.",
+        "algorithmType": "Multi-Objective Optimization",
+        "keyModels": ["NSGA-II", "Pareto Frontier Analysis", "Constraint Satisfaction"]
+      },
+      "gameTheory": {
+        "players": "Bank vs Nature (demand uncertainty)",
+        "gameType": "Game Against Nature",
+        "equilibrium": "Minimax Regret",
+        "mechanism": "Robust denomination plan minimizing worst-case regret",
+        "explanation": "Customer denomination demand is uncertain (nature). Bank uses minimax regret to find the denomination mix that minimizes the maximum possible regret across all demand scenarios — a robust strategy that performs reasonably well regardless of actual demand patterns."
+      },
+      "impact": { "min": 230, "max": 420, "mechanism": "Reduce SBP penalties by 60–80%, lower sorting costs by 25–35%, eliminate denomination mismatches", "category": "Operational Savings" },
+      "phase": 3,
+      "phaseMonths": "13-18",
+      "bvfCapabilities": [
+        { "id": 102, "name": "Cashflow Generation", "theme": "Finance & Performance Management" },
+        { "id": 107, "name": "Regulatory & Compliance Reporting", "theme": "Finance & Performance Management" },
+        { "id": 98, "name": "Business Process Analytics & Optimisation", "theme": "Finance & Performance Management" }
+      ],
+      "fsdmEntities": [
+        { "entity": "FINANCIAL_TRANSACTION", "domain": "Financial Transaction", "usage": "Denomination-level transaction records" },
+        { "entity": "AGREEMENT_PRODUCT", "domain": "Agreement & Account", "usage": "Cash handling product types" },
+        { "entity": "REGULATION", "domain": "Other", "usage": "SBP note quality and denomination requirements" }
+      ],
+      "inputs": ["Denomination-level transaction data", "SBP note quality standards", "Branch denomination inventory", "Customer denomination preferences", "Sorting machine capacity"],
+      "outputs": ["Optimal denomination mix per branch type", "SBP compliance score", "Pareto-optimal trade-off dashboard", "Sorting schedule recommendations"]
+    },
+    {
+      "id": "UC-08",
+      "name": "CIT Route Optimization & Dynamic Scheduling",
+      "objective": "Optimize Cash-in-Transit vehicle routing to minimize total logistics cost while meeting all branch and ATM replenishment time windows.",
+      "problemStatement": "CIT operations involve 50–80 armored vehicles making 200+ trips daily across metropolitan areas. Fixed routes and schedules lead to 25–40% deadhead (empty return) mileage. Dynamic routing considering traffic, security zones, and time windows can reduce fleet requirements by 15–20% and CIT costs by PKR 300–600M annually.",
+      "optimizationTechnique": {
+        "name": "VRPTW + ALNS Metaheuristic",
+        "description": "Vehicle Routing Problem with Time Windows (VRPTW) formulation with Adaptive Large Neighborhood Search (ALNS) metaheuristic. ALNS iteratively destroys and repairs solutions using multiple operators (Shaw removal, worst removal, greedy insertion, regret insertion), adapting operator selection probabilities based on recent performance.",
+        "algorithmType": "Combinatorial Optimization",
+        "keyModels": ["VRPTW", "Adaptive Large Neighborhood Search", "Solomon Insertion Heuristic"]
+      },
+      "gameTheory": {
+        "players": "CIT Fleet Vehicles (coalition)",
+        "gameType": "Cooperative Coalition",
+        "equilibrium": "Core/Shapley Value",
+        "mechanism": "Shapley value cost sharing across routes",
+        "explanation": "Multiple CIT vehicles form coalitions to serve overlapping regions. Shapley value fairly allocates the cost savings from route sharing — each vehicle's cost share equals its average marginal contribution across all possible coalition orderings."
+      },
+      "impact": { "min": 300, "max": 600, "mechanism": "Reduce CIT fleet size by 15–20%, eliminate 25–40% deadhead mileage, dynamic scheduling", "category": "Logistics Savings" },
+      "phase": 2,
+      "phaseMonths": "7-12",
+      "bvfCapabilities": [
+        { "id": 98, "name": "Business Process Analytics & Optimisation", "theme": "Finance & Performance Management" },
+        { "id": 94, "name": "Performance Management and KPIs", "theme": "Finance & Performance Management" },
+        { "id": 97, "name": "GL, AP, HR, Expense Analytics & Optimisation", "theme": "Finance & Performance Management" }
+      ],
+      "fsdmEntities": [
+        { "entity": "CUSTOMER_LOCATION_TYPE", "domain": "Party Management", "usage": "Branch and ATM location coordinates for routing" },
+        { "entity": "PARTY", "domain": "Party Management", "usage": "CIT provider entities and vehicle fleet" },
+        { "entity": "AGREEMENT", "domain": "Agreement & Account", "usage": "CIT service level agreements" }
+      ],
+      "inputs": ["Branch/ATM location coordinates", "Time window constraints", "Vehicle capacities", "Traffic patterns", "Security zone maps", "CIT cost structure"],
+      "outputs": ["Optimized daily routes per vehicle", "Dynamic schedule adjustments", "Shapley value cost allocation", "Fleet utilization dashboard", "Deadhead reduction report"]
+    },
+    {
+      "id": "UC-09",
+      "name": "Digital Channel Incentivization & Cash Demand Deflection",
+      "objective": "Use mechanism design and adaptive experimentation to shift customer transactions from cash to digital channels, reducing physical cash demand by 15–25%.",
+      "problemStatement": "Pakistan's cash-to-GDP ratio of 12–14% is among the highest globally. At branch level, 60–70% of transactions are still cash-based. Each cash transaction costs the bank PKR 35–50 in handling, while digital transactions cost PKR 3–8. Shifting even 15–20% of cash volume to digital channels saves PKR 750M–2B annually and reduces cash cycle costs.",
+      "optimizationTechnique": {
+        "name": "Mechanism Design + Multi-Armed Bandit (Thompson Sampling)",
+        "description": "Mechanism design creates incentive-compatible offers (cashback, fee waivers, lottery entries) that make digital adoption individually rational for customers. Thompson Sampling multi-armed bandit continuously experiments across incentive variants, learning which offers drive the highest conversion rate per customer segment.",
+        "algorithmType": "Mechanism Design + Online Learning",
+        "keyModels": ["Thompson Sampling", "Incentive Compatibility", "Bayesian Optimization"]
+      },
+      "gameTheory": {
+        "players": "Bank vs Customers",
+        "gameType": "Mechanism Design",
+        "equilibrium": "Subgame Perfect",
+        "mechanism": "Multi-armed bandit adaptive incentive offers",
+        "explanation": "Customers adopt digital channels only if the perceived benefit exceeds switching costs. Bank designs incentive mechanisms that are incentive-compatible (customers' best response is to adopt digital) and individually rational (customers are at least as well off). Thompson Sampling adapts offers in real-time."
+      },
+      "impact": { "min": 750, "max": 2000, "mechanism": "Shift 15–25% of cash transactions to digital → reduce cash handling cost from PKR 35–50 to PKR 3–8 per transaction", "category": "Cash Demand Deflection" },
+      "phase": 3,
+      "phaseMonths": "13-18",
+      "bvfCapabilities": [
+        { "id": 8, "name": "Customer Segmentation", "theme": "Marketing and Customer Experience" },
+        { "id": 14, "name": "Omni Channel Campaign Management", "theme": "Marketing and Customer Experience" },
+        { "id": 20, "name": "Channel Coverage", "theme": "Marketing and Customer Experience" },
+        { "id": 3, "name": "Event Detection", "theme": "Marketing and Customer Experience" }
+      ],
+      "fsdmEntities": [
+        { "entity": "PARTY", "domain": "Party Management", "usage": "Customer segmentation attributes" },
+        { "entity": "CHANNEL", "domain": "Channel Management", "usage": "Digital vs physical channel classification" },
+        { "entity": "CAMPAIGN_AGREEMENT", "domain": "Agreement & Account", "usage": "Incentive campaign configurations" },
+        { "entity": "FINANCIAL_TRANSACTION", "domain": "Financial Transaction", "usage": "Transaction channel attribution" },
+        { "entity": "AGREEMENT_PRODUCT", "domain": "Agreement & Account", "usage": "Digital product enrollment tracking" }
+      ],
+      "inputs": ["Customer transaction channel history", "Digital adoption rates by segment", "Incentive offer library", "Channel cost structure", "Customer demographics"],
+      "outputs": ["Personalized incentive recommendations", "A/B test results dashboard", "Channel migration funnel", "Cash demand reduction forecast", "ROI per incentive type"]
+    },
+    {
+      "id": "UC-10",
+      "name": "Integrated Cash P&L Attribution & Branch Profitability",
+      "objective": "Build a full activity-based costing model for cash operations, enabling transfer pricing and branch-level profitability measurement for all 10 use cases.",
+      "problemStatement": "Banks cannot measure the true cost of cash at a branch level. Cash handling costs are buried in operational budgets. Without accurate attribution, branch managers have no visibility into whether their cash management is profitable or destroying value. UC-10 is the measurement and attribution layer that makes UC-01 through UC-09 accountable.",
+      "optimizationTechnique": {
+        "name": "Activity-Based Costing + Transfer Pricing Engine",
+        "description": "ABC model identifies 25+ cash-related activities (vault management, CIT coordination, note sorting, ATM replenishment, etc.) and allocates costs to branches based on activity consumption. Transfer pricing engine charges branches for cash usage above optimal levels and credits them for surplus deployment.",
+        "algorithmType": "Management Accounting + Optimization",
+        "keyModels": ["Activity-Based Costing (ABC)", "Funds Transfer Pricing (FTP)", "Multi-Dimensional Profitability"]
+      },
+      "gameTheory": {
+        "players": "Branches (tournament)",
+        "gameType": "Tournament/Contest",
+        "equilibrium": "Effort Equilibrium",
+        "mechanism": "Transfer pricing + performance ranking tournament",
+        "explanation": "Branches compete in a tournament where the most cash-efficient branches earn transfer pricing credits. This creates effort equilibrium — branches invest optimal effort in cash management because the marginal cost of improving efficiency equals the marginal tournament prize."
+      },
+      "impact": { "min": 0, "max": 0, "mechanism": "Measurement layer enabling PKR 7.8–12.7B attribution across all use cases — no direct savings but enables accountability for UC-01 through UC-09", "category": "Measurement & Attribution" },
+      "phase": 4,
+      "phaseMonths": "19-24",
+      "bvfCapabilities": [
+        { "id": 90, "name": "Activity Based Costing", "theme": "Finance & Performance Management" },
+        { "id": 91, "name": "Profitability Modelling", "theme": "Finance & Performance Management" },
+        { "id": 99, "name": "Funds Transfer Pricing", "theme": "Finance & Performance Management" },
+        { "id": 109, "name": "Performance Reporting", "theme": "Finance & Performance Management" }
+      ],
+      "fsdmEntities": [
+        { "entity": "THIRD-PARTY_FINANCIAL_STATEMENT", "domain": "Party Management", "usage": "Branch-level P&L statement lines" },
+        { "entity": "PARTY", "domain": "Party Management", "usage": "Branch cost center entities" },
+        { "entity": "AGREEMENT", "domain": "Agreement & Account", "usage": "Product and service agreements for costing" },
+        { "entity": "FINANCIAL_TRANSACTION", "domain": "Financial Transaction", "usage": "Transaction-level cost allocation" }
+      ],
+      "inputs": ["Branch cost center data", "Activity consumption logs", "Transfer pricing rates", "Cash operation activity catalog", "UC-01 to UC-09 savings data"],
+      "outputs": ["Branch cash P&L statement", "Activity cost allocation report", "Transfer pricing credits/debits", "Cash efficiency leaderboard", "ALCO cash management report"]
+    }
+  ],
+  "revenueLevers": [
+    { "lever": "Vault Cash Reduction", "min": 4500, "max": 7000, "mechanism": "Redeploy idle vault to repo/T-bills" },
+    { "lever": "ATM Cash Optimization", "min": 1500, "max": 2500, "mechanism": "Reduce float-in-cassette by 30–40%" },
+    { "lever": "CIT Route Optimization", "min": 300, "max": 600, "mechanism": "Fewer trips, dynamic routing" },
+    { "lever": "CRR Float Engineering", "min": 800, "max": 1200, "mechanism": "Weekly averaging arbitrage" },
+    { "lever": "Nostro/Vostro Optimization", "min": 500, "max": 1000, "mechanism": "Reduce idle FX balances abroad" },
+    { "lever": "Denomination Management", "min": 200, "max": 400, "mechanism": "Reduce SBP penalty + sorting costs" }
+  ],
+  "gameTheoryMatrix": [
+    { "uc": "UC-01", "players": "Branch Mgr vs Treasury", "gameType": "Principal-Agent", "equilibrium": "Nash (trust + guarantee)", "mechanism": "Cash Efficiency Score KPI" },
+    { "uc": "UC-02", "players": "Bank vs CIT Provider", "gameType": "Stackelberg Leader-Follower", "equilibrium": "Stackelberg Equilibrium", "mechanism": "Shared savings contract" },
+    { "uc": "UC-03", "players": "Surplus vs Deficit Branches", "gameType": "Auction (VCG)", "equilibrium": "Dominant Strategy Truthful", "mechanism": "Internal cash market" },
+    { "uc": "UC-04", "players": "Bank vs SBP", "gameType": "Repeated Game", "equilibrium": "Tit-for-Tat Moderation", "mechanism": "Conservative CRR band usage" },
+    { "uc": "UC-05", "players": "Bank vs Correspondent", "gameType": "Nash Bargaining", "equilibrium": "Fee-for-Service Tradeoff", "mechanism": "Explicit fee model" },
+    { "uc": "UC-06", "players": "Bank vs Foreign Banks", "gameType": "Cooperative Iterated", "equilibrium": "Reciprocal Stability", "mechanism": "Preferential rate exchange" },
+    { "uc": "UC-07", "players": "Bank vs Nature (demand)", "gameType": "Game Against Nature", "equilibrium": "Minimax Regret", "mechanism": "Robust denomination plan" },
+    { "uc": "UC-08", "players": "CIT Fleet Vehicles", "gameType": "Cooperative Coalition", "equilibrium": "Core/Shapley Value", "mechanism": "Shapley value cost sharing" },
+    { "uc": "UC-09", "players": "Bank vs Customers", "gameType": "Mechanism Design", "equilibrium": "Subgame Perfect", "mechanism": "Multi-armed bandit incentives" },
+    { "uc": "UC-10", "players": "Branches (tournament)", "gameType": "Tournament/Contest", "equilibrium": "Effort Equilibrium", "mechanism": "Transfer pricing + ranking" }
+  ],
+  "implementationPhases": [
+    { "phase": 1, "name": "Foundation", "months": "1–6", "useCases": ["UC-01"], "description": "Deploy data integration, build LSTM forecasting, establish Cash Efficiency Score baseline. Pilot 50 branches in Karachi/Lahore." },
+    { "phase": 2, "name": "Optimization", "months": "7–12", "useCases": ["UC-02", "UC-03", "UC-04", "UC-05", "UC-08"], "description": "Scale ATM RL agent, inter-branch netting, CRR float engineering, nostro optimization, CIT route optimization." },
+    { "phase": 3, "name": "Scale & Refine", "months": "13–18", "useCases": ["UC-06", "UC-07", "UC-09"], "description": "Extend to all 1,500+ branches and 2,000+ ATMs. Launch denomination optimization, digital incentivization, vostro optimization." },
+    { "phase": 4, "name": "Attribution & Continuous Improvement", "months": "19–24", "useCases": ["UC-10"], "description": "Full ABC costing, transfer pricing, ALCO reporting. Model retraining cycles." }
+  ]
+}

@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Home,
+  Banknote,
 } from 'lucide-react'
 
 const navItems = [
@@ -23,6 +24,7 @@ const navItems = [
   { path: '/profitability', label: 'Profitability Engine', icon: DollarSign },
   { path: '/roadmap', label: 'Roadmap Builder', icon: Map },
   { path: '/pakistan', label: 'Pakistan Reference', icon: Landmark },
+  { path: '/cash-optimization', label: 'Cash Optimization', icon: Banknote },
 ]
 
 export default function Sidebar() {

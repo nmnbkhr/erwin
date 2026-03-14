@@ -12,6 +12,7 @@ const MaturityAssessment = lazy(() => import('./pages/MaturityAssessment'))
 const ProfitabilityEngine = lazy(() => import('./pages/ProfitabilityEngine'))
 const RoadmapBuilder = lazy(() => import('./pages/RoadmapBuilder'))
 const PakistanReference = lazy(() => import('./pages/PakistanReference'))
+const CashOptimizationEngine = lazy(() => import('./components/CashOptimizationEngine'))
 
 const SuiteLanding = lazy(() => import('./components/SuiteLanding'))
 const TaiwRoutes = lazy(() => import('./taiw'))
@@ -56,6 +57,7 @@ function App() {
                   <Route path="/profitability" element={<ProfitabilityEngine />} />
                   <Route path="/roadmap" element={<RoadmapBuilder />} />
                   <Route path="/pakistan" element={<PakistanReference />} />
+                  <Route path="/cash-optimization" element={<CashOptimizationEngine />} />
                 </Routes>
               </Suspense>
             </Layout>

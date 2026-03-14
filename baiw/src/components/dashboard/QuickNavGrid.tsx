@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard, Database, Layers, Network,
-  ClipboardCheck, DollarSign, Map, Landmark,
+  ClipboardCheck, DollarSign, Map, Landmark, Banknote,
 } from 'lucide-react'
 
 const modules = [
@@ -12,6 +12,7 @@ const modules = [
   { path: '/profitability', label: 'Profitability', desc: 'Star schema & P&L waterfall', icon: DollarSign, color: 'text-emerald-600' },
   { path: '/roadmap', label: 'Roadmap', desc: 'Build implementation roadmap', icon: Map, color: 'text-rose-600' },
   { path: '/pakistan', label: 'Pakistan', desc: 'SBP regulatory & Islamic banking', icon: Landmark, color: 'text-teal-600' },
+  { path: '/cash-optimization', label: 'Cash Optimization', desc: '10 Use Cases \u2022 PKR 7.8\u201312.7B Impact', icon: Banknote, color: 'text-amber-600' },
   { path: '/', label: 'Dashboard', desc: 'Overview stats & charts', icon: LayoutDashboard, color: 'text-sky-600' },
 ]
 
