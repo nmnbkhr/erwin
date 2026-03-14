@@ -1,0 +1,2007 @@
+{
+  "tables": [
+    {
+      "name": "DIM_DATE",
+      "type": "dimension",
+      "description": "Calendar dimension with fiscal year support for Pakistan FBR reporting periods (July-June fiscal year).",
+      "columns": [
+        {
+          "name": "date_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key (YYYYMMDD format)"
+        },
+        {
+          "name": "full_date",
+          "datatype": "DATE",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Full calendar date"
+        },
+        {
+          "name": "year",
+          "datatype": "SMALLINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Calendar year"
+        },
+        {
+          "name": "quarter",
+          "datatype": "TINYINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Calendar quarter (1-4)"
+        },
+        {
+          "name": "month",
+          "datatype": "TINYINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Calendar month (1-12)"
+        },
+        {
+          "name": "day",
+          "datatype": "TINYINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Day of month"
+        },
+        {
+          "name": "day_of_week",
+          "datatype": "TINYINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Day of week (1=Monday .. 7=Sunday)"
+        },
+        {
+          "name": "week_of_year",
+          "datatype": "TINYINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "ISO week number"
+        },
+        {
+          "name": "fiscal_year",
+          "datatype": "SMALLINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Pakistan fiscal year (July-June)",
+          "pakSpecific": true
+        },
+        {
+          "name": "fiscal_quarter",
+          "datatype": "TINYINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Pakistan fiscal quarter",
+          "pakSpecific": true
+        },
+        {
+          "name": "is_weekend",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "True for Friday/Saturday (Pakistan weekend)",
+          "pakSpecific": true
+        },
+        {
+          "name": "is_holiday",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "True for gazetted holidays"
+        },
+        {
+          "name": "holiday_name",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Name of holiday if applicable"
+        },
+        {
+          "name": "is_ramadan",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "True if date falls within Ramadan",
+          "pakSpecific": true
+        },
+        {
+          "name": "month_name",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Full month name"
+        }
+      ]
+    },
+    {
+      "name": "DIM_TRADER",
+      "type": "dimension",
+      "description": "Trader/importer/exporter dimension including FBR NTN registration, AEO tier, and compliance profile.",
+      "columns": [
+        {
+          "name": "trader_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "ntn_number",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "National Tax Number assigned by FBR",
+          "pakSpecific": true
+        },
+        {
+          "name": "strn_number",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Sales Tax Registration Number",
+          "pakSpecific": true
+        },
+        {
+          "name": "name",
+          "datatype": "VARCHAR(200)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Registered business name"
+        },
+        {
+          "name": "type",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Trader type: importer, exporter, clearing_agent, manufacturer"
+        },
+        {
+          "name": "province",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Province of registration (Punjab, Sindh, KP, Balochistan, ICT, GB, AJK)",
+          "pakSpecific": true
+        },
+        {
+          "name": "city",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "City of registration"
+        },
+        {
+          "name": "aeo_tier",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Authorized Economic Operator tier (Tier-1, Tier-2, Tier-3, None)",
+          "pakSpecific": true
+        },
+        {
+          "name": "compliance_score",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "FBR compliance score 0-100",
+          "pakSpecific": true
+        },
+        {
+          "name": "registration_date",
+          "datatype": "DATE",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Date of customs registration"
+        },
+        {
+          "name": "sector",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Primary business sector (textiles, pharmaceuticals, etc.)"
+        },
+        {
+          "name": "active_flag",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether trader is currently active"
+        },
+        {
+          "name": "ata_chapter_user",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether trader uses ATA Carnet chapters",
+          "pakSpecific": true
+        },
+        {
+          "name": "risk_category",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Current risk category: low, medium, high, very_high"
+        },
+        {
+          "name": "total_gds_last_12m",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Count of GDs filed in last 12 months"
+        }
+      ]
+    },
+    {
+      "name": "DIM_COMMODITY",
+      "type": "dimension",
+      "description": "Commodity classification dimension based on Pakistan Customs Tariff (PCT) and WCO Harmonized System.",
+      "columns": [
+        {
+          "name": "commodity_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "hs2",
+          "datatype": "CHAR(2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "HS 2-digit chapter code"
+        },
+        {
+          "name": "hs4",
+          "datatype": "CHAR(4)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "HS 4-digit heading code"
+        },
+        {
+          "name": "hs6",
+          "datatype": "CHAR(6)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "HS 6-digit subheading code"
+        },
+        {
+          "name": "pct_code",
+          "datatype": "VARCHAR(12)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Pakistan Customs Tariff code (8-digit national tariff line)",
+          "pakSpecific": true
+        },
+        {
+          "name": "description",
+          "datatype": "VARCHAR(500)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Commodity description"
+        },
+        {
+          "name": "chapter_name",
+          "datatype": "VARCHAR(200)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "HS chapter name"
+        },
+        {
+          "name": "section",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "HS section number (I-XXI)"
+        },
+        {
+          "name": "section_name",
+          "datatype": "VARCHAR(200)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "HS section name"
+        },
+        {
+          "name": "regulatory_duty_indicator",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Subject to regulatory duty under SRO",
+          "pakSpecific": true
+        },
+        {
+          "name": "fifth_schedule",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Listed in Fifth Schedule of Customs Act 1969",
+          "pakSpecific": true
+        },
+        {
+          "name": "additional_customs_duty",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Subject to additional customs duty",
+          "pakSpecific": true
+        },
+        {
+          "name": "unit_of_measure",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Standard unit (KGM, LTR, MTR, PCS, etc.)"
+        },
+        {
+          "name": "statutory_rate_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Statutory customs duty rate %",
+          "pakSpecific": true
+        },
+        {
+          "name": "sensitive_list",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "On SAFTA/bilateral sensitive list",
+          "pakSpecific": true
+        }
+      ]
+    },
+    {
+      "name": "DIM_COUNTRY",
+      "type": "dimension",
+      "description": "Country and trading partner dimension with FTA/PTA eligibility for Pakistan bilateral and multilateral agreements.",
+      "columns": [
+        {
+          "name": "country_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "iso_code",
+          "datatype": "CHAR(2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "ISO 3166-1 alpha-2 code"
+        },
+        {
+          "name": "iso3_code",
+          "datatype": "CHAR(3)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "ISO 3166-1 alpha-3 code"
+        },
+        {
+          "name": "name",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Country name"
+        },
+        {
+          "name": "region",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Geographic region"
+        },
+        {
+          "name": "sub_region",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Geographic sub-region"
+        },
+        {
+          "name": "fta_code",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Applicable FTA/PTA code (CPFTA, SAFTA, ECOTA, PAK-CHINA-II, etc.)",
+          "pakSpecific": true
+        },
+        {
+          "name": "trade_agreement",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Name of trade agreement with Pakistan",
+          "pakSpecific": true
+        },
+        {
+          "name": "cpfta_eligible",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Eligible under China-Pakistan FTA",
+          "pakSpecific": true
+        },
+        {
+          "name": "safta_eligible",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Eligible under SAFTA",
+          "pakSpecific": true
+        },
+        {
+          "name": "risk_tier",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Country risk tier for customs: low, medium, high"
+        },
+        {
+          "name": "oecd_member",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "OECD member country flag"
+        },
+        {
+          "name": "fatf_status",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "FATF grey/black list status"
+        },
+        {
+          "name": "sanctions_flag",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Active sanctions against this country"
+        }
+      ]
+    },
+    {
+      "name": "DIM_PORT",
+      "type": "dimension",
+      "description": "Port and entry point dimension covering sea ports, airports, dry ports, and land border crossings in Pakistan.",
+      "columns": [
+        {
+          "name": "port_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "code",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "UN/LOCODE or local port code"
+        },
+        {
+          "name": "name",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Port name"
+        },
+        {
+          "name": "type",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Port type: seaport, airport, dry_port, land_border, inland_container_depot"
+        },
+        {
+          "name": "terminal",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Terminal or specific facility name"
+        },
+        {
+          "name": "province",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Province where port is located",
+          "pakSpecific": true
+        },
+        {
+          "name": "city",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "City where port is located"
+        },
+        {
+          "name": "lat",
+          "datatype": "DECIMAL(9,6)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Latitude"
+        },
+        {
+          "name": "lon",
+          "datatype": "DECIMAL(9,6)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Longitude"
+        },
+        {
+          "name": "capacity_tier",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Capacity tier: large, medium, small"
+        },
+        {
+          "name": "cpec_node",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether port is a CPEC corridor node",
+          "pakSpecific": true
+        },
+        {
+          "name": "atta_route",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Afghan Transit Trade Agreement route port",
+          "pakSpecific": true
+        },
+        {
+          "name": "operating_hours",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Operating hours (24x7, 0800-2000, etc.)"
+        },
+        {
+          "name": "scanner_available",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Non-intrusive inspection scanner available"
+        }
+      ]
+    },
+    {
+      "name": "DIM_CUSTOMS_STATION",
+      "type": "dimension",
+      "description": "Customs stations and collectorates under FBR jurisdiction across Pakistan.",
+      "columns": [
+        {
+          "name": "station_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "code",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Station code in WeBOC",
+          "pakSpecific": true
+        },
+        {
+          "name": "name",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Station name"
+        },
+        {
+          "name": "collectorate",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Parent collectorate name (e.g. Model Customs Collectorate Karachi)",
+          "pakSpecific": true
+        },
+        {
+          "name": "region",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Customs region"
+        },
+        {
+          "name": "province",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Province",
+          "pakSpecific": true
+        },
+        {
+          "name": "staff_count",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of staff assigned"
+        },
+        {
+          "name": "station_type",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Type: appraisement, preventive, adjudication, audit",
+          "pakSpecific": true
+        },
+        {
+          "name": "weboc_enabled",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether station uses WeBOC system",
+          "pakSpecific": true
+        },
+        {
+          "name": "psw_integrated",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Pakistan Single Window integration status",
+          "pakSpecific": true
+        },
+        {
+          "name": "avg_daily_gds",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Average daily goods declarations processed"
+        }
+      ]
+    },
+    {
+      "name": "DIM_TRANSPORT_MODE",
+      "type": "dimension",
+      "description": "Transport mode dimension covering sea, air, road, rail, and multi-modal movements.",
+      "columns": [
+        {
+          "name": "mode_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "code",
+          "datatype": "CHAR(1)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "WCO transport mode code (1=Sea, 4=Air, 3=Road, 2=Rail, 8=Inland waterway, 9=Other)"
+        },
+        {
+          "name": "name",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Transport mode name"
+        },
+        {
+          "name": "category",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Category: maritime, aviation, surface, multimodal"
+        },
+        {
+          "name": "customs_procedure",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Associated customs procedure type"
+        },
+        {
+          "name": "avg_transit_days",
+          "datatype": "SMALLINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Average transit days for this mode"
+        },
+        {
+          "name": "cpec_corridor_mode",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether used on CPEC corridor routes",
+          "pakSpecific": true
+        }
+      ]
+    },
+    {
+      "name": "DIM_AGENT",
+      "type": "dimension",
+      "description": "Customs clearing agent and broker dimension licensed by Pakistan Customs.",
+      "columns": [
+        {
+          "name": "agent_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "licence_number",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Customs agent licence number",
+          "pakSpecific": true
+        },
+        {
+          "name": "name",
+          "datatype": "VARCHAR(200)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Agent/brokerage firm name"
+        },
+        {
+          "name": "type",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Agent type: customs_agent, freight_forwarder, shipping_agent"
+        },
+        {
+          "name": "performance_tier",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Performance tier: gold, silver, bronze, standard",
+          "pakSpecific": true
+        },
+        {
+          "name": "province",
+          "datatype": "VARCHAR(50)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Operating province",
+          "pakSpecific": true
+        },
+        {
+          "name": "licence_expiry_date",
+          "datatype": "DATE",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Licence expiry date"
+        },
+        {
+          "name": "active_clients",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of active client traders"
+        },
+        {
+          "name": "clearances_last_12m",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of clearances handled in last 12 months"
+        },
+        {
+          "name": "compliance_rate",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Compliance rate as percentage"
+        },
+        {
+          "name": "suspension_flag",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether licence is currently suspended"
+        }
+      ]
+    },
+    {
+      "name": "DIM_GD_TYPE",
+      "type": "dimension",
+      "description": "Goods Declaration type dimension covering all WeBOC GD categories and customs procedures.",
+      "columns": [
+        {
+          "name": "gd_type_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "code",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "GD type code in WeBOC",
+          "pakSpecific": true
+        },
+        {
+          "name": "name",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "GD type name (e.g. Home Consumption, Warehousing, Temporary Import)"
+        },
+        {
+          "name": "category",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Category: import, export, transit, warehouse, temporary, re-export"
+        },
+        {
+          "name": "direction",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Trade direction: import, export, transit"
+        },
+        {
+          "name": "cpc_code",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Customs Procedure Code"
+        },
+        {
+          "name": "extended_procedure",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Extended customs procedure code"
+        },
+        {
+          "name": "duty_applicable",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether duties are applicable"
+        },
+        {
+          "name": "bond_required",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether bond/guarantee is required"
+        },
+        {
+          "name": "atta_applicable",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Applicable under Afghan Transit Trade Agreement",
+          "pakSpecific": true
+        }
+      ]
+    },
+    {
+      "name": "DIM_SRO",
+      "type": "dimension",
+      "description": "Statutory Regulatory Order dimension tracking duty concessions and exemptions issued by FBR.",
+      "columns": [
+        {
+          "name": "sro_key",
+          "datatype": "INTEGER",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "sro_number",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "SRO number (e.g. SRO 655(I)/2006)",
+          "pakSpecific": true
+        },
+        {
+          "name": "type",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "SRO type: exemption, concession, conditional, regulatory"
+        },
+        {
+          "name": "duty_type",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Duty type affected: customs_duty, regulatory_duty, additional_duty, sales_tax, withholding_tax"
+        },
+        {
+          "name": "effective_date",
+          "datatype": "DATE",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Date SRO became effective"
+        },
+        {
+          "name": "expiry_date",
+          "datatype": "DATE",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Date SRO expires (null if indefinite)"
+        },
+        {
+          "name": "description",
+          "datatype": "VARCHAR(500)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Description of the SRO provisions"
+        },
+        {
+          "name": "issuing_authority",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Issuing authority (FBR, Ministry of Commerce, etc.)",
+          "pakSpecific": true
+        },
+        {
+          "name": "gazette_reference",
+          "datatype": "VARCHAR(100)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Pakistan Gazette notification reference",
+          "pakSpecific": true
+        },
+        {
+          "name": "active_flag",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether SRO is currently active"
+        },
+        {
+          "name": "superseded_by",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "SRO number that supersedes this one"
+        },
+        {
+          "name": "commodity_scope",
+          "datatype": "VARCHAR(200)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "HS chapters/headings covered"
+        },
+        {
+          "name": "beneficiary_conditions",
+          "datatype": "VARCHAR(500)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Conditions for eligibility"
+        }
+      ]
+    },
+    {
+      "name": "FACT_TRADE_TRANSACTION",
+      "type": "fact",
+      "description": "Central fact table recording every customs goods declaration transaction with duty amounts, weights, clearance metrics, and compliance indicators.",
+      "columns": [
+        {
+          "name": "transaction_key",
+          "datatype": "BIGINT",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key for the transaction"
+        },
+        {
+          "name": "date_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_DATE.date_key",
+          "description": "FK to DIM_DATE \u2014 date of GD registration"
+        },
+        {
+          "name": "clearance_date_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_DATE.date_key",
+          "description": "FK to DIM_DATE \u2014 date of goods release"
+        },
+        {
+          "name": "trader_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_TRADER.trader_key",
+          "description": "FK to DIM_TRADER \u2014 importer/exporter"
+        },
+        {
+          "name": "commodity_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_COMMODITY.commodity_key",
+          "description": "FK to DIM_COMMODITY \u2014 primary commodity"
+        },
+        {
+          "name": "origin_country_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_COUNTRY.country_key",
+          "description": "FK to DIM_COUNTRY \u2014 country of origin"
+        },
+        {
+          "name": "dest_country_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_COUNTRY.country_key",
+          "description": "FK to DIM_COUNTRY \u2014 country of destination"
+        },
+        {
+          "name": "port_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_PORT.port_key",
+          "description": "FK to DIM_PORT \u2014 port of entry/exit"
+        },
+        {
+          "name": "station_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_CUSTOMS_STATION.station_key",
+          "description": "FK to DIM_CUSTOMS_STATION \u2014 processing station"
+        },
+        {
+          "name": "transport_mode_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_TRANSPORT_MODE.mode_key",
+          "description": "FK to DIM_TRANSPORT_MODE \u2014 mode of transport"
+        },
+        {
+          "name": "agent_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_AGENT.agent_key",
+          "description": "FK to DIM_AGENT \u2014 clearing agent"
+        },
+        {
+          "name": "gd_type_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_GD_TYPE.gd_type_key",
+          "description": "FK to DIM_GD_TYPE \u2014 declaration type"
+        },
+        {
+          "name": "sro_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_SRO.sro_key",
+          "description": "FK to DIM_SRO \u2014 applicable SRO concession"
+        },
+        {
+          "name": "gd_number",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "WeBOC Goods Declaration number",
+          "pakSpecific": true
+        },
+        {
+          "name": "bill_of_lading",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Bill of lading / airway bill number"
+        },
+        {
+          "name": "invoice_number",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Commercial invoice number"
+        },
+        {
+          "name": "lc_number",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Letter of credit number"
+        },
+        {
+          "name": "declared_value_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Declared customs value in Pakistani Rupees",
+          "pakSpecific": true
+        },
+        {
+          "name": "assessed_value_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Customs assessed value in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "declared_value_usd",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Declared value in USD"
+        },
+        {
+          "name": "customs_duty_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Customs duty amount in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "regulatory_duty_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Regulatory duty amount in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "additional_customs_duty_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Additional customs duty in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "sales_tax_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Sales tax amount in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "withholding_tax_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Withholding / advance income tax in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "federal_excise_duty_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Federal excise duty in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "total_duty_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total duties and taxes in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "sro_concession_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Duty concession amount under SRO in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "exchange_rate",
+          "datatype": "DECIMAL(12,4)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "USD/PKR exchange rate applied"
+        },
+        {
+          "name": "net_mass_kg",
+          "datatype": "DECIMAL(14,3)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Net weight in kilograms"
+        },
+        {
+          "name": "gross_mass_kg",
+          "datatype": "DECIMAL(14,3)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Gross weight in kilograms"
+        },
+        {
+          "name": "item_count",
+          "datatype": "SMALLINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of line items in the GD"
+        },
+        {
+          "name": "package_count",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of packages"
+        },
+        {
+          "name": "container_count",
+          "datatype": "SMALLINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of containers"
+        },
+        {
+          "name": "selectivity_channel",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Risk selectivity channel: green, yellow, red, blue",
+          "pakSpecific": true
+        },
+        {
+          "name": "examination_indicator",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether physical examination was conducted"
+        },
+        {
+          "name": "examination_result",
+          "datatype": "VARCHAR(20)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Examination outcome: compliant, discrepancy, seizure, null"
+        },
+        {
+          "name": "clearance_time_minutes",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total clearance time from registration to release in minutes"
+        },
+        {
+          "name": "dwell_time_hours",
+          "datatype": "DECIMAL(8,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Port dwell time in hours"
+        },
+        {
+          "name": "cpec_route_flag",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Goods moved via CPEC corridor route",
+          "pakSpecific": true
+        },
+        {
+          "name": "atta_flag",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Afghan Transit Trade Agreement shipment",
+          "pakSpecific": true
+        },
+        {
+          "name": "ecommerce_indicator",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "E-commerce / courier shipment flag"
+        },
+        {
+          "name": "fta_preference_claimed",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "FTA/PTA preferential rate claimed"
+        },
+        {
+          "name": "aeo_status",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "AEO status of trader at time of transaction",
+          "pakSpecific": true
+        },
+        {
+          "name": "valuation_method",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "WTO valuation method applied (1-6)"
+        },
+        {
+          "name": "post_clearance_audit_flag",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Selected for post-clearance audit"
+        }
+      ]
+    },
+    {
+      "name": "AGG_DAILY_REVENUE",
+      "type": "aggregate",
+      "description": "Daily aggregated customs revenue by collectorate and duty type for FBR revenue monitoring.",
+      "columns": [
+        {
+          "name": "agg_daily_rev_key",
+          "datatype": "BIGINT",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "date_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_DATE.date_key",
+          "description": "FK to DIM_DATE"
+        },
+        {
+          "name": "station_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_CUSTOMS_STATION.station_key",
+          "description": "FK to DIM_CUSTOMS_STATION (collectorate level)"
+        },
+        {
+          "name": "duty_type",
+          "datatype": "VARCHAR(30)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Duty type: customs_duty, regulatory_duty, sales_tax, withholding_tax, fed"
+        },
+        {
+          "name": "total_revenue_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total revenue collected in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "gd_count",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of goods declarations processed"
+        },
+        {
+          "name": "sro_concession_total_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total SRO concessions applied in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "target_revenue_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "FBR daily revenue target in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "variance_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Variance from target as percentage"
+        },
+        {
+          "name": "avg_duty_per_gd_pkr",
+          "datatype": "DECIMAL(14,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Average duty per GD in PKR"
+        },
+        {
+          "name": "yoy_growth_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Year-over-year growth percentage"
+        }
+      ]
+    },
+    {
+      "name": "AGG_MONTHLY_TRADE",
+      "type": "aggregate",
+      "description": "Monthly aggregated trade volumes by commodity and country for trade balance analysis.",
+      "columns": [
+        {
+          "name": "agg_monthly_trade_key",
+          "datatype": "BIGINT",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "year_month",
+          "datatype": "CHAR(7)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Year-month in YYYY-MM format"
+        },
+        {
+          "name": "commodity_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_COMMODITY.commodity_key",
+          "description": "FK to DIM_COMMODITY"
+        },
+        {
+          "name": "country_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_COUNTRY.country_key",
+          "description": "FK to DIM_COUNTRY"
+        },
+        {
+          "name": "direction",
+          "datatype": "VARCHAR(10)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Trade direction: import, export, transit"
+        },
+        {
+          "name": "total_value_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total declared value in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "total_value_usd",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total declared value in USD"
+        },
+        {
+          "name": "total_net_mass_kg",
+          "datatype": "DECIMAL(18,3)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total net weight in kg"
+        },
+        {
+          "name": "total_duty_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total duties and taxes in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "gd_count",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of goods declarations"
+        },
+        {
+          "name": "unique_traders",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Count of unique traders"
+        },
+        {
+          "name": "avg_unit_price_usd",
+          "datatype": "DECIMAL(14,4)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Average unit price in USD"
+        },
+        {
+          "name": "fta_utilization_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Percentage of transactions claiming FTA preference"
+        }
+      ]
+    },
+    {
+      "name": "AGG_QUARTERLY_COMPLIANCE",
+      "type": "aggregate",
+      "description": "Quarterly compliance metrics by collectorate for FBR performance reporting.",
+      "columns": [
+        {
+          "name": "agg_qtr_compliance_key",
+          "datatype": "BIGINT",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "fiscal_year",
+          "datatype": "SMALLINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Pakistan fiscal year",
+          "pakSpecific": true
+        },
+        {
+          "name": "fiscal_quarter",
+          "datatype": "TINYINT",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Fiscal quarter (1-4)",
+          "pakSpecific": true
+        },
+        {
+          "name": "station_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_CUSTOMS_STATION.station_key",
+          "description": "FK to DIM_CUSTOMS_STATION"
+        },
+        {
+          "name": "total_gds",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total goods declarations processed"
+        },
+        {
+          "name": "green_channel_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Percentage routed to green channel"
+        },
+        {
+          "name": "red_channel_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Percentage routed to red channel"
+        },
+        {
+          "name": "discrepancy_rate",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Rate of discrepancies found on examination"
+        },
+        {
+          "name": "avg_clearance_time_min",
+          "datatype": "DECIMAL(8,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Average clearance time in minutes"
+        },
+        {
+          "name": "post_audit_recovery_pkr",
+          "datatype": "DECIMAL(18,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Revenue recovered through post-clearance audit in PKR",
+          "pakSpecific": true
+        },
+        {
+          "name": "penalty_count",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of penalties imposed"
+        },
+        {
+          "name": "seizure_count",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Number of seizures"
+        },
+        {
+          "name": "compliance_index",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Composite compliance index 0-100"
+        }
+      ]
+    },
+    {
+      "name": "AGG_PORT_PERFORMANCE",
+      "type": "aggregate",
+      "description": "Port throughput and dwell time aggregations for trade facilitation benchmarking.",
+      "columns": [
+        {
+          "name": "agg_port_perf_key",
+          "datatype": "BIGINT",
+          "isPK": true,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Surrogate key"
+        },
+        {
+          "name": "date_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_DATE.date_key",
+          "description": "FK to DIM_DATE (monthly grain)"
+        },
+        {
+          "name": "port_key",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": true,
+          "fkTarget": "DIM_PORT.port_key",
+          "description": "FK to DIM_PORT"
+        },
+        {
+          "name": "total_gds",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total GDs processed at port"
+        },
+        {
+          "name": "total_containers",
+          "datatype": "INTEGER",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total containers handled"
+        },
+        {
+          "name": "total_tonnage_kg",
+          "datatype": "DECIMAL(18,3)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Total cargo tonnage in kg"
+        },
+        {
+          "name": "avg_dwell_time_hours",
+          "datatype": "DECIMAL(8,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Average dwell time in hours"
+        },
+        {
+          "name": "p95_dwell_time_hours",
+          "datatype": "DECIMAL(8,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "95th percentile dwell time in hours"
+        },
+        {
+          "name": "avg_clearance_time_min",
+          "datatype": "DECIMAL(8,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Average clearance time in minutes"
+        },
+        {
+          "name": "scanner_utilization_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Non-intrusive scanner utilization percentage"
+        },
+        {
+          "name": "examination_rate_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Physical examination rate"
+        },
+        {
+          "name": "capacity_utilization_pct",
+          "datatype": "DECIMAL(5,2)",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Port capacity utilization percentage"
+        },
+        {
+          "name": "congestion_flag",
+          "datatype": "BOOLEAN",
+          "isPK": false,
+          "isFK": false,
+          "fkTarget": null,
+          "description": "Whether port experienced congestion in period"
+        }
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "VW_TRADE_BALANCE",
+      "description": "Summarizes import vs export values by country and commodity to calculate trade balance, trade deficit, and terms-of-trade indicators.",
+      "sourceTables": [
+        "FACT_TRADE_TRANSACTION",
+        "DIM_DATE",
+        "DIM_COMMODITY",
+        "DIM_COUNTRY",
+        "AGG_MONTHLY_TRADE"
+      ]
+    },
+    {
+      "name": "VW_REVENUE_LEAKAGE",
+      "description": "Identifies potential revenue leakage by comparing declared values against reference prices, highlighting under-invoicing, misclassification, and SRO misuse.",
+      "sourceTables": [
+        "FACT_TRADE_TRANSACTION",
+        "DIM_COMMODITY",
+        "DIM_TRADER",
+        "DIM_SRO",
+        "AGG_DAILY_REVENUE"
+      ]
+    },
+    {
+      "name": "VW_CLEARANCE_SLA",
+      "description": "Tracks clearance time against SLA targets by port, collectorate, and channel, flagging SLA breaches and bottlenecks.",
+      "sourceTables": [
+        "FACT_TRADE_TRANSACTION",
+        "DIM_DATE",
+        "DIM_PORT",
+        "DIM_CUSTOMS_STATION",
+        "AGG_PORT_PERFORMANCE"
+      ]
+    },
+    {
+      "name": "VW_RISK_EFFECTIVENESS",
+      "description": "Measures the hit rate and effectiveness of risk-based selectivity channels by comparing examination outcomes against channel assignments.",
+      "sourceTables": [
+        "FACT_TRADE_TRANSACTION",
+        "DIM_TRADER",
+        "DIM_COMMODITY",
+        "DIM_COUNTRY",
+        "AGG_QUARTERLY_COMPLIANCE"
+      ]
+    },
+    {
+      "name": "VW_FTA_UTILIZATION",
+      "description": "Analyzes FTA/PTA preference utilization rates by agreement, country, and commodity to identify under-utilized concessions and trade diversion.",
+      "sourceTables": [
+        "FACT_TRADE_TRANSACTION",
+        "DIM_COUNTRY",
+        "DIM_COMMODITY",
+        "DIM_SRO",
+        "AGG_MONTHLY_TRADE"
+      ]
+    },
+    {
+      "name": "VW_CPEC_TRADE",
+      "description": "Dedicated view for CPEC corridor trade flows showing volumes, values, and transit times along CPEC route ports and dry ports.",
+      "sourceTables": [
+        "FACT_TRADE_TRANSACTION",
+        "DIM_PORT",
+        "DIM_COUNTRY",
+        "DIM_COMMODITY",
+        "DIM_TRANSPORT_MODE",
+        "AGG_PORT_PERFORMANCE"
+      ]
+    }
+  ]
+}

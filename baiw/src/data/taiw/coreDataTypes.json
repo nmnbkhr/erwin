@@ -1,0 +1,220 @@
+[
+  {
+    "id": "CDT_01",
+    "name": "Amount. Type",
+    "attributes": [
+      {
+        "name": "Amount. Content",
+        "codeList": ""
+      },
+      {
+        "name": "Amount Currency. Identifier",
+        "codeList": "ISO 3 Alpha Currency Code"
+      }
+    ],
+    "remarks": "Based on guidance given by the UNTDED description the amount elements should contain at least 3 decimals:\nThe position of decimal marks in numeric values is not specified and may be between any of the figures in the amount as required.\nSystems sometimes require a more specific approach and, to assist designers who prefer to specify the decimal position, the following table may serve as guidance.  \nWeights  3 decimals\nCubes  4 decimals\nOther quantities  3 decimals\nUnit prices  4 decimals\nOther amounts  3 decimals\nCurrency rates  6 decimals\nPercentages  4 decimals\nTax rates  4 decimals"
+  },
+  {
+    "id": "CDT_03",
+    "name": "Binary Object. Type",
+    "attributes": [
+      {
+        "name": "Binary Object. Content",
+        "codeList": ""
+      },
+      {
+        "name": "Binary Object. Format. Text",
+        "codeList": ""
+      },
+      {
+        "name": "Binary Object. Mime. Code",
+        "codeList": "MIME Media Type"
+      },
+      {
+        "name": "Binary Object. Encoding. Code",
+        "codeList": "Character Set Encoding Code"
+      },
+      {
+        "name": "Binary Object. Character Set. Code",
+        "codeList": "Character Set Code"
+      },
+      {
+        "name": "Binary Object. Uniform Resource. Identifier",
+        "codeList": ""
+      },
+      {
+        "name": "Binary Object. Filename. Text",
+        "codeList": ""
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "id": "CDT_10",
+    "name": "Code. Type",
+    "attributes": [
+      {
+        "name": "Code. Content",
+        "codeList": ""
+      },
+      {
+        "name": "Code List. Identifier",
+        "codeList": ""
+      },
+      {
+        "name": "Code List. Agency. Identifier",
+        "codeList": "Agency Identification Code"
+      },
+      {
+        "name": "Code List. Agency Name. Text",
+        "codeList": ""
+      },
+      {
+        "name": "Code List. Name. Text",
+        "codeList": ""
+      },
+      {
+        "name": "Code List. Version. Identifier",
+        "codeList": ""
+      },
+      {
+        "name": "Code. Name. Text",
+        "codeList": ""
+      },
+      {
+        "name": "Language. Identifier",
+        "codeList": ""
+      },
+      {
+        "name": "Code List. Uniform Resource. Identifier",
+        "codeList": ""
+      },
+      {
+        "name": "Code List Scheme. Uniform Resource. Identifier",
+        "codeList": ""
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "id": "CDT_20",
+    "name": "Date Time. Type",
+    "attributes": [
+      {
+        "name": "Date Time. Content",
+        "codeList": ""
+      },
+      {
+        "name": "Date Time. Format. Code",
+        "codeList": ""
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "id": "CDT_22",
+    "name": "Identifier. Type",
+    "attributes": [
+      {
+        "name": "Identifier. Content",
+        "codeList": ""
+      },
+      {
+        "name": "Identification Scheme. Identifier",
+        "codeList": ""
+      },
+      {
+        "name": "Identification Scheme. Name. Text",
+        "codeList": ""
+      },
+      {
+        "name": "Identification Scheme Agency. Identifier",
+        "codeList": "Agency Identification Code"
+      },
+      {
+        "name": "Identification Scheme. Agency Name. Text",
+        "codeList": ""
+      },
+      {
+        "name": "Identification Scheme. Version. Identifier",
+        "codeList": ""
+      },
+      {
+        "name": "Identification Scheme Data. Uniform Resource. Identifier",
+        "codeList": ""
+      },
+      {
+        "name": "Identification Scheme. Uniform Resource. Identifier",
+        "codeList": ""
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "id": "CDT_30",
+    "name": "Indicator. Type",
+    "attributes": [
+      {
+        "name": "Indicator. Content",
+        "codeList": ""
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "id": "CDT_31",
+    "name": "Measure. Type",
+    "attributes": [
+      {
+        "name": "Measure. Content",
+        "codeList": ""
+      },
+      {
+        "name": "Measure Unit. Code",
+        "codeList": "Recommendation20"
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "id": "CDT_33",
+    "name": "Numeric. Type",
+    "attributes": [
+      {
+        "name": "Numeric. Content",
+        "codeList": ""
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "id": "CDT_34",
+    "name": "Quantity. Type",
+    "attributes": [
+      {
+        "name": "Quantity. Content",
+        "codeList": ""
+      },
+      {
+        "name": "Quantity Unit. Code",
+        "codeList": "Recommendation20"
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "id": "CDT_36",
+    "name": "Text. Type",
+    "attributes": [
+      {
+        "name": "Text. Content",
+        "codeList": ""
+      },
+      {
+        "name": "Language. Identifier",
+        "codeList": ""
+      }
+    ],
+    "remarks": ""
+  }
+]

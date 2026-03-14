@@ -1,128 +1,128 @@
 [
   {
+    "name": "Goods",
+    "slug": "goods",
+    "count": 234,
+    "classCount": 6,
+    "description": "Goods item details — commodity codes, quantities, packaging, dangerous goods",
+    "color": "#f59e0b",
+    "icon": "ShoppingCart"
+  },
+  {
+    "name": "Transport",
+    "slug": "transport",
+    "count": 217,
+    "classCount": 10,
+    "description": "Transport means and equipment — vessels, aircraft, vehicles, containers, seals",
+    "color": "#14b8a6",
+    "icon": "Truck"
+  },
+  {
+    "name": "Document",
+    "slug": "document",
+    "count": 107,
+    "classCount": 10,
+    "description": "Supporting documents — certificates, licenses, permits, invoices, B/Ls",
+    "color": "#f97316",
+    "icon": "File"
+  },
+  {
     "name": "Declaration",
     "slug": "declaration",
-    "count": 85,
-    "classCount": 6,
-    "description": "Core customs declaration documents \u2014 goods declaration, amendment, cancellation, government procedures",
-    "color": "blue",
+    "count": 104,
+    "classCount": 2,
+    "description": "Core customs declaration documents — goods declaration, amendment, cancellation, government procedures",
+    "color": "#6366f1",
     "icon": "FileText"
   },
   {
     "name": "Consignment",
     "slug": "consignment",
-    "count": 65,
-    "classCount": 5,
-    "description": "Shipment-level data \u2014 consignment identification, transport documents, consolidation",
-    "color": "cyan",
+    "count": 88,
+    "classCount": 3,
+    "description": "Shipment-level data — consignment identification, transport documents, consolidation",
+    "color": "#8b5cf6",
     "icon": "Package"
-  },
-  {
-    "name": "Goods",
-    "slug": "goods",
-    "count": 70,
-    "classCount": 9,
-    "description": "Goods item details \u2014 commodity codes, quantities, packaging, dangerous goods",
-    "color": "amber",
-    "icon": "Box"
-  },
-  {
-    "name": "Transport",
-    "slug": "transport",
-    "count": 55,
-    "classCount": 9,
-    "description": "Transport means and equipment \u2014 vessels, aircraft, vehicles, containers, seals",
-    "color": "emerald",
-    "icon": "Truck"
-  },
-  {
-    "name": "Party",
-    "slug": "party",
-    "count": 50,
-    "classCount": 15,
-    "description": "Trade participants \u2014 importers, exporters, agents, carriers, customs brokers",
-    "color": "violet",
-    "icon": "Users"
-  },
-  {
-    "name": "Location",
-    "slug": "location",
-    "count": 40,
-    "classCount": 8,
-    "description": "Geographic references \u2014 ports, airports, customs offices, UN/LOCODEs",
-    "color": "teal",
-    "icon": "MapPin"
   },
   {
     "name": "Financial",
     "slug": "financial",
-    "count": 45,
-    "classCount": 8,
+    "count": 79,
+    "classCount": 7,
     "description": "Customs valuation, duties, taxes, guarantees, payments, exchange rates",
-    "color": "orange",
+    "color": "#ef4444",
     "icon": "DollarSign"
   },
   {
-    "name": "Document",
-    "slug": "document",
-    "count": 35,
-    "classCount": 9,
-    "description": "Supporting documents \u2014 certificates, licenses, permits, invoices, B/Ls",
-    "color": "slate",
-    "icon": "FileCheck"
+    "name": "Party",
+    "slug": "party",
+    "count": 75,
+    "classCount": 19,
+    "description": "Trade participants — importers, exporters, agents, carriers, customs brokers",
+    "color": "#3b82f6",
+    "icon": "Users"
   },
   {
-    "name": "Classification",
-    "slug": "classification",
-    "count": 30,
-    "classCount": 5,
-    "description": "HS codes, national tariff lines, preference codes, quota allocations",
-    "color": "yellow",
-    "icon": "Tag"
+    "name": "Other",
+    "slug": "other",
+    "count": 73,
+    "classCount": 194,
+    "description": "WCO DM elements related to other operations",
+    "color": "#94a3b8",
+    "icon": "MoreHorizontal"
+  },
+  {
+    "name": "Location",
+    "slug": "location",
+    "count": 71,
+    "classCount": 11,
+    "description": "Geographic references — ports, airports, customs offices, UN/LOCODEs",
+    "color": "#10b981",
+    "icon": "MapPin"
   },
   {
     "name": "Risk & Control",
     "slug": "risk-control",
     "count": 25,
-    "classCount": 5,
+    "classCount": 2,
     "description": "Risk assessment, examinations, selectivity channels, government procedures",
-    "color": "red",
+    "color": "#64748b",
     "icon": "Shield"
   },
   {
     "name": "Origin",
     "slug": "origin",
-    "count": 30,
-    "classCount": 6,
+    "count": 10,
+    "classCount": 2,
     "description": "Rules of origin, certificates of origin, preferential treatment, cumulation",
-    "color": "lime",
+    "color": "#22c55e",
     "icon": "Globe"
-  },
-  {
-    "name": "Warehouse",
-    "slug": "warehouse",
-    "count": 25,
-    "classCount": 6,
-    "description": "Bonded warehouses, free zones, temporary storage, processing regimes",
-    "color": "indigo",
-    "icon": "Warehouse"
-  },
-  {
-    "name": "E-Commerce",
-    "slug": "e-commerce",
-    "count": 22,
-    "classCount": 6,
-    "description": "Cross-border e-commerce, de minimis, simplified declarations, postal items",
-    "color": "pink",
-    "icon": "ShoppingCart"
   },
   {
     "name": "Response",
     "slug": "response",
-    "count": 25,
-    "classCount": 6,
-    "description": "Customs responses \u2014 decisions, releases, queries, errors, penalties",
-    "color": "gray",
+    "count": 9,
+    "classCount": 2,
+    "description": "Customs responses — decisions, releases, queries, errors, penalties",
+    "color": "#78716c",
     "icon": "MessageSquare"
+  },
+  {
+    "name": "Classification",
+    "slug": "classification",
+    "count": 8,
+    "classCount": 2,
+    "description": "HS codes, national tariff lines, preference codes, quota allocations",
+    "color": "#06b6d4",
+    "icon": "Tag"
+  },
+  {
+    "name": "Warehouse",
+    "slug": "warehouse",
+    "count": 7,
+    "classCount": 1,
+    "description": "Bonded warehouses, free zones, temporary storage, processing regimes",
+    "color": "#a855f7",
+    "icon": "Warehouse"
   }
 ]

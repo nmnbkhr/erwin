@@ -1,2230 +1,867 @@
 [
   {
     "id": "CL_001",
-    "name": "Declaration type code",
-    "source": "WCO",
-    "values": [
-      {
-        "code": "IM",
-        "description": "Import declaration"
-      },
-      {
-        "code": "EX",
-        "description": "Export declaration"
-      },
-      {
-        "code": "TR",
-        "description": "Transit declaration"
-      },
-      {
-        "code": "CO",
-        "description": "Combined declaration"
-      },
-      {
-        "code": "RE",
-        "description": "Re-export declaration"
-      },
-      {
-        "code": "WH",
-        "description": "Warehousing declaration"
-      },
-      {
-        "code": "TA",
-        "description": "Temporary admission"
-      },
-      {
-        "code": "IB",
-        "description": "In-bond transfer"
-      }
-    ],
-    "pakMapping": "WeBOC GD Type field (HC, EX, WH, TR, TS, IB, EB, TA, EFS, TI, RI, RE, SS, BD, ST, PB)"
+    "name": "ActionCode",
+    "source": "UN/EDIFACT code list 1229 OR User code list",
+    "values": []
   },
   {
     "id": "CL_002",
-    "name": "Message function code",
-    "source": "UN/EDIFACT 1225",
-    "values": [
-      {
-        "code": "9",
-        "description": "Original"
-      },
-      {
-        "code": "5",
-        "description": "Replacement"
-      },
-      {
-        "code": "1",
-        "description": "Cancellation"
-      },
-      {
-        "code": "4",
-        "description": "Change/amendment"
-      },
-      {
-        "code": "11",
-        "description": "Response"
-      },
-      {
-        "code": "46",
-        "description": "Provisional"
-      }
-    ],
-    "pakMapping": "WeBOC message function for GD submission/amendment/cancellation"
+    "name": "AdditionalProcedureCode",
+    "source": "User code list (see EU CDM code list for DE 11 10 001 000)",
+    "values": []
   },
   {
     "id": "CL_003",
-    "name": "Country code (ISO 3166-1 alpha-2)",
-    "source": "ISO",
-    "values": [
-      {
-        "code": "PK",
-        "description": "Pakistan"
-      },
-      {
-        "code": "CN",
-        "description": "China"
-      },
-      {
-        "code": "US",
-        "description": "United States"
-      },
-      {
-        "code": "AE",
-        "description": "United Arab Emirates"
-      },
-      {
-        "code": "SA",
-        "description": "Saudi Arabia"
-      },
-      {
-        "code": "DE",
-        "description": "Germany"
-      },
-      {
-        "code": "GB",
-        "description": "United Kingdom"
-      },
-      {
-        "code": "AF",
-        "description": "Afghanistan"
-      },
-      {
-        "code": "IN",
-        "description": "India"
-      },
-      {
-        "code": "TR",
-        "description": "T\u00fcrkiye"
-      },
-      {
-        "code": "ID",
-        "description": "Indonesia"
-      },
-      {
-        "code": "MY",
-        "description": "Malaysia"
-      },
-      {
-        "code": "JP",
-        "description": "Japan"
-      },
-      {
-        "code": "KR",
-        "description": "South Korea"
-      },
-      {
-        "code": "BD",
-        "description": "Bangladesh"
-      },
-      {
-        "code": "IR",
-        "description": "Iran"
-      },
-      {
-        "code": "IT",
-        "description": "Italy"
-      },
-      {
-        "code": "NL",
-        "description": "Netherlands"
-      },
-      {
-        "code": "FR",
-        "description": "France"
-      },
-      {
-        "code": "TH",
-        "description": "Thailand"
-      }
-    ],
-    "pakMapping": "Country of origin, destination, dispatch in WeBOC GD"
+    "name": "AddressTypeCode",
+    "source": "UN/EDIFACT code list 3131",
+    "values": []
   },
   {
     "id": "CL_004",
-    "name": "Currency code (ISO 4217)",
-    "source": "ISO",
-    "values": [
-      {
-        "code": "PKR",
-        "description": "Pakistani Rupee"
-      },
-      {
-        "code": "USD",
-        "description": "US Dollar"
-      },
-      {
-        "code": "EUR",
-        "description": "Euro"
-      },
-      {
-        "code": "GBP",
-        "description": "British Pound"
-      },
-      {
-        "code": "CNY",
-        "description": "Chinese Yuan"
-      },
-      {
-        "code": "AED",
-        "description": "UAE Dirham"
-      },
-      {
-        "code": "SAR",
-        "description": "Saudi Riyal"
-      },
-      {
-        "code": "JPY",
-        "description": "Japanese Yen"
-      },
-      {
-        "code": "CHF",
-        "description": "Swiss Franc"
-      },
-      {
-        "code": "CAD",
-        "description": "Canadian Dollar"
-      }
-    ],
-    "pakMapping": "Invoice currency and SBP exchange rate reference"
+    "name": "AgentFunctionCode",
+    "source": "UN/EDIFACT code list 4405\nFor use with the EU CDM:\n- code 2 (Representative (direct representation within the meaning of Article 18(1 of the code))\n- code 3 (Representative (indirect representation within the meaning of Article 18(1 of the code))",
+    "values": []
   },
   {
     "id": "CL_005",
-    "name": "Transport mode code (UN/ECE Rec 19)",
-    "source": "UN/ECE",
-    "values": [
-      {
-        "code": "1",
-        "description": "Maritime transport"
-      },
-      {
-        "code": "2",
-        "description": "Rail transport"
-      },
-      {
-        "code": "3",
-        "description": "Road transport"
-      },
-      {
-        "code": "4",
-        "description": "Air transport"
-      },
-      {
-        "code": "5",
-        "description": "Mail"
-      },
-      {
-        "code": "6",
-        "description": "Multimodal transport"
-      },
-      {
-        "code": "7",
-        "description": "Fixed transport installations (pipeline)"
-      },
-      {
-        "code": "8",
-        "description": "Inland waterway transport"
-      },
-      {
-        "code": "9",
-        "description": "Mode not applicable"
-      }
-    ],
-    "pakMapping": "Mode of transport in WeBOC (Sea ~60%, Air ~25%, Land ~15%)"
+    "name": "AgentQualityAssuranceCode",
+    "source": "UN/EDIFACT code list 7365 subset (codes 166 and 167)",
+    "values": []
   },
   {
     "id": "CL_006",
-    "name": "Package type code (UN/ECE Rec 21)",
-    "source": "UN/ECE",
+    "name": "AIPTypeCode",
+    "source": "WCO code list/AIPTypeCode",
     "values": [
       {
-        "code": "CT",
-        "description": "Carton"
-      },
-      {
-        "code": "BG",
-        "description": "Bag"
-      },
-      {
-        "code": "BX",
-        "description": "Box"
-      },
-      {
-        "code": "PK",
-        "description": "Package"
-      },
-      {
-        "code": "DR",
-        "description": "Drum"
-      },
-      {
-        "code": "CR",
-        "description": "Crate"
-      },
-      {
-        "code": "PL",
-        "description": "Pallet"
-      },
-      {
-        "code": "BL",
-        "description": "Bale"
-      },
-      {
-        "code": "CY",
-        "description": "Cylinder"
-      },
-      {
-        "code": "SK",
-        "description": "Sack"
-      },
-      {
-        "code": "CS",
-        "description": "Case"
-      },
-      {
-        "code": "RL",
-        "description": "Reel/roll"
-      },
-      {
-        "code": "NE",
-        "description": "Unpacked/unpackaged"
+        "code": "1\n2",
+        "description": "InterGov\nResponse"
       }
-    ],
-    "pakMapping": "Package type in WeBOC GD line items"
+    ]
   },
   {
     "id": "CL_007",
-    "name": "Container size/type code (ISO 6346)",
-    "source": "ISO",
-    "values": [
-      {
-        "code": "20GP",
-        "description": "20ft General Purpose"
-      },
-      {
-        "code": "40GP",
-        "description": "40ft General Purpose"
-      },
-      {
-        "code": "40HC",
-        "description": "40ft High Cube"
-      },
-      {
-        "code": "20RF",
-        "description": "20ft Reefer"
-      },
-      {
-        "code": "40RF",
-        "description": "40ft Reefer"
-      },
-      {
-        "code": "20OT",
-        "description": "20ft Open Top"
-      },
-      {
-        "code": "40OT",
-        "description": "40ft Open Top"
-      },
-      {
-        "code": "20FR",
-        "description": "20ft Flat Rack"
-      },
-      {
-        "code": "40FR",
-        "description": "40ft Flat Rack"
-      },
-      {
-        "code": "20TK",
-        "description": "20ft Tank Container"
-      }
-    ],
-    "pakMapping": "Container type at KPT, PQIA, Gwadar terminals"
+    "name": "ArrivalConfirmationCode",
+    "source": "UN/EDIFACT code list 7365 subset (codes 164 and 165)",
+    "values": []
   },
   {
     "id": "CL_008",
-    "name": "Customs procedure code (CPC)",
-    "source": "WCO Kyoto/National",
-    "values": [
-      {
-        "code": "4000",
-        "description": "Home consumption (import for domestic use)"
-      },
-      {
-        "code": "4071",
-        "description": "Import with duty exemption under SRO"
-      },
-      {
-        "code": "1000",
-        "description": "Export (outright)"
-      },
-      {
-        "code": "1040",
-        "description": "Export after inward processing"
-      },
-      {
-        "code": "7100",
-        "description": "Warehousing entry"
-      },
-      {
-        "code": "4071",
-        "description": "Release from warehouse for home consumption"
-      },
-      {
-        "code": "8000",
-        "description": "Transit"
-      },
-      {
-        "code": "5300",
-        "description": "Temporary admission"
-      },
-      {
-        "code": "6100",
-        "description": "Re-import after outward processing"
-      },
-      {
-        "code": "3100",
-        "description": "Re-export"
-      }
-    ],
-    "pakMapping": "CPC codes used in WeBOC GD Government Procedure field"
+    "name": "BallastOrCargoTypeCode",
+    "source": "UN/EDIFACT code list 7085",
+    "values": []
   },
   {
     "id": "CL_009",
-    "name": "Preference code",
-    "source": "National",
-    "values": [
-      {
-        "code": "100",
-        "description": "Normal (MFN) rate"
-      },
-      {
-        "code": "200",
-        "description": "GSP preference"
-      },
-      {
-        "code": "300",
-        "description": "FTA preference"
-      },
-      {
-        "code": "310",
-        "description": "CPFTA-II preference"
-      },
-      {
-        "code": "320",
-        "description": "SAFTA preference"
-      },
-      {
-        "code": "330",
-        "description": "ECO TPA preference"
-      },
-      {
-        "code": "340",
-        "description": "D-8 PTA preference"
-      },
-      {
-        "code": "400",
-        "description": "SRO concessionary rate"
-      },
-      {
-        "code": "500",
-        "description": "Duty exemption (diplomatic/aid)"
-      },
-      {
-        "code": "210",
-        "description": "EU GSP+ preference"
-      }
-    ],
-    "pakMapping": "Preference code in WeBOC GD for concessionary duty rates"
+    "name": "BondActivityTypeCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_010",
-    "name": "Party function code",
-    "source": "UN/EDIFACT 3035",
-    "values": [
-      {
-        "code": "AG",
-        "description": "Agent/representative"
-      },
-      {
-        "code": "BY",
-        "description": "Buyer"
-      },
-      {
-        "code": "SE",
-        "description": "Seller"
-      },
-      {
-        "code": "CN",
-        "description": "Consignee"
-      },
-      {
-        "code": "CZ",
-        "description": "Consignor/shipper"
-      },
-      {
-        "code": "DT",
-        "description": "Declarant"
-      },
-      {
-        "code": "CA",
-        "description": "Carrier"
-      },
-      {
-        "code": "CB",
-        "description": "Customs broker"
-      },
-      {
-        "code": "IM",
-        "description": "Importer"
-      },
-      {
-        "code": "EX",
-        "description": "Exporter"
-      },
-      {
-        "code": "MF",
-        "description": "Manufacturer"
-      },
-      {
-        "code": "NI",
-        "description": "Notify party"
-      },
-      {
-        "code": "FW",
-        "description": "Freight forwarder"
-      },
-      {
-        "code": "WH",
-        "description": "Warehouse keeper"
-      }
-    ],
-    "pakMapping": "Party roles in WeBOC GD"
+    "name": "BunkerFuelTypeCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_011",
-    "name": "Location function code",
-    "source": "UN/EDIFACT 3227",
-    "values": [
-      {
-        "code": "1",
-        "description": "Place of terms of delivery"
-      },
-      {
-        "code": "5",
-        "description": "Place of departure"
-      },
-      {
-        "code": "7",
-        "description": "Place of delivery"
-      },
-      {
-        "code": "9",
-        "description": "Place of loading"
-      },
-      {
-        "code": "11",
-        "description": "Place of discharge"
-      },
-      {
-        "code": "13",
-        "description": "Place of destination"
-      },
-      {
-        "code": "14",
-        "description": "Country of origin"
-      },
-      {
-        "code": "17",
-        "description": "Country of destination"
-      },
-      {
-        "code": "18",
-        "description": "Country of transit"
-      },
-      {
-        "code": "22",
-        "description": "Customs office of entry"
-      },
-      {
-        "code": "24",
-        "description": "Customs office of exit"
-      },
-      {
-        "code": "27",
-        "description": "Country of dispatch"
-      },
-      {
-        "code": "35",
-        "description": "Examination location"
-      }
-    ],
-    "pakMapping": "Location codes in WeBOC GD"
+    "name": "BusinessTypeCode",
+    "source": "ISIC code list OR User codes",
+    "values": []
   },
   {
     "id": "CL_012",
-    "name": "Document type code",
-    "source": "UN/EDIFACT 1001",
-    "values": [
-      {
-        "code": "380",
-        "description": "Commercial invoice"
-      },
-      {
-        "code": "714",
-        "description": "Packing list"
-      },
-      {
-        "code": "705",
-        "description": "Bill of lading"
-      },
-      {
-        "code": "740",
-        "description": "Air waybill"
-      },
-      {
-        "code": "861",
-        "description": "Certificate of origin"
-      },
-      {
-        "code": "935",
-        "description": "Import licence"
-      },
-      {
-        "code": "941",
-        "description": "Phytosanitary certificate"
-      },
-      {
-        "code": "933",
-        "description": "Veterinary certificate"
-      },
-      {
-        "code": "270",
-        "description": "Insurance certificate"
-      },
-      {
-        "code": "325",
-        "description": "Weight certificate"
-      },
-      {
-        "code": "520",
-        "description": "Transit document"
-      },
-      {
-        "code": "235",
-        "description": "Customs bond"
-      }
-    ],
-    "pakMapping": "Supporting document types attached to WeBOC GD"
+    "name": "CallPurposeCode",
+    "source": "UN/EDIFACT code list 8025",
+    "values": []
   },
   {
     "id": "CL_013",
-    "name": "Duty/tax type code",
-    "source": "National/WCO",
-    "values": [
-      {
-        "code": "A00",
-        "description": "Customs duty"
-      },
-      {
-        "code": "A10",
-        "description": "Additional customs duty (ACD)"
-      },
-      {
-        "code": "A20",
-        "description": "Regulatory duty (RD)"
-      },
-      {
-        "code": "B00",
-        "description": "Sales tax (GST)"
-      },
-      {
-        "code": "B10",
-        "description": "Further sales tax"
-      },
-      {
-        "code": "C00",
-        "description": "Advance income tax (WHT)"
-      },
-      {
-        "code": "D00",
-        "description": "Federal excise duty (FED)"
-      },
-      {
-        "code": "E00",
-        "description": "Anti-dumping duty"
-      },
-      {
-        "code": "E10",
-        "description": "Countervailing duty"
-      },
-      {
-        "code": "F00",
-        "description": "Surcharge"
-      }
-    ],
-    "pakMapping": "Duty/tax types in WeBOC assessment module"
+    "name": "CarrierSplitConsignmentCode",
+    "source": "UN/EDIFACT code list 7365 subset (codes 156 and 157)",
+    "values": []
   },
   {
     "id": "CL_014",
-    "name": "Payment method code",
-    "source": "UN/EDIFACT 4461",
-    "values": [
-      {
-        "code": "E",
-        "description": "Electronic bank transfer"
-      },
-      {
-        "code": "C",
-        "description": "Cash"
-      },
-      {
-        "code": "D",
-        "description": "Deferred payment"
-      },
-      {
-        "code": "G",
-        "description": "Government account"
-      },
-      {
-        "code": "O",
-        "description": "Online payment (1-Link/JazzCash/Easypaisa)"
-      },
-      {
-        "code": "S",
-        "description": "Surety bond"
-      },
-      {
-        "code": "K",
-        "description": "Bank challan"
-      },
-      {
-        "code": "L",
-        "description": "Letter of credit"
-      }
-    ],
-    "pakMapping": "Payment methods in WeBOC (mostly E-payment via banks)"
+    "name": "ChangeReasonCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_015",
-    "name": "Guarantee type code",
-    "source": "WCO/National",
-    "values": [
-      {
-        "code": "0",
-        "description": "No guarantee"
-      },
-      {
-        "code": "1",
-        "description": "Comprehensive guarantee"
-      },
-      {
-        "code": "2",
-        "description": "Individual guarantee by bank"
-      },
-      {
-        "code": "3",
-        "description": "Cash deposit"
-      },
-      {
-        "code": "4",
-        "description": "Individual guarantee by insurer"
-      },
-      {
-        "code": "5",
-        "description": "Guarantee waived (AEO)"
-      },
-      {
-        "code": "8",
-        "description": "Guarantee not required under SRO"
-      }
-    ],
-    "pakMapping": "Bond/guarantee types for WeBOC warehousing and transit"
+    "name": "CharacteristicCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_016",
-    "name": "Examination type code",
-    "source": "National",
-    "values": [
-      {
-        "code": "DOC",
-        "description": "Documentary examination"
-      },
-      {
-        "code": "PHY",
-        "description": "Physical examination"
-      },
-      {
-        "code": "SCN",
-        "description": "Non-intrusive scanning (X-ray/gamma)"
-      },
-      {
-        "code": "LAB",
-        "description": "Laboratory analysis/sampling"
-      },
-      {
-        "code": "SPC",
-        "description": "Special examination (controlled delivery)"
-      },
-      {
-        "code": "PCA",
-        "description": "Post-clearance audit"
-      }
-    ],
-    "pakMapping": "Examination types in WeBOC (linked to selectivity channel)"
+    "name": "CharacteristicValueCode",
+    "source": "UN/EDIFACT code list 7111 OR User codes",
+    "values": []
   },
   {
     "id": "CL_017",
-    "name": "Examination result code",
-    "source": "National",
-    "values": [
-      {
-        "code": "SAT",
-        "description": "Satisfactory \u2014 no discrepancy found"
-      },
-      {
-        "code": "MIN",
-        "description": "Minor discrepancy (correctable)"
-      },
-      {
-        "code": "MAJ",
-        "description": "Major discrepancy (duty shortfall/misdeclaration)"
-      },
-      {
-        "code": "SEZ",
-        "description": "Seizure \u2014 goods confiscated"
-      },
-      {
-        "code": "REF",
-        "description": "Referred for further investigation"
-      },
-      {
-        "code": "PEN",
-        "description": "Penalty assessed"
-      }
-    ],
-    "pakMapping": "Examination results recorded in WeBOC"
+    "name": "ChargesTypeCode",
+    "source": "UN/EDIFACT code list 5025\nFor use with the EU CDM:\n- AB  Commissions and brokerage, except buying commissions   \n- AD  Containers and packing   \n- AE  Materials, components, parts and similar items incorporated in the imported goods   \n- AF  Tools, dies, moulds and similar items used in the production of the imported goods  \n- AG  Materials consumed in the production of the imported goods\n- AH  Engineering, development, artwork, design work and plans and sketches undertaken elsewhere than in the European Union and necessary for the production of the imported goods   \n- AI  Royalties and license fees\n- AJ  Proceeds of any subsequent resale, disposal or use accruing to the seller   \n- AK  Transport costs, loading and handling charges and insurance costs up to the place of introduction in the European Union   \n- AL  Indirect payments and other payments (Article 70 of the code)\n- AN  Additions based on a decision granted in accordance with Article 71 of Delegated Regulation (EU) 2015/2446. Deductions (As defined under Articles 72 of the Code)   \n- BA  Costs of transport after arrival at the place of introduction   \n- BB  Charges for construction, erection, assembly, maintenance or technical assistance undertaken after importation   \n- BC  Import duties or other charges payable in the Union for reason of the import or sale of goods   \n- BD  Interest charges   \n- BE  Charges for the right to reproduce the imported goods in the European Union   \n- BF  Buying commissions  \n- BG  Deductions based on a decision granted in accordance with Article 71 of Delegated Regulation (EU) 2015/2446",
+    "values": []
   },
   {
     "id": "CL_018",
-    "name": "Seal type code",
-    "source": "WCO/National",
-    "values": [
-      {
-        "code": "CA",
-        "description": "Carrier seal"
-      },
-      {
-        "code": "CU",
-        "description": "Customs seal"
-      },
-      {
-        "code": "SH",
-        "description": "Shipper seal"
-      },
-      {
-        "code": "TO",
-        "description": "Terminal operator seal"
-      },
-      {
-        "code": "EL",
-        "description": "Electronic seal (e-seal)"
-      },
-      {
-        "code": "OT",
-        "description": "Other/third-party seal"
-      }
-    ],
-    "pakMapping": "Seal types for container and vehicle sealing at customs"
+    "name": "ClassificationNameCode",
+    "source": "UN/EDIFACT code list 7357",
+    "values": []
   },
   {
     "id": "CL_019",
-    "name": "Risk level code",
-    "source": "National/WCO",
-    "values": [
-      {
-        "code": "G",
-        "description": "Green \u2014 low risk (auto-release)"
-      },
-      {
-        "code": "Y",
-        "description": "Yellow \u2014 medium risk (documentary check)"
-      },
-      {
-        "code": "R",
-        "description": "Red \u2014 high risk (physical examination)"
-      },
-      {
-        "code": "B",
-        "description": "Blue \u2014 post-clearance audit selection"
-      },
-      {
-        "code": "W",
-        "description": "White \u2014 controlled delivery (enforcement)"
-      }
-    ],
-    "pakMapping": "WeBOC selectivity channels (Green ~60%, Yellow ~25%, Red ~15%)"
+    "name": "CommodityCategoryCode",
+    "source": "UN/EDIFACT code list 7009",
+    "values": []
   },
   {
     "id": "CL_020",
-    "name": "AEO status code",
-    "source": "WCO/National",
-    "values": [
-      {
-        "code": "NONE",
-        "description": "Not AEO certified"
-      },
-      {
-        "code": "AEO-S",
-        "description": "AEO for Safety/Security"
-      },
-      {
-        "code": "AEO-C",
-        "description": "AEO for Customs Simplification"
-      },
-      {
-        "code": "AEO-F",
-        "description": "AEO Full (Safety + Customs)"
-      },
-      {
-        "code": "SUSP",
-        "description": "AEO status suspended"
-      },
-      {
-        "code": "REVK",
-        "description": "AEO status revoked"
-      }
-    ],
-    "pakMapping": "AEO tiers in Pakistan (Bronze/Silver/Gold \u2014 <50 certified as of 2025)"
+    "name": "CommodityCategoryQualifierCode",
+    "source": "UN/EDIFACT code list 3055 OR User codes (1131)",
+    "values": []
   },
   {
     "id": "CL_021",
-    "name": "Valuation method code (WTO 1-6)",
-    "source": "WTO",
-    "values": [
-      {
-        "code": "1",
-        "description": "Transaction value of imported goods (Article 1)"
-      },
-      {
-        "code": "2",
-        "description": "Transaction value of identical goods (Article 2)"
-      },
-      {
-        "code": "3",
-        "description": "Transaction value of similar goods (Article 3)"
-      },
-      {
-        "code": "4",
-        "description": "Deductive value (Article 5)"
-      },
-      {
-        "code": "5",
-        "description": "Computed value (Article 6)"
-      },
-      {
-        "code": "6",
-        "description": "Fallback method (Article 7)"
-      }
-    ],
-    "pakMapping": "WTO valuation methods \u2014 Pakistan mostly uses Method 1, DG Valuation applies Method 6 for under-invoicing"
+    "name": "CommodityCharacteristicQualifierCode",
+    "source": "UN/EDIFACT code list 7081",
+    "values": []
   },
   {
     "id": "CL_022",
-    "name": "Incoterms (2020)",
-    "source": "ICC",
-    "values": [
-      {
-        "code": "EXW",
-        "description": "Ex Works"
-      },
-      {
-        "code": "FCA",
-        "description": "Free Carrier"
-      },
-      {
-        "code": "FAS",
-        "description": "Free Alongside Ship"
-      },
-      {
-        "code": "FOB",
-        "description": "Free on Board"
-      },
-      {
-        "code": "CFR",
-        "description": "Cost and Freight"
-      },
-      {
-        "code": "CIF",
-        "description": "Cost, Insurance and Freight"
-      },
-      {
-        "code": "CPT",
-        "description": "Carriage Paid To"
-      },
-      {
-        "code": "CIP",
-        "description": "Carriage and Insurance Paid To"
-      },
-      {
-        "code": "DAP",
-        "description": "Delivered at Place"
-      },
-      {
-        "code": "DPU",
-        "description": "Delivered at Place Unloaded"
-      },
-      {
-        "code": "DDP",
-        "description": "Delivered Duty Paid"
-      }
-    ],
-    "pakMapping": "Terms of delivery in WeBOC GD \u2014 CIF most common for imports"
+    "name": "CommodityClassificationTypeCode",
+    "source": "UN/EDIFACT code list 7143",
+    "values": []
   },
   {
     "id": "CL_023",
-    "name": "UN/LOCODE (Pakistan ports)",
-    "source": "UN/ECE",
-    "values": [
-      {
-        "code": "PKKHI",
-        "description": "Karachi (KPT/KICT/PICT/SAPT)"
-      },
-      {
-        "code": "PKBQM",
-        "description": "Port Muhammad Bin Qasim (QICT/PIBT)"
-      },
-      {
-        "code": "PKGWD",
-        "description": "Gwadar Port"
-      },
-      {
-        "code": "PKLHE",
-        "description": "Lahore (airport + dry port)"
-      },
-      {
-        "code": "PKISB",
-        "description": "Islamabad (airport)"
-      },
-      {
-        "code": "PKPEW",
-        "description": "Peshawar (airport + dry port)"
-      },
-      {
-        "code": "PKFSD",
-        "description": "Faisalabad (dry port)"
-      },
-      {
-        "code": "PKWGA",
-        "description": "Wagah (India land border)"
-      },
-      {
-        "code": "PKTRK",
-        "description": "Torkham (Afghanistan land border)"
-      },
-      {
-        "code": "PKCHM",
-        "description": "Chaman (Afghanistan land border)"
-      },
-      {
-        "code": "PKSST",
-        "description": "Sost (China land border, KKH)"
-      },
-      {
-        "code": "PKMUX",
-        "description": "Multan (dry port)"
-      },
-      {
-        "code": "PKSKT",
-        "description": "Sialkot (airport + dry port)"
-      },
-      {
-        "code": "PKQTA",
-        "description": "Quetta (airport)"
-      }
-    ],
-    "pakMapping": "Pakistan customs stations and ports in WeBOC"
+    "name": "CommodityDangerousGoodsPackingGroupCode",
+    "source": "UN/EDIFACT code list 7233",
+    "values": []
   },
   {
     "id": "CL_024",
-    "name": "HS Chapter (01-97)",
-    "source": "WCO",
-    "values": [
-      {
-        "code": "01-05",
-        "description": "Live animals; Animal products"
-      },
-      {
-        "code": "06-14",
-        "description": "Vegetable products"
-      },
-      {
-        "code": "15",
-        "description": "Animal/vegetable fats and oils"
-      },
-      {
-        "code": "16-24",
-        "description": "Prepared foodstuffs"
-      },
-      {
-        "code": "25-27",
-        "description": "Mineral products"
-      },
-      {
-        "code": "28-38",
-        "description": "Chemical products"
-      },
-      {
-        "code": "39-40",
-        "description": "Plastics and rubber"
-      },
-      {
-        "code": "41-43",
-        "description": "Hides, skins, leather"
-      },
-      {
-        "code": "44-46",
-        "description": "Wood and articles of wood"
-      },
-      {
-        "code": "47-49",
-        "description": "Pulp, paper"
-      },
-      {
-        "code": "50-63",
-        "description": "Textiles and textile articles"
-      },
-      {
-        "code": "64-67",
-        "description": "Footwear, headgear"
-      },
-      {
-        "code": "68-70",
-        "description": "Stone, cement, ceramic, glass"
-      },
-      {
-        "code": "71",
-        "description": "Precious metals, stones, jewelry"
-      },
-      {
-        "code": "72-83",
-        "description": "Base metals and articles"
-      },
-      {
-        "code": "84-85",
-        "description": "Machinery, electrical equipment"
-      },
-      {
-        "code": "86-89",
-        "description": "Vehicles, aircraft, vessels"
-      },
-      {
-        "code": "90-92",
-        "description": "Optical, measuring, medical instruments"
-      },
-      {
-        "code": "93",
-        "description": "Arms and ammunition"
-      },
-      {
-        "code": "94-96",
-        "description": "Furniture, toys, misc manufactured"
-      },
-      {
-        "code": "97",
-        "description": "Works of art, antiques"
-      }
-    ],
-    "pakMapping": "HS chapters for PCT (Pakistan Customs Tariff) classification"
+    "name": "CommodityIdentifierTypeCode",
+    "source": "UN/EDIFACT code list 7143",
+    "values": []
   },
   {
     "id": "CL_025",
-    "name": "Selectivity channel code",
-    "source": "National",
-    "values": [
-      {
-        "code": "G",
-        "description": "Green channel \u2014 auto release"
-      },
-      {
-        "code": "Y",
-        "description": "Yellow channel \u2014 documentary check"
-      },
-      {
-        "code": "R",
-        "description": "Red channel \u2014 physical examination"
-      },
-      {
-        "code": "B",
-        "description": "Blue channel \u2014 post clearance audit"
-      }
-    ],
-    "pakMapping": "WeBOC risk selectivity channels"
+    "name": "CommodityIdentityNumberQualifierCode",
+    "source": "UN/EDIFACT code list 7405",
+    "values": []
   },
   {
     "id": "CL_026",
-    "name": "GD type code (Pakistan)",
-    "source": "National",
-    "values": [
-      {
-        "code": "HC",
-        "description": "Home Consumption"
-      },
-      {
-        "code": "WH",
-        "description": "Warehousing"
-      },
-      {
-        "code": "EX",
-        "description": "Export"
-      },
-      {
-        "code": "TR",
-        "description": "Transit (ATTA)"
-      },
-      {
-        "code": "TS",
-        "description": "Transshipment"
-      },
-      {
-        "code": "IB",
-        "description": "In-Bond Transfer"
-      },
-      {
-        "code": "EB",
-        "description": "Ex-Bond"
-      },
-      {
-        "code": "TA",
-        "description": "Temporary Admission"
-      },
-      {
-        "code": "EFS",
-        "description": "Export Facilitation Scheme"
-      },
-      {
-        "code": "TI",
-        "description": "Temporary Import"
-      },
-      {
-        "code": "RI",
-        "description": "Re-Import"
-      },
-      {
-        "code": "RE",
-        "description": "Re-Export"
-      },
-      {
-        "code": "SS",
-        "description": "Ship Stores"
-      },
-      {
-        "code": "BD",
-        "description": "Batch Data"
-      },
-      {
-        "code": "ST",
-        "description": "Safe Transportation"
-      },
-      {
-        "code": "PB",
-        "description": "Personal Baggage"
-      }
-    ],
-    "pakMapping": "All 16 GD types in WeBOC (the $6.5B data gap affected 9 of these)"
+    "name": "CommodityNameQualifierCode",
+    "source": "UN/EDIFACT code list 7081",
+    "values": []
   },
   {
     "id": "CL_027",
-    "name": "Collectorate code (Pakistan)",
-    "source": "National",
-    "values": [
-      {
-        "code": "APPR",
-        "description": "MCC Appraisement (East/West/South)"
-      },
-      {
-        "code": "PREV",
-        "description": "MCC Preventive"
-      },
-      {
-        "code": "PORT",
-        "description": "MCC Port Qasim"
-      },
-      {
-        "code": "AIRK",
-        "description": "MCC Air Freight Unit Karachi"
-      },
-      {
-        "code": "LAHE",
-        "description": "CC Lahore"
-      },
-      {
-        "code": "FAIS",
-        "description": "CC Faisalabad"
-      },
-      {
-        "code": "ISLA",
-        "description": "CC Islamabad"
-      },
-      {
-        "code": "PESH",
-        "description": "CC Peshawar"
-      },
-      {
-        "code": "QUET",
-        "description": "CC Quetta"
-      },
-      {
-        "code": "GWDR",
-        "description": "CC Gwadar"
-      },
-      {
-        "code": "HYED",
-        "description": "CC Hyderabad"
-      },
-      {
-        "code": "MULT",
-        "description": "CC Multan"
-      },
-      {
-        "code": "SIAL",
-        "description": "CC Sialkot"
-      }
-    ],
-    "pakMapping": "FBR customs collectorate codes"
+    "name": "CommodityPhysicalStateCode",
+    "source": "UN/EDIFACT code list 7007",
+    "values": []
   },
   {
     "id": "CL_028",
-    "name": "FTA agreement code",
-    "source": "National",
-    "values": [
-      {
-        "code": "CPFTA2",
-        "description": "China-Pakistan FTA Phase 2"
-      },
-      {
-        "code": "SAFTA",
-        "description": "South Asian Free Trade Area"
-      },
-      {
-        "code": "D8PTA",
-        "description": "D-8 Preferential Trade Agreement"
-      },
-      {
-        "code": "ECOTPA",
-        "description": "ECO Trade Preferential Agreement"
-      },
-      {
-        "code": "GSPPLUS",
-        "description": "EU GSP Plus"
-      },
-      {
-        "code": "APTA",
-        "description": "Asia-Pacific Trade Agreement"
-      },
-      {
-        "code": "PKMY",
-        "description": "Pakistan-Malaysia FTA (negotiating)"
-      },
-      {
-        "code": "PKTR",
-        "description": "Pakistan-T\u00fcrkiye FTA (negotiating)"
-      }
-    ],
-    "pakMapping": "FTA codes used in preference declarations"
+    "name": "CommodityProcessTypeIdentificationCode",
+    "source": "UN/EDIFACT code list 7187",
+    "values": []
   },
   {
     "id": "CL_029",
-    "name": "SRO type code",
-    "source": "National",
-    "values": [
-      {
-        "code": "CD",
-        "description": "Customs duty exemption/reduction"
-      },
-      {
-        "code": "ST",
-        "description": "Sales tax exemption"
-      },
-      {
-        "code": "RD",
-        "description": "Regulatory duty imposition"
-      },
-      {
-        "code": "FED",
-        "description": "Federal excise duty"
-      },
-      {
-        "code": "WHT",
-        "description": "Withholding tax exemption"
-      },
-      {
-        "code": "ADD",
-        "description": "Anti-dumping duty"
-      },
-      {
-        "code": "CVD",
-        "description": "Countervailing duty"
-      },
-      {
-        "code": "GEN",
-        "description": "General notification"
-      }
-    ],
-    "pakMapping": "Types of Statutory Regulatory Orders from FBR (500+ active)"
+    "name": "CommunicationMeansTypeCode",
+    "source": "UN/EDIFACT code list 3155",
+    "values": []
   },
   {
     "id": "CL_030",
-    "name": "Customs duty slab code",
-    "source": "National",
-    "values": [
-      {
-        "code": "0",
-        "description": "0% \u2014 Raw materials/essentials"
-      },
-      {
-        "code": "3",
-        "description": "3% \u2014 Basic inputs"
-      },
-      {
-        "code": "5",
-        "description": "5% \u2014 Semi-finished goods"
-      },
-      {
-        "code": "7",
-        "description": "7% \u2014 Industrial inputs"
-      },
-      {
-        "code": "10",
-        "description": "10% \u2014 Intermediate goods"
-      },
-      {
-        "code": "11",
-        "description": "11% \u2014 Standard rate"
-      },
-      {
-        "code": "15",
-        "description": "15% \u2014 Semi-luxury goods"
-      },
-      {
-        "code": "16",
-        "description": "16% \u2014 Consumer goods"
-      },
-      {
-        "code": "20",
-        "description": "20% \u2014 Luxury/protective rate"
-      },
-      {
-        "code": "25",
-        "description": "25% \u2014 Highly protected items"
-      },
-      {
-        "code": "30",
-        "description": "30% \u2014 Maximum protective rate"
-      }
-    ],
-    "pakMapping": "Pakistan customs duty slabs (First Schedule, Customs Act 1969)"
+    "name": "CommunicationQualifierCode",
+    "source": "WCO code list/CommunicationSubTypeCode",
+    "values": []
   },
   {
     "id": "CL_031",
-    "name": "Province code (Pakistan)",
-    "source": "National",
-    "values": [
-      {
-        "code": "PB",
-        "description": "Punjab"
-      },
-      {
-        "code": "SD",
-        "description": "Sindh"
-      },
-      {
-        "code": "KP",
-        "description": "Khyber Pakhtunkhwa"
-      },
-      {
-        "code": "BL",
-        "description": "Balochistan"
-      },
-      {
-        "code": "IC",
-        "description": "Islamabad Capital Territory"
-      },
-      {
-        "code": "AK",
-        "description": "Azad Jammu & Kashmir"
-      },
-      {
-        "code": "GB",
-        "description": "Gilgit-Baltistan"
-      },
-      {
-        "code": "NMD",
-        "description": "Newly Merged Districts (ex-FATA)"
-      }
-    ],
-    "pakMapping": "Province codes for trader registration and customs jurisdiction"
+    "name": "ConstituentElementOrComponentCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_032",
-    "name": "Unit of measure code",
-    "source": "UN/ECE Rec 20",
-    "values": [
-      {
-        "code": "KGM",
-        "description": "Kilogram"
-      },
-      {
-        "code": "TNE",
-        "description": "Metric ton"
-      },
-      {
-        "code": "LTR",
-        "description": "Litre"
-      },
-      {
-        "code": "MTR",
-        "description": "Metre"
-      },
-      {
-        "code": "MTK",
-        "description": "Square metre"
-      },
-      {
-        "code": "MTQ",
-        "description": "Cubic metre"
-      },
-      {
-        "code": "PCE",
-        "description": "Piece"
-      },
-      {
-        "code": "PRS",
-        "description": "Pair"
-      },
-      {
-        "code": "DZN",
-        "description": "Dozen"
-      },
-      {
-        "code": "GRM",
-        "description": "Gram"
-      },
-      {
-        "code": "LBR",
-        "description": "Pound"
-      },
-      {
-        "code": "KWH",
-        "description": "Kilowatt hour"
-      }
-    ],
-    "pakMapping": "UOM codes in WeBOC for quantity declaration"
+    "name": "ContactFunctionCode",
+    "source": "UN/EDIFACT code list 3139",
+    "values": []
   },
   {
     "id": "CL_033",
-    "name": "Response decision code",
-    "source": "National",
-    "values": [
-      {
-        "code": "ACC",
-        "description": "Accepted"
-      },
-      {
-        "code": "REJ",
-        "description": "Rejected"
-      },
-      {
-        "code": "QRY",
-        "description": "Query \u2014 additional information required"
-      },
-      {
-        "code": "HLD",
-        "description": "Held \u2014 pending further processing"
-      },
-      {
-        "code": "REL",
-        "description": "Released"
-      },
-      {
-        "code": "PRL",
-        "description": "Partial release"
-      },
-      {
-        "code": "CAN",
-        "description": "Cancelled"
-      },
-      {
-        "code": "AMD",
-        "description": "Amendment required"
-      }
-    ],
-    "pakMapping": "WeBOC GD status codes"
+    "name": "ContainerLegalStatusCode",
+    "source": "UN/EDIFACT code list 7365 subset (codes 162 and 163)",
+    "values": []
   },
   {
     "id": "CL_034",
-    "name": "Port terminal code (KPT)",
-    "source": "National",
-    "values": [
-      {
-        "code": "KICT",
-        "description": "Karachi International Container Terminal (Hutchison)"
-      },
-      {
-        "code": "PICT",
-        "description": "Pakistan International Container Terminal (Maersk)"
-      },
-      {
-        "code": "SAPT",
-        "description": "South Asia Pakistan Terminals (DP World)"
-      },
-      {
-        "code": "KPT-BT",
-        "description": "KPT Bulk Terminal"
-      },
-      {
-        "code": "QICT",
-        "description": "Qasim International Container Terminal"
-      },
-      {
-        "code": "PIBT",
-        "description": "Pakistan International Bulk Terminal"
-      },
-      {
-        "code": "FOTCO",
-        "description": "Fauji Oil Terminal & Distribution Co"
-      },
-      {
-        "code": "EVTL",
-        "description": "Engro Vopak Terminal"
-      },
-      {
-        "code": "GPA",
-        "description": "Gwadar Port Authority"
-      }
-    ],
-    "pakMapping": "Port terminal operators in WeBOC"
+    "name": "ContainerStatusCode",
+    "source": "UN/EDIFACT code list 8249",
+    "values": []
   },
   {
     "id": "CL_035",
-    "name": "Dangerous goods class (ADR)",
-    "source": "UN",
-    "values": [
-      {
-        "code": "1",
-        "description": "Explosives"
-      },
-      {
-        "code": "2",
-        "description": "Gases"
-      },
-      {
-        "code": "3",
-        "description": "Flammable liquids"
-      },
-      {
-        "code": "4",
-        "description": "Flammable solids"
-      },
-      {
-        "code": "5",
-        "description": "Oxidizing substances"
-      },
-      {
-        "code": "6",
-        "description": "Toxic/infectious substances"
-      },
-      {
-        "code": "7",
-        "description": "Radioactive material"
-      },
-      {
-        "code": "8",
-        "description": "Corrosive substances"
-      },
-      {
-        "code": "9",
-        "description": "Miscellaneous dangerous goods"
-      }
-    ],
-    "pakMapping": "DG class for hazardous cargo handling at ports"
+    "name": "ContainerTransportCode",
+    "source": "UN/EDIFACT code list 7365 subset (codes 68 and 69)\nFor use with the EU CDM:\n- code 0 (Goods not transported in containers)\n- code 1 (Goods transported in containers)",
+    "values": []
   },
   {
     "id": "CL_036",
-    "name": "CPEC SEZ code",
-    "source": "National",
-    "values": [
-      {
-        "code": "RSHK",
-        "description": "Rashakai SEZ (KP)"
-      },
-      {
-        "code": "AIIC",
-        "description": "Allama Iqbal Industrial City (Punjab)"
-      },
-      {
-        "code": "DHBJ",
-        "description": "Dhabeji SEZ (Sindh)"
-      },
-      {
-        "code": "BSTN",
-        "description": "Bostan SEZ (Balochistan)"
-      },
-      {
-        "code": "M3IC",
-        "description": "M-3 Industrial City (Faisalabad)"
-      },
-      {
-        "code": "ICTZ",
-        "description": "ICT Model Zone (Islamabad)"
-      },
-      {
-        "code": "CMJK",
-        "description": "China SEZ Mirpur (AJK)"
-      },
-      {
-        "code": "GFZA",
-        "description": "Gwadar Free Zone (Phase 1&2)"
-      }
-    ],
-    "pakMapping": "CPEC Special Economic Zones with customs privileges"
+    "name": "ControlResultCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_037",
-    "name": "Trader type code",
-    "source": "National",
-    "values": [
-      {
-        "code": "MFR",
-        "description": "Manufacturer/producer"
-      },
-      {
-        "code": "TRD",
-        "description": "Commercial trader"
-      },
-      {
-        "code": "IND",
-        "description": "Industrial consumer"
-      },
-      {
-        "code": "GOV",
-        "description": "Government entity"
-      },
-      {
-        "code": "NGO",
-        "description": "Non-profit/NGO"
-      },
-      {
-        "code": "DIP",
-        "description": "Diplomatic mission"
-      },
-      {
-        "code": "AEO",
-        "description": "Authorized Economic Operator"
-      },
-      {
-        "code": "CHA",
-        "description": "Clearing/handling agent"
-      }
-    ],
-    "pakMapping": "Trader categories in WeBOC registration"
+    "name": "ControlTypeCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_038",
-    "name": "OGA code (Other Government Agency)",
-    "source": "National",
-    "values": [
-      {
-        "code": "DPP",
-        "description": "Department of Plant Protection"
-      },
-      {
-        "code": "AQSD",
-        "description": "Animal Quarantine Service"
-      },
-      {
-        "code": "DRAP",
-        "description": "Drug Regulatory Authority of Pakistan"
-      },
-      {
-        "code": "PSQCA",
-        "description": "Pakistan Standards & Quality Control Authority"
-      },
-      {
-        "code": "PNRA",
-        "description": "Pakistan Nuclear Regulatory Authority"
-      },
-      {
-        "code": "MOC",
-        "description": "Ministry of Commerce (strategic goods)"
-      },
-      {
-        "code": "MNH",
-        "description": "Ministry of National Health"
-      },
-      {
-        "code": "ANF",
-        "description": "Anti-Narcotics Force"
-      },
-      {
-        "code": "SUPARCO",
-        "description": "Space & Upper Atmosphere Research Commission"
-      },
-      {
-        "code": "PEC",
-        "description": "Pakistan Engineering Council"
-      }
-    ],
-    "pakMapping": "OGAs integrated via Pakistan Single Window (PSW) \u2014 ~40 of 70+ active"
+    "name": "CountryCode",
+    "source": "ISO 3166-1",
+    "values": []
   },
   {
     "id": "CL_039",
-    "name": "Bank code (Pakistan)",
-    "source": "National",
-    "values": [
-      {
-        "code": "HBL",
-        "description": "Habib Bank Limited"
-      },
-      {
-        "code": "UBL",
-        "description": "United Bank Limited"
-      },
-      {
-        "code": "NBP",
-        "description": "National Bank of Pakistan"
-      },
-      {
-        "code": "MCB",
-        "description": "MCB Bank Limited"
-      },
-      {
-        "code": "ABL",
-        "description": "Allied Bank Limited"
-      },
-      {
-        "code": "SBP",
-        "description": "State Bank of Pakistan"
-      },
-      {
-        "code": "BAF",
-        "description": "Bank Alfalah"
-      },
-      {
-        "code": "MEZ",
-        "description": "Meezan Bank"
-      },
-      {
-        "code": "STD",
-        "description": "Standard Chartered Pakistan"
-      },
-      {
-        "code": "FAY",
-        "description": "Faysal Bank"
-      }
-    ],
-    "pakMapping": "Banks authorized for customs duty e-payment"
+    "name": "CountryRelationshipCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_040",
-    "name": "Customs bond type code",
-    "source": "National",
-    "values": [
-      {
-        "code": "SUR",
-        "description": "Surety bond (bank guarantee)"
-      },
-      {
-        "code": "CSH",
-        "description": "Cash security deposit"
-      },
-      {
-        "code": "INS",
-        "description": "Insurance bond"
-      },
-      {
-        "code": "PRB",
-        "description": "Personal bond"
-      },
-      {
-        "code": "IDB",
-        "description": "Indemnity bond"
-      },
-      {
-        "code": "PDB",
-        "description": "Post-dated bank cheque"
-      }
-    ],
-    "pakMapping": "Bond types for warehousing, transit, temporary admission in WeBOC"
+    "name": "CountrySubDivisionCode",
+    "source": "ISO 3166-2 OR User codes",
+    "values": []
   },
   {
     "id": "CL_041",
-    "name": "Conveyance type code",
-    "source": "National",
-    "values": [
-      {
-        "code": "VES",
-        "description": "Vessel (cargo ship)"
-      },
-      {
-        "code": "TKR",
-        "description": "Tanker vessel"
-      },
-      {
-        "code": "BLK",
-        "description": "Bulk carrier"
-      },
-      {
-        "code": "CNT",
-        "description": "Container vessel"
-      },
-      {
-        "code": "AIR",
-        "description": "Aircraft (cargo)"
-      },
-      {
-        "code": "PAX",
-        "description": "Passenger aircraft (belly cargo)"
-      },
-      {
-        "code": "TRK",
-        "description": "Truck/lorry"
-      },
-      {
-        "code": "TRL",
-        "description": "Trailer/semi-trailer"
-      },
-      {
-        "code": "RWG",
-        "description": "Railway wagon"
-      },
-      {
-        "code": "PIP",
-        "description": "Pipeline"
-      }
-    ],
-    "pakMapping": "Conveyance types at Pakistani ports/borders"
+    "name": "CriteriaConformanceCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_042",
-    "name": "Afghan transit route code",
-    "source": "National",
-    "values": [
-      {
-        "code": "TRK-KHI",
-        "description": "Torkham via Karachi seaport"
-      },
-      {
-        "code": "TRK-PQ",
-        "description": "Torkham via Port Qasim"
-      },
-      {
-        "code": "CHM-KHI",
-        "description": "Chaman via Karachi seaport"
-      },
-      {
-        "code": "CHM-PQ",
-        "description": "Chaman via Port Qasim"
-      },
-      {
-        "code": "WAG-TRK",
-        "description": "Wagah to Torkham (rail/road)"
-      }
-    ],
-    "pakMapping": "ATTA transit routes through Pakistan"
+    "name": "CurrencyCode",
+    "source": "ISO 4217",
+    "values": []
   },
   {
     "id": "CL_043",
-    "name": "Import/export indicator",
-    "source": "National",
-    "values": [
-      {
-        "code": "I",
-        "description": "Import"
-      },
-      {
-        "code": "E",
-        "description": "Export"
-      },
-      {
-        "code": "T",
-        "description": "Transit"
-      },
-      {
-        "code": "R",
-        "description": "Re-export"
-      },
-      {
-        "code": "D",
-        "description": "Domestic (in-bond)"
-      }
-    ],
-    "pakMapping": "Trade direction indicator"
+    "name": "DangerousGoodsRegulationsCode",
+    "source": "UN/EDIFACT code list 8273",
+    "values": []
   },
   {
     "id": "CL_044",
-    "name": "Goods condition code",
-    "source": "WCO",
-    "values": [
-      {
-        "code": "NEW",
-        "description": "New/unused goods"
-      },
-      {
-        "code": "USD",
-        "description": "Used/second-hand goods"
-      },
-      {
-        "code": "REC",
-        "description": "Reconditioned"
-      },
-      {
-        "code": "DMG",
-        "description": "Damaged goods"
-      },
-      {
-        "code": "SAM",
-        "description": "Samples (not for sale)"
-      },
-      {
-        "code": "RET",
-        "description": "Returned goods"
-      }
-    ],
-    "pakMapping": "Goods condition affects valuation and duty"
+    "name": "DeclarantFunctionCode",
+    "source": "UN/EDIFACT code list 4405",
+    "values": []
   },
   {
     "id": "CL_045",
-    "name": "Trade finance instrument code",
-    "source": "Banking",
-    "values": [
-      {
-        "code": "LC",
-        "description": "Letter of credit"
-      },
-      {
-        "code": "DA",
-        "description": "Documents against acceptance"
-      },
-      {
-        "code": "DP",
-        "description": "Documents against payment"
-      },
-      {
-        "code": "TT",
-        "description": "Telegraphic transfer"
-      },
-      {
-        "code": "OA",
-        "description": "Open account"
-      },
-      {
-        "code": "AD",
-        "description": "Advance payment"
-      },
-      {
-        "code": "CON",
-        "description": "Consignment basis"
-      }
-    ],
-    "pakMapping": "Payment terms \u2014 LC required for >$10K imports, advance payment restrictions"
+    "name": "DocumentCategoryCode",
+    "source": "User code list",
+    "values": []
   },
   {
     "id": "CL_046",
-    "name": "Compliance status code",
-    "source": "National",
-    "values": [
-      {
-        "code": "COM",
-        "description": "Compliant"
-      },
-      {
-        "code": "NCM",
-        "description": "Non-compliant"
-      },
-      {
-        "code": "PAR",
-        "description": "Partially compliant"
-      },
-      {
-        "code": "UND",
-        "description": "Under review"
-      },
-      {
-        "code": "EXM",
-        "description": "Exempt from compliance requirement"
-      }
-    ],
-    "pakMapping": "Trader compliance status in WeBOC risk module"
+    "name": "DocumentFunctionCode",
+    "source": "UN/EDIFACT code list 1225",
+    "values": []
   },
   {
     "id": "CL_047",
-    "name": "WCO DM conformity level",
-    "source": "WCO",
-    "values": [
-      {
-        "code": "L1",
-        "description": "Level 1 \u2014 Exploratory (studying WCO DM)"
-      },
-      {
-        "code": "L2",
-        "description": "Level 2 \u2014 Mapping (mapping national data to WCO DM)"
-      },
-      {
-        "code": "L3",
-        "description": "Level 3 \u2014 Implementing (building WCO DM compliant systems)"
-      },
-      {
-        "code": "L4",
-        "description": "Level 4 \u2014 Conformant (published MIP, fully compliant)"
-      },
-      {
-        "code": "L5",
-        "description": "Level 5 \u2014 Interoperable (cross-border data exchange using WCO DM)"
-      }
-    ],
-    "pakMapping": "Pakistan is at Level 1-2 (WeBOC not fully WCO DM conformant, no MIP published)"
+    "name": "DocumentMessageSectionCode",
+    "source": "UN/EDIFACT code list 1049",
+    "values": []
   },
   {
     "id": "CL_048",
-    "name": "WeBOC module code",
-    "source": "National",
-    "values": [
-      {
-        "code": "GD",
-        "description": "Goods Declaration"
-      },
-      {
-        "code": "IGM",
-        "description": "Import General Manifest"
-      },
-      {
-        "code": "EGM",
-        "description": "Export General Manifest"
-      },
-      {
-        "code": "TR",
-        "description": "Transit"
-      },
-      {
-        "code": "WH",
-        "description": "Warehouse"
-      },
-      {
-        "code": "AUC",
-        "description": "Auction"
-      },
-      {
-        "code": "CCA",
-        "description": "Cross-border Credit Account"
-      },
-      {
-        "code": "RFS",
-        "description": "Refund/Drawback"
-      },
-      {
-        "code": "RPT",
-        "description": "Reporting"
-      },
-      {
-        "code": "USR",
-        "description": "User management"
-      }
-    ],
-    "pakMapping": "Major WeBOC system modules"
+    "name": "DocumentStatusCode",
+    "source": "UN/EDIFACT code list 1373",
+    "values": []
   },
   {
     "id": "CL_049",
-    "name": "PSW service code",
-    "source": "National",
-    "values": [
-      {
-        "code": "DPP-PC",
-        "description": "Plant protection certificate"
-      },
-      {
-        "code": "DPP-FR",
-        "description": "Fumigation and release order"
-      },
-      {
-        "code": "AQSD-HC",
-        "description": "Animal health certificate"
-      },
-      {
-        "code": "DRAP-IL",
-        "description": "Drug import licence"
-      },
-      {
-        "code": "PSQCA-IS",
-        "description": "Inspection certificate"
-      },
-      {
-        "code": "MOC-IP",
-        "description": "Import permit (strategic goods)"
-      },
-      {
-        "code": "PNRA-RC",
-        "description": "Radiation clearance"
-      },
-      {
-        "code": "ANF-NC",
-        "description": "Narcotics clearance"
-      }
-    ],
-    "pakMapping": "PSW electronic services from OGAs"
+    "name": "DocumentTypeCode",
+    "source": "UN/EDIFACT code list 1001 OR User codes",
+    "values": []
   },
   {
     "id": "CL_050",
-    "name": "Data quality issue code",
-    "source": "Analytical",
+    "name": "DutyRegimeCode",
+    "source": "UN/EDIFACT code list 9213 OR User codes",
+    "values": []
+  },
+  {
+    "id": "CL_051",
+    "name": "EndorsementCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_052",
+    "name": "EquipmentTypeCode",
+    "source": "UN/EDIFACT code list 8053",
+    "values": []
+  },
+  {
+    "id": "CL_053",
+    "name": "ErrorCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_054",
+    "name": "EventTypeCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_055",
+    "name": "FreeTradeZoneStatusCode",
+    "source": "UN/EDIFACT code list 4405",
+    "values": []
+  },
+  {
+    "id": "CL_056",
+    "name": "FreightChargeApportioningMethodCode",
+    "source": "WCO code list/FreightChargeApportioningMethodCode",
     "values": [
       {
-        "code": "MIS",
-        "description": "Missing required field"
-      },
-      {
-        "code": "INV",
-        "description": "Invalid format/value"
-      },
-      {
-        "code": "DUP",
-        "description": "Duplicate record"
-      },
-      {
-        "code": "INC",
-        "description": "Inconsistent across fields"
-      },
-      {
-        "code": "OUT",
-        "description": "Outlier value (statistical)"
-      },
-      {
-        "code": "OBS",
-        "description": "Obsolete code used"
-      },
-      {
-        "code": "UNM",
-        "description": "Unmapped to WCO DM standard"
+        "code": "160\n161",
+        "description": "To be added\nSecurity (including cash deposit)"
       }
-    ],
-    "pakMapping": "Data quality issues identified in WeBOC trade data"
+    ]
+  },
+  {
+    "id": "CL_057",
+    "name": "FreightChargePaymentMethodCode",
+    "source": "UN/EDIFACT code list 4215",
+    "values": []
+  },
+  {
+    "id": "CL_058",
+    "name": "GoodsGroupNameCode",
+    "source": "UN/EDIFACT code list 7059",
+    "values": []
+  },
+  {
+    "id": "CL_059",
+    "name": "GoodsLocationIdentificationTypeCode",
+    "source": "User code list (see EU CDM code list for DE 16 15 046 000)",
+    "values": []
+  },
+  {
+    "id": "CL_060",
+    "name": "GoodsMeasureFunctionCode",
+    "source": "UN/EDIFACT code list 6311",
+    "values": []
+  },
+  {
+    "id": "CL_061",
+    "name": "GovernmentAgencyNameCode",
+    "source": "UN/LOCODE (an..5) + User codes (an..12)",
+    "values": []
+  },
+  {
+    "id": "CL_062",
+    "name": "GovernmentAgencyTypeCode",
+    "source": "UN/EDIFACT code list 9415",
+    "values": []
+  },
+  {
+    "id": "CL_063",
+    "name": "GovernmentProcedureCode",
+    "source": "UN/EDIFACT code list 7365\nFor Customs:  User codes, categorized based on the revised Kyoto Convention",
+    "values": []
+  },
+  {
+    "id": "CL_064",
+    "name": "GuaranteeActivityTypeCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_065",
+    "name": "HandlingCode",
+    "source": "UN/EDIFACT code list 4079",
+    "values": []
+  },
+  {
+    "id": "CL_066",
+    "name": "INFShipClassCode",
+    "source": "Chapter VII of SOLAS (Carriage of dangerous goods)",
+    "values": [
+      {
+        "code": "INF1\nINF2\nINF3",
+        "description": "Ships which are certified to carry INF cargo with an aggregate activity less than 4,000 TBq\nShips which are certified to carry irradiated nuclear fuel or high-level radioactive wastes with an aggregate activity less than 2 x 106 TBq and ships which are certified to carry plutonium with an aggregate activity less than 2??105 TBq\nShips which are certified to carry irradiated nuclear fuel or high-level radioactive wastes and ships which are certified to carry plutonium with no restriction of the maximum aggregate activity of the materials"
+      }
+    ]
+  },
+  {
+    "id": "CL_067",
+    "name": "IntendedUseCode",
+    "source": "WCO code list/IntendedUseCode OR User code list",
+    "values": []
+  },
+  {
+    "id": "CL_068",
+    "name": "IPRTypeCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_069",
+    "name": "LanguageCode",
+    "source": "UN/EDIFACT code list 3453",
+    "values": []
+  },
+  {
+    "id": "CL_070",
+    "name": "LocationFunctionCode",
+    "source": "UN/EDIFACT code list 3227",
+    "values": []
+  },
+  {
+    "id": "CL_071",
+    "name": "LPCOExemptionCode",
+    "source": "UN/EDIFACT code list 4183",
+    "values": []
+  },
+  {
+    "id": "CL_072",
+    "name": "MeasurementUnitCode",
+    "source": "UN/EDIFACT code list 6411",
+    "values": []
+  },
+  {
+    "id": "CL_073",
+    "name": "ObligationGuaranteeCode",
+    "source": "WCO code list/ObligationGuaranteeCode OR User code list",
+    "values": [
+      {
+        "code": "M\nO\nP\nQ\nR\nS\nT\nU\nW\nZ",
+        "description": "Guarantee\nSecurity by individual guarantee\nSecurity from declarant's guarantee account\nSecurity from consignee's guarantee account (standing authority)\nAgent's bond\nSecurity by undertaking\nTo be added\nTo be added\nTo be added\nImmediate payment by cash or equivalent"
+      }
+    ]
+  },
+  {
+    "id": "CL_074",
+    "name": "OriginRuleCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_075",
+    "name": "OriginTypeCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_076",
+    "name": "PackageHierarchyCode",
+    "source": "UN/EDIFACT code list 7075",
+    "values": []
+  },
+  {
+    "id": "CL_077",
+    "name": "PackageTypeCode",
+    "source": "UN/ECE Recommendation 21 Annex VI",
+    "values": []
+  },
+  {
+    "id": "CL_078",
+    "name": "PartyRelationshipCode",
+    "source": "UN/EDIFACT code list 7365 subset (codes 135, 136 and 137)",
+    "values": []
+  },
+  {
+    "id": "CL_079",
+    "name": "PaymentMethodCode",
+    "source": "WCO code list/PaymentMethodCode",
+    "values": [
+      {
+        "code": "A\nB\nC\nD\nE\nG\nH\nJ\nK\nL\nO\nP\nR\nS\nT\nU\nV",
+        "description": "Payment in cash\nPayment by credit card\nPayment by check\nOthers not found elsewhere in code table\nDeferred or postponed payment\nPostponed payment\nElectronic credit transfer\nPayment through post office administration (postal consignments) or other public sector or government department\nExcise credit or rebate\nZero Duty or Duty Exempt\nGuarantee lodged with Intervention\nFrom agent's cash account\nGuarantee of the amount payable\nIndividual guarantee account\nFrom agent's guarantee account\nFrom agent's guarantee - standing authority\nFrom agent's guarantee - individual authority"
+      }
+    ]
+  },
+  {
+    "id": "CL_080",
+    "name": "PaymentTermsCode",
+    "source": "UN/ECE Recommendation 17",
+    "values": []
+  },
+  {
+    "id": "CL_081",
+    "name": "PaymentTypeCode",
+    "source": "WCO code list/PaymentTypeCode",
+    "values": [
+      {
+        "code": "F\nT",
+        "description": "Fare\nTotal"
+      }
+    ]
+  },
+  {
+    "id": "CL_082",
+    "name": "PersonCategoryCode",
+    "source": "User code list (preferably new WCO code list)",
+    "values": []
+  },
+  {
+    "id": "CL_083",
+    "name": "PersonGenderCode",
+    "source": "UN/EDIFACT code list 3499",
+    "values": []
+  },
+  {
+    "id": "CL_084",
+    "name": "PersonNationalityCode",
+    "source": "UN/EDIFACT code list 3207",
+    "values": []
+  },
+  {
+    "id": "CL_085",
+    "name": "PersonStatusCode",
+    "source": "UN/EDIFACT code list 3035\nUN/EDIFACT code list 7365",
+    "values": []
+  },
+  {
+    "id": "CL_086",
+    "name": "PersonTypeCode",
+    "source": "UN/EDIFACT code list 3035",
+    "values": []
+  },
+  {
+    "id": "CL_087",
+    "name": "ProfilePartnerTypeCode",
+    "source": "WCO code list/ProfilePartnerTypeCode",
+    "values": []
+  },
+  {
+    "id": "CL_088",
+    "name": "ProgramProfileTypeCode",
+    "source": "WCO code list/ProgramProfileTypeCode",
+    "values": []
+  },
+  {
+    "id": "CL_089",
+    "name": "RateTypeCode",
+    "source": "UN/EDIFACT code list 5419",
+    "values": []
+  },
+  {
+    "id": "CL_090",
+    "name": "ReconciliationReasonCode",
+    "source": "UN/EDIFACT code list 4183",
+    "values": []
+  },
+  {
+    "id": "CL_091",
+    "name": "ReferenceTypeCode",
+    "source": "UN/EDIFACT code list 1153.\nFor EU CDM usage:\nAdditional references must be entered in the form of a code defined in Title I.\nThe list of additional references and their respective codes can be found in the TARIC database, their format is a1an3.\nMember States may define national codes, national codes must have the format n1an3",
+    "values": []
+  },
+  {
+    "id": "CL_092",
+    "name": "ReplyTypeCode",
+    "source": "EDIFACT 4343 OR User codes",
+    "values": []
+  },
+  {
+    "id": "CL_093",
+    "name": "RequestOverrideCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_094",
+    "name": "ResealCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_095",
+    "name": "ResponsibleAgencyCode",
+    "source": "UN/EDIFACT code list 0051",
+    "values": []
+  },
+  {
+    "id": "CL_096",
+    "name": "RoleCode",
+    "source": "UN/EDIFACT code list 3035",
+    "values": []
+  },
+  {
+    "id": "CL_097",
+    "name": "SealConditionCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_098",
+    "name": "SealingPartyTypeCode",
+    "source": "UN/EDIFACT code list 9303",
+    "values": []
+  },
+  {
+    "id": "CL_099",
+    "name": "SealTypeCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_100",
+    "name": "SecurityCode",
+    "source": "User code list\n(EU CDM codes available, could be the basis for new WCO code list)",
+    "values": []
+  },
+  {
+    "id": "CL_101",
+    "name": "SecurityLevelCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_102",
+    "name": "SensitiveGoodsCode",
+    "source": "UN/EDIFACT code list 7365 subset (codes 170, 171 and 172) OR User codes",
+    "values": []
+  },
+  {
+    "id": "CL_103",
+    "name": "SourceTypeCode",
+    "source": "UN/EDIFACT code list 3227",
+    "values": []
+  },
+  {
+    "id": "CL_104",
+    "name": "SpecificCircumstancesCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_105",
+    "name": "StatementCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_106",
+    "name": "StatementTypeCode",
+    "source": "UN/EDIFACT code list 4451",
+    "values": []
+  },
+  {
+    "id": "CL_107",
+    "name": "StatusCode",
+    "source": "UN/EDIFACT code list 4405 OR User codes",
+    "values": []
+  },
+  {
+    "id": "CL_108",
+    "name": "SupplementaryFilingTypeCode",
+    "source": "User code list (preferably new WCO code list)",
+    "values": []
+  },
+  {
+    "id": "CL_109",
+    "name": "SyntaxIdentifierCode",
+    "source": "UN/EDIFACT code list 0001",
+    "values": []
+  },
+  {
+    "id": "CL_110",
+    "name": "SyntaxVersionCode",
+    "source": "UN/EDIFACT code list 0002",
+    "values": []
+  },
+  {
+    "id": "CL_111",
+    "name": "TariffClassSpecificationCode",
+    "source": "UN/EDIFACT code list 5243",
+    "values": []
+  },
+  {
+    "id": "CL_112",
+    "name": "TaxOrFeeTypeCode",
+    "source": "UN/EDIFACT code list 5153 OR User codes",
+    "values": []
+  },
+  {
+    "id": "CL_113",
+    "name": "TemperatureCategoryCode",
+    "source": "UN/EDIFACT code list 6155",
+    "values": []
+  },
+  {
+    "id": "CL_114",
+    "name": "TerminationTypeCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_115",
+    "name": "TradetermConditionCode",
+    "source": "UN/EDIFACT code list 4053",
+    "values": []
+  },
+  {
+    "id": "CL_116",
+    "name": "TransactionNatureTypeCode",
+    "source": "WCO code list/TransactionNatureTypeCode (n1) + User code (n1)\nRemark:\n* First digit indicates WCO code table value;\n* Second digit can be used as additional user code to further define first digit",
+    "values": [
+      {
+        "code": "1\n2\n3\n4\n5\n6\n7\n8\n9",
+        "description": "Transactions involving actual or intended transfer of ownership from residents to non-residents against financial or other compensation (except the transactions listed under 2, 7, 8)\nReturn and replacement of goods free of charge after registration of the original transaction\nTransactions involving transfer of ownership without financial or in-kind compensation (e.g. aid shipments)\nOperations with a view to processing (2) under contract (no transfer of ownership to the processor)\nOperations following processing under contract (no transfer of ownership to the processor)\nParticular transactions recorded for national purposes\nOperations under joint defence projects or other joint intergovernmental production programmes\nTransactions involving the supply of building materials and technical equipment under a general construction or civil engineering contract for which no separate invoicing of the goods is required and an invoice for the total contract is issued\nOther transactions which cannot be classified under other codes"
+      }
+    ]
+  },
+  {
+    "id": "CL_117",
+    "name": "TransitPassengerIndicatorCode",
+    "source": "WCO code list/TransitPassengerIndicatorCode",
+    "values": [
+      {
+        "code": "0\n1\n2",
+        "description": "Off (Passenger leaves ship during visit)\nTransit (Transit = Yes, meaning: passenger stays on board during the visit)\nOn (Passenger has left the vessel during the visit but is on board again)"
+      }
+    ]
+  },
+  {
+    "id": "CL_118",
+    "name": "TransportContractDocumentConditionCode",
+    "source": "UN/EDIFACT code list 4065",
+    "values": []
+  },
+  {
+    "id": "CL_119",
+    "name": "TransportEquipmentCharacteristicCode",
+    "source": "ISO, IATA, UN/EDIFACT code list 8053 or 8155 OR User codes",
+    "values": []
+  },
+  {
+    "id": "CL_120",
+    "name": "TransportEquipmentFullnessCode",
+    "source": "UN/EDIFACT code list 8169",
+    "values": []
+  },
+  {
+    "id": "CL_121",
+    "name": "TransportEquipmentSupplierPartyTypeCode",
+    "source": "UN/EDIFACT code list 8077",
+    "values": []
+  },
+  {
+    "id": "CL_122",
+    "name": "TransportMeansDirectionCode",
+    "source": "WCO code list/TransportMeansDirectionCode",
+    "values": [
+      {
+        "code": "I\nO",
+        "description": "Inbound\nOutbound"
+      }
+    ]
+  },
+  {
+    "id": "CL_123",
+    "name": "TransportMeansIdentificationTypeCode",
+    "source": "E.g. IMO, MMSI, Call sign, External sign, ENI",
+    "values": []
+  },
+  {
+    "id": "CL_124",
+    "name": "TransportMeansModeCode",
+    "source": "UN/Recommendation 19",
+    "values": []
+  },
+  {
+    "id": "CL_125",
+    "name": "TransportMeansMovementDescriptionCode",
+    "source": "UN/EDIFACT code list 8335",
+    "values": []
+  },
+  {
+    "id": "CL_126",
+    "name": "TransportMeansOperationTypeCode",
+    "source": "User code list (e.g. IATA code list)",
+    "values": []
+  },
+  {
+    "id": "CL_127",
+    "name": "TransportMeansRegistrationNationalityCode",
+    "source": "UN/EDIFACT code list 8453",
+    "values": []
+  },
+  {
+    "id": "CL_128",
+    "name": "TransportMeansTypeCode",
+    "source": "UN/Recommendation 28",
+    "values": []
+  },
+  {
+    "id": "CL_129",
+    "name": "TransportMovementCode",
+    "source": "UN/EDIFACT code list 8323",
+    "values": []
+  },
+  {
+    "id": "CL_130",
+    "name": "TransportStatusCode",
+    "source": "UN/EDIFACT code list 4405 OR User codes",
+    "values": []
+  },
+  {
+    "id": "CL_131",
+    "name": "TravelClassCode",
+    "source": "WCO code list/TravelClassCode",
+    "values": [
+      {
+        "code": "01\n02\n03\n04\n05\n06\n07\n08\n09",
+        "description": "First\nBusiness\nPremium Economy\nEconomy\nSecond\n\nSuite\nBalcony\nInside\nOutside"
+      }
+    ]
+  },
+  {
+    "id": "CL_132",
+    "name": "UserRiderActionCode",
+    "source": "User code list",
+    "values": []
+  },
+  {
+    "id": "CL_133",
+    "name": "ValuationAdditionsQualifierCode",
+    "source": "UN/EDIFACT code list 7365) subset (codes 145, 146, 147, 148 and 149) OR User codes",
+    "values": []
+  },
+  {
+    "id": "CL_134",
+    "name": "ValuationMethodCode",
+    "source": "WCO code list/ValuationMethodCode",
+    "values": [
+      {
+        "code": "138\n139\n140\n141\n142\n143\n144",
+        "description": "To be added\nTo be added\nTo be added\nTo be added\nTo be added\nTo be added\nTo be added"
+      }
+    ]
+  },
+  {
+    "id": "CL_135",
+    "name": "WasteTypeCode",
+    "source": "IMO codes\nSee IMO Compendium, Section 3 Code List for IMO0183 (Waste type, coded)",
+    "values": []
   }
 ]
