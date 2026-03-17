@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Building2, Globe, Banknote, ArrowRight, Zap } from 'lucide-react'
+import { Building2, Globe, Banknote, Heart, ArrowRight, Zap } from 'lucide-react'
 
 export default function SuiteLanding() {
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ export default function SuiteLanding() {
       </div>
 
       {/* Module Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl w-full">
         {/* BAIW Card */}
         <button
           onClick={() => navigate('/dashboard')}
@@ -27,7 +27,7 @@ export default function SuiteLanding() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">BAIW</h2>
-                <p className="text-sm text-purple-400">Banking Analytics Intelligence Workbench</p>
+                <p className="text-sm text-purple-400">Banking Analytics</p>
               </div>
             </div>
 
@@ -69,7 +69,7 @@ export default function SuiteLanding() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">TAIW</h2>
-                <p className="text-sm text-teal-400">Trade Analytics Intelligence Workbench</p>
+                <p className="text-sm text-teal-400">Trade Analytics</p>
               </div>
             </div>
 
@@ -98,6 +98,48 @@ export default function SuiteLanding() {
           </div>
         </button>
 
+        {/* HAIW Card */}
+        <button
+          onClick={() => navigate('/haiw')}
+          className="group relative bg-gray-900 rounded-2xl p-8 text-left border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]"
+        >
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-600/10 to-green-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="relative">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-emerald-600/20 flex items-center justify-center">
+                <Heart size={24} className="text-emerald-400" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">HAIW</h2>
+                <p className="text-sm text-emerald-400">Healthcare Analytics</p>
+              </div>
+            </div>
+
+            <div className="space-y-3 mb-8">
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span>HL7 FHIR R5 — 157 resources, 12 categories</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span>HCF Framework — 108 capabilities</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span>HACR Assessment — 720+ questions</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span>Sehat Sahulat, NADRA, FHIR, HCDM</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-emerald-400 group-hover:text-emerald-300 font-medium">
+              Enter <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </div>
+          </div>
+        </button>
+
         {/* COE Card */}
         <button
           onClick={() => navigate('/coe')}
@@ -111,7 +153,7 @@ export default function SuiteLanding() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">COE</h2>
-                <p className="text-sm text-amber-400">Cash Optimization Engine</p>
+                <p className="text-sm text-amber-400">Cash Optimization</p>
               </div>
             </div>
 
@@ -142,8 +184,8 @@ export default function SuiteLanding() {
       </div>
 
       {/* Quick Scan Callout */}
-      <div className="mt-10 max-w-2xl w-full">
-        <div className="relative bg-gradient-to-r from-purple-900/50 to-teal-900/50 rounded-2xl border border-gray-700 p-6">
+      <div className="mt-10 max-w-3xl w-full">
+        <div className="relative bg-gradient-to-r from-purple-900/50 via-emerald-900/50 to-teal-900/50 rounded-2xl border border-gray-700 p-6">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
               <Zap size={18} className="text-amber-400" />
@@ -156,18 +198,24 @@ export default function SuiteLanding() {
           <p className="text-sm text-gray-400 mb-4">
             24 CTO-answerable questions. Get a 3-page PDF with your maturity radar, strengths, and gaps — instantly.
           </p>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <button
               onClick={() => navigate('/maturity')}
               className="px-5 py-2.5 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition-colors flex items-center gap-2"
             >
-              <Building2 size={14} /> Banking Quick Scan
+              <Building2 size={14} /> Banking
             </button>
             <button
               onClick={() => navigate('/taiw/maturity')}
               className="px-5 py-2.5 bg-teal-600 text-white text-sm rounded-lg hover:bg-teal-700 transition-colors flex items-center gap-2"
             >
-              <Globe size={14} /> Trade Quick Scan
+              <Globe size={14} /> Trade
+            </button>
+            <button
+              onClick={() => navigate('/haiw/maturity')}
+              className="px-5 py-2.5 bg-emerald-600 text-white text-sm rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2"
+            >
+              <Heart size={14} /> Healthcare
             </button>
           </div>
         </div>

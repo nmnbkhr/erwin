@@ -1,0 +1,19 @@
+{
+  "module": "HAIW",
+  "fullName": "Healthcare Analytics Intelligence Workbench",
+  "version": "1.0.0",
+  "dataModel": "HL7 FHIR R5",
+  "dataModelVersion": "5.0.0",
+  "analyticalOverlay": "Healthcare Clinical Data Model (HCDM)",
+  "capabilityFramework": "Healthcare Capability Framework (HCF)",
+  "maturityAssessment": "Healthcare Analytics Capability & Readiness (HACR)",
+  "resourceCount": 157,
+  "hcdmSubjectAreaCount": 12,
+  "capabilityCount": 108,
+  "maturityQuestionCount": 720,
+  "starSchemaTableCount": 24,
+  "gapExtensionTableCount": 25,
+  "countryContext": "Pakistan",
+  "themeColor": "emerald",
+  "generatedAt": "2026-03-17T17:48:40.439826"
+}

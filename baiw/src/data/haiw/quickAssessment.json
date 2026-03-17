@@ -1,0 +1,357 @@
+{
+  "questions": [
+    {
+      "id": "QA-H-01",
+      "category": "Strategy & Leadership",
+      "categoryId": 1,
+      "question": "Does your organization have a Board-approved digital health strategy aligned with Pakistan's National Health Vision?",
+      "levelDescriptions": {
+        "1": "No digital health strategy exists",
+        "2": "Informal IT plans exist but not Board-adopted",
+        "3": "Written strategy exists but only partially implemented",
+        "4": "Board-approved strategy with KPIs tracked quarterly",
+        "5": "Dynamic strategy integrated with UHC goals, informed by AI-driven insights"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-02",
+      "category": "Strategy & Leadership",
+      "categoryId": 1,
+      "question": "What percentage of your annual operating budget is allocated to health analytics and digital transformation?",
+      "levelDescriptions": {
+        "1": "No dedicated budget for analytics or digital health",
+        "2": "Less than 1% allocated, ad-hoc funding only",
+        "3": "1-3% allocated with annual budget line item",
+        "4": "3-6% allocated with multi-year investment roadmap",
+        "5": "Over 6% allocated with ROI tracking and value-based reinvestment"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-03",
+      "category": "Strategy & Leadership",
+      "categoryId": 1,
+      "question": "Is there a formal change management framework for digital transformation initiatives?",
+      "levelDescriptions": {
+        "1": "No change management process; changes are reactive",
+        "2": "Ad-hoc communication when new systems are introduced",
+        "3": "Basic change management with training sessions for major rollouts",
+        "4": "Structured framework (e.g., ADKAR) with dedicated change champions per department",
+        "5": "Enterprise-wide change management culture with continuous feedback loops and adoption metrics"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-04",
+      "category": "Workforce & Skills",
+      "categoryId": 2,
+      "question": "Does your organization employ dedicated health informatics professionals?",
+      "levelDescriptions": {
+        "1": "No health informatics roles exist; IT staff handle all tasks",
+        "2": "One or two IT staff have partial informatics responsibilities",
+        "3": "Dedicated health informatics unit with 2-4 professionals",
+        "4": "Full informatics department with specialized roles (clinical, technical, research)",
+        "5": "Center of excellence with certified informaticists, fellowship programs, and research output"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-05",
+      "category": "Workforce & Skills",
+      "categoryId": 2,
+      "question": "Are data scientists or biostatisticians on staff to support clinical analytics?",
+      "levelDescriptions": {
+        "1": "No data science capability exists in-house",
+        "2": "Occasional outsourced analytics projects",
+        "3": "1-2 data analysts performing descriptive reporting",
+        "4": "Dedicated data science team with predictive modeling capabilities",
+        "5": "Multi-disciplinary analytics team with PhD-level scientists, ML engineers, and clinical domain experts"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-06",
+      "category": "Workforce & Skills",
+      "categoryId": 2,
+      "question": "Are clinical informaticist roles established to bridge clinical practice and technology?",
+      "levelDescriptions": {
+        "1": "No clinical informaticist roles; clinicians and IT operate in silos",
+        "2": "A few clinicians informally consult on IT decisions",
+        "3": "Designated physician or nurse champions for specific systems (e.g., EMR)",
+        "4": "Formal Clinical Informatics Officer (CMIO/CNIO) role with governance authority",
+        "5": "Clinical informatics integrated into all departments with dual-trained professionals driving evidence-based digital care"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-07",
+      "category": "Data Governance & Standards",
+      "categoryId": 3,
+      "question": "Is ICD-10 coding used consistently for all diagnoses across the organization?",
+      "levelDescriptions": {
+        "1": "No standardized coding; free-text diagnoses only",
+        "2": "ICD-10 used in billing but not clinical records",
+        "3": "ICD-10 coded for inpatient discharges; outpatient partially covered",
+        "4": "ICD-10 coded across all encounters with trained coders and quality audits",
+        "5": "ICD-10 with ICD-11 transition roadmap, SNOMED-CT mapping, and automated NLP-assisted coding"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-08",
+      "category": "Data Governance & Standards",
+      "categoryId": 3,
+      "question": "Is a Master Patient Index (MPI) implemented to uniquely identify patients across systems?",
+      "levelDescriptions": {
+        "1": "No unique patient identifier; duplicate records are common",
+        "2": "Manual ID assignment with frequent duplicates across departments",
+        "3": "Single MPI within the main hospital system but not across branches",
+        "4": "Enterprise MPI with deterministic and probabilistic matching across all facilities",
+        "5": "National Health ID integrated MPI with real-time deduplication and cross-organizational linkage"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-09",
+      "category": "Data Governance & Standards",
+      "categoryId": 3,
+      "question": "Are formal data sharing agreements in place with referring facilities, labs, or public health authorities?",
+      "levelDescriptions": {
+        "1": "No data sharing agreements; data stays within the facility",
+        "2": "Informal data exchange via email or paper for specific cases",
+        "3": "Bilateral agreements with 1-2 partners (e.g., a reference lab)",
+        "4": "Standardized data sharing agreements with multiple partners and defined security protocols",
+        "5": "Participation in regional/national Health Information Exchange with automated, consent-based data sharing"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-10",
+      "category": "Infrastructure & Systems",
+      "categoryId": 4,
+      "question": "Is an Electronic Medical Record (EMR) system deployed for clinical documentation?",
+      "levelDescriptions": {
+        "1": "Fully paper-based records; no EMR in use",
+        "2": "Basic EMR in 1-2 departments (e.g., registration or pharmacy)",
+        "3": "EMR covers major clinical departments but paper processes remain",
+        "4": "Comprehensive EMR across all departments with CPOE and clinical decision support",
+        "5": "Fully integrated EMR with AI-assisted documentation, voice input, and real-time clinical intelligence"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-11",
+      "category": "Infrastructure & Systems",
+      "categoryId": 4,
+      "question": "Are laboratory and pharmacy systems integrated with the core clinical system?",
+      "levelDescriptions": {
+        "1": "Lab and pharmacy operate standalone systems with manual result entry",
+        "2": "One-way data feed from lab or pharmacy to EMR (e.g., PDF reports)",
+        "3": "Bidirectional integration for lab orders and results; pharmacy partially integrated",
+        "4": "Full LIS/PIS integration with barcode verification, auto-dispensing alerts, and order tracking",
+        "5": "Closed-loop medication and lab management with real-time analytics, drug interaction checks, and smart inventory"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-12",
+      "category": "Infrastructure & Systems",
+      "categoryId": 4,
+      "question": "Is telemedicine infrastructure available for remote consultations and follow-ups?",
+      "levelDescriptions": {
+        "1": "No telemedicine capability; all consultations are in-person",
+        "2": "Ad-hoc video calls via consumer apps (WhatsApp, Zoom) for select cases",
+        "3": "Dedicated telemedicine platform for outpatient follow-ups with scheduling",
+        "4": "Integrated telehealth with EMR documentation, e-prescribing, and specialist tele-consults",
+        "5": "Omni-channel virtual care (video, chat, RPM devices) with AI triage, multilingual support, and rural outreach"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-13",
+      "category": "Analytics & Intelligence",
+      "categoryId": 5,
+      "question": "Do department heads have access to clinical and operational dashboards?",
+      "levelDescriptions": {
+        "1": "No dashboards; reporting is via ad-hoc spreadsheets or verbal updates",
+        "2": "Monthly static reports generated manually by IT for select departments",
+        "3": "Basic dashboards (bed occupancy, OPD volumes) available but not widely used",
+        "4": "Interactive BI dashboards per department with drill-down, updated daily or in real-time",
+        "5": "Self-service analytics platform with role-based dashboards, anomaly alerts, and embedded AI recommendations"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-14",
+      "category": "Analytics & Intelligence",
+      "categoryId": 5,
+      "question": "Are predictive analytics models used for clinical or operational decision-making?",
+      "levelDescriptions": {
+        "1": "No predictive analytics; all decisions based on historical data or intuition",
+        "2": "Awareness of predictive analytics but no models deployed",
+        "3": "Pilot predictive model in one area (e.g., readmission risk or demand forecasting)",
+        "4": "Multiple validated predictive models in production (sepsis, mortality, bed demand)",
+        "5": "Enterprise-wide predictive and prescriptive analytics with real-time clinical decision support at the point of care"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-15",
+      "category": "Analytics & Intelligence",
+      "categoryId": 5,
+      "question": "Are AI or machine learning models deployed in any clinical or operational workflow?",
+      "levelDescriptions": {
+        "1": "No AI/ML usage in any workflow",
+        "2": "Exploring AI use cases; no deployments yet",
+        "3": "One AI tool in limited use (e.g., radiology AI for chest X-rays)",
+        "4": "Multiple AI models in production with clinical validation and monitoring frameworks",
+        "5": "AI-native operations with continuous learning models, explainability dashboards, and regulatory compliance (e.g., DRAP AI guidelines)"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-16",
+      "category": "Integration & Interoperability",
+      "categoryId": 6,
+      "question": "Do laboratory results automatically flow into the patient's electronic record?",
+      "levelDescriptions": {
+        "1": "Lab results are printed and manually filed in paper charts",
+        "2": "Lab results are scanned or attached as PDFs in the EMR",
+        "3": "Structured lab results auto-populate in EMR for most tests",
+        "4": "Full auto-flow with discrete data, critical value alerts, and trending graphs",
+        "5": "Real-time streaming of all diagnostic results with AI-interpreted summaries and clinical pathway triggers"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-17",
+      "category": "Integration & Interoperability",
+      "categoryId": 6,
+      "question": "Are FHIR-compliant API endpoints available for external system integration?",
+      "levelDescriptions": {
+        "1": "No APIs; all integrations are file-based or manual",
+        "2": "Proprietary APIs for 1-2 integrations (e.g., lab vendor interface)",
+        "3": "HL7 v2 messaging for core integrations; FHIR awareness but no endpoints",
+        "4": "FHIR R4 endpoints for key resources (Patient, Observation, Encounter) with OAuth2 security",
+        "5": "Full FHIR R4/R5 API surface with SMART-on-FHIR apps, bulk data export, and developer portal"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-18",
+      "category": "Integration & Interoperability",
+      "categoryId": 6,
+      "question": "Does your facility participate in any Health Information Exchange (HIE) network?",
+      "levelDescriptions": {
+        "1": "No participation in any data exchange network",
+        "2": "Aware of HIE initiatives but not connected",
+        "3": "Connected to one exchange (e.g., provincial disease surveillance reporting)",
+        "4": "Active participation in regional HIE with bidirectional data exchange",
+        "5": "Multi-network HIE participation (national, regional, cross-border) with real-time event notifications and patient consent management"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-19",
+      "category": "Patient & Community Engagement",
+      "categoryId": 7,
+      "question": "Can patients access their health records through a patient portal or app?",
+      "levelDescriptions": {
+        "1": "No patient-facing digital access to records",
+        "2": "Patients can request records via email or front desk",
+        "3": "Basic patient portal with visit summaries and lab results (view-only)",
+        "4": "Full-featured portal with records, messaging, medication lists, and care plans",
+        "5": "Personalized health hub with AI health insights, wearable data integration, and family/caregiver access"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-20",
+      "category": "Patient & Community Engagement",
+      "categoryId": 7,
+      "question": "Are mHealth applications deployed for patient education, monitoring, or chronic disease management?",
+      "levelDescriptions": {
+        "1": "No mobile health applications in use",
+        "2": "General health education content shared via social media channels",
+        "3": "One mHealth app deployed (e.g., appointment reminders via SMS)",
+        "4": "Multiple mHealth tools for chronic disease management, medication adherence, and remote monitoring",
+        "5": "Comprehensive mHealth ecosystem with AI chatbots, multilingual support (Urdu, Sindhi, Pashto), and community health worker integration"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-21",
+      "category": "Patient & Community Engagement",
+      "categoryId": 7,
+      "question": "Can patients book appointments digitally (online, app, or WhatsApp)?",
+      "levelDescriptions": {
+        "1": "Appointments only via walk-in or phone call",
+        "2": "Phone-based booking with manual entry into scheduling system",
+        "3": "Online booking available but limited to select departments or doctors",
+        "4": "Full digital booking across all services with automated reminders and waitlist management",
+        "5": "AI-optimized scheduling with real-time slot availability, dynamic capacity management, and multi-channel booking (web, app, WhatsApp, IVR)"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-22",
+      "category": "Outcomes & Impact",
+      "categoryId": 8,
+      "question": "Can your organization measure and report 30-day readmission rates accurately?",
+      "levelDescriptions": {
+        "1": "Readmission rates are not tracked",
+        "2": "Manual tracking for select units (e.g., cardiology) upon request",
+        "3": "Automated readmission tracking from EMR data for inpatient discharges",
+        "4": "Real-time readmission dashboards by diagnosis, department, and physician with root cause analysis",
+        "5": "Predictive readmission risk scoring at discharge with automated intervention workflows and outcome tracking"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-23",
+      "category": "Outcomes & Impact",
+      "categoryId": 8,
+      "question": "Does your organization benchmark clinical outcomes against national or international standards?",
+      "levelDescriptions": {
+        "1": "No clinical outcome benchmarking performed",
+        "2": "Internal trend analysis for a few indicators (e.g., mortality rate)",
+        "3": "Benchmarking against national averages for key indicators",
+        "4": "Systematic benchmarking against regional and international peers with published quality reports",
+        "5": "Participation in global quality registries (e.g., ICHOM, JCI benchmarks) with continuous improvement cycles and public transparency"
+      },
+      "weight": 1.0
+    },
+    {
+      "id": "QA-H-24",
+      "category": "Outcomes & Impact",
+      "categoryId": 8,
+      "question": "Does your organization conduct cost-effectiveness analysis for clinical programs and digital investments?",
+      "levelDescriptions": {
+        "1": "No cost-effectiveness analysis capability",
+        "2": "Basic cost tracking at department level without linking to outcomes",
+        "3": "Cost-per-case analysis for select DRGs or procedures",
+        "4": "Systematic cost-effectiveness analysis for all major clinical programs and IT investments with ROI reporting",
+        "5": "Value-based care analytics with total cost of care modeling, QALY calculations, and real-time financial-clinical correlation dashboards"
+      },
+      "weight": 1.0
+    }
+  ],
+  "metadata": {
+    "totalQuestions": 24,
+    "estimatedTime": "10 minutes",
+    "targetAudience": "CTO, Medical Director, Health IT Lead",
+    "version": "1.0",
+    "framework": "Healthcare Analytics Capability & Readiness (HACR)",
+    "categories": [
+      { "id": 1, "name": "Strategy & Leadership", "questionCount": 3 },
+      { "id": 2, "name": "Workforce & Skills", "questionCount": 3 },
+      { "id": 3, "name": "Data Governance & Standards", "questionCount": 3 },
+      { "id": 4, "name": "Infrastructure & Systems", "questionCount": 3 },
+      { "id": 5, "name": "Analytics & Intelligence", "questionCount": 3 },
+      { "id": 6, "name": "Integration & Interoperability", "questionCount": 3 },
+      { "id": 7, "name": "Patient & Community Engagement", "questionCount": 3 },
+      { "id": 8, "name": "Outcomes & Impact", "questionCount": 3 }
+    ]
+  }
+}

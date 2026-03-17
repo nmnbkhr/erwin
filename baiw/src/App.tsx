@@ -17,6 +17,7 @@ const CashOptimizationEngine = lazy(() => import('./components/CashOptimizationE
 const SuiteLanding = lazy(() => import('./components/SuiteLanding'))
 const TaiwRoutes = lazy(() => import('./taiw'))
 const CoeRoutes = lazy(() => import('./coe'))
+const HaiwRoutes = lazy(() => import('./haiw'))
 
 function App() {
   return (
@@ -41,6 +42,13 @@ function App() {
           <Route path="/coe/*" element={
             <Suspense fallback={<PageSkeleton />}>
               <CoeRoutes />
+            </Suspense>
+          } />
+
+          {/* HAIW routes — separate layout */}
+          <Route path="/haiw/*" element={
+            <Suspense fallback={<PageSkeleton />}>
+              <HaiwRoutes />
             </Suspense>
           } />
 

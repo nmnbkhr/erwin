@@ -1,0 +1,220 @@
+{
+  "institutions": [
+    {
+      "name": "NHSR&C",
+      "fullName": "National Health Services, Regulations & Coordination",
+      "role": "Federal health policy, regulation, and coordination",
+      "relevance": "Primary regulatory body for health IT standards and FHIR adoption"
+    },
+    {
+      "name": "NADRA",
+      "fullName": "National Database & Registration Authority",
+      "role": "National identity management and CNIC issuance",
+      "relevance": "CNIC as universal patient identifier for health systems"
+    },
+    {
+      "name": "DRAP",
+      "fullName": "Drug Regulatory Authority of Pakistan",
+      "role": "Drug registration, regulation, and pharmacovigilance",
+      "relevance": "Medication coding standards and adverse event reporting"
+    },
+    {
+      "name": "PMC",
+      "fullName": "Pakistan Medical Commission",
+      "role": "Medical education regulation and practitioner registration",
+      "relevance": "Provider registry and credentialing data source"
+    },
+    {
+      "name": "NIH",
+      "fullName": "National Institute of Health",
+      "role": "Public health surveillance and disease control",
+      "relevance": "Disease surveillance data, AMR monitoring, outbreak detection"
+    },
+    {
+      "name": "PHCIP",
+      "fullName": "Primary & Secondary Healthcare Department (Punjab)",
+      "role": "Primary healthcare delivery and facility management",
+      "relevance": "Largest provincial health system; model for analytics deployment"
+    },
+    {
+      "name": "Sehat Sahulat",
+      "fullName": "Sehat Sahulat Programme",
+      "role": "National health insurance program",
+      "relevance": "Claims processing, coverage eligibility, provider network management"
+    }
+  ],
+  "statistics": {
+    "population": 240000000,
+    "healthExpenditureGDP": 3.2,
+    "outOfPocketPercent": 56,
+    "lifeExpectancy": 66.5,
+    "infantMortalityPer1000": 52,
+    "maternalMortalityPer100K": 186,
+    "neonatalMortalityPer1000": 42,
+    "under5MortalityPer1000": 65,
+    "hospitals": 1282,
+    "bhus": 5527,
+    "rhcs": 686,
+    "thqs": 380,
+    "dhqs": 131,
+    "teachingHospitals": 65,
+    "hospitalBeds": 132227,
+    "bedsPerThousand": 0.6,
+    "doctors": 245987,
+    "doctorsPerThousand": 1.0,
+    "nurses": 120000,
+    "ladyHealthWorkers": 100000,
+    "dentists": 28000,
+    "sehatSahulatCoveragePercent": 65,
+    "sehatSahulatBeneficiaries": 90000000,
+    "fullyImmunizedChildPercent": 66,
+    "stuntingRatePercent": 40,
+    "tbIncidencePer100K": 259,
+    "hepatitisCPrevalencePercent": 5.5,
+    "totalFertilityRate": 3.5,
+    "contraceptivePrevalenceRate": 34,
+    "skilledBirthAttendancePercent": 69,
+    "institutionalDeliveryPercent": 48
+  },
+  "facilityHierarchy": [
+    {
+      "level": 1,
+      "name": "Basic Health Unit (BHU)",
+      "description": "Primary healthcare for catchment of 10,000-25,000 population",
+      "count": 5527,
+      "services": "Preventive care, basic curative, MCH, EPI, family planning"
+    },
+    {
+      "level": 2,
+      "name": "Rural Health Centre (RHC)",
+      "description": "Enhanced primary care with 10-20 beds for 25,000-100,000 population",
+      "count": 686,
+      "services": "BHU services plus minor surgeries, lab, dental, X-ray"
+    },
+    {
+      "level": 3,
+      "name": "Tehsil Headquarters Hospital (THQ)",
+      "description": "First referral hospital at tehsil/sub-district level with 40-60 beds",
+      "count": 380,
+      "services": "Medicine, surgery, OB/GYN, pediatrics, emergency"
+    },
+    {
+      "level": 4,
+      "name": "District Headquarters Hospital (DHQ)",
+      "description": "Secondary care hospital at district level with 100-250 beds",
+      "count": 131,
+      "services": "All THQ services plus specialty clinics, diagnostic services"
+    },
+    {
+      "level": 5,
+      "name": "Teaching/Tertiary Hospital",
+      "description": "Tertiary care and medical education with 500-2000+ beds",
+      "count": 65,
+      "services": "Super-specialty care, medical education, research"
+    }
+  ],
+  "priorityPrograms": [
+    {
+      "name": "Expanded Programme on Immunization (EPI)",
+      "coverage": "All provinces",
+      "target": "Children under 5 and pregnant women",
+      "challenges": "Refusal, hard-to-reach populations, cold chain gaps"
+    },
+    {
+      "name": "Lady Health Worker Programme",
+      "coverage": "Nationwide (primarily rural)",
+      "target": "Rural communities",
+      "challenges": "Urbanization, workforce retention, digital capacity"
+    },
+    {
+      "name": "TB DOTS Programme",
+      "coverage": "All provinces",
+      "target": "TB patients and contacts",
+      "challenges": "Case detection gap (37%), MDR-TB, treatment adherence"
+    },
+    {
+      "name": "Polio Eradication Initiative",
+      "coverage": "Endemic districts",
+      "target": "Children under 5",
+      "challenges": "Refusal, insecurity, cross-border transmission"
+    },
+    {
+      "name": "Hepatitis Control Programme",
+      "coverage": "All provinces",
+      "target": "Hepatitis B and C patients",
+      "challenges": "High prevalence (HCV 5-8%), screening coverage, treatment access"
+    },
+    {
+      "name": "Sehat Sahulat Programme",
+      "coverage": "All provinces except Sindh (separate scheme)",
+      "target": "Families below poverty line",
+      "challenges": "Provider fraud, claims processing, benefit awareness"
+    }
+  ],
+  "codingStandards": [
+    {
+      "standard": "ICD-10",
+      "status": "Partially adopted",
+      "usage": "Major hospitals and Sehat Sahulat claims",
+      "challenge": "Limited coding workforce, no Pakistan adaptation"
+    },
+    {
+      "standard": "SNOMED CT",
+      "status": "Not adopted",
+      "usage": "Under consideration for clinical data",
+      "challenge": "Licensing, training, and implementation complexity"
+    },
+    {
+      "standard": "LOINC",
+      "status": "Not adopted",
+      "usage": "Under discussion for lab standardization",
+      "challenge": "No national lab test catalog"
+    },
+    {
+      "standard": "RxNorm/ATC",
+      "status": "ATC partially used",
+      "usage": "DRAP uses ATC for drug classification",
+      "challenge": "No mapping to local drug codes"
+    },
+    {
+      "standard": "HL7 FHIR",
+      "status": "Early exploration",
+      "usage": "Pilot projects at AKUH and select hospitals",
+      "challenge": "No national FHIR implementation guide"
+    }
+  ],
+  "challenges": [
+    {
+      "area": "Infrastructure",
+      "description": "Limited health IT infrastructure, especially in rural facilities; frequent power outages; low internet connectivity in remote areas"
+    },
+    {
+      "area": "Workforce",
+      "description": "Severe shortage of health informatics professionals; 1 doctor per 1,000 population; health worker distribution skewed toward urban areas"
+    },
+    {
+      "area": "Data Quality",
+      "description": "Inconsistent data collection; paper-based records in majority of BHUs; duplicate patient records across facilities"
+    },
+    {
+      "area": "Governance",
+      "description": "Post-18th Amendment devolution; fragmented health governance across provinces; no unified health information architecture"
+    },
+    {
+      "area": "Interoperability",
+      "description": "Siloed health systems; no national health information exchange; multiple incompatible HMIS implementations"
+    },
+    {
+      "area": "Funding",
+      "description": "Health expenditure only 3.2% of GDP; high out-of-pocket spending (56%); limited analytics budget allocation"
+    },
+    {
+      "area": "Privacy & Security",
+      "description": "No comprehensive health data privacy legislation; limited cybersecurity capacity in health facilities"
+    },
+    {
+      "area": "Cultural",
+      "description": "Gender barriers to healthcare access; low health literacy; resistance to data sharing across institutional boundaries"
+    }
+  ]
+}

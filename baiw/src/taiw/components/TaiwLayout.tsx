@@ -64,11 +64,14 @@ export default function TaiwLayout({ children }: { children: ReactNode }) {
             <Link to="/" className="text-center text-xs py-1.5 px-2 rounded-md transition-colors text-slate-400 hover:text-white" title="Suite Home">
               <Home size={14} className="mx-auto" />
             </Link>
-            <Link to="/dashboard" className={`flex-1 text-center text-xs py-1.5 rounded-md transition-colors ${!isTaiw ? 'bg-purple-600 text-white' : 'text-slate-400 hover:text-white'}`}>
+            <Link to="/dashboard" className="flex-1 text-center text-xs py-1.5 rounded-md transition-colors text-slate-400 hover:text-white">
               BAIW
             </Link>
             <Link to="/taiw" className={`flex-1 text-center text-xs py-1.5 rounded-md transition-colors ${isTaiw ? 'bg-teal-600 text-white' : 'text-slate-400 hover:text-white'}`}>
               TAIW
+            </Link>
+            <Link to="/haiw" className="flex-1 text-center text-xs py-1.5 rounded-md transition-colors text-slate-400 hover:text-white">
+              HAIW
             </Link>
           </div>
         </div>

@@ -1,0 +1,3788 @@
+[
+  {
+    "id": "HCF-001",
+    "name": "Patient Master Index Management",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Demographics & Identity",
+    "groupId": "G1.1",
+    "description": "Analytics capability for patient master index management within the Patient Demographics & Identity domain",
+    "fhirResources": [
+      "Patient",
+      "Person",
+      "RelatedPerson"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "NADRA",
+      "system": "NHSR&C",
+      "challenge": "Fragmented patient IDs across facilities",
+      "opportunity": "Unified CNIC-based patient index"
+    },
+    "relatedCapabilities": [
+      "HCF-001",
+      "HCF-002"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient master index management across facilities?",
+      "How does patient master index management performance compare between urban and rural settings?",
+      "What improvements in patient master index management can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-002",
+    "name": "Patient Demographics Profiling",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Demographics & Identity",
+    "groupId": "G1.1",
+    "description": "Analytics capability for patient demographics profiling within the Patient Demographics & Identity domain",
+    "fhirResources": [
+      "Patient",
+      "Group",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "NADRA",
+      "system": "PBS Census",
+      "challenge": "Incomplete demographic data in rural areas",
+      "opportunity": "LHW program as data collection channel"
+    },
+    "relatedCapabilities": [
+      "HCF-001",
+      "HCF-003"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient demographics profiling across facilities?",
+      "How does patient demographics profiling performance compare between urban and rural settings?",
+      "What improvements in patient demographics profiling can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-003",
+    "name": "Patient Identity Matching & Deduplication",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Demographics & Identity",
+    "groupId": "G1.1",
+    "description": "Analytics capability for patient identity matching & deduplication within the Patient Demographics & Identity domain",
+    "fhirResources": [
+      "Patient",
+      "Person",
+      "Linkage"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-12"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "NADRA",
+      "system": "NHSR&C",
+      "challenge": "Duplicate records across hospital systems",
+      "opportunity": "CNIC as golden key for deduplication"
+    },
+    "relatedCapabilities": [
+      "HCF-002",
+      "HCF-004"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient identity matching & deduplication across facilities?",
+      "How does patient identity matching & deduplication performance compare between urban and rural settings?",
+      "What improvements in patient identity matching & deduplication can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-004",
+    "name": "Family & Household Linkage",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Demographics & Identity",
+    "groupId": "G1.1",
+    "description": "Analytics capability for family & household linkage within the Patient Demographics & Identity domain",
+    "fhirResources": [
+      "Patient",
+      "RelatedPerson",
+      "Group"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "NADRA",
+      "system": "LHW Program",
+      "challenge": "Family health records not linked",
+      "opportunity": "Joint family structure as analytical unit"
+    },
+    "relatedCapabilities": [
+      "HCF-003",
+      "HCF-005"
+    ],
+    "businessQuestions": [
+      "What is the current state of family & household linkage across facilities?",
+      "How does family & household linkage performance compare between urban and rural settings?",
+      "What improvements in family & household linkage can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-005",
+    "name": "Patient Contact & Communication Preferences",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Demographics & Identity",
+    "groupId": "G1.1",
+    "description": "Analytics capability for patient contact & communication preferences within the Patient Demographics & Identity domain",
+    "fhirResources": [
+      "Patient",
+      "Communication",
+      "CommunicationRequest"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Telecom operators",
+      "system": "PTA",
+      "challenge": "Low digital literacy in rural Pakistan",
+      "opportunity": "Mobile phone penetration as engagement channel"
+    },
+    "relatedCapabilities": [
+      "HCF-004",
+      "HCF-006"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient contact & communication preferences across facilities?",
+      "How does patient contact & communication preferences performance compare between urban and rural settings?",
+      "What improvements in patient contact & communication preferences can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-006",
+    "name": "Patient Consent Management",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Demographics & Identity",
+    "groupId": "G1.1",
+    "description": "Analytics capability for patient consent management within the Patient Demographics & Identity domain",
+    "fhirResources": [
+      "Consent",
+      "Patient",
+      "DocumentReference"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-10"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "NHSR&C",
+      "system": "Ministry of IT",
+      "challenge": "No national consent framework",
+      "opportunity": "Digital consent via biometric verification"
+    },
+    "relatedCapabilities": [
+      "HCF-005",
+      "HCF-007"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient consent management across facilities?",
+      "How does patient consent management performance compare between urban and rural settings?",
+      "What improvements in patient consent management can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-007",
+    "name": "Patient Geographic Distribution",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Demographics & Identity",
+    "groupId": "G1.1",
+    "description": "Analytics capability for patient geographic distribution within the Patient Demographics & Identity domain",
+    "fhirResources": [
+      "Patient",
+      "Location",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "PBS",
+      "system": "Planning Commission",
+      "challenge": "Incomplete address data",
+      "opportunity": "GPS-linked facility mapping"
+    },
+    "relatedCapabilities": [
+      "HCF-006",
+      "HCF-008"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient geographic distribution across facilities?",
+      "How does patient geographic distribution performance compare between urban and rural settings?",
+      "What improvements in patient geographic distribution can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-008",
+    "name": "Vulnerable Population Identification",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Demographics & Identity",
+    "groupId": "G1.1",
+    "description": "Analytics capability for vulnerable population identification within the Patient Demographics & Identity domain",
+    "fhirResources": [
+      "Patient",
+      "Group",
+      "RiskAssessment"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-10"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "BISP/Ehsaas",
+      "system": "Poverty Alleviation",
+      "challenge": "Identifying at-risk populations",
+      "opportunity": "Ehsaas database integration for social determinants"
+    },
+    "relatedCapabilities": [
+      "HCF-007",
+      "HCF-009"
+    ],
+    "businessQuestions": [
+      "What is the current state of vulnerable population identification across facilities?",
+      "How does vulnerable population identification performance compare between urban and rural settings?",
+      "What improvements in vulnerable population identification can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-009",
+    "name": "Patient Journey Mapping",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Journey Analytics",
+    "groupId": "G1.2",
+    "description": "Analytics capability for patient journey mapping within the Patient Journey Analytics domain",
+    "fhirResources": [
+      "Encounter",
+      "EpisodeOfCare",
+      "Procedure"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-02"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Hospitals",
+      "system": "NHSR&C",
+      "challenge": "No longitudinal patient view",
+      "opportunity": "Episode-based care tracking"
+    },
+    "relatedCapabilities": [
+      "HCF-008",
+      "HCF-010"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient journey mapping across facilities?",
+      "How does patient journey mapping performance compare between urban and rural settings?",
+      "What improvements in patient journey mapping can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-010",
+    "name": "Encounter Flow Analytics",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Journey Analytics",
+    "groupId": "G1.2",
+    "description": "Analytics capability for encounter flow analytics within the Patient Journey Analytics domain",
+    "fhirResources": [
+      "Encounter",
+      "Location",
+      "Practitioner"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "HMIS",
+      "system": "DHIS2",
+      "challenge": "Long wait times in OPD",
+      "opportunity": "Real-time patient flow monitoring"
+    },
+    "relatedCapabilities": [
+      "HCF-009",
+      "HCF-011"
+    ],
+    "businessQuestions": [
+      "What is the current state of encounter flow analytics across facilities?",
+      "How does encounter flow analytics performance compare between urban and rural settings?",
+      "What improvements in encounter flow analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-011",
+    "name": "Referral Pattern Analysis",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Journey Analytics",
+    "groupId": "G1.2",
+    "description": "Analytics capability for referral pattern analysis within the Patient Journey Analytics domain",
+    "fhirResources": [
+      "ServiceRequest",
+      "Encounter",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "DHQ/THQ",
+      "system": "Provincial Health Dept",
+      "challenge": "Inefficient referral chains",
+      "opportunity": "Structured referral pathways BHU→RHC→THQ→DHQ"
+    },
+    "relatedCapabilities": [
+      "HCF-010",
+      "HCF-012"
+    ],
+    "businessQuestions": [
+      "What is the current state of referral pattern analysis across facilities?",
+      "How does referral pattern analysis performance compare between urban and rural settings?",
+      "What improvements in referral pattern analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-012",
+    "name": "Readmission Risk Prediction",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Journey Analytics",
+    "groupId": "G1.2",
+    "description": "Analytics capability for readmission risk prediction within the Patient Journey Analytics domain",
+    "fhirResources": [
+      "Encounter",
+      "Condition",
+      "RiskAssessment"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-10"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Tertiary hospitals",
+      "system": "NHSR&C",
+      "challenge": "High readmission rates",
+      "opportunity": "Predictive models for early intervention"
+    },
+    "relatedCapabilities": [
+      "HCF-011",
+      "HCF-013"
+    ],
+    "businessQuestions": [
+      "What is the current state of readmission risk prediction across facilities?",
+      "How does readmission risk prediction performance compare between urban and rural settings?",
+      "What improvements in readmission risk prediction can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-013",
+    "name": "Length of Stay Analysis",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Journey Analytics",
+    "groupId": "G1.2",
+    "description": "Analytics capability for length of stay analysis within the Patient Journey Analytics domain",
+    "fhirResources": [
+      "Encounter",
+      "Condition",
+      "Procedure"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Hospitals",
+      "system": "NHSR&C",
+      "challenge": "Prolonged hospital stays",
+      "opportunity": "Benchmark-driven discharge planning"
+    },
+    "relatedCapabilities": [
+      "HCF-012",
+      "HCF-014"
+    ],
+    "businessQuestions": [
+      "What is the current state of length of stay analysis across facilities?",
+      "How does length of stay analysis performance compare between urban and rural settings?",
+      "What improvements in length of stay analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-014",
+    "name": "Care Transition Tracking",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Journey Analytics",
+    "groupId": "G1.2",
+    "description": "Analytics capability for care transition tracking within the Patient Journey Analytics domain",
+    "fhirResources": [
+      "Encounter",
+      "EpisodeOfCare",
+      "CarePlan"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Hospital networks",
+      "system": "NHSR&C",
+      "challenge": "Lost in transition between facilities",
+      "opportunity": "Continuity of care documentation"
+    },
+    "relatedCapabilities": [
+      "HCF-013",
+      "HCF-015"
+    ],
+    "businessQuestions": [
+      "What is the current state of care transition tracking across facilities?",
+      "How does care transition tracking performance compare between urban and rural settings?",
+      "What improvements in care transition tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-015",
+    "name": "Patient Satisfaction Measurement",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Engagement & Satisfaction",
+    "groupId": "G1.3",
+    "description": "Analytics capability for patient satisfaction measurement within the Patient Engagement & Satisfaction domain",
+    "fhirResources": [
+      "QuestionnaireResponse",
+      "Encounter",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Hospitals",
+      "system": "NHSR&C",
+      "challenge": "No systematic feedback collection",
+      "opportunity": "Mobile-based patient feedback"
+    },
+    "relatedCapabilities": [
+      "HCF-014",
+      "HCF-016"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient satisfaction measurement across facilities?",
+      "How does patient satisfaction measurement performance compare between urban and rural settings?",
+      "What improvements in patient satisfaction measurement can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-016",
+    "name": "Patient Portal Analytics",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Engagement & Satisfaction",
+    "groupId": "G1.3",
+    "description": "Analytics capability for patient portal analytics within the Patient Engagement & Satisfaction domain",
+    "fhirResources": [
+      "Patient",
+      "DocumentReference",
+      "Communication"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-12"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Hospital IT",
+      "system": "Ministry of IT",
+      "challenge": "Low digital health adoption",
+      "opportunity": "Mobile health app integration"
+    },
+    "relatedCapabilities": [
+      "HCF-015",
+      "HCF-017"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient portal analytics across facilities?",
+      "How does patient portal analytics performance compare between urban and rural settings?",
+      "What improvements in patient portal analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-017",
+    "name": "Health Literacy Assessment",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Engagement & Satisfaction",
+    "groupId": "G1.3",
+    "description": "Analytics capability for health literacy assessment within the Patient Engagement & Satisfaction domain",
+    "fhirResources": [
+      "QuestionnaireResponse",
+      "Patient",
+      "Communication"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "LHW Program",
+      "system": "NHSR&C",
+      "challenge": "Low health literacy in rural areas",
+      "opportunity": "Pictographic health education materials"
+    },
+    "relatedCapabilities": [
+      "HCF-016",
+      "HCF-018"
+    ],
+    "businessQuestions": [
+      "What is the current state of health literacy assessment across facilities?",
+      "How does health literacy assessment performance compare between urban and rural settings?",
+      "What improvements in health literacy assessment can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-018",
+    "name": "Appointment Adherence Analytics",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Engagement & Satisfaction",
+    "groupId": "G1.3",
+    "description": "Analytics capability for appointment adherence analytics within the Patient Engagement & Satisfaction domain",
+    "fhirResources": [
+      "Appointment",
+      "Patient",
+      "Encounter"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-02",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "OPD systems",
+      "system": "HMIS",
+      "challenge": "High no-show rates in OPD",
+      "opportunity": "SMS reminder integration"
+    },
+    "relatedCapabilities": [
+      "HCF-017",
+      "HCF-019"
+    ],
+    "businessQuestions": [
+      "What is the current state of appointment adherence analytics across facilities?",
+      "How does appointment adherence analytics performance compare between urban and rural settings?",
+      "What improvements in appointment adherence analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-019",
+    "name": "Patient Communication Effectiveness",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Engagement & Satisfaction",
+    "groupId": "G1.3",
+    "description": "Analytics capability for patient communication effectiveness within the Patient Engagement & Satisfaction domain",
+    "fhirResources": [
+      "Communication",
+      "CommunicationRequest",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Hospitals",
+      "system": "PTA",
+      "challenge": "Language barriers (Urdu, regional languages)",
+      "opportunity": "Multilingual communication templates"
+    },
+    "relatedCapabilities": [
+      "HCF-018",
+      "HCF-020"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient communication effectiveness across facilities?",
+      "How does patient communication effectiveness performance compare between urban and rural settings?",
+      "What improvements in patient communication effectiveness can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-020",
+    "name": "Community Health Engagement",
+    "theme": "Patient Intelligence & Experience",
+    "themeId": "T1",
+    "themeColor": "emerald",
+    "group": "Patient Engagement & Satisfaction",
+    "groupId": "G1.3",
+    "description": "Analytics capability for community health engagement within the Patient Engagement & Satisfaction domain",
+    "fhirResources": [
+      "Group",
+      "Patient",
+      "QuestionnaireResponse"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-09"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "LHW Program",
+      "system": "PHCIP",
+      "challenge": "Remote community access challenges",
+      "opportunity": "Lady Health Worker digital tools"
+    },
+    "relatedCapabilities": [
+      "HCF-019",
+      "HCF-021"
+    ],
+    "businessQuestions": [
+      "What is the current state of community health engagement across facilities?",
+      "How does community health engagement performance compare between urban and rural settings?",
+      "What improvements in community health engagement can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-021",
+    "name": "Disease Burden Analysis",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Outcome Analytics",
+    "groupId": "G2.1",
+    "description": "Analytics capability for disease burden analysis within the Clinical Outcome Analytics domain",
+    "fhirResources": [
+      "Condition",
+      "Encounter",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "NIH",
+      "system": "NHSR&C",
+      "challenge": "Incomplete disease registry",
+      "opportunity": "Integrated disease surveillance"
+    },
+    "relatedCapabilities": [
+      "HCF-020",
+      "HCF-022"
+    ],
+    "businessQuestions": [
+      "What is the current state of disease burden analysis across facilities?",
+      "How does disease burden analysis performance compare between urban and rural settings?",
+      "What improvements in disease burden analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-022",
+    "name": "Treatment Outcome Tracking",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Outcome Analytics",
+    "groupId": "G2.1",
+    "description": "Analytics capability for treatment outcome tracking within the Clinical Outcome Analytics domain",
+    "fhirResources": [
+      "Procedure",
+      "Condition",
+      "Observation"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-11"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Hospitals",
+      "system": "NHSR&C",
+      "challenge": "No standardized outcome measures",
+      "opportunity": "FHIR-based outcome reporting"
+    },
+    "relatedCapabilities": [
+      "HCF-021",
+      "HCF-023"
+    ],
+    "businessQuestions": [
+      "What is the current state of treatment outcome tracking across facilities?",
+      "How does treatment outcome tracking performance compare between urban and rural settings?",
+      "What improvements in treatment outcome tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-023",
+    "name": "Mortality & Morbidity Analytics",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Outcome Analytics",
+    "groupId": "G2.1",
+    "description": "Analytics capability for mortality & morbidity analytics within the Clinical Outcome Analytics domain",
+    "fhirResources": [
+      "Condition",
+      "Encounter",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "NIH",
+      "system": "WHO Pakistan",
+      "challenge": "Under-reporting of deaths",
+      "opportunity": "Verbal autopsy integration"
+    },
+    "relatedCapabilities": [
+      "HCF-022",
+      "HCF-024"
+    ],
+    "businessQuestions": [
+      "What is the current state of mortality & morbidity analytics across facilities?",
+      "How does mortality & morbidity analytics performance compare between urban and rural settings?",
+      "What improvements in mortality & morbidity analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-024",
+    "name": "Complication Rate Analysis",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Outcome Analytics",
+    "groupId": "G2.1",
+    "description": "Analytics capability for complication rate analysis within the Clinical Outcome Analytics domain",
+    "fhirResources": [
+      "AdverseEvent",
+      "Procedure",
+      "Condition"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-10",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Hospitals",
+      "system": "NHSR&C",
+      "challenge": "Limited surgical outcome data",
+      "opportunity": "Post-operative surveillance"
+    },
+    "relatedCapabilities": [
+      "HCF-023",
+      "HCF-025"
+    ],
+    "businessQuestions": [
+      "What is the current state of complication rate analysis across facilities?",
+      "How does complication rate analysis performance compare between urban and rural settings?",
+      "What improvements in complication rate analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-025",
+    "name": "Clinical Pathway Adherence",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Outcome Analytics",
+    "groupId": "G2.1",
+    "description": "Analytics capability for clinical pathway adherence within the Clinical Outcome Analytics domain",
+    "fhirResources": [
+      "CarePlan",
+      "Procedure",
+      "MeasureReport"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-09"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Clinical departments",
+      "system": "NHSR&C",
+      "challenge": "Variation in care protocols",
+      "opportunity": "Evidence-based pathway templates"
+    },
+    "relatedCapabilities": [
+      "HCF-024",
+      "HCF-026"
+    ],
+    "businessQuestions": [
+      "What is the current state of clinical pathway adherence across facilities?",
+      "How does clinical pathway adherence performance compare between urban and rural settings?",
+      "What improvements in clinical pathway adherence can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-026",
+    "name": "Chronic Disease Management Analytics",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Outcome Analytics",
+    "groupId": "G2.1",
+    "description": "Analytics capability for chronic disease management analytics within the Clinical Outcome Analytics domain",
+    "fhirResources": [
+      "Condition",
+      "CarePlan",
+      "Observation"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "NCD Program",
+      "system": "NHSR&C",
+      "challenge": "Rising NCD burden",
+      "opportunity": "Longitudinal chronic disease tracking"
+    },
+    "relatedCapabilities": [
+      "HCF-025",
+      "HCF-027"
+    ],
+    "businessQuestions": [
+      "What is the current state of chronic disease management analytics across facilities?",
+      "How does chronic disease management analytics performance compare between urban and rural settings?",
+      "What improvements in chronic disease management analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-027",
+    "name": "Maternal Health Outcome Analysis",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Outcome Analytics",
+    "groupId": "G2.1",
+    "description": "Analytics capability for maternal health outcome analysis within the Clinical Outcome Analytics domain",
+    "fhirResources": [
+      "Condition",
+      "Procedure",
+      "Encounter"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "MNCH Program",
+      "system": "NHSR&C",
+      "challenge": "High maternal mortality ratio (186/100K)",
+      "opportunity": "MNCH outcome dashboards"
+    },
+    "relatedCapabilities": [
+      "HCF-026",
+      "HCF-028"
+    ],
+    "businessQuestions": [
+      "What is the current state of maternal health outcome analysis across facilities?",
+      "How does maternal health outcome analysis performance compare between urban and rural settings?",
+      "What improvements in maternal health outcome analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-028",
+    "name": "Child Health & Nutrition Analytics",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Outcome Analytics",
+    "groupId": "G2.1",
+    "description": "Analytics capability for child health & nutrition analytics within the Clinical Outcome Analytics domain",
+    "fhirResources": [
+      "Observation",
+      "NutritionIntake",
+      "Immunization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-06"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "EPI Program",
+      "system": "UNICEF Pakistan",
+      "challenge": "Stunting rate 40%+ in children under 5",
+      "opportunity": "Growth monitoring integration"
+    },
+    "relatedCapabilities": [
+      "HCF-027",
+      "HCF-029"
+    ],
+    "businessQuestions": [
+      "What is the current state of child health & nutrition analytics across facilities?",
+      "How does child health & nutrition analytics performance compare between urban and rural settings?",
+      "What improvements in child health & nutrition analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-029",
+    "name": "Quality Indicator Dashboard",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Quality Measurement & Reporting",
+    "groupId": "G2.2",
+    "description": "Analytics capability for quality indicator dashboard within the Quality Measurement & Reporting domain",
+    "fhirResources": [
+      "MeasureReport",
+      "Measure",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-09",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "PHCIP",
+      "system": "NHSR&C",
+      "challenge": "No national quality framework",
+      "opportunity": "WHO quality indicator adoption"
+    },
+    "relatedCapabilities": [
+      "HCF-028",
+      "HCF-030"
+    ],
+    "businessQuestions": [
+      "What is the current state of quality indicator dashboard across facilities?",
+      "How does quality indicator dashboard performance compare between urban and rural settings?",
+      "What improvements in quality indicator dashboard can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-030",
+    "name": "Clinical Audit Analytics",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Quality Measurement & Reporting",
+    "groupId": "G2.2",
+    "description": "Analytics capability for clinical audit analytics within the Quality Measurement & Reporting domain",
+    "fhirResources": [
+      "AuditEvent",
+      "Procedure",
+      "Encounter"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-12",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Hospital QA",
+      "system": "NHSR&C",
+      "challenge": "Limited clinical audit infrastructure",
+      "opportunity": "Digital audit trail implementation"
+    },
+    "relatedCapabilities": [
+      "HCF-029",
+      "HCF-031"
+    ],
+    "businessQuestions": [
+      "What is the current state of clinical audit analytics across facilities?",
+      "How does clinical audit analytics performance compare between urban and rural settings?",
+      "What improvements in clinical audit analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-031",
+    "name": "Patient Safety Incident Reporting",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Quality Measurement & Reporting",
+    "groupId": "G2.2",
+    "description": "Analytics capability for patient safety incident reporting within the Quality Measurement & Reporting domain",
+    "fhirResources": [
+      "AdverseEvent",
+      "DetectedIssue",
+      "Flag"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-10"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Hospital safety",
+      "system": "NHSR&C",
+      "challenge": "Under-reporting of safety incidents",
+      "opportunity": "Anonymous reporting system"
+    },
+    "relatedCapabilities": [
+      "HCF-030",
+      "HCF-032"
+    ],
+    "businessQuestions": [
+      "What is the current state of patient safety incident reporting across facilities?",
+      "How does patient safety incident reporting performance compare between urban and rural settings?",
+      "What improvements in patient safety incident reporting can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-032",
+    "name": "Infection Control Analytics",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Quality Measurement & Reporting",
+    "groupId": "G2.2",
+    "description": "Analytics capability for infection control analytics within the Quality Measurement & Reporting domain",
+    "fhirResources": [
+      "Observation",
+      "Condition",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-03",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Hospitals",
+      "system": "NIH",
+      "challenge": "HAI surveillance gaps",
+      "opportunity": "Automated infection detection"
+    },
+    "relatedCapabilities": [
+      "HCF-031",
+      "HCF-033"
+    ],
+    "businessQuestions": [
+      "What is the current state of infection control analytics across facilities?",
+      "How does infection control analytics performance compare between urban and rural settings?",
+      "What improvements in infection control analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-033",
+    "name": "Medication Error Tracking",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Quality Measurement & Reporting",
+    "groupId": "G2.2",
+    "description": "Analytics capability for medication error tracking within the Quality Measurement & Reporting domain",
+    "fhirResources": [
+      "DetectedIssue",
+      "MedicationAdministration",
+      "AdverseEvent"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-10",
+      "SA-06"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Pharmacy departments",
+      "system": "DRAP",
+      "challenge": "Manual medication processes",
+      "opportunity": "Barcode verification systems"
+    },
+    "relatedCapabilities": [
+      "HCF-032",
+      "HCF-034"
+    ],
+    "businessQuestions": [
+      "What is the current state of medication error tracking across facilities?",
+      "How does medication error tracking performance compare between urban and rural settings?",
+      "What improvements in medication error tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-034",
+    "name": "Surgical Quality Metrics",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Quality Measurement & Reporting",
+    "groupId": "G2.2",
+    "description": "Analytics capability for surgical quality metrics within the Quality Measurement & Reporting domain",
+    "fhirResources": [
+      "Procedure",
+      "AdverseEvent",
+      "MeasureReport"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-10",
+      "SA-09"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Surgical departments",
+      "system": "NHSR&C",
+      "challenge": "No surgical safety checklist data",
+      "opportunity": "WHO Surgical Safety Checklist integration"
+    },
+    "relatedCapabilities": [
+      "HCF-033",
+      "HCF-035"
+    ],
+    "businessQuestions": [
+      "What is the current state of surgical quality metrics across facilities?",
+      "How does surgical quality metrics performance compare between urban and rural settings?",
+      "What improvements in surgical quality metrics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-035",
+    "name": "Emergency Department Quality",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Quality Measurement & Reporting",
+    "groupId": "G2.2",
+    "description": "Analytics capability for emergency department quality within the Quality Measurement & Reporting domain",
+    "fhirResources": [
+      "Encounter",
+      "Observation",
+      "Condition"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-11"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Emergency departments",
+      "system": "NHSR&C",
+      "challenge": "Overcrowded emergency rooms",
+      "opportunity": "Triage quality and wait time metrics"
+    },
+    "relatedCapabilities": [
+      "HCF-034",
+      "HCF-036"
+    ],
+    "businessQuestions": [
+      "What is the current state of emergency department quality across facilities?",
+      "How does emergency department quality performance compare between urban and rural settings?",
+      "What improvements in emergency department quality can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-036",
+    "name": "Laboratory Quality Assurance",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Quality Measurement & Reporting",
+    "groupId": "G2.2",
+    "description": "Analytics capability for laboratory quality assurance within the Quality Measurement & Reporting domain",
+    "fhirResources": [
+      "DiagnosticReport",
+      "Observation",
+      "Specimen"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Lab departments",
+      "system": "NIH",
+      "challenge": "Variable lab quality across facilities",
+      "opportunity": "External quality assessment integration"
+    },
+    "relatedCapabilities": [
+      "HCF-035",
+      "HCF-037"
+    ],
+    "businessQuestions": [
+      "What is the current state of laboratory quality assurance across facilities?",
+      "How does laboratory quality assurance performance compare between urban and rural settings?",
+      "What improvements in laboratory quality assurance can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-037",
+    "name": "Drug Interaction Alerting",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Decision Support",
+    "groupId": "G2.3",
+    "description": "Analytics capability for drug interaction alerting within the Clinical Decision Support domain",
+    "fhirResources": [
+      "DetectedIssue",
+      "MedicationRequest",
+      "Medication"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-10",
+      "SA-06"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Pharmacy",
+      "system": "DRAP",
+      "challenge": "Manual interaction checking",
+      "opportunity": "Automated CDS alerts"
+    },
+    "relatedCapabilities": [
+      "HCF-036",
+      "HCF-038"
+    ],
+    "businessQuestions": [
+      "What is the current state of drug interaction alerting across facilities?",
+      "How does drug interaction alerting performance compare between urban and rural settings?",
+      "What improvements in drug interaction alerting can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-038",
+    "name": "Clinical Guideline Integration",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Decision Support",
+    "groupId": "G2.3",
+    "description": "Analytics capability for clinical guideline integration within the Clinical Decision Support domain",
+    "fhirResources": [
+      "PlanDefinition",
+      "Library",
+      "ActivityDefinition"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-09"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Medical boards",
+      "system": "PMC",
+      "challenge": "Outdated clinical guidelines",
+      "opportunity": "Digital guideline implementation"
+    },
+    "relatedCapabilities": [
+      "HCF-037",
+      "HCF-039"
+    ],
+    "businessQuestions": [
+      "What is the current state of clinical guideline integration across facilities?",
+      "How does clinical guideline integration performance compare between urban and rural settings?",
+      "What improvements in clinical guideline integration can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-039",
+    "name": "Diagnostic Decision Support",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Decision Support",
+    "groupId": "G2.3",
+    "description": "Analytics capability for diagnostic decision support within the Clinical Decision Support domain",
+    "fhirResources": [
+      "DiagnosticReport",
+      "Observation",
+      "Condition"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Diagnostic departments",
+      "system": "NHSR&C",
+      "challenge": "Delayed diagnosis in primary care",
+      "opportunity": "AI-assisted diagnostic suggestions"
+    },
+    "relatedCapabilities": [
+      "HCF-038",
+      "HCF-040"
+    ],
+    "businessQuestions": [
+      "What is the current state of diagnostic decision support across facilities?",
+      "How does diagnostic decision support performance compare between urban and rural settings?",
+      "What improvements in diagnostic decision support can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-040",
+    "name": "Allergy & Contraindication Checking",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Decision Support",
+    "groupId": "G2.3",
+    "description": "Analytics capability for allergy & contraindication checking within the Clinical Decision Support domain",
+    "fhirResources": [
+      "AllergyIntolerance",
+      "MedicationRequest",
+      "DetectedIssue"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-06",
+      "SA-10"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Clinical systems",
+      "system": "DRAP",
+      "challenge": "Incomplete allergy records",
+      "opportunity": "Structured allergy documentation"
+    },
+    "relatedCapabilities": [
+      "HCF-039",
+      "HCF-041"
+    ],
+    "businessQuestions": [
+      "What is the current state of allergy & contraindication checking across facilities?",
+      "How does allergy & contraindication checking performance compare between urban and rural settings?",
+      "What improvements in allergy & contraindication checking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-041",
+    "name": "Preventive Care Reminders",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Decision Support",
+    "groupId": "G2.3",
+    "description": "Analytics capability for preventive care reminders within the Clinical Decision Support domain",
+    "fhirResources": [
+      "ImmunizationRecommendation",
+      "CarePlan",
+      "CommunicationRequest"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-06",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Primary care",
+      "system": "EPI Program",
+      "challenge": "Missed preventive interventions",
+      "opportunity": "Automated reminder generation"
+    },
+    "relatedCapabilities": [
+      "HCF-040",
+      "HCF-042"
+    ],
+    "businessQuestions": [
+      "What is the current state of preventive care reminders across facilities?",
+      "How does preventive care reminders performance compare between urban and rural settings?",
+      "What improvements in preventive care reminders can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-042",
+    "name": "Antimicrobial Stewardship",
+    "theme": "Clinical Analytics & Quality",
+    "themeId": "T2",
+    "themeColor": "red",
+    "group": "Clinical Decision Support",
+    "groupId": "G2.3",
+    "description": "Analytics capability for antimicrobial stewardship within the Clinical Decision Support domain",
+    "fhirResources": [
+      "MedicationRequest",
+      "Observation",
+      "DetectedIssue"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-06",
+      "SA-11",
+      "SA-10"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Infectious disease",
+      "system": "NIH",
+      "challenge": "Antibiotic resistance crisis in Pakistan",
+      "opportunity": "ASP program analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-041",
+      "HCF-043"
+    ],
+    "businessQuestions": [
+      "What is the current state of antimicrobial stewardship across facilities?",
+      "How does antimicrobial stewardship performance compare between urban and rural settings?",
+      "What improvements in antimicrobial stewardship can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-043",
+    "name": "Revenue Cycle Performance Dashboard",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Revenue Cycle Analytics",
+    "groupId": "G3.1",
+    "description": "Analytics capability for revenue cycle performance dashboard within the Revenue Cycle Analytics domain",
+    "fhirResources": [
+      "Claim",
+      "ClaimResponse",
+      "Account"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-04",
+      "SA-05"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Finance departments",
+      "system": "SECP",
+      "challenge": "Manual revenue tracking",
+      "opportunity": "Automated revenue cycle monitoring"
+    },
+    "relatedCapabilities": [
+      "HCF-042",
+      "HCF-044"
+    ],
+    "businessQuestions": [
+      "What is the current state of revenue cycle performance dashboard across facilities?",
+      "How does revenue cycle performance dashboard performance compare between urban and rural settings?",
+      "What improvements in revenue cycle performance dashboard can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-044",
+    "name": "Billing Accuracy Analytics",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Revenue Cycle Analytics",
+    "groupId": "G3.1",
+    "description": "Analytics capability for billing accuracy analytics within the Revenue Cycle Analytics domain",
+    "fhirResources": [
+      "Claim",
+      "ChargeItem",
+      "Invoice"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-04"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Billing departments",
+      "system": "NHSR&C",
+      "challenge": "Revenue leakage from coding errors",
+      "opportunity": "Charge capture optimization"
+    },
+    "relatedCapabilities": [
+      "HCF-043",
+      "HCF-045"
+    ],
+    "businessQuestions": [
+      "What is the current state of billing accuracy analytics across facilities?",
+      "How does billing accuracy analytics performance compare between urban and rural settings?",
+      "What improvements in billing accuracy analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-045",
+    "name": "Collection Rate Analysis",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Revenue Cycle Analytics",
+    "groupId": "G3.1",
+    "description": "Analytics capability for collection rate analysis within the Revenue Cycle Analytics domain",
+    "fhirResources": [
+      "PaymentReconciliation",
+      "Account",
+      "Invoice"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-05",
+      "SA-04"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Finance",
+      "system": "SECP",
+      "challenge": "Low collection rates",
+      "opportunity": "Predictive collection analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-044",
+      "HCF-046"
+    ],
+    "businessQuestions": [
+      "What is the current state of collection rate analysis across facilities?",
+      "How does collection rate analysis performance compare between urban and rural settings?",
+      "What improvements in collection rate analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-046",
+    "name": "Denial Management Analytics",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Revenue Cycle Analytics",
+    "groupId": "G3.1",
+    "description": "Analytics capability for denial management analytics within the Revenue Cycle Analytics domain",
+    "fhirResources": [
+      "ClaimResponse",
+      "Claim",
+      "ExplanationOfBenefit"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-04",
+      "SA-05"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Claims departments",
+      "system": "Sehat Sahulat",
+      "challenge": "High claims denial rates",
+      "opportunity": "Root cause denial analysis"
+    },
+    "relatedCapabilities": [
+      "HCF-045",
+      "HCF-047"
+    ],
+    "businessQuestions": [
+      "What is the current state of denial management analytics across facilities?",
+      "How does denial management analytics performance compare between urban and rural settings?",
+      "What improvements in denial management analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-047",
+    "name": "Charge Capture Optimization",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Revenue Cycle Analytics",
+    "groupId": "G3.1",
+    "description": "Analytics capability for charge capture optimization within the Revenue Cycle Analytics domain",
+    "fhirResources": [
+      "ChargeItem",
+      "Encounter",
+      "Procedure"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-04",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Revenue cycle",
+      "system": "Hospital admin",
+      "challenge": "Under-coding of services",
+      "opportunity": "Automated charge suggestions"
+    },
+    "relatedCapabilities": [
+      "HCF-046",
+      "HCF-048"
+    ],
+    "businessQuestions": [
+      "What is the current state of charge capture optimization across facilities?",
+      "How does charge capture optimization performance compare between urban and rural settings?",
+      "What improvements in charge capture optimization can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-048",
+    "name": "Accounts Receivable Aging",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Revenue Cycle Analytics",
+    "groupId": "G3.1",
+    "description": "Analytics capability for accounts receivable aging within the Revenue Cycle Analytics domain",
+    "fhirResources": [
+      "Account",
+      "PaymentNotice",
+      "Invoice"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-05",
+      "SA-04"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Finance",
+      "system": "SECP",
+      "challenge": "Long payment cycles",
+      "opportunity": "AR aging dashboard"
+    },
+    "relatedCapabilities": [
+      "HCF-047",
+      "HCF-049"
+    ],
+    "businessQuestions": [
+      "What is the current state of accounts receivable aging across facilities?",
+      "How does accounts receivable aging performance compare between urban and rural settings?",
+      "What improvements in accounts receivable aging can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-049",
+    "name": "Payer Mix Analysis",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Revenue Cycle Analytics",
+    "groupId": "G3.1",
+    "description": "Analytics capability for payer mix analysis within the Revenue Cycle Analytics domain",
+    "fhirResources": [
+      "Coverage",
+      "Claim",
+      "ExplanationOfBenefit"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-05",
+      "SA-04",
+      "SA-07"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Finance",
+      "system": "NHSR&C",
+      "challenge": "Over-dependence on OOP payments",
+      "opportunity": "Payer diversification analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-048",
+      "HCF-050"
+    ],
+    "businessQuestions": [
+      "What is the current state of payer mix analysis across facilities?",
+      "How does payer mix analysis performance compare between urban and rural settings?",
+      "What improvements in payer mix analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-050",
+    "name": "Service Line Revenue Analysis",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Revenue Cycle Analytics",
+    "groupId": "G3.1",
+    "description": "Analytics capability for service line revenue analysis within the Revenue Cycle Analytics domain",
+    "fhirResources": [
+      "Encounter",
+      "Claim",
+      "ChargeItem"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-04"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Hospital admin",
+      "system": "NHSR&C",
+      "challenge": "No service-line profitability view",
+      "opportunity": "Department-level revenue tracking"
+    },
+    "relatedCapabilities": [
+      "HCF-049",
+      "HCF-051"
+    ],
+    "businessQuestions": [
+      "What is the current state of service line revenue analysis across facilities?",
+      "How does service line revenue analysis performance compare between urban and rural settings?",
+      "What improvements in service line revenue analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-051",
+    "name": "Claims Submission Analytics",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Claims & Reimbursement Analytics",
+    "groupId": "G3.2",
+    "description": "Analytics capability for claims submission analytics within the Claims & Reimbursement Analytics domain",
+    "fhirResources": [
+      "Claim",
+      "Coverage",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-04",
+      "SA-07",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Claims dept",
+      "system": "Sehat Sahulat",
+      "challenge": "Delayed claims submission",
+      "opportunity": "Electronic claims submission"
+    },
+    "relatedCapabilities": [
+      "HCF-050",
+      "HCF-052"
+    ],
+    "businessQuestions": [
+      "What is the current state of claims submission analytics across facilities?",
+      "How does claims submission analytics performance compare between urban and rural settings?",
+      "What improvements in claims submission analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-052",
+    "name": "Claims Adjudication Tracking",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Claims & Reimbursement Analytics",
+    "groupId": "G3.2",
+    "description": "Analytics capability for claims adjudication tracking within the Claims & Reimbursement Analytics domain",
+    "fhirResources": [
+      "ClaimResponse",
+      "Claim",
+      "ExplanationOfBenefit"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-04",
+      "SA-05"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Claims dept",
+      "system": "Sehat Sahulat",
+      "challenge": "Opaque adjudication process",
+      "opportunity": "Real-time adjudication tracking"
+    },
+    "relatedCapabilities": [
+      "HCF-051",
+      "HCF-053"
+    ],
+    "businessQuestions": [
+      "What is the current state of claims adjudication tracking across facilities?",
+      "How does claims adjudication tracking performance compare between urban and rural settings?",
+      "What improvements in claims adjudication tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-053",
+    "name": "Reimbursement Rate Analysis",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Claims & Reimbursement Analytics",
+    "groupId": "G3.2",
+    "description": "Analytics capability for reimbursement rate analysis within the Claims & Reimbursement Analytics domain",
+    "fhirResources": [
+      "ExplanationOfBenefit",
+      "Claim",
+      "InsurancePlan"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-05",
+      "SA-04",
+      "SA-07"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Finance",
+      "system": "Sehat Sahulat",
+      "challenge": "Below-cost reimbursement rates",
+      "opportunity": "Rate negotiation analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-052",
+      "HCF-054"
+    ],
+    "businessQuestions": [
+      "What is the current state of reimbursement rate analysis across facilities?",
+      "How does reimbursement rate analysis performance compare between urban and rural settings?",
+      "What improvements in reimbursement rate analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-054",
+    "name": "Fraud Detection Analytics",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Claims & Reimbursement Analytics",
+    "groupId": "G3.2",
+    "description": "Analytics capability for fraud detection analytics within the Claims & Reimbursement Analytics domain",
+    "fhirResources": [
+      "Claim",
+      "Encounter",
+      "Procedure"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-04",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Compliance",
+      "system": "Sehat Sahulat/NAB",
+      "challenge": "Healthcare fraud risk",
+      "opportunity": "Anomaly detection models"
+    },
+    "relatedCapabilities": [
+      "HCF-053",
+      "HCF-055"
+    ],
+    "businessQuestions": [
+      "What is the current state of fraud detection analytics across facilities?",
+      "How does fraud detection analytics performance compare between urban and rural settings?",
+      "What improvements in fraud detection analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-055",
+    "name": "Prior Authorization Analytics",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Claims & Reimbursement Analytics",
+    "groupId": "G3.2",
+    "description": "Analytics capability for prior authorization analytics within the Claims & Reimbursement Analytics domain",
+    "fhirResources": [
+      "CoverageEligibilityRequest",
+      "CoverageEligibilityResponse",
+      "Claim"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-07",
+      "SA-04"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Utilization review",
+      "system": "Sehat Sahulat",
+      "challenge": "Slow authorization process",
+      "opportunity": "Automated prior auth"
+    },
+    "relatedCapabilities": [
+      "HCF-054",
+      "HCF-056"
+    ],
+    "businessQuestions": [
+      "What is the current state of prior authorization analytics across facilities?",
+      "How does prior authorization analytics performance compare between urban and rural settings?",
+      "What improvements in prior authorization analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-056",
+    "name": "Coding Compliance Analytics",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Claims & Reimbursement Analytics",
+    "groupId": "G3.2",
+    "description": "Analytics capability for coding compliance analytics within the Claims & Reimbursement Analytics domain",
+    "fhirResources": [
+      "Claim",
+      "Condition",
+      "Procedure"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-04",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "HIM department",
+      "system": "NHSR&C",
+      "challenge": "ICD-10 coding inconsistencies",
+      "opportunity": "Coding audit and education"
+    },
+    "relatedCapabilities": [
+      "HCF-055",
+      "HCF-057"
+    ],
+    "businessQuestions": [
+      "What is the current state of coding compliance analytics across facilities?",
+      "How does coding compliance analytics performance compare between urban and rural settings?",
+      "What improvements in coding compliance analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-057",
+    "name": "Cost Per Patient Analysis",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Cost & Profitability Analytics",
+    "groupId": "G3.3",
+    "description": "Analytics capability for cost per patient analysis within the Cost & Profitability Analytics domain",
+    "fhirResources": [
+      "Account",
+      "Encounter",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-05",
+      "SA-03",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Finance",
+      "system": "NHSR&C",
+      "challenge": "Unknown true cost per patient",
+      "opportunity": "Activity-based costing"
+    },
+    "relatedCapabilities": [
+      "HCF-056",
+      "HCF-058"
+    ],
+    "businessQuestions": [
+      "What is the current state of cost per patient analysis across facilities?",
+      "How does cost per patient analysis performance compare between urban and rural settings?",
+      "What improvements in cost per patient analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-058",
+    "name": "Procedure Cost Analysis",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Cost & Profitability Analytics",
+    "groupId": "G3.3",
+    "description": "Analytics capability for procedure cost analysis within the Cost & Profitability Analytics domain",
+    "fhirResources": [
+      "Procedure",
+      "ChargeItem",
+      "Account"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-04",
+      "SA-05"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Finance",
+      "system": "Hospital admin",
+      "challenge": "No procedure-level costing",
+      "opportunity": "Micro-costing analysis"
+    },
+    "relatedCapabilities": [
+      "HCF-057",
+      "HCF-059"
+    ],
+    "businessQuestions": [
+      "What is the current state of procedure cost analysis across facilities?",
+      "How does procedure cost analysis performance compare between urban and rural settings?",
+      "What improvements in procedure cost analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-059",
+    "name": "Department Profitability",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Cost & Profitability Analytics",
+    "groupId": "G3.3",
+    "description": "Analytics capability for department profitability within the Cost & Profitability Analytics domain",
+    "fhirResources": [
+      "Organization",
+      "Account",
+      "Encounter"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-08",
+      "SA-05",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Finance",
+      "system": "Hospital admin",
+      "challenge": "Cross-subsidization between departments",
+      "opportunity": "Contribution margin analysis"
+    },
+    "relatedCapabilities": [
+      "HCF-058",
+      "HCF-060"
+    ],
+    "businessQuestions": [
+      "What is the current state of department profitability across facilities?",
+      "How does department profitability performance compare between urban and rural settings?",
+      "What improvements in department profitability can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-060",
+    "name": "Budget Variance Analysis",
+    "theme": "Financial Analytics & Revenue",
+    "themeId": "T3",
+    "themeColor": "blue",
+    "group": "Cost & Profitability Analytics",
+    "groupId": "G3.3",
+    "description": "Analytics capability for budget variance analysis within the Cost & Profitability Analytics domain",
+    "fhirResources": [
+      "Account",
+      "MeasureReport",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-05",
+      "SA-09",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Finance",
+      "system": "Planning Commission",
+      "challenge": "Budget overruns in health facilities",
+      "opportunity": "Variance tracking and forecasting"
+    },
+    "relatedCapabilities": [
+      "HCF-059",
+      "HCF-061"
+    ],
+    "businessQuestions": [
+      "What is the current state of budget variance analysis across facilities?",
+      "How does budget variance analysis performance compare between urban and rural settings?",
+      "What improvements in budget variance analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-061",
+    "name": "Bed Occupancy & Management",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Facility & Resource Analytics",
+    "groupId": "G4.1",
+    "description": "Analytics capability for bed occupancy & management within the Facility & Resource Analytics domain",
+    "fhirResources": [
+      "Location",
+      "Encounter",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-08",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Hospital admin",
+      "system": "HMIS",
+      "challenge": "Overcrowded wards",
+      "opportunity": "Real-time bed management"
+    },
+    "relatedCapabilities": [
+      "HCF-060",
+      "HCF-062"
+    ],
+    "businessQuestions": [
+      "What is the current state of bed occupancy & management across facilities?",
+      "How does bed occupancy & management performance compare between urban and rural settings?",
+      "What improvements in bed occupancy & management can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-062",
+    "name": "Operating Room Utilization",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Facility & Resource Analytics",
+    "groupId": "G4.1",
+    "description": "Analytics capability for operating room utilization within the Facility & Resource Analytics domain",
+    "fhirResources": [
+      "Location",
+      "Procedure",
+      "Schedule"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-08",
+      "SA-03",
+      "SA-02"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Surgical dept",
+      "system": "Hospital admin",
+      "challenge": "Low OR utilization rates",
+      "opportunity": "Scheduling optimization"
+    },
+    "relatedCapabilities": [
+      "HCF-061",
+      "HCF-063"
+    ],
+    "businessQuestions": [
+      "What is the current state of operating room utilization across facilities?",
+      "How does operating room utilization performance compare between urban and rural settings?",
+      "What improvements in operating room utilization can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-063",
+    "name": "Equipment Utilization Analytics",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Facility & Resource Analytics",
+    "groupId": "G4.1",
+    "description": "Analytics capability for equipment utilization analytics within the Facility & Resource Analytics domain",
+    "fhirResources": [
+      "Device",
+      "DeviceUsage",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Biomedical dept",
+      "system": "Hospital admin",
+      "challenge": "Underutilized medical equipment",
+      "opportunity": "Usage tracking and optimization"
+    },
+    "relatedCapabilities": [
+      "HCF-062",
+      "HCF-064"
+    ],
+    "businessQuestions": [
+      "What is the current state of equipment utilization analytics across facilities?",
+      "How does equipment utilization analytics performance compare between urban and rural settings?",
+      "What improvements in equipment utilization analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-064",
+    "name": "Outpatient Clinic Efficiency",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Facility & Resource Analytics",
+    "groupId": "G4.1",
+    "description": "Analytics capability for outpatient clinic efficiency within the Facility & Resource Analytics domain",
+    "fhirResources": [
+      "Encounter",
+      "Appointment",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-02",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "OPD management",
+      "system": "HMIS",
+      "challenge": "Long OPD wait times",
+      "opportunity": "Patient flow optimization"
+    },
+    "relatedCapabilities": [
+      "HCF-063",
+      "HCF-065"
+    ],
+    "businessQuestions": [
+      "What is the current state of outpatient clinic efficiency across facilities?",
+      "How does outpatient clinic efficiency performance compare between urban and rural settings?",
+      "What improvements in outpatient clinic efficiency can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-065",
+    "name": "Emergency Department Flow",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Facility & Resource Analytics",
+    "groupId": "G4.1",
+    "description": "Analytics capability for emergency department flow within the Facility & Resource Analytics domain",
+    "fhirResources": [
+      "Encounter",
+      "Location",
+      "Condition"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Emergency dept",
+      "system": "NHSR&C",
+      "challenge": "ED overcrowding",
+      "opportunity": "Predictive demand modeling"
+    },
+    "relatedCapabilities": [
+      "HCF-064",
+      "HCF-066"
+    ],
+    "businessQuestions": [
+      "What is the current state of emergency department flow across facilities?",
+      "How does emergency department flow performance compare between urban and rural settings?",
+      "What improvements in emergency department flow can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-066",
+    "name": "Facility Capacity Planning",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Facility & Resource Analytics",
+    "groupId": "G4.1",
+    "description": "Analytics capability for facility capacity planning within the Facility & Resource Analytics domain",
+    "fhirResources": [
+      "Location",
+      "Organization",
+      "Encounter"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-08",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Planning depts",
+      "system": "Planning Commission",
+      "challenge": "Facility capacity shortages",
+      "opportunity": "Demand forecasting models"
+    },
+    "relatedCapabilities": [
+      "HCF-065",
+      "HCF-067"
+    ],
+    "businessQuestions": [
+      "What is the current state of facility capacity planning across facilities?",
+      "How does facility capacity planning performance compare between urban and rural settings?",
+      "What improvements in facility capacity planning can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-067",
+    "name": "Diagnostic Lab Throughput",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Facility & Resource Analytics",
+    "groupId": "G4.1",
+    "description": "Analytics capability for diagnostic lab throughput within the Facility & Resource Analytics domain",
+    "fhirResources": [
+      "DiagnosticReport",
+      "Specimen",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Lab management",
+      "system": "NHSR&C",
+      "challenge": "Long turnaround times",
+      "opportunity": "Lab workflow optimization"
+    },
+    "relatedCapabilities": [
+      "HCF-066",
+      "HCF-068"
+    ],
+    "businessQuestions": [
+      "What is the current state of diagnostic lab throughput across facilities?",
+      "How does diagnostic lab throughput performance compare between urban and rural settings?",
+      "What improvements in diagnostic lab throughput can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-068",
+    "name": "Pharmacy Operations Analytics",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Facility & Resource Analytics",
+    "groupId": "G4.1",
+    "description": "Analytics capability for pharmacy operations analytics within the Facility & Resource Analytics domain",
+    "fhirResources": [
+      "MedicationDispense",
+      "Medication",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-06",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Pharmacy management",
+      "system": "DRAP",
+      "challenge": "Stockouts and wastage",
+      "opportunity": "Inventory optimization"
+    },
+    "relatedCapabilities": [
+      "HCF-067",
+      "HCF-069"
+    ],
+    "businessQuestions": [
+      "What is the current state of pharmacy operations analytics across facilities?",
+      "How does pharmacy operations analytics performance compare between urban and rural settings?",
+      "What improvements in pharmacy operations analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-069",
+    "name": "Provider Productivity Analysis",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Workforce Analytics",
+    "groupId": "G4.2",
+    "description": "Analytics capability for provider productivity analysis within the Workforce Analytics domain",
+    "fhirResources": [
+      "Practitioner",
+      "Encounter",
+      "Procedure"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "HR department",
+      "system": "PMC",
+      "challenge": "Provider workload imbalance",
+      "opportunity": "Workload distribution analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-068",
+      "HCF-070"
+    ],
+    "businessQuestions": [
+      "What is the current state of provider productivity analysis across facilities?",
+      "How does provider productivity analysis performance compare between urban and rural settings?",
+      "What improvements in provider productivity analysis can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-070",
+    "name": "Staff Scheduling Optimization",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Workforce Analytics",
+    "groupId": "G4.2",
+    "description": "Analytics capability for staff scheduling optimization within the Workforce Analytics domain",
+    "fhirResources": [
+      "PractitionerRole",
+      "Schedule",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-02",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "HR department",
+      "system": "Hospital admin",
+      "challenge": "Shift scheduling inefficiency",
+      "opportunity": "Demand-based scheduling"
+    },
+    "relatedCapabilities": [
+      "HCF-069",
+      "HCF-071"
+    ],
+    "businessQuestions": [
+      "What is the current state of staff scheduling optimization across facilities?",
+      "How does staff scheduling optimization performance compare between urban and rural settings?",
+      "What improvements in staff scheduling optimization can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-071",
+    "name": "Provider Competency Tracking",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Workforce Analytics",
+    "groupId": "G4.2",
+    "description": "Analytics capability for provider competency tracking within the Workforce Analytics domain",
+    "fhirResources": [
+      "Practitioner",
+      "PractitionerRole",
+      "Procedure"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "HR/CME dept",
+      "system": "PMC",
+      "challenge": "CME tracking challenges",
+      "opportunity": "Digital CME portfolio"
+    },
+    "relatedCapabilities": [
+      "HCF-070",
+      "HCF-072"
+    ],
+    "businessQuestions": [
+      "What is the current state of provider competency tracking across facilities?",
+      "How does provider competency tracking performance compare between urban and rural settings?",
+      "What improvements in provider competency tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-072",
+    "name": "Nursing Workload Analytics",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Workforce Analytics",
+    "groupId": "G4.2",
+    "description": "Analytics capability for nursing workload analytics within the Workforce Analytics domain",
+    "fhirResources": [
+      "Practitioner",
+      "Encounter",
+      "CarePlan"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-03"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Nursing admin",
+      "system": "PNC",
+      "challenge": "Nurse-to-patient ratios",
+      "opportunity": "Acuity-based staffing"
+    },
+    "relatedCapabilities": [
+      "HCF-071",
+      "HCF-073"
+    ],
+    "businessQuestions": [
+      "What is the current state of nursing workload analytics across facilities?",
+      "How does nursing workload analytics performance compare between urban and rural settings?",
+      "What improvements in nursing workload analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-073",
+    "name": "Healthcare Worker Safety",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Workforce Analytics",
+    "groupId": "G4.2",
+    "description": "Analytics capability for healthcare worker safety within the Workforce Analytics domain",
+    "fhirResources": [
+      "Practitioner",
+      "AdverseEvent",
+      "Observation"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-10",
+      "SA-11"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Occupational health",
+      "system": "NHSR&C",
+      "challenge": "Healthcare worker injuries",
+      "opportunity": "Incident tracking and prevention"
+    },
+    "relatedCapabilities": [
+      "HCF-072",
+      "HCF-074"
+    ],
+    "businessQuestions": [
+      "What is the current state of healthcare worker safety across facilities?",
+      "How does healthcare worker safety performance compare between urban and rural settings?",
+      "What improvements in healthcare worker safety can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-074",
+    "name": "Training Needs Assessment",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Workforce Analytics",
+    "groupId": "G4.2",
+    "description": "Analytics capability for training needs assessment within the Workforce Analytics domain",
+    "fhirResources": [
+      "Practitioner",
+      "PractitionerRole",
+      "QuestionnaireResponse"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Training dept",
+      "system": "NHSR&C",
+      "challenge": "Skill gaps in rural facilities",
+      "opportunity": "Competency gap analysis"
+    },
+    "relatedCapabilities": [
+      "HCF-073",
+      "HCF-075"
+    ],
+    "businessQuestions": [
+      "What is the current state of training needs assessment across facilities?",
+      "How does training needs assessment performance compare between urban and rural settings?",
+      "What improvements in training needs assessment can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-075",
+    "name": "Medical Supply Chain Analytics",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Supply Chain Analytics",
+    "groupId": "G4.3",
+    "description": "Analytics capability for medical supply chain analytics within the Supply Chain Analytics domain",
+    "fhirResources": [
+      "SupplyRequest",
+      "SupplyDelivery",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-02",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Supply chain",
+      "system": "DRAP",
+      "challenge": "Supply chain disruptions",
+      "opportunity": "Demand forecasting"
+    },
+    "relatedCapabilities": [
+      "HCF-074",
+      "HCF-076"
+    ],
+    "businessQuestions": [
+      "What is the current state of medical supply chain analytics across facilities?",
+      "How does medical supply chain analytics performance compare between urban and rural settings?",
+      "What improvements in medical supply chain analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-076",
+    "name": "Pharmaceutical Inventory Management",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Supply Chain Analytics",
+    "groupId": "G4.3",
+    "description": "Analytics capability for pharmaceutical inventory management within the Supply Chain Analytics domain",
+    "fhirResources": [
+      "Medication",
+      "MedicationDispense",
+      "SupplyDelivery"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-06",
+      "SA-02"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Pharmacy",
+      "system": "DRAP",
+      "challenge": "Drug expiry and wastage",
+      "opportunity": "Just-in-time inventory"
+    },
+    "relatedCapabilities": [
+      "HCF-075",
+      "HCF-077"
+    ],
+    "businessQuestions": [
+      "What is the current state of pharmaceutical inventory management across facilities?",
+      "How does pharmaceutical inventory management performance compare between urban and rural settings?",
+      "What improvements in pharmaceutical inventory management can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-077",
+    "name": "Blood Bank Management",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Supply Chain Analytics",
+    "groupId": "G4.3",
+    "description": "Analytics capability for blood bank management within the Supply Chain Analytics domain",
+    "fhirResources": [
+      "BiologicallyDerivedProduct",
+      "Specimen",
+      "SupplyRequest"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-02"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Blood bank",
+      "system": "NIH/Safe Blood",
+      "challenge": "Blood supply shortages",
+      "opportunity": "Donor management analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-076",
+      "HCF-078"
+    ],
+    "businessQuestions": [
+      "What is the current state of blood bank management across facilities?",
+      "How does blood bank management performance compare between urban and rural settings?",
+      "What improvements in blood bank management can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-078",
+    "name": "Equipment Maintenance Analytics",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Supply Chain Analytics",
+    "groupId": "G4.3",
+    "description": "Analytics capability for equipment maintenance analytics within the Supply Chain Analytics domain",
+    "fhirResources": [
+      "Device",
+      "DeviceRequest",
+      "Task"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-08",
+      "SA-02"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Biomedical dept",
+      "system": "Hospital admin",
+      "challenge": "Equipment downtime",
+      "opportunity": "Predictive maintenance"
+    },
+    "relatedCapabilities": [
+      "HCF-077",
+      "HCF-079"
+    ],
+    "businessQuestions": [
+      "What is the current state of equipment maintenance analytics across facilities?",
+      "How does equipment maintenance analytics performance compare between urban and rural settings?",
+      "What improvements in equipment maintenance analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-079",
+    "name": "Vaccine Cold Chain Monitoring",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Supply Chain Analytics",
+    "groupId": "G4.3",
+    "description": "Analytics capability for vaccine cold chain monitoring within the Supply Chain Analytics domain",
+    "fhirResources": [
+      "Immunization",
+      "Device",
+      "Observation"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-06",
+      "SA-08",
+      "SA-11"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "EPI Program",
+      "system": "WHO Pakistan",
+      "challenge": "Cold chain breaks",
+      "opportunity": "IoT-enabled temperature monitoring"
+    },
+    "relatedCapabilities": [
+      "HCF-078",
+      "HCF-080"
+    ],
+    "businessQuestions": [
+      "What is the current state of vaccine cold chain monitoring across facilities?",
+      "How does vaccine cold chain monitoring performance compare between urban and rural settings?",
+      "What improvements in vaccine cold chain monitoring can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-080",
+    "name": "Waste Management Analytics",
+    "theme": "Operational Analytics",
+    "themeId": "T4",
+    "themeColor": "violet",
+    "group": "Supply Chain Analytics",
+    "groupId": "G4.3",
+    "description": "Analytics capability for waste management analytics within the Supply Chain Analytics domain",
+    "fhirResources": [
+      "Observation",
+      "Location",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Infection control",
+      "system": "EPA Pakistan",
+      "challenge": "Biomedical waste management",
+      "opportunity": "Waste tracking and compliance"
+    },
+    "relatedCapabilities": [
+      "HCF-079",
+      "HCF-081"
+    ],
+    "businessQuestions": [
+      "What is the current state of waste management analytics across facilities?",
+      "How does waste management analytics performance compare between urban and rural settings?",
+      "What improvements in waste management analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-081",
+    "name": "Population Health Dashboard",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Population Health Management",
+    "groupId": "G5.1",
+    "description": "Analytics capability for population health dashboard within the Population Health Management domain",
+    "fhirResources": [
+      "Group",
+      "Patient",
+      "Condition"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-03",
+      "SA-09"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Public health",
+      "system": "NHSR&C",
+      "challenge": "No population health view",
+      "opportunity": "Integrated population dashboard"
+    },
+    "relatedCapabilities": [
+      "HCF-080",
+      "HCF-082"
+    ],
+    "businessQuestions": [
+      "What is the current state of population health dashboard across facilities?",
+      "How does population health dashboard performance compare between urban and rural settings?",
+      "What improvements in population health dashboard can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-082",
+    "name": "Social Determinants of Health",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Population Health Management",
+    "groupId": "G5.1",
+    "description": "Analytics capability for social determinants of health within the Population Health Management domain",
+    "fhirResources": [
+      "Patient",
+      "Observation",
+      "QuestionnaireResponse"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-11"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Community health",
+      "system": "BISP/Ehsaas",
+      "challenge": "SDOH data gaps",
+      "opportunity": "Multi-sector data integration"
+    },
+    "relatedCapabilities": [
+      "HCF-081",
+      "HCF-083"
+    ],
+    "businessQuestions": [
+      "What is the current state of social determinants of health across facilities?",
+      "How does social determinants of health performance compare between urban and rural settings?",
+      "What improvements in social determinants of health can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-083",
+    "name": "Maternal & Child Health Tracking",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Population Health Management",
+    "groupId": "G5.1",
+    "description": "Analytics capability for maternal & child health tracking within the Population Health Management domain",
+    "fhirResources": [
+      "Patient",
+      "Condition",
+      "Immunization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-01",
+      "SA-03",
+      "SA-06"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "MNCH Program",
+      "system": "NHSR&C",
+      "challenge": "High maternal/infant mortality",
+      "opportunity": "LHW-powered MNCH tracking"
+    },
+    "relatedCapabilities": [
+      "HCF-082",
+      "HCF-084"
+    ],
+    "businessQuestions": [
+      "What is the current state of maternal & child health tracking across facilities?",
+      "How does maternal & child health tracking performance compare between urban and rural settings?",
+      "What improvements in maternal & child health tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-084",
+    "name": "Nutrition Surveillance",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Population Health Management",
+    "groupId": "G5.1",
+    "description": "Analytics capability for nutrition surveillance within the Population Health Management domain",
+    "fhirResources": [
+      "NutritionIntake",
+      "Observation",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-11",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Nutrition programs",
+      "system": "UNICEF/WFP",
+      "challenge": "Malnutrition prevalence 40%+",
+      "opportunity": "Community-based nutrition monitoring"
+    },
+    "relatedCapabilities": [
+      "HCF-083",
+      "HCF-085"
+    ],
+    "businessQuestions": [
+      "What is the current state of nutrition surveillance across facilities?",
+      "How does nutrition surveillance performance compare between urban and rural settings?",
+      "What improvements in nutrition surveillance can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-085",
+    "name": "Reproductive Health Analytics",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Population Health Management",
+    "groupId": "G5.1",
+    "description": "Analytics capability for reproductive health analytics within the Population Health Management domain",
+    "fhirResources": [
+      "Condition",
+      "Procedure",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "RH programs",
+      "system": "UNFPA Pakistan",
+      "challenge": "Low contraceptive prevalence rate",
+      "opportunity": "Family planning service analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-084",
+      "HCF-086"
+    ],
+    "businessQuestions": [
+      "What is the current state of reproductive health analytics across facilities?",
+      "How does reproductive health analytics performance compare between urban and rural settings?",
+      "What improvements in reproductive health analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-086",
+    "name": "Mental Health Analytics",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Population Health Management",
+    "groupId": "G5.1",
+    "description": "Analytics capability for mental health analytics within the Population Health Management domain",
+    "fhirResources": [
+      "Condition",
+      "Encounter",
+      "CarePlan"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Mental health",
+      "system": "NHSR&C",
+      "challenge": "Mental health stigma; 1 psychiatrist per 500K",
+      "opportunity": "Community mental health tracking"
+    },
+    "relatedCapabilities": [
+      "HCF-085",
+      "HCF-087"
+    ],
+    "businessQuestions": [
+      "What is the current state of mental health analytics across facilities?",
+      "How does mental health analytics performance compare between urban and rural settings?",
+      "What improvements in mental health analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-087",
+    "name": "Non-Communicable Disease Registry",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Population Health Management",
+    "groupId": "G5.1",
+    "description": "Analytics capability for non-communicable disease registry within the Population Health Management domain",
+    "fhirResources": [
+      "Condition",
+      "Observation",
+      "Patient"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-11",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "NCD Program",
+      "system": "WHO Pakistan",
+      "challenge": "Rising diabetes/CVD burden",
+      "opportunity": "NCD risk factor surveillance"
+    },
+    "relatedCapabilities": [
+      "HCF-086",
+      "HCF-088"
+    ],
+    "businessQuestions": [
+      "What is the current state of non-communicable disease registry across facilities?",
+      "How does non-communicable disease registry performance compare between urban and rural settings?",
+      "What improvements in non-communicable disease registry can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-088",
+    "name": "Environmental Health Monitoring",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Population Health Management",
+    "groupId": "G5.1",
+    "description": "Analytics capability for environmental health monitoring within the Population Health Management domain",
+    "fhirResources": [
+      "Observation",
+      "Location",
+      "Group"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-08",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Environmental health",
+      "system": "EPA Pakistan",
+      "challenge": "Air/water pollution impact on health",
+      "opportunity": "Environmental-health correlation"
+    },
+    "relatedCapabilities": [
+      "HCF-087",
+      "HCF-089"
+    ],
+    "businessQuestions": [
+      "What is the current state of environmental health monitoring across facilities?",
+      "How does environmental health monitoring performance compare between urban and rural settings?",
+      "What improvements in environmental health monitoring can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-089",
+    "name": "Disease Outbreak Detection",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Disease Surveillance & Epidemiology",
+    "groupId": "G5.2",
+    "description": "Analytics capability for disease outbreak detection within the Disease Surveillance & Epidemiology domain",
+    "fhirResources": [
+      "Condition",
+      "Observation",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-11",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "NIH",
+      "system": "WHO Pakistan",
+      "challenge": "Delayed outbreak detection",
+      "opportunity": "Syndromic surveillance"
+    },
+    "relatedCapabilities": [
+      "HCF-088",
+      "HCF-090"
+    ],
+    "businessQuestions": [
+      "What is the current state of disease outbreak detection across facilities?",
+      "How does disease outbreak detection performance compare between urban and rural settings?",
+      "What improvements in disease outbreak detection can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-090",
+    "name": "Notifiable Disease Reporting",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Disease Surveillance & Epidemiology",
+    "groupId": "G5.2",
+    "description": "Analytics capability for notifiable disease reporting within the Disease Surveillance & Epidemiology domain",
+    "fhirResources": [
+      "Condition",
+      "Encounter",
+      "Organization"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "NIH",
+      "system": "NHSR&C",
+      "challenge": "Under-reporting of notifiable diseases",
+      "opportunity": "Automated IDSR reporting"
+    },
+    "relatedCapabilities": [
+      "HCF-089",
+      "HCF-091"
+    ],
+    "businessQuestions": [
+      "What is the current state of notifiable disease reporting across facilities?",
+      "How does notifiable disease reporting performance compare between urban and rural settings?",
+      "What improvements in notifiable disease reporting can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-091",
+    "name": "Immunization Coverage Analytics",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Disease Surveillance & Epidemiology",
+    "groupId": "G5.2",
+    "description": "Analytics capability for immunization coverage analytics within the Disease Surveillance & Epidemiology domain",
+    "fhirResources": [
+      "Immunization",
+      "Patient",
+      "Group"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-06",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "EPI Program",
+      "system": "WHO/UNICEF",
+      "challenge": "Missed children in EPI",
+      "opportunity": "Real-time coverage mapping"
+    },
+    "relatedCapabilities": [
+      "HCF-090",
+      "HCF-092"
+    ],
+    "businessQuestions": [
+      "What is the current state of immunization coverage analytics across facilities?",
+      "How does immunization coverage analytics performance compare between urban and rural settings?",
+      "What improvements in immunization coverage analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-092",
+    "name": "TB Surveillance & DOTS Tracking",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Disease Surveillance & Epidemiology",
+    "groupId": "G5.2",
+    "description": "Analytics capability for tb surveillance & dots tracking within the Disease Surveillance & Epidemiology domain",
+    "fhirResources": [
+      "Condition",
+      "MedicationStatement",
+      "EpisodeOfCare"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-06"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "TB Control Program",
+      "system": "WHO Pakistan",
+      "challenge": "TB case detection gap",
+      "opportunity": "Digital DOTS monitoring"
+    },
+    "relatedCapabilities": [
+      "HCF-091",
+      "HCF-093"
+    ],
+    "businessQuestions": [
+      "What is the current state of tb surveillance & dots tracking across facilities?",
+      "How does tb surveillance & dots tracking performance compare between urban and rural settings?",
+      "What improvements in tb surveillance & dots tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-093",
+    "name": "Dengue/Vector-Borne Disease Surveillance",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Disease Surveillance & Epidemiology",
+    "groupId": "G5.2",
+    "description": "Analytics capability for dengue/vector-borne disease surveillance within the Disease Surveillance & Epidemiology domain",
+    "fhirResources": [
+      "Condition",
+      "Observation",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-11",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Provincial dengue cells",
+      "system": "NIH",
+      "challenge": "Seasonal dengue outbreaks",
+      "opportunity": "Predictive outbreak modeling"
+    },
+    "relatedCapabilities": [
+      "HCF-092",
+      "HCF-094"
+    ],
+    "businessQuestions": [
+      "What is the current state of dengue/vector-borne disease surveillance across facilities?",
+      "How does dengue/vector-borne disease surveillance performance compare between urban and rural settings?",
+      "What improvements in dengue/vector-borne disease surveillance can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-094",
+    "name": "Polio Eradication Analytics",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Disease Surveillance & Epidemiology",
+    "groupId": "G5.2",
+    "description": "Analytics capability for polio eradication analytics within the Disease Surveillance & Epidemiology domain",
+    "fhirResources": [
+      "Immunization",
+      "Patient",
+      "Location"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-06",
+      "SA-01",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Polio Program",
+      "system": "WHO/GPEI",
+      "challenge": "Last remaining endemic country",
+      "opportunity": "Micro-plan tracking and lot quality assurance"
+    },
+    "relatedCapabilities": [
+      "HCF-093",
+      "HCF-095"
+    ],
+    "businessQuestions": [
+      "What is the current state of polio eradication analytics across facilities?",
+      "How does polio eradication analytics performance compare between urban and rural settings?",
+      "What improvements in polio eradication analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-095",
+    "name": "Antimicrobial Resistance Surveillance",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Disease Surveillance & Epidemiology",
+    "groupId": "G5.2",
+    "description": "Analytics capability for antimicrobial resistance surveillance within the Disease Surveillance & Epidemiology domain",
+    "fhirResources": [
+      "Observation",
+      "Specimen",
+      "Medication"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-06"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "NIH AMR Lab",
+      "system": "WHO GLASS",
+      "challenge": "High AMR rates in Pakistan",
+      "opportunity": "Lab-based AMR surveillance"
+    },
+    "relatedCapabilities": [
+      "HCF-094",
+      "HCF-096"
+    ],
+    "businessQuestions": [
+      "What is the current state of antimicrobial resistance surveillance across facilities?",
+      "How does antimicrobial resistance surveillance performance compare between urban and rural settings?",
+      "What improvements in antimicrobial resistance surveillance can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-096",
+    "name": "Hepatitis Screening & Treatment Tracking",
+    "theme": "Population Health & Public Health",
+    "themeId": "T5",
+    "themeColor": "teal",
+    "group": "Disease Surveillance & Epidemiology",
+    "groupId": "G5.2",
+    "description": "Analytics capability for hepatitis screening & treatment tracking within the Disease Surveillance & Epidemiology domain",
+    "fhirResources": [
+      "Condition",
+      "Observation",
+      "MedicationStatement"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-11",
+      "SA-06"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Hepatitis Program",
+      "system": "NHSR&C",
+      "challenge": "High HCV prevalence (5-8%)",
+      "opportunity": "Screening cascade analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-095",
+      "HCF-097"
+    ],
+    "businessQuestions": [
+      "What is the current state of hepatitis screening & treatment tracking across facilities?",
+      "How does hepatitis screening & treatment tracking performance compare between urban and rural settings?",
+      "What improvements in hepatitis screening & treatment tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-097",
+    "name": "FHIR Interoperability Analytics",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Health Information Exchange",
+    "groupId": "G6.1",
+    "description": "Analytics capability for fhir interoperability analytics within the Health Information Exchange domain",
+    "fhirResources": [
+      "CapabilityStatement",
+      "OperationOutcome",
+      "Bundle"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-12"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Health IT",
+      "system": "NHSR&C",
+      "challenge": "No national HIE",
+      "opportunity": "FHIR R5 adoption roadmap"
+    },
+    "relatedCapabilities": [
+      "HCF-096",
+      "HCF-098"
+    ],
+    "businessQuestions": [
+      "What is the current state of fhir interoperability analytics across facilities?",
+      "How does fhir interoperability analytics performance compare between urban and rural settings?",
+      "What improvements in fhir interoperability analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-098",
+    "name": "Health Information Exchange Monitoring",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Health Information Exchange",
+    "groupId": "G6.1",
+    "description": "Analytics capability for health information exchange monitoring within the Health Information Exchange domain",
+    "fhirResources": [
+      "Bundle",
+      "MessageHeader",
+      "AuditEvent"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-12"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Health IT",
+      "system": "NHSR&C",
+      "challenge": "Siloed health systems",
+      "opportunity": "Provincial HIE platforms"
+    },
+    "relatedCapabilities": [
+      "HCF-097",
+      "HCF-099"
+    ],
+    "businessQuestions": [
+      "What is the current state of health information exchange monitoring across facilities?",
+      "How does health information exchange monitoring performance compare between urban and rural settings?",
+      "What improvements in health information exchange monitoring can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-099",
+    "name": "DHIS2 Integration Analytics",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Health Information Exchange",
+    "groupId": "G6.1",
+    "description": "Analytics capability for dhis2 integration analytics within the Health Information Exchange domain",
+    "fhirResources": [
+      "MeasureReport",
+      "Organization",
+      "Observation"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-09",
+      "SA-08",
+      "SA-11"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "HMIS",
+      "system": "WHO/HISP",
+      "challenge": "Data quality in DHIS2",
+      "opportunity": "FHIR-DHIS2 interoperability"
+    },
+    "relatedCapabilities": [
+      "HCF-098",
+      "HCF-100"
+    ],
+    "businessQuestions": [
+      "What is the current state of dhis2 integration analytics across facilities?",
+      "How does dhis2 integration analytics performance compare between urban and rural settings?",
+      "What improvements in dhis2 integration analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-100",
+    "name": "Telemedicine Platform Analytics",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Health Information Exchange",
+    "groupId": "G6.1",
+    "description": "Analytics capability for telemedicine platform analytics within the Health Information Exchange domain",
+    "fhirResources": [
+      "Encounter",
+      "Communication",
+      "Practitioner"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-03",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Telemedicine programs",
+      "system": "Ministry of IT",
+      "challenge": "Limited specialist access in rural areas",
+      "opportunity": "Telemedicine utilization analytics"
+    },
+    "relatedCapabilities": [
+      "HCF-099",
+      "HCF-101"
+    ],
+    "businessQuestions": [
+      "What is the current state of telemedicine platform analytics across facilities?",
+      "How does telemedicine platform analytics performance compare between urban and rural settings?",
+      "What improvements in telemedicine platform analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-101",
+    "name": "Mobile Health (mHealth) Analytics",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Health Information Exchange",
+    "groupId": "G6.1",
+    "description": "Analytics capability for mobile health (mhealth) analytics within the Health Information Exchange domain",
+    "fhirResources": [
+      "Observation",
+      "Patient",
+      "Device"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-11",
+      "SA-01",
+      "SA-08"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "mHealth programs",
+      "system": "PTA",
+      "challenge": "Last-mile health access",
+      "opportunity": "mHealth program effectiveness"
+    },
+    "relatedCapabilities": [
+      "HCF-100",
+      "HCF-102"
+    ],
+    "businessQuestions": [
+      "What is the current state of mobile health (mhealth) analytics across facilities?",
+      "How does mobile health (mhealth) analytics performance compare between urban and rural settings?",
+      "What improvements in mobile health (mhealth) analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-102",
+    "name": "Cross-Provincial Data Sharing",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Health Information Exchange",
+    "groupId": "G6.1",
+    "description": "Analytics capability for cross-provincial data sharing within the Health Information Exchange domain",
+    "fhirResources": [
+      "Bundle",
+      "Consent",
+      "AuditEvent"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-12",
+      "SA-10"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Provincial health depts",
+      "system": "NHSR&C",
+      "challenge": "Provincial data silos",
+      "opportunity": "Federated data sharing framework"
+    },
+    "relatedCapabilities": [
+      "HCF-101",
+      "HCF-103"
+    ],
+    "businessQuestions": [
+      "What is the current state of cross-provincial data sharing across facilities?",
+      "How does cross-provincial data sharing performance compare between urban and rural settings?",
+      "What improvements in cross-provincial data sharing can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-103",
+    "name": "Data Quality Monitoring",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Data Quality & Governance",
+    "groupId": "G6.2",
+    "description": "Analytics capability for data quality monitoring within the Data Quality & Governance domain",
+    "fhirResources": [
+      "AuditEvent",
+      "OperationOutcome",
+      "Observation"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-12",
+      "SA-11"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Health IT",
+      "system": "NHSR&C",
+      "challenge": "Poor data quality in HMIS",
+      "opportunity": "Automated data quality rules"
+    },
+    "relatedCapabilities": [
+      "HCF-102",
+      "HCF-104"
+    ],
+    "businessQuestions": [
+      "What is the current state of data quality monitoring across facilities?",
+      "How does data quality monitoring performance compare between urban and rural settings?",
+      "What improvements in data quality monitoring can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-104",
+    "name": "Master Data Management",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Data Quality & Governance",
+    "groupId": "G6.2",
+    "description": "Analytics capability for master data management within the Data Quality & Governance domain",
+    "fhirResources": [
+      "Organization",
+      "Location",
+      "Practitioner"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-08",
+      "SA-01"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Health IT",
+      "system": "NHSR&C",
+      "challenge": "Inconsistent master data",
+      "opportunity": "Master data governance framework"
+    },
+    "relatedCapabilities": [
+      "HCF-103",
+      "HCF-105"
+    ],
+    "businessQuestions": [
+      "What is the current state of master data management across facilities?",
+      "How does master data management performance compare between urban and rural settings?",
+      "What improvements in master data management can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-105",
+    "name": "Privacy & Access Control Analytics",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Data Quality & Governance",
+    "groupId": "G6.2",
+    "description": "Analytics capability for privacy & access control analytics within the Data Quality & Governance domain",
+    "fhirResources": [
+      "AuditEvent",
+      "Consent",
+      "Permission"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-12",
+      "SA-10"
+    ],
+    "maturityLevelRequired": 2,
+    "pakistanEnrichment": {
+      "institution": "Compliance",
+      "system": "Ministry of IT",
+      "challenge": "No health data privacy law",
+      "opportunity": "HIPAA-equivalent framework development"
+    },
+    "relatedCapabilities": [
+      "HCF-104",
+      "HCF-106"
+    ],
+    "businessQuestions": [
+      "What is the current state of privacy & access control analytics across facilities?",
+      "How does privacy & access control analytics performance compare between urban and rural settings?",
+      "What improvements in privacy & access control analytics can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-106",
+    "name": "Data Lineage & Provenance Tracking",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Data Quality & Governance",
+    "groupId": "G6.2",
+    "description": "Analytics capability for data lineage & provenance tracking within the Data Quality & Governance domain",
+    "fhirResources": [
+      "Provenance",
+      "AuditEvent",
+      "Bundle"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-12"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Health IT",
+      "system": "NHSR&C",
+      "challenge": "No data lineage tracking",
+      "opportunity": "Automated provenance capture"
+    },
+    "relatedCapabilities": [
+      "HCF-105",
+      "HCF-107"
+    ],
+    "businessQuestions": [
+      "What is the current state of data lineage & provenance tracking across facilities?",
+      "How does data lineage & provenance tracking performance compare between urban and rural settings?",
+      "What improvements in data lineage & provenance tracking can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-107",
+    "name": "Terminology Standardization",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Data Quality & Governance",
+    "groupId": "G6.2",
+    "description": "Analytics capability for terminology standardization within the Data Quality & Governance domain",
+    "fhirResources": [
+      "CodeSystem",
+      "ValueSet",
+      "ConceptMap"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-12"
+    ],
+    "maturityLevelRequired": 3,
+    "pakistanEnrichment": {
+      "institution": "Health IT",
+      "system": "NHSR&C",
+      "challenge": "No national health terminology",
+      "opportunity": "Pakistan health terminology service"
+    },
+    "relatedCapabilities": [
+      "HCF-106",
+      "HCF-108"
+    ],
+    "businessQuestions": [
+      "What is the current state of terminology standardization across facilities?",
+      "How does terminology standardization performance compare between urban and rural settings?",
+      "What improvements in terminology standardization can be achieved in the next 12 months?"
+    ]
+  },
+  {
+    "id": "HCF-108",
+    "name": "Analytics Maturity Assessment",
+    "theme": "Digital Health & Data Governance",
+    "themeId": "T6",
+    "themeColor": "indigo",
+    "group": "Data Quality & Governance",
+    "groupId": "G6.2",
+    "description": "Analytics capability for analytics maturity assessment within the Data Quality & Governance domain",
+    "fhirResources": [
+      "MeasureReport",
+      "Questionnaire",
+      "QuestionnaireResponse"
+    ],
+    "hcdmSubjectAreas": [
+      "SA-09",
+      "SA-12"
+    ],
+    "maturityLevelRequired": 1,
+    "pakistanEnrichment": {
+      "institution": "Health IT leadership",
+      "system": "NHSR&C",
+      "challenge": "No analytics maturity baseline",
+      "opportunity": "HACR assessment framework"
+    },
+    "relatedCapabilities": [
+      "HCF-107",
+      "HCF-108"
+    ],
+    "businessQuestions": [
+      "What is the current state of analytics maturity assessment across facilities?",
+      "How does analytics maturity assessment performance compare between urban and rural settings?",
+      "What improvements in analytics maturity assessment can be achieved in the next 12 months?"
+    ]
+  }
+]

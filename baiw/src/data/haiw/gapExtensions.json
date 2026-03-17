@@ -1,0 +1,1156 @@
+[
+  {
+    "module": "Population Health",
+    "description": "Extensions for population health management and social determinants",
+    "tables": [
+      {
+        "name": "EXT_POPULATION_COHORT",
+        "description": "Defines population cohorts for analytics",
+        "columns": [
+          {
+            "name": "cohort_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "cohort_name",
+            "type": "VARCHAR(200)"
+          },
+          {
+            "name": "definition_criteria",
+            "type": "JSON"
+          },
+          {
+            "name": "member_count",
+            "type": "INTEGER"
+          },
+          {
+            "name": "province",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "district",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "created_date",
+            "type": "TIMESTAMP"
+          },
+          {
+            "name": "refresh_frequency",
+            "type": "VARCHAR(20)"
+          }
+        ],
+        "pakistanContext": "Cohorts defined by LHW catchment areas, UC boundaries, and Ehsaas poverty data"
+      },
+      {
+        "name": "EXT_SOCIAL_DETERMINANT",
+        "description": "Social determinants of health data",
+        "columns": [
+          {
+            "name": "sdoh_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "patient_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "education_level",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "employment_status",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "household_income_bracket",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "housing_type",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "water_source",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "sanitation_type",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "food_security_status",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "assessment_date",
+            "type": "DATE"
+          }
+        ],
+        "pakistanContext": "Integrates with BISP/Ehsaas poverty scorecard and Pakistan Living Standards Survey"
+      },
+      {
+        "name": "EXT_COMMUNITY_HEALTH_WORKER",
+        "description": "Lady Health Worker program data",
+        "columns": [
+          {
+            "name": "lhw_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR(100)"
+          },
+          {
+            "name": "cnic",
+            "type": "VARCHAR(15)"
+          },
+          {
+            "name": "catchment_population",
+            "type": "INTEGER"
+          },
+          {
+            "name": "households_covered",
+            "type": "INTEGER"
+          },
+          {
+            "name": "union_council",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "district",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "active_since",
+            "type": "DATE"
+          },
+          {
+            "name": "supervisor_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "monthly_visits_target",
+            "type": "INTEGER"
+          }
+        ],
+        "pakistanContext": "100,000+ Lady Health Workers serving rural Pakistan; key primary care delivery channel"
+      },
+      {
+        "name": "EXT_ENVIRONMENTAL_HEALTH",
+        "description": "Environmental health indicators",
+        "columns": [
+          {
+            "name": "record_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "location_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "aqi_value",
+            "type": "DECIMAL(5,1)"
+          },
+          {
+            "name": "water_quality_index",
+            "type": "DECIMAL(5,1)"
+          },
+          {
+            "name": "temperature_celsius",
+            "type": "DECIMAL(4,1)"
+          },
+          {
+            "name": "rainfall_mm",
+            "type": "DECIMAL(6,1)"
+          },
+          {
+            "name": "dengue_risk_score",
+            "type": "DECIMAL(3,1)"
+          },
+          {
+            "name": "measurement_date",
+            "type": "DATE"
+          }
+        ],
+        "pakistanContext": "Lahore/Karachi air quality crisis; dengue correlation with rainfall patterns"
+      },
+      {
+        "name": "EXT_HEALTH_FACILITY_ASSESSMENT",
+        "description": "Facility readiness assessments",
+        "columns": [
+          {
+            "name": "assessment_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "facility_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "assessment_date",
+            "type": "DATE"
+          },
+          {
+            "name": "service_readiness_score",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "staff_availability_score",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "equipment_score",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "medicine_availability_score",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "infrastructure_score",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "overall_score",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "assessor_id",
+            "type": "VARCHAR(50)"
+          }
+        ],
+        "pakistanContext": "WHO SARA (Service Availability and Readiness Assessment) adapted for Pakistan"
+      }
+    ]
+  },
+  {
+    "module": "Claims Intelligence",
+    "description": "Extended claims and reimbursement analytics beyond core FHIR",
+    "tables": [
+      {
+        "name": "EXT_CLAIM_ANALYTICS",
+        "description": "Extended claims analytics data",
+        "columns": [
+          {
+            "name": "claim_analytics_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "claim_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "submission_to_adjudication_days",
+            "type": "INTEGER"
+          },
+          {
+            "name": "denial_reason_code",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "appeal_count",
+            "type": "INTEGER"
+          },
+          {
+            "name": "rework_count",
+            "type": "INTEGER"
+          },
+          {
+            "name": "first_pass_rate",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "net_collection_rate",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "cost_to_collect",
+            "type": "DECIMAL(10,2)"
+          }
+        ],
+        "pakistanContext": "Sehat Sahulat claims processing analytics; average 45-day payment cycle"
+      },
+      {
+        "name": "EXT_DRG_GROUPING",
+        "description": "Diagnosis-Related Group assignments",
+        "columns": [
+          {
+            "name": "drg_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "encounter_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "drg_code",
+            "type": "VARCHAR(10)"
+          },
+          {
+            "name": "drg_description",
+            "type": "VARCHAR(200)"
+          },
+          {
+            "name": "relative_weight",
+            "type": "DECIMAL(6,4)"
+          },
+          {
+            "name": "geometric_mean_los",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "arithmetic_mean_los",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "expected_payment",
+            "type": "DECIMAL(12,2)"
+          }
+        ],
+        "pakistanContext": "DRG adoption being considered for Sehat Sahulat case-based payment reform"
+      },
+      {
+        "name": "EXT_FRAUD_INDICATOR",
+        "description": "Claims fraud detection indicators",
+        "columns": [
+          {
+            "name": "indicator_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "claim_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "risk_score",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "anomaly_type",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "detection_method",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "investigation_status",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "estimated_loss",
+            "type": "DECIMAL(12,2)"
+          },
+          {
+            "name": "detection_date",
+            "type": "DATE"
+          }
+        ],
+        "pakistanContext": "Fraud detection in Sehat Sahulat; phantom claims and upcoding risks"
+      },
+      {
+        "name": "EXT_REIMBURSEMENT_SCHEDULE",
+        "description": "Payer reimbursement rate schedules",
+        "columns": [
+          {
+            "name": "schedule_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "payer_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "procedure_code",
+            "type": "VARCHAR(10)"
+          },
+          {
+            "name": "reimbursement_rate_pkr",
+            "type": "DECIMAL(12,2)"
+          },
+          {
+            "name": "effective_date",
+            "type": "DATE"
+          },
+          {
+            "name": "expiry_date",
+            "type": "DATE"
+          },
+          {
+            "name": "rate_type",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "negotiated_discount_pct",
+            "type": "DECIMAL(5,2)"
+          }
+        ],
+        "pakistanContext": "Sehat Sahulat package rates; procedure-based reimbursement schedules"
+      },
+      {
+        "name": "EXT_UTILIZATION_REVIEW",
+        "description": "Utilization management and review data",
+        "columns": [
+          {
+            "name": "review_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "encounter_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "review_type",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "clinical_appropriateness",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "length_of_stay_appropriateness",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "reviewer_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "review_date",
+            "type": "DATE"
+          },
+          {
+            "name": "recommendation",
+            "type": "VARCHAR(200)"
+          }
+        ],
+        "pakistanContext": "Utilization review for Sehat Sahulat to prevent overutilization"
+      }
+    ]
+  },
+  {
+    "module": "Quality & Outcomes",
+    "description": "Quality measurement and clinical outcome extensions",
+    "tables": [
+      {
+        "name": "EXT_QUALITY_INDICATOR",
+        "description": "Quality indicator results",
+        "columns": [
+          {
+            "name": "indicator_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "measure_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "facility_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "reporting_period",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "numerator",
+            "type": "INTEGER"
+          },
+          {
+            "name": "denominator",
+            "type": "INTEGER"
+          },
+          {
+            "name": "rate",
+            "type": "DECIMAL(7,4)"
+          },
+          {
+            "name": "target_rate",
+            "type": "DECIMAL(7,4)"
+          },
+          {
+            "name": "benchmark_rate",
+            "type": "DECIMAL(7,4)"
+          },
+          {
+            "name": "performance_band",
+            "type": "VARCHAR(20)"
+          }
+        ],
+        "pakistanContext": "PHCIP quality indicators; WHO core health indicators for Pakistan"
+      },
+      {
+        "name": "EXT_PATIENT_SAFETY_EVENT",
+        "description": "Patient safety event tracking",
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "event_type",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "severity",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "harm_level",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "contributing_factors",
+            "type": "JSON"
+          },
+          {
+            "name": "root_cause",
+            "type": "VARCHAR(200)"
+          },
+          {
+            "name": "corrective_action",
+            "type": "VARCHAR(200)"
+          },
+          {
+            "name": "reported_date",
+            "type": "DATE"
+          },
+          {
+            "name": "facility_id",
+            "type": "VARCHAR(50)"
+          }
+        ],
+        "pakistanContext": "Patient safety culture development in Pakistani hospitals"
+      },
+      {
+        "name": "EXT_CLINICAL_REGISTRY",
+        "description": "Disease-specific clinical registries",
+        "columns": [
+          {
+            "name": "registry_entry_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "registry_name",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "patient_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "diagnosis_date",
+            "type": "DATE"
+          },
+          {
+            "name": "stage_at_diagnosis",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "treatment_protocol",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "outcome_status",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "follow_up_date",
+            "type": "DATE"
+          },
+          {
+            "name": "data_completeness_score",
+            "type": "DECIMAL(5,2)"
+          }
+        ],
+        "pakistanContext": "Cancer registry, TB register, diabetes registry for Pakistan"
+      },
+      {
+        "name": "EXT_ANTIMICROBIAL_RESISTANCE",
+        "description": "AMR surveillance data",
+        "columns": [
+          {
+            "name": "amr_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "specimen_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "organism",
+            "type": "VARCHAR(100)"
+          },
+          {
+            "name": "antibiotic",
+            "type": "VARCHAR(100)"
+          },
+          {
+            "name": "susceptibility",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "mic_value",
+            "type": "DECIMAL(8,3)"
+          },
+          {
+            "name": "breakpoint",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "facility_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "collection_date",
+            "type": "DATE"
+          }
+        ],
+        "pakistanContext": "WHO GLASS reporting; NIH AMR surveillance network in Pakistan"
+      },
+      {
+        "name": "EXT_MATERNAL_DEATH_REVIEW",
+        "description": "Maternal death surveillance and response",
+        "columns": [
+          {
+            "name": "review_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "patient_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "death_date",
+            "type": "DATE"
+          },
+          {
+            "name": "cause_of_death",
+            "type": "VARCHAR(200)"
+          },
+          {
+            "name": "delay_type",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "preventability_assessment",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "facility_level",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "recommendations",
+            "type": "JSON"
+          },
+          {
+            "name": "review_date",
+            "type": "DATE"
+          },
+          {
+            "name": "review_committee",
+            "type": "VARCHAR(100)"
+          }
+        ],
+        "pakistanContext": "MDSR (Maternal Death Surveillance and Response) system for Pakistan; MMR 186/100K"
+      }
+    ]
+  },
+  {
+    "module": "Pharmacy Analytics",
+    "description": "Extended pharmacy and medication analytics",
+    "tables": [
+      {
+        "name": "EXT_DRUG_UTILIZATION",
+        "description": "Drug utilization review data",
+        "columns": [
+          {
+            "name": "dur_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "medication_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "facility_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "period",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "quantity_dispensed",
+            "type": "INTEGER"
+          },
+          {
+            "name": "ddd_per_1000",
+            "type": "DECIMAL(8,2)"
+          },
+          {
+            "name": "cost_pkr",
+            "type": "DECIMAL(12,2)"
+          },
+          {
+            "name": "therapeutic_class",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "generic_substitution_rate",
+            "type": "DECIMAL(5,2)"
+          }
+        ],
+        "pakistanContext": "Essential medicines monitoring; WHO DDD methodology adapted for Pakistan"
+      },
+      {
+        "name": "EXT_FORMULARY_COMPLIANCE",
+        "description": "Formulary adherence tracking",
+        "columns": [
+          {
+            "name": "compliance_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "prescription_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "prescribed_drug",
+            "type": "VARCHAR(200)"
+          },
+          {
+            "name": "formulary_status",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "alternative_available",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "prescriber_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "override_reason",
+            "type": "VARCHAR(200)"
+          },
+          {
+            "name": "cost_impact_pkr",
+            "type": "DECIMAL(10,2)"
+          }
+        ],
+        "pakistanContext": "Hospital formulary compliance; Essential Drug List adherence monitoring"
+      },
+      {
+        "name": "EXT_VACCINE_INVENTORY",
+        "description": "Vaccine inventory and cold chain tracking",
+        "columns": [
+          {
+            "name": "inventory_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "vaccine_type",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "batch_number",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "quantity",
+            "type": "INTEGER"
+          },
+          {
+            "name": "expiry_date",
+            "type": "DATE"
+          },
+          {
+            "name": "storage_temperature",
+            "type": "DECIMAL(4,1)"
+          },
+          {
+            "name": "cold_chain_break",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "facility_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "last_updated",
+            "type": "TIMESTAMP"
+          }
+        ],
+        "pakistanContext": "EPI vaccine inventory; cold chain management critical for polio eradication"
+      },
+      {
+        "name": "EXT_ANTIBIOTIC_STEWARDSHIP",
+        "description": "Antimicrobial stewardship program data",
+        "columns": [
+          {
+            "name": "asp_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "prescription_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "antibiotic_name",
+            "type": "VARCHAR(100)"
+          },
+          {
+            "name": "indication",
+            "type": "VARCHAR(100)"
+          },
+          {
+            "name": "guideline_compliant",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "duration_days",
+            "type": "INTEGER"
+          },
+          {
+            "name": "deescalation_done",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "culture_obtained_before",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "review_status",
+            "type": "VARCHAR(20)"
+          }
+        ],
+        "pakistanContext": "AMR crisis in Pakistan; antibiotic overuse in primary care and hospital settings"
+      },
+      {
+        "name": "EXT_MEDICATION_ADHERENCE",
+        "description": "Patient medication adherence tracking",
+        "columns": [
+          {
+            "name": "adherence_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "patient_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "medication_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "adherence_rate",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "measurement_method",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "barriers",
+            "type": "JSON"
+          },
+          {
+            "name": "assessment_date",
+            "type": "DATE"
+          },
+          {
+            "name": "intervention_recommended",
+            "type": "VARCHAR(200)"
+          }
+        ],
+        "pakistanContext": "TB DOTS adherence; chronic disease medication compliance in Pakistan"
+      }
+    ]
+  },
+  {
+    "module": "Maternal & Child Health",
+    "description": "MNCH program-specific extensions for Pakistan",
+    "tables": [
+      {
+        "name": "EXT_ANTENATAL_CARE",
+        "description": "Antenatal care visit tracking",
+        "columns": [
+          {
+            "name": "anc_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "patient_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "visit_number",
+            "type": "INTEGER"
+          },
+          {
+            "name": "gestational_age_weeks",
+            "type": "INTEGER"
+          },
+          {
+            "name": "blood_pressure_systolic",
+            "type": "INTEGER"
+          },
+          {
+            "name": "blood_pressure_diastolic",
+            "type": "INTEGER"
+          },
+          {
+            "name": "weight_kg",
+            "type": "DECIMAL(5,1)"
+          },
+          {
+            "name": "hemoglobin",
+            "type": "DECIMAL(4,1)"
+          },
+          {
+            "name": "risk_classification",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "facility_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "provider_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "visit_date",
+            "type": "DATE"
+          }
+        ],
+        "pakistanContext": "WHO 8-contact ANC model; only 69% of women receive at least 1 ANC visit in Pakistan"
+      },
+      {
+        "name": "EXT_DELIVERY_OUTCOME",
+        "description": "Delivery and birth outcome data",
+        "columns": [
+          {
+            "name": "delivery_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "mother_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "delivery_date",
+            "type": "DATE"
+          },
+          {
+            "name": "delivery_type",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "delivery_location",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "birth_weight_grams",
+            "type": "INTEGER"
+          },
+          {
+            "name": "apgar_1min",
+            "type": "INTEGER"
+          },
+          {
+            "name": "apgar_5min",
+            "type": "INTEGER"
+          },
+          {
+            "name": "complications",
+            "type": "JSON"
+          },
+          {
+            "name": "attendant_type",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "facility_id",
+            "type": "VARCHAR(50)"
+          }
+        ],
+        "pakistanContext": "48% institutional delivery rate; skilled birth attendant coverage tracking"
+      },
+      {
+        "name": "EXT_CHILD_GROWTH",
+        "description": "Child growth monitoring data",
+        "columns": [
+          {
+            "name": "growth_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "child_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "measurement_date",
+            "type": "DATE"
+          },
+          {
+            "name": "age_months",
+            "type": "INTEGER"
+          },
+          {
+            "name": "weight_kg",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "height_cm",
+            "type": "DECIMAL(5,1)"
+          },
+          {
+            "name": "muac_cm",
+            "type": "DECIMAL(4,1)"
+          },
+          {
+            "name": "weight_for_age_z",
+            "type": "DECIMAL(4,2)"
+          },
+          {
+            "name": "height_for_age_z",
+            "type": "DECIMAL(4,2)"
+          },
+          {
+            "name": "weight_for_height_z",
+            "type": "DECIMAL(4,2)"
+          },
+          {
+            "name": "nutritional_status",
+            "type": "VARCHAR(20)"
+          }
+        ],
+        "pakistanContext": "40% stunting, 29% underweight, 18% wasting rates in children under 5"
+      },
+      {
+        "name": "EXT_IMMUNIZATION_COVERAGE",
+        "description": "EPI immunization coverage tracking",
+        "columns": [
+          {
+            "name": "coverage_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "district",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "vaccine_type",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "target_population",
+            "type": "INTEGER"
+          },
+          {
+            "name": "vaccinated_count",
+            "type": "INTEGER"
+          },
+          {
+            "name": "coverage_rate",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "dropout_rate",
+            "type": "DECIMAL(5,2)"
+          },
+          {
+            "name": "reporting_month",
+            "type": "VARCHAR(7)"
+          },
+          {
+            "name": "data_source",
+            "type": "VARCHAR(30)"
+          }
+        ],
+        "pakistanContext": "EPI coverage gaps; fully immunized child rate 66%; Penta3 coverage tracking"
+      },
+      {
+        "name": "EXT_POSTNATAL_CARE",
+        "description": "Postnatal care tracking for mother and newborn",
+        "columns": [
+          {
+            "name": "pnc_id",
+            "type": "VARCHAR(50)",
+            "pk": true
+          },
+          {
+            "name": "mother_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "newborn_id",
+            "type": "VARCHAR(50)"
+          },
+          {
+            "name": "visit_number",
+            "type": "INTEGER"
+          },
+          {
+            "name": "visit_timing",
+            "type": "VARCHAR(30)"
+          },
+          {
+            "name": "mother_complications",
+            "type": "JSON"
+          },
+          {
+            "name": "newborn_complications",
+            "type": "JSON"
+          },
+          {
+            "name": "breastfeeding_status",
+            "type": "VARCHAR(20)"
+          },
+          {
+            "name": "family_planning_counseling",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "visit_date",
+            "type": "DATE"
+          },
+          {
+            "name": "provider_type",
+            "type": "VARCHAR(30)"
+          }
+        ],
+        "pakistanContext": "Only 60% of mothers receive PNC within 48 hours; critical for neonatal survival"
+      }
+    ]
+  }
+]

@@ -1,0 +1,2270 @@
+{
+  "HCF-001": {
+    "capabilityId": "HCF-001",
+    "capabilityName": "Patient Master Index Management",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-155",
+        "resourceName": "Person",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-044",
+        "resourceName": "RelatedPerson",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-002": {
+    "capabilityId": "HCF-002",
+    "capabilityName": "Patient Demographics Profiling",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-005",
+        "resourceName": "Group",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-003": {
+    "capabilityId": "HCF-003",
+    "capabilityName": "Patient Identity Matching & Deduplication",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-155",
+        "resourceName": "Person",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-084",
+        "resourceName": "Linkage",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-004": {
+    "capabilityId": "HCF-004",
+    "capabilityName": "Family & Household Linkage",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-044",
+        "resourceName": "RelatedPerson",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-005",
+        "resourceName": "Group",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-005": {
+    "capabilityId": "HCF-005",
+    "capabilityName": "Patient Contact & Communication Preferences",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-058",
+        "resourceName": "Communication",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-063",
+        "resourceName": "CommunicationRequest",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-006": {
+    "capabilityId": "HCF-006",
+    "capabilityName": "Patient Consent Management",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-019",
+        "resourceName": "Consent",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-127",
+        "resourceName": "DocumentReference",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-007": {
+    "capabilityId": "HCF-007",
+    "capabilityName": "Patient Geographic Distribution",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-008": {
+    "capabilityId": "HCF-008",
+    "capabilityName": "Vulnerable Population Identification",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-005",
+        "resourceName": "Group",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-034",
+        "resourceName": "RiskAssessment",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-009": {
+    "capabilityId": "HCF-009",
+    "capabilityName": "Patient Journey Mapping",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-043",
+        "resourceName": "EpisodeOfCare",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-010": {
+    "capabilityId": "HCF-010",
+    "capabilityName": "Encounter Flow Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-011",
+        "resourceName": "Practitioner",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-011": {
+    "capabilityId": "HCF-011",
+    "capabilityName": "Referral Pattern Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-113",
+        "resourceName": "ServiceRequest",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-012": {
+    "capabilityId": "HCF-012",
+    "capabilityName": "Readmission Risk Prediction",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-034",
+        "resourceName": "RiskAssessment",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-013": {
+    "capabilityId": "HCF-013",
+    "capabilityName": "Length of Stay Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-014": {
+    "capabilityId": "HCF-014",
+    "capabilityName": "Care Transition Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-043",
+        "resourceName": "EpisodeOfCare",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-096",
+        "resourceName": "CarePlan",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-015": {
+    "capabilityId": "HCF-015",
+    "capabilityName": "Patient Satisfaction Measurement",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-027",
+        "resourceName": "QuestionnaireResponse",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-016": {
+    "capabilityId": "HCF-016",
+    "capabilityName": "Patient Portal Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-127",
+        "resourceName": "DocumentReference",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-058",
+        "resourceName": "Communication",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-017": {
+    "capabilityId": "HCF-017",
+    "capabilityName": "Health Literacy Assessment",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-027",
+        "resourceName": "QuestionnaireResponse",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-058",
+        "resourceName": "Communication",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-018": {
+    "capabilityId": "HCF-018",
+    "capabilityName": "Appointment Adherence Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-154",
+        "resourceName": "Appointment",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-019": {
+    "capabilityId": "HCF-019",
+    "capabilityName": "Patient Communication Effectiveness",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-058",
+        "resourceName": "Communication",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-063",
+        "resourceName": "CommunicationRequest",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-020": {
+    "capabilityId": "HCF-020",
+    "capabilityName": "Community Health Engagement",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-005",
+        "resourceName": "Group",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-027",
+        "resourceName": "QuestionnaireResponse",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-021": {
+    "capabilityId": "HCF-021",
+    "capabilityName": "Disease Burden Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-022": {
+    "capabilityId": "HCF-022",
+    "capabilityName": "Treatment Outcome Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-023": {
+    "capabilityId": "HCF-023",
+    "capabilityName": "Mortality & Morbidity Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-024": {
+    "capabilityId": "HCF-024",
+    "capabilityName": "Complication Rate Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-031",
+        "resourceName": "AdverseEvent",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-025": {
+    "capabilityId": "HCF-025",
+    "capabilityName": "Clinical Pathway Adherence",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-096",
+        "resourceName": "CarePlan",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "MeasureReport",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-026": {
+    "capabilityId": "HCF-026",
+    "capabilityName": "Chronic Disease Management Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-096",
+        "resourceName": "CarePlan",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-027": {
+    "capabilityId": "HCF-027",
+    "capabilityName": "Maternal Health Outcome Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-028": {
+    "capabilityId": "HCF-028",
+    "capabilityName": "Child Health & Nutrition Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-047",
+        "resourceName": "NutritionIntake",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-085",
+        "resourceName": "Immunization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-029": {
+    "capabilityId": "HCF-029",
+    "capabilityName": "Quality Indicator Dashboard",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "MeasureReport",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-125",
+        "resourceName": "Measure",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-030": {
+    "capabilityId": "HCF-030",
+    "capabilityName": "Clinical Audit Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "AuditEvent",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-031": {
+    "capabilityId": "HCF-031",
+    "capabilityName": "Patient Safety Incident Reporting",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-031",
+        "resourceName": "AdverseEvent",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-115",
+        "resourceName": "DetectedIssue",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-061",
+        "resourceName": "Flag",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-032": {
+    "capabilityId": "HCF-032",
+    "capabilityName": "Infection Control Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-033": {
+    "capabilityId": "HCF-033",
+    "capabilityName": "Medication Error Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-115",
+        "resourceName": "DetectedIssue",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-141",
+        "resourceName": "MedicationAdministration",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-031",
+        "resourceName": "AdverseEvent",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-034": {
+    "capabilityId": "HCF-034",
+    "capabilityName": "Surgical Quality Metrics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-031",
+        "resourceName": "AdverseEvent",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "MeasureReport",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-035": {
+    "capabilityId": "HCF-035",
+    "capabilityName": "Emergency Department Quality",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-036": {
+    "capabilityId": "HCF-036",
+    "capabilityName": "Laboratory Quality Assurance",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-123",
+        "resourceName": "DiagnosticReport",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-128",
+        "resourceName": "Specimen",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-037": {
+    "capabilityId": "HCF-037",
+    "capabilityName": "Drug Interaction Alerting",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-115",
+        "resourceName": "DetectedIssue",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-084",
+        "resourceName": "MedicationRequest",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-137",
+        "resourceName": "Medication",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-038": {
+    "capabilityId": "HCF-038",
+    "capabilityName": "Clinical Guideline Integration",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-072",
+        "resourceName": "PlanDefinition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-017",
+        "resourceName": "Library",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-009",
+        "resourceName": "ActivityDefinition",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-039": {
+    "capabilityId": "HCF-039",
+    "capabilityName": "Diagnostic Decision Support",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-123",
+        "resourceName": "DiagnosticReport",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-040": {
+    "capabilityId": "HCF-040",
+    "capabilityName": "Allergy & Contraindication Checking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-043",
+        "resourceName": "AllergyIntolerance",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-084",
+        "resourceName": "MedicationRequest",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-115",
+        "resourceName": "DetectedIssue",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-041": {
+    "capabilityId": "HCF-041",
+    "capabilityName": "Preventive Care Reminders",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-156",
+        "resourceName": "ImmunizationRecommendation",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-096",
+        "resourceName": "CarePlan",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-063",
+        "resourceName": "CommunicationRequest",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-042": {
+    "capabilityId": "HCF-042",
+    "capabilityName": "Antimicrobial Stewardship",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-084",
+        "resourceName": "MedicationRequest",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-115",
+        "resourceName": "DetectedIssue",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-043": {
+    "capabilityId": "HCF-043",
+    "capabilityName": "Revenue Cycle Performance Dashboard",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-077",
+        "resourceName": "ClaimResponse",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "Account",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-044": {
+    "capabilityId": "HCF-044",
+    "capabilityName": "Billing Accuracy Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-137",
+        "resourceName": "ChargeItem",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-151",
+        "resourceName": "Invoice",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-045": {
+    "capabilityId": "HCF-045",
+    "capabilityName": "Collection Rate Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-155",
+        "resourceName": "PaymentReconciliation",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "Account",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-151",
+        "resourceName": "Invoice",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-046": {
+    "capabilityId": "HCF-046",
+    "capabilityName": "Denial Management Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-077",
+        "resourceName": "ClaimResponse",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-069",
+        "resourceName": "ExplanationOfBenefit",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-047": {
+    "capabilityId": "HCF-047",
+    "capabilityName": "Charge Capture Optimization",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-137",
+        "resourceName": "ChargeItem",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-048": {
+    "capabilityId": "HCF-048",
+    "capabilityName": "Accounts Receivable Aging",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "Account",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-101",
+        "resourceName": "PaymentNotice",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-151",
+        "resourceName": "Invoice",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-049": {
+    "capabilityId": "HCF-049",
+    "capabilityName": "Payer Mix Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-050",
+        "resourceName": "Coverage",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-069",
+        "resourceName": "ExplanationOfBenefit",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-050": {
+    "capabilityId": "HCF-050",
+    "capabilityName": "Service Line Revenue Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-137",
+        "resourceName": "ChargeItem",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-051": {
+    "capabilityId": "HCF-051",
+    "capabilityName": "Claims Submission Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-050",
+        "resourceName": "Coverage",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-052": {
+    "capabilityId": "HCF-052",
+    "capabilityName": "Claims Adjudication Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-077",
+        "resourceName": "ClaimResponse",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-069",
+        "resourceName": "ExplanationOfBenefit",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-053": {
+    "capabilityId": "HCF-053",
+    "capabilityName": "Reimbursement Rate Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-069",
+        "resourceName": "ExplanationOfBenefit",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-095",
+        "resourceName": "InsurancePlan",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-054": {
+    "capabilityId": "HCF-054",
+    "capabilityName": "Fraud Detection Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-055": {
+    "capabilityId": "HCF-055",
+    "capabilityName": "Prior Authorization Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-075",
+        "resourceName": "CoverageEligibilityRequest",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-128",
+        "resourceName": "CoverageEligibilityResponse",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-056": {
+    "capabilityId": "HCF-056",
+    "capabilityName": "Coding Compliance Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-091",
+        "resourceName": "Claim",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-057": {
+    "capabilityId": "HCF-057",
+    "capabilityName": "Cost Per Patient Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "Account",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-058": {
+    "capabilityId": "HCF-058",
+    "capabilityName": "Procedure Cost Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-137",
+        "resourceName": "ChargeItem",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "Account",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-059": {
+    "capabilityId": "HCF-059",
+    "capabilityName": "Department Profitability",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "Account",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-060": {
+    "capabilityId": "HCF-060",
+    "capabilityName": "Budget Variance Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "Account",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "MeasureReport",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-061": {
+    "capabilityId": "HCF-061",
+    "capabilityName": "Bed Occupancy & Management",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-062": {
+    "capabilityId": "HCF-062",
+    "capabilityName": "Operating Room Utilization",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-018",
+        "resourceName": "Schedule",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-063": {
+    "capabilityId": "HCF-063",
+    "capabilityName": "Equipment Utilization Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-105",
+        "resourceName": "Device",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-110",
+        "resourceName": "DeviceUsage",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-064": {
+    "capabilityId": "HCF-064",
+    "capabilityName": "Outpatient Clinic Efficiency",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-154",
+        "resourceName": "Appointment",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-065": {
+    "capabilityId": "HCF-065",
+    "capabilityName": "Emergency Department Flow",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-066": {
+    "capabilityId": "HCF-066",
+    "capabilityName": "Facility Capacity Planning",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-067": {
+    "capabilityId": "HCF-067",
+    "capabilityName": "Diagnostic Lab Throughput",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-123",
+        "resourceName": "DiagnosticReport",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-128",
+        "resourceName": "Specimen",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-068": {
+    "capabilityId": "HCF-068",
+    "capabilityName": "Pharmacy Operations Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-098",
+        "resourceName": "MedicationDispense",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-137",
+        "resourceName": "Medication",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-069": {
+    "capabilityId": "HCF-069",
+    "capabilityName": "Provider Productivity Analysis",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-011",
+        "resourceName": "Practitioner",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-070": {
+    "capabilityId": "HCF-070",
+    "capabilityName": "Staff Scheduling Optimization",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-083",
+        "resourceName": "PractitionerRole",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-018",
+        "resourceName": "Schedule",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-071": {
+    "capabilityId": "HCF-071",
+    "capabilityName": "Provider Competency Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-011",
+        "resourceName": "Practitioner",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-083",
+        "resourceName": "PractitionerRole",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-072": {
+    "capabilityId": "HCF-072",
+    "capabilityName": "Nursing Workload Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-011",
+        "resourceName": "Practitioner",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-096",
+        "resourceName": "CarePlan",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-073": {
+    "capabilityId": "HCF-073",
+    "capabilityName": "Healthcare Worker Safety",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-011",
+        "resourceName": "Practitioner",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-031",
+        "resourceName": "AdverseEvent",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-074": {
+    "capabilityId": "HCF-074",
+    "capabilityName": "Training Needs Assessment",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-011",
+        "resourceName": "Practitioner",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-083",
+        "resourceName": "PractitionerRole",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-027",
+        "resourceName": "QuestionnaireResponse",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-075": {
+    "capabilityId": "HCF-075",
+    "capabilityName": "Medical Supply Chain Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-114",
+        "resourceName": "SupplyRequest",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-015",
+        "resourceName": "SupplyDelivery",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-076": {
+    "capabilityId": "HCF-076",
+    "capabilityName": "Pharmaceutical Inventory Management",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-137",
+        "resourceName": "Medication",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-098",
+        "resourceName": "MedicationDispense",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-015",
+        "resourceName": "SupplyDelivery",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-077": {
+    "capabilityId": "HCF-077",
+    "capabilityName": "Blood Bank Management",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-063",
+        "resourceName": "BiologicallyDerivedProduct",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-128",
+        "resourceName": "Specimen",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-114",
+        "resourceName": "SupplyRequest",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-078": {
+    "capabilityId": "HCF-078",
+    "capabilityName": "Equipment Maintenance Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-105",
+        "resourceName": "Device",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-092",
+        "resourceName": "DeviceRequest",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-079",
+        "resourceName": "Task",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-079": {
+    "capabilityId": "HCF-079",
+    "capabilityName": "Vaccine Cold Chain Monitoring",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-085",
+        "resourceName": "Immunization",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-105",
+        "resourceName": "Device",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-080": {
+    "capabilityId": "HCF-080",
+    "capabilityName": "Waste Management Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-081": {
+    "capabilityId": "HCF-081",
+    "capabilityName": "Population Health Dashboard",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-005",
+        "resourceName": "Group",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-082": {
+    "capabilityId": "HCF-082",
+    "capabilityName": "Social Determinants of Health",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-027",
+        "resourceName": "QuestionnaireResponse",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-083": {
+    "capabilityId": "HCF-083",
+    "capabilityName": "Maternal & Child Health Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-085",
+        "resourceName": "Immunization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-084": {
+    "capabilityId": "HCF-084",
+    "capabilityName": "Nutrition Surveillance",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-047",
+        "resourceName": "NutritionIntake",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-085": {
+    "capabilityId": "HCF-085",
+    "capabilityName": "Reproductive Health Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-097",
+        "resourceName": "Procedure",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-086": {
+    "capabilityId": "HCF-086",
+    "capabilityName": "Mental Health Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-096",
+        "resourceName": "CarePlan",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-087": {
+    "capabilityId": "HCF-087",
+    "capabilityName": "Non-Communicable Disease Registry",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-088": {
+    "capabilityId": "HCF-088",
+    "capabilityName": "Environmental Health Monitoring",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-005",
+        "resourceName": "Group",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-089": {
+    "capabilityId": "HCF-089",
+    "capabilityName": "Disease Outbreak Detection",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-090": {
+    "capabilityId": "HCF-090",
+    "capabilityName": "Notifiable Disease Reporting",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-091": {
+    "capabilityId": "HCF-091",
+    "capabilityName": "Immunization Coverage Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-085",
+        "resourceName": "Immunization",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-005",
+        "resourceName": "Group",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-092": {
+    "capabilityId": "HCF-092",
+    "capabilityName": "TB Surveillance & DOTS Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-099",
+        "resourceName": "MedicationStatement",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-043",
+        "resourceName": "EpisodeOfCare",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-093": {
+    "capabilityId": "HCF-093",
+    "capabilityName": "Dengue/Vector-Borne Disease Surveillance",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-094": {
+    "capabilityId": "HCF-094",
+    "capabilityName": "Polio Eradication Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-085",
+        "resourceName": "Immunization",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-095": {
+    "capabilityId": "HCF-095",
+    "capabilityName": "Antimicrobial Resistance Surveillance",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-128",
+        "resourceName": "Specimen",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-137",
+        "resourceName": "Medication",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-096": {
+    "capabilityId": "HCF-096",
+    "capabilityName": "Hepatitis Screening & Treatment Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-068",
+        "resourceName": "Condition",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-099",
+        "resourceName": "MedicationStatement",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-097": {
+    "capabilityId": "HCF-097",
+    "capabilityName": "FHIR Interoperability Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-028",
+        "resourceName": "CapabilityStatement",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-148",
+        "resourceName": "OperationOutcome",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "Bundle",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-098": {
+    "capabilityId": "HCF-098",
+    "capabilityName": "Health Information Exchange Monitoring",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "Bundle",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-084",
+        "resourceName": "MessageHeader",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "AuditEvent",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-099": {
+    "capabilityId": "HCF-099",
+    "capabilityName": "DHIS2 Integration Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "MeasureReport",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-100": {
+    "capabilityId": "HCF-100",
+    "capabilityName": "Telemedicine Platform Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-035",
+        "resourceName": "Encounter",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-058",
+        "resourceName": "Communication",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-011",
+        "resourceName": "Practitioner",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-101": {
+    "capabilityId": "HCF-101",
+    "capabilityName": "Mobile Health (mHealth) Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-144",
+        "resourceName": "Patient",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-105",
+        "resourceName": "Device",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-102": {
+    "capabilityId": "HCF-102",
+    "capabilityName": "Cross-Provincial Data Sharing",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "Bundle",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-019",
+        "resourceName": "Consent",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "AuditEvent",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-103": {
+    "capabilityId": "HCF-103",
+    "capabilityName": "Data Quality Monitoring",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "AuditEvent",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-148",
+        "resourceName": "OperationOutcome",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-124",
+        "resourceName": "Observation",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-104": {
+    "capabilityId": "HCF-104",
+    "capabilityName": "Master Data Management",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-073",
+        "resourceName": "Organization",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-046",
+        "resourceName": "Location",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-011",
+        "resourceName": "Practitioner",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-105": {
+    "capabilityId": "HCF-105",
+    "capabilityName": "Privacy & Access Control Analytics",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "AuditEvent",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-019",
+        "resourceName": "Consent",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-118",
+        "resourceName": "Permission",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-106": {
+    "capabilityId": "HCF-106",
+    "capabilityName": "Data Lineage & Provenance Tracking",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-072",
+        "resourceName": "Provenance",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-032",
+        "resourceName": "AuditEvent",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "Bundle",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-107": {
+    "capabilityId": "HCF-107",
+    "capabilityName": "Terminology Standardization",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-108",
+        "resourceName": "CodeSystem",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-056",
+        "resourceName": "ValueSet",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-118",
+        "resourceName": "ConceptMap",
+        "strength": "optional"
+      }
+    ]
+  },
+  "HCF-108": {
+    "capabilityId": "HCF-108",
+    "capabilityName": "Analytics Maturity Assessment",
+    "dependencies": [
+      {
+        "resourceId": "FHIR-081",
+        "resourceName": "MeasureReport",
+        "strength": "critical"
+      },
+      {
+        "resourceId": "FHIR-064",
+        "resourceName": "Questionnaire",
+        "strength": "important"
+      },
+      {
+        "resourceId": "FHIR-027",
+        "resourceName": "QuestionnaireResponse",
+        "strength": "optional"
+      }
+    ]
+  }
+}

@@ -1,0 +1,747 @@
+{
+  "factTable": {
+    "name": "FACT_PATIENT_ENCOUNTER",
+    "description": "Central fact table capturing all patient encounters with measures",
+    "measures": [
+      {
+        "name": "encounter_count",
+        "type": "INTEGER",
+        "aggregation": "COUNT",
+        "description": "Number of encounters"
+      },
+      {
+        "name": "length_of_stay_hours",
+        "type": "DECIMAL(10,2)",
+        "aggregation": "AVG",
+        "description": "Duration of encounter in hours"
+      },
+      {
+        "name": "total_charges",
+        "type": "DECIMAL(15,2)",
+        "aggregation": "SUM",
+        "description": "Total charges for the encounter"
+      },
+      {
+        "name": "total_payments",
+        "type": "DECIMAL(15,2)",
+        "aggregation": "SUM",
+        "description": "Total payments received"
+      },
+      {
+        "name": "procedure_count",
+        "type": "INTEGER",
+        "aggregation": "SUM",
+        "description": "Number of procedures performed"
+      },
+      {
+        "name": "medication_count",
+        "type": "INTEGER",
+        "aggregation": "SUM",
+        "description": "Number of medications administered"
+      },
+      {
+        "name": "lab_test_count",
+        "type": "INTEGER",
+        "aggregation": "SUM",
+        "description": "Number of lab tests ordered"
+      },
+      {
+        "name": "imaging_count",
+        "type": "INTEGER",
+        "aggregation": "SUM",
+        "description": "Number of imaging studies"
+      },
+      {
+        "name": "readmission_flag",
+        "type": "BOOLEAN",
+        "aggregation": "SUM",
+        "description": "Whether patient was readmitted within 30 days"
+      },
+      {
+        "name": "mortality_flag",
+        "type": "BOOLEAN",
+        "aggregation": "SUM",
+        "description": "Whether patient expired during encounter"
+      },
+      {
+        "name": "patient_satisfaction_score",
+        "type": "DECIMAL(3,1)",
+        "aggregation": "AVG",
+        "description": "Patient satisfaction rating (1-5)"
+      },
+      {
+        "name": "wait_time_minutes",
+        "type": "INTEGER",
+        "aggregation": "AVG",
+        "description": "Time from arrival to first clinical contact"
+      }
+    ],
+    "foreignKeys": [
+      "dim_patient_key",
+      "dim_provider_key",
+      "dim_facility_key",
+      "dim_date_key",
+      "dim_time_key",
+      "dim_diagnosis_key",
+      "dim_procedure_key",
+      "dim_payer_key",
+      "dim_medication_key",
+      "dim_department_key",
+      "dim_geography_key",
+      "dim_age_group_key"
+    ]
+  },
+  "dimensions": [
+    {
+      "name": "DIM_PATIENT",
+      "description": "Patient demographics and identifiers",
+      "columns": [
+        {
+          "name": "patient_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "patient_id",
+          "type": "VARCHAR(50)",
+          "description": "FHIR Patient.id"
+        },
+        {
+          "name": "cnic",
+          "type": "VARCHAR(15)",
+          "description": "NADRA CNIC number"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(10)",
+          "description": "Patient gender"
+        },
+        {
+          "name": "birth_date",
+          "type": "DATE",
+          "description": "Date of birth"
+        },
+        {
+          "name": "age_years",
+          "type": "INTEGER",
+          "description": "Current age"
+        },
+        {
+          "name": "marital_status",
+          "type": "VARCHAR(20)",
+          "description": "Marital status"
+        },
+        {
+          "name": "province",
+          "type": "VARCHAR(50)",
+          "description": "Province of residence"
+        },
+        {
+          "name": "district",
+          "type": "VARCHAR(50)",
+          "description": "District of residence"
+        },
+        {
+          "name": "urban_rural",
+          "type": "VARCHAR(10)",
+          "description": "Urban or rural classification"
+        },
+        {
+          "name": "sehat_sahulat_enrolled",
+          "type": "BOOLEAN",
+          "description": "Enrolled in Sehat Sahulat"
+        }
+      ]
+    },
+    {
+      "name": "DIM_PROVIDER",
+      "description": "Healthcare provider details",
+      "columns": [
+        {
+          "name": "provider_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "practitioner_id",
+          "type": "VARCHAR(50)",
+          "description": "FHIR Practitioner.id"
+        },
+        {
+          "name": "pmc_number",
+          "type": "VARCHAR(20)",
+          "description": "PMC registration number"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(100)",
+          "description": "Provider name"
+        },
+        {
+          "name": "specialty",
+          "type": "VARCHAR(50)",
+          "description": "Medical specialty"
+        },
+        {
+          "name": "qualification",
+          "type": "VARCHAR(50)",
+          "description": "Highest qualification"
+        },
+        {
+          "name": "provider_type",
+          "type": "VARCHAR(30)",
+          "description": "Doctor, nurse, LHW, etc."
+        },
+        {
+          "name": "experience_years",
+          "type": "INTEGER",
+          "description": "Years of experience"
+        }
+      ]
+    },
+    {
+      "name": "DIM_FACILITY",
+      "description": "Healthcare facility details",
+      "columns": [
+        {
+          "name": "facility_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "organization_id",
+          "type": "VARCHAR(50)",
+          "description": "FHIR Organization.id"
+        },
+        {
+          "name": "facility_name",
+          "type": "VARCHAR(100)",
+          "description": "Facility name"
+        },
+        {
+          "name": "facility_type",
+          "type": "VARCHAR(30)",
+          "description": "BHU, RHC, THQ, DHQ, Tertiary"
+        },
+        {
+          "name": "ownership",
+          "type": "VARCHAR(20)",
+          "description": "Public, private, military"
+        },
+        {
+          "name": "bed_count",
+          "type": "INTEGER",
+          "description": "Number of beds"
+        },
+        {
+          "name": "province",
+          "type": "VARCHAR(50)",
+          "description": "Province"
+        },
+        {
+          "name": "district",
+          "type": "VARCHAR(50)",
+          "description": "District"
+        },
+        {
+          "name": "latitude",
+          "type": "DECIMAL(10,7)",
+          "description": "GPS latitude"
+        },
+        {
+          "name": "longitude",
+          "type": "DECIMAL(10,7)",
+          "description": "GPS longitude"
+        }
+      ]
+    },
+    {
+      "name": "DIM_DATE",
+      "description": "Calendar date dimension",
+      "columns": [
+        {
+          "name": "date_key",
+          "type": "INTEGER",
+          "description": "Surrogate key (YYYYMMDD)"
+        },
+        {
+          "name": "full_date",
+          "type": "DATE",
+          "description": "Full date"
+        },
+        {
+          "name": "day_of_week",
+          "type": "VARCHAR(10)",
+          "description": "Day of week"
+        },
+        {
+          "name": "month",
+          "type": "INTEGER",
+          "description": "Month number"
+        },
+        {
+          "name": "quarter",
+          "type": "INTEGER",
+          "description": "Quarter number"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER",
+          "description": "Year"
+        },
+        {
+          "name": "fiscal_year",
+          "type": "VARCHAR(10)",
+          "description": "Pakistan fiscal year (Jul-Jun)"
+        },
+        {
+          "name": "is_public_holiday",
+          "type": "BOOLEAN",
+          "description": "Pakistan public holiday flag"
+        },
+        {
+          "name": "islamic_month",
+          "type": "VARCHAR(20)",
+          "description": "Islamic calendar month"
+        },
+        {
+          "name": "is_ramadan",
+          "type": "BOOLEAN",
+          "description": "Ramadan flag"
+        }
+      ]
+    },
+    {
+      "name": "DIM_TIME",
+      "description": "Time of day dimension",
+      "columns": [
+        {
+          "name": "time_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "hour",
+          "type": "INTEGER",
+          "description": "Hour (0-23)"
+        },
+        {
+          "name": "minute",
+          "type": "INTEGER",
+          "description": "Minute (0-59)"
+        },
+        {
+          "name": "shift",
+          "type": "VARCHAR(20)",
+          "description": "Morning/Afternoon/Night shift"
+        },
+        {
+          "name": "is_peak_hour",
+          "type": "BOOLEAN",
+          "description": "Peak OPD hours flag"
+        }
+      ]
+    },
+    {
+      "name": "DIM_DIAGNOSIS",
+      "description": "Diagnosis and condition dimension",
+      "columns": [
+        {
+          "name": "diagnosis_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "icd10_code",
+          "type": "VARCHAR(10)",
+          "description": "ICD-10 code"
+        },
+        {
+          "name": "icd10_description",
+          "type": "VARCHAR(200)",
+          "description": "ICD-10 description"
+        },
+        {
+          "name": "icd10_chapter",
+          "type": "VARCHAR(100)",
+          "description": "ICD-10 chapter"
+        },
+        {
+          "name": "disease_category",
+          "type": "VARCHAR(50)",
+          "description": "Communicable, NCD, injury, etc."
+        },
+        {
+          "name": "is_notifiable",
+          "type": "BOOLEAN",
+          "description": "Notifiable disease flag"
+        },
+        {
+          "name": "is_priority_disease",
+          "type": "BOOLEAN",
+          "description": "Pakistan priority disease"
+        }
+      ]
+    },
+    {
+      "name": "DIM_PROCEDURE",
+      "description": "Clinical procedure dimension",
+      "columns": [
+        {
+          "name": "procedure_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "procedure_code",
+          "type": "VARCHAR(10)",
+          "description": "Procedure code"
+        },
+        {
+          "name": "procedure_name",
+          "type": "VARCHAR(200)",
+          "description": "Procedure description"
+        },
+        {
+          "name": "procedure_category",
+          "type": "VARCHAR(50)",
+          "description": "Surgical, diagnostic, therapeutic"
+        },
+        {
+          "name": "body_system",
+          "type": "VARCHAR(50)",
+          "description": "Body system"
+        },
+        {
+          "name": "complexity",
+          "type": "VARCHAR(20)",
+          "description": "Minor, moderate, major, complex"
+        }
+      ]
+    },
+    {
+      "name": "DIM_PAYER",
+      "description": "Insurance and payer dimension",
+      "columns": [
+        {
+          "name": "payer_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "payer_name",
+          "type": "VARCHAR(100)",
+          "description": "Payer organization name"
+        },
+        {
+          "name": "payer_type",
+          "type": "VARCHAR(30)",
+          "description": "Sehat Sahulat, private insurance, self-pay, military"
+        },
+        {
+          "name": "plan_name",
+          "type": "VARCHAR(100)",
+          "description": "Insurance plan name"
+        },
+        {
+          "name": "coverage_type",
+          "type": "VARCHAR(30)",
+          "description": "Inpatient, outpatient, both"
+        }
+      ]
+    },
+    {
+      "name": "DIM_MEDICATION",
+      "description": "Medication and drug dimension",
+      "columns": [
+        {
+          "name": "medication_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "drug_code",
+          "type": "VARCHAR(20)",
+          "description": "Drug code"
+        },
+        {
+          "name": "drug_name",
+          "type": "VARCHAR(200)",
+          "description": "Drug generic name"
+        },
+        {
+          "name": "brand_name",
+          "type": "VARCHAR(200)",
+          "description": "Brand name"
+        },
+        {
+          "name": "therapeutic_class",
+          "type": "VARCHAR(50)",
+          "description": "Therapeutic classification"
+        },
+        {
+          "name": "route",
+          "type": "VARCHAR(20)",
+          "description": "Route of administration"
+        },
+        {
+          "name": "is_essential_medicine",
+          "type": "BOOLEAN",
+          "description": "On Pakistan essential medicines list"
+        },
+        {
+          "name": "drap_registered",
+          "type": "BOOLEAN",
+          "description": "DRAP registration status"
+        }
+      ]
+    },
+    {
+      "name": "DIM_DEPARTMENT",
+      "description": "Hospital department dimension",
+      "columns": [
+        {
+          "name": "department_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "department_name",
+          "type": "VARCHAR(100)",
+          "description": "Department name"
+        },
+        {
+          "name": "department_type",
+          "type": "VARCHAR(30)",
+          "description": "Clinical, support, administrative"
+        },
+        {
+          "name": "service_line",
+          "type": "VARCHAR(50)",
+          "description": "Service line grouping"
+        }
+      ]
+    },
+    {
+      "name": "DIM_GEOGRAPHY",
+      "description": "Geographic hierarchy dimension",
+      "columns": [
+        {
+          "name": "geography_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)",
+          "description": "Country (Pakistan)"
+        },
+        {
+          "name": "province",
+          "type": "VARCHAR(50)",
+          "description": "Province/territory"
+        },
+        {
+          "name": "division",
+          "type": "VARCHAR(50)",
+          "description": "Administrative division"
+        },
+        {
+          "name": "district",
+          "type": "VARCHAR(50)",
+          "description": "District"
+        },
+        {
+          "name": "tehsil",
+          "type": "VARCHAR(50)",
+          "description": "Tehsil/sub-district"
+        },
+        {
+          "name": "union_council",
+          "type": "VARCHAR(50)",
+          "description": "Union council"
+        },
+        {
+          "name": "population",
+          "type": "INTEGER",
+          "description": "Area population estimate"
+        }
+      ]
+    },
+    {
+      "name": "DIM_AGE_GROUP",
+      "description": "Age group dimension for population analytics",
+      "columns": [
+        {
+          "name": "age_group_key",
+          "type": "INTEGER",
+          "description": "Surrogate key"
+        },
+        {
+          "name": "age_group",
+          "type": "VARCHAR(20)",
+          "description": "Age group label"
+        },
+        {
+          "name": "age_min",
+          "type": "INTEGER",
+          "description": "Minimum age"
+        },
+        {
+          "name": "age_max",
+          "type": "INTEGER",
+          "description": "Maximum age"
+        },
+        {
+          "name": "life_stage",
+          "type": "VARCHAR(20)",
+          "description": "Neonate, infant, child, adolescent, adult, elderly"
+        },
+        {
+          "name": "epi_eligible",
+          "type": "BOOLEAN",
+          "description": "EPI target age group"
+        }
+      ]
+    }
+  ],
+  "aggregates": [
+    {
+      "name": "AGG_DAILY_FACILITY_ENCOUNTERS",
+      "description": "Daily encounter counts and metrics by facility",
+      "grainKeys": [
+        "dim_facility_key",
+        "dim_date_key"
+      ],
+      "measures": [
+        "encounter_count",
+        "total_charges",
+        "avg_wait_time",
+        "avg_los"
+      ]
+    },
+    {
+      "name": "AGG_MONTHLY_DIAGNOSIS",
+      "description": "Monthly diagnosis counts by facility and geography",
+      "grainKeys": [
+        "dim_facility_key",
+        "dim_diagnosis_key",
+        "month",
+        "year"
+      ],
+      "measures": [
+        "encounter_count",
+        "mortality_count",
+        "readmission_count"
+      ]
+    },
+    {
+      "name": "AGG_PROVIDER_PRODUCTIVITY",
+      "description": "Provider-level monthly productivity metrics",
+      "grainKeys": [
+        "dim_provider_key",
+        "month",
+        "year"
+      ],
+      "measures": [
+        "encounter_count",
+        "procedure_count",
+        "avg_satisfaction_score"
+      ]
+    },
+    {
+      "name": "AGG_PAYER_CLAIMS",
+      "description": "Payer-level claims summary",
+      "grainKeys": [
+        "dim_payer_key",
+        "dim_facility_key",
+        "month",
+        "year"
+      ],
+      "measures": [
+        "claim_count",
+        "total_billed",
+        "total_paid",
+        "denial_count"
+      ]
+    },
+    {
+      "name": "AGG_POPULATION_HEALTH",
+      "description": "Population health indicators by geography",
+      "grainKeys": [
+        "dim_geography_key",
+        "dim_age_group_key",
+        "year"
+      ],
+      "measures": [
+        "population",
+        "disease_prevalence",
+        "immunization_coverage",
+        "maternal_mortality_ratio"
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "VW_ENCOUNTER_SUMMARY",
+      "description": "Encounter summary view joining fact with key dimensions",
+      "joins": [
+        "DIM_PATIENT",
+        "DIM_PROVIDER",
+        "DIM_FACILITY",
+        "DIM_DATE",
+        "DIM_DIAGNOSIS"
+      ]
+    },
+    {
+      "name": "VW_REVENUE_CYCLE",
+      "description": "Revenue cycle analytics view",
+      "joins": [
+        "DIM_FACILITY",
+        "DIM_PAYER",
+        "DIM_DATE",
+        "DIM_DEPARTMENT"
+      ]
+    },
+    {
+      "name": "VW_CLINICAL_QUALITY",
+      "description": "Clinical quality indicators view",
+      "joins": [
+        "DIM_FACILITY",
+        "DIM_DIAGNOSIS",
+        "DIM_PROCEDURE",
+        "DIM_PROVIDER"
+      ]
+    },
+    {
+      "name": "VW_POPULATION_HEALTH",
+      "description": "Population health dashboard view",
+      "joins": [
+        "DIM_GEOGRAPHY",
+        "DIM_AGE_GROUP",
+        "DIM_DIAGNOSIS",
+        "DIM_DATE"
+      ]
+    },
+    {
+      "name": "VW_IMMUNIZATION_COVERAGE",
+      "description": "Immunization coverage tracking view",
+      "joins": [
+        "DIM_PATIENT",
+        "DIM_FACILITY",
+        "DIM_GEOGRAPHY",
+        "DIM_DATE"
+      ]
+    },
+    {
+      "name": "VW_MEDICATION_UTILIZATION",
+      "description": "Medication utilization analytics view",
+      "joins": [
+        "DIM_MEDICATION",
+        "DIM_FACILITY",
+        "DIM_PROVIDER",
+        "DIM_DATE"
+      ]
+    }
+  ]
+}

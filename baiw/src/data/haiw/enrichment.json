@@ -1,0 +1,866 @@
+{
+  "HCF-001": {
+    "institution": "NADRA",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Fragmented patient IDs across facilities",
+    "opportunity": "Unified CNIC-based patient index",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-002": {
+    "institution": "NADRA",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "Incomplete demographic data in rural areas",
+    "opportunity": "LHW program as data collection channel",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-003": {
+    "institution": "NADRA",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "EPI",
+    "challenge": "Duplicate records across hospital systems",
+    "opportunity": "CNIC as golden key for deduplication",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-004": {
+    "institution": "NADRA",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Family health records not linked",
+    "opportunity": "Joint family structure as analytical unit",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-005": {
+    "institution": "Telecom operators",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "Low digital literacy in rural Pakistan",
+    "opportunity": "Mobile phone penetration as engagement channel",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-006": {
+    "institution": "NHSR&C",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "MNCH Program",
+    "challenge": "No national consent framework",
+    "opportunity": "Digital consent via biometric verification",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-007": {
+    "institution": "PBS",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "Incomplete address data",
+    "opportunity": "GPS-linked facility mapping",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-008": {
+    "institution": "BISP/Ehsaas",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "Identifying at-risk populations",
+    "opportunity": "Ehsaas database integration for social determinants",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-009": {
+    "institution": "Hospitals",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "No longitudinal patient view",
+    "opportunity": "Episode-based care tracking",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-010": {
+    "institution": "HMIS",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Long wait times in OPD",
+    "opportunity": "Real-time patient flow monitoring",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-011": {
+    "institution": "DHQ/THQ",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Inefficient referral chains",
+    "opportunity": "Structured referral pathways BHU→RHC→THQ→DHQ",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-012": {
+    "institution": "Tertiary hospitals",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "High readmission rates",
+    "opportunity": "Predictive models for early intervention",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-013": {
+    "institution": "Hospitals",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "EPI",
+    "challenge": "Prolonged hospital stays",
+    "opportunity": "Benchmark-driven discharge planning",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-014": {
+    "institution": "Hospital networks",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Lost in transition between facilities",
+    "opportunity": "Continuity of care documentation",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-015": {
+    "institution": "Hospitals",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "No systematic feedback collection",
+    "opportunity": "Mobile-based patient feedback",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-016": {
+    "institution": "Hospital IT",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "MNCH Program",
+    "challenge": "Low digital health adoption",
+    "opportunity": "Mobile health app integration",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-017": {
+    "institution": "LHW Program",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "Low health literacy in rural areas",
+    "opportunity": "Pictographic health education materials",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-018": {
+    "institution": "OPD systems",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "High no-show rates in OPD",
+    "opportunity": "SMS reminder integration",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-019": {
+    "institution": "Hospitals",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "Language barriers (Urdu, regional languages)",
+    "opportunity": "Multilingual communication templates",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-020": {
+    "institution": "LHW Program",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Remote community access challenges",
+    "opportunity": "Lady Health Worker digital tools",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-021": {
+    "institution": "NIH",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Incomplete disease registry",
+    "opportunity": "Integrated disease surveillance",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-022": {
+    "institution": "Hospitals",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "No standardized outcome measures",
+    "opportunity": "FHIR-based outcome reporting",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-023": {
+    "institution": "NIH",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "EPI",
+    "challenge": "Under-reporting of deaths",
+    "opportunity": "Verbal autopsy integration",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-024": {
+    "institution": "Hospitals",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Limited surgical outcome data",
+    "opportunity": "Post-operative surveillance",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-025": {
+    "institution": "Clinical departments",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "Variation in care protocols",
+    "opportunity": "Evidence-based pathway templates",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-026": {
+    "institution": "NCD Program",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "MNCH Program",
+    "challenge": "Rising NCD burden",
+    "opportunity": "Longitudinal chronic disease tracking",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-027": {
+    "institution": "MNCH Program",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "High maternal mortality ratio (186/100K)",
+    "opportunity": "MNCH outcome dashboards",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-028": {
+    "institution": "EPI Program",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "Stunting rate 40%+ in children under 5",
+    "opportunity": "Growth monitoring integration",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-029": {
+    "institution": "PHCIP",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "No national quality framework",
+    "opportunity": "WHO quality indicator adoption",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-030": {
+    "institution": "Hospital QA",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Limited clinical audit infrastructure",
+    "opportunity": "Digital audit trail implementation",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-031": {
+    "institution": "Hospital safety",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Under-reporting of safety incidents",
+    "opportunity": "Anonymous reporting system",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-032": {
+    "institution": "Hospitals",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "HAI surveillance gaps",
+    "opportunity": "Automated infection detection",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-033": {
+    "institution": "Pharmacy departments",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "EPI",
+    "challenge": "Manual medication processes",
+    "opportunity": "Barcode verification systems",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-034": {
+    "institution": "Surgical departments",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "TB DOTS",
+    "challenge": "No surgical safety checklist data",
+    "opportunity": "WHO Surgical Safety Checklist integration",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-035": {
+    "institution": "Emergency departments",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "Overcrowded emergency rooms",
+    "opportunity": "Triage quality and wait time metrics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-036": {
+    "institution": "Lab departments",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "MNCH Program",
+    "challenge": "Variable lab quality across facilities",
+    "opportunity": "External quality assessment integration",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-037": {
+    "institution": "Pharmacy",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "Manual interaction checking",
+    "opportunity": "Automated CDS alerts",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-038": {
+    "institution": "Medical boards",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "Outdated clinical guidelines",
+    "opportunity": "Digital guideline implementation",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-039": {
+    "institution": "Diagnostic departments",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "Delayed diagnosis in primary care",
+    "opportunity": "AI-assisted diagnostic suggestions",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-040": {
+    "institution": "Clinical systems",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Incomplete allergy records",
+    "opportunity": "Structured allergy documentation",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-041": {
+    "institution": "Primary care",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Missed preventive interventions",
+    "opportunity": "Automated reminder generation",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-042": {
+    "institution": "Infectious disease",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "Antibiotic resistance crisis in Pakistan",
+    "opportunity": "ASP program analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-043": {
+    "institution": "Finance departments",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "EPI",
+    "challenge": "Manual revenue tracking",
+    "opportunity": "Automated revenue cycle monitoring",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-044": {
+    "institution": "Billing departments",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Revenue leakage from coding errors",
+    "opportunity": "Charge capture optimization",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-045": {
+    "institution": "Finance",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "Low collection rates",
+    "opportunity": "Predictive collection analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-046": {
+    "institution": "Claims departments",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "MNCH Program",
+    "challenge": "High claims denial rates",
+    "opportunity": "Root cause denial analysis",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-047": {
+    "institution": "Revenue cycle",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "Under-coding of services",
+    "opportunity": "Automated charge suggestions",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-048": {
+    "institution": "Finance",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "Long payment cycles",
+    "opportunity": "AR aging dashboard",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-049": {
+    "institution": "Finance",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "Over-dependence on OOP payments",
+    "opportunity": "Payer diversification analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-050": {
+    "institution": "Hospital admin",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "No service-line profitability view",
+    "opportunity": "Department-level revenue tracking",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-051": {
+    "institution": "Claims dept",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Delayed claims submission",
+    "opportunity": "Electronic claims submission",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-052": {
+    "institution": "Claims dept",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "Opaque adjudication process",
+    "opportunity": "Real-time adjudication tracking",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-053": {
+    "institution": "Finance",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "EPI",
+    "challenge": "Below-cost reimbursement rates",
+    "opportunity": "Rate negotiation analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-054": {
+    "institution": "Compliance",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Healthcare fraud risk",
+    "opportunity": "Anomaly detection models",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-055": {
+    "institution": "Utilization review",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "Slow authorization process",
+    "opportunity": "Automated prior auth",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-056": {
+    "institution": "HIM department",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "MNCH Program",
+    "challenge": "ICD-10 coding inconsistencies",
+    "opportunity": "Coding audit and education",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-057": {
+    "institution": "Finance",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "Unknown true cost per patient",
+    "opportunity": "Activity-based costing",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-058": {
+    "institution": "Finance",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "No procedure-level costing",
+    "opportunity": "Micro-costing analysis",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-059": {
+    "institution": "Finance",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "Cross-subsidization between departments",
+    "opportunity": "Contribution margin analysis",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-060": {
+    "institution": "Finance",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Budget overruns in health facilities",
+    "opportunity": "Variance tracking and forecasting",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-061": {
+    "institution": "Hospital admin",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Overcrowded wards",
+    "opportunity": "Real-time bed management",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-062": {
+    "institution": "Surgical dept",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "Low OR utilization rates",
+    "opportunity": "Scheduling optimization",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-063": {
+    "institution": "Biomedical dept",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "EPI",
+    "challenge": "Underutilized medical equipment",
+    "opportunity": "Usage tracking and optimization",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-064": {
+    "institution": "OPD management",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Long OPD wait times",
+    "opportunity": "Patient flow optimization",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-065": {
+    "institution": "Emergency dept",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "ED overcrowding",
+    "opportunity": "Predictive demand modeling",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-066": {
+    "institution": "Planning depts",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "MNCH Program",
+    "challenge": "Facility capacity shortages",
+    "opportunity": "Demand forecasting models",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-067": {
+    "institution": "Lab management",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "Long turnaround times",
+    "opportunity": "Lab workflow optimization",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-068": {
+    "institution": "Pharmacy management",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "Stockouts and wastage",
+    "opportunity": "Inventory optimization",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-069": {
+    "institution": "HR department",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "Provider workload imbalance",
+    "opportunity": "Workload distribution analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-070": {
+    "institution": "HR department",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Shift scheduling inefficiency",
+    "opportunity": "Demand-based scheduling",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-071": {
+    "institution": "HR/CME dept",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "CME tracking challenges",
+    "opportunity": "Digital CME portfolio",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-072": {
+    "institution": "Nursing admin",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "Nurse-to-patient ratios",
+    "opportunity": "Acuity-based staffing",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-073": {
+    "institution": "Occupational health",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "EPI",
+    "challenge": "Healthcare worker injuries",
+    "opportunity": "Incident tracking and prevention",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-074": {
+    "institution": "Training dept",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Skill gaps in rural facilities",
+    "opportunity": "Competency gap analysis",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-075": {
+    "institution": "Supply chain",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "Supply chain disruptions",
+    "opportunity": "Demand forecasting",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-076": {
+    "institution": "Pharmacy",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "MNCH Program",
+    "challenge": "Drug expiry and wastage",
+    "opportunity": "Just-in-time inventory",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-077": {
+    "institution": "Blood bank",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "Blood supply shortages",
+    "opportunity": "Donor management analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-078": {
+    "institution": "Biomedical dept",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "Equipment downtime",
+    "opportunity": "Predictive maintenance",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-079": {
+    "institution": "EPI Program",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "Cold chain breaks",
+    "opportunity": "IoT-enabled temperature monitoring",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-080": {
+    "institution": "Infection control",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Biomedical waste management",
+    "opportunity": "Waste tracking and compliance",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-081": {
+    "institution": "Public health",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "No population health view",
+    "opportunity": "Integrated population dashboard",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-082": {
+    "institution": "Community health",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "SDOH data gaps",
+    "opportunity": "Multi-sector data integration",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-083": {
+    "institution": "MNCH Program",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "EPI",
+    "challenge": "High maternal/infant mortality",
+    "opportunity": "LHW-powered MNCH tracking",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-084": {
+    "institution": "Nutrition programs",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Malnutrition prevalence 40%+",
+    "opportunity": "Community-based nutrition monitoring",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-085": {
+    "institution": "RH programs",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "Low contraceptive prevalence rate",
+    "opportunity": "Family planning service analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-086": {
+    "institution": "Mental health",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "MNCH Program",
+    "challenge": "Mental health stigma; 1 psychiatrist per 500K",
+    "opportunity": "Community mental health tracking",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-087": {
+    "institution": "NCD Program",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "Rising diabetes/CVD burden",
+    "opportunity": "NCD risk factor surveillance",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-088": {
+    "institution": "Environmental health",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "Air/water pollution impact on health",
+    "opportunity": "Environmental-health correlation",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-089": {
+    "institution": "NIH",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "Delayed outbreak detection",
+    "opportunity": "Syndromic surveillance",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-090": {
+    "institution": "NIH",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Under-reporting of notifiable diseases",
+    "opportunity": "Automated IDSR reporting",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-091": {
+    "institution": "EPI Program",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Missed children in EPI",
+    "opportunity": "Real-time coverage mapping",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-092": {
+    "institution": "TB Control Program",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "TB case detection gap",
+    "opportunity": "Digital DOTS monitoring",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-093": {
+    "institution": "Provincial dengue cells",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "EPI",
+    "challenge": "Seasonal dengue outbreaks",
+    "opportunity": "Predictive outbreak modeling",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-094": {
+    "institution": "Polio Program",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Last remaining endemic country",
+    "opportunity": "Micro-plan tracking and lot quality assurance",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-095": {
+    "institution": "NIH AMR Lab",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "High AMR rates in Pakistan",
+    "opportunity": "Lab-based AMR surveillance",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-096": {
+    "institution": "Hepatitis Program",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "MNCH Program",
+    "challenge": "High HCV prevalence (5-8%)",
+    "opportunity": "Screening cascade analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-097": {
+    "institution": "Health IT",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "No national HIE",
+    "opportunity": "FHIR R5 adoption roadmap",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-098": {
+    "institution": "Health IT",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "Siloed health systems",
+    "opportunity": "Provincial HIE platforms",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-099": {
+    "institution": "HMIS",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Ehsaas/BISP",
+    "challenge": "Data quality in DHIS2",
+    "opportunity": "FHIR-DHIS2 interoperability",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-100": {
+    "institution": "Telemedicine programs",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "Prime Minister Health Initiative",
+    "challenge": "Limited specialist access in rural areas",
+    "opportunity": "Telemedicine utilization analytics",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-101": {
+    "institution": "mHealth programs",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Sehat Sahulat Program",
+    "challenge": "Last-mile health access",
+    "opportunity": "mHealth program effectiveness",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-102": {
+    "institution": "Provincial health depts",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "Lady Health Worker Program",
+    "challenge": "Provincial data silos",
+    "opportunity": "Federated data sharing framework",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-103": {
+    "institution": "Health IT",
+    "regulatoryBody": "NHSR&C",
+    "relevantProgram": "EPI",
+    "challenge": "Poor data quality in HMIS",
+    "opportunity": "Automated data quality rules",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-104": {
+    "institution": "Health IT",
+    "regulatoryBody": "DRAP",
+    "relevantProgram": "TB DOTS",
+    "challenge": "Inconsistent master data",
+    "opportunity": "Master data governance framework",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-105": {
+    "institution": "Compliance",
+    "regulatoryBody": "PMC",
+    "relevantProgram": "Polio Eradication",
+    "challenge": "No health data privacy law",
+    "opportunity": "HIPAA-equivalent framework development",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-106": {
+    "institution": "Health IT",
+    "regulatoryBody": "PNC",
+    "relevantProgram": "MNCH Program",
+    "challenge": "No data lineage tracking",
+    "opportunity": "Automated provenance capture",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-107": {
+    "institution": "Health IT",
+    "regulatoryBody": "Ministry of NHSR&C",
+    "relevantProgram": "Hepatitis Control Program",
+    "challenge": "No national health terminology",
+    "opportunity": "Pakistan health terminology service",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  },
+  "HCF-108": {
+    "institution": "Health IT leadership",
+    "regulatoryBody": "Provincial Health Departments",
+    "relevantProgram": "NCD Prevention",
+    "challenge": "No analytics maturity baseline",
+    "opportunity": "HACR assessment framework",
+    "keyStatistics": "Relevant to healthcare analytics serving 240M+ population across 4 provinces and 160+ districts"
+  }
+}

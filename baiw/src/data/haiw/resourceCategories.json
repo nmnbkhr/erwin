@@ -1,0 +1,98 @@
+[
+  {
+    "id": "CAT-01",
+    "name": "Foundation",
+    "description": "Conformance and terminology resources that define the FHIR standard itself",
+    "resourceCount": 14,
+    "color": "slate",
+    "icon": "Foundation"
+  },
+  {
+    "id": "CAT-02",
+    "name": "Base - Individuals",
+    "description": "Resources that represent people involved in healthcare",
+    "resourceCount": 6,
+    "color": "blue",
+    "icon": "Users"
+  },
+  {
+    "id": "CAT-03",
+    "name": "Base - Entities",
+    "description": "Resources representing organizations, locations, and devices",
+    "resourceCount": 6,
+    "color": "indigo",
+    "icon": "Building"
+  },
+  {
+    "id": "CAT-04",
+    "name": "Base - Workflow",
+    "description": "Resources that manage scheduling, tasks, and workflow",
+    "resourceCount": 13,
+    "color": "violet",
+    "icon": "Workflow"
+  },
+  {
+    "id": "CAT-05",
+    "name": "Clinical - Summary",
+    "description": "Core clinical summary resources for conditions, procedures, and allergies",
+    "resourceCount": 12,
+    "color": "red",
+    "icon": "Heart"
+  },
+  {
+    "id": "CAT-06",
+    "name": "Clinical - Diagnostics",
+    "description": "Observations, diagnostic reports, and imaging resources",
+    "resourceCount": 9,
+    "color": "amber",
+    "icon": "Microscope"
+  },
+  {
+    "id": "CAT-07",
+    "name": "Clinical - Medications",
+    "description": "Medication-related resources from prescribing to administration",
+    "resourceCount": 9,
+    "color": "green",
+    "icon": "Pill"
+  },
+  {
+    "id": "CAT-08",
+    "name": "Clinical - Care Provision",
+    "description": "Care plans, encounters, and care team resources",
+    "resourceCount": 11,
+    "color": "teal",
+    "icon": "Stethoscope"
+  },
+  {
+    "id": "CAT-09",
+    "name": "Clinical - Request & Response",
+    "description": "Questionnaires, documents, compositions, and measure reports",
+    "resourceCount": 5,
+    "color": "cyan",
+    "icon": "FileText"
+  },
+  {
+    "id": "CAT-10",
+    "name": "Financial",
+    "description": "Coverage, claims, billing, and payment resources",
+    "resourceCount": 13,
+    "color": "emerald",
+    "icon": "DollarSign"
+  },
+  {
+    "id": "CAT-11",
+    "name": "Public Health & Research",
+    "description": "Research studies, evidence, quality measures, and clinical protocols",
+    "resourceCount": 10,
+    "color": "rose",
+    "icon": "Globe"
+  },
+  {
+    "id": "CAT-12",
+    "name": "Infrastructure & Exchange",
+    "description": "Audit, provenance, subscriptions, and other infrastructure resources",
+    "resourceCount": 49,
+    "color": "gray",
+    "icon": "Server"
+  }
+]

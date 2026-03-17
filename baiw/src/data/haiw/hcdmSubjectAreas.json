@@ -1,0 +1,268 @@
+[
+  {
+    "id": "SA-01",
+    "name": "Party",
+    "description": "People and their roles in healthcare - patients, practitioners, related persons",
+    "estimatedEntities": 45,
+    "color": "blue",
+    "fhirResources": [
+      "Patient",
+      "Practitioner",
+      "PractitionerRole",
+      "RelatedPerson",
+      "Person",
+      "Group"
+    ],
+    "keyAnalytics": [
+      "Patient demographics analysis",
+      "Provider workforce analytics",
+      "Family relationship mapping",
+      "Population segmentation"
+    ]
+  },
+  {
+    "id": "SA-02",
+    "name": "Event",
+    "description": "Healthcare events, scheduling, tasks, and workflow orchestration",
+    "estimatedEntities": 55,
+    "color": "violet",
+    "fhirResources": [
+      "Task",
+      "Appointment",
+      "AppointmentResponse",
+      "Schedule",
+      "Slot",
+      "Transport",
+      "VisionPrescription"
+    ],
+    "keyAnalytics": [
+      "Appointment utilization rates",
+      "Task completion analytics",
+      "Scheduling optimization",
+      "Workflow bottleneck detection"
+    ]
+  },
+  {
+    "id": "SA-03",
+    "name": "Clinical",
+    "description": "Core clinical data - conditions, procedures, encounters, care plans, observations",
+    "estimatedEntities": 120,
+    "color": "red",
+    "fhirResources": [
+      "Condition",
+      "Procedure",
+      "AllergyIntolerance",
+      "Encounter",
+      "CarePlan",
+      "CareTeam",
+      "EpisodeOfCare",
+      "ClinicalImpression",
+      "Goal",
+      "Communication"
+    ],
+    "keyAnalytics": [
+      "Disease burden analysis",
+      "Treatment outcome tracking",
+      "Clinical pathway adherence",
+      "Readmission prediction"
+    ]
+  },
+  {
+    "id": "SA-04",
+    "name": "Claim & Billing",
+    "description": "Claims processing, adjudication, and billing operations",
+    "estimatedEntities": 40,
+    "color": "amber",
+    "fhirResources": [
+      "Claim",
+      "ClaimResponse",
+      "ExplanationOfBenefit",
+      "Invoice",
+      "ChargeItem",
+      "Account"
+    ],
+    "keyAnalytics": [
+      "Claims denial analysis",
+      "Revenue cycle metrics",
+      "Billing accuracy rates",
+      "Cost-per-encounter analysis"
+    ]
+  },
+  {
+    "id": "SA-05",
+    "name": "Financial Management",
+    "description": "Coverage, payments, and financial reconciliation",
+    "estimatedEntities": 35,
+    "color": "emerald",
+    "fhirResources": [
+      "Coverage",
+      "CoverageEligibilityRequest",
+      "CoverageEligibilityResponse",
+      "PaymentNotice",
+      "PaymentReconciliation",
+      "InsurancePlan"
+    ],
+    "keyAnalytics": [
+      "Coverage gap analysis",
+      "Payment turnaround metrics",
+      "Insurance plan utilization",
+      "Out-of-pocket burden analysis"
+    ]
+  },
+  {
+    "id": "SA-06",
+    "name": "Pharmacy & Medication",
+    "description": "Medications, prescriptions, dispensing, and administration",
+    "estimatedEntities": 50,
+    "color": "green",
+    "fhirResources": [
+      "Medication",
+      "MedicationRequest",
+      "MedicationDispense",
+      "MedicationAdministration",
+      "MedicationStatement",
+      "MedicationKnowledge",
+      "FormularyItem",
+      "Immunization",
+      "ImmunizationRecommendation"
+    ],
+    "keyAnalytics": [
+      "Prescription patterns analysis",
+      "Drug utilization review",
+      "Medication adherence rates",
+      "Immunization coverage rates",
+      "Formulary compliance"
+    ]
+  },
+  {
+    "id": "SA-07",
+    "name": "Coverage & Enrollment",
+    "description": "Insurance coverage enrollment and eligibility management",
+    "estimatedEntities": 25,
+    "color": "cyan",
+    "fhirResources": [
+      "Coverage",
+      "EnrollmentRequest",
+      "EnrollmentResponse",
+      "CoverageEligibilityRequest",
+      "CoverageEligibilityResponse",
+      "InsurancePlan"
+    ],
+    "keyAnalytics": [
+      "Enrollment trend analysis",
+      "Eligibility verification rates",
+      "Coverage lapse analysis",
+      "Beneficiary demographics"
+    ]
+  },
+  {
+    "id": "SA-08",
+    "name": "Provider & Facility",
+    "description": "Healthcare organizations, facilities, services, and locations",
+    "estimatedEntities": 40,
+    "color": "indigo",
+    "fhirResources": [
+      "Organization",
+      "HealthcareService",
+      "Location",
+      "Endpoint",
+      "Device",
+      "DeviceDefinition"
+    ],
+    "keyAnalytics": [
+      "Facility utilization rates",
+      "Service availability mapping",
+      "Provider network adequacy",
+      "Equipment uptime analysis"
+    ]
+  },
+  {
+    "id": "SA-09",
+    "name": "Public Health & Programs",
+    "description": "Population health, research, public health programs, and disease surveillance",
+    "estimatedEntities": 60,
+    "color": "rose",
+    "fhirResources": [
+      "ResearchStudy",
+      "ResearchSubject",
+      "Measure",
+      "MeasureReport",
+      "PlanDefinition",
+      "ActivityDefinition",
+      "Library"
+    ],
+    "keyAnalytics": [
+      "Disease surveillance dashboards",
+      "Program effectiveness metrics",
+      "Research outcome tracking",
+      "Population health trends"
+    ]
+  },
+  {
+    "id": "SA-10",
+    "name": "Quality & Safety",
+    "description": "Quality measures, adverse events, risk assessments, and safety reporting",
+    "estimatedEntities": 30,
+    "color": "orange",
+    "fhirResources": [
+      "AdverseEvent",
+      "DetectedIssue",
+      "RiskAssessment",
+      "Flag",
+      "Consent",
+      "MeasureReport"
+    ],
+    "keyAnalytics": [
+      "Adverse event trending",
+      "Patient safety indicators",
+      "Quality measure performance",
+      "Risk score distributions"
+    ]
+  },
+  {
+    "id": "SA-11",
+    "name": "Diagnostics & Imaging",
+    "description": "Laboratory results, diagnostic reports, imaging studies, specimens",
+    "estimatedEntities": 45,
+    "color": "amber",
+    "fhirResources": [
+      "Observation",
+      "DiagnosticReport",
+      "ImagingStudy",
+      "ImagingSelection",
+      "Specimen",
+      "ObservationDefinition",
+      "MolecularSequence",
+      "GenomicStudy"
+    ],
+    "keyAnalytics": [
+      "Lab result turnaround times",
+      "Diagnostic accuracy analysis",
+      "Imaging utilization patterns",
+      "Specimen rejection rates"
+    ]
+  },
+  {
+    "id": "SA-12",
+    "name": "Infrastructure & Interoperability",
+    "description": "System infrastructure, audit trails, messaging, and data exchange",
+    "estimatedEntities": 70,
+    "color": "gray",
+    "fhirResources": [
+      "AuditEvent",
+      "Provenance",
+      "Subscription",
+      "Bundle",
+      "MessageHeader",
+      "OperationOutcome",
+      "Binary",
+      "Questionnaire"
+    ],
+    "keyAnalytics": [
+      "System integration metrics",
+      "Audit trail analysis",
+      "Message exchange volumes",
+      "Interoperability compliance rates"
+    ]
+  }
+]
