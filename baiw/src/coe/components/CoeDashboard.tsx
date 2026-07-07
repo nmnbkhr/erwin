@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import {
-  Banknote, Building2, Truck, Shield, Globe, Cpu,
-  BarChart3, Target, Users, Calculator, TrendingUp,
+  Banknote, Building2, Globe, Cpu,
+  BarChart3, Target, Calculator, TrendingUp,
   Map, Swords, ArrowRight,
 } from 'lucide-react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Cell,
+  ResponsiveContainer,
 } from 'recharts'
 import useCases from '../../data/coe/useCases.json'
 import cashMetrics from '../../data/coe/cashMetrics.json'
@@ -28,11 +28,6 @@ const branchIcons: Record<string, typeof Building2> = {
   'Balanced': Target,
   'Seasonal': Globe,
   'Hub/CPC': Cpu,
-}
-
-function formatPKR(val: number) {
-  if (val >= 1000) return `PKR ${(val / 1000).toFixed(1)}B`
-  return `PKR ${val}M`
 }
 
 export default function CoeDashboard() {
@@ -78,11 +73,11 @@ export default function CoeDashboard() {
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={leverData} layout="vertical" margin={{ left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-              <XAxis type="number" tick={{ fontSize: 12 }} />
-              <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={100} />
+              <XAxis type="number" tick={{ fontSize: 13 }} />
+              <YAxis type="category" dataKey="name" tick={{ fontSize: 12 }} width={100} />
               <Tooltip
-                formatter={(value: number, name: string) =>
-                  [`PKR ${value}M`, name === 'min' ? 'Minimum' : 'Additional Upside']
+                formatter={(value: number | undefined, name: string | undefined) =>
+                  [`PKR ${value ?? 0}M`, name === 'min' ? 'Minimum' : 'Additional Upside']
                 }
               />
               <Bar dataKey="min" stackId="a" fill="#f59e0b" radius={[0, 0, 0, 0]} name="min" />

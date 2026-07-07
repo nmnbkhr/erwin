@@ -71,7 +71,7 @@ export interface HaiwCapability {
 export interface HacrQuestion {
   id: string
   category: string
-  categoryId: number
+  categoryId: string
   subcategory: string
   question: string
   levelDescriptions: Record<string, string>
@@ -87,7 +87,7 @@ export interface HacrSection {
 
 export interface HacrCategory {
   name: string
-  categoryId: number
+  categoryId: string
   sections: HacrSection[]
   questionCount: number
 }

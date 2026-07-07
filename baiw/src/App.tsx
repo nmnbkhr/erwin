@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AssessmentProvider } from './context/AssessmentContext'
 import Layout from './components/layout/Layout'
 import PageSkeleton from './components/layout/PageSkeleton'
+import ErrorBoundary from './components/layout/ErrorBoundary'
+import NotFound from './components/layout/NotFound'
 
 const Dashboard = lazy(() => import('./pages/Dashboard'))
 const ModelExplorer = lazy(() => import('./pages/ModelExplorer'))
@@ -26,48 +28,59 @@ function App() {
         <Routes>
           {/* Suite Landing — no layout wrapper */}
           <Route path="/" element={
-            <Suspense fallback={<PageSkeleton />}>
-              <SuiteLanding />
-            </Suspense>
+            <ErrorBoundary moduleName="Suite">
+              <Suspense fallback={<PageSkeleton />}>
+                <SuiteLanding />
+              </Suspense>
+            </ErrorBoundary>
           } />
 
           {/* TAIW routes — separate layout */}
           <Route path="/taiw/*" element={
-            <Suspense fallback={<PageSkeleton />}>
-              <TaiwRoutes />
-            </Suspense>
+            <ErrorBoundary moduleName="TAIW">
+              <Suspense fallback={<PageSkeleton />}>
+                <TaiwRoutes />
+              </Suspense>
+            </ErrorBoundary>
           } />
 
           {/* COE routes — separate layout */}
           <Route path="/coe/*" element={
-            <Suspense fallback={<PageSkeleton />}>
-              <CoeRoutes />
-            </Suspense>
+            <ErrorBoundary moduleName="COE">
+              <Suspense fallback={<PageSkeleton />}>
+                <CoeRoutes />
+              </Suspense>
+            </ErrorBoundary>
           } />
 
           {/* HAIW routes — separate layout */}
           <Route path="/haiw/*" element={
-            <Suspense fallback={<PageSkeleton />}>
-              <HaiwRoutes />
-            </Suspense>
+            <ErrorBoundary moduleName="HAIW">
+              <Suspense fallback={<PageSkeleton />}>
+                <HaiwRoutes />
+              </Suspense>
+            </ErrorBoundary>
           } />
 
           {/* BAIW routes — existing layout */}
           <Route path="*" element={
             <Layout>
-              <Suspense fallback={<PageSkeleton />}>
-                <Routes>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/model" element={<ModelExplorer />} />
-                  <Route path="/capabilities" element={<CapabilityNavigator />} />
-                  <Route path="/graph" element={<DependencyGraph />} />
-                  <Route path="/maturity" element={<MaturityAssessment />} />
-                  <Route path="/profitability" element={<ProfitabilityEngine />} />
-                  <Route path="/roadmap" element={<RoadmapBuilder />} />
-                  <Route path="/pakistan" element={<PakistanReference />} />
-                  <Route path="/cash-optimization" element={<CashOptimizationEngine />} />
-                </Routes>
-              </Suspense>
+              <ErrorBoundary moduleName="BAIW">
+                <Suspense fallback={<PageSkeleton />}>
+                  <Routes>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/model" element={<ModelExplorer />} />
+                    <Route path="/capabilities" element={<CapabilityNavigator />} />
+                    <Route path="/graph" element={<DependencyGraph />} />
+                    <Route path="/maturity" element={<MaturityAssessment />} />
+                    <Route path="/profitability" element={<ProfitabilityEngine />} />
+                    <Route path="/roadmap" element={<RoadmapBuilder />} />
+                    <Route path="/pakistan" element={<PakistanReference />} />
+                    <Route path="/cash-optimization" element={<CashOptimizationEngine />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </ErrorBoundary>
             </Layout>
           } />
         </Routes>

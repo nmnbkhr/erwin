@@ -1,21 +1,15 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
-
-interface CategoryScore {
-  category: string
-  current: number
-  desired: number
-  gap: number
-}
+import type { HaiwAssessmentAnswer, HaiwCapability } from '../types'
 
 interface HealthReportGeneratorProps {
-  scores: CategoryScore[]
-  overallScore: number
+  answers: HaiwAssessmentAnswer[]
+  capabilities: HaiwCapability[]
   answeredCategories: number
   totalCategories: number
 }
 
-export default function HealthReportGenerator({ scores, overallScore, answeredCategories, totalCategories }: HealthReportGeneratorProps) {
+export default function HealthReportGenerator({ answers, capabilities, answeredCategories, totalCategories }: HealthReportGeneratorProps) {
   const [expanded, setExpanded] = useState(false)
   const [orgName, setOrgName] = useState('')
   const [generating, setGenerating] = useState<string | null>(null)
@@ -32,10 +26,9 @@ export default function HealthReportGenerator({ scores, overallScore, answeredCa
     try {
       await new Promise(r => setTimeout(r, 100))
       const { generateHealthMaturityPDF, generateHealthGapCSV, generateHealthRoadmapMarkdown } = await import('../utils/healthReportGenerator')
-      const assessmentData = { scores, overallScore, answeredCategories, totalCategories }
-      if (type === 'pdf') generateHealthMaturityPDF(assessmentData, name)
-      else if (type === 'csv') generateHealthGapCSV(assessmentData)
-      else generateHealthRoadmapMarkdown(assessmentData, name)
+      if (type === 'pdf') generateHealthMaturityPDF(answers, capabilities, undefined, name)
+      else if (type === 'csv') generateHealthGapCSV(answers, capabilities)
+      else generateHealthRoadmapMarkdown(answers, capabilities, name)
     } finally {
       setGenerating(null)
     }

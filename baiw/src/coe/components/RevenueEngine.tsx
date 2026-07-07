@@ -1,13 +1,12 @@
 import { useState, useMemo } from 'react'
 import {
-  Banknote, TrendingUp, Calculator, Building2, Truck,
+  Calculator,
 } from 'lucide-react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Cell, ReferenceLine,
+  ResponsiveContainer,
 } from 'recharts'
 import revenueModel from '../../data/coe/revenueModel.json'
-import cashMetrics from '../../data/coe/cashMetrics.json'
 import branchTypology from '../../data/coe/branchTypology.json'
 
 function formatPKR(val: number): string {
@@ -220,9 +219,9 @@ export default function RevenueEngine() {
         <ResponsiveContainer width="100%" height={320}>
           <BarChart data={waterfallData} margin={{ left: 10 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-            <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} angle={-15} textAnchor="end" height={60} />
-            <YAxis tick={{ fontSize: 12 }} />
-            <Tooltip formatter={(v: number, name: string) => [`PKR ${v}M`, name === 'saving' ? 'Savings' : name === 'remaining' ? 'Remaining Cost' : 'Current Cost']} />
+            <XAxis dataKey="name" tick={{ fontSize: 12 }} interval={0} angle={-15} textAnchor="end" height={60} />
+            <YAxis tick={{ fontSize: 13 }} />
+            <Tooltip formatter={(v: number | undefined, name: string | undefined) => [`PKR ${v ?? 0}M`, name === 'saving' ? 'Savings' : name === 'remaining' ? 'Remaining Cost' : 'Current Cost']} />
             <Bar dataKey="remaining" stackId="a" fill="#94a3b8" name="remaining" />
             <Bar dataKey="saving" stackId="a" fill="#22c55e" name="saving" radius={[4, 4, 0, 0]} />
           </BarChart>
@@ -343,7 +342,6 @@ export default function RevenueEngine() {
             <div className="flex items-end gap-3 h-64">
               {crrDays.map((val, i) => {
                 const pct = ((val - 2) / 8) * 100
-                const isLow = val < 4
                 const color = !crrResult.valid ? 'bg-red-400' : val <= 4.5 ? 'bg-amber-400' : 'bg-green-400'
                 return (
                   <div key={i} className="flex-1 flex flex-col items-center gap-2">

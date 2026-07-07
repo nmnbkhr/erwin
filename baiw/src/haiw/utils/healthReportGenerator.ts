@@ -21,13 +21,36 @@ interface HealthBenchmarks {
 const HACR_CATEGORIES = [
   'Strategy & Leadership',
   'Workforce & Skills',
-  'Data Governance',
-  'Infrastructure',
-  'Analytics',
-  'Integration',
-  'Patient Engagement',
-  'Outcomes',
+  'Data Governance & Standards',
+  'Infrastructure & Systems',
+  'Analytics & Intelligence',
+  'Integration & Interoperability',
+  'Patient & Community Engagement',
+  'Outcomes & Impact',
 ]
+
+// Question ids look like "HACR-SL-001" — the middle code selects the category.
+const CODE_TO_CATEGORY: Record<string, string> = {
+  SL: 'Strategy & Leadership',
+  WS: 'Workforce & Skills',
+  DG: 'Data Governance & Standards',
+  IS: 'Infrastructure & Systems',
+  AI: 'Analytics & Intelligence',
+  II: 'Integration & Interoperability',
+  PC: 'Patient & Community Engagement',
+  OI: 'Outcomes & Impact',
+}
+
+// HCF capability themes are a different taxonomy — bridge each theme to the
+// HACR category whose score best represents it.
+const THEME_TO_CATEGORY: Record<string, string> = {
+  'Patient Intelligence & Experience': 'Patient & Community Engagement',
+  'Clinical Analytics & Quality': 'Analytics & Intelligence',
+  'Financial Analytics & Revenue': 'Outcomes & Impact',
+  'Operational Analytics': 'Infrastructure & Systems',
+  'Population Health & Public Health': 'Outcomes & Impact',
+  'Digital Health & Data Governance': 'Data Governance & Standards',
+}
 
 const EMERALD = [16, 185, 129] as const    // #10B981
 const TEAL = [20, 184, 166] as const       // #14B8A6
@@ -36,7 +59,6 @@ const AMBER = [217, 119, 6] as const       // #D97706
 const RED = [220, 38, 38] as const         // #DC2626
 const SLATE = [100, 116, 139] as const     // #64748B
 const WHITE = [255, 255, 255] as const
-const DARK = [15, 23, 42] as const         // #0F172A
 
 type RGB = readonly [number, number, number]
 
@@ -45,32 +67,32 @@ const DEFAULT_BENCHMARKS: HealthBenchmarks = {
   pakistanAverage: {
     'Strategy & Leadership': 1.6,
     'Workforce & Skills': 1.4,
-    'Data Governance': 1.3,
-    'Infrastructure': 1.7,
-    'Analytics': 1.2,
-    'Integration': 1.5,
-    'Patient Engagement': 1.8,
-    'Outcomes': 1.3,
+    'Data Governance & Standards': 1.3,
+    'Infrastructure & Systems': 1.7,
+    'Analytics & Intelligence': 1.2,
+    'Integration & Interoperability': 1.5,
+    'Patient & Community Engagement': 1.8,
+    'Outcomes & Impact': 1.3,
   },
   regionalLeaders: {
     'Strategy & Leadership': 3.4,
     'Workforce & Skills': 3.1,
-    'Data Governance': 3.0,
-    'Infrastructure': 3.5,
-    'Analytics': 2.9,
-    'Integration': 3.2,
-    'Patient Engagement': 3.3,
-    'Outcomes': 3.0,
+    'Data Governance & Standards': 3.0,
+    'Infrastructure & Systems': 3.5,
+    'Analytics & Intelligence': 2.9,
+    'Integration & Interoperability': 3.2,
+    'Patient & Community Engagement': 3.3,
+    'Outcomes & Impact': 3.0,
   },
   whoTargets: {
     'Strategy & Leadership': 4.0,
     'Workforce & Skills': 4.0,
-    'Data Governance': 4.5,
-    'Infrastructure': 4.0,
-    'Analytics': 4.0,
-    'Integration': 4.5,
-    'Patient Engagement': 4.5,
-    'Outcomes': 4.5,
+    'Data Governance & Standards': 4.5,
+    'Infrastructure & Systems': 4.0,
+    'Analytics & Intelligence': 4.0,
+    'Integration & Interoperability': 4.5,
+    'Patient & Community Engagement': 4.5,
+    'Outcomes & Impact': 4.5,
   },
 }
 
@@ -130,10 +152,9 @@ function computeCategoryScores(answers: HaiwAssessmentAnswer[]): CategoryScore[]
   HACR_CATEGORIES.forEach(cat => catMap.set(cat, { currents: [], desireds: [] }))
 
   answers.forEach(a => {
-    // questionId format: "HACR-XX-YY" — extract category from first segment
-    const parts = a.questionId.split('-')
-    const catIdx = parseInt(parts[1], 10) - 1
-    const cat = HACR_CATEGORIES[catIdx]
+    // questionId format: "HACR-SL-001" — the letter code selects the category
+    const code = a.questionId.split('-')[1]
+    const cat = CODE_TO_CATEGORY[code]
     if (cat && catMap.has(cat)) {
       catMap.get(cat)!.currents.push(a.currentState)
       catMap.get(cat)!.desireds.push(a.desiredState)
@@ -300,6 +321,7 @@ export function generateHealthMaturityPDF(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
   benchmarks?: Partial<HealthBenchmarks>,
+  orgName = 'Your Healthcare Organization',
 ) {
   const bm: HealthBenchmarks = {
     pakistanAverage: { ...DEFAULT_BENCHMARKS.pakistanAverage, ...benchmarks?.pakistanAverage },
@@ -317,7 +339,6 @@ export function generateHealthMaturityPDF(
 
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
 
-  const orgName = 'Organization' // derived from context; placeholder
   const doc = new jsPDF('p', 'mm', 'a4')
   const w = doc.internal.pageSize.getWidth()
   const totalPages = 18
@@ -483,32 +504,32 @@ export function generateHealthMaturityPDF(
       'Recruit data scientists with healthcare domain expertise',
       'Partner with medical universities for health analytics capacity building',
     ],
-    'Data Governance': [
+    'Data Governance & Standards': [
       'Establish patient data governance committee with HIPAA/local compliance focus',
       'Implement master patient index (MPI) across all facilities',
       'Define data quality metrics for clinical, financial, and operational data',
     ],
-    'Infrastructure': [
+    'Infrastructure & Systems': [
       'Deploy FHIR-compliant health information exchange infrastructure',
       'Migrate to cloud-based health data platform with disaster recovery',
       'Implement secure API gateway for interoperability with DHIS2 and other systems',
     ],
-    'Analytics': [
+    'Analytics & Intelligence': [
       'Build disease surveillance dashboards using real-time clinical data',
       'Develop predictive models for patient readmission and length of stay',
       'Implement population health analytics for community health assessment',
     ],
-    'Integration': [
+    'Integration & Interoperability': [
       'Connect EHR/EMR systems with lab, pharmacy, and radiology using HL7/FHIR',
       'Integrate with national DHIS2 and immunization registries',
       'Establish data exchange with insurance/payer systems for claims analytics',
     ],
-    'Patient Engagement': [
+    'Patient & Community Engagement': [
       'Deploy patient portal with access to personal health records',
       'Implement automated appointment reminders and follow-up systems',
       'Build patient satisfaction analytics from feedback and outcome data',
     ],
-    'Outcomes': [
+    'Outcomes & Impact': [
       'Define and track clinical outcome measures aligned with WHO indicators',
       'Implement quality improvement dashboards for key performance indicators',
       'Build cost-effectiveness analytics for treatment protocols and pathways',
@@ -709,7 +730,7 @@ export function generateHealthMaturityPDF(
   phases.forEach((p, i) => {
     const boxW = 55
     const x = 15 + i * (boxW + 10)
-    doc.setFillColor(...p.color)
+    doc.setFillColor(p.color[0], p.color[1], p.color[2])
     doc.roundedRect(x, y, boxW, 60, 3, 3, 'F')
     doc.setTextColor(...WHITE)
     doc.setFontSize(10)
@@ -927,7 +948,8 @@ export function generateHealthGapCSV(
   if (capabilities.length > 0) {
     // Use real capabilities data — one row per HCF capability
     capabilities.forEach((cap, i) => {
-      const catScore = scores.find(s => s.category === cap.theme) || { current: 0, desired: 0, gap: 0 }
+      const mappedCategory = THEME_TO_CATEGORY[cap.theme] ?? cap.theme
+      const catScore = scores.find(s => s.category === mappedCategory) || { current: 0, desired: 0, gap: 0 }
       const variation = (cap.id.charCodeAt(cap.id.length - 1) % 10 - 5) * 0.08
       const current = Math.max(1, Math.min(5, catScore.current + variation))
       const target = Math.max(current, catScore.desired)
@@ -949,15 +971,15 @@ export function generateHealthGapCSV(
       const fhirMap: Record<string, string> = {
         'Strategy & Leadership': 'Organization; HealthcareService',
         'Workforce & Skills': 'Practitioner; PractitionerRole',
-        'Data Governance': 'AuditEvent; Provenance; Consent',
-        'Infrastructure': 'Endpoint; CapabilityStatement; Bundle',
-        'Analytics': 'MeasureReport; Observation; DiagnosticReport',
-        'Integration': 'Bundle; MessageHeader; OperationOutcome',
-        'Patient Engagement': 'Patient; RelatedPerson; Communication',
-        'Outcomes': 'Condition; Procedure; ClinicalImpression',
+        'Data Governance & Standards': 'AuditEvent; Provenance; Consent',
+        'Infrastructure & Systems': 'Endpoint; CapabilityStatement; Bundle',
+        'Analytics & Intelligence': 'MeasureReport; Observation; DiagnosticReport',
+        'Integration & Interoperability': 'Bundle; MessageHeader; OperationOutcome',
+        'Patient & Community Engagement': 'Patient; RelatedPerson; Communication',
+        'Outcomes & Impact': 'Condition; Procedure; ClinicalImpression',
       }
       // ~13-14 capabilities per category to reach ~108 total
-      const count = cat === 'Outcomes' ? 10 : 14
+      const count = cat === 'Outcomes & Impact' ? 10 : 14
       for (let ci = 0; ci < count && id <= 108; ci++) {
         const group = capGroups[ci % capGroups.length]
         const variation = (ci % 5 - 2) * 0.15
@@ -981,13 +1003,13 @@ export function generateHealthGapCSV(
 export function generateHealthRoadmapMarkdown(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
+  orgName = 'Your Healthcare Organization',
 ) {
   const scores = computeCategoryScores(answers)
   const overallScore = parseFloat(
     (scores.reduce((sum, s) => sum + s.current, 0) / scores.length).toFixed(1),
   )
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
-  const orgName = 'Organization'
 
   const md = `# ${orgName} — Healthcare Analytics Transformation Roadmap
 ## Prepared by Godaitec | ${new Date().toLocaleDateString()}

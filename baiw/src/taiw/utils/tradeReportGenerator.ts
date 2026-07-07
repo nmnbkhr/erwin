@@ -26,7 +26,6 @@ const CATEGORIES = [
 
 const TEAL = [13, 148, 136] as const     // #0d9488
 const CYAN = [6, 182, 212] as const      // #06b6d4
-const AMBER = [217, 119, 6] as const     // #D97706
 const GREEN = [16, 185, 129] as const    // #10B981
 const SLATE = [100, 116, 139] as const   // #64748B
 const WHITE = [255, 255, 255] as const
@@ -544,7 +543,7 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, orgName: st
   phases.forEach((p, i) => {
     const boxW = 55
     const x = 15 + i * (boxW + 10)
-    doc.setFillColor(...p.color)
+    doc.setFillColor(p.color[0], p.color[1], p.color[2])
     doc.roundedRect(x, y, boxW, 60, 3, 3, 'F')
     doc.setTextColor(...WHITE)
     doc.setFontSize(10)

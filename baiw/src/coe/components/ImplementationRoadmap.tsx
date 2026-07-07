@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { Calendar, Target, ArrowRight, ChevronRight, Calculator } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import useCases from '../../data/coe/useCases.json'
 import roadmap from '../../data/coe/implementationRoadmap.json'
 
@@ -92,7 +92,7 @@ export default function ImplementationRoadmap() {
               key={phase.phaseNumber}
               onClick={() => setSelectedPhase(selectedPhase === i ? null : i)}
               className={`rounded-xl border p-5 text-left transition-all hover:shadow-md ${phaseBg[i]} ${selectedPhase === i ? 'ring-2 ring-offset-1' : ''}`}
-              style={selectedPhase === i ? { ringColor: phaseColors[i] } : {}}
+              style={selectedPhase === i ? ({ '--tw-ring-color': phaseColors[i] } as React.CSSProperties) : undefined}
             >
               <div className="flex items-center gap-2 mb-3">
                 <div
@@ -228,7 +228,7 @@ export default function ImplementationRoadmap() {
           <svg viewBox={`0 0 860 ${dagHeight}`} className="w-full h-auto min-w-[700px]">
             {/* Phase labels */}
             {[1, 2, 3, 4].map(p => (
-              <text key={p} x={(p - 1) * 200 + 60} y={20} textAnchor="middle" fontSize={12} fontWeight={600} fill={phaseColors[p - 1]}>
+              <text key={p} x={(p - 1) * 200 + 60} y={20} textAnchor="middle" fontSize={13} fontWeight={600} fill={phaseColors[p - 1]}>
                 Phase {p}
               </text>
             ))}
@@ -262,10 +262,10 @@ export default function ImplementationRoadmap() {
                   x={uc.x - 32} y={uc.y - 16} width={64} height={32} rx={8}
                   fill={colorMap[uc.color]}
                 />
-                <text x={uc.x} y={uc.y - 2} textAnchor="middle" fill="white" fontSize={10} fontWeight={700}>
+                <text x={uc.x} y={uc.y - 2} textAnchor="middle" fill="white" fontSize={11} fontWeight={700}>
                   {uc.id}
                 </text>
-                <text x={uc.x} y={uc.y + 10} textAnchor="middle" fill="white" fontSize={7} opacity={0.85}>
+                <text x={uc.x} y={uc.y + 10} textAnchor="middle" fill="white" fontSize={10} opacity={0.85}>
                   {uc.name.split(' ')[0]}
                 </text>
               </g>

@@ -7,8 +7,9 @@ import {
   ChevronLeft, ChevronRight, ChevronDown, ChevronUp,
   RotateCcw, Check, Circle, Minus, Info
 } from 'lucide-react'
-import { loadHacrQuestions } from '../data'
-import type { HacrData, HacrCategory, HacrQuestion, HaiwAssessmentAnswer } from '../types'
+import { loadHacrQuestions, loadCapabilities } from '../data'
+import type { HacrData, HacrQuestion, HaiwAssessmentAnswer, HaiwCapability } from '../types'
+import HealthReportGenerator from './HealthReportGenerator'
 
 // ── Constants ──────────────────────────────────────────────────────────
 
@@ -67,13 +68,16 @@ export default function HealthMaturityAssessment() {
   const [currentCategoryIdx, setCurrentCategoryIdx] = useState(0)
   const [answers, setAnswers] = useState<Record<string, HaiwAssessmentAnswer>>(loadAnswers)
   const [expandedContexts, setExpandedContexts] = useState<Record<string, boolean>>({})
+  const [capabilities, setCapabilities] = useState<HaiwCapability[]>([])
 
   // Load data
   useEffect(() => {
-    loadHacrQuestions().then(data => {
-      setHacrData(data)
-      setLoading(false)
-    })
+    loadHacrQuestions()
+      .then(data => setHacrData(data))
+      .finally(() => setLoading(false))
+    loadCapabilities()
+      .then(setCapabilities)
+      .catch(() => setCapabilities([]))
   }, [])
 
   // Persist answers
@@ -81,7 +85,7 @@ export default function HealthMaturityAssessment() {
     saveAnswers(answers)
   }, [answers])
 
-  const categories = hacrData?.categories ?? []
+  const categories = useMemo(() => hacrData?.categories ?? [], [hacrData])
   const currentCategory = categories[currentCategoryIdx]
 
   // Flatten all questions per category for scoring
@@ -239,7 +243,7 @@ export default function HealthMaturityAssessment() {
                 <span className="hidden lg:inline">{cp.name}</span>
                 <span className="lg:hidden">{idx + 1}</span>
                 {cp.touched && (
-                  <span className="text-[10px] opacity-70">{cp.answered}/{cp.total}</span>
+                  <span className="text-xs opacity-70">{cp.answered}/{cp.total}</span>
                 )}
               </button>
             )
@@ -300,7 +304,7 @@ export default function HealthMaturityAssessment() {
                     <div key={q.id} className="bg-white rounded-lg shadow-sm p-4 border border-slate-100">
                       {/* Question header */}
                       <div className="flex items-start gap-3 mb-3">
-                        <span className="text-[10px] font-mono text-slate-400 bg-slate-50 px-1.5 py-0.5 rounded shrink-0 mt-0.5">
+                        <span className="text-xs font-mono text-slate-400 bg-slate-50 px-1.5 py-0.5 rounded shrink-0 mt-0.5">
                           {q.id}
                         </span>
                         <p className="text-sm text-slate-700 leading-relaxed">{q.question}</p>
@@ -326,7 +330,7 @@ export default function HealthMaturityAssessment() {
                             }}
                             className="w-full accent-emerald-600 cursor-pointer"
                           />
-                          <div className="flex justify-between text-[10px] text-slate-400 mt-0.5 px-0.5">
+                          <div className="flex justify-between text-xs text-slate-400 mt-0.5 px-0.5">
                             {[1, 2, 3, 4, 5].map(v => <span key={v}>{v}</span>)}
                           </div>
                           {currentVal > 0 && q.levelDescriptions[String(currentVal)] && (
@@ -354,7 +358,7 @@ export default function HealthMaturityAssessment() {
                             }}
                             className="w-full accent-orange-500 cursor-pointer"
                           />
-                          <div className="flex justify-between text-[10px] text-slate-400 mt-0.5 px-0.5">
+                          <div className="flex justify-between text-xs text-slate-400 mt-0.5 px-0.5">
                             {[1, 2, 3, 4, 5].map(v => <span key={v}>{v}</span>)}
                           </div>
                           {targetVal > 0 && q.levelDescriptions[String(targetVal)] && (
@@ -432,8 +436,8 @@ export default function HealthMaturityAssessment() {
             <ResponsiveContainer width="100%" height={320}>
               <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
                 <PolarGrid stroke="#e2e8f0" />
-                <PolarAngleAxis dataKey="category" tick={{ fontSize: 9, fill: '#64748b' }} />
-                <PolarRadiusAxis angle={90} domain={[0, 5]} tick={{ fontSize: 9 }} tickCount={6} />
+                <PolarAngleAxis dataKey="category" tick={{ fontSize: 10, fill: '#64748b' }} />
+                <PolarRadiusAxis angle={90} domain={[0, 5]} tick={{ fontSize: 10 }} tickCount={6} />
                 <Radar
                   name="Current"
                   dataKey="current"
@@ -452,12 +456,12 @@ export default function HealthMaturityAssessment() {
                   strokeDasharray="4 3"
                 />
                 <Legend
-                  wrapperStyle={{ fontSize: 11 }}
+                  wrapperStyle={{ fontSize: 12 }}
                   iconType="line"
                 />
                 <Tooltip
-                  contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e2e8f0' }}
-                  formatter={(value: number | undefined, name: string) => [value != null ? value.toFixed(1) : '0', name]}
+                  contentStyle={{ fontSize: 13, borderRadius: 8, border: '1px solid #e2e8f0' }}
+                  formatter={(value: number | undefined, name: string | undefined) => [value != null ? value.toFixed(1) : '0', name ?? '']}
                 />
               </RadarChart>
             </ResponsiveContainer>
@@ -467,26 +471,34 @@ export default function HealthMaturityAssessment() {
           <div className="bg-white rounded-lg shadow-sm p-4">
             <div className="grid grid-cols-3 gap-3 text-center">
               <div>
-                <p className="text-[10px] text-slate-400 uppercase tracking-wide">Current</p>
+                <p className="text-xs text-slate-400 uppercase tracking-wide">Current</p>
                 <p className="text-2xl font-bold text-emerald-600">{overallCurrent}</p>
-                <p className="text-[10px] text-slate-400">{MATURITY_LABELS[Math.round(overallCurrent)] || '--'}</p>
+                <p className="text-xs text-slate-400">{MATURITY_LABELS[Math.round(overallCurrent)] || '--'}</p>
               </div>
               <div>
-                <p className="text-[10px] text-slate-400 uppercase tracking-wide">Target</p>
+                <p className="text-xs text-slate-400 uppercase tracking-wide">Target</p>
                 <p className="text-2xl font-bold text-orange-500">{overallTarget}</p>
-                <p className="text-[10px] text-slate-400">{MATURITY_LABELS[Math.round(overallTarget)] || '--'}</p>
+                <p className="text-xs text-slate-400">{MATURITY_LABELS[Math.round(overallTarget)] || '--'}</p>
               </div>
               <div>
-                <p className="text-[10px] text-slate-400 uppercase tracking-wide">Gap</p>
+                <p className="text-xs text-slate-400 uppercase tracking-wide">Gap</p>
                 <p className="text-2xl font-bold text-slate-700">
                   {overallCurrent > 0 ? (overallTarget - overallCurrent).toFixed(1) : '--'}
                 </p>
-                <p className="text-[10px] text-slate-400">
+                <p className="text-xs text-slate-400">
                   {overallCurrent > 0 ? priorityLabel(overallTarget - overallCurrent) : '--'}
                 </p>
               </div>
             </div>
           </div>
+
+          {/* Report downloads — PDF / CSV / roadmap slides */}
+          <HealthReportGenerator
+            answers={Object.values(answers)}
+            capabilities={capabilities}
+            answeredCategories={touchedCategoryCount}
+            totalCategories={categories.length}
+          />
 
           {/* Summary Panel — shown when all categories touched */}
           {touchedCategoryCount === categories.length && categories.length > 0 && (
@@ -517,7 +529,7 @@ export default function HealthMaturityAssessment() {
                         <td className="py-1.5 text-center text-emerald-600 font-medium">{r.current}</td>
                         <td className="py-1.5 text-center text-orange-500 font-medium">{r.target}</td>
                         <td className="py-1.5 text-center">
-                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${gapTextColor(r.gap)}`}>
+                          <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${gapTextColor(r.gap)}`}>
                             {r.gap}
                           </span>
                         </td>
@@ -538,12 +550,12 @@ export default function HealthMaturityAssessment() {
                       className={`${gapColor(r.gap)} rounded p-1.5 text-center`}
                       title={`${r.fullName}: gap ${r.gap}`}
                     >
-                      <p className="text-[9px] text-white font-medium leading-tight truncate">{r.category}</p>
+                      <p className="text-[11px] text-white font-medium leading-tight truncate">{r.category}</p>
                       <p className="text-sm text-white font-bold">{r.gap}</p>
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center gap-2 mt-2 text-[10px] text-slate-400">
+                <div className="flex items-center gap-2 mt-2 text-xs text-slate-400">
                   <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-emerald-500" /> 0</span>
                   <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-yellow-400" /> 0-1</span>
                   <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-amber-500" /> 1-2</span>
