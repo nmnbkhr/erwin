@@ -401,8 +401,8 @@ export default function MaturityAssessment() {
             <ResponsiveContainer width="100%" height={400}>
               <RadarChart data={radarData}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="category" tick={{ fontSize: 11 }} />
-                <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 10 }} />
+                <PolarAngleAxis dataKey="category" tick={{ fontSize: 12 }} />
+                <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 11 }} />
                 <Radar name="Current" dataKey="current" stroke="#2563EB" fill="#2563EB" fillOpacity={0.2} />
                 <Radar name="Desired" dataKey="desired" stroke="#10B981" fill="#10B981" fillOpacity={0.15} />
                 <Legend />

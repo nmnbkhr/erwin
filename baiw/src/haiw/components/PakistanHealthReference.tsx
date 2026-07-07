@@ -196,7 +196,7 @@ export default function PakistanHealthReference() {
                   >
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <h4 className="text-white font-semibold text-sm">{inst.name}</h4>
-                      <span className={`shrink-0 text-[10px] px-2 py-0.5 rounded-full border ${typeBadgeColor[inst.type] || 'bg-slate-600/20 text-slate-400 border-slate-500/30'}`}>
+                      <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full border ${typeBadgeColor[inst.type] || 'bg-slate-600/20 text-slate-400 border-slate-500/30'}`}>
                         {inst.type}
                       </span>
                     </div>
@@ -361,11 +361,11 @@ export default function PakistanHealthReference() {
                 <p className="text-slate-300 text-xs leading-relaxed mb-3">{prog.description}</p>
                 <div className="space-y-2 border-t border-slate-600/30 pt-3">
                   <div>
-                    <span className="text-emerald-400/70 text-[10px] uppercase tracking-wider">Coverage</span>
+                    <span className="text-emerald-400/70 text-xs uppercase tracking-wider">Coverage</span>
                     <p className="text-slate-300 text-xs">{prog.coverage}</p>
                   </div>
                   <div>
-                    <span className="text-emerald-400/70 text-[10px] uppercase tracking-wider">Key Indicator</span>
+                    <span className="text-emerald-400/70 text-xs uppercase tracking-wider">Key Indicator</span>
                     <p className="text-slate-300 text-xs">{prog.keyIndicator}</p>
                   </div>
                 </div>
@@ -476,7 +476,7 @@ export default function PakistanHealthReference() {
                   <h4 className="text-white font-semibold text-sm mb-1">{ch.challenge}</h4>
                   <p className="text-slate-400 text-xs leading-relaxed mb-3">{ch.description}</p>
                   <div className="bg-red-500/10 border border-red-500/20 rounded-md px-3 py-2">
-                    <span className="text-red-400/80 text-[10px] uppercase tracking-wider font-medium">Impact</span>
+                    <span className="text-red-400/80 text-xs uppercase tracking-wider font-medium">Impact</span>
                     <p className="text-red-300/90 text-xs mt-0.5">{ch.impact}</p>
                   </div>
                 </div>

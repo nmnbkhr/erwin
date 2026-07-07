@@ -256,7 +256,7 @@ export default function TCFCapabilityNavigator() {
             <div className="flex items-center gap-1">
               <button
                 onClick={() => downloadJSON(capabilities, `taiw-capabilities-${new Date().toISOString().slice(0, 10)}.json`)}
-                className="inline-flex items-center gap-1 px-2 py-1 text-[10px] bg-white border border-slate-200 rounded hover:bg-teal-50 hover:border-teal-300 hover:text-teal-700 transition-colors text-slate-500"
+                className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-white border border-slate-200 rounded hover:bg-teal-50 hover:border-teal-300 hover:text-teal-700 transition-colors text-slate-500"
                 title="Export JSON"
               >
                 <Download size={10} /> JSON
@@ -266,7 +266,7 @@ export default function TCFCapabilityNavigator() {
                   id: c.id, sub: c.sub, group: c.group, theme: c.theme,
                   priority: c.priority, dataReqCount: c.dataReqCount,
                 })), `taiw-capabilities-${new Date().toISOString().slice(0, 10)}.csv`)}
-                className="inline-flex items-center gap-1 px-2 py-1 text-[10px] bg-white border border-slate-200 rounded hover:bg-teal-50 hover:border-teal-300 hover:text-teal-700 transition-colors text-slate-500"
+                className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-white border border-slate-200 rounded hover:bg-teal-50 hover:border-teal-300 hover:text-teal-700 transition-colors text-slate-500"
                 title="Export CSV"
               >
                 <Download size={10} /> CSV
@@ -387,18 +387,18 @@ export default function TCFCapabilityNavigator() {
                                 <span className="truncate flex-1">{cap.sub}</span>
                                 {/* TC3: WCO Element Count badge */}
                                 {elCount > 0 && (
-                                  <span className="shrink-0 px-1 py-0 text-[9px] font-semibold rounded bg-teal-100 text-teal-700 tabular-nums" title={`${elCount} WCO DM elements`}>
+                                  <span className="shrink-0 px-1 py-0 text-[11px] font-semibold rounded bg-teal-100 text-teal-700 tabular-nums" title={`${elCount} WCO DM elements`}>
                                     {elCount}
                                   </span>
                                 )}
                                 {/* TC2: Maturity badge */}
                                 {matScore !== null && (
-                                  <span className={`shrink-0 px-1 py-0 text-[9px] font-semibold rounded border ${maturityBadgeColor(matScore)}`} title={`TACR Maturity: ${matScore.toFixed(1)}`}>
+                                  <span className={`shrink-0 px-1 py-0 text-[11px] font-semibold rounded border ${maturityBadgeColor(matScore)}`} title={`TACR Maturity: ${matScore.toFixed(1)}`}>
                                     {matScore.toFixed(1)}
                                   </span>
                                 )}
                                 {ps && (
-                                  <span className={`shrink-0 px-1.5 py-0.5 text-[10px] rounded ${ps.bg} ${ps.text}`}>
+                                  <span className={`shrink-0 px-1.5 py-0.5 text-xs rounded ${ps.bg} ${ps.text}`}>
                                     {cap.priority === 'CRITICAL' ? 'C' : cap.priority === 'HIGH' ? 'H' : 'M'}
                                   </span>
                                 )}
@@ -639,8 +639,8 @@ export default function TCFCapabilityNavigator() {
                   <p className="text-xs font-medium text-slate-700 truncate">{r.cap.sub}</p>
                   <div className="flex items-center gap-2 mt-1">
                     <span className={`w-1.5 h-1.5 rounded-full ${ts.dot}`} />
-                    <span className="text-[10px] text-slate-400 truncate">{r.cap.group}</span>
-                    <span className="ml-auto text-[10px] text-teal-600 font-medium shrink-0">
+                    <span className="text-xs text-slate-400 truncate">{r.cap.group}</span>
+                    <span className="ml-auto text-xs text-teal-600 font-medium shrink-0">
                       {r.shared} shared
                     </span>
                   </div>

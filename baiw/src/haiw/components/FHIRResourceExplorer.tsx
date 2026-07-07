@@ -350,7 +350,7 @@ export default function FHIRResourceExplorer() {
                             <span className={`text-sm flex-1 ${selectedResource?.id === r.id ? 'text-emerald-700 font-medium' : 'text-slate-600'}`}>
                               {r.name}
                             </span>
-                            <span className="px-1.5 py-0.5 text-[10px] rounded bg-slate-200/70 text-slate-500">
+                            <span className="px-1.5 py-0.5 text-xs rounded bg-slate-200/70 text-slate-500">
                               {r.elementCount} el
                             </span>
                             {r.maturityLevel >= 4 && (
@@ -528,7 +528,7 @@ export default function FHIRResourceExplorer() {
                       <div key={cap.id} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors">
                         <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: cap.themeColor || '#10b981' }} />
                         <span className="text-sm text-slate-700 flex-1">{cap.name}</span>
-                        <span className="text-[10px] text-slate-400 px-2 py-0.5 bg-white rounded border border-slate-200">
+                        <span className="text-xs text-slate-400 px-2 py-0.5 bg-white rounded border border-slate-200">
                           {cap.theme}
                         </span>
                       </div>

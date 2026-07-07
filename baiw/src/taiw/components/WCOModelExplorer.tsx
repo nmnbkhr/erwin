@@ -48,15 +48,15 @@ function ClassDiagramMini({
       <div className="border border-teal-200 rounded-lg bg-teal-50/30 p-2 space-y-1">
         <div className="flex items-center gap-1 mb-1.5">
           <GitBranch size={10} className="text-teal-500" />
-          <span className="text-[9px] font-semibold text-teal-600 uppercase tracking-wide">Class Hierarchy</span>
+          <span className="text-[11px] font-semibold text-teal-600 uppercase tracking-wide">Class Hierarchy</span>
         </div>
 
         {/* Parent class */}
         {parentClass && (
           <>
             <div className="border border-slate-200 rounded bg-white px-2 py-1">
-              <p className="text-[10px] font-medium text-slate-500">{parentClass.name}</p>
-              <p className="text-[9px] text-slate-400">{parentClass.elementCount} elements</p>
+              <p className="text-xs font-medium text-slate-500">{parentClass.name}</p>
+              <p className="text-[11px] text-slate-400">{parentClass.elementCount} elements</p>
             </div>
             <div className="flex justify-center">
               <div className="w-px h-2 bg-slate-300" />
@@ -69,8 +69,8 @@ function ClassDiagramMini({
 
         {/* Current class */}
         <div className="border-2 border-teal-400 rounded bg-teal-50 px-2 py-1.5">
-          <p className="text-[10px] font-bold text-teal-700">{currentClass.name}</p>
-          <p className="text-[9px] text-teal-500">
+          <p className="text-xs font-bold text-teal-700">{currentClass.name}</p>
+          <p className="text-[11px] text-teal-500">
             {currentClass.elementCount} elements
             {currentClass.stereotype && ` | ${currentClass.stereotype}`}
           </p>
@@ -88,8 +88,8 @@ function ClassDiagramMini({
             <div className="space-y-0.5">
               {childClasses.map((child) => (
                 <div key={child.id} className="border border-slate-200 rounded bg-white px-2 py-1">
-                  <p className="text-[10px] font-medium text-slate-500">{child.name}</p>
-                  <p className="text-[9px] text-slate-400">{child.elementCount} elements</p>
+                  <p className="text-xs font-medium text-slate-500">{child.name}</p>
+                  <p className="text-[11px] text-slate-400">{child.elementCount} elements</p>
                 </div>
               ))}
             </div>
@@ -140,14 +140,14 @@ function CodeListExpansion({
         {matchingCodeList.values.length > 12 && (
           <button
             onClick={() => setExpanded(!expanded)}
-            className="w-full px-3 py-1.5 text-[10px] text-teal-600 hover:text-teal-800 bg-slate-50 border-t border-slate-100"
+            className="w-full px-3 py-1.5 text-xs text-teal-600 hover:text-teal-800 bg-slate-50 border-t border-slate-100"
           >
             {expanded ? 'Show less' : `Show all ${matchingCodeList.values.length} values`}
           </button>
         )}
       </div>
       {matchingCodeList.pakMapping && (
-        <p className="text-[10px] text-slate-400 mt-1 italic">
+        <p className="text-xs text-slate-400 mt-1 italic">
           Pakistan: {matchingCodeList.pakMapping}
         </p>
       )}
@@ -514,7 +514,7 @@ export default function WCOModelExplorer() {
                                       )}
                                       <span className="truncate flex-1">{el.name}</span>
                                       {reuse && (
-                                        <span className="text-[9px] text-slate-400 shrink-0">
+                                        <span className="text-[11px] text-slate-400 shrink-0">
                                           {reuse.capabilitiesSupported}
                                         </span>
                                       )}

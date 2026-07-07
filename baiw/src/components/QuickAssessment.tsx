@@ -135,8 +135,8 @@ export default function QuickAssessment({ questions, title, variant, onBack }: Q
             <ResponsiveContainer width="100%" height={320}>
               <RadarChart data={radarData}>
                 <PolarGrid stroke="#e2e8f0" />
-                <PolarAngleAxis dataKey="category" tick={{ fontSize: 11, fill: '#64748b' }} />
-                <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 10 }} tickCount={6} />
+                <PolarAngleAxis dataKey="category" tick={{ fontSize: 12, fill: '#64748b' }} />
+                <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 11 }} tickCount={6} />
                 <Radar name="Your Score" dataKey="current" stroke={accentFill} fill={accentFill} fillOpacity={0.2} />
                 <Legend />
                 <Tooltip />

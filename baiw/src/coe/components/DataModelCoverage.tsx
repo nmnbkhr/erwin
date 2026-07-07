@@ -350,7 +350,7 @@ export default function DataModelCoverage() {
                 <th className="text-left py-2 px-3 font-medium text-slate-500 w-16">Entities</th>
                 {useCases.map(uc => (
                   <th key={uc.id} className="text-center py-2 px-1 w-12">
-                    <span className="inline-block px-1.5 py-0.5 rounded text-white font-bold text-[10px]" style={{ backgroundColor: colorMap[uc.color] }}>
+                    <span className="inline-block px-1.5 py-0.5 rounded text-white font-bold text-xs" style={{ backgroundColor: colorMap[uc.color] }}>
                       {uc.id.replace('UC-', '')}
                     </span>
                   </th>
@@ -380,7 +380,7 @@ export default function DataModelCoverage() {
                         <td key={uc.id} className="py-2 px-1 text-center">
                           {domainMatch ? (
                             <div
-                              className="w-6 h-6 rounded mx-auto flex items-center justify-center text-white text-[9px] font-bold"
+                              className="w-6 h-6 rounded mx-auto flex items-center justify-center text-white text-[11px] font-bold"
                               style={{ backgroundColor: colorMap[uc.color] }}
                               title={`${uc.id}: ${domainMatch.entities.length} entities — ${domainMatch.relevance}`}
                             >
@@ -445,7 +445,7 @@ export default function DataModelCoverage() {
                     {usage.ucs.map(ucId => {
                       const uc = useCases.find(u => u.id === ucId)
                       return (
-                        <span key={ucId} className="text-[9px] px-1 py-0.5 rounded text-white font-bold" style={{ backgroundColor: uc ? colorMap[uc.color] : '#94a3b8' }}>
+                        <span key={ucId} className="text-[11px] px-1 py-0.5 rounded text-white font-bold" style={{ backgroundColor: uc ? colorMap[uc.color] : '#94a3b8' }}>
                           {ucId.replace('UC-', '')}
                         </span>
                       )

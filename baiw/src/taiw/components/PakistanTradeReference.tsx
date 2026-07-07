@@ -396,12 +396,12 @@ function TradeStatsTab({
           <BarChart data={chartData} margin={{ left: 10, right: 10, bottom: 40 }}>
             <XAxis
               dataKey="sector"
-              tick={{ fontSize: 10 }}
+              tick={{ fontSize: 11 }}
               angle={-30}
               textAnchor="end"
               interval={0}
             />
-            <YAxis tick={{ fontSize: 11 }} />
+            <YAxis tick={{ fontSize: 12 }} />
             <Tooltip
               formatter={((value: number, name: string) => [
                 `$${value.toFixed(2)}B`,

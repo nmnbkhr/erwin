@@ -365,8 +365,8 @@ export default function TradeMaturityAssessment() {
           <ResponsiveContainer width="100%" height={420}>
             <RadarChart data={radarData}>
               <PolarGrid stroke="#e2e8f0" />
-              <PolarAngleAxis dataKey="category" tick={{ fontSize: 11, fill: '#64748b' }} />
-              <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 10 }} tickCount={6} />
+              <PolarAngleAxis dataKey="category" tick={{ fontSize: 12, fill: '#64748b' }} />
+              <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 11 }} tickCount={6} />
               <Radar
                 name="Current"
                 dataKey="current"
@@ -529,7 +529,7 @@ export default function TradeMaturityAssessment() {
                     )}
                   </span>
                   <span className="truncate flex-1">{cat.name}</span>
-                  <span className={`text-[10px] ml-auto shrink-0 ${
+                  <span className={`text-xs ml-auto shrink-0 ${
                     isComplete ? 'text-teal-500 font-medium' : 'text-slate-400'
                   }`}>
                     {comp?.done ?? 0}/{comp?.total ?? 0}
@@ -542,8 +542,8 @@ export default function TradeMaturityAssessment() {
           {/* Overall progress bar */}
           <div className="mt-4 pt-3 border-t border-slate-100">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] font-medium text-slate-500">Overall</span>
-              <span className="text-[10px] font-semibold text-teal-600">{progressPct}%</span>
+              <span className="text-xs font-medium text-slate-500">Overall</span>
+              <span className="text-xs font-semibold text-teal-600">{progressPct}%</span>
             </div>
             <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
               <div
@@ -551,7 +551,7 @@ export default function TradeMaturityAssessment() {
                 style={{ width: `${progressPct}%` }}
               />
             </div>
-            <p className="text-[10px] text-slate-400 mt-1.5 text-center">
+            <p className="text-xs text-slate-400 mt-1.5 text-center">
               {answeredCount}/{totalQuestions} answered
             </p>
           </div>
@@ -708,12 +708,12 @@ export default function TradeMaturityAssessment() {
                             {(isCurrent || isDesired) && (
                               <span className="flex items-center gap-1 shrink-0">
                                 {isCurrent && (
-                                  <span className="px-1.5 py-0.5 text-[9px] font-semibold bg-teal-100 text-teal-700 rounded">
+                                  <span className="px-1.5 py-0.5 text-[11px] font-semibold bg-teal-100 text-teal-700 rounded">
                                     CURRENT
                                   </span>
                                 )}
                                 {isDesired && (
-                                  <span className="px-1.5 py-0.5 text-[9px] font-semibold bg-cyan-100 text-cyan-700 rounded">
+                                  <span className="px-1.5 py-0.5 text-[11px] font-semibold bg-cyan-100 text-cyan-700 rounded">
                                     DESIRED
                                   </span>
                                 )}

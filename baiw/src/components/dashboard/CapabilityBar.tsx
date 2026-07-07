@@ -31,7 +31,7 @@ export default function CapabilityBar({ capabilities }: Props) {
             type="category"
             dataKey="name"
             width={200}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 13 }}
           />
           <Tooltip />
           <Bar

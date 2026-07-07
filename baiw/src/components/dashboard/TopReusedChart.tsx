@@ -25,7 +25,7 @@ export default function TopReusedChart() {
             type="category"
             dataKey="name"
             width={140}
-            tick={{ fontSize: 11, fontFamily: 'monospace' }}
+            tick={{ fontSize: 12, fontFamily: 'monospace' }}
           />
           <Tooltip />
           <Bar dataKey="reuseCount" fill="#2563EB" radius={[0, 4, 4, 0]} />

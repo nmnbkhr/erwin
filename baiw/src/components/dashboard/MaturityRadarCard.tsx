@@ -91,8 +91,8 @@ export default function MaturityRadarCard() {
       <ResponsiveContainer width="100%" height={260}>
         <RadarChart data={radarData}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="category" tick={{ fontSize: 9 }} />
-          <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 9 }} />
+          <PolarAngleAxis dataKey="category" tick={{ fontSize: 10 }} />
+          <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 10 }} />
           <Radar dataKey="score" stroke="#2563EB" fill="#2563EB" fillOpacity={0.2} />
         </RadarChart>
       </ResponsiveContainer>

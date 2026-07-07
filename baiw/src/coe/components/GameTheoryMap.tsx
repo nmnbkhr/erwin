@@ -269,7 +269,7 @@ function StrategyNetwork() {
             style={{ cursor: 'grab' }}
           >
             <circle cx={pos.x} cy={pos.y} r={22} fill={highlighted ? '#1e293b' : '#94a3b8'} opacity={highlighted ? 1 : 0.3} />
-            <text x={pos.x} y={pos.y + 1} textAnchor="middle" dominantBaseline="middle" fill="white" fontSize={8} fontWeight={600}>
+            <text x={pos.x} y={pos.y + 1} textAnchor="middle" dominantBaseline="middle" fill="white" fontSize={10} fontWeight={600}>
               {p.length > 12 ? p.slice(0, 10) + '..' : p}
             </text>
           </g>
@@ -294,7 +294,7 @@ function StrategyNetwork() {
             style={{ cursor: 'grab' }}
           >
             <circle cx={pos.x} cy={pos.y} r={r} fill={colorMap[uc.color]} opacity={highlighted ? 1 : 0.2} />
-            <text x={pos.x} y={pos.y + 1} textAnchor="middle" dominantBaseline="middle" fill="white" fontSize={8} fontWeight={700}>
+            <text x={pos.x} y={pos.y + 1} textAnchor="middle" dominantBaseline="middle" fill="white" fontSize={10} fontWeight={700}>
               {uc.id.replace('UC-', '')}
             </text>
           </g>
@@ -304,7 +304,7 @@ function StrategyNetwork() {
       {tooltip && (
         <g>
           <rect x={tooltip.x - 80} y={tooltip.y - 12} width={160} height={22} rx={4} fill="#1e293b" opacity={0.9} />
-          <text x={tooltip.x} y={tooltip.y + 2} textAnchor="middle" fill="white" fontSize={9}>{tooltip.text}</text>
+          <text x={tooltip.x} y={tooltip.y + 2} textAnchor="middle" fill="white" fontSize={10}>{tooltip.text}</text>
         </g>
       )}
     </svg>

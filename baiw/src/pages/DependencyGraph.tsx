@@ -385,9 +385,9 @@ export default function DependencyGraph() {
         <div className="bg-white rounded-lg shadow-sm overflow-auto" style={{ height: 'calc(100vh - 120px)' }}>
           {sankeyData && (
             <svg viewBox={`0 0 ${sankeyData.width} ${sankeyData.height}`} className="w-full min-w-[700px]" style={{ height: sankeyData.height }}>
-              <text x={60} y={18} fontSize={11} fontWeight="bold" fill="#475569">BVF Themes</text>
-              <text x={260} y={18} fontSize={11} fontWeight="bold" fill="#475569">Capability Groups</text>
-              <text x={460} y={18} fontSize={11} fontWeight="bold" fill="#475569">FSDM Domains</text>
+              <text x={60} y={18} fontSize={12} fontWeight="bold" fill="#475569">BVF Themes</text>
+              <text x={260} y={18} fontSize={12} fontWeight="bold" fill="#475569">Capability Groups</text>
+              <text x={460} y={18} fontSize={12} fontWeight="bold" fill="#475569">FSDM Domains</text>
               {sankeyData.links.map((link, i) => {
                 const sn = sankeyData.nodes.find((n) => n.id === link.source)
                 const tn = sankeyData.nodes.find((n) => n.id === link.target)

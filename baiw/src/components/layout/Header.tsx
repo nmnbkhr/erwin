@@ -7,13 +7,13 @@ interface Props {
 
 export default function Header({ onOpenSearch }: Props) {
   return (
-    <header className="h-14 bg-white border-b border-slate-200 flex items-center px-6 gap-4">
-      <span className="text-lg font-semibold text-slate-700">
+    <header className="h-16 bg-white border-b border-slate-200 flex items-center px-6 gap-4">
+      <span className="text-lg font-semibold text-slate-800">
         Banking Analytics Intelligence Workbench
       </span>
       <div className="flex items-center gap-2 ml-4">
-        <span className="bg-purple-600 text-white px-2 py-0.5 rounded text-xs font-medium">BAIW</span>
-        <Link to="/taiw" className="bg-gray-700 text-gray-300 hover:bg-teal-600 hover:text-white px-2 py-0.5 rounded text-xs transition-colors">
+        <span className="bg-purple-600 text-white px-2.5 py-1 rounded-md text-sm font-medium">BAIW</span>
+        <Link to="/taiw" className="bg-gray-700 text-gray-200 hover:bg-teal-600 hover:text-white px-2.5 py-1 rounded-md text-sm transition-colors">
           TAIW &rarr;
         </Link>
       </div>

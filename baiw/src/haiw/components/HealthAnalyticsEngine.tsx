@@ -27,7 +27,7 @@ const TABS: { id: TabId; label: string; icon: typeof Database }[] = [
 
 function PakBadge() {
   return (
-    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium bg-emerald-100 text-emerald-700 rounded">
+    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-700 rounded">
       <Flag size={10} /> PAK
     </span>
   )
@@ -36,21 +36,21 @@ function PakBadge() {
 function ColumnRow({ col }: { col: HaiwStarSchemaColumn }) {
   return (
     <tr className="border-t border-slate-50 text-xs">
-      <td className="px-3 py-1.5 text-slate-700 font-mono text-[11px]">
+      <td className="px-3 py-1.5 text-slate-700 font-mono text-xs">
         <span className="flex items-center gap-1.5">
           {col.name}
           {col.isPK && (
-            <span className="px-1 py-0.5 text-[9px] font-medium bg-amber-100 text-amber-700 rounded">PK</span>
+            <span className="px-1 py-0.5 text-[11px] font-medium bg-amber-100 text-amber-700 rounded">PK</span>
           )}
           {col.isFK && (
-            <span className="px-1 py-0.5 text-[9px] font-medium bg-blue-100 text-blue-700 rounded">
+            <span className="px-1 py-0.5 text-[11px] font-medium bg-blue-100 text-blue-700 rounded">
               FK{col.fkTarget ? ` \u2192 ${col.fkTarget}` : ''}
             </span>
           )}
           {col.pakSpecific && <PakBadge />}
         </span>
       </td>
-      <td className="px-3 py-1.5 text-slate-500 font-mono text-[11px]">{col.datatype}</td>
+      <td className="px-3 py-1.5 text-slate-500 font-mono text-xs">{col.datatype}</td>
       <td className="px-3 py-1.5 text-slate-400">{col.description}</td>
     </tr>
   )
@@ -169,7 +169,7 @@ function StarSchemaERD({
                     x={center}
                     y={center - 12}
                     textAnchor="middle"
-                    className="text-[10px] font-semibold uppercase tracking-wide"
+                    className="text-xs font-semibold uppercase tracking-wide"
                     fill="#047857"
                   >
                     Fact Table
@@ -178,7 +178,7 @@ function StarSchemaERD({
                     x={center}
                     y={center + 6}
                     textAnchor="middle"
-                    className="text-[11px] font-bold"
+                    className="text-xs font-bold"
                     fill="#064E3B"
                   >
                     {fact.name.length > 28 ? fact.name.slice(0, 26) + '...' : fact.name}
@@ -187,7 +187,7 @@ function StarSchemaERD({
                     x={center}
                     y={center + 22}
                     textAnchor="middle"
-                    className="text-[10px]"
+                    className="text-xs"
                     fill="#059669"
                   >
                     {fact.columns.length} columns
@@ -223,7 +223,7 @@ function StarSchemaERD({
                       x={cx}
                       y={cy - 8}
                       textAnchor="middle"
-                      className="text-[9px] font-medium"
+                      className="text-[11px] font-medium"
                       fill="#334155"
                     >
                       {dim.name.length > 20 ? dim.name.slice(0, 18) + '...' : dim.name}
@@ -232,7 +232,7 @@ function StarSchemaERD({
                       x={cx}
                       y={cy + 6}
                       textAnchor="middle"
-                      className="text-[8px]"
+                      className="text-[11px]"
                       fill="#94A3B8"
                     >
                       {dim.columns.length} cols
@@ -242,7 +242,7 @@ function StarSchemaERD({
                       x={cx}
                       y={cy + 18}
                       textAnchor="middle"
-                      className="text-[8px]"
+                      className="text-[11px]"
                       fill="#6EE7B7"
                     >
                       {dim.columns.some((c) => c.pakSpecific) ? 'PAK' : ''}
@@ -271,7 +271,7 @@ function StarSchemaERD({
                   </div>
                   <p className="text-sm font-bold text-emerald-800">{fact.name}</p>
                   <p className="text-xs text-emerald-600 mt-1">{fact.columns.length} columns</p>
-                  <p className="text-[11px] text-emerald-500 mt-2 leading-relaxed line-clamp-2">{fact.description}</p>
+                  <p className="text-xs text-emerald-500 mt-2 leading-relaxed line-clamp-2">{fact.description}</p>
                 </button>
               </div>
             )}
@@ -295,11 +295,11 @@ function StarSchemaERD({
                     >
                       <div className="flex items-center gap-1.5 mb-1.5">
                         <Table2 size={14} className="text-slate-400 shrink-0" />
-                        <span className="text-[11px] font-medium text-slate-700 truncate">{dim.name}</span>
+                        <span className="text-xs font-medium text-slate-700 truncate">{dim.name}</span>
                       </div>
-                      <p className="text-[10px] text-slate-400">{dim.columns.length} columns</p>
-                      {pk && <p className="text-[10px] text-amber-600 mt-1 font-mono truncate">PK: {pk.name}</p>}
-                      {fkLink && <p className="text-[10px] text-blue-500 mt-0.5 truncate">via {fkLink.name}</p>}
+                      <p className="text-xs text-slate-400">{dim.columns.length} columns</p>
+                      {pk && <p className="text-xs text-amber-600 mt-1 font-mono truncate">PK: {pk.name}</p>}
+                      {fkLink && <p className="text-xs text-blue-500 mt-0.5 truncate">via {fkLink.name}</p>}
                     </button>
                   </div>
                 )
@@ -317,7 +317,7 @@ function StarSchemaERD({
                 <button
                   key={a.name}
                   onClick={() => setSelectedTable(selectedTable === a.name ? null : a.name)}
-                  className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] rounded border transition-colors ${
+                  className={`inline-flex items-center gap-1 px-2 py-1 text-xs rounded border transition-colors ${
                     selectedTable === a.name
                       ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
                       : 'bg-slate-50 text-slate-600 border-slate-100 hover:border-emerald-200 hover:bg-emerald-50/50'
@@ -339,7 +339,7 @@ function StarSchemaERD({
               {schema.views.map((v) => (
                 <span
                   key={v.name}
-                  className="inline-flex items-center gap-1 px-2 py-1 text-[10px] bg-slate-50 text-slate-600 rounded border border-slate-100"
+                  className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-slate-50 text-slate-600 rounded border border-slate-100"
                   title={v.description}
                 >
                   <Layers size={10} /> {v.name}
@@ -364,7 +364,7 @@ function StarSchemaERD({
               )}
               <h4 className="text-sm font-semibold text-slate-700">{selectedTableData.name}</h4>
               <span
-                className={`px-2 py-0.5 text-[10px] font-medium rounded uppercase ${
+                className={`px-2 py-0.5 text-xs font-medium rounded uppercase ${
                   selectedTableData.type === 'fact'
                     ? 'bg-emerald-200 text-emerald-800'
                     : selectedTableData.type === 'aggregate'
@@ -387,9 +387,9 @@ function StarSchemaERD({
             <table className="w-full text-xs">
               <thead className="bg-slate-50">
                 <tr>
-                  <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Column</th>
-                  <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Type</th>
-                  <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Description</th>
+                  <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Column</th>
+                  <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Type</th>
+                  <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Description</th>
                 </tr>
               </thead>
               <tbody>
@@ -445,7 +445,7 @@ function DimensionsExplorer({ schema }: { schema: HaiwStarSchema }) {
                 </span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-slate-700 truncate">{dim.name}</p>
-                  <p className="text-[11px] text-slate-400">
+                  <p className="text-xs text-slate-400">
                     {dim.columns.length} columns
                     {pakCols.length > 0 && (
                       <span className="text-emerald-500 ml-2">
@@ -460,7 +460,7 @@ function DimensionsExplorer({ schema }: { schema: HaiwStarSchema }) {
                       {keyAttrs.map((col) => (
                         <span
                           key={col.name}
-                          className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[9px] bg-slate-50 text-slate-500 rounded border border-slate-100"
+                          className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[11px] bg-slate-50 text-slate-500 rounded border border-slate-100"
                         >
                           {col.isPK && <span className="text-amber-500 font-bold mr-0.5">PK</span>}
                           {col.isFK && <span className="text-blue-500 font-bold mr-0.5">FK</span>}
@@ -468,14 +468,14 @@ function DimensionsExplorer({ schema }: { schema: HaiwStarSchema }) {
                         </span>
                       ))}
                       {dim.columns.length > 5 && (
-                        <span className="text-[9px] text-slate-400 px-1 py-0.5">
+                        <span className="text-[11px] text-slate-400 px-1 py-0.5">
                           +{dim.columns.length - 5} more
                         </span>
                       )}
                     </div>
                   )}
                 </div>
-                <p className="text-[11px] text-slate-400 hidden md:block max-w-[200px] truncate">
+                <p className="text-xs text-slate-400 hidden md:block max-w-[200px] truncate">
                   {dim.description}
                 </p>
                 {isOpen ? (
@@ -490,10 +490,10 @@ function DimensionsExplorer({ schema }: { schema: HaiwStarSchema }) {
                   <p className="text-xs text-slate-500 my-3 leading-relaxed">{dim.description}</p>
                   {pakCols.length > 0 && (
                     <div className="mb-3 bg-emerald-50 border border-emerald-100 rounded-md px-3 py-2">
-                      <p className="text-[10px] font-medium text-emerald-700 mb-1">Pakistan-Specific Columns</p>
+                      <p className="text-xs font-medium text-emerald-700 mb-1">Pakistan-Specific Columns</p>
                       <div className="flex flex-wrap gap-1">
                         {pakCols.map((c) => (
-                          <span key={c.name} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[9px] bg-white text-emerald-700 rounded border border-emerald-200 font-mono">
+                          <span key={c.name} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[11px] bg-white text-emerald-700 rounded border border-emerald-200 font-mono">
                             <Flag size={8} /> {c.name}
                           </span>
                         ))}
@@ -504,9 +504,9 @@ function DimensionsExplorer({ schema }: { schema: HaiwStarSchema }) {
                     <table className="w-full text-xs">
                       <thead className="bg-slate-50">
                         <tr>
-                          <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Column</th>
-                          <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Data Type</th>
-                          <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Description</th>
+                          <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Column</th>
+                          <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Data Type</th>
+                          <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Description</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -564,11 +564,11 @@ function GapExtensionsTab({
               </span>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-slate-700">{mod.name}</p>
-                <p className="text-[11px] text-slate-400 mt-0.5">
+                <p className="text-xs text-slate-400 mt-0.5">
                   {mod.id} &middot; {mod.tableCount} tables
                 </p>
               </div>
-              <span className="px-2 py-0.5 text-[10px] font-medium bg-emerald-50 text-emerald-700 rounded border border-emerald-200">
+              <span className="px-2 py-0.5 text-xs font-medium bg-emerald-50 text-emerald-700 rounded border border-emerald-200">
                 {mod.connectsToStarSchema.length} connects
               </span>
               {isOpen ? (
@@ -584,7 +584,7 @@ function GapExtensionsTab({
                 {/* Connects to star schema links */}
                 {mod.connectsToStarSchema.length > 0 && (
                   <div>
-                    <p className="text-[10px] font-medium text-slate-500 uppercase tracking-wider mb-1.5">
+                    <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1.5">
                       Connects to Star Schema
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -592,7 +592,7 @@ function GapExtensionsTab({
                         <button
                           key={tbl}
                           onClick={() => onSchemaTableClick?.(tbl)}
-                          className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-mono bg-slate-50 text-slate-600 rounded border border-slate-200 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300 transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1 px-2 py-1 text-xs font-mono bg-slate-50 text-slate-600 rounded border border-slate-200 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300 transition-colors cursor-pointer"
                           title={`View ${tbl} in Star Schema ERD`}
                         >
                           <Link2 size={10} /> {tbl}
@@ -605,7 +605,7 @@ function GapExtensionsTab({
                 {/* Required capabilities as clickable pills */}
                 {mod.requiredCapabilities.length > 0 && (
                   <div>
-                    <p className="text-[10px] font-medium text-slate-500 uppercase tracking-wider mb-1.5">
+                    <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1.5">
                       Required Capabilities
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -613,7 +613,7 @@ function GapExtensionsTab({
                         <button
                           key={cap}
                           onClick={() => navigate(`/haiw/capabilities?cap=${encodeURIComponent(cap)}`)}
-                          className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium bg-emerald-50 text-emerald-700 rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium bg-emerald-50 text-emerald-700 rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors cursor-pointer"
                         >
                           {cap}
                         </button>
@@ -624,7 +624,7 @@ function GapExtensionsTab({
 
                 {/* Tables within module */}
                 <div className="space-y-2">
-                  <p className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
+                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">
                     Tables ({mod.tables.length})
                   </p>
                   {mod.tables.map((tbl) => {
@@ -658,26 +658,26 @@ function GapExtensionsTab({
 
                         {tblOpen && (
                           <div className="px-3 pb-3">
-                            <p className="text-[11px] text-slate-500 mb-2">{tbl.description}</p>
+                            <p className="text-xs text-slate-500 mb-2">{tbl.description}</p>
                             <div className="overflow-x-auto rounded border border-slate-100">
                               <table className="w-full text-xs">
                                 <thead className="bg-slate-50">
                                   <tr>
-                                    <th className="text-left px-2 py-1 text-[10px] font-medium text-slate-500">Column</th>
-                                    <th className="text-left px-2 py-1 text-[10px] font-medium text-slate-500">Type</th>
-                                    <th className="text-left px-2 py-1 text-[10px] font-medium text-slate-500">Description</th>
+                                    <th className="text-left px-2 py-1 text-xs font-medium text-slate-500">Column</th>
+                                    <th className="text-left px-2 py-1 text-xs font-medium text-slate-500">Type</th>
+                                    <th className="text-left px-2 py-1 text-xs font-medium text-slate-500">Description</th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   {tbl.columns.map((col) => (
                                     <tr key={col.name} className="border-t border-slate-50 text-xs">
-                                      <td className="px-2 py-1 text-slate-700 font-mono text-[11px]">
+                                      <td className="px-2 py-1 text-slate-700 font-mono text-xs">
                                         <span className="flex items-center gap-1">
                                           {col.name}
                                           {col.pakSpecific && <PakBadge />}
                                         </span>
                                       </td>
-                                      <td className="px-2 py-1 text-slate-500 font-mono text-[11px]">
+                                      <td className="px-2 py-1 text-slate-500 font-mono text-xs">
                                         {col.datatype}
                                       </td>
                                       <td className="px-2 py-1 text-slate-400">{col.description}</td>
@@ -761,18 +761,18 @@ function ViewsAndAggregates({ schema }: { schema: HaiwStarSchema }) {
 
                 {/* Use case */}
                 <div className="mb-3 bg-slate-50 rounded-md px-3 py-2">
-                  <p className="text-[10px] font-medium text-slate-500 uppercase tracking-wider mb-1">Use Case</p>
+                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">Use Case</p>
                   <p className="text-xs text-slate-600 leading-relaxed">{getViewUseCase(view.name)}</p>
                 </div>
 
                 {/* Source tables */}
                 <div>
-                  <p className="text-[10px] font-medium text-slate-500 uppercase tracking-wider mb-1.5">Source Tables</p>
+                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1.5">Source Tables</p>
                   <div className="flex flex-wrap gap-1.5">
                     {view.sourceTables.map((tbl) => (
                       <span
                         key={tbl}
-                        className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-mono bg-emerald-50 text-emerald-700 rounded border border-emerald-200"
+                        className="inline-flex items-center gap-1 px-2 py-1 text-xs font-mono bg-emerald-50 text-emerald-700 rounded border border-emerald-200"
                       >
                         <Database size={10} /> {tbl}
                       </span>
@@ -813,11 +813,11 @@ function ViewsAndAggregates({ schema }: { schema: HaiwStarSchema }) {
                     </span>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-slate-700 truncate font-mono">{agg.name}</p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-xs text-slate-400">
                         {agg.columns.length} columns
                       </p>
                     </div>
-                    <p className="text-[11px] text-slate-400 hidden md:block max-w-[180px] truncate">
+                    <p className="text-xs text-slate-400 hidden md:block max-w-[180px] truncate">
                       {agg.description}
                     </p>
                     {isOpen ? (
@@ -834,9 +834,9 @@ function ViewsAndAggregates({ schema }: { schema: HaiwStarSchema }) {
                         <table className="w-full text-xs">
                           <thead className="bg-slate-50">
                             <tr>
-                              <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Column</th>
-                              <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Data Type</th>
-                              <th className="text-left px-3 py-1.5 text-[10px] font-medium text-slate-500">Description</th>
+                              <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Column</th>
+                              <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Data Type</th>
+                              <th className="text-left px-3 py-1.5 text-xs font-medium text-slate-500">Description</th>
                             </tr>
                           </thead>
                           <tbody>

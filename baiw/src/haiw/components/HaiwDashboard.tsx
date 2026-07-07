@@ -159,7 +159,7 @@ export default function HaiwDashboard() {
               >
                 <s.icon size={22} className="text-white/90 mb-2" />
                 <span className="text-2xl font-bold leading-none">{s.value}</span>
-                <span className="text-[11px] text-emerald-100 mt-1 leading-tight">{s.label}</span>
+                <span className="text-xs text-emerald-100 mt-1 leading-tight">{s.label}</span>
               </div>
             ))}
           </div>
@@ -206,12 +206,12 @@ export default function HaiwDashboard() {
           {barData.length > 0 ? (
             <ResponsiveContainer width="100%" height={280}>
               <BarChart data={barData} layout="vertical" margin={{ left: 10, right: 20, top: 5, bottom: 5 }}>
-                <XAxis type="number" tick={{ fill: '#94a3b8', fontSize: 12 }} />
+                <XAxis type="number" tick={{ fill: '#94a3b8', fontSize: 13 }} />
                 <YAxis
                   type="category"
                   dataKey="theme"
                   width={130}
-                  tick={{ fill: '#cbd5e1', fontSize: 11 }}
+                  tick={{ fill: '#cbd5e1', fontSize: 12 }}
                 />
                 <Tooltip
                   contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', color: '#f1f5f9' }}
@@ -252,7 +252,7 @@ export default function HaiwDashboard() {
                   {pakistanCtx.facilityHierarchy.slice(0, 4).map(f => (
                     <div key={f.level} className="text-center bg-slate-700/30 rounded-lg px-2 py-2">
                       <span className="block text-white text-sm font-semibold">{String(f.count)}</span>
-                      <span className="block text-slate-400 text-[10px] leading-tight">{f.name}</span>
+                      <span className="block text-slate-400 text-xs leading-tight">{f.name}</span>
                     </div>
                   ))}
                 </div>
@@ -291,12 +291,12 @@ export default function HaiwDashboard() {
               <PolarGrid stroke="#334155" />
               <PolarAngleAxis
                 dataKey="category"
-                tick={{ fill: '#94a3b8', fontSize: 10 }}
+                tick={{ fill: '#94a3b8', fontSize: 11 }}
               />
               <PolarRadiusAxis
                 angle={90}
                 domain={[0, 5]}
-                tick={{ fill: '#64748b', fontSize: 10 }}
+                tick={{ fill: '#64748b', fontSize: 11 }}
                 axisLine={false}
               />
               <Radar

@@ -382,17 +382,17 @@ export default function HCFCapabilityNavigator() {
                                       >
                                         <div className="flex items-start gap-2">
                                           <span className="text-sm font-medium text-slate-800 flex-1">{cap.name}</span>
-                                          <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium shrink-0 ${maturityColors[cap.maturityLevelRequired] ?? maturityColors[1]}`}>
+                                          <span className={`text-xs px-1.5 py-0.5 rounded font-medium shrink-0 ${maturityColors[cap.maturityLevelRequired] ?? maturityColors[1]}`}>
                                             L{cap.maturityLevelRequired}
                                           </span>
                                         </div>
                                         <p className="text-xs text-slate-500 mt-1 leading-relaxed">{truncate(cap.description)}</p>
                                         <div className="flex items-center gap-2 mt-2">
-                                          <span className="inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 font-medium">
+                                          <span className="inline-flex items-center gap-1 text-xs px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 font-medium">
                                             <Layers size={10} /> {cap.fhirResources.length} FHIR
                                           </span>
                                           {cap.businessQuestions.length > 0 && (
-                                            <span className="inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-600 font-medium">
+                                            <span className="inline-flex items-center gap-1 text-xs px-1.5 py-0.5 rounded bg-amber-50 text-amber-600 font-medium">
                                               <BookOpen size={10} /> {cap.businessQuestions.length} Qs
                                             </span>
                                           )}

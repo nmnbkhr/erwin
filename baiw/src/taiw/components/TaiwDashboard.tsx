@@ -87,7 +87,7 @@ function ConformityGauge({ level, maxLevel }: { level: number; maxLevel: number 
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-2xl font-bold" style={{ color }}>L{level}</span>
-        <span className="text-[10px] text-slate-400">of {maxLevel}</span>
+        <span className="text-xs text-slate-400">of {maxLevel}</span>
       </div>
     </div>
   )
@@ -325,7 +325,7 @@ export default function TaiwDashboard() {
                 type="category"
                 dataKey="name"
                 width={180}
-                tick={{ fontSize: 11 }}
+                tick={{ fontSize: 12 }}
               />
               <Tooltip />
               <Bar
@@ -373,7 +373,7 @@ export default function TaiwDashboard() {
             </div>
             <div className="text-right">
               <p className="text-lg font-bold text-red-600">$26.27B</p>
-              <p className="text-[10px] text-slate-400">Current Deficit</p>
+              <p className="text-xs text-slate-400">Current Deficit</p>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={200}>
@@ -385,8 +385,8 @@ export default function TaiwDashboard() {
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
-              <XAxis dataKey="month" tick={{ fontSize: 10 }} stroke="#94A3B8" />
-              <YAxis tick={{ fontSize: 10 }} stroke="#94A3B8" domain={[0, 6]} tickFormatter={(v) => `$${v}B`} />
+              <XAxis dataKey="month" tick={{ fontSize: 11 }} stroke="#94A3B8" />
+              <YAxis tick={{ fontSize: 11 }} stroke="#94A3B8" domain={[0, 6]} tickFormatter={(v) => `$${v}B`} />
               <Tooltip
                 formatter={((value: number, name: string) => [`$${value}B`, name === 'imports' ? 'Imports' : 'Exports']) as never}
                 contentStyle={{ fontSize: '12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}
@@ -412,15 +412,15 @@ export default function TaiwDashboard() {
           <div className="flex items-center justify-center gap-6 mt-2">
             <div className="flex items-center gap-1.5">
               <span className="w-3 h-0.5 bg-red-500 rounded" />
-              <span className="text-[10px] text-slate-500">Imports</span>
+              <span className="text-xs text-slate-500">Imports</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="w-3 h-0.5 bg-teal-500 rounded" />
-              <span className="text-[10px] text-slate-500">Exports</span>
+              <span className="text-xs text-slate-500">Exports</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="w-3 h-2 bg-red-100 rounded" />
-              <span className="text-[10px] text-slate-500">Deficit</span>
+              <span className="text-xs text-slate-500">Deficit</span>
             </div>
           </div>
         </div>

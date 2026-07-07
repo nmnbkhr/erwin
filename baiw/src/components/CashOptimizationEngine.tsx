@@ -381,7 +381,7 @@ export default function CashOptimizationEngine() {
           <BarChart data={waterfallData} layout="vertical" margin={{ left: 160, right: 30, top: 10, bottom: 10 }}>
             <CartesianGrid strokeDasharray="3 3" horizontal={false} />
             <XAxis type="number" tickFormatter={(v: number) => `${v}M`} />
-            <YAxis type="category" dataKey="name" width={150} tick={{ fontSize: 12 }} />
+            <YAxis type="category" dataKey="name" width={150} tick={{ fontSize: 13 }} />
             <Tooltip
               formatter={(value, name) => [`PKR ${value}M`, name === 'min' ? 'Minimum' : 'Range']}
               labelFormatter={(label) => String(label)}
@@ -449,7 +449,7 @@ export default function CashOptimizationEngine() {
           <div className="flex items-center mb-2">
             {Array.from({ length: 24 }, (_, i) => (
               <div key={i} className="flex-1 text-center">
-                <span className="text-[10px] text-slate-400">{i + 1}</span>
+                <span className="text-xs text-slate-400">{i + 1}</span>
               </div>
             ))}
           </div>

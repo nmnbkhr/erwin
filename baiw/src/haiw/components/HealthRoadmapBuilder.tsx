@@ -435,7 +435,7 @@ export default function HealthRoadmapBuilder() {
               {Array.from({ length: 24 }, (_, i) => (
                 <div
                   key={i}
-                  className="flex-1 text-center text-[10px] text-gray-400 py-1 border-r border-emerald-50 last:border-r-0"
+                  className="flex-1 text-center text-xs text-gray-400 py-1 border-r border-emerald-50 last:border-r-0"
                 >
                   {i + 1}
                 </div>
@@ -456,7 +456,7 @@ export default function HealthRoadmapBuilder() {
                       {phase.caps.map((cap) => (
                         <div
                           key={cap.id}
-                          className={`text-[11px] px-2 py-1 rounded-md font-medium truncate max-w-[180px] border ${phase.border} ${phase.bg} ${phase.color}`}
+                          className={`text-xs px-2 py-1 rounded-md font-medium truncate max-w-[180px] border ${phase.border} ${phase.bg} ${phase.color}`}
                           title={`${cap.name} (Maturity ${cap.maturityLevelRequired})`}
                         >
                           {cap.name}

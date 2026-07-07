@@ -156,11 +156,11 @@ function UseCaseCard({
               <Icon size={20} />
             </div>
             <div>
-              <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">{uc.id}</span>
+              <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">{uc.id}</span>
               <h3 className="text-sm font-semibold text-slate-800 leading-snug">{uc.title}</h3>
             </div>
           </div>
-          <span className={`shrink-0 px-2 py-0.5 text-[10px] font-semibold rounded-full ${colors.badge}`}>
+          <span className={`shrink-0 px-2 py-0.5 text-xs font-semibold rounded-full ${colors.badge}`}>
             {colors.label}
           </span>
         </div>
@@ -178,7 +178,7 @@ function UseCaseCard({
       <div className="px-5 pb-2">
         <div className="flex items-center gap-1.5 mb-1.5">
           <Layers size={12} className="text-emerald-500" />
-          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide">HCF Capabilities</span>
+          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">HCF Capabilities</span>
         </div>
         <div className="flex flex-wrap gap-1.5">
           {uc.capabilities.map((capId) => {
@@ -187,7 +187,7 @@ function UseCaseCard({
               <button
                 key={capId}
                 onClick={() => navigate('/haiw/capabilities', { state: { highlight: capId } })}
-                className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-medium rounded-full bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-colors cursor-pointer"
                 title={cap?.name ?? capId}
               >
                 {capId}
@@ -201,14 +201,14 @@ function UseCaseCard({
       <div className="px-5 pb-2">
         <div className="flex items-center gap-1.5 mb-1.5">
           <Sparkles size={12} className="text-blue-500" />
-          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide">FHIR Resources</span>
+          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">FHIR Resources</span>
         </div>
         <div className="flex flex-wrap gap-1.5">
           {uc.fhir.map((resName) => (
             <button
               key={resName}
               onClick={() => navigate('/haiw/model', { state: { highlight: resName } })}
-              className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-medium rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors cursor-pointer"
             >
               {resName}
             </button>
@@ -298,15 +298,15 @@ export default function HealthcareUseCases() {
           <div className="flex gap-4 text-center">
             <div className="bg-white/15 rounded-lg px-4 py-2 backdrop-blur">
               <div className="text-2xl font-bold">{USE_CASES.length}</div>
-              <div className="text-[10px] uppercase tracking-wider text-emerald-100">Use Cases</div>
+              <div className="text-xs uppercase tracking-wider text-emerald-100">Use Cases</div>
             </div>
             <div className="bg-white/15 rounded-lg px-4 py-2 backdrop-blur">
               <div className="text-2xl font-bold">{allCapIds.size}</div>
-              <div className="text-[10px] uppercase tracking-wider text-emerald-100">Capabilities</div>
+              <div className="text-xs uppercase tracking-wider text-emerald-100">Capabilities</div>
             </div>
             <div className="bg-white/15 rounded-lg px-4 py-2 backdrop-blur">
               <div className="text-2xl font-bold">{allFhirNames.size}</div>
-              <div className="text-[10px] uppercase tracking-wider text-emerald-100">FHIR Resources</div>
+              <div className="text-xs uppercase tracking-wider text-emerald-100">FHIR Resources</div>
             </div>
           </div>
         </div>

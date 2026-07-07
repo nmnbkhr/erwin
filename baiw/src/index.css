@@ -1,10 +1,42 @@
 @import "tailwindcss";
 
+/*
+ * Global readability scale.
+ * The app predominantly uses text-xs / text-sm; every step is lifted
+ * (+1–2px vs Tailwind defaults) with roomier line-heights so the whole
+ * suite becomes readable without touching each call site.
+ */
+@theme {
+  --text-xs: 0.8125rem;          /* 13px — was 12px */
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.9375rem;          /* 15px — was 14px */
+  --text-sm--line-height: 1.5;
+  --text-base: 1.0625rem;        /* 17px — was 16px */
+  --text-base--line-height: 1.55;
+  --text-lg: 1.1875rem;          /* 19px — was 18px */
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.375rem;           /* 22px — was 20px */
+  --text-xl--line-height: 1.4;
+  --text-2xl: 1.625rem;          /* 26px — was 24px */
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 2rem;              /* 32px — was 30px */
+  --text-3xl--line-height: 1.25;
+  --text-4xl: 2.5rem;            /* 40px — was 36px */
+  --text-4xl--line-height: 1.15;
+  --text-5xl: 3.25rem;           /* 52px — was 48px */
+  --text-5xl--line-height: 1.1;
+  --text-6xl: 4rem;              /* 64px — was 60px */
+  --text-6xl--line-height: 1.05;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 * {

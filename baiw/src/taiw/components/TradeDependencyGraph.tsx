@@ -373,7 +373,7 @@ export default function TradeDependencyGraph() {
                     >
                       <div className="flex flex-col items-center gap-1">
                         <span
-                          className="block whitespace-nowrap origin-bottom-left text-[10px]"
+                          className="block whitespace-nowrap origin-bottom-left text-xs"
                           style={{ transform: 'rotate(-45deg)', transformOrigin: 'center' }}
                         >
                           {d.name}
@@ -547,7 +547,7 @@ export default function TradeDependencyGraph() {
                       <td className="p-3 text-slate-600 font-medium tabular-nums">{row.elementCount}</td>
                       <td className="p-3 text-slate-600 font-medium tabular-nums">{row.domainCount}</td>
                       <td className="p-3">
-                        <span className={`inline-block px-2 py-0.5 text-[10px] font-semibold rounded border ${PRIORITY_STYLE[row.priority] || PRIORITY_STYLE.LOW}`}>
+                        <span className={`inline-block px-2 py-0.5 text-xs font-semibold rounded border ${PRIORITY_STYLE[row.priority] || PRIORITY_STYLE.LOW}`}>
                           {row.priority}
                         </span>
                       </td>
@@ -600,7 +600,7 @@ export default function TradeDependencyGraph() {
                     <div className="flex items-center gap-2 mb-2">
                       <p className="text-sm font-medium text-slate-700">{cap.sub}</p>
                       {capData && (
-                        <span className={`px-1.5 py-0.5 text-[9px] font-semibold rounded border ${PRIORITY_STYLE[capData.priority] || PRIORITY_STYLE.LOW}`}>
+                        <span className={`px-1.5 py-0.5 text-[11px] font-semibold rounded border ${PRIORITY_STYLE[capData.priority] || PRIORITY_STYLE.LOW}`}>
                           {capData.priority}
                         </span>
                       )}
@@ -609,7 +609,7 @@ export default function TradeDependencyGraph() {
                       {cap.elements.map((el, idx) => (
                         <span
                           key={`${el}-${idx}`}
-                          className="px-2 py-0.5 text-[10px] rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 font-mono"
+                          className="px-2 py-0.5 text-xs rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 font-mono"
                         >
                           {el}
                         </span>
