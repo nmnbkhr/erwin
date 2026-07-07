@@ -18,6 +18,7 @@ const CorporateValue = lazy(() => import('./pages/CorporateValue'))
 const CustomerComparison = lazy(() => import('./pages/CustomerComparison'))
 const WhatIfLab = lazy(() => import('./pages/WhatIfLab'))
 const PortfolioRollup = lazy(() => import('./pages/PortfolioRollup'))
+const UseCaseDeck = lazy(() => import('./pages/UseCaseDeck'))
 const RoadmapBuilder = lazy(() => import('./pages/RoadmapBuilder'))
 const PakistanReference = lazy(() => import('./pages/PakistanReference'))
 const CashOptimizationEngine = lazy(() => import('./components/CashOptimizationEngine'))
@@ -96,6 +97,7 @@ function App() {
                     <Route path="/customer-comparison" element={<CustomerComparison />} />
                     <Route path="/what-if" element={<WhatIfLab />} />
                     <Route path="/portfolio" element={<PortfolioRollup />} />
+                    <Route path="/deck" element={<UseCaseDeck />} />
                     <Route path="/roadmap" element={<RoadmapBuilder />} />
                     <Route path="/pakistan" element={<PakistanReference />} />
                     <Route path="/cash-optimization" element={<CashOptimizationEngine />} />
