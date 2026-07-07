@@ -1,0 +1,16 @@
+{
+  "currency": "PKR bn",
+  "note": "Repricing (rate-sensitivity) gap by time bucket. Positive gap = asset-sensitive (NII rises when rates rise); negative = liability-sensitive. Cumulative gap is the running sum.",
+  "buckets": [
+    { "bucket": "≤ 1M", "rsa": 360, "rsl": 500, "gap": -140, "cumulativeGap": -140 },
+    { "bucket": "1-3M", "rsa": 350, "rsl": 300, "gap": 50, "cumulativeGap": -90 },
+    { "bucket": "3-6M", "rsa": 305, "rsl": 250, "gap": 55, "cumulativeGap": -35 },
+    { "bucket": "6-12M", "rsa": 300, "rsl": 320, "gap": -20, "cumulativeGap": -55 },
+    { "bucket": "1-3Y", "rsa": 345, "rsl": 250, "gap": 95, "cumulativeGap": 40 },
+    { "bucket": "3-5Y", "rsa": 250, "rsl": 150, "gap": 100, "cumulativeGap": 140 },
+    { "bucket": "> 5Y", "rsa": 145, "rsl": 130, "gap": 15, "cumulativeGap": 155 }
+  ],
+  "totals": { "rsa": 2055, "rsl": 1900, "netGap": 155 },
+  "oneYearCumulativeGap": -55,
+  "profile": "Liability-sensitive within 1 year (near-term NII pressure on rate hikes), asset-sensitive beyond 1 year."
+}

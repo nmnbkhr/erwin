@@ -789,5 +789,208 @@
     "description": "System Log Files (E.g. Firewall, Webserver)",
     "fsdmSubjectArea": "Other",
     "priority": "LOW"
+  },
+  {
+    "id": "ftp_matched_maturity_curve",
+    "capabilityId": 99,
+    "description": "Matched-maturity FTP base curve (KIBOR/PKRV) with tenor liquidity-spread add-ons",
+    "fsdmSubjectArea": "Reference Data",
+    "priority": "HIGH"
+  },
+  {
+    "id": "ftp_instrument_transfer_attributes",
+    "capabilityId": 99,
+    "description": "Per-instrument FTP attributes (funding, liquidity, credit and option spreads)",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "ftp_nmd_behavioral_inputs",
+    "capabilityId": 99,
+    "description": "Non-maturing deposit behavioral balance and yield for FTP (FTP_AverageBalance/Yield)",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "ftp_position_tenor_repricing",
+    "capabilityId": 99,
+    "description": "Position tenor and repricing profile from the ALM feed",
+    "fsdmSubjectArea": "Investment Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "alm_instrument_position_feed",
+    "capabilityId": 100,
+    "description": "Unified position-level instrument feed (fixed / floating / non-maturing / FX)",
+    "fsdmSubjectArea": "Investment Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "alm_instrument_classification",
+    "capabilityId": 100,
+    "description": "Accounting and rate classification (HTM/AFS/HFT, fixed/floating, asset/liability)",
+    "fsdmSubjectArea": "Product Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "alm_repricing_liquidity_gap",
+    "capabilityId": 100,
+    "description": "Repricing and liquidity gap bucketing inputs",
+    "fsdmSubjectArea": "Risk Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "alm_nii_eve_scenarios",
+    "capabilityId": 100,
+    "description": "Rate-shock scenario set for NII and EVE simulation",
+    "fsdmSubjectArea": "Risk Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "alm_gl_ledger_tagging",
+    "capabilityId": 100,
+    "description": "GL / ledger account tagging per position (RB_GL_RECLASS, MPR_LINE)",
+    "fsdmSubjectArea": "Financial Transaction",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "cfg_amortization_schedule",
+    "capabilityId": 102,
+    "description": "Principal amortization schedule per instrument",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "cfg_coupon_schedule",
+    "capabilityId": 102,
+    "description": "Coupon / profit cashflow schedule and payment conventions",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "cfg_redemption_early_termination",
+    "capabilityId": 102,
+    "description": "Redemption and early-termination / prepayment cashflows",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "cfg_frequency_lookup",
+    "capabilityId": 102,
+    "description": "Payment-frequency code translation (FM_PERIOD_FREQ)",
+    "fsdmSubjectArea": "Reference Data",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "liq_maturity_ladder",
+    "capabilityId": 103,
+    "description": "Contractual and behavioral maturity ladder",
+    "fsdmSubjectArea": "Risk Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "liq_nmd_stability",
+    "capabilityId": 103,
+    "description": "Non-maturing deposit core / volatile stability model",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "liq_hqla_inventory",
+    "capabilityId": 103,
+    "description": "HQLA securities inventory with market value and haircut",
+    "fsdmSubjectArea": "Investment Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "liq_lcr_nsfr",
+    "capabilityId": 103,
+    "description": "LCR / NSFR and SBP liquidity-metric inputs",
+    "fsdmSubjectArea": "Risk Management",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "irm_repricing_attributes",
+    "capabilityId": 105,
+    "description": "Instrument repricing attributes (next reprice date, frequency, margin, caps/floors)",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "irm_reference_rate_curves",
+    "capabilityId": 105,
+    "description": "KIBOR reference-rate curves and index basis",
+    "fsdmSubjectArea": "Reference Data",
+    "priority": "HIGH"
+  },
+  {
+    "id": "irm_fixed_floating_flag",
+    "capabilityId": 105,
+    "description": "Fixed-versus-floating and rate-index determination",
+    "fsdmSubjectArea": "Product Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "irm_irrbb_sensitivity",
+    "capabilityId": 105,
+    "description": "IRRBB EVE / NII sensitivity scenario inputs",
+    "fsdmSubjectArea": "Risk Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "fvh_market_value_feed",
+    "capabilityId": 85,
+    "description": "Clean/dirty market value and yield per security (IXINST_MKM)",
+    "fsdmSubjectArea": "Investment Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "fvh_amortized_cost",
+    "capabilityId": 85,
+    "description": "Amortized cost / book value per position (GLTRDAMORT)",
+    "fsdmSubjectArea": "Financial Transaction",
+    "priority": "HIGH"
+  },
+  {
+    "id": "fvh_accounting_classification",
+    "capabilityId": 85,
+    "description": "HTM/AFS/HFT accounting category by trade group / purpose",
+    "fsdmSubjectArea": "Product Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "fvh_afs_reserve",
+    "capabilityId": 85,
+    "description": "AFS unrealized gain/loss and reserve movement",
+    "fsdmSubjectArea": "Financial Transaction",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "ecl_staging_inputs",
+    "capabilityId": 50,
+    "description": "IFRS 9 staging inputs (credit quality stage, days past due, SICR)",
+    "fsdmSubjectArea": "Risk Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "ecl_risk_parameters",
+    "capabilityId": 50,
+    "description": "PD (PIT/TTC), lifetime PD, LGD and CCF per exposure",
+    "fsdmSubjectArea": "Risk Management",
+    "priority": "HIGH"
+  },
+  {
+    "id": "ecl_exposure_cashflows",
+    "capabilityId": 50,
+    "description": "Exposure cashflows for lifetime-ECL discounting (EIR)",
+    "fsdmSubjectArea": "Agreement & Account",
+    "priority": "HIGH"
+  },
+  {
+    "id": "ecl_provision_gl",
+    "capabilityId": 50,
+    "description": "ECL provision and loss-allowance GL reconciliation",
+    "fsdmSubjectArea": "Financial Transaction",
+    "priority": "MEDIUM"
   }
 ]

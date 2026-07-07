@@ -1,0 +1,36 @@
+{
+  "note": "Matched-maturity Funds Transfer Pricing. The FTP curve is derived from KIBOR/PKRV. Each product's margin is customer rate vs its matched FTP rate; assets are charged for funds, liabilities are credited.",
+  "policyRate": 13.0,
+  "kibor6m": 12.6,
+  "curve": [
+    { "tenor": "O/N", "rate": 12.0 },
+    { "tenor": "1M", "rate": 12.3 },
+    { "tenor": "3M", "rate": 12.6 },
+    { "tenor": "6M", "rate": 12.9 },
+    { "tenor": "1Y", "rate": 13.1 },
+    { "tenor": "3Y", "rate": 13.4 },
+    { "tenor": "5Y", "rate": 13.6 },
+    { "tenor": "10Y", "rate": 13.9 }
+  ],
+  "products": [
+    { "product": "Corporate Advance (KIBOR+)", "side": "Asset", "tenor": "6M", "customerRate": 16.5, "ftpRate": 13.3, "liquiditySpread": 0.4, "creditSpread": 2.7, "netMargin": 3.2 },
+    { "product": "Consumer Loan", "side": "Asset", "tenor": "1Y", "customerRate": 22.0, "ftpRate": 13.7, "liquiditySpread": 0.6, "creditSpread": 7.7, "netMargin": 8.3 },
+    { "product": "SME Loan", "side": "Asset", "tenor": "1Y", "customerRate": 19.0, "ftpRate": 13.6, "liquiditySpread": 0.5, "creditSpread": 4.9, "netMargin": 5.4 },
+    { "product": "PIB - HTM (fixed)", "side": "Asset", "tenor": "3Y", "customerRate": 13.8, "ftpRate": 13.6, "liquiditySpread": 0.2, "creditSpread": 0.0, "netMargin": 0.2 },
+    { "product": "Current Deposit (CASA)", "side": "Liability", "tenor": "Behavioral", "customerRate": 0.0, "ftpRate": 12.6, "liquiditySpread": 0.0, "creditSpread": 0.0, "netMargin": 12.6 },
+    { "product": "Savings Deposit", "side": "Liability", "tenor": "Behavioral", "customerRate": 11.0, "ftpRate": 12.6, "liquiditySpread": 0.0, "creditSpread": 0.0, "netMargin": 1.6 },
+    { "product": "Term Deposit (1Y)", "side": "Liability", "tenor": "1Y", "customerRate": 13.0, "ftpRate": 13.1, "liquiditySpread": 0.0, "creditSpread": 0.0, "netMargin": 0.1 },
+    { "product": "Borrowings / Repo", "side": "Liability", "tenor": "3M", "customerRate": 12.8, "ftpRate": 12.6, "liquiditySpread": 0.0, "creditSpread": 0.0, "netMargin": -0.2 }
+  ],
+  "waterfall": {
+    "product": "Corporate Advance (KIBOR + 3.9%)",
+    "steps": [
+      { "label": "FTP Base (6M curve)", "value": 12.9, "type": "base", "owner": "Treasury" },
+      { "label": "Liquidity Spread", "value": 0.4, "type": "add", "owner": "Treasury" },
+      { "label": "Credit Spread", "value": 2.7, "type": "add", "owner": "Business" },
+      { "label": "Capital Charge", "value": 0.3, "type": "add", "owner": "Business" },
+      { "label": "Operating Cost", "value": 0.2, "type": "add", "owner": "Business" },
+      { "label": "Customer Rate", "value": 16.5, "type": "total", "owner": "Customer" }
+    ]
+  }
+}

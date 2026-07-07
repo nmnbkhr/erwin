@@ -1,0 +1,1055 @@
+[
+  {
+    "id": "corporate",
+    "unit": "PKR millions",
+    "customer": {
+      "name": "Crescent Industrial Group (illustrative)",
+      "id": "CIF-CORP-20117 (master)",
+      "segment": "Corporate — Large / Group Banking",
+      "relationshipYears": 14,
+      "riskRating": "5 / BBB (obligor group)",
+      "profile": "Diversified manufacturing, trading and energy group on a master account with multiple subsidiary operating accounts. Full funded and non-funded suite: working capital, term loans, mortgage, trade finance, treasury (MM, FX, IRS) and transaction banking."
+    },
+    "archetype": "Anchor",
+    "subAccounts": [
+      {
+        "name": "Crescent Holding (Master)",
+        "type": "Holding / Treasury",
+        "footings": 4200,
+        "revenue": 142.15
+      },
+      {
+        "name": "Crescent Textiles Ltd",
+        "type": "Manufacturing",
+        "footings": 8600,
+        "revenue": 320
+      },
+      {
+        "name": "Crescent Trading (Imports)",
+        "type": "Trading",
+        "footings": 6900,
+        "revenue": 260
+      },
+      {
+        "name": "Crescent Energy Ltd",
+        "type": "Energy / Capex",
+        "footings": 4750,
+        "revenue": 210
+      }
+    ],
+    "costs": [
+      {
+        "activity": "Relationship & coverage team",
+        "amount": 45
+      },
+      {
+        "activity": "Trade finance operations",
+        "amount": 55
+      },
+      {
+        "activity": "Cash management operations",
+        "amount": 40
+      },
+      {
+        "activity": "Credit administration & monitoring",
+        "amount": 35
+      },
+      {
+        "activity": "Treasury & markets support",
+        "amount": 20
+      },
+      {
+        "activity": "Channel & technology (H2H)",
+        "amount": 15
+      }
+    ],
+    "poolCurve": [
+      {
+        "tenor": "SBP ERF",
+        "rate": 1.0
+      },
+      {
+        "tenor": "O/N",
+        "rate": 12.0
+      },
+      {
+        "tenor": "3M",
+        "rate": 12.6
+      },
+      {
+        "tenor": "6M",
+        "rate": 12.9
+      },
+      {
+        "tenor": "1Y",
+        "rate": 13.1
+      },
+      {
+        "tenor": "3Y",
+        "rate": 13.4
+      },
+      {
+        "tenor": "5Y",
+        "rate": 13.6
+      },
+      {
+        "tenor": "7Y",
+        "rate": 13.75
+      }
+    ],
+    "strategy": {
+      "quadrant": "Anchor — High Value, Capital-Intensive",
+      "stance": "Deepen Wallet & Optimize Capital",
+      "shareOfWalletPct": 45,
+      "targetShareOfWalletPct": 65,
+      "headline": "Large EVA in absolute terms but a thin ~25% RAROC — value sits in the operating-account float, trade and treasury cross-sell, not the funded loan spread. Grow capital-light ancillary income and recycle RWA.",
+      "plays": [
+        {
+          "lever": "Grow Fee (Capital-light)",
+          "action": "Expand cash management, supply-chain finance, FX hedging and IRS through the trading and treasury arms.",
+          "impact": "+PKR 60-90M fee at near-zero RWA"
+        },
+        {
+          "lever": "Optimize RWA",
+          "action": "Shift funded WC into self-liquidating trade and SBP-refinanced ERF; syndicate part of the PKR 4bn term loan.",
+          "impact": "Frees ~PKR 3-4bn RWA, lifts RAROC 4-6pts"
+        },
+        {
+          "lever": "Capture the Operating Float",
+          "action": "Become the primary operating and payroll bank across all subsidiaries.",
+          "impact": "Each +PKR 500M CA ≈ +PKR 63M funding value"
+        },
+        {
+          "lever": "Relationship Pricing",
+          "action": "Reprice thin OD/WC lines toward the hurdle, bundled with ancillary value.",
+          "impact": "Lifts sub-hurdle funded lines above 18%"
+        },
+        {
+          "lever": "Risk & Concentration",
+          "action": "Monitor group single-obligor limit, sector concentration and covenants.",
+          "impact": "Controls PKR 111M ECL and tail risk"
+        }
+      ],
+      "nextBestProducts": [
+        "Supply-chain / distributor finance",
+        "Escrow & host-to-host payments",
+        "FX options & structured hedging",
+        "Investment banking / DCM",
+        "Islamic (Shariah) trade lines"
+      ],
+      "risks": [
+        "Thin funded-loan RAROC vs hurdle",
+        "Group / sector concentration (textile, energy)",
+        "FX & commodity price exposure",
+        "Competitor take-out on the capex loan",
+        "Working-capital cycle stretch"
+      ]
+    },
+    "assumptions": {
+      "carPct": 12.5,
+      "coePct": 18.0,
+      "hurdleRaroc": 18.0,
+      "opRiskCapitalPct": 15.0,
+      "clvHorizonYears": 10,
+      "clvGrowthPct": 6.0,
+      "clvDiscountPct": 15.0
+    },
+    "products": [
+      {
+        "category": "Deposit",
+        "name": "Current Accounts (operating)",
+        "side": "Liability",
+        "balance": 1800,
+        "customerRate": 0.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 226.8,
+        "fee": 8,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "Savings (PLS)",
+        "side": "Liability",
+        "balance": 600,
+        "customerRate": 11.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 9.6,
+        "fee": 1,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "Term Deposits (surplus)",
+        "side": "Liability",
+        "balance": 2500,
+        "customerRate": 13.0,
+        "poolRate": 13.1,
+        "tenor": "1Y",
+        "nii": 2.5,
+        "fee": 0,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "FCY Deposits (export proceeds)",
+        "side": "Liability",
+        "balance": 900,
+        "customerRate": 1.2,
+        "poolRate": 2.5,
+        "tenor": "Behavioral",
+        "nii": 11.7,
+        "fee": 6,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Lending",
+        "name": "Working Capital / Running Finance",
+        "side": "Asset",
+        "balance": 3500,
+        "customerRate": 15.5,
+        "poolRate": 12.9,
+        "tenor": "6M",
+        "nii": 91.0,
+        "fee": 4,
+        "ecl": 21.0,
+        "rwa": 3500.0
+      },
+      {
+        "category": "Lending",
+        "name": "Cash Finance (Pledge/Hypo)",
+        "side": "Asset",
+        "balance": 1200,
+        "customerRate": 15.0,
+        "poolRate": 12.9,
+        "tenor": "3M",
+        "nii": 25.2,
+        "fee": 2,
+        "ecl": 7.2,
+        "rwa": 1200.0
+      },
+      {
+        "category": "Lending",
+        "name": "Term Loan (Capex)",
+        "side": "Asset",
+        "balance": 4000,
+        "customerRate": 16.0,
+        "poolRate": 13.4,
+        "tenor": "5Y",
+        "nii": 104.0,
+        "fee": 5,
+        "ecl": 19.2,
+        "rwa": 4000.0
+      },
+      {
+        "category": "Lending",
+        "name": "Commercial Mortgage",
+        "side": "Asset",
+        "balance": 1500,
+        "customerRate": 16.5,
+        "poolRate": 13.6,
+        "tenor": "7Y",
+        "nii": 43.5,
+        "fee": 3,
+        "ecl": 3.75,
+        "rwa": 1500.0
+      },
+      {
+        "category": "Lending",
+        "name": "Overdraft (Clean)",
+        "side": "Asset",
+        "balance": 800,
+        "customerRate": 17.0,
+        "poolRate": 12.6,
+        "tenor": "O/N",
+        "nii": 35.2,
+        "fee": 3,
+        "ecl": 7.2,
+        "rwa": 800.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Import LC",
+        "side": "Off-B/S",
+        "balance": 3000,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Contingent",
+        "nii": 0.0,
+        "fee": 60,
+        "ecl": 9.0,
+        "rwa": 1500.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Export Bill Negotiation",
+        "side": "Asset",
+        "balance": 2000,
+        "customerRate": 13.5,
+        "poolRate": 12.9,
+        "tenor": "3M",
+        "nii": 12.0,
+        "fee": 24,
+        "ecl": 7.0,
+        "rwa": 1000.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Bank Guarantees (Perf/Bid)",
+        "side": "Off-B/S",
+        "balance": 1500,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Contingent",
+        "nii": 0.0,
+        "fee": 15,
+        "ecl": 4.5,
+        "rwa": 750.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Import Finance (FIM/FATR)",
+        "side": "Asset",
+        "balance": 2200,
+        "customerRate": 15.5,
+        "poolRate": 12.9,
+        "tenor": "6M",
+        "nii": 57.2,
+        "fee": 17.6,
+        "ecl": 19.8,
+        "rwa": 2200.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Export Refinance (SBP ERF)",
+        "side": "Asset",
+        "balance": 1800,
+        "customerRate": 3.0,
+        "poolRate": 1.0,
+        "tenor": "6M",
+        "nii": 36.0,
+        "fee": 5,
+        "ecl": 5.4,
+        "rwa": 360.0
+      },
+      {
+        "category": "Treasury & Markets",
+        "name": "Money Market Lines",
+        "side": "Liability",
+        "balance": 1500,
+        "customerRate": 12.8,
+        "poolRate": 12.9,
+        "tenor": "Short",
+        "nii": 1.5,
+        "fee": 4,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Treasury & Markets",
+        "name": "FX (Spot & Forward)",
+        "side": "Markets",
+        "balance": 8000,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Flow / notional",
+        "nii": 0.0,
+        "fee": 28,
+        "ecl": 2.0,
+        "rwa": 300
+      },
+      {
+        "category": "Treasury & Markets",
+        "name": "Interest-Rate Swaps",
+        "side": "Markets",
+        "balance": 2000,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "3Y notional",
+        "nii": 0.0,
+        "fee": 6,
+        "ecl": 3.0,
+        "rwa": 500
+      },
+      {
+        "category": "Transaction Banking",
+        "name": "Cash Management & Payments",
+        "side": "Service",
+        "balance": 0,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Flow",
+        "nii": 0.0,
+        "fee": 57,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Transaction Banking",
+        "name": "Corporate Card Programme",
+        "side": "Asset",
+        "balance": 150,
+        "customerRate": 26.0,
+        "poolRate": 13.1,
+        "tenor": "Revolving",
+        "nii": 19.35,
+        "fee": 8,
+        "ecl": 1.65,
+        "rwa": 112.5
+      }
+    ],
+    "summary": {
+      "footings": 24450,
+      "offBsExposure": 4500,
+      "marketsNotional": 10000,
+      "ftpAdjustedNII": 675.55,
+      "indirectRevenue": 256.6,
+      "totalRevenue": 932.15,
+      "operatingCost": 210,
+      "operatingProfit": 722.15,
+      "totalEcl": 110.7,
+      "riskAdjustedProfit": 611.45,
+      "creditMarketRwa": 17722.5,
+      "opRiskRwa": 1747.78,
+      "totalRwa": 19470.28,
+      "economicCapital": 2433.79,
+      "capitalCharge": 438.08,
+      "eva": 173.37,
+      "raroc": 25.1,
+      "returnOnRevenuePct": 18.6,
+      "clv": 1073.59
+    },
+    "waterfall": [
+      {
+        "label": "FTP-Adjusted NII",
+        "value": 675.55,
+        "type": "start"
+      },
+      {
+        "label": "+ Fee & Indirect Revenue",
+        "value": 256.6,
+        "type": "add"
+      },
+      {
+        "label": "= Total Revenue",
+        "value": 932.15,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Operating Cost (ABC)",
+        "value": -210,
+        "type": "subtract"
+      },
+      {
+        "label": "= Operating Profit",
+        "value": 722.15,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Expected Credit Loss",
+        "value": -110.7,
+        "type": "subtract"
+      },
+      {
+        "label": "= Risk-Adjusted Profit",
+        "value": 611.45,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Capital Charge (EC × CoE)",
+        "value": -438.08,
+        "type": "subtract"
+      },
+      {
+        "label": "= Economic Profit (EVA)",
+        "value": 173.37,
+        "type": "final"
+      }
+    ]
+  },
+  {
+    "id": "corporate",
+    "unit": "PKR millions",
+    "customer": {
+      "name": "Indus Trading House (illustrative)",
+      "id": "CIF-CORP-30288",
+      "segment": "Corporate — Trade & Treasury",
+      "relationshipYears": 11,
+      "riskRating": "6 / BBB",
+      "profile": "Import/export trading house: deposit-rich (export proceeds), trade-finance and FX-intensive, light on funded term debt. The capital-light ancillary champion — the ideal corporate relationship."
+    },
+    "archetype": "Ancillary Champion",
+    "subAccounts": [
+      {
+        "name": "Indus Trading (Master)",
+        "type": "Trading / Treasury",
+        "footings": 6800,
+        "revenue": 398
+      },
+      {
+        "name": "Indus Exports Ltd",
+        "type": "Exports / FCY",
+        "footings": 3200,
+        "revenue": 142
+      },
+      {
+        "name": "Indus Logistics",
+        "type": "Services",
+        "footings": 1500,
+        "revenue": 81.7
+      }
+    ],
+    "costs": [
+      {
+        "activity": "Relationship & coverage team",
+        "amount": 25
+      },
+      {
+        "activity": "Trade finance operations",
+        "amount": 40
+      },
+      {
+        "activity": "Cash management operations",
+        "amount": 30
+      },
+      {
+        "activity": "Credit administration & monitoring",
+        "amount": 15
+      },
+      {
+        "activity": "Treasury & markets support",
+        "amount": 15
+      },
+      {
+        "activity": "Channel & technology (H2H)",
+        "amount": 10
+      }
+    ],
+    "poolCurve": [
+      {
+        "tenor": "SBP ERF",
+        "rate": 1.0
+      },
+      {
+        "tenor": "O/N",
+        "rate": 12.0
+      },
+      {
+        "tenor": "3M",
+        "rate": 12.6
+      },
+      {
+        "tenor": "6M",
+        "rate": 12.9
+      },
+      {
+        "tenor": "1Y",
+        "rate": 13.1
+      },
+      {
+        "tenor": "3Y",
+        "rate": 13.4
+      },
+      {
+        "tenor": "5Y",
+        "rate": 13.6
+      },
+      {
+        "tenor": "7Y",
+        "rate": 13.75
+      }
+    ],
+    "strategy": {
+      "quadrant": "Ancillary Champion — High Value, Capital-Light",
+      "stance": "Protect & Grow",
+      "shareOfWalletPct": 55,
+      "targetShareOfWalletPct": 75,
+      "headline": "Higher EVA AND higher RAROC than the larger industrial group — because value comes from deposits, trade and FX (capital-light), not funded loans. The template corporate relationship: protect the operating flow and grow ancillary.",
+      "plays": [
+        {
+          "lever": "Protect the Flow",
+          "action": "Defend the operating and FCY accounts and trade-settlement mandate — these are the value engine.",
+          "impact": "Protects PKR 342M deposit funding value"
+        },
+        {
+          "lever": "Grow FX & Hedging",
+          "action": "Deepen FX flow, add options and structured hedging on import/export exposure.",
+          "impact": "+PKR 30-50M capital-light fee"
+        },
+        {
+          "lever": "Supply-chain Finance",
+          "action": "Bank the counterparties — suppliers and distributors — to extend the ecosystem.",
+          "impact": "New low-RWA trade assets"
+        },
+        {
+          "lever": "Selective Funded Growth",
+          "action": "Offer WC only where it wins/retains ancillary; keep the funded book small and self-liquidating.",
+          "impact": "Keeps RAROC high"
+        }
+      ],
+      "nextBestProducts": [
+        "FX options & structured hedging",
+        "Supply-chain finance",
+        "Escrow / host-to-host",
+        "Islamic trade lines"
+      ],
+      "risks": [
+        "FX & commodity price volatility",
+        "Concentration in a few trade corridors",
+        "Competitor undercutting on FX spread"
+      ]
+    },
+    "assumptions": {
+      "carPct": 12.5,
+      "coePct": 18.0,
+      "hurdleRaroc": 18.0,
+      "opRiskCapitalPct": 15.0,
+      "clvHorizonYears": 10,
+      "clvGrowthPct": 6.0,
+      "clvDiscountPct": 15.0
+    },
+    "products": [
+      {
+        "category": "Deposit",
+        "name": "Current Accounts (operating)",
+        "side": "Liability",
+        "balance": 2500,
+        "customerRate": 0.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 315.0,
+        "fee": 6,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "FCY Deposits (export proceeds)",
+        "side": "Liability",
+        "balance": 1800,
+        "customerRate": 1.0,
+        "poolRate": 2.5,
+        "tenor": "Behavioral",
+        "nii": 27.0,
+        "fee": 5,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "Term Deposits (surplus)",
+        "side": "Liability",
+        "balance": 1500,
+        "customerRate": 13.0,
+        "poolRate": 13.1,
+        "tenor": "1Y",
+        "nii": 1.5,
+        "fee": 0,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Lending",
+        "name": "Working Capital / Running Finance",
+        "side": "Asset",
+        "balance": 1000,
+        "customerRate": 15.5,
+        "poolRate": 12.9,
+        "tenor": "6M",
+        "nii": 26.0,
+        "fee": 3,
+        "ecl": 4.8,
+        "rwa": 1000.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Import LC",
+        "side": "Off-B/S",
+        "balance": 4000,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Contingent",
+        "nii": 0.0,
+        "fee": 80,
+        "ecl": 9.6,
+        "rwa": 2000.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Import Finance (FIM/FATR)",
+        "side": "Asset",
+        "balance": 1500,
+        "customerRate": 15.5,
+        "poolRate": 12.9,
+        "tenor": "6M",
+        "nii": 39.0,
+        "fee": 12,
+        "ecl": 10.12,
+        "rwa": 1500.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Export Bill Negotiation",
+        "side": "Asset",
+        "balance": 1200,
+        "customerRate": 13.5,
+        "poolRate": 12.9,
+        "tenor": "3M",
+        "nii": 7.2,
+        "fee": 18,
+        "ecl": 4.2,
+        "rwa": 600.0
+      },
+      {
+        "category": "Treasury & Markets",
+        "name": "FX (Spot & Forward)",
+        "side": "Markets",
+        "balance": 12000,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Flow / notional",
+        "nii": 0.0,
+        "fee": 42,
+        "ecl": 3.0,
+        "rwa": 400
+      },
+      {
+        "category": "Transaction Banking",
+        "name": "Cash Management & Payments",
+        "side": "Service",
+        "balance": 0,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Flow",
+        "nii": 0.0,
+        "fee": 40,
+        "ecl": 0.0,
+        "rwa": 0.0
+      }
+    ],
+    "summary": {
+      "footings": 9500,
+      "offBsExposure": 4000,
+      "marketsNotional": 12000,
+      "ftpAdjustedNII": 415.7,
+      "indirectRevenue": 206,
+      "totalRevenue": 621.7,
+      "operatingCost": 135,
+      "operatingProfit": 486.7,
+      "totalEcl": 31.72,
+      "riskAdjustedProfit": 454.98,
+      "creditMarketRwa": 5500.0,
+      "opRiskRwa": 1165.69,
+      "totalRwa": 6665.69,
+      "economicCapital": 833.21,
+      "capitalCharge": 149.98,
+      "eva": 305.0,
+      "raroc": 54.6,
+      "returnOnRevenuePct": 49.1,
+      "clv": 1888.74
+    },
+    "waterfall": [
+      {
+        "label": "FTP-Adjusted NII",
+        "value": 415.7,
+        "type": "start"
+      },
+      {
+        "label": "+ Fee & Indirect Revenue",
+        "value": 206,
+        "type": "add"
+      },
+      {
+        "label": "= Total Revenue",
+        "value": 621.7,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Operating Cost (ABC)",
+        "value": -135,
+        "type": "subtract"
+      },
+      {
+        "label": "= Operating Profit",
+        "value": 486.7,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Expected Credit Loss",
+        "value": -31.72,
+        "type": "subtract"
+      },
+      {
+        "label": "= Risk-Adjusted Profit",
+        "value": 454.98,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Capital Charge (EC × CoE)",
+        "value": -149.98,
+        "type": "subtract"
+      },
+      {
+        "label": "= Economic Profit (EVA)",
+        "value": 305.0,
+        "type": "final"
+      }
+    ]
+  },
+  {
+    "id": "corporate",
+    "unit": "PKR millions",
+    "customer": {
+      "name": "Zenith Steel Mills (illustrative)",
+      "id": "CIF-CORP-41190",
+      "segment": "Corporate — Capital-Intensive",
+      "relationshipYears": 7,
+      "riskRating": "8 / BB+ (watch)",
+      "profile": "Heavy manufacturer funded largely by a big capex term loan and working capital, with minimal deposits, trade or treasury (operations banked elsewhere). Ties up large capital for a sub-hurdle return — the capital guzzler."
+    },
+    "archetype": "Capital Guzzler",
+    "subAccounts": [
+      {
+        "name": "Zenith Steel (Master)",
+        "type": "Manufacturing",
+        "footings": 8300,
+        "revenue": 205.8
+      },
+      {
+        "name": "Zenith Trading",
+        "type": "Trading",
+        "footings": 800,
+        "revenue": 19
+      }
+    ],
+    "costs": [
+      {
+        "activity": "Relationship & coverage team",
+        "amount": 20
+      },
+      {
+        "activity": "Credit administration & monitoring",
+        "amount": 25
+      },
+      {
+        "activity": "Trade finance operations",
+        "amount": 8
+      },
+      {
+        "activity": "Channel & technology (H2H)",
+        "amount": 5
+      }
+    ],
+    "poolCurve": [
+      {
+        "tenor": "SBP ERF",
+        "rate": 1.0
+      },
+      {
+        "tenor": "O/N",
+        "rate": 12.0
+      },
+      {
+        "tenor": "3M",
+        "rate": 12.6
+      },
+      {
+        "tenor": "6M",
+        "rate": 12.9
+      },
+      {
+        "tenor": "1Y",
+        "rate": 13.1
+      },
+      {
+        "tenor": "3Y",
+        "rate": 13.4
+      },
+      {
+        "tenor": "5Y",
+        "rate": 13.6
+      },
+      {
+        "tenor": "7Y",
+        "rate": 13.75
+      }
+    ],
+    "strategy": {
+      "quadrant": "Capital Guzzler — Sub-Hurdle, Negative EVA",
+      "stance": "Reprice / Restructure or Demand Ancillary",
+      "shareOfWalletPct": 35,
+      "targetShareOfWalletPct": 60,
+      "headline": "Big funded exposure ties up ~PKR 1.1B of capital for a below-hurdle ~10% RAROC and negative EVA. The bank is subsidising a loan-only relationship. Fix the economics: reprice, win the ancillary, or reduce exposure.",
+      "plays": [
+        {
+          "lever": "Reprice to Hurdle",
+          "action": "Reprice the capex loan and WC toward a RAROC-clearing spread at renewal.",
+          "impact": "Path from 10% to >18% RAROC"
+        },
+        {
+          "lever": "Demand Ancillary",
+          "action": "Make renewal conditional on winning the operating accounts, cash management, payroll and trade flow.",
+          "impact": "Adds capital-light fee & float"
+        },
+        {
+          "lever": "Recycle Capital",
+          "action": "Syndicate or participate out part of the PKR 6bn term loan to release RWA.",
+          "impact": "Frees ~PKR 2-3bn RWA"
+        },
+        {
+          "lever": "Reduce or Exit",
+          "action": "If economics cannot be fixed, cap exposure, tighten covenants, and manage down.",
+          "impact": "Stops the PKR 91M value drag"
+        }
+      ],
+      "nextBestProducts": [
+        "Operating-account & payroll mandate",
+        "Cash management",
+        "Syndication / club deal",
+        "Supply-chain finance"
+      ],
+      "risks": [
+        "Sub-hurdle RAROC, negative EVA",
+        "High single-obligor capital consumption",
+        "BB+ credit on watch",
+        "Loan-only, low switching stickiness"
+      ]
+    },
+    "assumptions": {
+      "carPct": 12.5,
+      "coePct": 18.0,
+      "hurdleRaroc": 18.0,
+      "opRiskCapitalPct": 15.0,
+      "clvHorizonYears": 10,
+      "clvGrowthPct": 6.0,
+      "clvDiscountPct": 15.0
+    },
+    "products": [
+      {
+        "category": "Lending",
+        "name": "Term Loan (Capex)",
+        "side": "Asset",
+        "balance": 6000,
+        "customerRate": 15.5,
+        "poolRate": 13.4,
+        "tenor": "5Y",
+        "nii": 126.0,
+        "fee": 6,
+        "ecl": 40.5,
+        "rwa": 6000.0
+      },
+      {
+        "category": "Lending",
+        "name": "Working Capital / Running Finance",
+        "side": "Asset",
+        "balance": 2000,
+        "customerRate": 15.0,
+        "poolRate": 12.9,
+        "tenor": "6M",
+        "nii": 42.0,
+        "fee": 3,
+        "ecl": 16.2,
+        "rwa": 2000.0
+      },
+      {
+        "category": "Deposit",
+        "name": "Current Account (minimal)",
+        "side": "Liability",
+        "balance": 300,
+        "customerRate": 0.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 37.8,
+        "fee": 2,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Bank Guarantees (Perf)",
+        "side": "Off-B/S",
+        "balance": 800,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Contingent",
+        "nii": 0.0,
+        "fee": 8,
+        "ecl": 2.4,
+        "rwa": 400.0
+      }
+    ],
+    "summary": {
+      "footings": 8300,
+      "offBsExposure": 800,
+      "marketsNotional": 0,
+      "ftpAdjustedNII": 205.8,
+      "indirectRevenue": 19,
+      "totalRevenue": 224.8,
+      "operatingCost": 58,
+      "operatingProfit": 166.8,
+      "totalEcl": 59.1,
+      "riskAdjustedProfit": 107.7,
+      "creditMarketRwa": 8400.0,
+      "opRiskRwa": 421.5,
+      "totalRwa": 8821.5,
+      "economicCapital": 1102.69,
+      "capitalCharge": 198.48,
+      "eva": -90.78,
+      "raroc": 9.8,
+      "returnOnRevenuePct": -40.4,
+      "clv": -562.18
+    },
+    "waterfall": [
+      {
+        "label": "FTP-Adjusted NII",
+        "value": 205.8,
+        "type": "start"
+      },
+      {
+        "label": "+ Fee & Indirect Revenue",
+        "value": 19,
+        "type": "add"
+      },
+      {
+        "label": "= Total Revenue",
+        "value": 224.8,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Operating Cost (ABC)",
+        "value": -58,
+        "type": "subtract"
+      },
+      {
+        "label": "= Operating Profit",
+        "value": 166.8,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Expected Credit Loss",
+        "value": -59.1,
+        "type": "subtract"
+      },
+      {
+        "label": "= Risk-Adjusted Profit",
+        "value": 107.7,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Capital Charge (EC × CoE)",
+        "value": -198.48,
+        "type": "subtract"
+      },
+      {
+        "label": "= Economic Profit (EVA)",
+        "value": -90.78,
+        "type": "final"
+      }
+    ]
+  }
+]

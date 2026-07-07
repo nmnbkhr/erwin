@@ -1,0 +1,806 @@
+[
+  {
+    "id": "consumer",
+    "unit": "PKR",
+    "customer": {
+      "name": "Ahmed Raza (illustrative)",
+      "id": "CIF-100482",
+      "segment": "Premier — Consumer + Small Business",
+      "relationshipYears": 9,
+      "riskRating": "8 / A- (low)",
+      "profile": "Salaried professional and importer holding all deposit products, the full retail lending suite incl. mortgage, and trade finance for his business. The full-relationship star customer."
+    },
+    "archetype": "Star",
+    "costs": [
+      {
+        "activity": "Relationship management",
+        "amount": 55000
+      },
+      {
+        "activity": "Card & payment processing",
+        "amount": 40000
+      },
+      {
+        "activity": "Trade finance operations",
+        "amount": 45000
+      },
+      {
+        "activity": "Branch & channel servicing",
+        "amount": 30000
+      },
+      {
+        "activity": "Collections & monitoring",
+        "amount": 22000
+      },
+      {
+        "activity": "Account maintenance & digital",
+        "amount": 18000
+      }
+    ],
+    "poolCurve": [
+      {
+        "tenor": "O/N",
+        "rate": 12.0
+      },
+      {
+        "tenor": "3M",
+        "rate": 12.6
+      },
+      {
+        "tenor": "6M",
+        "rate": 12.9
+      },
+      {
+        "tenor": "1Y",
+        "rate": 13.1
+      },
+      {
+        "tenor": "3Y",
+        "rate": 13.4
+      },
+      {
+        "tenor": "5Y",
+        "rate": 13.6
+      },
+      {
+        "tenor": "10Y",
+        "rate": 13.9
+      }
+    ],
+    "strategy": {
+      "quadrant": "Star — High Value, High Loyalty",
+      "stance": "Protect & Grow",
+      "shareOfWalletPct": 60,
+      "targetShareOfWalletPct": 80,
+      "headline": "Top-decile relationship driven by a zero-cost operating balance and the full lending suite. Defend primacy, deepen wealth, and avoid needless rate discounting.",
+      "plays": [
+        {
+          "lever": "Retain (Primacy)",
+          "action": "Lock salary and current-account primacy with premier servicing, a higher card limit and selective fee waivers funded by the deposit value.",
+          "impact": "Protects PKR 315k current-account funding value"
+        },
+        {
+          "lever": "Deepen (Wealth)",
+          "action": "Cross-sell investments (mutual funds / government securities), bancassurance / takaful and a mortgage top-up.",
+          "impact": "+PKR 120-180k fee & NII"
+        },
+        {
+          "lever": "Pricing",
+          "action": "Do not compete on rate — the customer is rate-insensitive and highly profitable; hold pricing and reward loyalty with service.",
+          "impact": "Preserves the ~65% RAROC"
+        },
+        {
+          "lever": "Risk",
+          "action": "Low risk (A-). Monitor card utilisation and unsecured build-up; pre-approve prudent limit increases.",
+          "impact": "Keeps ECL below 1% of revenue"
+        },
+        {
+          "lever": "Attrition Defense",
+          "action": "Trigger retention if a competitor mortgage-refinance offer is detected; the mortgage anchors the relationship.",
+          "impact": "Protects PKR 552k mortgage NII"
+        }
+      ],
+      "nextBestProducts": [
+        "Investment / Wealth account",
+        "Takaful / Bancassurance",
+        "Mortgage top-up",
+        "Premier card upgrade"
+      ],
+      "risks": [
+        "Competitor mortgage refinancing (rate shopping)",
+        "Card over-limit / unsecured build-up",
+        "Concentration in a single banking relationship"
+      ]
+    },
+    "assumptions": {
+      "carPct": 12.5,
+      "coePct": 18.0,
+      "hurdleRaroc": 18.0,
+      "opRiskCapitalPct": 15.0,
+      "clvHorizonYears": 8,
+      "clvGrowthPct": 5.0,
+      "clvDiscountPct": 15.0
+    },
+    "products": [
+      {
+        "category": "Deposit",
+        "name": "Current Account (CASA)",
+        "side": "Liability",
+        "balance": 2500000,
+        "customerRate": 0.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 315000.0,
+        "fee": 6000,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "Savings (PLS)",
+        "side": "Liability",
+        "balance": 3500000,
+        "customerRate": 11.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 56000.0,
+        "fee": 3000,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "Term Deposit (1Y)",
+        "side": "Liability",
+        "balance": 5000000,
+        "customerRate": 13.0,
+        "poolRate": 13.1,
+        "tenor": "1Y",
+        "nii": 5000.0,
+        "fee": 0,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "FCY Deposit (USD)",
+        "side": "Liability",
+        "balance": 1500000,
+        "customerRate": 1.5,
+        "poolRate": 2.5,
+        "tenor": "Behavioral",
+        "nii": 15000.0,
+        "fee": 4000,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Lending",
+        "name": "Personal Loan",
+        "side": "Asset",
+        "balance": 1200000,
+        "customerRate": 24.0,
+        "poolRate": 13.7,
+        "tenor": "1Y",
+        "nii": 123600.0,
+        "fee": 5000,
+        "ecl": 31200.0,
+        "rwa": 900000.0
+      },
+      {
+        "category": "Lending",
+        "name": "Credit Card",
+        "side": "Asset",
+        "balance": 350000,
+        "customerRate": 42.0,
+        "poolRate": 13.1,
+        "tenor": "Revolving",
+        "nii": 101150.0,
+        "fee": 45000,
+        "ecl": 15750.0,
+        "rwa": 262500.0
+      },
+      {
+        "category": "Lending",
+        "name": "Auto Loan",
+        "side": "Asset",
+        "balance": 2800000,
+        "customerRate": 21.0,
+        "poolRate": 13.4,
+        "tenor": "3Y",
+        "nii": 212800.0,
+        "fee": 4000,
+        "ecl": 19600.0,
+        "rwa": 2100000.0
+      },
+      {
+        "category": "Lending",
+        "name": "Running Finance (OD)",
+        "side": "Asset",
+        "balance": 1500000,
+        "customerRate": 20.0,
+        "poolRate": 12.6,
+        "tenor": "3M reset",
+        "nii": 111000.0,
+        "fee": 6000,
+        "ecl": 24750.0,
+        "rwa": 1125000.0
+      },
+      {
+        "category": "Lending",
+        "name": "Mortgage (Home Finance)",
+        "side": "Asset",
+        "balance": 12000000,
+        "customerRate": 18.5,
+        "poolRate": 13.9,
+        "tenor": "10Y",
+        "nii": 552000.0,
+        "fee": 8000,
+        "ecl": 28800.0,
+        "rwa": 4200000.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Import Finance (FIM/FATR)",
+        "side": "Asset",
+        "balance": 3000000,
+        "customerRate": 16.0,
+        "poolRate": 12.9,
+        "tenor": "6M",
+        "nii": 93000.0,
+        "fee": 60000,
+        "ecl": 33750.0,
+        "rwa": 3000000.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Letter of Credit (import)",
+        "side": "Off-B/S",
+        "balance": 4000000,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Contingent",
+        "nii": 0.0,
+        "fee": 96000,
+        "ecl": 16000.0,
+        "rwa": 2000000.0
+      },
+      {
+        "category": "Trade Finance",
+        "name": "Bank Guarantee (LG)",
+        "side": "Off-B/S",
+        "balance": 2000000,
+        "customerRate": 0.0,
+        "poolRate": 0.0,
+        "tenor": "Contingent",
+        "nii": 0.0,
+        "fee": 24000,
+        "ecl": 8000.0,
+        "rwa": 1000000.0
+      }
+    ],
+    "summary": {
+      "footings": 33350000,
+      "offBsExposure": 6000000,
+      "marketsNotional": 0,
+      "ftpAdjustedNII": 1584550.0,
+      "indirectRevenue": 261000,
+      "totalRevenue": 1845550.0,
+      "operatingCost": 210000,
+      "operatingProfit": 1635550.0,
+      "totalEcl": 177850.0,
+      "riskAdjustedProfit": 1457700.0,
+      "creditMarketRwa": 14587500.0,
+      "opRiskRwa": 3460406.0,
+      "totalRwa": 18047906.0,
+      "economicCapital": 2255988.0,
+      "capitalCharge": 406078.0,
+      "eva": 1051622.0,
+      "raroc": 64.6,
+      "returnOnRevenuePct": 57.0,
+      "clv": 5437067.0
+    },
+    "waterfall": [
+      {
+        "label": "FTP-Adjusted NII",
+        "value": 1584550.0,
+        "type": "start"
+      },
+      {
+        "label": "+ Fee & Indirect Revenue",
+        "value": 261000,
+        "type": "add"
+      },
+      {
+        "label": "= Total Revenue",
+        "value": 1845550.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Operating Cost (ABC)",
+        "value": -210000,
+        "type": "subtract"
+      },
+      {
+        "label": "= Operating Profit",
+        "value": 1635550.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Expected Credit Loss",
+        "value": -177850.0,
+        "type": "subtract"
+      },
+      {
+        "label": "= Risk-Adjusted Profit",
+        "value": 1457700.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Capital Charge (EC × CoE)",
+        "value": -406078.0,
+        "type": "subtract"
+      },
+      {
+        "label": "= Economic Profit (EVA)",
+        "value": 1051622.0,
+        "type": "final"
+      }
+    ]
+  },
+  {
+    "id": "consumer",
+    "unit": "PKR",
+    "customer": {
+      "name": "Bilal Khan (illustrative)",
+      "id": "CIF-204915",
+      "segment": "Emerging Mass-Affluent",
+      "relationshipYears": 3,
+      "riskRating": "10 / BBB (medium)",
+      "profile": "Young salaried professional, digital-first. Salary account plus early lending (personal, card, auto). Small today but a fast-growing, high-potential relationship worth acquiring deeper."
+    },
+    "archetype": "High-Potential",
+    "costs": [
+      {
+        "activity": "Relationship management",
+        "amount": 20000
+      },
+      {
+        "activity": "Card & payment processing",
+        "amount": 15000
+      },
+      {
+        "activity": "Branch & channel servicing",
+        "amount": 12000
+      },
+      {
+        "activity": "Account maintenance & digital",
+        "amount": 8000
+      }
+    ],
+    "poolCurve": [
+      {
+        "tenor": "O/N",
+        "rate": 12.0
+      },
+      {
+        "tenor": "3M",
+        "rate": 12.6
+      },
+      {
+        "tenor": "6M",
+        "rate": 12.9
+      },
+      {
+        "tenor": "1Y",
+        "rate": 13.1
+      },
+      {
+        "tenor": "3Y",
+        "rate": 13.4
+      },
+      {
+        "tenor": "5Y",
+        "rate": 13.6
+      },
+      {
+        "tenor": "10Y",
+        "rate": 13.9
+      }
+    ],
+    "strategy": {
+      "quadrant": "High-Potential — Growing Value",
+      "stance": "Invest & Grow",
+      "shareOfWalletPct": 30,
+      "targetShareOfWalletPct": 70,
+      "headline": "Small EVA today but strong RAROC and a rising income trajectory. Acquire share of wallet early and grow with the customer before competitors do.",
+      "plays": [
+        {
+          "lever": "Grow (Acquire Share)",
+          "action": "Push salary primacy, raise card limit, and pre-approve a mortgage as income grows; onboard fully to digital.",
+          "impact": "Path to 3-5x EVA over 5 years"
+        },
+        {
+          "lever": "Cross-sell",
+          "action": "Auto-linked insurance, a wealth-starter (SIP), and a future home-finance pre-approval.",
+          "impact": "+PKR 40-70k fee"
+        },
+        {
+          "lever": "Pricing",
+          "action": "Relationship-price the card and personal loan to build loyalty rather than maximise near-term spread.",
+          "impact": "Trades margin now for lifetime value"
+        },
+        {
+          "lever": "Retention",
+          "action": "Digital engagement and life-stage triggers (marriage, home) to stay the primary bank.",
+          "impact": "Protects the CLV trajectory"
+        }
+      ],
+      "nextBestProducts": [
+        "Mortgage pre-approval",
+        "SIP / wealth starter",
+        "Salary-linked overdraft",
+        "Takaful"
+      ],
+      "risks": [
+        "Early-tenure credit seasoning (higher PD)",
+        "Digital-native, low switching cost",
+        "Thin balances if not made primary bank"
+      ]
+    },
+    "assumptions": {
+      "carPct": 12.5,
+      "coePct": 18.0,
+      "hurdleRaroc": 18.0,
+      "opRiskCapitalPct": 15.0,
+      "clvHorizonYears": 8,
+      "clvGrowthPct": 5.0,
+      "clvDiscountPct": 15.0
+    },
+    "products": [
+      {
+        "category": "Deposit",
+        "name": "Current Account (Salary)",
+        "side": "Liability",
+        "balance": 400000,
+        "customerRate": 0.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 50400.0,
+        "fee": 4000,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "Savings (PLS)",
+        "side": "Liability",
+        "balance": 300000,
+        "customerRate": 11.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 4800.0,
+        "fee": 1000,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Lending",
+        "name": "Personal Loan",
+        "side": "Asset",
+        "balance": 600000,
+        "customerRate": 24.0,
+        "poolRate": 13.7,
+        "tenor": "1Y",
+        "nii": 61800.0,
+        "fee": 3000,
+        "ecl": 13650.0,
+        "rwa": 450000.0
+      },
+      {
+        "category": "Lending",
+        "name": "Credit Card",
+        "side": "Asset",
+        "balance": 120000,
+        "customerRate": 42.0,
+        "poolRate": 13.1,
+        "tenor": "Revolving",
+        "nii": 34680.0,
+        "fee": 17000,
+        "ecl": 4500.0,
+        "rwa": 90000.0
+      },
+      {
+        "category": "Lending",
+        "name": "Auto Loan",
+        "side": "Asset",
+        "balance": 1400000,
+        "customerRate": 21.0,
+        "poolRate": 13.4,
+        "tenor": "3Y",
+        "nii": 106400.0,
+        "fee": 0,
+        "ecl": 9800.0,
+        "rwa": 1050000.0
+      }
+    ],
+    "summary": {
+      "footings": 2820000,
+      "offBsExposure": 0,
+      "marketsNotional": 0,
+      "ftpAdjustedNII": 258080.0,
+      "indirectRevenue": 25000,
+      "totalRevenue": 283080.0,
+      "operatingCost": 55000,
+      "operatingProfit": 228080.0,
+      "totalEcl": 27950.0,
+      "riskAdjustedProfit": 200130.0,
+      "creditMarketRwa": 1590000.0,
+      "opRiskRwa": 530775.0,
+      "totalRwa": 2120775.0,
+      "economicCapital": 265097.0,
+      "capitalCharge": 47717.0,
+      "eva": 152413.0,
+      "raroc": 75.5,
+      "returnOnRevenuePct": 53.8,
+      "clv": 787999.0
+    },
+    "waterfall": [
+      {
+        "label": "FTP-Adjusted NII",
+        "value": 258080.0,
+        "type": "start"
+      },
+      {
+        "label": "+ Fee & Indirect Revenue",
+        "value": 25000,
+        "type": "add"
+      },
+      {
+        "label": "= Total Revenue",
+        "value": 283080.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Operating Cost (ABC)",
+        "value": -55000,
+        "type": "subtract"
+      },
+      {
+        "label": "= Operating Profit",
+        "value": 228080.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Expected Credit Loss",
+        "value": -27950.0,
+        "type": "subtract"
+      },
+      {
+        "label": "= Risk-Adjusted Profit",
+        "value": 200130.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Capital Charge (EC × CoE)",
+        "value": -47717.0,
+        "type": "subtract"
+      },
+      {
+        "label": "= Economic Profit (EVA)",
+        "value": 152413.0,
+        "type": "final"
+      }
+    ]
+  },
+  {
+    "id": "consumer",
+    "unit": "PKR",
+    "customer": {
+      "name": "Sana Malik (illustrative)",
+      "id": "CIF-198734",
+      "segment": "Rate-Sensitive / Single-Product",
+      "relationshipYears": 2,
+      "riskRating": "14 / B (elevated)",
+      "profile": "Rate-shopper: a large promotional term deposit priced above the bank’s own funding curve, a near-dormant current account, and a small delinquent personal loan. A value-destroying relationship on an FTP basis."
+    },
+    "archetype": "Value-Destroyer",
+    "costs": [
+      {
+        "activity": "Branch & channel servicing",
+        "amount": 12000
+      },
+      {
+        "activity": "Collections & monitoring",
+        "amount": 18000
+      }
+    ],
+    "poolCurve": [
+      {
+        "tenor": "O/N",
+        "rate": 12.0
+      },
+      {
+        "tenor": "3M",
+        "rate": 12.6
+      },
+      {
+        "tenor": "6M",
+        "rate": 12.9
+      },
+      {
+        "tenor": "1Y",
+        "rate": 13.1
+      },
+      {
+        "tenor": "3Y",
+        "rate": 13.4
+      },
+      {
+        "tenor": "5Y",
+        "rate": 13.6
+      },
+      {
+        "tenor": "10Y",
+        "rate": 13.9
+      }
+    ],
+    "strategy": {
+      "quadrant": "Value-Destroyer — Negative EVA",
+      "stance": "Reprice or Release",
+      "shareOfWalletPct": 20,
+      "targetShareOfWalletPct": 40,
+      "headline": "The promotional term deposit is priced ABOVE the bank’s funding curve (negative FTP spread) and the delinquent loan bleeds provisions. Reprice to the curve, cure or exit the loan, or let the hot money run off.",
+      "plays": [
+        {
+          "lever": "Reprice",
+          "action": "On renewal, reprice the term deposit to (or below) the FTP curve — stop paying above the bank’s marginal funding cost.",
+          "impact": "Removes the −PKR 112k negative spread"
+        },
+        {
+          "lever": "Restructure Risk",
+          "action": "Move the Stage-3 loan to collections/restructuring; secure or write down; halt new unsecured lending.",
+          "impact": "Caps PKR 31.5k ECL leakage"
+        },
+        {
+          "lever": "Convert or Release",
+          "action": "Offer a relationship bundle (salary, cards) to convert to a real relationship; if declined, let the rate-only deposit run off.",
+          "impact": "Stops value destruction"
+        },
+        {
+          "lever": "Do Not Chase",
+          "action": "Do not match competitor promo rates — this balance is unprofitable at any above-curve rate.",
+          "impact": "Protects the deposit book economics"
+        }
+      ],
+      "nextBestProducts": [
+        "Relationship bundle (salary + card)",
+        "Curve-priced deposit",
+        "Secured restructuring"
+      ],
+      "risks": [
+        "Negative-spread hot money",
+        "Stage-3 delinquency / further migration",
+        "Reputational sensitivity on repricing"
+      ]
+    },
+    "assumptions": {
+      "carPct": 12.5,
+      "coePct": 18.0,
+      "hurdleRaroc": 18.0,
+      "opRiskCapitalPct": 15.0,
+      "clvHorizonYears": 8,
+      "clvGrowthPct": 5.0,
+      "clvDiscountPct": 15.0
+    },
+    "products": [
+      {
+        "category": "Deposit",
+        "name": "Term Deposit (promotional)",
+        "side": "Liability",
+        "balance": 8000000,
+        "customerRate": 14.5,
+        "poolRate": 13.1,
+        "tenor": "1Y",
+        "nii": -112000.0,
+        "fee": 0,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Deposit",
+        "name": "Current Account (dormant)",
+        "side": "Liability",
+        "balance": 150000,
+        "customerRate": 0.0,
+        "poolRate": 12.6,
+        "tenor": "Behavioral",
+        "nii": 18900.0,
+        "fee": 2000,
+        "ecl": 0.0,
+        "rwa": 0.0
+      },
+      {
+        "category": "Lending",
+        "name": "Personal Loan (Stage 3)",
+        "side": "Asset",
+        "balance": 300000,
+        "customerRate": 24.0,
+        "poolRate": 13.7,
+        "tenor": "1Y",
+        "nii": 30900.0,
+        "fee": 1000,
+        "ecl": 31500.0,
+        "rwa": 450000.0
+      }
+    ],
+    "summary": {
+      "footings": 8450000,
+      "offBsExposure": 0,
+      "marketsNotional": 0,
+      "ftpAdjustedNII": -62200.0,
+      "indirectRevenue": 3000,
+      "totalRevenue": -59200.0,
+      "operatingCost": 30000,
+      "operatingProfit": -89200.0,
+      "totalEcl": 31500.0,
+      "riskAdjustedProfit": -120700.0,
+      "creditMarketRwa": 450000.0,
+      "opRiskRwa": 0.0,
+      "totalRwa": 450000.0,
+      "economicCapital": 56250.0,
+      "capitalCharge": 10125.0,
+      "eva": -130825.0,
+      "raroc": -214.6,
+      "returnOnRevenuePct": 0.0,
+      "clv": -676388.0
+    },
+    "waterfall": [
+      {
+        "label": "FTP-Adjusted NII",
+        "value": -62200.0,
+        "type": "start"
+      },
+      {
+        "label": "+ Fee & Indirect Revenue",
+        "value": 3000,
+        "type": "add"
+      },
+      {
+        "label": "= Total Revenue",
+        "value": -59200.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Operating Cost (ABC)",
+        "value": -30000,
+        "type": "subtract"
+      },
+      {
+        "label": "= Operating Profit",
+        "value": -89200.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Expected Credit Loss",
+        "value": -31500.0,
+        "type": "subtract"
+      },
+      {
+        "label": "= Risk-Adjusted Profit",
+        "value": -120700.0,
+        "type": "subtotal"
+      },
+      {
+        "label": "− Capital Charge (EC × CoE)",
+        "value": -10125.0,
+        "type": "subtract"
+      },
+      {
+        "label": "= Economic Profit (EVA)",
+        "value": -130825.0,
+        "type": "final"
+      }
+    ]
+  }
+]

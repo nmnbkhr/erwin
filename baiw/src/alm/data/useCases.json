@@ -1,0 +1,234 @@
+[
+  {
+    "id": "ALM-01",
+    "name": "Unified Instrument Position Feed",
+    "objective": "Assemble a single, reconciled position-level feed for the FIS ALM engine covering every on- and off-balance-sheet instrument from Sierra (PIB, T-Bill, FX Forwards) and Symbols/CBS (loans, term deposits, CASA), populating ~260 standardized instrument attributes per position.",
+    "problemStatement": "ALM, FTP, IFRS 9 and liquidity reporting are each fed from different extracts, so numbers never reconcile and every ALCO cycle starts with spreadsheet stitching. There is no golden position store: instrument classification (fixed/floating, HTM/AFS/HFT), GL tagging and repricing profile are re-derived inconsistently per report.",
+    "optimizationTechnique": {
+      "name": "Source-to-PDM Mapping & Golden Position Store",
+      "description": "The SMX mapping resolves each source record (SYTRANS/IXINST for Sierra, RB_ACCT/RB_TDA/tm_ft_cl_loanbook for CBS) to a FIS PDM instrument entity, applying trade-group and purpose-code filters, join and transformation rules to build one position record reused by all downstream engines.",
+      "algorithmType": "Data Integration",
+      "keyModels": ["Dimensional Mapping", "Slowly Changing Position", "Reconciliation Controls"]
+    },
+    "regulatoryBasis": "SBP ALM & IRRBB guidelines; single source of truth for BSD returns",
+    "inputs": [
+      "Sierra SYTRANS / SYENTITY / IXINST_DEF/MKM/EVT (Trade_Group, Purpose)",
+      "CBS RB_ACCT, RB_TDA, RB_INT_DETAIL (deposits / CASA)",
+      "CBS-CL tm_ft_cl_loanbook, CL_DRAWDOWN (loan book)",
+      "RB_GL_RECLASS, MPR_LINE, FSD_DOM_MAP_MASTER (GL tagging)"
+    ],
+    "outputs": [
+      "Golden position record (~260 attributes) per instrument",
+      "Fixed / Floating / Non-Maturing / FX classification",
+      "HTM / AFS / HFT accounting category",
+      "Reconciled asset/liability and ledger tagging"
+    ],
+    "fsdmEntities": ["INVESTMENT_POSITION", "ASSET_LIABILITY_TYPE", "DEPOSIT_TERM_AGREEMENT", "CURRENCY_FORWARD", "BALANCE_SHEET_GL_MAIN_ACCOUNT"],
+    "dependencies": [],
+    "phase": 1,
+    "color": "indigo"
+  },
+  {
+    "id": "ALM-02",
+    "name": "Repricing Gap & IRRBB (EVE / NII)",
+    "objective": "Build the repricing (rate-sensitivity) gap between rate-sensitive assets and liabilities per time bucket, and quantify Interest Rate Risk in the Banking Book through Economic Value of Equity and Net Interest Income sensitivity under SBP-prescribed rate shocks.",
+    "problemStatement": "The banking book carries a structural mismatch: fixed-rate PIBs and term deposits reprice on different cycles to floating KIBOR-linked advances and administered savings. Without a per-bucket repricing ladder the bank cannot see its EVE exposure or defend NII under +/-100/200/300 bps moves that SBP now expects to be measured.",
+    "optimizationTechnique": {
+      "name": "Repricing Ladder + EVE/NII Simulation",
+      "description": "Each position is slotted into repricing buckets using its next-repricing date (ROLL_DATE for CBS floaters, maturity for fixed). Cashflows are revalued under parallel and non-parallel shocks to derive delta-EVE and 12-month delta-NII, with duration and PV01 by bucket.",
+      "algorithmType": "Risk Simulation",
+      "keyModels": ["Repricing Gap", "Delta-EVE", "Delta-NII", "Duration / PV01"]
+    },
+    "regulatoryBasis": "Basel IRRBB (BCBS 368); SBP interest-rate risk framework",
+    "inputs": [
+      "Position repricing attributes (Repricing_NextRepricingDate, Freq, Margin)",
+      "CL_DRAWDOWN ROLL_DATE / INT_FREQ (last & next repricing)",
+      "KIBOR / PKRV reference curves (INTEREST_RATE_INDEX)",
+      "Rate-shock scenario set (+/-100/200/300 bps, twists)"
+    ],
+    "outputs": [
+      "Repricing gap ladder (RSA vs RSL, cumulative gap)",
+      "Delta-EVE under regulatory rate shocks",
+      "12-month Delta-NII at risk",
+      "Duration, PV01 and basis-risk view by KIBOR tenor"
+    ],
+    "fsdmEntities": ["INTEREST_RATE_RISK_CALCULATION", "INTEREST_RATE_BANKING_BOOK_SUMMARY", "INTEREST_RATE_INDEX", "BOND_FLOATING_INTEREST_RATE"],
+    "dependencies": ["ALM-01"],
+    "phase": 1,
+    "color": "blue"
+  },
+  {
+    "id": "ALM-03",
+    "name": "Funds Transfer Pricing Engine",
+    "objective": "Assign a matched-maturity transfer rate to every asset and liability so business-line margin splits into credit spread, funding/liquidity cost and interest-rate risk, moving all rate and liquidity risk to the central Treasury book.",
+    "problemStatement": "Branches book both the customer spread and the interest-rate risk, so profitability is overstated for long-tenor lending and understated for stable deposits. With no FTP, capital and pricing decisions are blind to funding cost, and the deposit franchise's true value is invisible.",
+    "optimizationTechnique": {
+      "name": "Matched-Maturity FTP Decomposition",
+      "description": "Each instrument is priced off the KIBOR/PKRV transfer curve at its repricing tenor, then layered with liquidity, funding, credit and option spreads to produce FTP_Coupon_Rate, FTP_Funding_Spread, FTP_Liquidity_Spread, FTP_Credit_Spread and FTP_Option_Spread. Net customer margin = customer rate minus FTP rate.",
+      "algorithmType": "Transfer Pricing",
+      "keyModels": ["Matched-Maturity Curve", "Multi-Spread Decomposition", "Option-Adjusted FTP"]
+    },
+    "regulatoryBasis": "BCBS FTP principles; internal capital & pricing governance",
+    "inputs": [
+      "Position tenor & repricing profile (from ALM-01/02)",
+      "KIBOR / PKRV term structure (FTP_RateCurveName)",
+      "Behavioral inputs for NMD (FTP_AverageBalance, FTP_AverageYield)",
+      "Instrument optionality (prepayment, early termination, callable)"
+    ],
+    "outputs": [
+      "Per-deal / product / branch FTP rate and net margin",
+      "Funding, liquidity, credit and option spread breakdown",
+      "FTP-adjusted NII feed to Customer Profitability Engine",
+      "Consistent transfer pricing across conventional & Islamic books"
+    ],
+    "fsdmEntities": ["FUNDS_TRANSFER_EVENT", "INTEREST_RATE_INDEX", "YIELD_CURVE_MATURITY_SEGMENT_TYPE", "AGREEMENT_FUNDING_SOURCE"],
+    "dependencies": ["ALM-01", "ALM-02"],
+    "phase": 2,
+    "color": "violet"
+  },
+  {
+    "id": "ALM-04",
+    "name": "Structural Liquidity, LCR & NSFR",
+    "objective": "Build the contractual and behavioral maturity ladder from instrument cashflows, and compute Basel III LCR and NSFR plus SBP liquidity metrics from the same position and cashflow feed.",
+    "problemStatement": "Liquidity risk is managed on end-of-day balances, not forward cashflows, so the bank cannot see cumulative funding gaps or stress survival horizon. HQLA, deposit run-off and rollover assumptions live in disconnected spreadsheets, making LCR/NSFR slow and hard to audit.",
+    "optimizationTechnique": {
+      "name": "Cashflow Maturity Ladder + Basel Ratios",
+      "description": "Contractual inflows/outflows are laddered by bucket, overlaid with behavioral run-off for non-maturing deposits and prepayment, then mapped to HQLA levels and Basel weights to compute LCR (HQLA / net 30-day outflows) and NSFR (available / required stable funding).",
+      "algorithmType": "Liquidity Analytics",
+      "keyModels": ["Maturity Ladder", "Behavioral Run-off", "LCR", "NSFR"]
+    },
+    "regulatoryBasis": "Basel III LCR & NSFR; SBP liquidity returns",
+    "inputs": [
+      "Instrument cashflows (amortization, coupon, redemption, early-termination)",
+      "NonMaturingInstruments feed (RB_ACCT LEDGER_BAL)",
+      "Term-deposit maturities (RB_TDA MATURITY_DATE, RB_TDA_PRETERM)",
+      "HQLA securities inventory (PIB/T-Bill) with haircuts"
+    ],
+    "outputs": [
+      "Daily maturity ladder & cumulative liquidity gap",
+      "LCR and NSFR with component breakdown",
+      "Core vs volatile deposit split",
+      "Contingency funding & survival-horizon view"
+    ],
+    "fsdmEntities": ["INTEREST_RATE_BANKING_BOOK_SUMMARY", "CREDIT_MATURITY_SUMMARY", "DEPOSIT_MATURITY_SUBTYPE", "CASH_FLOW_AMOUNT_TYPE"],
+    "dependencies": ["ALM-01", "ALM-06"],
+    "phase": 2,
+    "color": "cyan"
+  },
+  {
+    "id": "ALM-05",
+    "name": "Behavioral Modeling of Non-Maturing Deposits",
+    "objective": "Model CASA (current and savings) stability, decay and rate sensitivity to separate core from volatile balances and derive the behavioral maturity and repricing profile that contractual data cannot provide.",
+    "problemStatement": "Current and savings deposits have no contractual maturity, yet they fund the balance sheet. Treating them as overnight overstates liquidity and rate risk; treating them as permanent understates it. Key engine inputs (FTP_AverageBalance, FTP_AverageYield, delivery type) are simply not present in the CBS source.",
+    "optimizationTechnique": {
+      "name": "Deposit Decay & Beta Modeling",
+      "description": "Historical balance and rate series are decomposed into a stable core and a volatile layer with a decay profile; a rate beta captures how administered savings rates track KIBOR. Outputs feed behavioral buckets for liquidity, repricing and FTP.",
+      "algorithmType": "ML",
+      "keyModels": ["Core/Volatile Decomposition", "Deposit Decay Curve", "Rate Beta / Pass-through"]
+    },
+    "regulatoryBasis": "IRRBB NMD treatment (BCBS 368); SBP behavioral study guidance",
+    "inputs": [
+      "CASA balance & rate history (RB_ACCT, RB_INT_DETAIL)",
+      "Product & segment attributes (retail / corporate)",
+      "SBP minimum savings rate & policy rate history",
+      "Withdrawal / attrition and seasonality (Eid, salary cycles)"
+    ],
+    "outputs": [
+      "Core vs volatile balance split per product",
+      "Behavioral maturity & decay profile",
+      "Deposit rate beta (pass-through) for repricing",
+      "Behavioral inputs to FTP and liquidity engines"
+    ],
+    "fsdmEntities": ["DEPOSIT_AGREEMENT", "DEPOSIT_MATURITY_SUBTYPE", "FUND_SOURCE_TYPE", "INTEREST_RATE_INDEX"],
+    "dependencies": ["ALM-01"],
+    "phase": 3,
+    "color": "teal"
+  },
+  {
+    "id": "ALM-06",
+    "name": "Cashflow Generation Engine",
+    "objective": "Generate contractual and behavioral cashflows for every instrument from its principal amortization, coupon, redemption and early-termination schedules, producing the dated cashflow ladder that feeds liquidity, IRRBB and IFRS 9 EIR calculations.",
+    "problemStatement": "Cashflow schedules are rebuilt manually each ALM run because payment amounts and dates are frequently absent in source ('Not Required' fields), spread across event tables, and encoded in frequency codes that need FM_PERIOD_FREQ translation. Islamic profit and savings payout conventions are undefined.",
+    "optimizationTechnique": {
+      "name": "Schedule Generation from Cashflow Tables",
+      "description": "Four cashflow tables are populated: AmortizationTable (principal), CouponCashflowTable (interest/profit), RedemptionTable and EarlyTerminationTable. Engine rules generate missing dates/amounts from anchors, frequencies, day-count and business-day conventions and holiday calendars.",
+      "algorithmType": "Deterministic Engine",
+      "keyModels": ["Amortization Schedule", "Coupon Accrual", "Day-count / Business-day Conventions"]
+    },
+    "regulatoryBasis": "IFRS 9 effective-interest-rate; contractual cashflow basis",
+    "inputs": [
+      "Sierra IXINST_EVT / IXINST_DEF coupon & event schedules",
+      "GLTRDAMORT amortization; SYCLTRANS early termination",
+      "CL_DRAWDOWN repay/interest frequencies & roll dates",
+      "FM_PERIOD_FREQ frequency lookup"
+    ],
+    "outputs": [
+      "Principal + interest cashflow schedule per instrument",
+      "Behavioral overlays (prepayment, early withdrawal)",
+      "Grace periods, stubs and redemption events",
+      "Reusable cashflow store for all downstream engines"
+    ],
+    "fsdmEntities": ["BOND_AMORTIZATION_SCHEDULE", "COUPON_TYPE", "CASH_FLOW_AMOUNT_TYPE", "BOND_REDEMPTION", "EARLY_AMORTIZATION_TYPE"],
+    "dependencies": ["ALM-01"],
+    "phase": 2,
+    "color": "sky"
+  },
+  {
+    "id": "ALM-07",
+    "name": "HTM / AFS / HFT Classification & Fair Value",
+    "objective": "Classify securities by accounting intent (HTM, AFS, HFT) from Sierra trade-group and purpose codes to drive amortized-cost vs fair-value measurement, capture clean/dirty market value and support AFS reserve and hedge-accounting movements.",
+    "problemStatement": "The same PIB or T-Bill is measured differently depending on its book (HTM at amortized cost, AFS at FVOCI, HFT at FVTPL), but classification and valuation basis are handled manually. Price basis (clean vs dirty, price vs yield from IXINST_MKM) and book value from GLTRDAMORT are inconsistently applied.",
+    "optimizationTechnique": {
+      "name": "Classification Rules + Mark-to-Market",
+      "description": "Trade-group/purpose codes (HMLB/HTMB, ASLB/ASMB, TBILL, PIB) map to accounting category. IXINST_MKM mid price/yield gives clean and dirty market value; GLTRDAMORT gives amortized cost; the difference drives the AFS reserve and P&L.",
+      "algorithmType": "Rules + Valuation",
+      "keyModels": ["Classification Rules", "Clean/Dirty MtM", "Amortized Cost / EIR"]
+    },
+    "regulatoryBasis": "IFRS 9 classification & measurement; SBP investment classification",
+    "inputs": [
+      "Sierra IXINST_MKM (MID_PRICE, MID_YTM), IXINST_DEF",
+      "GLTRDAMORT amortized cost / book value",
+      "Trade_Group / Purpose classification codes",
+      "FSD_DOM_MAP_MASTER / MPR_LINE GL mapping"
+    ],
+    "outputs": [
+      "Accounting category (HTM / AFS / HFT) per security",
+      "Clean & dirty market value, unrealized gain/loss",
+      "AFS reserve movement and hedge-accounting entries",
+      "Auditable instrument-to-ledger reconciliation"
+    ],
+    "fsdmEntities": ["INVESTMENT_POSITION", "ASSET_VALUATION_AMOUNT_TYPE", "BOND_FIXED_INTEREST_RATE", "BALANCE_SHEET_GL_MAIN_ACCOUNT"],
+    "dependencies": ["ALM-01"],
+    "phase": 3,
+    "color": "amber"
+  },
+  {
+    "id": "ALM-08",
+    "name": "IFRS 9 ECL Integration",
+    "objective": "Stage every exposure (IFRS 9 Stage 1/2/3), attach PD/LGD/CCF risk parameters and compute Expected Credit Loss on the same instrument-level cashflows used for ALM, reconciling provisions to the GL and aligning with SBP and Basel asset classes.",
+    "problemStatement": "ECL is computed in a separate risk system on a different exposure snapshot than ALM, so staging, EAD and cashflows never tie out. Past-due data is held at loan-number level and must be spread to drawdown/position level, and PIT-vs-TTC PD calibration lacks governance.",
+    "optimizationTechnique": {
+      "name": "Staged ECL on Shared Cashflows",
+      "description": "The ALM position feed carries CD_CreditQualityStage, CD_DaysPastDueStage and rating; exposures are staged, then PD (PIT & TTC), lifetime PD, LGD and CCF are applied to the shared cashflow ladder discounted at EIR to produce 12-month and lifetime ECL and loss allowance.",
+      "algorithmType": "Credit Risk Modeling",
+      "keyModels": ["IFRS 9 Staging (SICR)", "PD PIT/TTC", "LGD", "Lifetime ECL"]
+    },
+    "regulatoryBasis": "IFRS 9 impairment; SBP classification & provisioning; Basel asset class",
+    "inputs": [
+      "ALM position feed with CD_* dimensions & TotalPastDueAmount",
+      "CBS loan status flags & past-due buckets; RB_OD_REPOSITORY",
+      "PD / LGD models & Basel parameters",
+      "Exposure cashflows for lifetime-ECL discounting"
+    ],
+    "outputs": [
+      "IFRS 9 stage per exposure (1 / 2 / 3)",
+      "12-month & lifetime ECL and loss allowance",
+      "Provision coverage reconciled to GL",
+      "Shared PD/LGD for Basel RWA & risk-based pricing"
+    ],
+    "fsdmEntities": ["PROBABILITY_OF_DEFAULT_MODEL", "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE", "LOAN_PROVISION_BALANCE", "ALLOWANCE_FOR_LOAN_LOSS_ACCOUNT", "BASEL_II_ASSET_CLASS"],
+    "dependencies": ["ALM-01", "ALM-06"],
+    "phase": 3,
+    "color": "rose"
+  }
+]

@@ -12,6 +12,12 @@ const CapabilityNavigator = lazy(() => import('./pages/CapabilityNavigator'))
 const DependencyGraph = lazy(() => import('./pages/DependencyGraph'))
 const MaturityAssessment = lazy(() => import('./pages/MaturityAssessment'))
 const ProfitabilityEngine = lazy(() => import('./pages/ProfitabilityEngine'))
+const CustomerProfitability = lazy(() => import('./pages/CustomerProfitability'))
+const CustomerValue = lazy(() => import('./pages/CustomerValue'))
+const CorporateValue = lazy(() => import('./pages/CorporateValue'))
+const CustomerComparison = lazy(() => import('./pages/CustomerComparison'))
+const WhatIfLab = lazy(() => import('./pages/WhatIfLab'))
+const PortfolioRollup = lazy(() => import('./pages/PortfolioRollup'))
 const RoadmapBuilder = lazy(() => import('./pages/RoadmapBuilder'))
 const PakistanReference = lazy(() => import('./pages/PakistanReference'))
 const CashOptimizationEngine = lazy(() => import('./components/CashOptimizationEngine'))
@@ -20,6 +26,7 @@ const SuiteLanding = lazy(() => import('./components/SuiteLanding'))
 const TaiwRoutes = lazy(() => import('./taiw'))
 const CoeRoutes = lazy(() => import('./coe'))
 const HaiwRoutes = lazy(() => import('./haiw'))
+const AlmRoutes = lazy(() => import('./alm'))
 
 function App() {
   return (
@@ -62,6 +69,15 @@ function App() {
             </ErrorBoundary>
           } />
 
+          {/* ALM routes — separate layout */}
+          <Route path="/alm/*" element={
+            <ErrorBoundary moduleName="ALM">
+              <Suspense fallback={<PageSkeleton />}>
+                <AlmRoutes />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+
           {/* BAIW routes — existing layout */}
           <Route path="*" element={
             <Layout>
@@ -74,6 +90,12 @@ function App() {
                     <Route path="/graph" element={<DependencyGraph />} />
                     <Route path="/maturity" element={<MaturityAssessment />} />
                     <Route path="/profitability" element={<ProfitabilityEngine />} />
+                    <Route path="/customer-profitability" element={<CustomerProfitability />} />
+                    <Route path="/customer-value" element={<CustomerValue />} />
+                    <Route path="/corporate-value" element={<CorporateValue />} />
+                    <Route path="/customer-comparison" element={<CustomerComparison />} />
+                    <Route path="/what-if" element={<WhatIfLab />} />
+                    <Route path="/portfolio" element={<PortfolioRollup />} />
                     <Route path="/roadmap" element={<RoadmapBuilder />} />
                     <Route path="/pakistan" element={<PakistanReference />} />
                     <Route path="/cash-optimization" element={<CashOptimizationEngine />} />

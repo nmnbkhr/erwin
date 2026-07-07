@@ -366,12 +366,277 @@
       "implementationPhase": 1,
       "investmentRange": "PKR 30-60M",
       "priority": "CRITICAL"
+    },
+    "Asset & Liability Management": {
+      "pakistanObjectives": [
+        "Build a single position-level ALM feed for the FIS ALM engine covering every on- and off-balance-sheet instrument: the Sierra treasury book (PIB, T-Bill, FX Forwards) and the Symbols/CBS banking book (loans, term deposits, CASA)",
+        "Classify each position as Fixed / Floating / Non-Maturing and by accounting intent HTM / AFS / HFT to drive the correct cashflow and revaluation treatment",
+        "Produce repricing (rate-sensitivity) and liquidity (maturity) gap ladders across time buckets to quantify Interest Rate Risk in the Banking Book (IRRBB) and structural liquidity risk for ALCO",
+        "Simulate Net Interest Income (NII) and Economic Value of Equity (EVE) under SBP rate-shock scenarios (parallel and non-parallel +/-100/200/300 bps)",
+        "Establish one reconciled position store that feeds ALM, FTP, IFRS 9 ECL and Basel liquidity reporting from the same source of truth"
+      ],
+      "pakistanDataSources": [
+        "Sierra front-office (SYTRANS, SYENTITY, IXINST_DEF/MKM/EVT) for PIB, T-Bill and FX Forward positions, keyed by Trans_Num and Trade_Group (HMLB/HTMB/ASLB/ASMB)",
+        "Symbols / CBS retail (RB_ACCT, RB_TDA, RB_INT_DETAIL) for CASA and term deposits; CBS-CL (tm_ft_cl_loanbook, CL_DRAWDOWN) for the loan book",
+        "FIS ALM Physical Data Model targets: FixedInstruments, FloatingInstruments, NonMaturingInstruments, FXForwards plus Amortization/Coupon/EarlyTermination/Redemption cashflow tables (~260 standardized attributes)",
+        "GL reclass mapping (RB_GL_RECLASS, MPR_LINE, FSD_DOM_MAP_MASTER) to tag every position to its ledger account and asset/liability side",
+        "KIBOR / PKRV yield curves and INTEREST_RATE_INDEX reference rates for repricing and discounting"
+      ],
+      "expectedOutcomes": [
+        "ALCO-ready repricing and liquidity gap reports by bucket, currency and business line",
+        "NII-at-risk and EVE sensitivity under regulator-defined rate shocks, refreshed every run date",
+        "~260 standardized instrument attributes populated per position, replacing spreadsheet-based ALM",
+        "One golden position feed reused by ALM, FTP and IFRS 9, cutting reconciliation effort and breaks"
+      ],
+      "keyChallenges": [
+        "Several engine inputs (FTP_AverageBalance, FTP_AverageYield) do not exist in source and must be derived by the engine or pre-computed",
+        "LedgerAccount / GL tagging for many products is still 'to be confirmed by Finance' and depends on RB_GL_RECLASS and MPR_LINE lookups",
+        "The fixed-vs-floating flag (DirForDateGeneration) is derived case-by-case from CL_DRAWDOWN.FIXED_INT_RATE and Purpose codes, not stored directly",
+        "Islamic (Ameen) products need profit-rate treatment parallel to conventional interest, and FCY contracts must be revalued at spot"
+      ],
+      "fsdmEntities": [
+        "INTEREST_RATE_BANKING_BOOK_SUMMARY",
+        "INTEREST_RATE_RISK_CALCULATION",
+        "ASSET_LIABILITY_TYPE",
+        "INVESTMENT_POSITION",
+        "DEPOSIT_TERM_AGREEMENT",
+        "BOND_AMORTIZATION_SCHEDULE",
+        "CURRENCY_FORWARD",
+        "BALANCE_SHEET_GL_MAIN_ACCOUNT"
+      ],
+      "implementationPhase": 4,
+      "investmentRange": "PKR 90-180M",
+      "priority": "CRITICAL"
+    },
+    "Funds Transfer Pricing": {
+      "pakistanObjectives": [
+        "Assign a matched-maturity transfer rate to every asset (charge) and liability (credit) so business-line margin splits into credit spread, funding/liquidity cost and interest-rate risk",
+        "Move all interest-rate and liquidity risk from the branches to the central Treasury book, leaving business units with a clean, risk-neutral customer spread",
+        "Populate the FIS engine FTP fields per instrument: FTP_RateCurveName, FTP_Coupon_Rate, FTP_Funding_Spread, FTP_Liquidity_Spread, FTP_Credit_Spread, FTP_Option_Spread and FTP_Margin",
+        "Attribute a defensible, auditable FTP result to each deal to drive risk-adjusted product pricing and RAROC"
+      ],
+      "pakistanDataSources": [
+        "Position feed from ALM (FixedInstruments / FloatingInstruments / NonMaturingInstruments) providing tenor, repricing and cashflow profile per deal",
+        "KIBOR / PKRV term structure as the FTP base curve (FTP_RateCurveName), with tenor-based liquidity-spread add-ons",
+        "Behavioral inputs for non-maturing deposits (FTP_AverageBalance, FTP_AverageYield, FTP_DeliveryType), which are not held in CBS source",
+        "Instrument optionality (prepayment, early termination, callable flags) for the option-cost component (FTP_Option_Spread)"
+      ],
+      "expectedOutcomes": [
+        "Per-deal, per-product and per-branch FTP-adjusted net interest margin",
+        "Transparent separation of who earns the spread (business) versus who owns the risk (Treasury)",
+        "Direct feed into the Customer Profitability Engine for FTP-adjusted EVA",
+        "Consistent transfer pricing across the conventional and Islamic books"
+      ],
+      "keyChallenges": [
+        "FTP inputs for savings/CASA (average balance, average yield, delivery type) are absent in Symbols and must be modeled behaviorally",
+        "Coupon payment frequency/anchor conventions for savings and Islamic products are undefined in source (open items in the mapping)",
+        "Requires an agreed FTP methodology and curve governance, which few Pakistan banks have formalized",
+        "Multi-currency deals need per-currency curves and consistent spot conversion"
+      ],
+      "fsdmEntities": [
+        "FUNDS_TRANSFER_EVENT",
+        "INTEREST_RATE_INDEX",
+        "YIELD_CURVE_MATURITY_SEGMENT_TYPE",
+        "AGREEMENT_FUNDING_SOURCE",
+        "FUND_SOURCE_TYPE",
+        "DEPOSIT_AGREEMENT",
+        "INTEREST_RATE_QUOTATION"
+      ],
+      "implementationPhase": 3,
+      "investmentRange": "PKR 40-90M",
+      "priority": "HIGH"
+    },
+    "Cashflow Generation": {
+      "pakistanObjectives": [
+        "Generate contractual and behavioral cashflows for every instrument from its principal, coupon, amortization, redemption and early-termination schedules",
+        "Model the four cashflow tables from source: AmortizationTable (principal), CouponCashflowTable (interest/profit), RedemptionTable and EarlyTerminationTable",
+        "Derive coupon and repricing dates from source event tables (IXINST_EVT/DEF for Sierra; CL_DRAWDOWN roll/interest dates for CBS loans)",
+        "Produce a dated cashflow ladder per position as the raw material for liquidity gap, NII and valuation"
+      ],
+      "pakistanDataSources": [
+        "Sierra IXINST_EVT / IXINST_DEF coupon and event schedules; GLTRDAMORT amortization; SYCLTRANS early-termination transactions",
+        "CBS-CL CL_DRAWDOWN (PRI_REPAY_FREQ, INT_REP_FREQ, ROLL_DATE, NEXT_INT_REP_DATE) and CL_REPAY / CL_PAID_INVOICE for repayments",
+        "RB_TDA / RB_TDA_PRETERM for term-deposit maturities and pre-termination amounts",
+        "FM_PERIOD_FREQ lookup to translate source frequency codes into the engine payment-frequency enums"
+      ],
+      "expectedOutcomes": [
+        "Complete principal + interest cashflow schedule per instrument, including grace periods and stubs",
+        "Behavioral overlays for prepayment (loans) and early withdrawal (deposits)",
+        "Reusable cashflow store feeding Liquidity, IRRBB and IFRS 9 effective-interest-rate calculations",
+        "Automation of schedules previously rebuilt manually for every ALM run"
+      ],
+      "keyChallenges": [
+        "Coupon/amortization payment amounts (Amort_PaymentAmount, coupon dates) are frequently 'Not Required / N-R' in source and must be engine-generated",
+        "Repayment frequency and repricing dates are spread across CL_DRAWDOWN fields and require FM_PERIOD_FREQ conversion",
+        "Islamic profit distribution and savings payout conventions are not yet defined in source",
+        "Holiday calendars and business-day conventions must be standardized across systems"
+      ],
+      "fsdmEntities": [
+        "CASH_FLOW_AMOUNT_TYPE",
+        "BOND_AMORTIZATION_SCHEDULE",
+        "COUPON_TYPE",
+        "BOND_REDEMPTION",
+        "BOND_INTEREST_PAY_AT_MATURITY",
+        "EARLY_AMORTIZATION_TYPE",
+        "DEPOSIT_TERM_AGREEMENT"
+      ],
+      "implementationPhase": 2,
+      "investmentRange": "PKR 30-70M",
+      "priority": "HIGH"
+    },
+    "Liquidity Management": {
+      "pakistanObjectives": [
+        "Build the structural liquidity (maturity) gap ladder from instrument cashflows across contractual and behavioral time buckets",
+        "Model non-maturing deposit (CASA) stability and run-off to separate core versus volatile balances",
+        "Compute Basel III LCR and NSFR and SBP liquidity metrics from the same position and cashflow feed",
+        "Stress liquidity under name-specific and market-wide scenarios (deposit flight, rollover failure)"
+      ],
+      "pakistanDataSources": [
+        "NonMaturingInstruments feed from CBS (RB_ACCT LEDGER_BAL, RB_GL_RECLASS) for CASA balances and GL classification",
+        "Cashflow ladder from Cashflow Generation (amortization, coupon, redemption, early-termination)",
+        "Term-deposit maturities (RB_TDA MATURITY_DATE) and pre-termination behavior (RB_TDA_PRETERM)",
+        "HQLA inventory from the Sierra securities book (PIB/T-Bill AFS/HFT) with market values and haircuts"
+      ],
+      "expectedOutcomes": [
+        "Daily maturity-ladder and cumulative gap by bucket and currency",
+        "Core-versus-volatile deposit split with behavioral run-off assumptions",
+        "LCR / NSFR ratios and early-warning liquidity indicators for ALCO",
+        "Contingency-funding insight linking the HQLA buffer to stressed outflows"
+      ],
+      "keyChallenges": [
+        "Behavioral maturity of CASA is not in source and needs a decay/stability model per product and segment",
+        "Deposit average-balance inputs (FTP_AverageBalance) are missing and must be derived",
+        "FCY liquidity needs per-currency ladders and spot revaluation",
+        "Early-termination / preterm penalties (PRETERM_AMT net of interest, WHT and Zakat) complicate outflow timing"
+      ],
+      "fsdmEntities": [
+        "INTEREST_RATE_BANKING_BOOK_SUMMARY",
+        "CREDIT_MATURITY_SUMMARY",
+        "DEPOSIT_MATURITY_SUBTYPE",
+        "CASH_FLOW_AMOUNT_TYPE",
+        "INVESTMENT_POSITION",
+        "ASSET_LIABILITY_TYPE"
+      ],
+      "implementationPhase": 3,
+      "investmentRange": "PKR 40-80M",
+      "priority": "HIGH"
+    },
+    "Interest Rate Management": {
+      "pakistanObjectives": [
+        "Produce the repricing gap between rate-sensitive assets and liabilities per time bucket from each instrument repricing profile",
+        "Capture repricing attributes per position: Repricing_NextRepricingDate, Repricing_Freq, Repricing_RateCurveName, Repricing_Margin and Repricing_Cap/Floor",
+        "Quantify IRRBB via EVE and NII sensitivity under SBP-prescribed parallel and non-parallel rate shocks",
+        "Distinguish fixed versus floating exposure and index basis (KIBOR tenor) to manage basis and repricing risk"
+      ],
+      "pakistanDataSources": [
+        "Floating instrument repricing from CL_DRAWDOWN (ROLL_DATE = next repricing; ROLL_DATE - INT_FREQ = last repricing) and RB_INT_DETAIL spreads",
+        "Fixed-vs-floating determination from CL_DRAWDOWN.FIXED_INT_RATE and Sierra Purpose codes (TFCV/PIBF)",
+        "INTEREST_RATE_INDEX reference curves (KIBOR 1M/3M/6M/1Y) and spread/margin per deal",
+        "Instrument caps, floors and rate multipliers from the FIS repricing attribute set"
+      ],
+      "expectedOutcomes": [
+        "Rate-sensitivity (repricing) gap ladder and duration measures for ALCO",
+        "EVE and NII-at-risk under +/-100/200/300 bps shocks",
+        "Basis-risk view across KIBOR tenors and the fixed/floating mix",
+        "Inputs to hedging decisions (interest-rate swaps) and FTP curve construction"
+      ],
+      "keyChallenges": [
+        "Repricing dates are derived, not stored: ROLL_DATE arithmetic and FM_PERIOD_FREQ conversion are required",
+        "Threshold / split / tiered rates (RB-OD, rate schemes) need correct effective-rate selection logic",
+        "Behavioral repricing of administered savings rates differs from contractual and must be modeled",
+        "Cap/floor optionality needs volatility inputs (FTP_*_VolaAtOrigin) not present in source"
+      ],
+      "fsdmEntities": [
+        "INTEREST_RATE_RISK_CALCULATION",
+        "INTEREST_RATE_BANKING_BOOK_SUMMARY",
+        "INTEREST_RATE_INDEX",
+        "BOND_FLOATING_INTEREST_RATE",
+        "FIXED_FLOATING_INTEREST_RATE_SWAP",
+        "INTEREST_RATE_QUOTATION"
+      ],
+      "implementationPhase": 1,
+      "investmentRange": "PKR 25-60M",
+      "priority": "HIGH"
+    },
+    "Fair Value & Hedge Accounting": {
+      "pakistanObjectives": [
+        "Classify securities by accounting intent HTM / AFS / HFT (Sierra Trade_Group and Purpose codes) to drive amortized-cost versus fair-value measurement",
+        "Capture MarketValue (clean/dirty), BookValue and amortized cost per position from IXINST_MKM prices and GLTRDAMORT",
+        "Support fair-value and hedge-accounting entries and AFS reserve movements",
+        "Reconcile position book values to the GL via ledger tagging"
+      ],
+      "pakistanDataSources": [
+        "Sierra IXINST_MKM (MID_PRICE, MID_YTM) mark-to-market and IXINST_DEF instrument definitions",
+        "GLTRDAMORT amortized cost / book value by Trade_Group and amort date (Sysdate-1)",
+        "Trade_Group / Purpose classification (HMLB/HTMB, ASLB/ASMB AFS, TBILL, PIB) for accounting category",
+        "FSD_DOM_MAP_MASTER and MPR_LINE for GL / ledger-account mapping"
+      ],
+      "expectedOutcomes": [
+        "Correct measurement basis per security (amortized cost versus FVOCI versus FVTPL)",
+        "Daily clean/dirty market value and unrealized gain/loss for the AFS reserve",
+        "Auditable link from instrument to accounting category and ledger",
+        "Consistent valuation feed shared with ALM and market-risk"
+      ],
+      "keyChallenges": [
+        "MarketValue price basis (clean versus dirty, price versus yield) must be standardized from IXINST_MKM",
+        "Book value depends on GLTRDAMORT amort-date alignment and Trans_Num joins",
+        "Reclassification between HTM/AFS/HFT changes measurement and must be tracked",
+        "GL / ledger mapping for several instruments is still pending Finance confirmation"
+      ],
+      "fsdmEntities": [
+        "INVESTMENT_POSITION",
+        "ASSET_VALUATION_AMOUNT_TYPE",
+        "BOND_FIXED_INTEREST_RATE",
+        "ASSET-BACKED_SECURITY_PRODUCT",
+        "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+        "HOLDING_VALUE_AT_RISK"
+      ],
+      "implementationPhase": 1,
+      "investmentRange": "PKR 30-70M",
+      "priority": "HIGH"
+    },
+    "Credit Risk Expected Loss Model": {
+      "pakistanObjectives": [
+        "Stage every exposure (IFRS 9 Stage 1/2/3) using CD_CreditQualityStage, CD_DaysPastDueStage and loan-performance status carried on the ALM feed",
+        "Attach risk parameters per position: PD_12M (point-in-time and through-the-cycle), PD_Lifetime, LGD and CreditConversionFactor",
+        "Compute Expected Credit Loss and LossAllowance on the same instrument-level cashflows used for ALM (effective-interest-rate discounting)",
+        "Align ECL provisioning with SBP requirements and Basel asset classes"
+      ],
+      "pakistanDataSources": [
+        "ALM position feed carrying CD_* dimensions (CreditQualityStage, DaysPastDueStage, Rating, Segment, Product) and TotalPastDueAmount",
+        "CBS loan book (tm_ft_cl_loanbook, CL_DRAWDOWN) status flags and past-due buckets; RB_OD_REPOSITORY for retail overdrafts",
+        "PD/LGD models (PROBABILITY_OF_DEFAULT_MODEL, LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE) and Basel parameters",
+        "Contractual + behavioral cashflows from Cashflow Generation for lifetime-ECL discounting"
+      ],
+      "expectedOutcomes": [
+        "Stage-wise ECL (12-month and lifetime) and loss allowance per exposure and portfolio",
+        "Provision coverage aligned to SBP and IFRS 9, reconciled to GL (PROVISION_FOR_LOAN_LOSS_ACCOUNT)",
+        "Consistent PD/LGD parameters shared with Basel RWA and risk-based pricing",
+        "Early-warning staging driven by days-past-due and rating migration"
+      ],
+      "keyChallenges": [
+        "Past-due numbers are applied at loan-number level and must be spread to drawdown/position level",
+        "Dual conventional/Islamic books and multiple CBS sources complicate a single exposure view",
+        "PIT-versus-TTC PD calibration and macro-scenario weighting require model governance",
+        "SICR staging thresholds need agreed, auditable rules across products"
+      ],
+      "fsdmEntities": [
+        "PROBABILITY_OF_DEFAULT_MODEL",
+        "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+        "LOAN_PROVISION_BALANCE",
+        "ALLOWANCE_FOR_LOAN_LOSS_ACCOUNT",
+        "BASEL_II_ASSET_CLASS",
+        "CREDIT_MATURITY_SUMMARY"
+      ],
+      "implementationPhase": 2,
+      "investmentRange": "PKR 50-110M",
+      "priority": "CRITICAL"
     }
   },
   "metadata": {
     "source": "Extracted from 16 BVF enrichment prompts (10,454 lines)",
-    "capabilitiesEnriched": 10,
+    "capabilitiesEnriched": 17,
     "totalCapabilities": 112,
-    "note": "Remaining 102 capabilities have generic placeholder enrichment. Detailed enrichment available in prompt files."
+    "note": "Remaining 102 capabilities have generic placeholder enrichment. Detailed enrichment available in prompt files. ALM/FTP Treasury pack added from UBL_ALM FTP-SMX v0.114 (FTP, ALM, Cashflow Generation, Liquidity, Interest Rate Management, Fair Value & Hedge Accounting, Credit Risk ECL)."
   }
 }

@@ -1,0 +1,120 @@
+{
+  "asOf": "2024-12-31",
+  "currency": "PKR",
+  "note": "Integrated customer profitability model. Aggregate bank-level figures are illustrative UBL-scale values used to demonstrate the analytics; customer names are anonymized sector pseudonyms. FTP-adjusted NII is sourced from the ALM/FTP engine, float/cash recovery from the COE, and the EVA framework from the BAIW Profitability Engine.",
+  "totals": {
+    "customers": 2596000,
+    "evaPKRbn": 52,
+    "avgRaroc": 18.6,
+    "ftpAdjustedNimPct": 3.8,
+    "profitableCustomerPct": 42,
+    "costToIncomePct": 41
+  },
+  "plWaterfall": [
+    { "line": 1, "label": "Gross Interest Income", "value": 260, "type": "start", "source": "BAIW", "note": "Advances + investments (KIBOR + fixed)" },
+    { "line": 2, "label": "− Interest Expense", "value": -150, "type": "subtract", "source": "BAIW", "note": "Deposit & borrowing cost; SBP min savings rate" },
+    { "line": 3, "label": "= Net Interest Income", "value": 110, "type": "subtotal", "source": "BAIW", "note": "NIM ≈ 4.2%" },
+    { "line": 4, "label": "± FTP Adjustment", "value": 4, "type": "add", "source": "ALM", "note": "Treasury retains rate/funding mismatch; customer spread isolated" },
+    { "line": 5, "label": "= FTP-Adjusted NII", "value": 114, "type": "subtotal", "source": "ALM", "note": "Matched-maturity transfer priced off KIBOR/PKRV" },
+    { "line": 6, "label": "+ Fee & Commission", "value": 48, "type": "add", "source": "BAIW", "note": "Trade finance, cards, RAAST, bancassurance" },
+    { "line": 7, "label": "+ Float / Cash Recovery", "value": 10, "type": "add", "source": "COE", "note": "Idle vault/ATM cash redeployed to repo & T-bills" },
+    { "line": 8, "label": "+ FX & Trading Income", "value": 14, "type": "add", "source": "BAIW", "note": "PKR/USD and cross-currency" },
+    { "line": 9, "label": "+ Other Income", "value": 8, "type": "add", "source": "BAIW", "note": "Dividends, recoveries" },
+    { "line": 10, "label": "= Total Income", "value": 194, "type": "subtotal", "source": "BAIW", "note": "" },
+    { "line": 11, "label": "− Direct Operating Cost", "value": -60, "type": "subtract", "source": "BAIW", "note": "Staff, occupancy, technology" },
+    { "line": 12, "label": "− ABC Allocated Cost", "value": -20, "type": "subtract", "source": "BAIW", "note": "Activity-based cost allocation" },
+    { "line": 13, "label": "= Operating Profit", "value": 114, "type": "subtotal", "source": "BAIW", "note": "CTI ≈ 41%" },
+    { "line": 14, "label": "− IFRS 9 ECL Provision", "value": -22, "type": "subtract", "source": "ALM", "note": "Stage 1/2/3 expected credit loss" },
+    { "line": 15, "label": "= Profit Before Capital", "value": 92, "type": "subtotal", "source": "BAIW", "note": "" },
+    { "line": 16, "label": "− Capital Charge (RWA × CoE)", "value": -40, "type": "subtract", "source": "BAIW", "note": "Basel III RWA × ~18% cost of equity" },
+    { "line": 17, "label": "= Economic Profit (EVA)", "value": 52, "type": "final", "source": "BAIW", "note": "RAROC = operating profit / RWA" }
+  ],
+  "segments": [
+    { "segment": "Corporate", "customers": 1200, "revenue": 62, "cost": 14, "ecl": 6, "capitalCharge": 18, "eva": 24, "raroc": 19.5, "profitablePct": 78 },
+    { "segment": "Commercial", "customers": 8500, "revenue": 38, "cost": 12, "ecl": 5, "capitalCharge": 9, "eva": 12, "raroc": 17.2, "profitablePct": 61 },
+    { "segment": "SME", "customers": 42000, "revenue": 26, "cost": 10, "ecl": 6, "capitalCharge": 4, "eva": 6, "raroc": 13.8, "profitablePct": 44 },
+    { "segment": "Consumer", "customers": 2100000, "revenue": 44, "cost": 18, "ecl": 7, "capitalCharge": 5, "eva": 14, "raroc": 22.4, "profitablePct": 39 },
+    { "segment": "Islamic", "customers": 380000, "revenue": 22, "cost": 9, "ecl": 4, "capitalCharge": 4, "eva": 5, "raroc": 16.1, "profitablePct": 47 },
+    { "segment": "Agriculture", "customers": 65000, "revenue": 12, "cost": 8, "ecl": 9, "capitalCharge": 4, "eva": -9, "raroc": 3.9, "profitablePct": 21 }
+  ],
+  "products": [
+    { "product": "Corporate Advance (KIBOR+)", "balance": 445, "ftpMargin": 3.2, "eva": 16, "raroc": 18.5 },
+    { "product": "Consumer Loan", "balance": 165, "ftpMargin": 8.3, "eva": 11, "raroc": 24.0 },
+    { "product": "Current Deposit (CASA)", "balance": 735, "ftpMargin": 12.6, "eva": 21, "raroc": 41.0 },
+    { "product": "Savings Deposit", "balance": 790, "ftpMargin": 1.6, "eva": 6, "raroc": 12.5 },
+    { "product": "Trade Finance", "balance": 210, "ftpMargin": 2.4, "eva": 8, "raroc": 21.0 },
+    { "product": "Term Deposit (TDA)", "balance": 470, "ftpMargin": 0.1, "eva": -2, "raroc": 6.0 }
+  ],
+  "concentration": [
+    { "pctCustomers": 10, "cumProfitPct": 55 },
+    { "pctCustomers": 20, "cumProfitPct": 82 },
+    { "pctCustomers": 30, "cumProfitPct": 98 },
+    { "pctCustomers": 40, "cumProfitPct": 110 },
+    { "pctCustomers": 50, "cumProfitPct": 118 },
+    { "pctCustomers": 60, "cumProfitPct": 124 },
+    { "pctCustomers": 70, "cumProfitPct": 128 },
+    { "pctCustomers": 80, "cumProfitPct": 126 },
+    { "pctCustomers": 90, "cumProfitPct": 117 },
+    { "pctCustomers": 100, "cumProfitPct": 100 }
+  ],
+  "distribution": [
+    { "band": "Star (>PKR 1M EVA)", "customers": 8, "evaShare": 68, "color": "#4f46e5" },
+    { "band": "Profitable", "customers": 34, "evaShare": 47, "color": "#10b981" },
+    { "band": "Break-even", "customers": 31, "evaShare": 2, "color": "#94a3b8" },
+    { "band": "Marginal loss", "customers": 19, "evaShare": -8, "color": "#fb923c" },
+    { "band": "Value-destroying", "customers": 8, "evaShare": -9, "color": "#f43f5e" }
+  ],
+  "topCustomers": [
+    { "name": "Energy & Power Group", "segment": "Corporate", "revenue": 3200, "eva": 1850, "raroc": 24.1, "tier": "Star" },
+    { "name": "Fertilizer Manufacturer", "segment": "Corporate", "revenue": 2650, "eva": 1420, "raroc": 22.6, "tier": "Star" },
+    { "name": "Telecom Operator", "segment": "Corporate", "revenue": 2100, "eva": 1180, "raroc": 21.3, "tier": "Star" },
+    { "name": "FMCG Distributor Network", "segment": "Commercial", "revenue": 1450, "eva": 760, "raroc": 19.8, "tier": "Star" },
+    { "name": "Textile Exporter Ltd", "segment": "Corporate", "revenue": 1320, "eva": 690, "raroc": 18.9, "tier": "Star" },
+    { "name": "Cement Manufacturer", "segment": "Commercial", "revenue": 980, "eva": 540, "raroc": 18.1, "tier": "Star" }
+  ],
+  "bottomCustomers": [
+    { "name": "Distressed Agri Cluster", "segment": "Agriculture", "revenue": 210, "eva": -640, "raroc": 1.2, "tier": "Value-destroying" },
+    { "name": "Sub-scale SME Portfolio", "segment": "SME", "revenue": 180, "eva": -420, "raroc": 3.1, "tier": "Value-destroying" },
+    { "name": "Legacy Overdraft Book", "segment": "Commercial", "revenue": 150, "eva": -310, "raroc": 4.4, "tier": "Marginal loss" },
+    { "name": "Dormant Consumer Segment", "segment": "Consumer", "revenue": 95, "eva": -260, "raroc": 5.0, "tier": "Marginal loss" },
+    { "name": "High-Cost Deposit Book", "segment": "Commercial", "revenue": 120, "eva": -190, "raroc": 5.8, "tier": "Marginal loss" }
+  ],
+  "drivers": [
+    {
+      "key": "alm",
+      "module": "ALM / FTP Engine",
+      "path": "/alm/ftp",
+      "contribution": "FTP-Adjusted NII: PKR 114bn",
+      "description": "Matched-maturity Funds Transfer Pricing isolates the true customer spread from interest-rate and funding risk, which moves to Treasury. Also supplies IFRS 9 ECL on the shared position feed.",
+      "metrics": [
+        { "label": "FTP-adjusted NII", "value": "PKR 114bn" },
+        { "label": "Treasury mismatch retained", "value": "PKR 4bn" },
+        { "label": "IFRS 9 ECL", "value": "PKR 22bn" }
+      ]
+    },
+    {
+      "key": "coe",
+      "module": "Cash Optimization Engine",
+      "path": "/coe",
+      "contribution": "Float / Cash Recovery: PKR 10bn",
+      "description": "Idle vault, ATM and CIT cash is forecast and right-sized, redeploying freed liquidity into overnight repo and T-bills. The recovered float is credited into the customer P&L.",
+      "metrics": [
+        { "label": "Recovered float", "value": "PKR 10bn" },
+        { "label": "Idle cash reduction", "value": "35-45%" },
+        { "label": "Redeploy yield", "value": "11-12%" }
+      ]
+    },
+    {
+      "key": "profitability",
+      "module": "Profitability Engine (BAIW)",
+      "path": "/profitability",
+      "contribution": "Economic Profit (EVA): PKR 52bn",
+      "description": "The 17-line EVA waterfall runs on the FSDM customer-profitability star schema with ABC costing, IFRS 9 provision and a Basel capital charge to produce RAROC and EVA at customer, product, branch and segment grain.",
+      "metrics": [
+        { "label": "Economic profit (EVA)", "value": "PKR 52bn" },
+        { "label": "Average RAROC", "value": "18.6%" },
+        { "label": "Cost-to-income", "value": "41%" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "currency": "PKR bn",
+  "note": "Structural liquidity ladder from contractual + behavioral cashflows. Net gap = inflows - outflows; cumulative gap is the running funding position.",
+  "buckets": [
+    { "bucket": "≤ 7D", "inflows": 180, "outflows": 240, "netGap": -60, "cumulativeGap": -60 },
+    { "bucket": "8D-1M", "inflows": 210, "outflows": 250, "netGap": -40, "cumulativeGap": -100 },
+    { "bucket": "1-3M", "inflows": 320, "outflows": 300, "netGap": 20, "cumulativeGap": -80 },
+    { "bucket": "3-6M", "inflows": 300, "outflows": 260, "netGap": 40, "cumulativeGap": -40 },
+    { "bucket": "6-12M", "inflows": 340, "outflows": 300, "netGap": 40, "cumulativeGap": 0 },
+    { "bucket": "1-3Y", "inflows": 420, "outflows": 320, "netGap": 100, "cumulativeGap": 100 },
+    { "bucket": "> 3Y", "inflows": 360, "outflows": 300, "netGap": 60, "cumulativeGap": 160 }
+  ],
+  "lcr": {
+    "ratio": 151.6,
+    "hqla": 720,
+    "netOutflows30d": 475,
+    "regulatoryMinimum": 100,
+    "components": [
+      { "label": "Level 1 HQLA (Cash, SBP, MTB, PIB)", "value": 650 },
+      { "label": "Level 2 HQLA (post-haircut)", "value": 70 },
+      { "label": "Stressed outflows (30d)", "value": 620 },
+      { "label": "Capped inflows (30d)", "value": 145 }
+    ]
+  },
+  "nsfr": {
+    "ratio": 117.9,
+    "availableStableFunding": 1980,
+    "requiredStableFunding": 1680,
+    "regulatoryMinimum": 100,
+    "components": [
+      { "label": "Capital + stable retail deposits (ASF)", "value": 1980 },
+      { "label": "Advances + illiquid assets (RSF)", "value": 1680 }
+    ]
+  },
+  "depositStability": [
+    { "type": "Current (CASA)", "core": 72, "volatile": 28 },
+    { "type": "Savings", "core": 78, "volatile": 22 },
+    { "type": "Term (TDA)", "core": 88, "volatile": 12 }
+  ]
+}

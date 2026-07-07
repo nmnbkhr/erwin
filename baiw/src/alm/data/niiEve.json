@@ -1,0 +1,22 @@
+{
+  "currency": "PKR bn",
+  "tier1Capital": 230,
+  "note": "IRRBB sensitivity under SBP / Basel parallel rate shocks. Delta-NII is 12-month earnings-at-risk; Delta-EVE is the change in economic value of equity. Negative under rising rates reflects near-term liability sensitivity and long fixed-rate assets.",
+  "eveLimitPctTier1": 15,
+  "niiLimit": 5.0,
+  "scenarios": [
+    { "shockBps": 300, "deltaNII": -4.2, "deltaEVE": -38, "evePctTier1": -16.5 },
+    { "shockBps": 200, "deltaNII": -2.8, "deltaEVE": -26, "evePctTier1": -11.3 },
+    { "shockBps": 100, "deltaNII": -1.4, "deltaEVE": -13, "evePctTier1": -5.7 },
+    { "shockBps": 0, "deltaNII": 0, "deltaEVE": 0, "evePctTier1": 0 },
+    { "shockBps": -100, "deltaNII": 1.3, "deltaEVE": 14, "evePctTier1": 6.1 },
+    { "shockBps": -200, "deltaNII": 2.5, "deltaEVE": 29, "evePctTier1": 12.6 },
+    { "shockBps": -300, "deltaNII": 3.6, "deltaEVE": 45, "evePctTier1": 19.6 }
+  ],
+  "keyMeasures": [
+    { "measure": "Economic Value of Equity", "base": "PKR 255bn", "worst": "-16.5% (+300bps)", "status": "Above limit" },
+    { "measure": "12M Net Interest Income", "base": "PKR ~72bn", "worst": "-PKR 4.2bn (+300bps)", "status": "Within limit" },
+    { "measure": "Duration of Equity", "base": "2.8 yrs", "worst": "—", "status": "Monitor" },
+    { "measure": "PV01 (banking book)", "base": "PKR 118M / bp", "worst": "—", "status": "Monitor" }
+  ]
+}

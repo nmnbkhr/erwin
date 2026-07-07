@@ -1,0 +1,22 @@
+{
+  "module": "ALM",
+  "version": "1.0",
+  "title": "Asset-Liability Management & FTP Engine",
+  "referenceBank": "UBL (United Bank Limited)",
+  "sourceMapping": "UBL_ALM FTP- SMX v0.114",
+  "targetEngine": "FIS ALM / Balance Sheet Manager (PDM feed)",
+  "description": "Position-level ALM, IRRBB, Funds Transfer Pricing, structural liquidity and IFRS 9 integration built on the FIS ALM engine feed mapped from Sierra (treasury) and Symbols/CBS (core banking) into the Teradata FSDM.",
+  "sourceSystems": ["Sierra (Treasury front-office)", "Symbols / CBS (Core Banking)"],
+  "instrumentAttributes": 260,
+  "useCaseCount": 8,
+  "dataFiles": [
+    "useCases.json",
+    "balanceSheet.json",
+    "repricingGap.json",
+    "niiEve.json",
+    "liquidityLadder.json",
+    "ftpDecomposition.json",
+    "instrumentCatalog.json",
+    "index.json"
+  ]
+}

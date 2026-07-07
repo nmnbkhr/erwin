@@ -1,0 +1,22 @@
+{
+  "asOfDate": "2024-12-31",
+  "currency": "PKR bn",
+  "note": "Illustrative UBL-scale banking-book composition used to demonstrate the ALM engine feed. Figures are indicative, not reported financials.",
+  "assets": [
+    { "class": "Cash & SBP / Nostro balances", "amount": 265, "rateType": "Non-sensitive", "classification": "N/A", "sourceSystem": "CBS", "pdmEntity": "NonMaturingInstruments" },
+    { "class": "Market T-Bills (MTB)", "amount": 520, "rateType": "Fixed", "classification": "AFS / HFT", "sourceSystem": "Sierra", "pdmEntity": "FixedInstruments Sierra-TBI" },
+    { "class": "PIB - Fixed", "amount": 615, "rateType": "Fixed", "classification": "HTM / AFS", "sourceSystem": "Sierra", "pdmEntity": "FixedInstruments Sierra-PIB" },
+    { "class": "PIB - Floating", "amount": 190, "rateType": "Floating", "classification": "AFS", "sourceSystem": "Sierra", "pdmEntity": "Float Rate Sierra Assets" },
+    { "class": "Advances - Corporate (KIBOR)", "amount": 445, "rateType": "Floating", "classification": "Amortized cost", "sourceSystem": "CBS-CL", "pdmEntity": "FloatingInstruments CBS Assets" },
+    { "class": "Advances - Consumer / SME", "amount": 165, "rateType": "Fixed", "classification": "Amortized cost", "sourceSystem": "CBS-CL", "pdmEntity": "FixedInstruments CBS Assets" },
+    { "class": "FX Forwards & Other", "amount": 120, "rateType": "Floating", "classification": "FVTPL", "sourceSystem": "Sierra", "pdmEntity": "FXForwards" }
+  ],
+  "liabilities": [
+    { "class": "Current deposits (CASA)", "amount": 735, "rateType": "Non-maturing", "classification": "NMD", "sourceSystem": "CBS", "pdmEntity": "NonMaturingInstruments Liab" },
+    { "class": "Savings deposits (administered)", "amount": 790, "rateType": "Non-maturing", "classification": "NMD", "sourceSystem": "CBS", "pdmEntity": "NonMaturingInstruments Liab Saving" },
+    { "class": "Term deposits (TDA)", "amount": 470, "rateType": "Fixed", "classification": "Amortized cost", "sourceSystem": "CBS", "pdmEntity": "FixedInstruments CBS Liability" },
+    { "class": "Borrowings / Repo", "amount": 300, "rateType": "Floating", "classification": "Amortized cost", "sourceSystem": "Sierra", "pdmEntity": "FloatingInstruments CBS Liab" },
+    { "class": "Bills payable & Other", "amount": 145, "rateType": "Non-sensitive", "classification": "N/A", "sourceSystem": "CBS", "pdmEntity": "NonMaturingInstruments Liab GL" }
+  ],
+  "equity": 255
+}

@@ -2518,5 +2518,243 @@
     "domain": "Other",
     "confidence": "Low",
     "notes": "System/security logs - outside FSDM scope"
+  },
+  {
+    "requirement": "Matched-maturity FTP base curve (KIBOR/PKRV) with tenor liquidity-spread add-ons",
+    "entity": "INTEREST_RATE_INDEX",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "KIBOR/PKRV reference index used as the FTP base curve"
+  },
+  {
+    "requirement": "Matched-maturity FTP base curve (KIBOR/PKRV) with tenor liquidity-spread add-ons",
+    "entity": "YIELD_CURVE_MATURITY_SEGMENT_TYPE",
+    "domain": "Investment Management",
+    "confidence": "Medium",
+    "notes": "Tenor segmentation for the transfer-pricing curve"
+  },
+  {
+    "requirement": "Per-instrument FTP attributes (funding, liquidity, credit and option spreads)",
+    "entity": "FUNDS_TRANSFER_EVENT",
+    "domain": "Financial Transaction",
+    "confidence": "Medium",
+    "notes": "FTP charge/credit event per instrument leg"
+  },
+  {
+    "requirement": "Per-instrument FTP attributes (funding, liquidity, credit and option spreads)",
+    "entity": "AGREEMENT_FUNDING_SOURCE",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "Funding-source attribution behind the FTP spread"
+  },
+  {
+    "requirement": "Non-maturing deposit behavioral balance and yield for FTP (FTP_AverageBalance/Yield)",
+    "entity": "DEPOSIT_AGREEMENT",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "CASA/NMD balances requiring behavioral modeling"
+  },
+  {
+    "requirement": "Position tenor and repricing profile from the ALM feed",
+    "entity": "INVESTMENT_POSITION",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Position record carrying tenor and repricing profile"
+  },
+  {
+    "requirement": "Unified position-level instrument feed (fixed / floating / non-maturing / FX)",
+    "entity": "INVESTMENT_POSITION",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Core position feed for the ALM engine"
+  },
+  {
+    "requirement": "Unified position-level instrument feed (fixed / floating / non-maturing / FX)",
+    "entity": "CURRENCY_FORWARD",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "FX Forward positions (Sierra Trade_Group HFFW)"
+  },
+  {
+    "requirement": "Accounting and rate classification (HTM/AFS/HFT, fixed/floating, asset/liability)",
+    "entity": "ASSET_LIABILITY_TYPE",
+    "domain": "Reference Data",
+    "confidence": "High",
+    "notes": "Asset/liability side and rate-type classification"
+  },
+  {
+    "requirement": "Repricing and liquidity gap bucketing inputs",
+    "entity": "INTEREST_RATE_BANKING_BOOK_SUMMARY",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "IRRBB banking-book gap summary"
+  },
+  {
+    "requirement": "Rate-shock scenario set for NII and EVE simulation",
+    "entity": "INTEREST_RATE_RISK_CALCULATION",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "Scenario-driven NII/EVE sensitivity"
+  },
+  {
+    "requirement": "GL / ledger account tagging per position (RB_GL_RECLASS, MPR_LINE)",
+    "entity": "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+    "domain": "Financial Transaction",
+    "confidence": "Medium",
+    "notes": "Ledger tagging of positions to GL main accounts"
+  },
+  {
+    "requirement": "Principal amortization schedule per instrument",
+    "entity": "BOND_AMORTIZATION_SCHEDULE",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Amortization table feeding principal cashflows"
+  },
+  {
+    "requirement": "Coupon / profit cashflow schedule and payment conventions",
+    "entity": "COUPON_TYPE",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Coupon cashflow definition and conventions"
+  },
+  {
+    "requirement": "Coupon / profit cashflow schedule and payment conventions",
+    "entity": "CASH_FLOW_AMOUNT_TYPE",
+    "domain": "Financial Transaction",
+    "confidence": "High",
+    "notes": "Typed cashflow amounts per schedule"
+  },
+  {
+    "requirement": "Redemption and early-termination / prepayment cashflows",
+    "entity": "BOND_REDEMPTION",
+    "domain": "Investment Management",
+    "confidence": "Medium",
+    "notes": "Redemption and early-termination cashflows"
+  },
+  {
+    "requirement": "Payment-frequency code translation (FM_PERIOD_FREQ)",
+    "entity": "AMORTIZATION_METHOD_TYPE",
+    "domain": "Reference Data",
+    "confidence": "Medium",
+    "notes": "Frequency/method reference for schedule generation"
+  },
+  {
+    "requirement": "Contractual and behavioral maturity ladder",
+    "entity": "CREDIT_MATURITY_SUMMARY",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "Maturity-bucketed exposure ladder"
+  },
+  {
+    "requirement": "Non-maturing deposit core / volatile stability model",
+    "entity": "DEPOSIT_MATURITY_SUBTYPE",
+    "domain": "Agreement & Account",
+    "confidence": "Medium",
+    "notes": "NMD behavioral maturity classification"
+  },
+  {
+    "requirement": "HQLA securities inventory with market value and haircut",
+    "entity": "INVESTMENT_POSITION",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Liquid securities book (PIB/T-Bill) as HQLA"
+  },
+  {
+    "requirement": "LCR / NSFR and SBP liquidity-metric inputs",
+    "entity": "INTEREST_RATE_BANKING_BOOK_SUMMARY",
+    "domain": "Risk Management",
+    "confidence": "Medium",
+    "notes": "Banking-book summary feeding liquidity metrics"
+  },
+  {
+    "requirement": "Instrument repricing attributes (next reprice date, frequency, margin, caps/floors)",
+    "entity": "BOND_FLOATING_INTEREST_RATE",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Floating-rate repricing attributes per instrument"
+  },
+  {
+    "requirement": "KIBOR reference-rate curves and index basis",
+    "entity": "INTEREST_RATE_INDEX",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "KIBOR tenors as repricing reference index"
+  },
+  {
+    "requirement": "Fixed-versus-floating and rate-index determination",
+    "entity": "FIXED_FLOATING_INTEREST_RATE_SWAP",
+    "domain": "Investment Management",
+    "confidence": "Medium",
+    "notes": "Fixed/floating classification and swap basis"
+  },
+  {
+    "requirement": "IRRBB EVE / NII sensitivity scenario inputs",
+    "entity": "INTEREST_RATE_RISK_CALCULATION",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "IRRBB EVE/NII scenario calculation"
+  },
+  {
+    "requirement": "Clean/dirty market value and yield per security (IXINST_MKM)",
+    "entity": "ASSET_VALUATION_AMOUNT_TYPE",
+    "domain": "Asset Management",
+    "confidence": "High",
+    "notes": "Typed valuation amounts (clean/dirty market value)"
+  },
+  {
+    "requirement": "Amortized cost / book value per position (GLTRDAMORT)",
+    "entity": "INVESTMENT_POSITION",
+    "domain": "Investment Management",
+    "confidence": "High",
+    "notes": "Amortized cost / book value on the position record"
+  },
+  {
+    "requirement": "HTM/AFS/HFT accounting category by trade group / purpose",
+    "entity": "ASSET-BACKED_SECURITY_PRODUCT",
+    "domain": "Investment Management",
+    "confidence": "Medium",
+    "notes": "Security product/category classification"
+  },
+  {
+    "requirement": "AFS unrealized gain/loss and reserve movement",
+    "entity": "BALANCE_SHEET_GL_MAIN_ACCOUNT",
+    "domain": "Financial Transaction",
+    "confidence": "Medium",
+    "notes": "AFS reserve posted to balance-sheet GL"
+  },
+  {
+    "requirement": "IFRS 9 staging inputs (credit quality stage, days past due, SICR)",
+    "entity": "CREDIT_MATURITY_SUMMARY",
+    "domain": "Risk Management",
+    "confidence": "Medium",
+    "notes": "Staging over the exposure maturity profile"
+  },
+  {
+    "requirement": "PD (PIT/TTC), lifetime PD, LGD and CCF per exposure",
+    "entity": "PROBABILITY_OF_DEFAULT_MODEL",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "PD model output per exposure"
+  },
+  {
+    "requirement": "PD (PIT/TTC), lifetime PD, LGD and CCF per exposure",
+    "entity": "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE",
+    "domain": "Risk Management",
+    "confidence": "High",
+    "notes": "LGD by risk grade for the exposure"
+  },
+  {
+    "requirement": "Exposure cashflows for lifetime-ECL discounting (EIR)",
+    "entity": "CASH_FLOW_AMOUNT_TYPE",
+    "domain": "Financial Transaction",
+    "confidence": "Medium",
+    "notes": "Cashflows discounted at EIR for lifetime ECL"
+  },
+  {
+    "requirement": "ECL provision and loss-allowance GL reconciliation",
+    "entity": "ALLOWANCE_FOR_LOAN_LOSS_ACCOUNT",
+    "domain": "Financial Transaction",
+    "confidence": "High",
+    "notes": "Loss-allowance GL for provision reconciliation"
   }
 ]

@@ -1,0 +1,67 @@
+{
+  "note": "Instrument taxonomy mapped in UBL_ALM FTP-SMX v0.114: source system → FIS ALM PDM entity → Teradata FSDM entity. Filters are the actual trade-group / purpose codes used in the mapping.",
+  "categories": [
+    {
+      "name": "Fixed Instruments",
+      "color": "indigo",
+      "entities": [
+        { "pdmEntity": "FixedInstruments Sierra-PIB-HTM", "sourceSystem": "Sierra", "sourceTable": "SYTRANS", "filter": "Trade_group = 'HMLB'", "fsdmEntity": "INVESTMENT_POSITION", "instrument": "PIB (Held-to-Maturity)" },
+        { "pdmEntity": "FixedInstruments Sierra-PIB HFT", "sourceSystem": "Sierra", "sourceTable": "SYTRANS", "filter": "Trade_group = 'HTMB'", "fsdmEntity": "INVESTMENT_POSITION", "instrument": "PIB (Held-for-Trading)" },
+        { "pdmEntity": "FixedInstruments Sierra-PIB-AFS", "sourceSystem": "Sierra", "sourceTable": "SYTRANS", "filter": "Trade_group IN ('ASLB','ASMB')", "fsdmEntity": "INVESTMENT_POSITION", "instrument": "PIB (Available-for-Sale)" },
+        { "pdmEntity": "FixedInstruments Sierra-TBI M", "sourceSystem": "Sierra", "sourceTable": "SYTRANS", "filter": "Trade_group IN ('HTLT','HTMT')", "fsdmEntity": "INVESTMENT_POSITION", "instrument": "Market T-Bill" },
+        { "pdmEntity": "FixedInstruments Sierra-TBILAFS", "sourceSystem": "Sierra", "sourceTable": "SYTRANS", "filter": "Trade_group IN ('ASLT','ASMT')", "fsdmEntity": "INVESTMENT_POSITION", "instrument": "T-Bill (AFS)" },
+        { "pdmEntity": "FixedInstruments CBS Liability", "sourceSystem": "Symbols/CBS", "sourceTable": "RB_ACCT, RB_TDA", "filter": "Fixed-rate term deposits", "fsdmEntity": "DEPOSIT_TERM_AGREEMENT", "instrument": "Term Deposit (TDA)" },
+        { "pdmEntity": "FixedInstruments CBS Assets Loans", "sourceSystem": "CBS-CL", "sourceTable": "tm_ft_cl_loanbook", "filter": "FIXED_INT_RATE is not null", "fsdmEntity": "BOND_FIXED_INTEREST_RATE", "instrument": "Fixed-rate Advance" }
+      ]
+    },
+    {
+      "name": "Floating Instruments",
+      "color": "blue",
+      "entities": [
+        { "pdmEntity": "Float Rate Sierra Assets-TFCV", "sourceSystem": "Sierra", "sourceTable": "SYTRANS", "filter": "Purpose = 'TFCV'", "fsdmEntity": "BOND_FLOATING_INTEREST_RATE", "instrument": "Floating PIB / TFC" },
+        { "pdmEntity": "Float Rate Sierra Assets-AFS", "sourceSystem": "Sierra", "sourceTable": "SYTRANS", "filter": "Purpose = 'PIBF'", "fsdmEntity": "BOND_FLOATING_INTEREST_RATE", "instrument": "Floating PIB (AFS)" },
+        { "pdmEntity": "FloatingInstruments CBS Assets Loan", "sourceSystem": "CBS-CL", "sourceTable": "tm_ft_cl_loanbook, CL_DRAWDOWN", "filter": "FIXED_INT_RATE is null (KIBOR-linked)", "fsdmEntity": "BOND_FLOATING_INTEREST_RATE", "instrument": "KIBOR-linked Advance" },
+        { "pdmEntity": "FloatingInstruments CBS Liab", "sourceSystem": "Symbols/CBS", "sourceTable": "RB_ACCT, RB_TDA", "filter": "Floating-rate deposits", "fsdmEntity": "DEPOSIT_TERM_AGREEMENT", "instrument": "Floating Deposit" }
+      ]
+    },
+    {
+      "name": "Non-Maturing Instruments",
+      "color": "teal",
+      "entities": [
+        { "pdmEntity": "NonMaturingInstruments Liab Interim Current", "sourceSystem": "Symbols/CBS", "sourceTable": "RB_ACCT", "filter": "Current accounts (CASA)", "fsdmEntity": "DEPOSIT_AGREEMENT", "instrument": "Current Deposit" },
+        { "pdmEntity": "NonMaturingInstruments Liab Interim Saving", "sourceSystem": "Symbols/CBS", "sourceTable": "RB_ACCT, RB_INT_DETAIL", "filter": "Savings accounts (administered rate)", "fsdmEntity": "DEPOSIT_AGREEMENT", "instrument": "Savings Deposit" },
+        { "pdmEntity": "NonMaturingInstruments Liab GL", "sourceSystem": "Symbols/CBS", "sourceTable": "RB_ACCT, RB_GL_RECLASS", "filter": "GL-level product mapping", "fsdmEntity": "BALANCE_SHEET_GL_MAIN_ACCOUNT", "instrument": "CASA (GL feed)" }
+      ]
+    },
+    {
+      "name": "FX & Derivatives",
+      "color": "violet",
+      "entities": [
+        { "pdmEntity": "FXForwards", "sourceSystem": "Sierra", "sourceTable": "SYTRANS", "filter": "Trade_Group = 'HFFW'", "fsdmEntity": "CURRENCY_FORWARD", "instrument": "FX Forward" }
+      ]
+    },
+    {
+      "name": "Cashflow Tables",
+      "color": "amber",
+      "entities": [
+        { "pdmEntity": "AmortizationTable Sierra-Fixed", "sourceSystem": "Sierra", "sourceTable": "GLTRDAMORT", "filter": "Amort_Date by Trans_Num", "fsdmEntity": "BOND_AMORTIZATION_SCHEDULE", "instrument": "Principal schedule" },
+        { "pdmEntity": "CouponCashflowTable Sierra", "sourceSystem": "Sierra", "sourceTable": "IXINST_EVT, IXINST_DEF", "filter": "Pay_Date, Cashflow", "fsdmEntity": "COUPON_TYPE", "instrument": "Coupon schedule" },
+        { "pdmEntity": "EarlyTerminationTable Sierra", "sourceSystem": "Sierra", "sourceTable": "SYCLTRANS", "filter": "Early-termination transactions", "fsdmEntity": "EARLY_AMORTIZATION_TYPE", "instrument": "Early termination" },
+        { "pdmEntity": "EarlyTerminationTable Liab", "sourceSystem": "Symbols/CBS", "sourceTable": "RB_TDA_PRETERM", "filter": "PRETERM_DATE / PRETERM_AMT", "fsdmEntity": "EARLY_AMORTIZATION_TYPE", "instrument": "Deposit pre-termination" },
+        { "pdmEntity": "RedemptionTable Sierra Assets", "sourceSystem": "Sierra", "sourceTable": "IXINST_RDM", "filter": "Redemption_Date / Price", "fsdmEntity": "BOND_REDEMPTION", "instrument": "Redemption schedule" }
+      ]
+    }
+  ],
+  "attributeGroups": [
+    { "group": "Identity & Classification", "count": 40, "examples": ["PositionId", "DataSource", "LedgerAccount", "AssetLiability", "CD_Product", "CD_Segment", "CD_Rating"] },
+    { "group": "Dates & Generation", "count": 9, "examples": ["TradeDate", "StartDate", "EndDate", "PurchaseDate", "DirForDateGeneration"] },
+    { "group": "Principal & Valuation", "count": 12, "examples": ["PrincipalAmount", "PrincipalOutstanding", "BookValue", "MarketValue", "MarketValue_CleanDirty"] },
+    { "group": "Coupon", "count": 32, "examples": ["Coupon_Rate", "Coupon_PaymentFreq", "Coupon_DayCountConv", "Coupon_PaymentType"] },
+    { "group": "Amortization", "count": 22, "examples": ["Amort_Date", "Amort_PaymentAmount", "Amort_PaymentFreq", "Amort_Type"] },
+    { "group": "Repricing", "count": 30, "examples": ["Repricing_NextRepricingDate", "Repricing_Freq", "Repricing_Margin", "Repricing_Cap", "Repricing_Floor"] },
+    { "group": "FTP (incl. Pay/Rec legs)", "count": 45, "examples": ["FTP_RateCurveName", "FTP_Funding_Spread", "FTP_Liquidity_Spread", "FTP_Credit_Spread", "FTP_Option_Spread", "FTP_Margin"] },
+    { "group": "IFRS 9 & Credit", "count": 20, "examples": ["PD_12M_PointInTime", "PD_LifetimeAdj_AtOrigination", "LGD", "LossAllowance", "CD_CreditQualityStage", "CreditConversionFactor"] },
+    { "group": "Redemption & Early Termination", "count": 12, "examples": ["Redemption_Type", "Redemption_Date", "EarlyTerminationDate", "EarlyTerminationPayment"] },
+    { "group": "Currency, FX & Optionality", "count": 26, "examples": ["Currency_Reporting", "StrikeRate", "Call_Volatility", "CallableFlag", "Repricing_CapVolatility"] }
+  ]
+}
