@@ -1,0 +1,12 @@
+{
+  "name": "erwin-workspace",
+  "private": true,
+  "description": "Repo-root launcher for the BAIW app (which lives in baiw/). Lets you run from the erwin root without cd baiw.",
+  "scripts": {
+    "dev": "cd baiw && npm run dev",
+    "start": "cd baiw && npm run dev",
+    "build": "cd baiw && npm run build",
+    "preview": "cd baiw && npm run preview",
+    "lint": "cd baiw && npm run lint"
+  }
+}
