@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import {
-  Layers, Activity, Droplets, Scale, Database,
+  Layers, Activity, Droplets, Scale, Database, BarChart3,
   Landmark, TrendingUp, TrendingDown, ArrowRight, Gauge,
 } from 'lucide-react'
 import {
@@ -13,19 +13,12 @@ import repricingGap from '../data/repricingGap.json'
 import niiEve from '../data/niiEve.json'
 import liquidity from '../data/liquidityLadder.json'
 
-const RATE_COLORS: Record<string, string> = {
-  Fixed: '#6366f1',
-  Floating: '#3b82f6',
-  'Non-maturing': '#14b8a6',
-  'Non-sensitive': '#94a3b8',
-}
 const ASSET_PIE = ['#6366f1', '#4f46e5', '#818cf8', '#3b82f6', '#0ea5e9', '#06b6d4', '#8b5cf6']
 
 function sum<T>(arr: T[], f: (t: T) => number) { return arr.reduce((a, t) => a + f(t), 0) }
 
 export default function AlmDashboard() {
   const totalAssets = sum(balanceSheet.assets, a => a.amount)
-  const totalLiab = sum(balanceSheet.liabilities, l => l.amount)
   const deposits = sum(
     balanceSheet.liabilities.filter(l => /deposit|casa|savings/i.test(l.class)),
     l => l.amount,
@@ -153,6 +146,7 @@ export default function AlmDashboard() {
           <h2 className="text-lg font-semibold text-slate-800 mb-4">Explore the Engine</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {[
+              { label: 'ALCO Workbench', path: '/alm/workbench', icon: BarChart3, count: 'Business → Data → Tech blueprint' },
               { label: 'Use Case Explorer', path: '/alm/usecases', icon: Layers, count: `${useCases.length} ALM/FTP use cases` },
               { label: 'IRRBB & Repricing', path: '/alm/irrbb', icon: Activity, count: 'Gap ladder · EVE/NII' },
               { label: 'Liquidity (LCR/NSFR)', path: '/alm/liquidity', icon: Droplets, count: 'Maturity ladder · Basel ratios' },

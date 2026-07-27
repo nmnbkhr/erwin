@@ -1,0 +1,289 @@
+{
+  "title": "Healthcare Analytics Intelligence Workbench",
+  "subtitle": "Business-to-technology blueprint for healthcare analytics across FHIR, HCDM and HCF",
+  "businessArchitecture": {
+    "stakeholders": [
+      { "role": "CMO / Chief Medical Officer", "interest": "Population health, clinical outcomes, quality metrics, care-gap closure", "kpis": ["Readmission rate", "Mortality index", "HEDIS measures", "Care-gap closure %"] },
+      { "role": "CFO / Healthcare Finance", "interest": "Cost per episode, payer mix, revenue cycle, value-based contracts", "kpis": ["Cost per discharge", "AR days", "Value-based bonus", "Denial rate"] },
+      { "role": "Operations / Patient Access", "interest": "Bed utilization, OR utilization, appointment scheduling, length of stay", "kpis": ["Occupancy rate", "Avg LOS", "No-show rate", "ED wait time"] },
+      { "role": "Quality & Safety", "interest": "Adverse events, hospital-acquired infections, medication errors, accreditation", "kpis": ["HAI rate", "Medication error rate", "Accreditation score", "PSI-90"] },
+      { "role": "Payer / Insurance", "interest": "Risk adjustment, prior authorization, fraud, network performance", "kpis": ["Risk score accuracy", "Authorization TAT", "Fraud savings", "Network adequacy"] },
+      { "role": "Patient / Consumer", "interest": "Personal health record, appointment booking, telehealth, wellness insights", "kpis": ["Portal adoption", "Satisfaction score", "Telehealth visits", "Preventive screening %"] }
+    ],
+    "valueChain": [
+      { "step": 1, "name": "Patient Identification & Engagement", "description": "Capture patient demographics, identifiers, consent, insurance eligibility and preferred channels of engagement.", "owner": "Patient Access / Registration", "outputs": ["Patient master", "Consent flags", "Eligibility response"] },
+      { "step": 2, "name": "Care Delivery & Documentation", "description": "Record encounters, diagnoses, procedures, medications, lab results, imaging and clinical notes in FHIR-aligned resources.", "owner": "Clinical Teams / EHR", "outputs": ["FHIR resources", "Clinical notes", "Orders & results"] },
+      { "step": 3, "name": "Billing & Claims Processing", "description": "Translate clinical activity into charges, claims, coding (ICD/CPT/HCPCS), prior authorizations and payment posting.", "owner": "Revenue Cycle", "outputs": ["Claims", "Charge master entries", "Payment data"] },
+      { "step": 4, "name": "Clinical Quality & Safety", "description": "Measure clinical outcomes, adverse events, infections, medication safety and accreditation metrics against standards.", "owner": "Quality & Safety", "outputs": ["Quality measures", "Safety events", "Accreditation reports"] },
+      { "step": 5, "name": "Population Health & Analytics", "description": "Aggregate data across patients to identify risk cohorts, care gaps, utilization patterns and cost drivers.", "owner": "Population Health", "outputs": ["Risk cohorts", "Care gaps", "Utilization reports"] },
+      { "step": 6, "name": "Personalization & Outreach", "description": "Deliver patient-specific insights, reminders, care plans, telehealth and next-best-actions to improve outcomes and engagement.", "owner": "Digital / Patient Engagement", "outputs": ["Patient insights", "Outreach lists", "Care plans"] }
+    ],
+    "capabilities": [
+      { "id": "haiw_patient", "name": "Patient Identity & Registration", "description": "Master patient index, demographics, consent and eligibility management", "priority": "CRITICAL", "phase": 1 },
+      { "id": "haiw_clinical", "name": "Clinical Data Capture (FHIR)", "description": "Encounter, condition, procedure, medication, observation and document resources", "priority": "CRITICAL", "phase": 1 },
+      { "id": "haiw_revenue", "name": "Revenue Cycle & Claims", "description": "Charge capture, medical coding, claims, prior auth and payment reconciliation", "priority": "CRITICAL", "phase": 1 },
+      { "id": "haiw_quality", "name": "Clinical Quality & Safety", "description": "Quality measures, adverse events, infection control and accreditation tracking", "priority": "HIGH", "phase": 2 },
+      { "id": "haiw_pophealth", "name": "Population Health Analytics", "description": "Risk stratification, care gaps, cohort analysis and utilization patterns", "priority": "HIGH", "phase": 2 },
+      { "id": "haiw_personalization", "name": "Patient Engagement & Personalization", "description": "Patient portal, reminders, care plans and next-best-action", "priority": "MEDIUM", "phase": 3 },
+      { "id": "haiw_payer", "name": "Payer & Value-Based Care", "description": "Risk adjustment, HCC coding, prior authorization and contract performance", "priority": "MEDIUM", "phase": 3 },
+      { "id": "haiw_fraud", "name": "Fraud, Waste & Abuse", "description": "Anomaly detection on claims, billing patterns and provider behavior", "priority": "MEDIUM", "phase": 3 }
+    ],
+    "context": [
+      { "area": "FHIR", "items": ["FHIR R5 resources", "Patient, Encounter, Condition, Procedure", "Observation, MedicationRequest, DiagnosticReport", "DocumentReference & Composition"] },
+      { "area": "HCDM", "items": ["Healthcare Data Model subject areas", "Patient, provider, care site, payer", "Claims, clinical, financial, pharmacy", "Pakistan-specific adaptations"] },
+      { "area": "HCF", "items": ["Healthcare Capability Framework", "Clinical operations, quality, finance", "Patient engagement, analytics, compliance", "Population health management"] },
+      { "area": "Pakistan", "items": ["NADRA CNIC linkage", "Sehat Sahulat Program", "Provincial health information systems", "Urdu language support and local terminologies"] }
+    ]
+  },
+  "dataArchitecture": {
+    "starSchema": {
+      "summary": "FACT_HEALTHCARE_ENCOUNTER is the central fact capturing patient encounters, costs, outcomes and quality measures. It joins to patient, provider, care site, diagnosis, procedure, medication, payer and time dimensions for healthcare analytics.",
+      "facts": [
+        { "name": "FACT_HEALTHCARE_ENCOUNTER", "grain": "Encounter × Patient × Provider × Care Site × Diagnosis × Procedure × Payer × Time", "measures": 56 }
+      ],
+      "dimensions": [
+        { "name": "DIM_PATIENT", "purpose": "Patient master, demographics, identifiers, risk scores and consent", "keyColumns": ["Patient_Party_Id", "CNIC_Number", "Gender_Cd", "Birth_Dt", "Risk_Score_Cd"] },
+        { "name": "DIM_PROVIDER", "purpose": "Physician, nurse, allied health and provider organization details", "keyColumns": ["Provider_Party_Id", "Provider_Type_Cd", "Specialty_Cd", "NPI_Number", "PMDC_Number"] },
+        { "name": "DIM_CARE_SITE", "purpose": "Hospital, clinic, lab, pharmacy and ward/department hierarchy", "keyColumns": ["Care_Site_Org_Id", "Facility_Type_Cd", "Province_Cd", "Tehsil_Cd"] },
+        { "name": "DIM_DIAGNOSIS", "purpose": "ICD-10/ICD-11 diagnosis hierarchy, severity and chronic flags", "keyColumns": ["Diagnosis_Cd", "ICD_Version_Cd", "Diagnosis_Category_Cd", "Is_Chronic_Ind"] },
+        { "name": "DIM_PROCEDURE", "purpose": "CPT/HCPCS/ICD-10-PCS procedure hierarchy and service location", "keyColumns": ["Procedure_Cd", "Procedure_Category_Cd", "Service_Location_Cd"] },
+        { "name": "DIM_MEDICATION", "purpose": "Medication master, generic/brand, formulary and ATC classification", "keyColumns": ["Medication_Product_Id", "ATC_Code", "Generic_Name", "Formulary_Status_Cd"] },
+        { "name": "DIM_PAYER", "purpose": "Insurance plan, employer group, value-based contract and Sehat Sahulat flag", "keyColumns": ["Payer_Org_Id", "Payer_Type_Cd", "Plan_Type_Cd", "Is_Sehat_Sahulat_Ind"] },
+        { "name": "DIM_TIME", "purpose": "Encounter date, admission/discharge dates, fiscal calendar and reporting flags", "keyColumns": ["Time_Period_Key", "Fiscal_Year", "Is_Reporting_Dt"] }
+      ],
+      "aggregates": [
+        { "name": "AGG_PATIENT_COHORT", "grain": "Diagnosis × Payer × Care Site × Time", "measures": 16 },
+        { "name": "AGG_PROVIDER_PERFORMANCE", "grain": "Provider × Specialty × Time", "measures": 14 },
+        { "name": "AGG_FACILITY_UTILIZATION", "grain": "Care Site × Department × Time", "measures": 12 }
+      ]
+    },
+    "lineage": [
+      { "targetColumn": "Encounter_Count", "transformation": "COUNT(DISTINCT Encounter_Id)", "sourceEntities": ["ENCOUNTER", "FACT_HEALTHCARE_ENCOUNTER"], "businessMeasure": "Number of encounters" },
+      { "targetColumn": "Patient_Count", "transformation": "COUNT(DISTINCT Patient_Party_Id)", "sourceEntities": ["PATIENT", "DIM_PATIENT"], "businessMeasure": "Unique patients" },
+      { "targetColumn": "Total_Cost_Amt", "transformation": "SUM(Charge_Amount - Contractual_Adjustment - Denial_Amount)", "sourceEntities": ["CLAIM", "CLAIM_LINE_ITEM", "CHARGE_MASTER"], "businessMeasure": "Total cost of care" },
+      { "targetColumn": "Length_Of_Stay_Days", "transformation": "DATEDIFF(Discharge_Dt, Admission_Dt)", "sourceEntities": ["ENCOUNTER", "VISIT_DETAIL"], "businessMeasure": "Inpatient length of stay" },
+      { "targetColumn": "Readmission_30D_Ind", "transformation": "EXISTS(Admission within 30 days of prior discharge for same patient)", "sourceEntities": ["ENCOUNTER", "DIM_PATIENT"], "businessMeasure": "30-day readmission flag" },
+      { "targetColumn": "Quality_Measure_Score_Pct", "transformation": "Met_Criteria / Eligible_Population × 100", "sourceEntities": ["QUALITY_MEASURE", "QUALITY_MEASURE_RESULT"], "businessMeasure": "Quality measure performance" },
+      { "targetColumn": "HCC_Risk_Score", "transformation": "SUM(HCC_Weights for all active diagnoses)", "sourceEntities": ["CONDITION", "HCC_COEFFICIENT", "RISK_ADJUSTMENT_MODEL"], "businessMeasure": "Risk-adjusted HCC score" },
+      { "targetColumn": "Medication_Adherence_Pct", "transformation": "Days Covered / Days Eligible × 100", "sourceEntities": ["MEDICATION_REQUEST", "MEDICATION_DISPENSE", "MEDICATION_STATEMENT"], "businessMeasure": "Medication adherence rate" },
+      { "targetColumn": "Sehat_Sahulat_Utilization_Amt", "transformation": "SUM(Claim_Amount for Sehat Sahulat eligible patients)", "sourceEntities": ["CLAIM", "DIM_PATIENT", "DIM_PAYER"], "businessMeasure": "Sehat Sahulat program utilization" },
+      { "targetColumn": "Care_Gap_Count", "transformation": "COUNT(missing preventive or chronic services per patient)", "sourceEntities": ["CARE_GAP", "QUALITY_MEASURE", "DIM_PATIENT"], "businessMeasure": "Open care gaps" }
+    ],
+    "gapExtensions": [
+      { "module": "Clinical Decision Support", "tables": ["CLINICAL_RULE", "DECISION_SUPPORT_ALERT", "ORDER_SET", "CLINICAL_PATHWAY"], "purpose": "Rules, alerts, order sets and care pathways to support clinical decisions" },
+      { "module": "Patient Engagement & Outreach", "tables": ["PATIENT_OUTREACH_CAMPAIGN", "APPOINTMENT_REMINDER", "CARE_PLAN", "PATIENT_REPORTED_OUTCOME"], "purpose": "Campaigns, reminders, care plans and patient-reported outcomes" },
+      { "module": "Provider & Network Management", "tables": ["PROVIDER_NETWORK", "PROVIDER_CONTRACT", "PROVIDER_PERFORMANCE_SCORE", "DIRECTORY_SERVICE"], "purpose": "Network directory, contracts and provider performance management" },
+      { "module": "Fraud, Waste & Abuse Detection", "tables": ["FRAUD_DETECTION_MODEL", "ANOMALY_ALERT", "BILLING_PATTERN", "PROVIDER_BEHAVIOR_SCORE"], "purpose": "Anomaly detection and provider behavior analytics" }
+    ]
+  },
+  "technologyArchitecture": {
+    "layers": [
+      {
+        "name": "Source Systems Layer",
+        "type": "source",
+        "components": [
+          { "name": "Electronic Health Record (EHR)", "feeds": "Patient demographics, encounters, diagnoses, procedures, medications, results", "frequency": "Real-time + EOD", "owner": "Clinical IT" },
+          { "name": "Laboratory Information System (LIS)", "feeds": "Lab orders, results, specimen data", "frequency": "Real-time + EOD", "owner": "Lab IT" },
+          { "name": "Radiology Information System (RIS/PACS)", "feeds": "Imaging orders, reports, DICOM metadata", "frequency": "Real-time + EOD", "owner": "Radiology IT" },
+          { "name": "Pharmacy & Medication Management", "feeds": "Medication orders, dispenses, administrations, inventory", "frequency": "Real-time + EOD", "owner": "Pharmacy IT" },
+          { "name": "Revenue Cycle / Billing System", "feeds": "Charges, claims, payments, denials, prior authorizations", "frequency": "EOD", "owner": "Revenue Cycle IT" },
+          { "name": "Payer / Insurance System", "feeds": "Eligibility, claims, risk scores, prior auth responses", "frequency": "Real-time + EOD", "owner": "Payer IT" }
+        ]
+      },
+      {
+        "name": "Integration & Data Layer",
+        "type": "integration",
+        "components": [
+          { "name": "FHIR API Gateway", "purpose": "Standardized clinical resource exchange (FHIR R4/R5)" },
+          { "name": "HL7 / DICOM Interfaces", "purpose": "Legacy system integration for ADT, ORM, ORU, DICOM" },
+          { "name": "ETL / ELT Pipelines (Airflow)", "purpose": "Schedule and orchestrate source system loads" },
+          { "name": "Data Lake (S3 / ADLS)", "purpose": "Raw FHIR bundles, HL7 messages and imaging metadata" },
+          { "name": "HCDM Enterprise Data Warehouse (Teradata)", "purpose": "Canonical healthcare data model and encounter star schema" }
+        ]
+      },
+      {
+        "name": "Analytics & Optimization Layer",
+        "type": "analytics",
+        "components": [
+          { "name": "Population Health Engine", "purpose": "Risk stratification, care gaps and cohort analytics" },
+          { "name": "Quality & Safety Engine", "purpose": "Clinical quality measures, adverse event detection" },
+          { "name": "Revenue Cycle Analytics", "purpose": "Denials, AR, coding accuracy and payer performance" },
+          { "name": "Clinical NLP Engine", "purpose": "Extract insights from unstructured clinical notes" },
+          { "name": "Fraud & Anomaly Detection", "purpose": "Claims fraud, billing anomalies and provider behavior" },
+          { "name": "Patient Engagement Model", "purpose": "Next-best-action, outreach optimization and care plans" }
+        ]
+      },
+      {
+        "name": "Consumption Layer",
+        "type": "consumption",
+        "components": [
+          { "name": "Executive Clinical Dashboard", "purpose": "Quality, safety, financial and operational KPIs" },
+          { "name": "Provider Performance Portal", "purpose": "Provider scorecards and quality benchmarking" },
+          { "name": "Patient Portal & App", "purpose": "Personal health record, appointments, reminders" },
+          { "name": "Population Health Cockpit", "purpose": "Cohort management, care-gap lists and outreach" },
+          { "name": "Payer & Contract Analytics", "purpose": "Risk adjustment, contract performance and network reporting" },
+          { "name": "Regulatory & Accreditation Reports", "purpose": "SBP, JCI, HEDIS and other regulatory returns" }
+        ]
+      }
+    ],
+    "techStack": [
+      { "component": "Enterprise Data Warehouse", "tech": "Teradata / Snowflake", "rationale": "HCDM encounter star schema" },
+      { "component": "Data Integration", "tech": "Apache Kafka + Airflow + HL7 FHIR", "rationale": "FHIR streaming and batch orchestration" },
+      { "component": "Analytics Engine", "tech": "Python + SQL + dbt", "rationale": "Population health, quality and revenue analytics" },
+      { "component": "Clinical NLP", "tech": "spaCy / Transformers", "rationale": "Unstructured clinical note processing" },
+      { "component": "ML Platform", "tech": "PyTorch + MLflow", "rationale": "Risk models, readmission, fraud detection" },
+      { "component": "Visualization", "tech": "React + Recharts", "rationale": "Healthcare dashboards and portals" },
+      { "component": "API Layer", "tech": "FastAPI / FHIR Server", "rationale": "Serve FHIR resources and analytics to apps" },
+      { "component": "Governance", "tech": "Apache Atlas / Collibra", "rationale": "Lineage, PHI handling and data quality" }
+    ],
+    "dataFlow": [
+      { "label": "Source Systems", "desc": "EHR, LIS, RIS, Pharmacy, Billing" },
+      { "label": "FHIR / HL7", "desc": "API gateway & messaging" },
+      { "label": "Data Lake", "desc": "Raw clinical data" },
+      { "label": "EDW / Star Schema", "desc": "HCDM healthcare" },
+      { "label": "Analytics Engine", "desc": "Quality & risk models" },
+      { "label": "Portals & Apps", "desc": "Dashboards & APIs" }
+    ]
+  },
+  "useCases": [
+    {
+      "id": "HAIW-U01",
+      "title": "Population Health Risk Stratification",
+      "objective": "Identify high-risk patient cohorts and prioritize outreach to reduce admissions and improve chronic disease management.",
+      "businessValue": "Reduces emergency admissions and readmissions by 10-15%; improves care-gap closure rates.",
+      "capabilities": ["Population Health Analytics"],
+      "dataEntities": ["FACT_HEALTHCARE_ENCOUNTER", "DIM_PATIENT", "AGG_PATIENT_COHORT", "CONDITION"],
+      "measures": ["Risk_Score_Cd", "Care_Gap_Count", "Readmission_30D_Ind", "Chronic_Condition_Count"],
+      "phase": 1,
+      "owner": "Population Health / CMO",
+      "kpiTarget": "Risk-stratify 80% of active patients by month 6"
+    },
+    {
+      "id": "HAIW-U02",
+      "title": "Clinical Quality & Safety Dashboard",
+      "objective": "Monitor quality measures, adverse events, hospital-acquired infections and medication safety in real time.",
+      "businessValue": "Supports accreditation and reduces harm events by 20-30% through early detection.",
+      "capabilities": ["Clinical Quality & Safety"],
+      "dataEntities": ["FACT_HEALTHCARE_ENCOUNTER", "QUALITY_MEASURE", "QUALITY_MEASURE_RESULT", "DIM_CARE_SITE"],
+      "measures": ["Quality_Measure_Score_Pct", "HAI_Rate", "Medication_Error_Rate", "PSI_90_Score"],
+      "phase": 1,
+      "owner": "Quality & Safety",
+      "kpiTarget": "Quality measures available within 24 hours of encounter close"
+    },
+    {
+      "id": "HAIW-U03",
+      "title": "Revenue Cycle & Denial Management",
+      "objective": "Reduce claim denials, improve coding accuracy and accelerate collections through analytics.",
+      "businessValue": "Reduces denial rate by 15-25% and AR days by 20-30%.",
+      "capabilities": ["Revenue Cycle & Claims"],
+      "dataEntities": ["FACT_HEALTHCARE_ENCOUNTER", "CLAIM", "CLAIM_LINE_ITEM", "CHARGE_MASTER"],
+      "measures": ["Total_Cost_Amt", "Denial_Rate_Pct", "AR_Days", "Days_To_Payment"],
+      "phase": 2,
+      "owner": "Revenue Cycle / CFO",
+      "kpiTarget": "Denial rate <5% and AR days <40 by month 12"
+    },
+    {
+      "id": "HAIW-U04",
+      "title": "Sehat Sahulat Program Analytics",
+      "objective": "Track utilization, cost, outcomes and fraud patterns for Pakistan's Sehat Sahulat health insurance program.",
+      "businessValue": "Improves program oversight, reduces fraud and supports government reporting.",
+      "capabilities": ["Population Health Analytics", "Fraud, Waste & Abuse"],
+      "dataEntities": ["FACT_HEALTHCARE_ENCOUNTER", "DIM_PATIENT", "DIM_PAYER", "CLAIM"],
+      "measures": ["Sehat_Sahulat_Utilization_Amt", "Patient_Count", "Cost_Per_Encounter_Amt", "Fraud_Score"],
+      "phase": 2,
+      "owner": "Payer Analytics / Government Liaison",
+      "kpiTarget": "Sehat Sahulat utilization and cost dashboard live by month 9"
+    },
+    {
+      "id": "HAIW-U05",
+      "title": "Patient Engagement & Next-Best-Action",
+      "objective": "Personalize reminders, screenings, appointments and care plans to improve adherence and outcomes.",
+      "businessValue": "Improves preventive screening rates by 20% and reduces no-shows by 15-25%.",
+      "capabilities": ["Patient Engagement & Personalization"],
+      "dataEntities": ["FACT_HEALTHCARE_ENCOUNTER", "DIM_PATIENT", "PATIENT_OUTREACH_CAMPAIGN", "CARE_PLAN"],
+      "measures": ["Care_Gap_Count", "Medication_Adherence_Pct", "No_Show_Rate_Pct", "Portal_Adoption_Pct"],
+      "phase": 2,
+      "owner": "Digital / Patient Engagement",
+      "kpiTarget": "Deploy personalized outreach for 50% of eligible patients by month 12"
+    },
+    {
+      "id": "HAIW-U06",
+      "title": "Fraud, Waste & Abuse Detection",
+      "objective": "Detect anomalous billing, provider behavior and claims patterns to reduce leakage.",
+      "businessValue": "Recovers 2-5% of claims spend through fraud and waste prevention.",
+      "capabilities": ["Fraud, Waste & Abuse"],
+      "dataEntities": ["CLAIM", "CLAIM_LINE_ITEM", "PROVIDER_BEHAVIOR_SCORE", "BILLING_PATTERN"],
+      "measures": ["Fraud_Score", "Anomaly_Count", "Estimated_Savings_Amt", "Investigation_Conversion_Rate"],
+      "phase": 3,
+      "owner": "Compliance / Special Investigations",
+      "kpiTarget": "Real-time anomaly scoring for 100% of claims by month 18"
+    },
+    {
+      "id": "HAIW-U07",
+      "title": "Facility Utilization & Capacity Planning",
+      "objective": "Optimize bed, OR, clinic and staff utilization to reduce wait times and improve access.",
+      "businessValue": "Improves occupancy and throughput; reduces ED wait times and patient leakage.",
+      "capabilities": ["Patient Identity & Registration", "Clinical Data Capture (FHIR)"],
+      "dataEntities": ["FACT_HEALTHCARE_ENCOUNTER", "AGG_FACILITY_UTILIZATION", "DIM_CARE_SITE"],
+      "measures": ["Occupancy_Rate_Pct", "OR_Utilization_Pct", "ED_Wait_Time_Min", "Length_Of_Stay_Days"],
+      "phase": 3,
+      "owner": "Operations / Patient Access",
+      "kpiTarget": "Capacity planning dashboard with 7-day forecast by month 18"
+    }
+  ],
+  "roadmap": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Foundation: FHIR & Encounter Star Schema",
+        "timeline": "0–6 months",
+        "theme": "Build patient and encounter data foundation, population health and quality dashboards",
+        "deliverables": [
+          "Deploy FACT_HEALTHCARE_ENCOUNTER + 8 dimensions",
+          "Implement FHIR API gateway and EHR integration",
+          "Launch population health risk stratification",
+          "Launch clinical quality & safety dashboard"
+        ],
+        "capabilities": ["Patient Identity & Registration", "Clinical Data Capture (FHIR)", "Revenue Cycle & Claims"],
+        "dataDependencies": ["FACT_HEALTHCARE_ENCOUNTER", "DIM_PATIENT", "DIM_PROVIDER", "DIM_CARE_SITE", "DIM_DIAGNOSIS"],
+        "quickWins": ["Patient master dashboard", "Encounter volume trends", "Quality measure scorecard"],
+        "risks": ["EHR data quality and FHIR maturity", "Patient identity matching (CNIC/NADRA)", "Provider data standardization"],
+        "kpis": ["80% of patients risk-stratified", "Quality measures within 24h", "FHIR resources ingested daily"]
+      },
+      {
+        "phase": 2,
+        "name": "Revenue, Payer & Engagement",
+        "timeline": "6–18 months",
+        "theme": "Add revenue cycle, Sehat Sahulat, payer analytics and patient engagement",
+        "deliverables": [
+          "Revenue cycle & denial analytics",
+          "Sehat Sahulat utilization and cost dashboard",
+          "Patient outreach and next-best-action",
+          "Payer performance and risk-adjustment views"
+        ],
+        "capabilities": ["Population Health Analytics", "Patient Engagement & Personalization", "Payer & Value-Based Care"],
+        "dataDependencies": ["CLAIM", "CLAIM_LINE_ITEM", "DIM_PAYER", "PATIENT_OUTREACH_CAMPAIGN", "HCC_COEFFICIENT"],
+        "quickWins": ["Denial rate dashboard", "Sehat Sahulat cost tracker", "Appointment reminder campaign"],
+        "risks": ["Claims data reconciliation", "Payer data sharing agreements", "Patient consent and outreach governance"],
+        "kpis": ["Denial rate <5%", "AR days <40", "Sehat Sahulat dashboard live", "50% outreach coverage"]
+      },
+      {
+        "phase": 3,
+        "name": "Advanced Analytics & AI",
+        "timeline": "18–36 months",
+        "theme": "Deploy predictive models, clinical NLP, fraud detection and real-time APIs",
+        "deliverables": [
+          "Readmission and no-show prediction models",
+          "Clinical NLP for unstructured notes",
+          "Fraud, waste & abuse detection",
+          "Real-time patient and provider APIs"
+        ],
+        "capabilities": ["Fraud, Waste & Abuse", "Clinical Decision Support"],
+        "dataDependencies": ["CLINICAL_NOTE", "CLINICAL_RULE", "FRAUD_DETECTION_MODEL", "PROVIDER_BEHAVIOR_SCORE"],
+        "quickWins": ["Readmission risk alerts", "Fraud alert prioritization", "Provider scorecards with NLP"],
+        "risks": ["Model governance and bias", "Clinical NLP accuracy", "Change management with clinicians"],
+        "kpis": ["Readmission model AUC >0.75", "Fraud model precision >80%", "Real-time API latency <500ms"]
+      }
+    ]
+  }
+}

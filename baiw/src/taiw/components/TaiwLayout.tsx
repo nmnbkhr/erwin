@@ -2,13 +2,14 @@ import { type ReactNode, useState, useEffect, useCallback } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import {
   LayoutDashboard, Globe, Target, Share2,
-  BarChart3, TrendingUp, Map, Flag,
+  BarChart3, TrendingUp, Map, Flag, Briefcase,
   ChevronLeft, ChevronRight, Search, ArrowLeft, Home,
 } from 'lucide-react'
 import TaiwCommandPalette from './TaiwCommandPalette'
 
 const navItems = [
   { path: '/taiw', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/taiw/workbench', label: 'Trade Workbench', icon: Briefcase },
   { path: '/taiw/model', label: 'WCO Model', icon: Globe },
   { path: '/taiw/capabilities', label: 'Capabilities', icon: Target },
   { path: '/taiw/graph', label: 'Dependencies', icon: Share2 },

@@ -1,0 +1,284 @@
+{
+  "title": "Trade Analytics Intelligence Workbench",
+  "subtitle": "Business-to-technology blueprint for trade finance analytics across WCO, TCF and FSDM",
+  "businessArchitecture": {
+    "stakeholders": [
+      { "role": "Trade Head / Commercial", "interest": "LC, guarantee, invoice financing volume, customer profitability, corridor strategy", "kpis": ["Trade revenue PKR 8bn", "LC volume growth 12%", "Top 10 corridors"] },
+      { "role": "Treasury / FX", "interest": "Trade-related FX exposure, forward hedging, open FX position, nostro/vostro balances", "kpis": ["FX trade volume", "Hedge ratio", "Nostro optimization"] },
+      { "role": "Risk / Credit", "interest": "Counterparty risk, country risk, document fraud, ECL on trade exposures", "kpis": ["ECL on trade", "Fraud cases", "Limit utilization"] },
+      { "role": "Operations", "interest": "LC processing time, document discrepancy rate, STP ratio, SWIFT repair rate", "kpis": ["Avg processing days", "Discrepancy rate", "STP %"] },
+      { "role": "Compliance / SBP", "interest": "Trade-based money laundering, sanctions screening, SBP trade returns, export/import reporting", "kpis": ["Sanctions hits", "AML alerts", "SBP return timeliness"] },
+      { "role": "Corporate Relationship", "interest": "Customer 360° trade view, working-capital solutions, next-best-trade-product", "kpis": ["Trade customer revenue", "Product penetration", "NPS"] }
+    ],
+    "valueChain": [
+      { "step": 1, "name": "Trade Origination", "description": "Customer initiates LC, guarantee, collection, invoice finance or FX trade through branches, digital channels or corporate banking.", "owner": "Corporate / Trade Sales", "outputs": ["Trade application", "Customer / party data", "Product selection"] },
+      { "step": 2, "name": "Risk Assessment & Pricing", "description": "Evaluate counterparty, country, commodity and transaction risk; price FX, commission, finance spread and capital charge.", "owner": "Credit / Treasury", "outputs": ["Approved limit", "Pricing quote", "Risk grade"] },
+      { "step": 3, "name": "Document Processing & SWIFT", "description": "Issue, advise, amend, negotiate and settle trade documents; transmit SWIFT messages and reconcile with correspondents.", "owner": "Trade Operations", "outputs": ["Issued LC", "SWIFT messages", "Document status"] },
+      { "step": 4, "name": "Transaction Execution & Settlement", "description": "Execute FX, fund trade loans, post charges, book nostro/vostro entries and update balances.", "owner": "Treasury / Operations", "outputs": ["FX deals", "Loan postings", "Settlement entries"] },
+      { "step": 5, "name": "Monitoring & Reporting", "description": "Track open trade exposures, maturities, AML/sanctions hits, SBP returns and customer profitability.", "owner": "Risk / Compliance", "outputs": ["Exposure dashboard", "SBP returns", "AML alerts"] },
+      { "step": 6, "name": "Analytics & Optimization", "description": "Corridor analysis, customer segmentation, working-capital optimization, fraud detection and product recommendation.", "owner": "Trade Analytics", "outputs": ["Trade insights", "Recommendations", "Fraud models"] }
+    ],
+    "capabilities": [
+      { "id": "taiw_origination", "name": "Trade Origination", "description": "Capture and validate trade finance applications across channels and products", "priority": "CRITICAL", "phase": 1 },
+      { "id": "taiw_risk", "name": "Trade Risk & Pricing", "description": "Counterparty, country and commodity risk assessment plus FX and trade-loan pricing", "priority": "CRITICAL", "phase": 1 },
+      { "id": "taiw_processing", "name": "Document & SWIFT Processing", "description": "LC/guarantee/collection lifecycle, document checking and SWIFT messaging", "priority": "CRITICAL", "phase": 1 },
+      { "id": "taiw_settlement", "name": "Settlement & FX Execution", "description": "Trade-related FX, loan disbursement, nostro/vostro settlement and GL posting", "priority": "HIGH", "phase": 2 },
+      { "id": "taiw_monitoring", "name": "Exposure & Compliance Monitoring", "description": "Open trade exposure, limit utilization, sanctions/AML screening and SBP reporting", "priority": "HIGH", "phase": 2 },
+      { "id": "taiw_analytics", "name": "Trade Analytics & Optimization", "description": "Corridor, customer, product and working-capital analytics with predictive models", "priority": "MEDIUM", "phase": 3 },
+      { "id": "taiw_corporate", "name": "Corporate Trade 360°", "description": "Unified customer view combining trade, FX, lending and cash management", "priority": "MEDIUM", "phase": 3 }
+    ],
+    "context": [
+      { "area": "WCO", "items": ["WCO Data Model v4.2", "Parties, transactions, products, charges", "Uniform Customs and Practice (UCP) alignment", "Trade finance reference data"] },
+      { "area": "TCF", "items": ["Trade Capability Framework v1.0", "Origination, processing, risk, fulfillment", "Customer and bank trade capabilities", "Pakistan trade corridor focus"] },
+      { "area": "SBP", "items": ["Export/import returns (EFIs)", "Guarantee reporting", "Trade finance regulations", "Foreign exchange position reporting"] },
+      { "area": "SWIFT", "items": ["MT700/701 LC issuance", "MT707 amendments", "MT202/103 settlements", "RMA and correspondent relationships"] }
+    ]
+  },
+  "dataArchitecture": {
+    "starSchema": {
+      "summary": "FACT_TRADE_TRANSACTION is the central fact capturing trade finance transactions, amounts, fees, FX and risk measures. It joins to party, product, instrument, geography, currency, correspondent and time dimensions for trade analytics.",
+      "facts": [
+        { "name": "FACT_TRADE_TRANSACTION", "grain": "Transaction × Party × Product × Instrument × Currency × Correspondent × Geography × Time", "measures": 48 }
+      ],
+      "dimensions": [
+        { "name": "DIM_PARTY", "purpose": "Importer, exporter, beneficiary, applicant, bank party and correspondent", "keyColumns": ["Party_Id", "Party_Type_Cd", "Country_Cd", "Risk_Grade_Cd"] },
+        { "name": "DIM_PRODUCT", "purpose": "LC, guarantee, collection, invoice finance, FX trade product hierarchy", "keyColumns": ["Product_Id", "Product_Category_Cd", "Islamic_Mode_Cd", "UCP_Version_Cd"] },
+        { "name": "DIM_INSTRUMENT", "purpose": "Individual LC, guarantee, collection or invoice finance instrument record", "keyColumns": ["Instrument_Id", "Instrument_Type_Cd", "Status_Cd", "Maturity_Date"] },
+        { "name": "DIM_CURRENCY", "purpose": "Transaction currency, settlement currency and local reporting currency", "keyColumns": ["Currency_Cd", "Reporting_Currency_Ind", "Settlement_Currency_Ind"] },
+        { "name": "DIM_GEOGRAPHY", "purpose": "Origin, destination, country risk and Pakistan trade corridor", "keyColumns": ["Geography_Area_Id", "Country_Cd", "Corridor_Cd", "Risk_Zone_Cd"] },
+        { "name": "DIM_CORRESPONDENT", "purpose": "Advising, confirming, reimbursing and counterparty banks", "keyColumns": ["Correspondent_Bank_Id", "Swift_Bic_Cd", "Country_Cd", "Relationship_Type_Cd"] },
+        { "name": "DIM_TIME", "purpose": "Issue date, expiry date, maturity date, SBP reporting date and fiscal calendar", "keyColumns": ["Time_Period_Key", "Fiscal_Year", "Is_Sbp_Reporting_Dt"] }
+      ],
+      "aggregates": [
+        { "name": "AGG_TRADE_CORRIDOR", "grain": "Corridor × Product × Time", "measures": 14 },
+        { "name": "AGG_TRADE_CUSTOMER", "grain": "Party × Product × Time", "measures": 12 },
+        { "name": "AGG_TRADE_EXPOSURE", "grain": "Currency × Country × Maturity Bucket × Time", "measures": 10 }
+      ]
+    },
+    "lineage": [
+      { "targetColumn": "Transaction_Amount_Amt", "transformation": "SUM(LC_AMOUNT, GUARANTEE_AMOUNT, COLLECTION_AMOUNT, INVOICE_FINANCE_AMOUNT)", "sourceEntities": ["LETTER_OF_CREDIT", "GUARANTEE", "COLLECTION", "INVOICE_FINANCE"], "businessMeasure": "Trade transaction value" },
+      { "targetColumn": "Outstanding_Exposure_Amt", "transformation": "Transaction_Amount - Settled_Amount - Cancelled_Amount", "sourceEntities": ["FACT_TRADE_TRANSACTION", "FINANCIAL_TRANSACTION"], "businessMeasure": "Open trade exposure" },
+      { "targetColumn": "Commission_Fee_Amt", "transformation": "SUM(LC_COMMISSION, GUARANTEE_FEE, AMENDMENT_FEE, HANDLING_FEE)", "sourceEntities": ["EVENT_FINANCIAL", "FINANCIAL_TRANSACTION"], "businessMeasure": "Trade commission and fee income" },
+      { "targetColumn": "FX_Deal_Amt", "transformation": "SUM(FX_SALE, FX_PURCHASE) linked to trade instrument", "sourceEntities": ["FX_DEAL", "CURRENCY_POSITION", "FINANCIAL_TRANSACTION"], "businessMeasure": "Trade-related FX volume" },
+      { "targetColumn": "Risk_Grade_Cd", "transformation": "MAX(counterparty risk grade, country risk grade, commodity risk grade)", "sourceEntities": ["CREDIT_RATING", "RISK_ASSESSMENT", "COUNTRY_RISK"], "businessMeasure": "Composite trade risk grade" },
+      { "targetColumn": "ECL_Amt", "transformation": "EAD × PD × LGD × CCF discounted at EIR", "sourceEntities": ["PROBABILITY_OF_DEFAULT_MODEL", "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE", "LOAN_PROVISION_BALANCE"], "businessMeasure": "IFRS 9 ECL on trade exposure" },
+      { "targetColumn": "Sanctions_Screening_Ind", "transformation": "MATCH(Party, Counterparty, Correspondent, Vessel) against sanctions lists", "sourceEntities": ["PARTY", "ORGANIZATION", "SANCTIONS_LIST"], "businessMeasure": "Sanctions screening status" },
+      { "targetColumn": "Days_To_Process", "transformation": "Issue_Date - Application_Date", "sourceEntities": ["LETTER_OF_CREDIT", "EVENT_MANAGEMENT"], "businessMeasure": "Trade document processing time" },
+      { "targetColumn": "Corridor_Volume_Amt", "transformation": "SUM(Transaction_Amount) by Origin_Country × Destination_Country", "sourceEntities": ["FACT_TRADE_TRANSACTION", "DIM_GEOGRAPHY"], "businessMeasure": "Trade corridor volume" },
+      { "targetColumn": "Customer_Trade_Revenue_Amt", "transformation": "Commission + FX spread + Trade finance interest + Amendment fees", "sourceEntities": ["FACT_TRADE_TRANSACTION", "FX_DEAL", "AGREEMENT"], "businessMeasure": "Customer-level trade revenue" }
+    ],
+    "gapExtensions": [
+      { "module": "Trade Document Image & Compliance", "tables": ["TRADE_DOCUMENT_IMAGE", "DOCUMENT_CHECKLIST", "DISCREPANCY_RECORD", "SWIFT_MESSAGE_LOG"], "purpose": "Store scanned trade documents, document check results, discrepancy history and SWIFT audit trail" },
+      { "module": "Correspondent & Vessel Screening", "tables": ["CORRESPONDENT_BANK_RISK", "VESSEL_MASTER", "SANCTIONS_SCREENING_RESULT", "DUAL_USE_GOODS_LIST"], "purpose": "Screen banks, vessels, goods and countries for sanctions, AML and dual-use compliance" },
+      { "module": "Trade Customer 360°", "tables": ["CUSTOMER_TRADE_PROFILE", "TRADE_PRODUCT_HOLDING", "TRADE_REVENUE_ATTRIBUTION", "WORKING_CAPITAL_GAP"], "purpose": "Combine trade transactions with cash management and lending for corporate customer insights" }
+    ]
+  },
+  "technologyArchitecture": {
+    "layers": [
+      {
+        "name": "Source Systems Layer",
+        "type": "source",
+        "components": [
+          { "name": "Trade Finance System (TFS)", "feeds": "LC, guarantee, collection, invoice finance instrument records", "frequency": "Real-time + EOD", "owner": "Trade IT" },
+          { "name": "Core Banking (CBS)", "feeds": "Customer accounts, loan postings, charges, GL entries", "frequency": "EOD", "owner": "Core Banking IT" },
+          { "name": "SWIFT Alliance", "feeds": "MT700/707/202/103 messages and correspondents", "frequency": "Real-time", "owner": "SWIFT Operations" },
+          { "name": "FX Dealing System", "feeds": "FX spot, forward and swap deals linked to trade", "frequency": "Real-time + EOD", "owner": "Treasury IT" },
+          { "name": "Sanctions Screening Engine", "feeds": "Party, correspondent, vessel and goods screening hits", "frequency": "Real-time", "owner": "Compliance IT" },
+          { "name": "Document Imaging System", "feeds": "Scanned trade documents and checklist data", "frequency": "Event-driven", "owner": "Operations IT" }
+        ]
+      },
+      {
+        "name": "Integration & Data Layer",
+        "type": "integration",
+        "components": [
+          { "name": "CDC / Messaging (Kafka + MQ)", "purpose": "Stream SWIFT, trade events and screening results" },
+          { "name": "ETL / ELT Pipelines (Airflow)", "purpose": "Schedule and orchestrate trade source loads" },
+          { "name": "Data Lake (S3 / ADLS)", "purpose": "Raw trade messages, documents and audit logs" },
+          { "name": "FSDM Enterprise Data Warehouse (Teradata)", "purpose": "Canonical trade finance star schema aligned with WCO/TCF" },
+          { "name": "Trade Transaction Hub", "purpose": "Centralized trade fact and dimension store" }
+        ]
+      },
+      {
+        "name": "Analytics & Optimization Layer",
+        "type": "analytics",
+        "components": [
+          { "name": "Corridor Analytics Engine", "purpose": "Country and corridor volume, margin and trend analysis" },
+          { "name": "Customer Segmentation Model", "purpose": "Trade customer value bands and product propensity" },
+          { "name": "Fraud & AML Detection", "purpose": "Trade-based money laundering and document fraud models" },
+          { "name": "Working Capital Optimizer", "purpose": "Days payable/receivable and cash-conversion optimization" },
+          { "name": "Pricing & Risk Engine", "purpose": "Trade finance pricing, ECL and capital charge" }
+        ]
+      },
+      {
+        "name": "Consumption Layer",
+        "type": "consumption",
+        "components": [
+          { "name": "Trade Analytics Dashboard", "purpose": "Executive trade performance and corridor views" },
+          { "name": "Corporate Trade Portal", "purpose": "Customer 360° trade and working-capital view" },
+          { "name": "Operations Command Center", "purpose": "Processing queues, discrepancy and SWIFT monitoring" },
+          { "name": "Compliance & SBP Reporting", "purpose": "Sanctions, AML and SBP trade returns" },
+          { "name": "Trade Relationship Manager", "purpose": "RM-facing customer insights and recommendations" }
+        ]
+      }
+    ],
+    "techStack": [
+      { "component": "Enterprise Data Warehouse", "tech": "Teradata / Snowflake", "rationale": "FSDM trade finance star schema" },
+      { "component": "Data Integration", "tech": "Apache Kafka + IBM MQ + Airflow", "rationale": "SWIFT streaming and batch orchestration" },
+      { "component": "Analytics Engine", "tech": "Python + SQL + dbt", "rationale": "Corridor, customer and risk analytics" },
+      { "component": "Fraud & AML Models", "tech": "PyTorch + MLflow", "rationale": "Trade-based ML detection" },
+      { "component": "Visualization", "tech": "React + Recharts", "rationale": "Trade dashboards and RM portal" },
+      { "component": "API Layer", "tech": "FastAPI / GraphQL", "rationale": "Trade data to corporate channels" },
+      { "component": "SWIFT Integration", "tech": "SWIFT Alliance + ISO 20022", "rationale": "Message exchange and correspondent connectivity" },
+      { "component": "Governance", "tech": "Apache Atlas / Collibra", "rationale": "Trade lineage and regulatory audit" }
+    ],
+    "dataFlow": [
+      { "label": "Source Systems", "desc": "TFS, CBS, SWIFT, FX" },
+      { "label": "CDC / Messaging", "desc": "Kafka + MQ" },
+      { "label": "Data Lake", "desc": "Raw messages & docs" },
+      { "label": "EDW / Star Schema", "desc": "FSDM trade" },
+      { "label": "Analytics Engine", "desc": "Risk & insights" },
+      { "label": "Trade Portals", "desc": "Dashboards & APIs" }
+    ]
+  },
+  "useCases": [
+    {
+      "id": "TAIW-U01",
+      "title": "Trade Corridor Profitability",
+      "objective": "Analyze revenue, volume and risk by origin-destination corridor to optimize corridor strategy and pricing.",
+      "businessValue": "Identifies high-margin corridors and underperforming routes; typical 10-15% revenue uplift on targeted corridors.",
+      "capabilities": ["Trade Analytics & Optimization"],
+      "dataEntities": ["FACT_TRADE_TRANSACTION", "AGG_TRADE_CORRIDOR", "DIM_GEOGRAPHY", "DIM_PRODUCT"],
+      "measures": ["Corridor_Volume_Amt", "Commission_Fee_Amt", "FX_Deal_Amt", "Outstanding_Exposure_Amt"],
+      "phase": 1,
+      "owner": "Trade Head / Analytics",
+      "kpiTarget": "Cover 90% of trade volume with corridor profitability view by month 6"
+    },
+    {
+      "id": "TAIW-U02",
+      "title": "Customer Trade 360° & Next-Best-Product",
+      "objective": "Build a unified view of each corporate customer's trade products, FX, revenue and working-capital gap.",
+      "businessValue": "Improves cross-sell and retention; 20-30% higher product penetration in top corporate customers.",
+      "capabilities": ["Corporate Trade 360°", "Trade Analytics & Optimization"],
+      "dataEntities": ["FACT_TRADE_TRANSACTION", "CUSTOMER_TRADE_PROFILE", "DIM_PARTY", "WORKING_CAPITAL_GAP"],
+      "measures": ["Customer_Trade_Revenue_Amt", "Product_Holding_Count", "Working_Capital_Gap_Days"],
+      "phase": 1,
+      "owner": "Corporate Banking / RM",
+      "kpiTarget": "360° view available for top 500 corporate customers by month 6"
+    },
+    {
+      "id": "TAIW-U03",
+      "title": "Trade Operations Efficiency & STP",
+      "objective": "Reduce LC/guarantee processing time and document discrepancy rate through workflow analytics.",
+      "businessValue": "Cuts processing cost by 15-25% and improves customer turnaround time.",
+      "capabilities": ["Document & SWIFT Processing"],
+      "dataEntities": ["LETTER_OF_CREDIT", "DOCUMENT_CHECKLIST", "DISCREPANCY_RECORD", "SWIFT_MESSAGE_LOG"],
+      "measures": ["Days_To_Process", "Discrepancy_Rate_Pct", "STP_Rate_Pct", "SWIFT_Repair_Rate_Pct"],
+      "phase": 2,
+      "owner": "Trade Operations",
+      "kpiTarget": "Reduce average processing time from 3 days to 1.5 days; STP >70%"
+    },
+    {
+      "id": "TAIW-U04",
+      "title": "Trade-Based AML & Sanctions Screening",
+      "objective": "Screen parties, correspondents, vessels and goods against sanctions and dual-use lists in real time.",
+      "businessValue": "Reduces regulatory fines and reputational risk; improves false-positive rate.",
+      "capabilities": ["Exposure & Compliance Monitoring"],
+      "dataEntities": ["PARTY", "ORGANIZATION", "SANCTIONS_LIST", "VESSEL_MASTER", "DUAL_USE_GOODS_LIST"],
+      "measures": ["Sanctions_Screening_Ind", "False_Positive_Rate_Pct", "Alert_Count"],
+      "phase": 2,
+      "owner": "Compliance / AML",
+      "kpiTarget": "Real-time screening for 100% of trade transactions; false-positive <5%"
+    },
+    {
+      "id": "TAIW-U05",
+      "title": "Trade FX Exposure & Nostro Optimization",
+      "objective": "Aggregate trade-related FX exposures and optimize nostro/vostro balances across correspondent banks.",
+      "businessValue": "Reduces FX settlement risk and improves nostro liquidity utilization.",
+      "capabilities": ["Settlement & FX Execution", "Trade Risk & Pricing"],
+      "dataEntities": ["FACT_TRADE_TRANSACTION", "FX_DEAL", "CURRENCY_POSITION", "DIM_CORRESPONDENT"],
+      "measures": ["FX_Deal_Amt", "Open_FX_Position_Amt", "Nostro_Balance_Amt"],
+      "phase": 2,
+      "owner": "Treasury / FX",
+      "kpiTarget": "Automated trade FX exposure dashboard by month 12"
+    },
+    {
+      "id": "TAIW-U06",
+      "title": "Risk-Adjusted Trade Pricing",
+      "objective": "Price LC, guarantee and invoice finance based on counterparty, country and commodity risk plus capital charge.",
+      "businessValue": "Improves risk-adjusted return and prevents underpricing of high-risk trade.",
+      "capabilities": ["Trade Risk & Pricing", "Trade Analytics & Optimization"],
+      "dataEntities": ["FACT_TRADE_TRANSACTION", "CREDIT_RATING", "RISK_ASSESSMENT", "COUNTRY_RISK"],
+      "measures": ["Risk_Grade_Cd", "ECL_Amt", "Risk_Adjusted_Return_Pct"],
+      "phase": 3,
+      "owner": "Credit / Trade Pricing",
+      "kpiTarget": "Risk-adjusted pricing applied to 80% of new trade by month 18"
+    },
+    {
+      "id": "TAIW-U07",
+      "title": "SBP Trade Returns Automation",
+      "objective": "Automate SBP export, import, guarantee and FX position returns from the trade star schema.",
+      "businessValue": "Cuts reporting effort, reduces errors and improves timeliness.",
+      "capabilities": ["Exposure & Compliance Monitoring"],
+      "dataEntities": ["FACT_TRADE_TRANSACTION", "AGG_TRADE_EXPOSURE", "DIM_CURRENCY", "DIM_TIME"],
+      "measures": ["Report_Line_Count", "Submission_Timeliness_Ind", "Reconciliation_Breaks"],
+      "phase": 3,
+      "owner": "Regulatory Reporting",
+      "kpiTarget": "Automate 5 key SBP trade returns with >95% straight-through accuracy"
+    }
+  ],
+  "roadmap": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Foundation",
+        "timeline": "0–6 months",
+        "theme": "Build trade transaction star schema and core analytics",
+        "deliverables": [
+          "Deploy FACT_TRADE_TRANSACTION + 7 dimensions",
+          "Integrate TFS, CBS and SWIFT feeds",
+          "Launch corridor profitability dashboard",
+          "Launch top-corporate customer 360° view"
+        ],
+        "capabilities": ["Trade Origination", "Trade Risk & Pricing", "Document & SWIFT Processing"],
+        "dataDependencies": ["FACT_TRADE_TRANSACTION", "DIM_PARTY", "DIM_PRODUCT", "DIM_GEOGRAPHY", "DIM_CURRENCY"],
+        "quickWins": ["Corridor profitability view", "Customer trade 360° for top 500", "Trade volume trend dashboard"],
+        "risks": ["TFS data quality and reference data gaps", "SWIFT message parsing complexity", "WCO/TCF mapping alignment"],
+        "kpis": ["Star schema covers 90% of trade volume", "Top 500 customer 360° live", "Corridor dashboard live"]
+      },
+      {
+        "phase": 2,
+        "name": "Operations & Compliance",
+        "timeline": "6–18 months",
+        "theme": "Add operations efficiency, sanctions screening, FX exposure and SBP reporting",
+        "deliverables": [
+          "Operations STP and discrepancy analytics",
+          "Real-time sanctions/AML screening integration",
+          "Trade FX exposure and nostro dashboard",
+          "SBP trade returns automation"
+        ],
+        "capabilities": ["Settlement & FX Execution", "Exposure & Compliance Monitoring"],
+        "dataDependencies": ["SWIFT_MESSAGE_LOG", "DISCREPANCY_RECORD", "SANCTIONS_SCREENING_RESULT", "AGG_TRADE_EXPOSURE"],
+        "quickWins": ["Processing time dashboard", "Sanctions screening dashboard", "FX exposure daily report"],
+        "risks": ["Screening false positives", "Correspondent data availability", "Legacy SWIFT message formats"],
+        "kpis": ["Average processing time <1.5 days", "STP >70%", "Sanctions screening 100% coverage"]
+      },
+      {
+        "phase": 3,
+        "name": "Advanced Analytics",
+        "timeline": "18–36 months",
+        "theme": "Predictive models, risk-adjusted pricing and working-capital optimization",
+        "deliverables": [
+          "Trade fraud and TBML ML models",
+          "Risk-adjusted trade pricing engine",
+          "Working-capital optimizer for corporate customers",
+          "Real-time trade APIs for digital channels"
+        ],
+        "capabilities": ["Trade Analytics & Optimization", "Corporate Trade 360°"],
+        "dataDependencies": ["CUSTOMER_TRADE_PROFILE", "WORKING_CAPITAL_GAP", "TRADE_PRODUCT_HOLDING"],
+        "quickWins": ["Fraud alert prioritization", "Next-best-product recommendations", "Working-capital insights"],
+        "risks": ["Model governance", "Data science capacity", "Customer adoption"],
+        "kpis": ["Risk-adjusted pricing on 80% of new trade", "Fraud model precision >80%", "Top 1000 customers with 360° view"]
+      }
+    ]
+  }
+}

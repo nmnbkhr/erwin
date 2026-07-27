@@ -4,6 +4,7 @@ import TaiwLayout from './components/TaiwLayout'
 import PageSkeleton from '../components/layout/PageSkeleton'
 
 const TaiwDashboard = lazy(() => import('./components/TaiwDashboard'))
+const TradeWorkbench = lazy(() => import('./components/TradeWorkbench'))
 const WCOModelExplorer = lazy(() => import('./components/WCOModelExplorer'))
 const TCFCapabilityNavigator = lazy(() => import('./components/TCFCapabilityNavigator'))
 const TradeDependencyGraph = lazy(() => import('./components/TradeDependencyGraph'))
@@ -18,6 +19,7 @@ export default function TaiwRoutes() {
       <Suspense fallback={<PageSkeleton />}>
         <Routes>
           <Route path="/" element={<TaiwDashboard />} />
+          <Route path="/workbench" element={<TradeWorkbench />} />
           <Route path="/model" element={<WCOModelExplorer />} />
           <Route path="/capabilities" element={<TCFCapabilityNavigator />} />
           <Route path="/graph" element={<TradeDependencyGraph />} />

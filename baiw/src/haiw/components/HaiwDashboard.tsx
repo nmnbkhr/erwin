@@ -6,7 +6,7 @@ import {
   ResponsiveContainer, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from 'recharts'
 import { loadFhirResources, loadResourceCategories, loadCapabilities, loadHcdmSubjectAreas, loadPakistanContext, loadIndex } from '../data'
-import type { HaiwFhirResource, HaiwResourceCategory, HaiwCapability, HaiwHcdmSubjectArea, HaiwPakistanContext, HaiwIndex } from '../types'
+import type { HaiwResourceCategory, HaiwCapability, HaiwHcdmSubjectArea, HaiwPakistanContext, HaiwIndex } from '../types'
 
 const heroStats = [
   { label: 'FHIR Resources', value: '157', icon: Database },
@@ -18,6 +18,7 @@ const heroStats = [
 ]
 
 const navPages = [
+  { path: '/haiw/workbench', title: 'Health Workbench', desc: 'Business → Data → Technology blueprint for healthcare analytics across FHIR, HCDM and HCF.' },
   { path: '/haiw/model', title: 'FHIR Data Model', desc: 'Explore 157 HL7 FHIR R5 resources organized across 12 categories with full element definitions.' },
   { path: '/haiw/capabilities', title: 'Capability Framework', desc: 'Browse 108 healthcare analytics capabilities across 6 strategic themes.' },
   { path: '/haiw/graph', title: 'Dependency Graph', desc: 'Visualize cross-resource and cross-capability dependencies in an interactive network.' },
@@ -52,13 +53,12 @@ export default function HaiwDashboard() {
   const [subjectAreas, setSubjectAreas] = useState<HaiwHcdmSubjectArea[]>([])
   const [pakistanCtx, setPakistanCtx] = useState<HaiwPakistanContext | null>(null)
   const [index, setIndex] = useState<HaiwIndex | null>(null)
-  const [_resources, setResources] = useState<HaiwFhirResource[]>([])
 
   useEffect(() => {
     let cancelled = false
     async function init() {
       try {
-        const [res, cats, caps, areas, pak, idx] = await Promise.all([
+        const [, cats, caps, areas, pak, idx] = await Promise.all([
           loadFhirResources(),
           loadResourceCategories(),
           loadCapabilities(),
@@ -67,7 +67,6 @@ export default function HaiwDashboard() {
           loadIndex(),
         ])
         if (cancelled) return
-        setResources(res)
         setCategories(cats)
         setCapabilities(caps)
         setSubjectAreas(areas)

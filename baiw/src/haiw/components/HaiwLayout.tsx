@@ -2,13 +2,14 @@ import { type ReactNode, useState, useEffect, useCallback } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import {
   LayoutDashboard, Database, Target, GitBranch,
-  BarChart3, Activity, Map, Heart, Stethoscope,
+  BarChart3, Activity, Map, Heart, Stethoscope, Briefcase,
   ChevronLeft, ChevronRight, Search, ArrowLeft, Home,
 } from 'lucide-react'
 import HaiwCommandPalette from './HaiwCommandPalette'
 
 const navItems = [
   { path: '/haiw', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/haiw/workbench', label: 'Health Workbench', icon: Briefcase },
   { path: '/haiw/model', label: 'FHIR Model', icon: Database },
   { path: '/haiw/capabilities', label: 'Capabilities', icon: Target },
   { path: '/haiw/graph', label: 'Dependencies', icon: GitBranch },

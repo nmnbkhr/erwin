@@ -4,6 +4,7 @@ import HaiwLayout from './components/HaiwLayout'
 import PageSkeleton from '../components/layout/PageSkeleton'
 
 const HaiwDashboard = lazy(() => import('./components/HaiwDashboard'))
+const HealthWorkbench = lazy(() => import('./components/HealthWorkbench'))
 const FHIRResourceExplorer = lazy(() => import('./components/FHIRResourceExplorer'))
 const HCFCapabilityNavigator = lazy(() => import('./components/HCFCapabilityNavigator'))
 const HealthDependencyGraph = lazy(() => import('./components/HealthDependencyGraph'))
@@ -19,6 +20,7 @@ export default function HaiwRoutes() {
       <Suspense fallback={<PageSkeleton />}>
         <Routes>
           <Route path="/" element={<HaiwDashboard />} />
+          <Route path="/workbench" element={<HealthWorkbench />} />
           <Route path="/model" element={<FHIRResourceExplorer />} />
           <Route path="/capabilities" element={<HCFCapabilityNavigator />} />
           <Route path="/graph" element={<HealthDependencyGraph />} />

@@ -73,6 +73,7 @@ Each `/module/*` branch has its own sidebar/layout; the catch-all `*` is BAIW, w
 | `/maturity` | Maturity Assessment | [src/pages/MaturityAssessment.tsx](src/pages/MaturityAssessment.tsx) |
 | `/profitability` | Profitability Engine | [src/pages/ProfitabilityEngine.tsx](src/pages/ProfitabilityEngine.tsx) |
 | `/customer-profitability` | Customer Profitability | [src/pages/CustomerProfitability.tsx](src/pages/CustomerProfitability.tsx) |
+| `/customer-profitability-workbench` | CP Workbench | [src/pages/CustomerProfitabilityWorkbench.tsx](src/pages/CustomerProfitabilityWorkbench.tsx) |
 | `/customer-value` | Consumer 360° Value | [src/pages/CustomerValue.tsx](src/pages/CustomerValue.tsx) |
 | `/corporate-value` | Corporate 360° Value | [src/pages/CorporateValue.tsx](src/pages/CorporateValue.tsx) |
 | `/customer-comparison` | Strategy Matrix | [src/pages/CustomerComparison.tsx](src/pages/CustomerComparison.tsx) |
@@ -82,6 +83,7 @@ Each `/module/*` branch has its own sidebar/layout; the catch-all `*` is BAIW, w
 | `/roadmap` | Roadmap Builder | [src/pages/RoadmapBuilder.tsx](src/pages/RoadmapBuilder.tsx) |
 | `/pakistan` | Pakistan Reference | [src/pages/PakistanReference.tsx](src/pages/PakistanReference.tsx) |
 | `/cash-optimization` | Cash Optimization Engine | [src/components/CashOptimizationEngine.tsx](src/components/CashOptimizationEngine.tsx) |
+| `/architecture` | Architecture Cockpit | [src/pages/ArchitectureCockpit.tsx](src/pages/ArchitectureCockpit.tsx) |
 | `*` (unmatched) | Not Found | [src/components/layout/NotFound.tsx](src/components/layout/NotFound.tsx) |
 
 Sidebar nav: [src/components/layout/Sidebar.tsx](src/components/layout/Sidebar.tsx)
@@ -93,6 +95,7 @@ Sidebar nav: [src/components/layout/Sidebar.tsx](src/components/layout/Sidebar.t
 | URL | Page | File |
 |-----|------|------|
 | `/alm` | ALM Dashboard | [src/alm/components/AlmDashboard.tsx](src/alm/components/AlmDashboard.tsx) |
+| `/alm/workbench` | ALCO Workbench | [src/alm/components/AlcoWorkbench.tsx](src/alm/components/AlcoWorkbench.tsx) |
 | `/alm/usecases` | Use-Case Explorer | [src/alm/components/UseCaseExplorer.tsx](src/alm/components/UseCaseExplorer.tsx) |
 | `/alm/irrbb` | IRRBB Analysis | [src/alm/components/IrrbbAnalysis.tsx](src/alm/components/IrrbbAnalysis.tsx) |
 | `/alm/liquidity` | Liquidity Analysis | [src/alm/components/LiquidityAnalysis.tsx](src/alm/components/LiquidityAnalysis.tsx) |
@@ -108,6 +111,7 @@ Layout: [src/alm/AlmLayout.tsx](src/alm/AlmLayout.tsx)  ·  Data: [src/alm/data/
 | URL | Page | File |
 |-----|------|------|
 | `/taiw` | TAIW Dashboard | [src/taiw/components/TaiwDashboard.tsx](src/taiw/components/TaiwDashboard.tsx) |
+| `/taiw/workbench` | Trade Workbench | [src/taiw/components/TradeWorkbench.tsx](src/taiw/components/TradeWorkbench.tsx) |
 | `/taiw/model` | WCO Model Explorer | [src/taiw/components/WCOModelExplorer.tsx](src/taiw/components/WCOModelExplorer.tsx) |
 | `/taiw/capabilities` | TCF Capability Navigator | [src/taiw/components/TCFCapabilityNavigator.tsx](src/taiw/components/TCFCapabilityNavigator.tsx) |
 | `/taiw/graph` | Trade Dependency Graph | [src/taiw/components/TradeDependencyGraph.tsx](src/taiw/components/TradeDependencyGraph.tsx) |
@@ -125,6 +129,7 @@ Layout: [src/taiw/components/TaiwLayout.tsx](src/taiw/components/TaiwLayout.tsx)
 | URL | Page | File |
 |-----|------|------|
 | `/haiw` | HAIW Dashboard | [src/haiw/components/HaiwDashboard.tsx](src/haiw/components/HaiwDashboard.tsx) |
+| `/haiw/workbench` | Health Workbench | [src/haiw/components/HealthWorkbench.tsx](src/haiw/components/HealthWorkbench.tsx) |
 | `/haiw/model` | FHIR Resource Explorer | [src/haiw/components/FHIRResourceExplorer.tsx](src/haiw/components/FHIRResourceExplorer.tsx) |
 | `/haiw/capabilities` | HCF Capability Navigator | [src/haiw/components/HCFCapabilityNavigator.tsx](src/haiw/components/HCFCapabilityNavigator.tsx) |
 | `/haiw/graph` | Health Dependency Graph | [src/haiw/components/HealthDependencyGraph.tsx](src/haiw/components/HealthDependencyGraph.tsx) |

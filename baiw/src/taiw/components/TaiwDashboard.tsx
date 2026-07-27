@@ -8,7 +8,7 @@ import {
 import {
   Database, Layers, HelpCircle, Globe, Target, Share2,
   BarChart3, TrendingUp, Map, Flag, Ship, ArrowDownRight,
-  CheckCircle2, Download,
+  CheckCircle2, Download, Briefcase,
 } from 'lucide-react'
 import { downloadJSON } from '../utils/export'
 import {
@@ -47,6 +47,7 @@ const MONTHLY_TRADE = [
 /* ---------- Quick-nav definitions ---------- */
 const navModules = [
   { path: '/taiw', label: 'Dashboard', desc: 'Overview stats & charts', icon: BarChart3, color: 'text-teal-600' },
+  { path: '/taiw/workbench', label: 'Trade Workbench', desc: 'Business → Data → Tech blueprint', icon: Briefcase, color: 'text-indigo-600' },
   { path: '/taiw/model', label: 'WCO Model', desc: 'Browse WCO data elements', icon: Globe, color: 'text-cyan-600' },
   { path: '/taiw/capabilities', label: 'Capabilities', desc: 'Trade Capability Framework', icon: Target, color: 'text-amber-600' },
   { path: '/taiw/graph', label: 'Dependencies', desc: 'Element-capability graph', icon: Share2, color: 'text-indigo-600' },

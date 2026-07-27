@@ -13,6 +13,7 @@ const DependencyGraph = lazy(() => import('./pages/DependencyGraph'))
 const MaturityAssessment = lazy(() => import('./pages/MaturityAssessment'))
 const ProfitabilityEngine = lazy(() => import('./pages/ProfitabilityEngine'))
 const CustomerProfitability = lazy(() => import('./pages/CustomerProfitability'))
+const CustomerProfitabilityWorkbench = lazy(() => import('./pages/CustomerProfitabilityWorkbench'))
 const CustomerValue = lazy(() => import('./pages/CustomerValue'))
 const CorporateValue = lazy(() => import('./pages/CorporateValue'))
 const CustomerComparison = lazy(() => import('./pages/CustomerComparison'))
@@ -22,6 +23,7 @@ const UseCaseDeck = lazy(() => import('./pages/UseCaseDeck'))
 const RoadmapBuilder = lazy(() => import('./pages/RoadmapBuilder'))
 const PakistanReference = lazy(() => import('./pages/PakistanReference'))
 const CashOptimizationEngine = lazy(() => import('./components/CashOptimizationEngine'))
+const ArchitectureCockpit = lazy(() => import('./pages/ArchitectureCockpit'))
 
 const SuiteLanding = lazy(() => import('./components/SuiteLanding'))
 const TaiwRoutes = lazy(() => import('./taiw'))
@@ -92,6 +94,7 @@ function App() {
                     <Route path="/maturity" element={<MaturityAssessment />} />
                     <Route path="/profitability" element={<ProfitabilityEngine />} />
                     <Route path="/customer-profitability" element={<CustomerProfitability />} />
+                    <Route path="/customer-profitability-workbench" element={<CustomerProfitabilityWorkbench />} />
                     <Route path="/customer-value" element={<CustomerValue />} />
                     <Route path="/corporate-value" element={<CorporateValue />} />
                     <Route path="/customer-comparison" element={<CustomerComparison />} />
@@ -101,6 +104,7 @@ function App() {
                     <Route path="/roadmap" element={<RoadmapBuilder />} />
                     <Route path="/pakistan" element={<PakistanReference />} />
                     <Route path="/cash-optimization" element={<CashOptimizationEngine />} />
+                    <Route path="/architecture" element={<ArchitectureCockpit />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>

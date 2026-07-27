@@ -1,12 +1,13 @@
 import { type ReactNode, useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import {
-  LayoutDashboard, Layers, Activity, Droplets, Scale, Database,
+  LayoutDashboard, Layers, Activity, Droplets, Scale, Database, BarChart3,
   ChevronLeft, ChevronRight, ArrowLeft, Home,
 } from 'lucide-react'
 
 const navItems = [
   { path: '/alm', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/alm/workbench', label: 'ALCO Workbench', icon: BarChart3 },
   { path: '/alm/usecases', label: 'Use Cases', icon: Layers },
   { path: '/alm/irrbb', label: 'IRRBB & Repricing', icon: Activity },
   { path: '/alm/liquidity', label: 'Liquidity (LCR/NSFR)', icon: Droplets },

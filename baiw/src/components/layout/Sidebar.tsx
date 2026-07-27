@@ -19,6 +19,8 @@ import {
   ChevronRight,
   Home,
   Banknote,
+  Workflow,
+  BarChart3,
 } from 'lucide-react'
 
 const navItems = [
@@ -29,6 +31,7 @@ const navItems = [
   { path: '/maturity', label: 'Maturity Assessment', icon: ClipboardCheck },
   { path: '/profitability', label: 'Profitability Engine', icon: DollarSign },
   { path: '/customer-profitability', label: 'Customer Profitability', icon: PieChart },
+  { path: '/customer-profitability-workbench', label: 'CP Workbench', icon: BarChart3 },
   { path: '/customer-value', label: 'Consumer 360° Value', icon: Gem },
   { path: '/corporate-value', label: 'Corporate 360° Value', icon: Building2 },
   { path: '/customer-comparison', label: 'Strategy Matrix', icon: GitCompareArrows },
@@ -38,6 +41,7 @@ const navItems = [
   { path: '/roadmap', label: 'Roadmap Builder', icon: Map },
   { path: '/pakistan', label: 'Pakistan Reference', icon: Landmark },
   { path: '/cash-optimization', label: 'Cash Optimization', icon: Banknote },
+  { path: '/architecture', label: 'Architecture Cockpit', icon: Workflow },
 ]
 
 export default function Sidebar() {

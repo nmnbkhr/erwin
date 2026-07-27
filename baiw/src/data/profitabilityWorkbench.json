@@ -1,0 +1,311 @@
+{
+  "title": "Customer Profitability Workbench",
+  "subtitle": "Business-to-technology blueprint for customer-based Economic Profit (EVA) / RAROC analytics on Teradata FSDM",
+  "businessArchitecture": {
+    "stakeholders": [
+      { "role": "CFO / Finance PM", "interest": "Bank-wide EVA, product rationalization, capital allocation", "kpis": ["EVA PKR 52bn", "RAROC 18.6%", "CTI 41%"] },
+      { "role": "CRO / Risk", "interest": "IFRS 9 ECL, RWA, concentration risk, stress testing", "kpis": ["ECL PKR 22bn", "Stage 1/2/3 distribution", "Top 20% concentration"] },
+      { "role": "ALCO / Treasury", "interest": "FTP policy, transfer-priced NII, rate risk isolation", "kpis": ["FTP-adjusted NII PKR 114bn", "KIBOR curve match"] },
+      { "role": "CMO / Customer", "interest": "Segment profitability, campaign ROI, relationship strategy", "kpis": ["Star customers 8%", "Profitable customers 42%", "Consumer RAROC 22.4%"] },
+      { "role": "Branch Network", "interest": "Branch P&L, RM incentives, cost-to-serve", "kpis": ["Branch cost PKR 60bn", "ABC cost PKR 20bn"] },
+      { "role": "Product Management", "interest": "Product NPV, fee income, Islamic vs conventional", "kpis": ["Product NPV", "FTP margin", "Islamic share"] }
+    ],
+    "valueChain": [
+      { "step": 1, "name": "Source Data", "description": "Core banking, cards, trade finance, GL, risk systems", "owner": "IT / Data Engineering", "outputs": ["Account balances", "Transactions", "Risk grades"] },
+      { "step": 2, "name": "Funds Transfer Pricing", "description": "Matched-maturity FTP from ALM isolates customer spread", "owner": "ALCO / Treasury", "outputs": ["FTP credit/debit", "FTP-adjusted NII"] },
+      { "step": 3, "name": "Revenue Attribution", "description": "Interest, fees, FX, trading, float recovery allocated to customer", "owner": "Finance PM", "outputs": ["Total revenue by customer"] },
+      { "step": 4, "name": "Cost Allocation", "description": "Direct, activity-based and channel costs assigned using ABC engine", "owner": "Finance / Operations", "outputs": ["Direct cost", "ABC allocated cost"] },
+      { "step": 5, "name": "Risk Adjustment", "description": "IFRS 9 ECL, expected loss, RWA from risk systems", "owner": "CRO / Risk", "outputs": ["Provision", "RWA", "ECL stage"] },
+      { "step": 6, "name": "Capital Charge", "description": "Basel III RWA × cost of equity → economic capital charge", "owner": "CFO / Finance", "outputs": ["Economic capital", "RAROC denominator"] },
+      { "step": 7, "name": "EVA / RAROC", "description": "Customer-level economic profit and risk-adjusted return", "owner": "CFO / CMO", "outputs": ["EVA", "RAROC", "Profitability tier"] }
+    ],
+    "capabilities": [
+      { "id": "cap_revenue", "name": "Revenue Attribution", "description": "Allocate all revenue streams to customer / product / channel grain", "priority": "CRITICAL", "phase": 1 },
+      { "id": "cap_ftp", "name": "Funds Transfer Pricing", "description": "Matched-maturity FTP to isolate customer spread from rate risk", "priority": "CRITICAL", "phase": 1 },
+      { "id": "cap_cost", "name": "Activity-Based Costing", "description": "Allocate direct and indirect costs using cost drivers", "priority": "CRITICAL", "phase": 1 },
+      { "id": "cap_risk", "name": "Risk Adjustment & ECL", "description": "IFRS 9 provision and RWA allocation", "priority": "HIGH", "phase": 2 },
+      { "id": "cap_capital", "name": "Economic Capital", "description": "Basel III capital charge and EVA calculation", "priority": "HIGH", "phase": 2 },
+      { "id": "cap_customer", "name": "Customer Value Analytics", "description": "Segmentation, concentration, CLV, next-best-action", "priority": "MEDIUM", "phase": 3 },
+      { "id": "cap_whatif", "name": "What-If Pricing", "description": "Scenario-based pricing and product-mix optimization", "priority": "MEDIUM", "phase": 3 },
+      { "id": "cap_islamic", "name": "Islamic Profitability", "description": "Shariah-compliant P&L, mudarabah/murabaha treatment", "priority": "MEDIUM", "phase": 2 }
+    ],
+    "pakistanContext": [
+      { "area": "Regulatory", "items": ["SBP minimum savings rate", "CRR/SLR reporting", "Basel III RWA"] },
+      { "area": "Tax", "items": ["WHT 15% / 30% on income", "Zakat 2.5% on applicable deposits"] },
+      { "area": "Islamic", "items": ["Separate Islamic P&L", "Murabaha, Ijarah, Musharakah modes", "AAOIFI reporting overlay"] },
+      { "area": "FTP", "items": ["KIBOR benchmark (O/N to 1Y)", "PKRV government curve", "Pakistan fiscal year Jul-Jun"] }
+    ]
+  },
+  "dataArchitecture": {
+    "starSchema": {
+      "summary": "FACT_CUSTOMER_PROFITABILITY is the central fact containing 46 measures. It is joined to 7 dimensions and 2 aggregate tables for branch and segment analysis.",
+      "facts": [
+        { "name": "FACT_CUSTOMER_PROFITABILITY", "grain": "Customer × Agreement × Product × Branch × Segment × Channel × Time × Geography", "measures": 46 }
+      ],
+      "dimensions": [
+        { "name": "DIM_CUSTOMER", "purpose": "Party master, segment, KYC, geography", "keyColumns": ["Customer_Party_Id", "CNIC_Number", "Customer_Segment_Cd"] },
+        { "name": "DIM_PRODUCT", "purpose": "Product hierarchy, Islamic flag, FTP rate", "keyColumns": ["Product_Id", "Islamic_Mode_Cd", "SBP_Product_Code"] },
+        { "name": "DIM_BRANCH", "purpose": "Branch hierarchy, SBP code, cost center", "keyColumns": ["Branch_Org_Id", "SBP_Branch_Code", "Cost_Center_Cd"] },
+        { "name": "DIM_BUSINESS_SEGMENT", "purpose": "Segment targets and capital allocation", "keyColumns": ["Business_Segment_Cd", "Target_ROE_Pct"] },
+        { "name": "DIM_CHANNEL", "purpose": "Channel cost per transaction", "keyColumns": ["Channel_Instance_Id", "Channel_Type_Cd", "Channel_Cost_Per_Txn"] },
+        { "name": "DIM_TIME", "purpose": "Pakistan fiscal calendar and SBP reporting dates", "keyColumns": ["Time_Period_Key", "Fiscal_Year", "Is_SBP_Reporting_Dt"] },
+        { "name": "DIM_AGREEMENT", "purpose": "Account/agreement attributes, IFRS 9 stage, SBP classification", "keyColumns": ["Agreement_Id", "IFRS9_Stage_Cd", "SBP_Classification_Cd"] },
+        { "name": "DIM_GEOGRAPHY", "purpose": "Pakistan administrative hierarchy", "keyColumns": ["Geography_Area_Id", "Province_Cd", "SBP_Region_Cd"] }
+      ],
+      "aggregates": [
+        { "name": "AGG_BRANCH_PROFITABILITY", "grain": "Branch × Segment × Time", "measures": 15 },
+        { "name": "AGG_SEGMENT_PROFITABILITY", "grain": "Segment × Product Type × Time", "measures": 15 }
+      ]
+    },
+    "lineage": [
+      { "targetColumn": "Interest_Income_Amt", "transformation": "SUM(AGREEMENT_SUMMARY.Interest_Income_Amt)", "sourceEntities": ["AGREEMENT", "AGREEMENT_SUMMARY"], "businessMeasure": "Gross interest income" },
+      { "targetColumn": "Interest_Expense_Amt", "transformation": "SUM(AGREEMENT_SUMMARY.Interest_Expense_Amt)", "sourceEntities": ["AGREEMENT", "AGREEMENT_SUMMARY"], "businessMeasure": "Deposit & borrowing cost" },
+      { "targetColumn": "FTP_Credit_Amt", "transformation": "Balance × FTP_Rate_Pct × Days / 365", "sourceEntities": ["FTP_RATE_CURVE", "AGREEMENT"], "businessMeasure": "FTP credit on assets" },
+      { "targetColumn": "FTP_Debit_Amt", "transformation": "Balance × FTP_Rate_Pct × Days / 365", "sourceEntities": ["FTP_RATE_CURVE", "AGREEMENT"], "businessMeasure": "FTP debit on liabilities" },
+      { "targetColumn": "Fee_Income_Amt", "transformation": "SUM(EVENT_FINANCIAL.Fee_Amount)", "sourceEntities": ["EVENT_FINANCIAL", "FINANCIAL_TRANSACTION"], "businessMeasure": "Fee & commission income" },
+      { "targetColumn": "Direct_Cost_Amt", "transformation": "SUM(GL_ENTRY.Amount) by cost center", "sourceEntities": ["GL_ENTRY", "ORGANIZATION"], "businessMeasure": "Direct operating cost" },
+      { "targetColumn": "Allocated_Overhead_Amt", "transformation": "Activity driver × Cost pool rate", "sourceEntities": ["COST_POOL", "ACTIVITY", "COST_ALLOCATION_RESULT"], "businessMeasure": "ABC allocated overhead" },
+      { "targetColumn": "Provision_Expense_Amt", "transformation": "ECL by IFRS 9 stage", "sourceEntities": ["RISK_ASSESSMENT", "CREDIT_RATING"], "businessMeasure": "IFRS 9 provision" },
+      { "targetColumn": "Risk_Weighted_Asset_Amt", "transformation": "EAD × RW by SBP sector/product", "sourceEntities": ["RISK_ASSESSMENT", "AGREEMENT", "PRODUCT"], "businessMeasure": "RWA for capital charge" },
+      { "targetColumn": "Economic_Capital_Amt", "transformation": "RWA × Cost of Equity %", "sourceEntities": ["FACT_CUSTOMER_PROFITABILITY"], "businessMeasure": "Economic capital charge" },
+      { "targetColumn": "Net_Profit_Amt", "transformation": "Total Income − Total Cost − Provision − Capital Charge", "sourceEntities": ["FACT_CUSTOMER_PROFITABILITY"], "businessMeasure": "EVA / economic profit" }
+    ],
+    "gapExtensions": [
+      { "module": "Activity Based Costing", "tables": ["COST_POOL", "ACTIVITY", "COST_DRIVER", "COST_ALLOCATION_RULE", "COST_ALLOCATION_RESULT", "ACTIVITY_RATE"], "purpose": "Allocate indirect costs to customer/product/channel using activity drivers" },
+      { "module": "Customer Lifetime Value", "tables": ["CLV_MODEL", "CUSTOMER_LIFETIME_VALUE", "CLV_SCENARIO"], "purpose": "Forward-looking customer value and churn-adjusted profitability" },
+      { "module": "Budgets & Forecasts", "tables": ["BUDGET", "BUDGET_LINE_ITEM", "FORECAST_VERSION", "KPI_TARGET"], "purpose": "Plan-vs-actual and target-setting for profitability KPIs" }
+    ]
+  },
+  "technologyArchitecture": {
+    "layers": [
+      {
+        "name": "Source Systems Layer",
+        "type": "source",
+        "components": [
+          { "name": "Core Banking (T24/Flexcube)", "feeds": "Accounts, balances, transactions, customer master", "frequency": "Real-time + EOD", "owner": "Core Banking IT" },
+          { "name": "Card Management", "feeds": "Card transactions, interchange, fees", "frequency": "Real-time + EOD", "owner": "Cards IT" },
+          { "name": "Trade Finance System", "feeds": "LCs, guarantees, trade fees", "frequency": "EOD", "owner": "Trade IT" },
+          { "name": "General Ledger", "feeds": "Chart of accounts, cost centers, GL balances", "frequency": "EOD", "owner": "Finance IT" },
+          { "name": "ALM / FTP Engine (FIS)", "feeds": "FTP rates, curves, ECL, RWA", "frequency": "Daily", "owner": "Treasury IT" },
+          { "name": "Risk Data Warehouse", "feeds": "Risk grades, IFRS 9 stages, collateral", "frequency": "Daily", "owner": "Risk IT" },
+          { "name": "Channel Systems", "feeds": "Branch, ATM, mobile, internet, RAAST transactions", "frequency": "Real-time", "owner": "Digital IT" }
+        ]
+      },
+      {
+        "name": "Integration & Data Layer",
+        "type": "integration",
+        "components": [
+          { "name": "Change Data Capture (Kafka + Debezium)", "purpose": "Stream transactional changes to data lake" },
+          { "name": "ETL / ELT Pipelines (Airflow)", "purpose": "Schedule and orchestrate batch loads" },
+          { "name": "Data Lake (S3 / ADLS)", "purpose": "Raw and curated landing zone" },
+          { "name": "FSDM Enterprise Data Warehouse (Teradata)", "purpose": "Canonical banking data model, 3,917 entities" },
+          { "name": "Profitability Star Schema", "purpose": "FACT_CUSTOMER_PROFITABILITY + dimensions + aggregates" }
+        ]
+      },
+      {
+        "name": "Analytics & Optimization Layer",
+        "type": "analytics",
+        "components": [
+          { "name": "ABC Costing Engine", "purpose": "Activity-based cost allocation" },
+          { "name": "FTP Calculator", "purpose": "Matched-maturity transfer pricing" },
+          { "name": "ECL Engine", "purpose": "IFRS 9 expected credit loss" },
+          { "name": "RAROC Calculator", "purpose": "Economic capital and risk-adjusted return" },
+          { "name": "Segmentation & CLV Models", "purpose": "Customer value bands and lifetime value" },
+          { "name": "What-If Scenario Engine", "purpose": "Pricing and product-mix simulation" }
+        ]
+      },
+      {
+        "name": "Consumption Layer",
+        "type": "consumption",
+        "components": [
+          { "name": "Profitability Dashboard", "purpose": "Executive P&L, waterfall, segment drill-down" },
+          { "name": "Branch P&L Console", "purpose": "Branch manager and network optimization" },
+          { "name": "Relationship Manager Portal", "purpose": "Customer 360°, next-best-action" },
+          { "name": "ALCO / Treasury Cockpit", "purpose": "FTP policy and NII attribution" },
+          { "name": "SBP Regulatory Reports", "purpose": "Automated SBP returns and Basel reporting" },
+          { "name": "Mobile / Digital APIs", "purpose": "Customer-facing profitability insights" }
+        ]
+      }
+    ],
+    "techStack": [
+      { "component": "Enterprise Data Warehouse", "tech": "Teradata / Snowflake", "rationale": "FSDM, star schema, aggregates" },
+      { "component": "Data Integration", "tech": "Apache Kafka + Airflow", "rationale": "CDC streaming and batch orchestration" },
+      { "component": "Analytics Engine", "tech": "Python + SQL + dbt", "rationale": "Transformations, ABC, FTP, ECL" },
+      { "component": "Optimization Solver", "tech": "Gurobi / OR-Tools", "rationale": "What-if pricing optimization" },
+      { "component": "ML Platform", "tech": "PyTorch + MLflow", "rationale": "CLV, segmentation, churn models" },
+      { "component": "Visualization", "tech": "React + Recharts / TradingView", "rationale": "Interactive dashboards" },
+      { "component": "API Layer", "tech": "FastAPI / GraphQL", "rationale": "Serve profitability data to channels" },
+      { "component": "Governance", "tech": "Apache Atlas / Collibra", "rationale": "Lineage, data quality, metadata" }
+    ]
+  },
+  "useCases": [
+    {
+      "id": "UC-P01",
+      "title": "Top 20% Customer Profit Concentration",
+      "objective": "Identify and protect the small group of customers driving the majority of EVA; design retention and growth programs.",
+      "businessValue": "Top 20% generate 82% of EVA; retaining 5% of these customers protects PKR 8–10bn EVA.",
+      "capabilities": ["Revenue Attribution", "Customer Value Analytics"],
+      "dataEntities": ["FACT_CUSTOMER_PROFITABILITY", "DIM_CUSTOMER", "DIM_AGREEMENT", "DIM_BUSINESS_SEGMENT"],
+      "measures": ["EVA", "RAROC", "Total_Revenue_Amt", "Total_Cost_Amt"],
+      "phase": 1,
+      "owner": "CMO / Customer Analytics",
+      "kpiTarget": "Increase profitable-customer share from 42% to 48% within 12 months"
+    },
+    {
+      "id": "UC-P02",
+      "title": "Branch P&L & Network Optimization",
+      "objective": "Compute branch-level revenue, cost and EVA to identify underperforming branches and optimize the network.",
+      "businessValue": "Branch cost is PKR 60bn; 10% network rebalancing can save PKR 3–5bn annually.",
+      "capabilities": ["Activity-Based Costing", "Revenue Attribution"],
+      "dataEntities": ["AGG_BRANCH_PROFITABILITY", "DIM_BRANCH", "COST_ALLOCATION_RESULT"],
+      "measures": ["Net_Profit_Amt", "Total_Cost_Amt", "Cost_To_Income_Pct", "Customer_Count"],
+      "phase": 2,
+      "owner": "Branch Network / Finance",
+      "kpiTarget": "Reduce bottom-quartile branch count by 15%"
+    },
+    {
+      "id": "UC-P03",
+      "title": "Product Rationalization & NPV",
+      "objective": "Evaluate product-level profitability and rationalize low-margin or value-destroying products.",
+      "businessValue": "Term deposits show negative EVA; repricing 20% of TDA book improves EVA by PKR 1–2bn.",
+      "capabilities": ["Funds Transfer Pricing", "Economic Capital"],
+      "dataEntities": ["FACT_CUSTOMER_PROFITABILITY", "DIM_PRODUCT", "DIM_AGREEMENT"],
+      "measures": ["FTP_Rate_Pct", "Net_Profit_Amt", "RAROC_Pct", "Average_Balance_Amt"],
+      "phase": 1,
+      "owner": "Product Management / ALCO",
+      "kpiTarget": "Improve product portfolio NPV by PKR 2bn"
+    },
+    {
+      "id": "UC-P04",
+      "title": "Relationship Manager Incentives",
+      "objective": "Align RM incentives with risk-adjusted customer profitability rather than raw volume.",
+      "businessValue": "Volume-only incentives misprice risk; EVA-based incentives improve portfolio RAROC by 150–250 bps.",
+      "capabilities": ["Economic Capital", "Customer Value Analytics"],
+      "dataEntities": ["FACT_CUSTOMER_PROFITABILITY", "DIM_CUSTOMER", "DIM_BUSINESS_SEGMENT"],
+      "measures": ["EVA", "RAROC", "Risk_Weighted_Asset_Amt"],
+      "phase": 2,
+      "owner": "HR / Commercial Banking",
+      "kpiTarget": "Increase RM-managed portfolio EVA by 10%"
+    },
+    {
+      "id": "UC-P05",
+      "title": "Islamic vs Conventional Profitability",
+      "objective": "Separate Islamic P&L, ensure AAOIFI compliance, and optimize Islamic product mix.",
+      "businessValue": "Islamic segment has PKR 22bn revenue but lower RAROC (16.1%); optimizing mix adds PKR 1–1.5bn EVA.",
+      "capabilities": ["Islamic Profitability", "Revenue Attribution"],
+      "dataEntities": ["FACT_CUSTOMER_PROFITABILITY", "DIM_PRODUCT", "DIM_CUSTOMER"],
+      "measures": ["Is_Islamic_Ind", "Islamic_Mode_Cd", "Zakat_Deduction_Amt", "Net_Profit_Amt"],
+      "phase": 2,
+      "owner": "Islamic Banking / Shariah Compliance",
+      "kpiTarget": "Improve Islamic segment RAROC from 16.1% to 18%"
+    },
+    {
+      "id": "UC-P06",
+      "title": "What-If Pricing & Product Mix",
+      "objective": "Simulate impact of rate, spread and fee changes on customer EVA before rollout.",
+      "businessValue": "Prevents value-destroying pricing wars; typical uplift of PKR 0.5–1bn per pricing cycle.",
+      "capabilities": ["What-If Pricing", "Funds Transfer Pricing"],
+      "dataEntities": ["FACT_CUSTOMER_PROFITABILITY", "DIM_PRODUCT", "CLV_SCENARIO"],
+      "measures": ["FTP_Rate_Pct", "Spread_Bps", "Net_Profit_Amt"],
+      "phase": 3,
+      "owner": "ALCO / Product Pricing",
+      "kpiTarget": "Price 90% of new bookings through what-if model"
+    },
+    {
+      "id": "UC-P07",
+      "title": "Customer Lifetime Value (CLV)",
+      "objective": "Augment point-in-time EVA with forward-looking CLV for acquisition and retention decisions.",
+      "businessValue": "CLV-informed campaigns improve retention ROI by 30–50%.",
+      "capabilities": ["Customer Value Analytics", "Activity-Based Costing"],
+      "dataEntities": ["CUSTOMER_LIFETIME_VALUE", "FACT_CUSTOMER_PROFITABILITY", "DIM_CUSTOMER"],
+      "measures": ["CLV", "Expected_Revenue_Amt", "Churn_Probability_Pct"],
+      "phase": 3,
+      "owner": "CMO / Data Science",
+      "kpiTarget": "Deploy CLV scores for top 30% customer base"
+    },
+    {
+      "id": "UC-P08",
+      "title": "SBP Regulatory & Basel Reporting",
+      "objective": "Automate SBP returns, Basel III capital and IFRS 9 disclosures from the profitability engine.",
+      "businessValue": "Reduces regulatory reporting effort by 40%; improves data lineage and auditability.",
+      "capabilities": ["Risk Adjustment & ECL", "Economic Capital"],
+      "dataEntities": ["FACT_CUSTOMER_PROFITABILITY", "DIM_AGREEMENT", "DIM_BUSINESS_SEGMENT"],
+      "measures": ["Risk_Weighted_Asset_Amt", "Provision_Expense_Amt", "Economic_Capital_Amt"],
+      "phase": 2,
+      "owner": "Regulatory Reporting / Risk",
+      "kpiTarget": "Automate 5 key SBP/Basel reports from star schema"
+    }
+  ],
+  "roadmap": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Foundation",
+        "timeline": "0–6 months",
+        "theme": "Build the customer-profitability star schema and core measures",
+        "deliverables": [
+          "Deploy FACT_CUSTOMER_PROFITABILITY + 7 dimensions",
+          "Integrate core banking, GL and channel feeds",
+          "Implement matched-maturity FTP from ALM engine",
+          "Launch Top 20% customer and product rationalization use cases"
+        ],
+        "capabilities": ["Revenue Attribution", "Funds Transfer Pricing", "Activity-Based Costing"],
+        "dataDependencies": ["DIM_CUSTOMER", "DIM_PRODUCT", "DIM_BRANCH", "DIM_CHANNEL", "FACT_CUSTOMER_PROFITABILITY"],
+        "quickWins": ["Top 20% customer list", "Product EVA ranking", "Branch cost baseline"],
+        "risks": ["Data quality in customer master", "FTP methodology alignment with Treasury"],
+        "kpis": ["Star-schema live for 95% of customer base", "Top 20% concentration dashboard"]
+      },
+      {
+        "phase": 2,
+        "name": "Risk & Treasury Integration",
+        "timeline": "6–18 months",
+        "theme": "Add IFRS 9 ECL, RWA, capital charge and regulatory reporting",
+        "deliverables": [
+          "Integrate IFRS 9 ECL engine",
+          "Compute RWA and economic capital charge",
+          "Enable branch P&L and RM incentives",
+          "Launch Islamic P&L split and SBP reporting"
+        ],
+        "capabilities": ["Risk Adjustment & ECL", "Economic Capital", "Islamic Profitability"],
+        "dataDependencies": ["RISK_ASSESSMENT", "CREDIT_RATING", "DIM_AGREEMENT", "AGG_SEGMENT_PROFITABILITY"],
+        "quickWins": ["RAROC by customer", "Branch EVA ranking", "Islamic segment P&L"],
+        "risks": ["ECL model validation", "RWA methodology sign-off"],
+        "kpis": ["RAROC calculated for 100% of customer base", "5 SBP reports automated"]
+      },
+      {
+        "phase": 3,
+        "name": "Advanced Analytics",
+        "timeline": "18–36 months",
+        "theme": "CLV, what-if pricing, optimization and predictive profitability",
+        "deliverables": [
+          "Deploy CLV models and gap-extension tables",
+          "Launch what-if pricing simulator",
+          "Integrate COE float recovery and ALM FTP scenarios",
+          "Predictive churn/profitability scores"
+        ],
+        "capabilities": ["Customer Value Analytics", "What-If Pricing"],
+        "dataDependencies": ["CUSTOMER_LIFETIME_VALUE", "CLV_SCENARIO", "BUDGET", "FORECAST_VERSION"],
+        "quickWins": ["CLV-based retention campaigns", "Pricing scenario library"],
+        "risks": ["Model governance", "Data science capacity"],
+        "kpis": ["CLV scores for top 30% customers", "90% of new bookings priced via what-if"]
+      },
+      {
+        "phase": 4,
+        "name": "Enterprise Scale",
+        "timeline": "36+ months",
+        "theme": "Embed profitability into every customer and product decision",
+        "deliverables": [
+          "Real-time profitability APIs for digital channels",
+          "Enterprise target-setting and budgeting integration",
+          "Full audit lineage and data governance",
+          "Extension to corporate, treasury and trade portfolios"
+        ],
+        "capabilities": ["Enterprise Profitability Governance"],
+        "dataDependencies": ["API Layer", "BUDGET", "KPI_TARGET"],
+        "quickWins": ["Real-time customer P&L in mobile app", "Automated monthly ALCO pack"],
+        "risks": ["Legacy system integration", "Organizational change management"],
+        "kpis": ["Sub-second profitability API response", "100% ALCO pack automated"]
+      }
+    ]
+  }
+}

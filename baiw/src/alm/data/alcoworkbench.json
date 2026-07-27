@@ -1,0 +1,298 @@
+{
+  "title": "ALM / ALCO Workbench",
+  "subtitle": "Business-to-technology blueprint for asset-liability management, IRRBB, funds transfer pricing, and liquidity risk on Teradata FSDM",
+  "businessArchitecture": {
+    "stakeholders": [
+      { "role": "ALCO / Treasury", "interest": "Balance-sheet structure, NII defense, FTP policy, rate risk, liquidity buffers", "kpis": ["NII PKR 114bn", "EVE sensitivity <10%", "LCR >100%", "NSFR >100%"] },
+      { "role": "CFO / Finance", "interest": "Budget NII, FTP-adjusted profitability, capital allocation, hedge accounting", "kpis": ["FTP-adjusted margin", "Budget variance", "Hedge effectiveness"] },
+      { "role": "CRO / Risk", "interest": "IRRBB, EVE, delta-NII, stress scenarios, model validation", "kpis": ["EVE at +/-200bps", "PV01", "Model exceptions"] },
+      { "role": "Liquidity Risk", "interest": "LCR/NSFR, maturity ladder, survival horizon, contingency funding", "kpis": ["HQLA stock", "30-day outflows", "Survival horizon"] },
+      { "role": "Product / Pricing", "interest": "Product-level FTP margin, pricing decision support, Islamic vs conventional", "kpis": ["FTP by product", "New booking rate", "Deposit beta"] },
+      { "role": "Regulatory Reporting", "interest": "SBP returns, Basel III liquidity ratios, IRRBB disclosures", "kpis": ["SBP ALM return", "Basel Pillar 3", "Disclosure timeliness"] }
+    ],
+    "valueChain": [
+      { "step": 1, "name": "Golden Instrument Position", "description": "Reconcile every on/off-balance-sheet position from Sierra and CBS into a single instrument record with classification, repricing and GL tagging.", "owner": "Data Engineering / Treasury IT", "outputs": ["Golden position record", "HTM/AFS/HFT classification", "Repricing profile"] },
+      { "step": 2, "name": "Cashflow Generation", "description": "Generate contractual and behavioral cashflows from principal, coupon, redemption and early-termination schedules.", "owner": "ALM Quant / Treasury", "outputs": ["Dated cashflow ladder", "Behavioral overlays", "Islamic profit schedules"] },
+      { "step": 3, "name": "FTP & Transfer Pricing", "description": "Assign matched-maturity transfer rates, liquidity and option spreads to isolate business-line margin from rate and liquidity risk.", "owner": "ALCO / Treasury", "outputs": ["FTP rate per position", "FTP spread decomposition", "FTP-adjusted NII feed"] },
+      { "step": 4, "name": "Repricing & IRRBB", "description": "Bucket rate-sensitive assets and liabilities, compute EVE and delta-NII under SBP/Basel rate shocks.", "owner": "CRO / Risk", "outputs": ["Repricing gap ladder", "Delta-EVE", "Delta-NII", "PV01 by tenor"] },
+      { "step": 5, "name": "Liquidity & LCR/NSFR", "description": "Ladder cashflows, apply run-offs and HQLA haircuts to compute Basel III liquidity ratios and stress survival.", "owner": "Liquidity Risk", "outputs": ["Maturity ladder", "LCR/NSFR", "Survival horizon"] },
+      { "step": 6, "name": "ALCO Decision Support", "description": "Consolidate risk metrics, profitability and regulatory KPIs into ALCO packs, scenario analysis and limit monitoring.", "owner": "ALCO Secretariat", "outputs": ["ALCO pack", "Limit breaches", "Policy recommendations"] }
+    ],
+    "capabilities": [
+      { "id": "alm_position", "name": "Golden Instrument Position", "description": "Reconcile all positions across Sierra and CBS into canonical FIS PDM instrument records", "priority": "CRITICAL", "phase": 1 },
+      { "id": "alm_cashflow", "name": "Cashflow Generation Engine", "description": "Generate contractual and behavioral cashflows per instrument with day-count and holiday conventions", "priority": "CRITICAL", "phase": 1 },
+      { "id": "alm_ftp", "name": "Funds Transfer Pricing", "description": "Matched-maturity FTP with multi-spread decomposition and option-adjusted transfer rates", "priority": "CRITICAL", "phase": 1 },
+      { "id": "alm_irrbb", "name": "Repricing Gap & IRRBB", "description": "EVE, delta-NII, PV01 and duration under regulatory and internal rate shock scenarios", "priority": "HIGH", "phase": 2 },
+      { "id": "alm_liquidity", "name": "Liquidity LCR / NSFR", "description": "Behavioral maturity ladder, HQLA, run-offs and Basel III liquidity ratios", "priority": "HIGH", "phase": 2 },
+      { "id": "alm_nmd", "name": "Non-Maturing Deposit Modeling", "description": "Core/volatile split, decay curves and rate beta for CASA", "priority": "HIGH", "phase": 2 },
+      { "id": "alm_securities", "name": "HTM / AFS / HFT Valuation", "description": "Accounting classification, clean/dirty market value and AFS reserve tracking", "priority": "MEDIUM", "phase": 3 },
+      { "id": "alm_ecl", "name": "IFRS 9 ECL Integration", "description": "Stage exposures and compute ECL on shared cashflows for RWA and profitability", "priority": "MEDIUM", "phase": 3 }
+    ],
+    "context": [
+      { "area": "SBP", "items": ["ALM & IRRBB guidelines", "Minimum savings rate (MSR)", "CRR/SLR reporting", "Single source of truth for BSD returns"] },
+      { "area": "Basel", "items": ["BCBS 368 IRRBB", "Basel III LCR/NSFR", "Pillar 3 disclosures", "Internal liquidity stress tests"] },
+      { "area": "IFRS", "items": ["IFRS 9 EIR cashflows", "HTM/AFS/FVTPL classification", "Hedge accounting", "ECL stage alignment"] },
+      { "area": "Pakistan", "items": ["KIBOR curve (O/N to 1Y)", "PKRV government curve", "Pakistan fiscal year Jul-Jun", "Islamic profit-rate benchmark"] }
+    ]
+  },
+  "dataArchitecture": {
+    "starSchema": {
+      "summary": "FACT_ALM_POSITION is the central fact containing ~260 position attributes and cashflow measures. It joins to instrument, tenor, curve, branch, currency and accounting dimensions for ALCO, IRRBB and liquidity analytics.",
+      "facts": [
+        { "name": "FACT_ALM_POSITION", "grain": "Position × Instrument × Currency × Branch × Repricing Tenor × Accounting Category × Time", "measures": 260 }
+      ],
+      "dimensions": [
+        { "name": "DIM_INSTRUMENT", "purpose": "Instrument master, accounting category, fixed/floating flag, Islamic flag", "keyColumns": ["Instrument_Id", "Accounting_Category_Cd", "Fixed_Floating_Ind", "Islamic_Mode_Cd"] },
+        { "name": "DIM_TENOR_BUCKET", "purpose": "Contractual and behavioral maturity buckets for repricing and liquidity ladders", "keyColumns": ["Tenor_Bucket_Cd", "Days_From", "Days_To", "Repricing_Ind"] },
+        { "name": "DIM_CURVE", "purpose": "KIBOR, PKRV, Islamic profit-rate and FTP curves", "keyColumns": ["Curve_Name", "Curve_Date", "Currency_Cd"] },
+        { "name": "DIM_CURRENCY", "purpose": "PKR, USD, EUR, GBP, CNY with SBP reporting flags", "keyColumns": ["Currency_Cd", "Reporting_Currency_Ind", "Sbp_Currency_Group_Cd"] },
+        { "name": "DIM_BRANCH", "purpose": "Branch hierarchy and cost center for FTP and profitability attribution", "keyColumns": ["Branch_Org_Id", "SBP_Branch_Code", "Cost_Center_Cd"] },
+        { "name": "DIM_ACCOUNTING_CATEGORY", "purpose": "HTM, AFS, HFT, amortized cost, FVOCI mapping", "keyColumns": ["Accounting_Category_Cd", "IFRS9_Class_Cd"] },
+        { "name": "DIM_TIME", "purpose": "Pakistan fiscal calendar, SBP reporting dates and stress scenario dates", "keyColumns": ["Time_Period_Key", "Fiscal_Year", "Is_Sbp_Reporting_Dt"] }
+      ],
+      "aggregates": [
+        { "name": "AGG_REPRICING_GAP", "grain": "Currency × Tenor Bucket × Rate Sensitivity Type × Time", "measures": 18 },
+        { "name": "AGG_LIQUIDITY_LADDER", "grain": "Currency × Tenor Bucket × Cashflow Type × Time", "measures": 15 },
+        { "name": "AGG_FTP_MARGIN", "grain": "Product × Branch × Currency × Time", "measures": 12 }
+      ]
+    },
+    "lineage": [
+      { "targetColumn": "Position_Balance_Amt", "transformation": "SUM(IXINST_DEF.Nominal_Amount + CBS RB_ACCT.LEDGER_BAL)", "sourceEntities": ["INVESTMENT_POSITION", "DEPOSIT_TERM_AGREEMENT", "AGREEMENT"], "businessMeasure": "On-balance-sheet position balance" },
+      { "targetColumn": "Next_Repricing_Date", "transformation": "COALESCE(ROLL_DATE, MATURITY_DATE, Early_Termination_Date)", "sourceEntities": ["BOND_FLOATING_INTEREST_RATE", "AGREEMENT", "EARLY_AMORTIZATION_TYPE"], "businessMeasure": "Rate repricing date" },
+      { "targetColumn": "FTP_Rate_Pct", "transformation": "Yield_Curve_Maturity.Rate + Liquidity_Spread + Credit_Spread + Option_Spread", "sourceEntities": ["YIELD_CURVE_MATURITY_SEGMENT_TYPE", "FUNDS_TRANSFER_EVENT", "INTEREST_RATE_INDEX"], "businessMeasure": "Matched-maturity FTP rate" },
+      { "targetColumn": "Delta_EVE_Amt", "transformation": "PV( shocked cashflows ) - PV( base cashflows )", "sourceEntities": ["INTEREST_RATE_RISK_CALCULATION", "CASH_FLOW_AMOUNT_TYPE", "INTEREST_RATE_INDEX"], "businessMeasure": "Economic value of equity sensitivity" },
+      { "targetColumn": "Delta_NII_Amt", "transformation": "12M re-pricing gap × shock rate", "sourceEntities": ["INTEREST_RATE_BANKING_BOOK_SUMMARY", "INTEREST_RATE_INDEX"], "businessMeasure": "Net interest income sensitivity" },
+      { "targetColumn": "PV01_Amt", "transformation": "PV(+1bp) - PV(base)", "sourceEntities": ["INTEREST_RATE_RISK_CALCULATION", "CASH_FLOW_AMOUNT_TYPE"], "businessMeasure": "Value of 1 basis point" },
+      { "targetColumn": "LCR_Ratio_Pct", "transformation": "HQLA_Amt / Net_30Day_Outflow_Amt", "sourceEntities": ["CREDIT_MATURITY_SUMMARY", "DEPOSIT_MATURITY_SUBTYPE", "CASH_FLOW_AMOUNT_TYPE"], "businessMeasure": "Liquidity Coverage Ratio" },
+      { "targetColumn": "NSFR_Ratio_Pct", "transformation": "Available_Stable_Funding / Required_Stable_Funding", "sourceEntities": ["DEPOSIT_MATURITY_SUBTYPE", "FUND_SOURCE_TYPE", "CASH_FLOW_AMOUNT_TYPE"], "businessMeasure": "Net Stable Funding Ratio" },
+      { "targetColumn": "Core_Deposit_Amt", "transformation": "CASA balance × core-stable ratio from NMD model", "sourceEntities": ["DEPOSIT_AGREEMENT", "DEPOSIT_MATURITY_SUBTYPE"], "businessMeasure": "Behavioral core deposit balance" },
+      { "targetColumn": "ECL_Amt", "transformation": "EAD × PD × LGD × CCF discounted at EIR", "sourceEntities": ["PROBABILITY_OF_DEFAULT_MODEL", "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE", "LOAN_PROVISION_BALANCE"], "businessMeasure": "IFRS 9 expected credit loss" }
+    ],
+    "gapExtensions": [
+      { "module": "Non-Maturing Deposit Model", "tables": ["NMD_BEHAVIORAL_PROFILE", "DEPOSIT_DECAY_CURVE", "RATE_BETA_MODEL", "CORE_VOLATILE_SPLIT"], "purpose": "Decompose CASA into core and volatile balances with decay and rate beta" },
+      { "module": "FTP Curve & Spread Engine", "tables": ["FTP_RATE_CURVE", "FTP_LIQUIDITY_SPREAD", "FTP_CREDIT_SPREAD", "FTP_OPTION_ADJUSTMENT"], "purpose": "Multi-spread FTP decomposition and option-adjusted transfer pricing" },
+      { "module": "HQLA & Collateral Inventory", "tables": ["HQLA_INVENTORY", "HQLA_HAIRCUT", "ELIGIBLE_COLLATERAL", "STOCK_OF_HQLA"], "purpose": "Compute high-quality liquid assets for LCR and stress liquidity" },
+      { "module": "Stress Scenario & Survival Horizon", "tables": ["LIQUIDITY_STRESS_SCENARIO", "CASHFLOW_RUNOFF_RATE", "SURVIVAL_HORIZON_RESULT"], "purpose": "Liquidity stress testing and contingency funding analysis" }
+    ]
+  },
+  "technologyArchitecture": {
+    "layers": [
+      {
+        "name": "Source Systems Layer",
+        "type": "source",
+        "components": [
+          { "name": "Sierra Treasury System", "feeds": "PIB, T-Bill, FX forwards, repo positions, IXINST instrument master", "frequency": "EOD + Intraday", "owner": "Treasury IT" },
+          { "name": "CBS Core Banking", "feeds": "Loans, deposits, CASA, trade finance, GL balances", "frequency": "EOD", "owner": "Core Banking IT" },
+          { "name": "FIS ALM / PDM", "feeds": "FIS position data model, cashflows, risk results", "frequency": "Daily", "owner": "ALM IT" },
+          { "name": "Risk Data Warehouse", "feeds": "PD/LGD, ECL, RWA, credit ratings", "frequency": "Daily", "owner": "Risk IT" },
+          { "name": "Market Data Feed", "feeds": "KIBOR, PKRV, FX rates, security prices", "frequency": "Real-time", "owner": "Market Data" }
+        ]
+      },
+      {
+        "name": "Integration & Data Layer",
+        "type": "integration",
+        "components": [
+          { "name": "Change Data Capture (Kafka)", "purpose": "Stream position and market-data changes" },
+          { "name": "ETL / ELT Pipelines (Airflow)", "purpose": "Schedule Sierra, CBS, FIS and risk data loads" },
+          { "name": "Data Lake (S3 / ADLS)", "purpose": "Raw instrument, cashflow and market-data landing zone" },
+          { "name": "FSDM Enterprise Data Warehouse (Teradata)", "purpose": "Canonical ALM position, cashflow and FTP star schema" },
+          { "name": "Golden Position Store", "purpose": "Reconciled instrument master and position record" }
+        ]
+      },
+      {
+        "name": "Analytics & Risk Engine Layer",
+        "type": "analytics",
+        "components": [
+          { "name": "Cashflow Generation Engine", "purpose": "Contractual and behavioral cashflow schedules" },
+          { "name": "FTP Calculator", "purpose": "Matched-maturity transfer pricing and spread decomposition" },
+          { "name": "IRRBB Engine", "purpose": "EVE, delta-NII, PV01, duration, basis risk" },
+          { "name": "Liquidity Engine", "purpose": "LCR, NSFR, maturity ladder, survival horizon" },
+          { "name": "NMD Behavioral Model", "purpose": "Core/volatile split, decay, beta" },
+          { "name": "ECL / RWA Engine", "purpose": "IFRS 9 ECL and Basel RWA on shared cashflows" }
+        ]
+      },
+      {
+        "name": "Consumption Layer",
+        "type": "consumption",
+        "components": [
+          { "name": "ALCO Cockpit", "purpose": "Executive ALCO pack, limit dashboard, scenario analysis" },
+          { "name": "Treasury Trader Workstation", "purpose": "FTP-adjusted pricing and pre-trade what-if" },
+          { "name": "Risk Reporting Portal", "purpose": "IRRBB, liquidity and regulatory returns" },
+          { "name": "Customer Profitability Engine", "purpose": "FTP-adjusted NII feed to customer P&L" },
+          { "name": "SBP Regulatory Reports", "purpose": "Automated BSD, ALM and liquidity returns" }
+        ]
+      }
+    ],
+    "techStack": [
+      { "component": "Enterprise Data Warehouse", "tech": "Teradata / Snowflake", "rationale": "FSDM, ALM position and cashflow star schema" },
+      { "component": "Data Integration", "tech": "Apache Kafka + Airflow", "rationale": "CDC streaming and batch orchestration" },
+      { "component": "Analytics Engine", "tech": "Python + SQL + dbt", "rationale": "Cashflows, FTP, IRRBB, liquidity calculations" },
+      { "component": "Risk Engine", "tech": "FIS ALM + Python", "rationale": "Regulatory IRRBB and liquidity risk metrics" },
+      { "component": "Optimization Solver", "tech": "Gurobi / OR-Tools", "rationale": "Balance-sheet optimization and funding mix" },
+      { "component": "Visualization", "tech": "React + Recharts", "rationale": "ALCO dashboards and limit monitoring" },
+      { "component": "API Layer", "tech": "FastAPI / GraphQL", "rationale": "Serve ALM data to profitability and risk systems" },
+      { "component": "Governance", "tech": "Apache Atlas / Collibra", "rationale": "Lineage, metadata, data quality for regulatory audit" }
+    ],
+    "dataFlow": [
+      { "label": "Source Systems", "desc": "Sierra, CBS, FIS, Risk DW" },
+      { "label": "CDC / Streaming", "desc": "Kafka feeds" },
+      { "label": "Data Lake", "desc": "Raw landing zone" },
+      { "label": "EDW / Star Schema", "desc": "FSDM ALM" },
+      { "label": "Risk Engine", "desc": "IRRBB + liquidity" },
+      { "label": "ALCO Consumption", "desc": "Cockpit & reports" }
+    ]
+  },
+  "useCases": [
+    {
+      "id": "ALM-U01",
+      "title": "Golden Instrument Position Feed",
+      "objective": "Build a single reconciled position feed for ALM, FTP, liquidity and risk so every downstream engine uses the same numbers.",
+      "businessValue": "Eliminates spreadsheet stitching and reconciliation errors in ALCO; reduces ALM production time by 50%.",
+      "capabilities": ["Golden Instrument Position"],
+      "dataEntities": ["FACT_ALM_POSITION", "DIM_INSTRUMENT", "INVESTMENT_POSITION", "DEPOSIT_TERM_AGREEMENT"],
+      "measures": ["Position_Count", "Position_Balance_Amt", "Reconciliation_Breaks"],
+      "phase": 1,
+      "owner": "Treasury / Data Engineering",
+      "kpiTarget": "95% of positions auto-reconciled daily by month 6"
+    },
+    {
+      "id": "ALM-U02",
+      "title": "Matched-Maturity Funds Transfer Pricing",
+      "objective": "Assign FTP to every asset and liability to isolate business-line margin from rate and liquidity risk.",
+      "businessValue": "Reveals true product profitability; enables pricing discipline and protects NII by moving rate risk to Treasury.",
+      "capabilities": ["Funds Transfer Pricing", "Cashflow Generation Engine"],
+      "dataEntities": ["FACT_ALM_POSITION", "FTP_RATE_CURVE", "DIM_TENOR_BUCKET", "YIELD_CURVE_MATURITY_SEGMENT_TYPE"],
+      "measures": ["FTP_Rate_Pct", "FTP_Margin_Bps", "FTP_Adjusted_NII_Amt"],
+      "phase": 1,
+      "owner": "ALCO / Treasury",
+      "kpiTarget": "FTP applied to 100% of balance sheet by month 6"
+    },
+    {
+      "id": "ALM-U03",
+      "title": "Repricing Gap & IRRBB (EVE / NII)",
+      "objective": "Quantify rate risk in the banking book through EVE and delta-NII under SBP and internal rate shocks.",
+      "businessValue": "Ensures capital adequacy, supports ALCO hedging decisions and satisfies Basel IRRBB expectations.",
+      "capabilities": ["Repricing Gap & IRRBB", "Cashflow Generation Engine"],
+      "dataEntities": ["FACT_ALM_POSITION", "AGG_REPRICING_GAP", "INTEREST_RATE_RISK_CALCULATION", "INTEREST_RATE_INDEX"],
+      "measures": ["Delta_EVE_Amt", "Delta_NII_Amt", "PV01_Amt", "Duration_Yrs"],
+      "phase": 2,
+      "owner": "CRO / Risk",
+      "kpiTarget": "EVE sensitivity within board limits under +/-200 bps shock"
+    },
+    {
+      "id": "ALM-U04",
+      "title": "Basel III LCR & NSFR Automation",
+      "objective": "Compute daily LCR and NSFR from the same cashflow ladder used for ALM and profitability.",
+      "businessValue": "Reduces regulatory reporting cycle from days to hours; improves liquidity risk visibility.",
+      "capabilities": ["Liquidity LCR / NSFR", "Cashflow Generation Engine"],
+      "dataEntities": ["AGG_LIQUIDITY_LADDER", "HQLA_INVENTORY", "DEPOSIT_MATURITY_SUBTYPE", "CASH_FLOW_AMOUNT_TYPE"],
+      "measures": ["LCR_Ratio_Pct", "NSFR_Ratio_Pct", "HQLA_Amt", "Net_30Day_Outflow_Amt"],
+      "phase": 2,
+      "owner": "Liquidity Risk",
+      "kpiTarget": "LCR and NSFR >100% with 5-day trend alerts"
+    },
+    {
+      "id": "ALM-U05",
+      "title": "CASA Behavioral Modeling (NMD)",
+      "objective": "Model core/volatile split, decay and rate beta for non-maturing deposits to improve FTP, liquidity and IRRBB.",
+      "businessValue": "Avoids overstating liquidity and rate risk from overnight CASA treatment; improves deposit franchise valuation.",
+      "capabilities": ["Non-Maturing Deposit Modeling"],
+      "dataEntities": ["DEPOSIT_AGREEMENT", "DEPOSIT_MATURITY_SUBTYPE", "NMD_BEHAVIORAL_PROFILE", "RATE_BETA_MODEL"],
+      "measures": ["Core_Deposit_Amt", "Deposit_Beta", "Decay_Rate_Pct"],
+      "phase": 2,
+      "owner": "ALM Quant / Risk",
+      "kpiTarget": "NMD model approved for IRRBB and FTP by month 12"
+    },
+    {
+      "id": "ALM-U06",
+      "title": "Islamic Profitability & Rate Treatment",
+      "objective": "Separate Islamic P&L, profit-rate benchmark and FTP for mudarabah/murabaha/ijarah instruments.",
+      "businessValue": "Supports Shariah-compliant reporting and ensures Islamic products are priced on true funding cost.",
+      "capabilities": ["Funds Transfer Pricing", "HTM / AFS / HFT Valuation"],
+      "dataEntities": ["FACT_ALM_POSITION", "DIM_INSTRUMENT", "DIM_ACCOUNTING_CATEGORY"],
+      "measures": ["Islamic_FTP_Rate_Pct", "Islamic_NII_Amt", "Islamic_Share_Pct"],
+      "phase": 3,
+      "owner": "Islamic Banking / Treasury",
+      "kpiTarget": "Islamic book FTP and profitability reported separately by month 18"
+    },
+    {
+      "id": "ALM-U07",
+      "title": "IFRS 9 ECL on Shared Cashflows",
+      "objective": "Stage exposures and compute ECL using the same cashflow engine that feeds ALM and profitability.",
+      "businessValue": "Removes ECL/ALM reconciliation breaks and provides consistent risk-adjusted profitability.",
+      "capabilities": ["IFRS 9 ECL Integration", "Cashflow Generation Engine"],
+      "dataEntities": ["FACT_ALM_POSITION", "PROBABILITY_OF_DEFAULT_MODEL", "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE", "LOAN_PROVISION_BALANCE"],
+      "measures": ["ECL_Amt", "Stage_1_Exposure_Amt", "Stage_2_Exposure_Amt"],
+      "phase": 3,
+      "owner": "Risk / Finance",
+      "kpiTarget": "ECL and ALM cashflows reconcile to within 1% by month 18"
+    },
+    {
+      "id": "ALM-U08",
+      "title": "ALCO Scenario & What-If Analysis",
+      "objective": "Enable ALCO to model rate, liquidity, funding-mix and product-growth scenarios in real time.",
+      "businessValue": "Improves balance-sheet decision-making and capital allocation under uncertainty.",
+      "capabilities": ["Repricing Gap & IRRBB", "Liquidity LCR / NSFR", "Funds Transfer Pricing"],
+      "dataEntities": ["FACT_ALM_POSITION", "AGG_REPRICING_GAP", "AGG_LIQUIDITY_LADDER", "AGG_FTP_MARGIN"],
+      "measures": ["Scenario_EVE_Amt", "Scenario_NII_Amt", "Scenario_LCR_Pct"],
+      "phase": 3,
+      "owner": "ALCO Secretariat",
+      "kpiTarget": "Scenario results generated in <5 minutes by month 18"
+    }
+  ],
+  "roadmap": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Foundation: Position & FTP",
+        "timeline": "0–6 months",
+        "theme": "Build golden position, cashflows and matched-maturity FTP",
+        "deliverables": [
+          "Deploy golden instrument position feed from Sierra + CBS",
+          "Build FACT_ALM_POSITION + dimensions",
+          "Implement cashflow generation engine",
+          "Launch FTP calculator with multi-spread decomposition"
+        ],
+        "capabilities": ["Golden Instrument Position", "Cashflow Generation Engine", "Funds Transfer Pricing"],
+        "dataDependencies": ["FACT_ALM_POSITION", "DIM_INSTRUMENT", "DIM_TENOR_BUCKET", "DIM_CURVE", "FTP_RATE_CURVE"],
+        "quickWins": ["Auto-reconciled position report", "FTP-adjusted NII by product", "Repricing profile dashboard"],
+        "risks": ["Source data quality in Sierra/CBS", "GL tagging inconsistencies", "Islamic profit-rate convention alignment"],
+        "kpis": ["95% position auto-reconciliation", "100% FTP coverage", "FTP production time <2 hours"]
+      },
+      {
+        "phase": 2,
+        "name": "Risk & Liquidity",
+        "timeline": "6–18 months",
+        "theme": "Add IRRBB, LCR/NSFR, NMD modeling and regulatory reporting",
+        "deliverables": [
+          "Deploy IRRBB engine (EVE, delta-NII, PV01)",
+          "Compute daily LCR and NSFR",
+          "Build NMD behavioral model",
+          "Automate SBP ALM/liquidity returns"
+        ],
+        "capabilities": ["Repricing Gap & IRRBB", "Liquidity LCR / NSFR", "Non-Maturing Deposit Modeling"],
+        "dataDependencies": ["AGG_REPRICING_GAP", "AGG_LIQUIDITY_LADDER", "HQLA_INVENTORY", "NMD_BEHAVIORAL_PROFILE"],
+        "quickWins": ["EVE limit dashboard", "LCR/NSFR daily trend", "NMD core/stable split"],
+        "risks": ["Model validation delays", "Behavioral assumption governance", "HQLA data sourcing"],
+        "kpis": ["EVE within board limits", "LCR/NSFR >100%", "SBP ALM return automated"]
+      },
+      {
+        "phase": 3,
+        "name": "Advanced Integration",
+        "timeline": "18–36 months",
+        "theme": "Integrate ECL, securities valuation, Islamic treatment and ALCO scenario platform",
+        "deliverables": [
+          "Integrate IFRS 9 ECL on shared cashflows",
+          "Deploy HTM/AFS/HFT valuation and AFS reserve",
+          "Islamic P&L and FTP split",
+          "Real-time ALCO scenario cockpit"
+        ],
+        "capabilities": ["IFRS 9 ECL Integration", "HTM / AFS / HFT Valuation"],
+        "dataDependencies": ["PROBABILITY_OF_DEFAULT_MODEL", "LOSS_GIVEN_DEFAULT_RISK_GRADE_VALUE", "ASSET_VALUATION_AMOUNT_TYPE"],
+        "quickWins": ["ECL/ALM cashflow reconciliation", "Islamic profitability dashboard", "One-click ALCO scenario pack"],
+        "risks": ["ECL model governance", "Market data availability for illiquid securities", "Cross-functional change management"],
+        "kpis": ["ECL/ALM cashflow reconciliation <1%", "Islamic book fully reported", "Scenario results <5 min"]
+      }
+    ]
+  }
+}
