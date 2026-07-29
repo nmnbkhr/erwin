@@ -1,0 +1,198 @@
+[
+  {
+    "id": "R1",
+    "rung": 1,
+    "name": "Diagnostic",
+    "duration": "2–4 weeks",
+    "pricingModel": "Fixed fee — deliberately low friction",
+    "purpose": "Establish where the organisation actually stands, quantify the pain in the client's own numbers, and produce a prioritised roadmap with an ROI hypothesis. This is the wedge: priced to be approved without a board paper.",
+    "buyerSignal": "Sponsor acknowledges a data problem but cannot yet size it or defend a budget request for it.",
+    "scope": [
+      "Whole-organisation maturity scored across eleven pillars",
+      "Data landscape map covering systems, flows and ownership gaps",
+      "Top-ten pain quantification with baseline measurement",
+      "One candidate domain identified for the first delivery wave"
+    ],
+    "activities": [
+      "Sponsor and stakeholder interviews across business, risk, finance and technology",
+      "Weighted maturity assessment run against the eleven-pillar instrument",
+      "System and flow inventory workshop; ownership gap identification",
+      "Quantification of rework hours, reconciliation effort, findings and duplicate pipelines",
+      "Backward trace from two or three high-value reports to illustrate the CDE method",
+      "Roadmap prioritisation and ROI hypothesis construction"
+    ],
+    "deliverables": [
+      { "name": "Maturity heatmap and radar scored 1–5 across eleven pillars", "format": "Report + interactive scorecard", "layer": "core" },
+      { "name": "Data landscape map with system-of-record and ownership gaps", "format": "Diagram + register", "layer": "core" },
+      { "name": "Quantified top-ten pain list with baselines and owners", "format": "Register", "layer": "core" },
+      { "name": "Prioritised roadmap with ROI hypothesis and phasing", "format": "Report", "layer": "core" },
+      { "name": "Illustrative backward-lineage trace for two to three reports", "format": "Lineage exhibit", "layer": "core" },
+      { "name": "Regulatory exposure summary against reporting and aggregation obligations", "format": "Assessment note", "layer": "banking" },
+      { "name": "AI readiness gap statement per candidate use case", "format": "Assessment note", "layer": "core" }
+    ],
+    "exitCriteria": [
+      "Maturity scored and validated with the sponsor",
+      "Pain quantified in figures the client recognises as their own",
+      "Candidate first domain agreed",
+      "Roadmap accepted in principle by the sponsor"
+    ],
+    "qualifiesFor": "Blueprint — the client now has a defensible internal case to fund design work.",
+    "commercialNotes": [
+      "Priced below the client's discretionary approval threshold wherever possible.",
+      "Credited in full against the Blueprint fee if the client proceeds within an agreed window.",
+      "Delivered predominantly by the senior lead — this rung sells the following three."
+    ],
+    "risks": [
+      "Interview access denied to the domains that hold the real problems — mitigate by naming required participants in the proposal.",
+      "Client expects remediation inside the diagnostic — scope boundary stated explicitly in the contract."
+    ]
+  },
+  {
+    "id": "R2",
+    "rung": 2,
+    "name": "Blueprint",
+    "duration": "4–8 weeks",
+    "pricingModel": "Fixed fee",
+    "purpose": "Design the operating model, produce the artefact set that makes governance enforceable, and build the CDE register that everything downstream depends on. This rung produces the single most important artefact in the engagement.",
+    "buyerSignal": "Diagnostic accepted; sponsor has budget authority and wants a defensible design before committing to build.",
+    "scope": [
+      "Target operating model including roles, councils and decision rights",
+      "Policy and standards set with enforcement points identified",
+      "Critical data element register derived backwards from consumption",
+      "Tooling recommendation and reference architecture",
+      "Business case and phased implementation plan"
+    ],
+    "activities": [
+      "Operating model design workshops; central versus federated split agreed",
+      "Charter, policy and standards authoring from the artefact library",
+      "Backward lineage from priority returns and board KPIs to derive CDEs",
+      "CDE register construction, owner assignment and criticality rating",
+      "Tooling evaluation against the client's estate constraints",
+      "Wave planning, resourcing model and business case assembly"
+    ],
+    "deliverables": [
+      { "name": "Data Governance charter ready for sponsor signature", "format": "Document", "layer": "core" },
+      { "name": "Target operating model with roles, councils and decision rights", "format": "Document + RACI", "layer": "core" },
+      { "name": "Policy and standards set with named enforcement points", "format": "Document set", "layer": "core" },
+      { "name": "Critical Data Element register with owners and criticality", "format": "Register", "layer": "core" },
+      { "name": "Tooling recommendation and reference architecture", "format": "Document + diagram", "layer": "core" },
+      { "name": "Business case and phased implementation plan", "format": "Document + plan", "layer": "core" },
+      { "name": "CDE register pre-seeded from the banking reference model", "format": "Register", "layer": "banking" },
+      { "name": "Regulatory return to source-field lineage templates", "format": "Mapping pack", "layer": "banking" },
+      { "name": "Council placement within the existing bank committee hierarchy", "format": "Governance note", "layer": "banking" }
+    ],
+    "exitCriteria": [
+      "Charter signed by a sponsor with budget authority",
+      "CDE register agreed with named owners per element",
+      "Tooling decision made and procurement path clear",
+      "Implementation waves scoped with a funded first wave"
+    ],
+    "qualifiesFor": "Implementation — provided the stewardship gate is met.",
+    "commercialNotes": [
+      "Fixed fee, with the Diagnostic fee credited if taken within the agreed window.",
+      "Scope boundary: design and register construction, not platform deployment.",
+      "Heavy use of the artefact template library keeps margin intact at fixed price."
+    ],
+    "risks": [
+      "Ownership assignment stalls because no one wants accountability — escalate to sponsor early; unassigned CDEs are reported as an open risk rather than quietly absorbed.",
+      "Client pushes to select a tool before the operating model is agreed — resist; this is a documented failure mode."
+    ]
+  },
+  {
+    "id": "R3",
+    "rung": 3,
+    "name": "Implementation",
+    "duration": "3–6 months, delivered in 6–8 week waves",
+    "pricingModel": "Milestone-based on wave completion — not time and materials",
+    "purpose": "Stand up the platform, make quality measurable, install stewardship in one or two domains, and get an issue workflow running. Every wave ends in something demonstrable.",
+    "buyerSignal": "Charter signed, CDEs agreed, stewards named with allocated time.",
+    "scope": [
+      "Catalogue, glossary and lineage deployed and populated for scoped domains",
+      "DQ rules authored and executing against governed CDEs",
+      "Stewardship operating in one or two domains — not enterprise-wide",
+      "Issue management workflow live with triage SLA"
+    ],
+    "activities": [
+      "Platform deployment and connector configuration",
+      "Metadata harvest, glossary population and term-to-asset binding",
+      "Lineage capture across scoped source-to-consumption paths",
+      "DQ rule authoring against CDEs, drawing on the rule library",
+      "Scorecard construction and publication cadence established",
+      "Steward onboarding, issue workflow rollout, first council cycles run",
+      "Remediation of the highest-severity defects surfaced"
+    ],
+    "deliverables": [
+      { "name": "Catalogue, glossary and lineage live for scoped domains", "format": "Working platform", "layer": "core" },
+      { "name": "Executable DQ rules bound to every governed CDE", "format": "Rule set in engine", "layer": "core" },
+      { "name": "Published data quality scorecard with named owners", "format": "Dashboard", "layer": "core" },
+      { "name": "Issue management workflow live with triage SLA", "format": "Working process", "layer": "core" },
+      { "name": "Stewardship operating in the scoped domains", "format": "Operating capability", "layer": "core" },
+      { "name": "Policy enforced as code at a minimum of one pipeline gate", "format": "Pipeline control", "layer": "core" },
+      { "name": "Core banking rule library deployed across CIF, accounts, GL, loans, cards, collateral", "format": "Rule set", "layer": "banking" },
+      { "name": "Return reconciliation and lineage evidence pack", "format": "Evidence pack", "layer": "banking" }
+    ],
+    "exitCriteria": [
+      "Scorecard published and reviewed in a council meeting",
+      "Defect rate demonstrably moved on a defined set of rules",
+      "Issue workflow processing real issues within SLA",
+      "Stewards operating independently of the delivery team"
+    ],
+    "qualifiesFor": "Managed Governance — the capability exists and now needs to be run and expanded.",
+    "commercialNotes": [
+      "Milestones tied to wave exit criteria, which forces scoping discipline on both sides.",
+      "Delivery carried primarily by data engineers with senior oversight, protecting blended economics.",
+      "Scope expansion handled as an additional wave rather than absorbed."
+    ],
+    "risks": [
+      "Steward time quietly withdrawn after kickoff — monitored as a standing council agenda item.",
+      "Source-system metadata extraction blocked by a vendor core — identified and de-risked during Blueprint, not here.",
+      "Client attempts enterprise-wide rollout mid-programme — governed by the CDE-scoping principle."
+    ]
+  },
+  {
+    "id": "R4",
+    "rung": 4,
+    "name": "Managed Governance",
+    "duration": "Ongoing — annual term, monthly billing",
+    "pricingModel": "Monthly retainer, tiered by governed domains and CDE count, with SLAs",
+    "purpose": "Run the capability rather than hand it over and hope. This is the annuity — and the reason this is a business rather than a project shop.",
+    "buyerSignal": "Implementation complete; client lacks the internal headcount or discipline to sustain cadence unaided.",
+    "scope": [
+      "DG council facilitation and secretariat",
+      "Catalogue, glossary and rule maintenance",
+      "Monthly scorecard production and issue triage",
+      "Quarterly onboarding of new domains and systems",
+      "Fractional CDO advisory to the sponsor"
+    ],
+    "activities": [
+      "Run the council: agenda, papers, decisions, minutes, follow-through",
+      "Maintain catalogue coverage and glossary currency as the estate changes",
+      "Author and retire DQ rules as consumption changes",
+      "Produce and publish the monthly scorecard; triage and escalate issues",
+      "Onboard additional domains or systems each quarter",
+      "Advise the sponsor on strategy, regulatory change and investment"
+    ],
+    "deliverables": [
+      { "name": "Monthly data quality scorecard with trend and commentary", "format": "Report + dashboard", "layer": "core" },
+      { "name": "Issue triage within SLA with escalation reporting", "format": "Service", "layer": "core" },
+      { "name": "Council meeting pack, decisions log and action tracking", "format": "Governance pack", "layer": "core" },
+      { "name": "Quarterly domain or system onboarding", "format": "Delivery increment", "layer": "core" },
+      { "name": "Fractional CDO advisory to sponsor", "format": "Advisory", "layer": "core" },
+      { "name": "Regulatory change impact assessment on governed elements", "format": "Assessment", "layer": "banking" },
+      { "name": "Examination and audit evidence pack maintained current", "format": "Evidence pack", "layer": "banking" }
+    ],
+    "exitCriteria": [
+      "Not applicable — this is the steady state. Reviewed annually against coverage growth and defect-rate trend."
+    ],
+    "qualifiesFor": "Expansion into further domains, or a new Diagnostic in an adjacent entity or subsidiary.",
+    "commercialNotes": [
+      "Tiered by number of governed domains and CDE count, with defined SLAs on triage and scorecard publication.",
+      "Work outside the retainer scope billed at a premium spot rate — this protects the retainer from erosion.",
+      "Annual term with a notice period; the annuity only works if it is not month-to-month."
+    ],
+    "risks": [
+      "Retainer erosion through absorbed scope creep — enforced by a written in-scope/out-of-scope schedule.",
+      "Client builds internal capability and insources — anticipated; position the retainer as reducing over time by design and retain the advisory tier."
+    ]
+  }
+]

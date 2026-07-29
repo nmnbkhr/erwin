@@ -1,0 +1,335 @@
+[
+  {
+    "id": "P01",
+    "name": "Governance & Operating Model",
+    "short": "Operating Model",
+    "description": "Decision rights, accountability and the forum structure that makes governance decisions binding rather than advisory. Defines who owns what data, who arbitrates conflicts, and what happens when a standard is breached.",
+    "buyerPain": "Nobody can say who owns the number. Every disputed figure escalates to the CEO because there is no lower forum with authority to settle it.",
+    "coreArtefacts": [
+      "Data Governance charter (signed by sponsor)",
+      "Target operating model — central vs federated split",
+      "Role definitions: Owner, Steward, Custodian",
+      "DG Council terms of reference and decision-rights matrix",
+      "Escalation and exception-handling procedure",
+      "Steward time-allocation letters countersigned by line managers"
+    ],
+    "deliverables": [
+      "DG charter approved at board or ExCo level",
+      "Named Data Owners per domain with signed accountability",
+      "Council constituted with quorum rules and first meeting held",
+      "RACI published across the governance lifecycle"
+    ],
+    "bankingOverlay": {
+      "focus": "Aligns the DG council with existing bank governance so it inherits authority instead of competing with it — typically reporting into the Risk & Compliance Committee or the ALCO/Board Risk chain.",
+      "artefacts": [
+        "Mapping of DG Council into existing bank committee hierarchy",
+        "CDO / Head of Data mandate letter",
+        "Alignment of data ownership to Basel risk-data accountability",
+        "Regulator-facing governance attestation pack"
+      ],
+      "drivers": ["BCBS 239 Principle 1–2 (governance & architecture)", "SBP data submission accountability", "Internal audit findings on data ownership"]
+    }
+  },
+  {
+    "id": "P02",
+    "name": "Data Strategy & Business Alignment",
+    "short": "Strategy",
+    "description": "Ties governance work to funded business outcomes. Without this pillar governance is a cost line that dies at the next budget cycle; with it, governance is a dependency of something the business already wants.",
+    "buyerPain": "The last governance programme produced a policy binder and no measurable change, so finance will not approve a second one.",
+    "coreArtefacts": [
+      "Data strategy on a page, aligned to the corporate strategy",
+      "Value hypothesis register with quantified pain (rework hours, findings, headcount)",
+      "Prioritised domain sequencing with rationale",
+      "Benefits-tracking model and baseline measurement",
+      "Governance business case with phased investment"
+    ],
+    "deliverables": [
+      "Quantified top-10 pain list with owner and baseline",
+      "Prioritised roadmap tied to funded initiatives",
+      "Business case with payback assumptions stated explicitly",
+      "Benefit baseline captured before wave 1 starts"
+    ],
+    "bankingOverlay": {
+      "focus": "Anchors the strategy in the bank's regulatory calendar and AI agenda — the two budgets that are never cut. Governance is scoped as the enabling dependency of an already-funded programme.",
+      "artefacts": [
+        "Regulatory submission calendar with data-dependency mapping",
+        "AI/GenAI readiness gap statement per use case",
+        "Cost-of-poor-data model: reconciliation FTE, report rework cycles, regulatory findings",
+        "Board KPI-to-data-element traceability"
+      ],
+      "drivers": ["SBP reporting accuracy and rework", "GenAI deployment blocked on data classification", "M&A or core-banking migration due diligence"]
+    }
+  },
+  {
+    "id": "P03",
+    "name": "Data Architecture & Modelling",
+    "short": "Architecture",
+    "description": "The structural layer — canonical models, integration patterns and the rules that stop each new system inventing its own version of 'customer'. Governance without architecture degenerates into per-report firefighting.",
+    "buyerPain": "Every new system adds another customer table and another reconciliation job. Integration cost rises with each project instead of falling.",
+    "coreArtefacts": [
+      "Conceptual and logical enterprise data model for governed domains",
+      "Canonical entity definitions and identifier strategy",
+      "Data architecture standards and integration patterns",
+      "System-of-record designation per subject area",
+      "Architecture exception register"
+    ],
+    "deliverables": [
+      "System-of-record map for all governed CDEs",
+      "Canonical model for the scoped domain",
+      "Architecture standards adopted into the project-approval gate",
+      "Duplicate-pipeline inventory with retirement plan"
+    ],
+    "bankingOverlay": {
+      "focus": "Uses a banking industry logical model as the canonical reference so definitions are not invented from scratch — accelerates the modelling phase from months to weeks and gives regulators a recognised structure.",
+      "artefacts": [
+        "FSDM-aligned subject-area map for governed domains",
+        "Core banking (CIF / accounts / GL) to canonical model mapping",
+        "Party, Arrangement, Event and Product entity alignment",
+        "Gap-extension register where the bank's products exceed the reference model"
+      ],
+      "drivers": ["Core banking migration", "Data warehouse or lakehouse rebuild", "BCBS 239 Principle 2 (data architecture and IT infrastructure)"]
+    }
+  },
+  {
+    "id": "P04",
+    "name": "Metadata & Business Glossary",
+    "short": "Metadata",
+    "description": "The shared vocabulary and the technical catalogue underneath it. This is the pillar that makes every other pillar addressable — you cannot govern, secure or classify what is not catalogued.",
+    "buyerPain": "Three departments report 'active customers' and produce three different numbers, and no one can prove which definition is correct.",
+    "coreArtefacts": [
+      "Business glossary with approved term definitions and synonyms",
+      "Technical metadata catalogue with automated harvesting",
+      "Term-to-physical-asset binding",
+      "Glossary approval workflow and change control",
+      "Metadata coverage and freshness metrics"
+    ],
+    "deliverables": [
+      "Glossary live with approved definitions for all governed CDEs",
+      "Catalogue ingesting metadata from the scoped source systems on schedule",
+      "Every CDE bound to its physical columns",
+      "Contested-term disputes resolved and recorded by the council"
+    ],
+    "bankingOverlay": {
+      "focus": "Seeds the glossary from regulatory definitions rather than internal opinion — where the regulator defines a term, that definition wins and the debate ends.",
+      "artefacts": [
+        "Regulatory term dictionary sourced from SBP return instructions",
+        "Pre-populated banking glossary (customer, exposure, NPL, restructured, stage-2, EAD)",
+        "Product hierarchy and Islamic banking term variants",
+        "Prudential vs management definition reconciliation notes"
+      ],
+      "drivers": ["Conflicting figures between finance, risk and business", "Regulatory examination findings", "AI/RAG projects needing a semantic layer"]
+    }
+  },
+  {
+    "id": "P05",
+    "name": "Data Quality Management",
+    "short": "Data Quality",
+    "description": "Measurable rules bound to critical elements, executed on a schedule, published as a scorecard and worked through an issue-management workflow. This is the pillar that makes governance visible.",
+    "buyerPain": "Quality problems are discovered by the recipient of the report, after it has gone out, and remediation is a fire drill every month-end.",
+    "coreArtefacts": [
+      "DQ dimension framework (completeness, validity, accuracy, consistency, uniqueness, timeliness, integrity)",
+      "DQ rule library bound to CDEs",
+      "Profiling baseline per source system",
+      "DQ scorecard with thresholds and trend",
+      "Issue register with severity, owner and SLA",
+      "Root-cause and remediation workflow"
+    ],
+    "deliverables": [
+      "Executable rules running on schedule against every governed CDE",
+      "Published scorecard with a named owner per failing rule",
+      "Issue workflow live with triage SLA",
+      "Demonstrated defect-rate movement on at least five rules"
+    ],
+    "bankingOverlay": {
+      "focus": "Ships a pre-written banking rule library rather than authoring rules from a blank page — the single largest accelerator in the whole engagement.",
+      "artefacts": [
+        "Core banking DQ rule library across CIF, accounts, GL, cards, loans, collateral",
+        "Regulatory return reconciliation rules (GL-to-subledger, return-to-source)",
+        "IFRS 9 staging and provisioning data-quality rules",
+        "AML/CFT data-completeness rules for screening and reporting"
+      ],
+      "drivers": ["Regulatory return rework cycles", "IFRS 9 ECL model input quality", "Reconciliation headcount cost", "Audit and examination findings"]
+    }
+  },
+  {
+    "id": "P06",
+    "name": "Master & Reference Data",
+    "short": "MDM & Reference",
+    "description": "Single trusted versions of the entities that appear everywhere — customer, product, organisation unit, and the code sets that classify them. Reference-data drift is the quiet cause of most cross-system inconsistency.",
+    "buyerPain": "The same customer exists five times across systems, so exposure aggregation, single-customer-view and cross-sell all give the wrong answer.",
+    "coreArtefacts": [
+      "Master entity scope and survivorship rules",
+      "Match/merge strategy and stewardship queue for exceptions",
+      "Reference-data code-set register with ownership",
+      "Golden-record publication pattern to consuming systems",
+      "Duplicate-rate and match-confidence metrics"
+    ],
+    "deliverables": [
+      "Golden record defined and published for the priority master entity",
+      "Reference code sets registered with a named owner and change process",
+      "Stewardship queue live for match exceptions",
+      "Duplicate rate baselined and trending down"
+    ],
+    "bankingOverlay": {
+      "focus": "Treats the customer master as a regulatory obligation rather than a marketing convenience — single-customer-view failures are directly examinable under exposure-aggregation and KYC rules.",
+      "artefacts": [
+        "CIF de-duplication and single-customer-view rules keyed on CNIC/NTN",
+        "Related-party and group-exposure linkage register",
+        "Product and GL code-set governance",
+        "Branch/region hierarchy and organisational reference data"
+      ],
+      "drivers": ["Single-borrower and group exposure limits", "KYC/CDD completeness", "Related-party lending disclosure", "Cross-sell and customer-value analytics"]
+    }
+  },
+  {
+    "id": "P07",
+    "name": "Lineage & Traceability",
+    "short": "Lineage",
+    "description": "The ability to trace any published number back to its source fields and forward to every consumer. Lineage is both the defensibility artefact for regulators and the mechanism for deriving critical data elements.",
+    "buyerPain": "When the regulator asks how a reported figure was derived, the answer takes three weeks and depends on one person who wrote the extract.",
+    "coreArtefacts": [
+      "End-to-end lineage from source system to consumption point",
+      "Transformation documentation for each hop",
+      "Impact-analysis capability for proposed changes",
+      "Lineage coverage metric against governed CDEs",
+      "Manual-intervention register (spreadsheets, hand adjustments)"
+    ],
+    "deliverables": [
+      "Lineage captured for every governed CDE, source to report",
+      "Impact analysis demonstrably used in a real change request",
+      "Manual touchpoints identified and risk-rated",
+      "Regulator-presentable lineage evidence pack"
+    ],
+    "bankingOverlay": {
+      "focus": "Runs lineage backwards from the regulatory return line item — this is simultaneously the CDE-derivation method and the audit-defensibility artefact.",
+      "artefacts": [
+        "SBP return line-item to source-field lineage templates",
+        "GL-to-subledger-to-source reconciliation lineage",
+        "IFRS 9 ECL model input lineage",
+        "Spreadsheet and end-user-computing intervention register"
+      ],
+      "drivers": ["BCBS 239 Principle 3 (accuracy and integrity)", "Regulatory examination evidence requests", "AML transaction-monitoring defensibility"]
+    }
+  },
+  {
+    "id": "P08",
+    "name": "Security, Privacy & Classification",
+    "short": "Security & Privacy",
+    "description": "Classification of data by sensitivity, the access model that enforces it, and the privacy obligations attached. This pillar has become the gating dependency for AI deployment.",
+    "buyerPain": "We cannot let a model or a vendor touch the data because nobody can state, per column, what is confidential and who is entitled to see it.",
+    "coreArtefacts": [
+      "Data classification scheme and labelling standard",
+      "Access model — role-based entitlements tied to data owners",
+      "Masking, tokenisation and de-identification standards",
+      "Privacy notice, consent and lawful-basis register",
+      "Third-party and cross-border data-sharing controls",
+      "Access recertification cycle"
+    ],
+    "deliverables": [
+      "Every governed CDE classified and labelled in the catalogue",
+      "Access requests routed through the data owner",
+      "Masking applied in non-production environments",
+      "Recertification run at least once with exceptions closed"
+    ],
+    "bankingOverlay": {
+      "focus": "Combines banking secrecy obligations with emerging local data-protection expectations and the AI-vendor question that boards are now asking directly.",
+      "artefacts": [
+        "Customer confidentiality classification aligned to banking secrecy obligations",
+        "PII and financial-sensitive column inventory across core systems",
+        "Cross-border processing and cloud residency assessment",
+        "AI/LLM data-exposure control statement per use case"
+      ],
+      "drivers": ["GenAI deployment approval", "Cloud migration security review", "Data-protection regulation readiness", "Vendor and outsourcing risk assessment"]
+    }
+  },
+  {
+    "id": "P09",
+    "name": "Data Lifecycle & Retention",
+    "short": "Lifecycle",
+    "description": "Governs data from creation through archival and defensible disposal, including the retention obligations that conflict with deletion rights and the storage cost of keeping everything forever.",
+    "buyerPain": "Nothing is ever deleted, storage cost compounds annually, and legal cannot confirm what must be retained versus what should have been destroyed.",
+    "coreArtefacts": [
+      "Retention schedule per data category with legal basis",
+      "Archival and disposal procedure with evidence of destruction",
+      "Data-sharing and egress register",
+      "Environment and copy inventory (how many copies exist and why)",
+      "Storage cost attribution by domain"
+    ],
+    "deliverables": [
+      "Retention schedule signed off by legal and compliance",
+      "Copy inventory produced with redundant copies identified",
+      "Disposal procedure executed once with evidence retained",
+      "Storage cost baseline attributed to owning domains"
+    ],
+    "bankingOverlay": {
+      "focus": "Reconciles statutory record-retention periods against operational archival practice, which is usually far longer and far more duplicated than anyone has measured.",
+      "artefacts": [
+        "Statutory retention mapping for account, transaction and KYC records",
+        "Dormant and unclaimed account data handling procedure",
+        "Legal-hold procedure for litigation and investigation",
+        "Core-banking archive and migration-era data disposition plan"
+      ],
+      "drivers": ["Core banking migration data disposition", "Storage and infrastructure cost", "Regulatory record-keeping obligations"]
+    }
+  },
+  {
+    "id": "P10",
+    "name": "Platform, Integration & Automation",
+    "short": "Platform",
+    "description": "The tooling substrate — catalogue, quality engine, lineage collection, orchestration — and the discipline of enforcing policy inside pipelines rather than inside documents.",
+    "buyerPain": "A governance tool was purchased two years ago, is 8% populated, and nobody outside the DG team opens it.",
+    "coreArtefacts": [
+      "Tooling reference architecture and integration map",
+      "Connector inventory and metadata-harvest schedule",
+      "Policy-as-code enforcement points in pipelines and CI",
+      "Deployment and environment topology",
+      "Adoption metrics — active users, coverage, freshness"
+    ],
+    "deliverables": [
+      "Catalogue, quality engine and lineage collector deployed and integrated",
+      "Automated harvest running on schedule for scoped systems",
+      "At least one policy enforced in a pipeline, not just documented",
+      "Adoption metric published and rising"
+    ],
+    "bankingOverlay": {
+      "focus": "Assumes a constrained, on-premise-leaning bank environment with vendor core systems that expose metadata poorly — connector strategy matters more than tool brand.",
+      "artefacts": [
+        "Core banking and CBS metadata extraction approach",
+        "On-premise deployment topology with network segregation",
+        "Warehouse and reporting-layer connector configuration",
+        "Change-management integration with the bank's release process"
+      ],
+      "drivers": ["Existing tool underused or shelfware", "Cloud migration", "Reduction of manual metadata upkeep"]
+    }
+  },
+  {
+    "id": "P11",
+    "name": "Analytics, AI & Consumption Governance",
+    "short": "AI & Consumption",
+    "description": "Governs what happens at the point of use — model inputs, feature provenance, report certification, and the controls that make AI deployment defensible rather than hopeful.",
+    "buyerPain": "The board has asked for AI, and the honest answer is that we cannot certify what the model would be trained or grounded on.",
+    "coreArtefacts": [
+      "Certified-report and trusted-dataset register",
+      "Model input and feature provenance documentation",
+      "AI use-case intake with data-risk assessment",
+      "Model monitoring for data drift on governed inputs",
+      "Consumption access and entitlement review"
+    ],
+    "deliverables": [
+      "Certified dataset register published with owners",
+      "AI intake process live with a data-readiness gate",
+      "Model inputs traced to governed CDEs",
+      "Uncertified shadow reporting inventoried and rationalised"
+    ],
+    "bankingOverlay": {
+      "focus": "Directly addresses the 2026 board question — GenAI cannot be deployed on data that cannot be classified, traced or trusted, which makes governance the funded dependency of the AI budget.",
+      "artefacts": [
+        "AI readiness assessment per candidate banking use case",
+        "IFRS 9 and IRB model input governance evidence",
+        "RAG corpus classification and access-control statement",
+        "Model risk management data-lineage evidence pack"
+      ],
+      "drivers": ["GenAI programme approval", "Model risk management requirements", "Credit and fraud model input assurance"]
+    }
+  }
+]

@@ -1,0 +1,1637 @@
+[
+  {
+    "id": "CDE-001",
+    "element": "Customer Unique Identifier (CIF No.)",
+    "domain": "Customer & Party",
+    "definition": "The bank-assigned identifier that uniquely identifies a customer relationship across all products and systems. The anchor key for every aggregation performed on a customer.",
+    "sourceSystem": "Core Banking — CIF",
+    "fsdmEntity": "Party",
+    "consumers": [
+      "Single customer view",
+      "eCIB submission",
+      "Group exposure aggregation",
+      "AML customer risk rating",
+      "Board KPI — customer count"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Retail Operations",
+    "dqDimensions": [
+      "Uniqueness",
+      "Completeness",
+      "Integrity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-002",
+    "element": "National Identity Number (CNIC)",
+    "domain": "Customer & Party",
+    "definition": "The 13-digit national identity number of an individual customer, used as the primary external matching key and the basis of identity verification.",
+    "sourceSystem": "Core Banking — CIF",
+    "fsdmEntity": "Party Identifier",
+    "consumers": [
+      "KYC/CDD completeness",
+      "eCIB submission",
+      "De-duplication and single customer view",
+      "AML screening",
+      "Tax reporting"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Compliance",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-003",
+    "element": "National Tax Number (NTN)",
+    "domain": "Customer & Party",
+    "definition": "The tax registration number of a corporate or business customer, used for tax reporting and corporate entity matching.",
+    "sourceSystem": "Core Banking — CIF",
+    "fsdmEntity": "Party Identifier",
+    "consumers": [
+      "Corporate customer matching",
+      "Withholding tax reporting",
+      "Corporate exposure aggregation"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Corporate Banking",
+    "dqDimensions": [
+      "Validity",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-004",
+    "element": "Customer Type / Segment Code",
+    "domain": "Customer & Party",
+    "definition": "Classification of the customer as individual, sole proprietor, partnership, private or public company, government or financial institution. Determines regulatory treatment and reporting bucket.",
+    "sourceSystem": "Core Banking — CIF",
+    "fsdmEntity": "Party Classification",
+    "consumers": [
+      "SBP prudential returns — sectoral breakdown",
+      "Capital adequacy risk weighting",
+      "Customer profitability segmentation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Retail Operations",
+    "dqDimensions": [
+      "Validity",
+      "Consistency",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-005",
+    "element": "Customer Risk Rating (AML)",
+    "domain": "Customer & Party",
+    "definition": "The money-laundering risk classification assigned to the customer, driving the intensity of due diligence and monitoring applied.",
+    "sourceSystem": "AML System",
+    "fsdmEntity": "Party Risk Assessment",
+    "consumers": [
+      "Enhanced due diligence trigger",
+      "Transaction monitoring thresholds",
+      "AML regulatory reporting"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Compliance",
+    "dqDimensions": [
+      "Completeness",
+      "Timeliness",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-006",
+    "element": "KYC Review Due Date",
+    "domain": "Customer & Party",
+    "definition": "The date by which the customer's due diligence documentation must next be refreshed, derived from risk rating and last review date.",
+    "sourceSystem": "Core Banking — CIF",
+    "fsdmEntity": "Party Event",
+    "consumers": [
+      "KYC currency reporting",
+      "Regulatory examination evidence",
+      "Account restriction triggers"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Compliance",
+    "dqDimensions": [
+      "Completeness",
+      "Timeliness",
+      "Validity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-007",
+    "element": "Beneficial Owner Identity",
+    "domain": "Customer & Party",
+    "definition": "The natural person or persons who ultimately own or control a corporate customer, above the applicable ownership threshold.",
+    "sourceSystem": "Core Banking — CIF / KYC",
+    "fsdmEntity": "Party Relationship",
+    "consumers": [
+      "AML/CFT due diligence",
+      "Related-party exposure identification",
+      "Sanctions screening"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Compliance",
+    "dqDimensions": [
+      "Completeness",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-008",
+    "element": "Related Party / Group Linkage",
+    "domain": "Customer & Party",
+    "definition": "The recorded relationship linking a customer to a wider group of connected entities for the purpose of aggregate exposure measurement.",
+    "sourceSystem": "Credit System",
+    "fsdmEntity": "Party Relationship",
+    "consumers": [
+      "Single-borrower limit monitoring",
+      "Group exposure limit monitoring",
+      "Related-party lending disclosure",
+      "BCBS 239 aggregation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Risk Officer",
+    "dqDimensions": [
+      "Completeness",
+      "Accuracy",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-009",
+    "element": "Politically Exposed Person Flag",
+    "domain": "Customer & Party",
+    "definition": "Indicator that the customer, or a close associate, holds or has held prominent public function, triggering enhanced due diligence.",
+    "sourceSystem": "AML System",
+    "fsdmEntity": "Party Classification",
+    "consumers": [
+      "Enhanced due diligence",
+      "AML regulatory reporting",
+      "Examination evidence"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Compliance",
+    "dqDimensions": [
+      "Completeness",
+      "Timeliness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-010",
+    "element": "Customer Residency & Domicile",
+    "domain": "Customer & Party",
+    "definition": "The country of residence and domicile of the customer, determining cross-border treatment, tax obligations and reporting classification.",
+    "sourceSystem": "Core Banking — CIF",
+    "fsdmEntity": "Party Location",
+    "consumers": [
+      "Non-resident deposit reporting",
+      "Cross-border exposure reporting",
+      "Tax residency reporting"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Retail Operations",
+    "dqDimensions": [
+      "Validity",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-011",
+    "element": "Account Number",
+    "domain": "Deposits & Accounts",
+    "definition": "The unique identifier of a deposit or current account arrangement, and the join key between core banking, GL and downstream reporting.",
+    "sourceSystem": "Core Banking — Accounts",
+    "fsdmEntity": "Agreement",
+    "consumers": [
+      "All account-level reporting",
+      "GL to subledger reconciliation",
+      "Statement production"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Retail Operations",
+    "dqDimensions": [
+      "Uniqueness",
+      "Integrity",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-012",
+    "element": "Account Status Code",
+    "domain": "Deposits & Accounts",
+    "definition": "The current operational state of the account — active, dormant, blocked, closed, unclaimed — determining reporting treatment and permitted activity.",
+    "sourceSystem": "Core Banking — Accounts",
+    "fsdmEntity": "Agreement Status",
+    "consumers": [
+      "Dormant and unclaimed account reporting",
+      "Active customer KPI",
+      "Deposit base analysis"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Retail Operations",
+    "dqDimensions": [
+      "Validity",
+      "Timeliness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-013",
+    "element": "Account Balance (Ledger)",
+    "domain": "Deposits & Accounts",
+    "definition": "The book balance of the account at close of business, before uncleared effects. The primary input to deposit reporting and reserve computation.",
+    "sourceSystem": "Core Banking — Accounts",
+    "fsdmEntity": "Agreement Balance",
+    "consumers": [
+      "SBP Statement of Affairs",
+      "CRR/SLR computation",
+      "Deposit concentration analysis",
+      "Liquidity ratios"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Accuracy",
+      "Timeliness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-014",
+    "element": "Product Code",
+    "domain": "Deposits & Accounts",
+    "definition": "The identifier of the product under which the arrangement was opened, determining pricing, regulatory bucket and reporting classification.",
+    "sourceSystem": "Core Banking — Product Master",
+    "fsdmEntity": "Product",
+    "consumers": [
+      "Product profitability",
+      "Regulatory product classification",
+      "RCOA mapping",
+      "Islamic vs conventional segregation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Product Management",
+    "dqDimensions": [
+      "Validity",
+      "Consistency",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-015",
+    "element": "Currency Code",
+    "domain": "Deposits & Accounts",
+    "definition": "The denomination currency of the arrangement, driving revaluation, foreign-currency reporting and open-position measurement.",
+    "sourceSystem": "Core Banking — Accounts",
+    "fsdmEntity": "Currency",
+    "consumers": [
+      "Foreign currency deposit reporting",
+      "Net open position",
+      "Revaluation",
+      "Statement of Affairs"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Validity",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-016",
+    "element": "Account Opening Date",
+    "domain": "Deposits & Accounts",
+    "definition": "The date the arrangement came into effect, used for vintage analysis, dormancy computation and tenure-based reporting.",
+    "sourceSystem": "Core Banking — Accounts",
+    "fsdmEntity": "Agreement Event",
+    "consumers": [
+      "Dormancy calculation",
+      "Customer tenure analytics",
+      "New-to-bank KPI"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Retail Operations",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-017",
+    "element": "Deposit Maturity Date",
+    "domain": "Deposits & Accounts",
+    "definition": "The contractual maturity date of a term deposit, driving the maturity ladder used in liquidity and repricing analysis.",
+    "sourceSystem": "Core Banking — Accounts",
+    "fsdmEntity": "Agreement Term",
+    "consumers": [
+      "Liquidity maturity ladder",
+      "Repricing gap",
+      "LCR and NSFR",
+      "ALCO reporting"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-018",
+    "element": "Deposit Interest / Profit Rate",
+    "domain": "Deposits & Accounts",
+    "definition": "The contracted rate applied to the deposit, including the profit rate for Islamic deposit products, driving cost of funds and FTP.",
+    "sourceSystem": "Core Banking — Accounts",
+    "fsdmEntity": "Agreement Rate",
+    "consumers": [
+      "Cost of funds",
+      "Net interest margin",
+      "FTP computation",
+      "Minimum deposit rate compliance"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Accuracy",
+      "Completeness",
+      "Validity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-019",
+    "element": "Islamic / Conventional Indicator",
+    "domain": "Deposits & Accounts",
+    "definition": "Flag segregating Islamic banking arrangements from conventional ones, required for separate books, returns and profit distribution.",
+    "sourceSystem": "Core Banking — Product Master",
+    "fsdmEntity": "Product Classification",
+    "consumers": [
+      "Islamic banking separate returns",
+      "Profit distribution computation",
+      "Shariah audit evidence"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Islamic Banking",
+    "dqDimensions": [
+      "Validity",
+      "Consistency",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-020",
+    "element": "Branch / Booking Location Code",
+    "domain": "Deposits & Accounts",
+    "definition": "The organisational unit at which the arrangement is booked, used for geographic reporting, branch profitability and regional aggregation.",
+    "sourceSystem": "Core Banking — Accounts",
+    "fsdmEntity": "Internal Organisation",
+    "consumers": [
+      "Region-wise deposit and advance reporting",
+      "Branch profitability",
+      "Network analytics"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Branch Banking",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-021",
+    "element": "Loan Account / Facility Identifier",
+    "domain": "Loans & Advances",
+    "definition": "Unique identifier of a credit facility or loan arrangement, the anchor for all exposure, classification and provisioning measurement.",
+    "sourceSystem": "Core Banking — Loans",
+    "fsdmEntity": "Agreement",
+    "consumers": [
+      "Advances reporting",
+      "eCIB submission",
+      "ECL computation",
+      "Exposure aggregation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Administration",
+    "dqDimensions": [
+      "Uniqueness",
+      "Integrity",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-022",
+    "element": "Outstanding Principal Balance",
+    "domain": "Loans & Advances",
+    "definition": "The principal amount currently outstanding on the facility, exclusive of accrued markup. The base measure for exposure and provisioning.",
+    "sourceSystem": "Core Banking — Loans",
+    "fsdmEntity": "Agreement Balance",
+    "consumers": [
+      "Advances reporting",
+      "Capital adequacy",
+      "ECL computation",
+      "Single-borrower limit",
+      "eCIB"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Accuracy",
+      "Consistency",
+      "Timeliness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-023",
+    "element": "Sanctioned / Approved Limit",
+    "domain": "Loans & Advances",
+    "definition": "The approved credit limit for the facility, used for undrawn commitment measurement and limit-utilisation monitoring.",
+    "sourceSystem": "Credit System",
+    "fsdmEntity": "Agreement Limit",
+    "consumers": [
+      "Undrawn commitment reporting",
+      "Credit conversion factor application",
+      "Limit utilisation monitoring"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Accuracy",
+      "Completeness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-024",
+    "element": "Days Past Due",
+    "domain": "Loans & Advances",
+    "definition": "The number of days since the earliest unpaid contractual obligation fell due. The primary driver of classification and staging.",
+    "sourceSystem": "Core Banking — Loans",
+    "fsdmEntity": "Agreement Delinquency",
+    "consumers": [
+      "Classification and provisioning",
+      "IFRS 9 staging",
+      "NPL ratio",
+      "eCIB",
+      "Board KPI — asset quality"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Accuracy",
+      "Timeliness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-025",
+    "element": "Asset Classification Category",
+    "domain": "Loans & Advances",
+    "definition": "The prudential classification of the facility — regular, OAEM, substandard, doubtful or loss — determining the minimum provisioning requirement.",
+    "sourceSystem": "Credit System",
+    "fsdmEntity": "Agreement Classification",
+    "consumers": [
+      "Prudential provisioning",
+      "NPL reporting",
+      "Capital adequacy",
+      "Board KPI — infection ratio"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Validity",
+      "Accuracy",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-026",
+    "element": "IFRS 9 Stage",
+    "domain": "Loans & Advances",
+    "definition": "The impairment stage (1, 2 or 3) assigned under the expected credit loss framework, determining whether 12-month or lifetime loss is recognised.",
+    "sourceSystem": "IFRS 9 Engine",
+    "fsdmEntity": "Agreement Classification",
+    "consumers": [
+      "ECL computation",
+      "Financial statement disclosure",
+      "Provision coverage analysis"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Accuracy",
+      "Consistency",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-027",
+    "element": "Restructured / Rescheduled Flag",
+    "domain": "Loans & Advances",
+    "definition": "Indicator that the facility's terms have been modified due to borrower financial difficulty, with the associated classification consequences.",
+    "sourceSystem": "Credit System",
+    "fsdmEntity": "Agreement Event",
+    "consumers": [
+      "Restructured portfolio reporting",
+      "IFRS 9 staging",
+      "Prudential classification",
+      "eCIB"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Completeness",
+      "Accuracy",
+      "Timeliness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-028",
+    "element": "Probability of Default",
+    "domain": "Loans & Advances",
+    "definition": "Modelled likelihood that the obligor defaults within the applicable horizon; a primary ECL and capital input.",
+    "sourceSystem": "Credit Risk Models",
+    "fsdmEntity": "Agreement Risk Measure",
+    "consumers": [
+      "ECL computation",
+      "Risk-weighted asset calculation",
+      "Model validation evidence"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Accuracy",
+      "Completeness",
+      "Timeliness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-029",
+    "element": "Loss Given Default",
+    "domain": "Loans & Advances",
+    "definition": "Modelled proportion of exposure expected to be lost on default after recoveries, incorporating collateral realisation assumptions.",
+    "sourceSystem": "Credit Risk Models",
+    "fsdmEntity": "Agreement Risk Measure",
+    "consumers": [
+      "ECL computation",
+      "Risk-weighted asset calculation",
+      "Collateral policy calibration"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Accuracy",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-030",
+    "element": "Exposure at Default",
+    "domain": "Loans & Advances",
+    "definition": "The expected exposure amount at the point of default, incorporating drawn balance and expected further drawdown of committed limits.",
+    "sourceSystem": "Credit Risk Models",
+    "fsdmEntity": "Agreement Risk Measure",
+    "consumers": [
+      "ECL computation",
+      "Capital adequacy",
+      "Stress testing"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Accuracy",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-031",
+    "element": "Facility Maturity Date",
+    "domain": "Loans & Advances",
+    "definition": "The contractual maturity of the credit facility, driving repricing, liquidity ladder placement and lifetime ECL horizon.",
+    "sourceSystem": "Core Banking — Loans",
+    "fsdmEntity": "Agreement Term",
+    "consumers": [
+      "Repricing gap",
+      "Liquidity ladder",
+      "Lifetime ECL horizon",
+      "ALCO reporting"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-032",
+    "element": "Markup Rate & Repricing Basis",
+    "domain": "Loans & Advances",
+    "definition": "The contracted rate on the facility together with its benchmark and repricing frequency, driving interest income and rate-sensitivity analysis.",
+    "sourceSystem": "Core Banking — Loans",
+    "fsdmEntity": "Agreement Rate",
+    "consumers": [
+      "Net interest margin",
+      "Repricing gap and IRRBB",
+      "FTP computation",
+      "Yield analysis"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Accuracy",
+      "Completeness",
+      "Validity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-033",
+    "element": "Economic Sector Code",
+    "domain": "Loans & Advances",
+    "definition": "The sector of economic activity of the borrower, driving sectoral concentration reporting and risk-weighting in some treatments.",
+    "sourceSystem": "Core Banking — Loans",
+    "fsdmEntity": "Agreement Classification",
+    "consumers": [
+      "Sector-wise advances reporting",
+      "Concentration risk",
+      "SME and agriculture targets"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-034",
+    "element": "Provision Held Amount",
+    "domain": "Loans & Advances",
+    "definition": "The specific and general provision carried against the facility, reconciling to the general ledger provisioning accounts.",
+    "sourceSystem": "Core Banking / IFRS 9 Engine",
+    "fsdmEntity": "Agreement Balance",
+    "consumers": [
+      "Provisioning reporting",
+      "Capital computation",
+      "GL reconciliation",
+      "Coverage ratio KPI"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Accuracy",
+      "Consistency",
+      "Integrity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-035",
+    "element": "Collateral Identifier",
+    "domain": "Collateral & Security",
+    "definition": "Unique identifier of a security item pledged against one or more facilities.",
+    "sourceSystem": "Collateral System",
+    "fsdmEntity": "Collateral Item",
+    "consumers": [
+      "Secured exposure reporting",
+      "LGD calibration",
+      "Provisioning benefit computation"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Credit Administration",
+    "dqDimensions": [
+      "Uniqueness",
+      "Integrity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-036",
+    "element": "Collateral Valuation Amount & Date",
+    "domain": "Collateral & Security",
+    "definition": "The assessed realisable value of the security and the date of that assessment, determining eligibility for provisioning benefit.",
+    "sourceSystem": "Collateral System",
+    "fsdmEntity": "Collateral Valuation",
+    "consumers": [
+      "Forced sale value benefit in provisioning",
+      "LTV monitoring",
+      "LGD calibration",
+      "Capital mitigation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Accuracy",
+      "Timeliness",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-037",
+    "element": "Collateral Type & Eligibility Flag",
+    "domain": "Collateral & Security",
+    "definition": "The category of security held and whether it qualifies as eligible for regulatory credit risk mitigation.",
+    "sourceSystem": "Collateral System",
+    "fsdmEntity": "Collateral Classification",
+    "consumers": [
+      "Credit risk mitigation",
+      "Provisioning benefit eligibility",
+      "Secured vs unsecured reporting"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Risk",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-038",
+    "element": "Collateral-to-Facility Allocation",
+    "domain": "Collateral & Security",
+    "definition": "The linkage and allocated proportion of a collateral item to each facility it secures, preventing double-counting of security benefit.",
+    "sourceSystem": "Collateral System",
+    "fsdmEntity": "Collateral Agreement Link",
+    "consumers": [
+      "Secured exposure computation",
+      "Provisioning benefit allocation",
+      "Capital mitigation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Credit Administration",
+    "dqDimensions": [
+      "Integrity",
+      "Accuracy",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-039",
+    "element": "Card Number Token / Reference",
+    "domain": "Cards & Payments",
+    "definition": "The tokenised reference identifying a payment card, linking card activity to the customer and account without exposing the card number itself.",
+    "sourceSystem": "Card Management System",
+    "fsdmEntity": "Resource Item",
+    "consumers": [
+      "Card portfolio reporting",
+      "Fraud monitoring",
+      "Interchange reconciliation"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Cards",
+    "dqDimensions": [
+      "Uniqueness",
+      "Integrity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-040",
+    "element": "Card Outstanding & Credit Limit",
+    "domain": "Cards & Payments",
+    "definition": "Current outstanding balance and approved limit on a credit card account, feeding exposure, undrawn commitment and delinquency measurement.",
+    "sourceSystem": "Card Management System",
+    "fsdmEntity": "Agreement Balance",
+    "consumers": [
+      "Consumer advances reporting",
+      "Undrawn commitment",
+      "Delinquency and provisioning",
+      "eCIB"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Cards",
+    "dqDimensions": [
+      "Accuracy",
+      "Consistency",
+      "Timeliness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-041",
+    "element": "Transaction Amount & Currency",
+    "domain": "Cards & Payments",
+    "definition": "The value and denomination of a financial transaction, the atomic input to monitoring, reconciliation and income recognition.",
+    "sourceSystem": "Core Banking / Switch",
+    "fsdmEntity": "Financial Transaction",
+    "consumers": [
+      "Transaction monitoring",
+      "GL reconciliation",
+      "Fee income",
+      "Currency reporting"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Accuracy",
+      "Completeness",
+      "Integrity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-042",
+    "element": "Transaction Type / Purpose Code",
+    "domain": "Cards & Payments",
+    "definition": "The classification of a transaction by nature and purpose, driving monitoring scenarios and statistical reporting of flows.",
+    "sourceSystem": "Core Banking / Switch",
+    "fsdmEntity": "Financial Transaction Classification",
+    "consumers": [
+      "AML scenario execution",
+      "Balance of payments reporting",
+      "Remittance classification"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-043",
+    "element": "Counterparty & Beneficiary Details",
+    "domain": "Cards & Payments",
+    "definition": "Identifying details of the other party to a transfer, required for screening, wire-transfer information rules and investigation.",
+    "sourceSystem": "Payments / Remittance System",
+    "fsdmEntity": "Involved Party Role",
+    "consumers": [
+      "Sanctions screening",
+      "Wire transfer information completeness",
+      "Suspicious activity investigation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Compliance",
+    "dqDimensions": [
+      "Completeness",
+      "Accuracy",
+      "Validity"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-044",
+    "element": "Transaction Value & Posting Date",
+    "domain": "Cards & Payments",
+    "definition": "The effective value date and the ledger posting date of a transaction, distinct fields whose conflation causes systematic reconciliation breaks.",
+    "sourceSystem": "Core Banking",
+    "fsdmEntity": "Financial Transaction Event",
+    "consumers": [
+      "GL reconciliation",
+      "Interest accrual",
+      "Cut-off and period-end integrity"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Accuracy",
+      "Timeliness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-045",
+    "element": "General Ledger Account Code",
+    "domain": "Finance & GL",
+    "definition": "The chart-of-accounts code against which a balance or movement is recorded, and the pivot of all financial and regulatory reporting.",
+    "sourceSystem": "General Ledger",
+    "fsdmEntity": "Financial Account",
+    "consumers": [
+      "Financial statements",
+      "RCOA regulatory mapping",
+      "Statement of Affairs",
+      "All GL-based returns"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Validity",
+      "Integrity",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-046",
+    "element": "Regulatory Chart of Accounts Mapping",
+    "domain": "Finance & GL",
+    "definition": "The mapping from internal GL codes to the regulator's prescribed reporting chart of accounts. The single most examined mapping in the estate.",
+    "sourceSystem": "Regulatory Reporting System",
+    "fsdmEntity": "Classification Mapping",
+    "consumers": [
+      "All prudential and statistical returns",
+      "Examination evidence",
+      "Restatement analysis"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Regulatory Reporting",
+    "dqDimensions": [
+      "Completeness",
+      "Accuracy",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-047",
+    "element": "GL Balance by Account & Period",
+    "domain": "Finance & GL",
+    "definition": "The closing balance per GL account per reporting period, which must reconcile to the sum of underlying subledger positions.",
+    "sourceSystem": "General Ledger",
+    "fsdmEntity": "Financial Account Balance",
+    "consumers": [
+      "Financial statements",
+      "Regulatory returns",
+      "GL to subledger reconciliation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Accuracy",
+      "Integrity",
+      "Timeliness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-048",
+    "element": "Cost Centre / Profit Centre Code",
+    "domain": "Finance & GL",
+    "definition": "The organisational unit to which income and expense are attributed, driving segment reporting and internal profitability.",
+    "sourceSystem": "General Ledger",
+    "fsdmEntity": "Internal Organisation",
+    "consumers": [
+      "Segment reporting",
+      "Branch and business-unit profitability",
+      "Cost allocation"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Financial Planning",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-049",
+    "element": "Foreign Exchange Revaluation Rate",
+    "domain": "Treasury & Investments",
+    "definition": "The rate applied to revalue foreign currency positions at reporting date, driving revaluation gains and open-position measurement.",
+    "sourceSystem": "Treasury System",
+    "fsdmEntity": "Market Rate",
+    "consumers": [
+      "Net open position reporting",
+      "Revaluation P&L",
+      "Financial statements"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Accuracy",
+      "Timeliness",
+      "Consistency"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-050",
+    "element": "Investment Portfolio Classification",
+    "domain": "Treasury & Investments",
+    "definition": "Designation of an investment as held-to-maturity, available-for-sale or held-for-trading, determining valuation and P&L treatment.",
+    "sourceSystem": "Treasury System",
+    "fsdmEntity": "Agreement Classification",
+    "consumers": [
+      "Investment reporting",
+      "Valuation and impairment",
+      "Capital treatment",
+      "SLR eligibility"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Validity",
+      "Consistency",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-051",
+    "element": "Statutory Liquidity Eligible Asset Flag",
+    "domain": "Treasury & Investments",
+    "definition": "Indicator of whether an asset qualifies toward the statutory liquidity requirement, determining reserve compliance computation.",
+    "sourceSystem": "Treasury System",
+    "fsdmEntity": "Agreement Classification",
+    "consumers": [
+      "CRR and SLR compliance computation",
+      "Liquidity ratio reporting",
+      "ALCO"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Accuracy"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-052",
+    "element": "Behavioural Maturity Assumption",
+    "domain": "Treasury & Investments",
+    "definition": "The modelled maturity profile applied to non-maturity deposits and prepayable assets in liquidity and rate-risk analysis, replacing contractual terms.",
+    "sourceSystem": "ALM System",
+    "fsdmEntity": "Agreement Behavioural Term",
+    "consumers": [
+      "Liquidity ladder",
+      "IRRBB — EVE and NII sensitivity",
+      "FTP tenor assignment",
+      "ALCO"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Treasury",
+    "dqDimensions": [
+      "Accuracy",
+      "Consistency",
+      "Completeness"
+    ],
+    "layer": "banking"
+  },
+  {
+    "id": "CDE-053",
+    "element": "Business Term Definition",
+    "domain": "Governance Metadata",
+    "definition": "The approved definition of a governed business term, its owner, approval date and status. Governance metadata is itself a critical data element.",
+    "sourceSystem": "Data Catalogue",
+    "fsdmEntity": "Metadata Term",
+    "consumers": [
+      "All reporting definitions",
+      "AI semantic grounding",
+      "Audit evidence of definitional control"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Data Governance",
+    "dqDimensions": [
+      "Completeness",
+      "Timeliness",
+      "Consistency"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-054",
+    "element": "Data Classification Label",
+    "domain": "Governance Metadata",
+    "definition": "The sensitivity classification assigned to a data element, driving masking, access control and permissibility of external processing.",
+    "sourceSystem": "Data Catalogue",
+    "fsdmEntity": "Metadata Classification",
+    "consumers": [
+      "Access control",
+      "Masking enforcement",
+      "AI and third-party sharing decisions",
+      "Privacy compliance"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Information Security Officer",
+    "dqDimensions": [
+      "Completeness",
+      "Accuracy",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-055",
+    "element": "Data Element Ownership Assignment",
+    "domain": "Governance Metadata",
+    "definition": "The recorded Data Owner and Steward for each governed element. Without this, no other governance control has an accountable party.",
+    "sourceSystem": "Data Catalogue",
+    "fsdmEntity": "Metadata Stewardship",
+    "consumers": [
+      "Issue routing",
+      "Access approval routing",
+      "Scorecard accountability",
+      "Audit evidence"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Data Governance",
+    "dqDimensions": [
+      "Completeness",
+      "Accuracy",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-056",
+    "element": "Lineage Path Record",
+    "domain": "Governance Metadata",
+    "definition": "The recorded source-to-consumption path for a governed element, including transformation logic at each hop.",
+    "sourceSystem": "Lineage Collector",
+    "fsdmEntity": "Metadata Lineage",
+    "consumers": [
+      "Regulatory derivation evidence",
+      "Impact analysis",
+      "Model input traceability",
+      "Root cause analysis"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Data Governance",
+    "dqDimensions": [
+      "Completeness",
+      "Accuracy",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-057",
+    "element": "Party Unique Identifier",
+    "domain": "Party & Relationship",
+    "definition": "The enterprise-assigned identifier that resolves a person or organisation to one record across every operational and analytical system. Every aggregation by counterparty is only as trustworthy as this key.",
+    "sourceSystem": "Master Data Management",
+    "fsdmEntity": "Party",
+    "consumers": [
+      "Single view of the counterparty",
+      "Revenue and exposure aggregation",
+      "Regulatory and statutory reporting",
+      "Consent enforcement"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Uniqueness",
+      "Completeness",
+      "Integrity"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-058",
+    "element": "Party Legal Name",
+    "domain": "Party & Relationship",
+    "definition": "The registered legal name of the party as it appears on the constitutive document or identity credential, distinct from any trading or display name.",
+    "sourceSystem": "Master Data Management",
+    "fsdmEntity": "Party",
+    "consumers": [
+      "Contract execution",
+      "Statutory filings",
+      "Sanctions and watchlist screening",
+      "Customer correspondence"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Accuracy",
+      "Completeness",
+      "Consistency"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-059",
+    "element": "Party Type Classification",
+    "domain": "Party & Relationship",
+    "definition": "The classification that determines which rules apply to a party — individual or organisation, resident or non-resident, related party or not. Drives downstream segmentation and eligibility.",
+    "sourceSystem": "Master Data Management",
+    "fsdmEntity": "Party",
+    "consumers": [
+      "Segment reporting",
+      "Related-party disclosure",
+      "Eligibility and pricing rules",
+      "Risk aggregation"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Validity",
+      "Consistency",
+      "Completeness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-060",
+    "element": "Party Contact Point",
+    "domain": "Party & Relationship",
+    "definition": "The email address, telephone number or messaging handle designated for a stated purpose. A contact point is only critical because a legally required notice must reach it.",
+    "sourceSystem": "CRM",
+    "fsdmEntity": "Party Contact",
+    "consumers": [
+      "Statutory and contractual notices",
+      "Incident and breach notification",
+      "Service communications",
+      "Multi-factor authentication"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-061",
+    "element": "Party Address",
+    "domain": "Party & Relationship",
+    "definition": "The structured postal or registered address of a party, with its jurisdiction component separable — jurisdiction drives tax, privacy and regulatory treatment.",
+    "sourceSystem": "CRM",
+    "fsdmEntity": "Party Address",
+    "consumers": [
+      "Jurisdictional reporting",
+      "Tax determination",
+      "Privacy regime applicability",
+      "Physical correspondence"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Completeness",
+      "Validity",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-062",
+    "element": "Product or Service Identifier",
+    "domain": "Product & Service",
+    "definition": "The identifier for a sellable or serviceable offering, stable across its lifecycle and across the systems that price, deliver and account for it.",
+    "sourceSystem": "Product Master",
+    "fsdmEntity": "Product",
+    "consumers": [
+      "Revenue recognition",
+      "Product profitability",
+      "Catalogue and pricing publication",
+      "Management reporting"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Product Management",
+    "dqDimensions": [
+      "Uniqueness",
+      "Integrity",
+      "Completeness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-063",
+    "element": "Product Effective and Expiry Dates",
+    "domain": "Product & Service",
+    "definition": "The dates bounding the period in which a product version may be sold and serviced. Overlapping or open-ended versions make point-in-time restatement impossible.",
+    "sourceSystem": "Product Master",
+    "fsdmEntity": "Product",
+    "consumers": [
+      "Point-in-time restatement",
+      "Revenue cut-off",
+      "Contract eligibility",
+      "Audit of historic pricing"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Product Management",
+    "dqDimensions": [
+      "Validity",
+      "Consistency",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-064",
+    "element": "Contracted Price or Rate",
+    "domain": "Product & Service",
+    "definition": "The price or rate agreed with a counterparty for a product, including its effective date. The single most frequent source of billing dispute and revenue leakage.",
+    "sourceSystem": "Pricing Engine",
+    "fsdmEntity": "Price",
+    "consumers": [
+      "Billing and invoicing",
+      "Revenue recognition",
+      "Margin analysis",
+      "Dispute resolution"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Product Management",
+    "dqDimensions": [
+      "Accuracy",
+      "Consistency",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-065",
+    "element": "Employee Identifier",
+    "domain": "Workforce & Identity",
+    "definition": "The identifier for a member of the workforce, the join key between HR, access management and the ownership and stewardship registers.",
+    "sourceSystem": "HR Information System",
+    "fsdmEntity": "Employee",
+    "consumers": [
+      "Access certification",
+      "Ownership and stewardship registers",
+      "Segregation-of-duties analysis",
+      "Workforce reporting"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Uniqueness",
+      "Completeness",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-066",
+    "element": "User Access Entitlement",
+    "domain": "Workforce & Identity",
+    "definition": "The grant that permits an identity to read or change a given data set. Governance is unprovable without it: you cannot evidence a control over data you cannot say who can reach.",
+    "sourceSystem": "Identity & Access Management",
+    "fsdmEntity": "Entitlement",
+    "consumers": [
+      "Access certification and recertification",
+      "Segregation-of-duties analysis",
+      "Audit evidence of data control",
+      "Leaver revocation"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Information Security Officer",
+    "dqDimensions": [
+      "Completeness",
+      "Timeliness",
+      "Integrity"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-067",
+    "element": "Supplier Identifier",
+    "domain": "Supplier & Contract",
+    "definition": "The identifier resolving a supplier to one record across procurement, accounts payable and third-party risk.",
+    "sourceSystem": "Procurement",
+    "fsdmEntity": "Supplier",
+    "consumers": [
+      "Spend consolidation",
+      "Third-party risk assessment",
+      "Payment execution",
+      "Concentration-risk reporting"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Uniqueness",
+      "Completeness",
+      "Integrity"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-068",
+    "element": "Contract Term and Renewal Date",
+    "domain": "Supplier & Contract",
+    "definition": "The start, end and notice dates of a contractual obligation. Missing renewal dates convert into auto-renewals nobody decided to accept.",
+    "sourceSystem": "Contract Management",
+    "fsdmEntity": "Contract",
+    "consumers": [
+      "Renewal and exit decisions",
+      "Commitment disclosure",
+      "Third-party risk review cycle",
+      "Budget forecasting"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Legal",
+    "dqDimensions": [
+      "Completeness",
+      "Validity",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-069",
+    "element": "General Ledger Account Code",
+    "domain": "Finance & Ledger",
+    "definition": "The account code in the chart of accounts to which a posting is made, and its mapping to the statutory disclosure line.",
+    "sourceSystem": "General Ledger",
+    "fsdmEntity": "GL Account",
+    "consumers": [
+      "Statutory financial statements",
+      "Management reporting",
+      "Cost allocation",
+      "Audit trail of postings"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Validity",
+      "Integrity",
+      "Consistency"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-070",
+    "element": "Cost Centre",
+    "domain": "Finance & Ledger",
+    "definition": "The organisational unit a cost is attributed to, and its position in the current management hierarchy.",
+    "sourceSystem": "General Ledger",
+    "fsdmEntity": "Cost Centre",
+    "consumers": [
+      "Budget versus actual reporting",
+      "Cost allocation",
+      "Organisational performance reporting"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Financial Planning",
+    "dqDimensions": [
+      "Validity",
+      "Completeness",
+      "Consistency"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-071",
+    "element": "Consent Record",
+    "domain": "Consent & Privacy",
+    "definition": "The record of a data subject permitting a stated processing purpose, with its timestamp, scope and withdrawal state. Processing without it is unlawful, not merely ungoverned.",
+    "sourceSystem": "Consent Management",
+    "fsdmEntity": "Consent",
+    "consumers": [
+      "Marketing and profiling suppression",
+      "Lawful-basis evidence",
+      "Subject access response",
+      "AI training-set eligibility"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Legal",
+    "dqDimensions": [
+      "Completeness",
+      "Timeliness",
+      "Integrity"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-072",
+    "element": "Retention Class",
+    "domain": "Consent & Privacy",
+    "definition": "The retention rule applying to a data set — how long it is kept, on what legal basis, and what happens at expiry. The control that makes deletion defensible and over-retention detectable.",
+    "sourceSystem": "Data Catalogue",
+    "fsdmEntity": "Retention Rule",
+    "consumers": [
+      "Defensible disposal",
+      "Regulatory retention evidence",
+      "Storage cost management",
+      "Legal hold administration"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Legal",
+    "dqDimensions": [
+      "Completeness",
+      "Validity",
+      "Consistency"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-073",
+    "element": "Transaction Identifier",
+    "domain": "Transaction & Event",
+    "definition": "The identifier for an individual business event, unique and stable across the systems that capture, enrich and account for it.",
+    "sourceSystem": "Transaction Processing",
+    "fsdmEntity": "Transaction",
+    "consumers": [
+      "Reconciliation to the ledger",
+      "Volume and throughput reporting",
+      "Dispute and investigation",
+      "Fraud and anomaly detection"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Uniqueness",
+      "Integrity",
+      "Completeness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-074",
+    "element": "Transaction Amount and Currency",
+    "domain": "Transaction & Event",
+    "definition": "The monetary value of an event with its currency and, where converted, the rate and rate date. An amount without an explicit currency is the most common silent corruption in consolidated reporting.",
+    "sourceSystem": "Transaction Processing",
+    "fsdmEntity": "Transaction",
+    "consumers": [
+      "Financial statements",
+      "Revenue recognition",
+      "Consolidated group reporting",
+      "Threshold-based regulatory triggers"
+    ],
+    "criticality": "CRITICAL",
+    "ownerRole": "Chief Financial Officer",
+    "dqDimensions": [
+      "Accuracy",
+      "Completeness",
+      "Consistency"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-075",
+    "element": "Reference Code Set Value",
+    "domain": "Reference & Code Sets",
+    "definition": "A permitted value in a controlled list — country, currency, status, category — together with its version. Uncontrolled code sets are how the same concept acquires four spellings.",
+    "sourceSystem": "Reference Data Service",
+    "fsdmEntity": "Reference Value",
+    "consumers": [
+      "Cross-system joins",
+      "Regulatory code mapping",
+      "Report grouping and filtering",
+      "Data validation rules"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Data Architect",
+    "dqDimensions": [
+      "Validity",
+      "Consistency",
+      "Timeliness"
+    ],
+    "layer": "core"
+  },
+  {
+    "id": "CDE-076",
+    "element": "Organisational Hierarchy Node",
+    "domain": "Reference & Code Sets",
+    "definition": "A unit in the management hierarchy with its parent, effective dates and manager. Reorganisations silently break every historical roll-up that assumed the hierarchy was static.",
+    "sourceSystem": "HR Information System",
+    "fsdmEntity": "Org Unit",
+    "consumers": [
+      "Management reporting roll-ups",
+      "Cost allocation",
+      "Access provisioning by unit",
+      "Point-in-time organisational restatement"
+    ],
+    "criticality": "HIGH",
+    "ownerRole": "Head of Operations",
+    "dqDimensions": [
+      "Integrity",
+      "Timeliness",
+      "Consistency"
+    ],
+    "layer": "core"
+  }
+]

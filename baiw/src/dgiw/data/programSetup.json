@@ -1,0 +1,1147 @@
+{
+  "flows": [
+    {
+      "id": "F1",
+      "name": "Mobilisation & Mandate",
+      "objective": "Establish that the programme has an authority base before any technical work begins. Everything downstream depends on this flow completing properly — a programme that skips it will stall at the first cross-domain dispute.",
+      "steps": [
+        {
+          "id": "F1-S1",
+          "stream": "Mandate",
+          "step": "Confirm the executive sponsor and verify budget authority",
+          "owner": "Engagement Lead",
+          "inputs": [
+            "Organisation chart",
+            "Delegated authority schedule"
+          ],
+          "outputs": [
+            "Sponsor confirmation with authority test evidenced"
+          ],
+          "durationDays": 2,
+          "layer": "core"
+        },
+        {
+          "id": "F1-S2",
+          "stream": "Mandate",
+          "step": "Draft and socialise the Data Governance charter",
+          "owner": "Engagement Lead",
+          "inputs": [
+            "Charter template",
+            "Sponsor objectives",
+            "Existing policy set"
+          ],
+          "outputs": [
+            "Draft DG charter"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F1-S3",
+          "stream": "Mandate",
+          "step": "Place the DG Council within the existing committee hierarchy",
+          "owner": "Engagement Lead",
+          "inputs": [
+            "Committee terms of reference",
+            "Governance calendar"
+          ],
+          "outputs": [
+            "Council placement note and reporting line"
+          ],
+          "durationDays": 2,
+          "layer": "banking"
+        },
+        {
+          "id": "F1-S4",
+          "stream": "Mandate",
+          "step": "Obtain charter signature and constitute the council",
+          "owner": "Executive Sponsor",
+          "inputs": [
+            "Final charter",
+            "Proposed membership"
+          ],
+          "outputs": [
+            "Signed charter",
+            "Council terms of reference",
+            "Meeting calendar"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F1-S5",
+          "stream": "Scope",
+          "step": "Agree the first domain and the boundary of what is out of scope",
+          "owner": "Engagement Lead",
+          "inputs": [
+            "Diagnostic roadmap",
+            "Sponsor priorities"
+          ],
+          "outputs": [
+            "Scope statement with explicit exclusions"
+          ],
+          "durationDays": 2,
+          "layer": "core"
+        }
+      ],
+      "gateIds": [
+        "G1",
+        "G2",
+        "G6"
+      ]
+    },
+    {
+      "id": "F2",
+      "name": "Accountability Installation",
+      "objective": "Convert the charter into named people with real time. This is the flow most programmes execute badly, and the failure is invisible for about two months.",
+      "steps": [
+        {
+          "id": "F2-S1",
+          "stream": "Roles",
+          "step": "Identify and confirm Data Owners at department-head level",
+          "owner": "Executive Sponsor",
+          "inputs": [
+            "Domain scope",
+            "Role definitions"
+          ],
+          "outputs": [
+            "Named Data Owners with written acceptance"
+          ],
+          "durationDays": 5,
+          "layer": "core"
+        },
+        {
+          "id": "F2-S2",
+          "stream": "Roles",
+          "step": "Owners nominate stewards; agree the time percentage with line managers",
+          "owner": "Data Owner",
+          "inputs": [
+            "Steward role definition",
+            "Workload assessment"
+          ],
+          "outputs": [
+            "Named stewards with countersigned time allocation"
+          ],
+          "durationDays": 5,
+          "layer": "core"
+        },
+        {
+          "id": "F2-S3",
+          "stream": "Roles",
+          "step": "Identify custodians for each in-scope system",
+          "owner": "Head of Technology",
+          "inputs": [
+            "System inventory",
+            "Support model"
+          ],
+          "outputs": [
+            "Custodian assignment per system"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F2-S4",
+          "stream": "Roles",
+          "step": "Confirm regulatory reporting, risk and compliance representatives for CDE derivation",
+          "owner": "Engagement Lead",
+          "inputs": [
+            "Submission calendar",
+            "Risk and compliance structure"
+          ],
+          "outputs": [
+            "Named specialist contributors with time committed"
+          ],
+          "durationDays": 2,
+          "layer": "banking"
+        },
+        {
+          "id": "F2-S5",
+          "stream": "Enablement",
+          "step": "Run steward onboarding and tooling induction",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Training pack",
+            "Platform access"
+          ],
+          "outputs": [
+            "Trained stewards with platform access confirmed"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        }
+      ],
+      "gateIds": [
+        "G3",
+        "G4"
+      ]
+    },
+    {
+      "id": "F3",
+      "name": "Scope Derivation — Critical Data Elements",
+      "objective": "Produce the finite, defensible element list that bounds every subsequent activity. Derived backwards from consumption, never nominated forwards from systems.",
+      "steps": [
+        {
+          "id": "F3-S1",
+          "stream": "Derivation",
+          "step": "Select the consumption points that define criticality",
+          "owner": "Engagement Lead",
+          "inputs": [
+            "Board KPI pack",
+            "Report inventory"
+          ],
+          "outputs": [
+            "Prioritised consumption point list"
+          ],
+          "durationDays": 2,
+          "layer": "core"
+        },
+        {
+          "id": "F3-S2",
+          "stream": "Derivation",
+          "step": "Select the priority regulatory returns and disclosures driving scope",
+          "owner": "Head of Regulatory Reporting",
+          "inputs": [
+            "Submission calendar",
+            "Examination findings history"
+          ],
+          "outputs": [
+            "Priority return list with line items identified"
+          ],
+          "durationDays": 3,
+          "layer": "banking"
+        },
+        {
+          "id": "F3-S3",
+          "stream": "Derivation",
+          "step": "Trace lineage backwards from each consumption point to source fields",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Report logic",
+            "ETL documentation",
+            "Lineage templates"
+          ],
+          "outputs": [
+            "Backward lineage traces per consumption point"
+          ],
+          "durationDays": 10,
+          "layer": "core",
+          "support": [
+            "Data Custodian"
+          ]
+        },
+        {
+          "id": "F3-S4",
+          "stream": "Derivation",
+          "step": "Consolidate traced elements into the CDE register and de-duplicate",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Lineage traces",
+            "Reference CDE catalogue"
+          ],
+          "outputs": [
+            "Draft CDE register with source system and criticality"
+          ],
+          "durationDays": 4,
+          "layer": "core"
+        },
+        {
+          "id": "F3-S5",
+          "stream": "Derivation",
+          "step": "Assign an owner and steward to every element; escalate unassignable ones",
+          "owner": "DG Council",
+          "inputs": [
+            "Draft register",
+            "Role assignments"
+          ],
+          "outputs": [
+            "Owned CDE register",
+            "Open-risk log for unassigned elements"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F3-S6",
+          "stream": "Derivation",
+          "step": "Ratify the register at council and freeze the baseline",
+          "owner": "DG Council",
+          "inputs": [
+            "Owned register"
+          ],
+          "outputs": [
+            "Ratified CDE baseline with change control applied"
+          ],
+          "durationDays": 1,
+          "layer": "core"
+        }
+      ],
+      "gateIds": [
+        "G5"
+      ]
+    },
+    {
+      "id": "F4",
+      "name": "Standards, Policy & Enforcement Design",
+      "objective": "Produce a policy set where every policy names its enforcement point. Policies with no enforcement point are not adopted — they are the artefact of failed programmes.",
+      "steps": [
+        {
+          "id": "F4-S1",
+          "stream": "Policy",
+          "step": "Tailor the policy and standards set from the artefact library",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Policy templates",
+            "Existing bank policy set"
+          ],
+          "outputs": [
+            "Draft policy and standards set"
+          ],
+          "durationDays": 5,
+          "layer": "core"
+        },
+        {
+          "id": "F4-S2",
+          "stream": "Policy",
+          "step": "Define the data classification scheme and labelling standard",
+          "owner": "Chief Information Security Officer",
+          "inputs": [
+            "Existing information security classification",
+            "Regulatory constraints"
+          ],
+          "outputs": [
+            "Classification scheme approved for use"
+          ],
+          "durationDays": 3,
+          "layer": "core",
+          "support": [
+            "DG Office / Data Governance Lead"
+          ]
+        },
+        {
+          "id": "F4-S3",
+          "stream": "Enforcement",
+          "step": "Identify at least one enforcement point per policy",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Draft policies",
+            "Pipeline and gate inventory"
+          ],
+          "outputs": [
+            "Policy-to-enforcement-point mapping"
+          ],
+          "durationDays": 3,
+          "layer": "core",
+          "support": [
+            "Data Custodian"
+          ]
+        },
+        {
+          "id": "F4-S4",
+          "stream": "Enforcement",
+          "step": "Define the issue management workflow with severity, SLA and escalation",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Workflow template",
+            "Existing incident process"
+          ],
+          "outputs": [
+            "Issue workflow definition with SLA schedule"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F4-S5",
+          "stream": "Policy",
+          "step": "Approve the policy set and exception process at council",
+          "owner": "DG Council",
+          "inputs": [
+            "Policy set",
+            "Enforcement mapping"
+          ],
+          "outputs": [
+            "Approved policy set",
+            "Exception register opened"
+          ],
+          "durationDays": 1,
+          "layer": "core"
+        }
+      ],
+      "gateIds": [
+        "G7"
+      ]
+    },
+    {
+      "id": "F5",
+      "name": "Platform Standup",
+      "objective": "Get catalogue, quality engine, lineage collection and scorecard running against real systems. Deferred until after the operating model and CDE register exist, deliberately.",
+      "steps": [
+        {
+          "id": "F5-S1",
+          "stream": "Platform",
+          "step": "Confirm the tooling decision and complete procurement or deployment approval",
+          "owner": "Head of Technology",
+          "inputs": [
+            "Blueprint tooling recommendation",
+            "Estate constraints"
+          ],
+          "outputs": [
+            "Approved tooling decision"
+          ],
+          "durationDays": 5,
+          "layer": "core"
+        },
+        {
+          "id": "F5-S2",
+          "stream": "Platform",
+          "step": "Deploy catalogue, quality engine and lineage collector",
+          "owner": "Data Engineering",
+          "inputs": [
+            "Deployment scripts",
+            "Environment and network approval"
+          ],
+          "outputs": [
+            "Running platform in the target environment"
+          ],
+          "durationDays": 5,
+          "layer": "core"
+        },
+        {
+          "id": "F5-S3",
+          "stream": "Platform",
+          "step": "Configure connectors and prove metadata extraction from the vendor core",
+          "owner": "Data Engineering",
+          "inputs": [
+            "Core banking access",
+            "Vendor metadata documentation"
+          ],
+          "outputs": [
+            "Proven extraction with scheduled harvest"
+          ],
+          "durationDays": 8,
+          "layer": "banking"
+        },
+        {
+          "id": "F5-S4",
+          "stream": "Platform",
+          "step": "Schedule automated harvesting and configure failure alerting",
+          "owner": "Data Engineering",
+          "inputs": [
+            "Connector configuration",
+            "Monitoring stack"
+          ],
+          "outputs": [
+            "Scheduled harvest with alerting to a named owner"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F5-S5",
+          "stream": "Platform",
+          "step": "Stand up the scorecard layer over the quality result store",
+          "owner": "Data Engineering",
+          "inputs": [
+            "DQ result store",
+            "Scorecard template"
+          ],
+          "outputs": [
+            "Scorecard published to stakeholders"
+          ],
+          "durationDays": 4,
+          "layer": "core"
+        }
+      ],
+      "gateIds": [
+        "G11"
+      ]
+    },
+    {
+      "id": "F6",
+      "name": "Quality Instrumentation",
+      "objective": "Bind executable rules to the governed elements and get a real number in front of the business. This flow produces the artefact that funds the rest of the programme.",
+      "steps": [
+        {
+          "id": "F6-S1",
+          "stream": "Quality",
+          "step": "Profile the source systems to establish a defect baseline",
+          "owner": "Data Engineering",
+          "inputs": [
+            "Source access",
+            "CDE register"
+          ],
+          "outputs": [
+            "Profiling baseline per source"
+          ],
+          "durationDays": 5,
+          "layer": "core"
+        },
+        {
+          "id": "F6-S2",
+          "stream": "Quality",
+          "step": "Select and tailor rules from the library for the governed CDEs",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Rule library",
+            "CDE register",
+            "Profiling results"
+          ],
+          "outputs": [
+            "Tailored rule set with thresholds agreed by owners"
+          ],
+          "durationDays": 6,
+          "layer": "banking",
+          "support": [
+            "Data Steward"
+          ]
+        },
+        {
+          "id": "F6-S3",
+          "stream": "Quality",
+          "step": "Deploy rules to the engine and schedule execution",
+          "owner": "Data Engineering",
+          "inputs": [
+            "Rule definitions",
+            "Quality engine"
+          ],
+          "outputs": [
+            "Rules executing on schedule with results stored"
+          ],
+          "durationDays": 4,
+          "layer": "core"
+        },
+        {
+          "id": "F6-S4",
+          "stream": "Quality",
+          "step": "Publish the first scorecard and walk owners through their results",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Rule results",
+            "Scorecard layer"
+          ],
+          "outputs": [
+            "Published scorecard with owner acknowledgement"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F6-S5",
+          "stream": "Quality",
+          "step": "Open the issue queue and triage the first tranche of defects",
+          "owner": "Data Steward",
+          "inputs": [
+            "Scorecard failures",
+            "Issue workflow"
+          ],
+          "outputs": [
+            "Triaged issue queue with owners and target dates"
+          ],
+          "durationDays": 5,
+          "layer": "core"
+        }
+      ],
+      "gateIds": [
+        "G8"
+      ]
+    },
+    {
+      "id": "F7",
+      "name": "Run & Expand",
+      "objective": "Move from delivery to operation — prove the client can run a full cycle unaided, then onboard the next domain.",
+      "steps": [
+        {
+          "id": "F7-S1",
+          "stream": "Run",
+          "step": "Run a full monthly cycle with the delivery team observing only",
+          "owner": "Data Steward",
+          "inputs": [
+            "Scorecard",
+            "Issue queue",
+            "Council calendar"
+          ],
+          "outputs": [
+            "Completed cycle with decisions recorded"
+          ],
+          "durationDays": 20,
+          "layer": "core",
+          "support": [
+            "DG Office / Data Governance Lead"
+          ]
+        },
+        {
+          "id": "F7-S2",
+          "stream": "Run",
+          "step": "Measure benefit movement against the pre-programme baseline",
+          "owner": "DG Office / Data Governance Lead",
+          "inputs": [
+            "Benefit baseline",
+            "Current metrics"
+          ],
+          "outputs": [
+            "Benefit realisation report"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F7-S3",
+          "stream": "Expand",
+          "step": "Select and scope the next domain using the same derivation method",
+          "owner": "DG Council",
+          "inputs": [
+            "Roadmap",
+            "Capacity assessment"
+          ],
+          "outputs": [
+            "Next domain scope statement"
+          ],
+          "durationDays": 3,
+          "layer": "core"
+        },
+        {
+          "id": "F7-S4",
+          "stream": "Expand",
+          "step": "Assess regulatory change impact on the governed element set",
+          "owner": "Head of Regulatory Reporting",
+          "inputs": [
+            "Regulatory change log",
+            "CDE register"
+          ],
+          "outputs": [
+            "Change impact assessment with register updates"
+          ],
+          "durationDays": 3,
+          "layer": "banking"
+        }
+      ],
+      "gateIds": [
+        "G9",
+        "G10"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "CL-01",
+      "phase": "Mobilisation",
+      "item": "Executive sponsor named and budget authority verified, not assumed",
+      "artefact": "Sponsor confirmation note",
+      "owner": "Engagement Lead",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-02",
+      "phase": "Mobilisation",
+      "item": "DG charter signed by the sponsor",
+      "artefact": "Signed DG charter",
+      "owner": "Executive Sponsor",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-03",
+      "phase": "Mobilisation",
+      "item": "Council constituted with terms of reference, membership and quorum rules",
+      "artefact": "Council terms of reference",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-04",
+      "phase": "Mobilisation",
+      "item": "Council reporting line into an existing bank committee agreed",
+      "artefact": "Council placement note",
+      "owner": "Engagement Lead",
+      "blocking": false,
+      "pillarId": "P01",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-05",
+      "phase": "Mobilisation",
+      "item": "Scope statement written with explicit exclusions, not just inclusions",
+      "artefact": "Scope statement",
+      "owner": "Engagement Lead",
+      "blocking": true,
+      "pillarId": "P02",
+      "layer": "core"
+    },
+    {
+      "id": "CL-06",
+      "phase": "Mobilisation",
+      "item": "Benefit baseline measured before any delivery work starts",
+      "artefact": "Benefit baseline record",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P02",
+      "layer": "core"
+    },
+    {
+      "id": "CL-07",
+      "phase": "Mobilisation",
+      "item": "Cost of poor data quantified in the client's own figures",
+      "artefact": "Cost-of-poor-data model",
+      "owner": "Engagement Lead",
+      "blocking": false,
+      "pillarId": "P02",
+      "layer": "core"
+    },
+    {
+      "id": "CL-08",
+      "phase": "Mobilisation",
+      "item": "Regulatory submission calendar mapped to data dependencies",
+      "artefact": "Submission dependency map",
+      "owner": "Head of Regulatory Reporting",
+      "blocking": false,
+      "pillarId": "P02",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-09",
+      "phase": "Accountability",
+      "item": "Data Owner named for every in-scope domain at department-head level",
+      "artefact": "Ownership register",
+      "owner": "Executive Sponsor",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-10",
+      "phase": "Accountability",
+      "item": "Owners have accepted accountability in writing",
+      "artefact": "Accountability acceptances",
+      "owner": "Data Owner",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-11",
+      "phase": "Accountability",
+      "item": "Stewards named with a written time percentage in their objectives, countersigned by line managers",
+      "artefact": "Steward allocation letters",
+      "owner": "Data Owner",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-12",
+      "phase": "Accountability",
+      "item": "Custodian identified for every in-scope system",
+      "artefact": "Custodian assignment register",
+      "owner": "Head of Technology",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-13",
+      "phase": "Accountability",
+      "item": "RACI published and walked through with all named parties",
+      "artefact": "RACI matrix",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": false,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-14",
+      "phase": "Accountability",
+      "item": "Regulatory reporting, risk and compliance contributors committed to CDE derivation",
+      "artefact": "Contributor commitment note",
+      "owner": "Engagement Lead",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-15",
+      "phase": "Accountability",
+      "item": "Escalation path documented and tested with a live item",
+      "artefact": "Escalation procedure",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": false,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-16",
+      "phase": "Scope Derivation",
+      "item": "Consumption points selected and agreed before any element nomination",
+      "artefact": "Consumption point list",
+      "owner": "Engagement Lead",
+      "blocking": true,
+      "pillarId": "P07",
+      "layer": "core"
+    },
+    {
+      "id": "CL-17",
+      "phase": "Scope Derivation",
+      "item": "Priority regulatory returns identified with the line items that drive scope",
+      "artefact": "Priority return list",
+      "owner": "Head of Regulatory Reporting",
+      "blocking": true,
+      "pillarId": "P07",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-18",
+      "phase": "Scope Derivation",
+      "item": "Backward lineage completed from each consumption point to source fields",
+      "artefact": "Backward lineage traces",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P07",
+      "layer": "core"
+    },
+    {
+      "id": "CL-19",
+      "phase": "Scope Derivation",
+      "item": "CDE register consolidated, de-duplicated and criticality-rated",
+      "artefact": "CDE register",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P03",
+      "layer": "core"
+    },
+    {
+      "id": "CL-20",
+      "phase": "Scope Derivation",
+      "item": "Every CDE has a named owner and steward; unassigned elements logged as open risks",
+      "artefact": "Owned CDE register + open risk log",
+      "owner": "DG Council",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-21",
+      "phase": "Scope Derivation",
+      "item": "System of record designated for each CDE",
+      "artefact": "System-of-record map",
+      "owner": "Data Owner",
+      "blocking": true,
+      "pillarId": "P03",
+      "layer": "core"
+    },
+    {
+      "id": "CL-22",
+      "phase": "Scope Derivation",
+      "item": "CDE register ratified at council and placed under change control",
+      "artefact": "Ratified CDE baseline",
+      "owner": "DG Council",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-23",
+      "phase": "Scope Derivation",
+      "item": "Core banking structures mapped to the banking reference model",
+      "artefact": "Reference model mapping",
+      "owner": "Data Architect",
+      "blocking": false,
+      "pillarId": "P03",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-24",
+      "phase": "Standards & Policy",
+      "item": "Policy and standards set drafted and approved at council",
+      "artefact": "Approved policy set",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-25",
+      "phase": "Standards & Policy",
+      "item": "Every policy names at least one enforcement point",
+      "artefact": "Policy-to-enforcement mapping",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P10",
+      "layer": "core"
+    },
+    {
+      "id": "CL-26",
+      "phase": "Standards & Policy",
+      "item": "Data classification scheme approved and labelling standard defined",
+      "artefact": "Classification scheme",
+      "owner": "Chief Information Security Officer",
+      "blocking": true,
+      "pillarId": "P08",
+      "layer": "core"
+    },
+    {
+      "id": "CL-27",
+      "phase": "Standards & Policy",
+      "item": "Issue management workflow defined with severity, SLA and escalation",
+      "artefact": "Issue workflow definition",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P05",
+      "layer": "core"
+    },
+    {
+      "id": "CL-28",
+      "phase": "Standards & Policy",
+      "item": "Exception register opened with a time-limiting rule on every exception",
+      "artefact": "Exception register",
+      "owner": "DG Council",
+      "blocking": false,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-29",
+      "phase": "Standards & Policy",
+      "item": "Retention schedule confirmed with legal basis per data category",
+      "artefact": "Retention schedule",
+      "owner": "Head of Legal",
+      "blocking": false,
+      "pillarId": "P09",
+      "layer": "core"
+    },
+    {
+      "id": "CL-30",
+      "phase": "Standards & Policy",
+      "item": "Cross-border and confidentiality constraints mapped to specific elements",
+      "artefact": "Constraint mapping",
+      "owner": "Head of Compliance",
+      "blocking": false,
+      "pillarId": "P08",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-31",
+      "phase": "Platform",
+      "item": "Tooling decision approved after — not before — the operating model was agreed",
+      "artefact": "Tooling decision record",
+      "owner": "Head of Technology",
+      "blocking": true,
+      "pillarId": "P10",
+      "layer": "core"
+    },
+    {
+      "id": "CL-32",
+      "phase": "Platform",
+      "item": "Catalogue, quality engine and lineage collector deployed in the target environment",
+      "artefact": "Running platform",
+      "owner": "Data Engineering",
+      "blocking": true,
+      "pillarId": "P10",
+      "layer": "core"
+    },
+    {
+      "id": "CL-33",
+      "phase": "Platform",
+      "item": "Metadata extraction from the vendor core proven, not assumed",
+      "artefact": "Extraction proof",
+      "owner": "Data Engineering",
+      "blocking": true,
+      "pillarId": "P10",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-34",
+      "phase": "Platform",
+      "item": "Automated harvest scheduled with failure alerting to a named owner",
+      "artefact": "Harvest schedule + alert config",
+      "owner": "Data Engineering",
+      "blocking": true,
+      "pillarId": "P04",
+      "layer": "core"
+    },
+    {
+      "id": "CL-35",
+      "phase": "Platform",
+      "item": "Glossary populated and every CDE bound to its physical columns",
+      "artefact": "Bound glossary",
+      "owner": "Data Steward",
+      "blocking": true,
+      "pillarId": "P04",
+      "layer": "core"
+    },
+    {
+      "id": "CL-36",
+      "phase": "Platform",
+      "item": "Lineage captured end to end for every governed CDE",
+      "artefact": "Lineage coverage report",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P07",
+      "layer": "core"
+    },
+    {
+      "id": "CL-37",
+      "phase": "Platform",
+      "item": "Classification applied and recorded against every governed CDE",
+      "artefact": "Classification coverage report",
+      "owner": "Data Steward",
+      "blocking": true,
+      "pillarId": "P08",
+      "layer": "core"
+    },
+    {
+      "id": "CL-38",
+      "phase": "Quality",
+      "item": "Source systems profiled and a defect baseline established",
+      "artefact": "Profiling baseline",
+      "owner": "Data Engineering",
+      "blocking": true,
+      "pillarId": "P05",
+      "layer": "core"
+    },
+    {
+      "id": "CL-39",
+      "phase": "Quality",
+      "item": "Rules bound to every governed CDE with thresholds agreed by the owner",
+      "artefact": "Deployed rule set",
+      "owner": "Data Steward",
+      "blocking": true,
+      "pillarId": "P05",
+      "layer": "core"
+    },
+    {
+      "id": "CL-40",
+      "phase": "Quality",
+      "item": "Reconciliation controls between GL, subledger and source automated",
+      "artefact": "Reconciliation rule set",
+      "owner": "Chief Financial Officer",
+      "blocking": true,
+      "pillarId": "P05",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-41",
+      "phase": "Quality",
+      "item": "Rules executing on schedule with results persisted for trend analysis",
+      "artefact": "Rule execution log",
+      "owner": "Data Engineering",
+      "blocking": true,
+      "pillarId": "P05",
+      "layer": "core"
+    },
+    {
+      "id": "CL-42",
+      "phase": "Quality",
+      "item": "Scorecard published and reviewed in at least one council meeting",
+      "artefact": "Published scorecard + council minute",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P05",
+      "layer": "core"
+    },
+    {
+      "id": "CL-43",
+      "phase": "Quality",
+      "item": "Issue queue open, triaged by stewards, with SLA measured",
+      "artefact": "Issue register",
+      "owner": "Data Steward",
+      "blocking": true,
+      "pillarId": "P05",
+      "layer": "core"
+    },
+    {
+      "id": "CL-44",
+      "phase": "Quality",
+      "item": "At least one policy enforced as code in a pipeline, not just documented",
+      "artefact": "Pipeline control",
+      "owner": "Data Engineering",
+      "blocking": true,
+      "pillarId": "P10",
+      "layer": "core"
+    },
+    {
+      "id": "CL-45",
+      "phase": "Quality",
+      "item": "Model and ECL input quality checks running before model execution",
+      "artefact": "Model input control set",
+      "owner": "Head of Credit Risk",
+      "blocking": false,
+      "pillarId": "P11",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-46",
+      "phase": "Run & Expand",
+      "item": "Defect rate demonstrably moved on a defined set of rules",
+      "artefact": "Defect trend report",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P05",
+      "layer": "core"
+    },
+    {
+      "id": "CL-47",
+      "phase": "Run & Expand",
+      "item": "A full monthly cycle run by client staff without delivery-team intervention",
+      "artefact": "Cycle completion evidence",
+      "owner": "Data Steward",
+      "blocking": true,
+      "pillarId": "P01",
+      "layer": "core"
+    },
+    {
+      "id": "CL-48",
+      "phase": "Run & Expand",
+      "item": "Benefit movement measured against the pre-programme baseline",
+      "artefact": "Benefit realisation report",
+      "owner": "DG Office / Data Governance Lead",
+      "blocking": true,
+      "pillarId": "P02",
+      "layer": "core"
+    },
+    {
+      "id": "CL-49",
+      "phase": "Run & Expand",
+      "item": "Access recertification executed once with exceptions closed",
+      "artefact": "Recertification evidence",
+      "owner": "Data Owner",
+      "blocking": false,
+      "pillarId": "P08",
+      "layer": "core"
+    },
+    {
+      "id": "CL-50",
+      "phase": "Run & Expand",
+      "item": "AI and analytics intake gate live and enforced on a real use case",
+      "artefact": "Readiness gate record",
+      "owner": "DG Council",
+      "blocking": false,
+      "pillarId": "P11",
+      "layer": "core"
+    },
+    {
+      "id": "CL-51",
+      "phase": "Run & Expand",
+      "item": "Regulator-presentable lineage and derivation evidence pack assembled",
+      "artefact": "Evidence pack",
+      "owner": "Head of Regulatory Reporting",
+      "blocking": false,
+      "pillarId": "P07",
+      "layer": "banking"
+    },
+    {
+      "id": "CL-52",
+      "phase": "Run & Expand",
+      "item": "Next domain scoped using the same backward-derivation method",
+      "artefact": "Next domain scope statement",
+      "owner": "DG Council",
+      "blocking": false,
+      "pillarId": "P02",
+      "layer": "core"
+    }
+  ]
+}

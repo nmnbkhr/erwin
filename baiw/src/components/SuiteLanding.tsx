@@ -5,6 +5,7 @@ import {
   Banknote,
   Heart,
   Scale,
+  ShieldCheck,
   ArrowRight,
   Zap,
   Database,
@@ -143,13 +144,35 @@ const modules: Module[] = [
       enter: 'text-indigo-400 group-hover:text-indigo-300',
     },
   },
+  {
+    key: 'dgiw',
+    path: '/dg',
+    icon: ShieldCheck,
+    name: 'DGIW',
+    tagline: 'Data Governance',
+    description: 'Data governance practice — diagnostic to managed service, on a horizontal chassis with a banking overlay.',
+    features: [
+      '4-Rung Ladder — Diagnostic → Managed',
+      '11 Pillars — DAMA-DMBOK / DCAM aligned',
+      '55-Question Weighted Diagnostic',
+      '56 Pre-mapped CDEs · 81 DQ Rules',
+    ],
+    classes: {
+      card: 'hover:border-rose-500/60 hover:shadow-[0_0_50px_rgba(244,63,94,0.18)]',
+      iconTile: 'bg-rose-600/20 ring-1 ring-rose-500/30',
+      icon: 'text-rose-400',
+      tagline: 'text-rose-400',
+      dot: 'bg-rose-500',
+      enter: 'text-rose-400 group-hover:text-rose-300',
+    },
+  },
 ]
 
 const suiteStats = [
   { icon: Database, value: '4,800+', label: 'Model entities & resources' },
   { icon: Layers, value: '320', label: 'Business capabilities' },
   { icon: ClipboardCheck, value: '2,150+', label: 'Assessment questions' },
-  { icon: Boxes, value: '4', label: 'Industry workbenches' },
+  { icon: Boxes, value: '6', label: 'Workbenches & practices' },
 ]
 
 export default function SuiteLanding() {
@@ -197,7 +220,7 @@ export default function SuiteLanding() {
         </div>
 
         {/* Module cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl w-full">
           {modules.map((mod) => (
             <button
               key={mod.key}
@@ -249,7 +272,8 @@ export default function SuiteLanding() {
                 <h3 className="text-xl font-bold text-white mb-2">Quick Maturity Scan</h3>
                 <p className="text-base text-gray-300 leading-relaxed">
                   24 CTO-answerable questions. Get a 3-page PDF with your maturity radar,
-                  strengths and gaps — instantly, no signup required.
+                  strengths and gaps — instantly, no signup required. The governance
+                  diagnostic runs deeper: 55 weighted questions across 11 pillars.
                 </p>
               </div>
               <div className="flex flex-wrap lg:flex-col gap-3 shrink-0">
@@ -270,6 +294,12 @@ export default function SuiteLanding() {
                   className="flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 text-white text-base font-medium rounded-lg hover:bg-emerald-500 transition-colors"
                 >
                   <Heart size={18} /> Healthcare Scan
+                </button>
+                <button
+                  onClick={() => navigate('/dg/diagnostic')}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-rose-600 text-white text-base font-medium rounded-lg hover:bg-rose-500 transition-colors"
+                >
+                  <ShieldCheck size={18} /> Governance Diagnostic
                 </button>
               </div>
             </div>

@@ -1,0 +1,758 @@
+{
+  "first90Days": [
+    {
+      "weeks": "1–2",
+      "focus": "Sponsor alignment, scope one domain, name stewards",
+      "activities": [
+        "Verify sponsor budget authority; qualify out if absent",
+        "Draft, socialise and sign the DG charter",
+        "Place the council within the existing committee hierarchy",
+        "Agree the first domain and write the exclusions explicitly",
+        "Name Data Owners and secure written acceptance",
+        "Name stewards with a countersigned time percentage",
+        "Capture the benefit baseline before delivery starts"
+      ],
+      "exitArtefact": "Signed charter, named and time-allocated roles, benefit baseline recorded"
+    },
+    {
+      "weeks": "3–4",
+      "focus": "CDE identification via backward lineage from top reports",
+      "activities": [
+        "Select the consumption points that define criticality",
+        "Identify the priority regulatory returns and their line items",
+        "Trace lineage backwards from each consumption point to source fields",
+        "Consolidate and de-duplicate into a draft CDE register",
+        "Rate criticality and assign owner and steward per element",
+        "Ratify the register at council and place it under change control"
+      ],
+      "exitArtefact": "CDE register — typically 50–100 elements for a first domain — ratified and owned"
+    },
+    {
+      "weeks": "5–6",
+      "focus": "Deploy catalogue, ingest metadata, build glossary",
+      "activities": [
+        "Confirm the tooling decision and deploy the platform",
+        "Configure connectors; prove extraction from the vendor core",
+        "Schedule automated harvest with failure alerting",
+        "Populate the glossary for governed terms and resolve contested definitions",
+        "Bind every CDE to its physical columns",
+        "Capture lineage for the governed elements and classify each one"
+      ],
+      "exitArtefact": "Live catalogue with glossary, binding, classification and lineage for the scoped domain"
+    },
+    {
+      "weeks": "7–9",
+      "focus": "Author and run DQ rules on CDEs",
+      "activities": [
+        "Profile the source systems and establish a defect baseline",
+        "Tailor rules from the library and agree thresholds with owners",
+        "Deploy rules to the engine and schedule execution",
+        "Stand up the scorecard layer over the result store",
+        "Publish the first scorecard and walk owners through their results",
+        "Enforce at least one policy as code in a pipeline"
+      ],
+      "exitArtefact": "First DQ scorecard published — the artefact that funds the following six months"
+    },
+    {
+      "weeks": "10–12",
+      "focus": "Issue workflow live, first council cycle, remediate top defects",
+      "activities": [
+        "Open the issue queue and triage the first tranche of defects",
+        "Run the first full council cycle with recorded decisions",
+        "Remediate the five highest-severity defects and evidence the change",
+        "Measure defect-rate movement against the baseline",
+        "Assemble the derivation and lineage evidence pack",
+        "Scope the next domain using the same derivation method"
+      ],
+      "exitArtefact": "Governance running with a measurable delta, and the next wave scoped"
+    }
+  ],
+  "waves": [
+    {
+      "id": "W0",
+      "wave": 0,
+      "name": "Mobilise & Derive",
+      "weeks": "Weeks 1–4",
+      "theme": "Authority and scope. No technical build until the mandate and the element list exist.",
+      "objectives": [
+        "Establish an authority base that survives the first cross-domain dispute",
+        "Convert the charter into named people with allocated time",
+        "Produce a finite, defensible CDE register derived from consumption"
+      ],
+      "deliverables": [
+        "Signed DG charter and constituted council",
+        "Ownership register with written acceptances",
+        "Steward allocation letters countersigned by line managers",
+        "Ratified CDE register with owners and criticality",
+        "Benefit baseline record"
+      ],
+      "pillarIds": [
+        "P01",
+        "P02",
+        "P07"
+      ],
+      "kpis": [
+        "CDEs identified and owned",
+        "Percentage of CDEs with a named steward",
+        "Baseline metrics captured"
+      ],
+      "exitCriteria": "Charter signed, stewards time-allocated, CDE register ratified at council. Gates G1–G6.",
+      "layer": "core",
+      "dependsOn": [],
+      "externalDependencies": [
+        "Sponsor availability",
+        "Access to regulatory reporting and risk specialists"
+      ]
+    },
+    {
+      "id": "W1",
+      "wave": 1,
+      "name": "Platform & Catalogue",
+      "weeks": "Weeks 5–10",
+      "theme": "Make the estate addressable. Catalogue, glossary, lineage and classification for the scoped domain.",
+      "objectives": [
+        "Deploy the platform and prove extraction from the vendor core",
+        "Populate the glossary and bind every CDE to physical columns",
+        "Capture lineage end to end and classify every governed element"
+      ],
+      "deliverables": [
+        "Catalogue, quality engine and lineage collector running",
+        "Scheduled metadata harvest with failure alerting",
+        "Glossary populated with contested definitions resolved at council",
+        "CDE-to-column binding complete",
+        "Classification recorded against every governed CDE"
+      ],
+      "pillarIds": [
+        "P04",
+        "P07",
+        "P08",
+        "P10",
+        "P03",
+        "P09"
+      ],
+      "kpis": [
+        "Catalogue coverage of scoped systems",
+        "Glossary coverage of CDEs",
+        "Lineage coverage of CDEs",
+        "Classification coverage of CDEs"
+      ],
+      "exitCriteria": "Harvest running on schedule; every CDE has a definition, a binding, a lineage path and a classification.",
+      "layer": "core",
+      "dependsOn": [
+        "W0"
+      ],
+      "externalDependencies": [
+        "Environment and network approval",
+        "Core banking metadata access"
+      ]
+    },
+    {
+      "id": "W2",
+      "wave": 2,
+      "name": "Quality & Scorecard",
+      "weeks": "Weeks 9–16",
+      "theme": "Make governance visible. Rules bound to CDEs, executing on schedule, published as a number the business recognises.",
+      "objectives": [
+        "Establish a defect baseline through profiling",
+        "Deploy the rule set against every governed CDE",
+        "Publish a scorecard and get it reviewed at council"
+      ],
+      "deliverables": [
+        "Profiling baseline per source system",
+        "Deployed rule set with owner-agreed thresholds",
+        "Published DQ scorecard with a named owner per failing rule",
+        "Issue queue open and triaged by stewards",
+        "At least one policy enforced as code in a pipeline"
+      ],
+      "pillarIds": [
+        "P05",
+        "P10",
+        "P06"
+      ],
+      "kpis": [
+        "Rules deployed per CDE",
+        "Pass rate by dimension",
+        "Blocker-severity failures outstanding",
+        "Issue triage within SLA"
+      ],
+      "exitCriteria": "Scorecard published and reviewed at council; issues being triaged by stewards rather than by the delivery team. Gate G8.",
+      "layer": "core",
+      "dependsOn": [
+        "W1"
+      ],
+      "externalDependencies": [
+        "Steward availability",
+        "Owner sign-off on thresholds"
+      ]
+    },
+    {
+      "id": "W3",
+      "wave": 3,
+      "name": "Regulatory Defensibility",
+      "weeks": "Weeks 13–20",
+      "theme": "Convert lineage and quality into evidence a regulator or auditor will accept without a three-week investigation.",
+      "objectives": [
+        "Complete return line-item to source-field lineage for the priority submissions",
+        "Automate reconciliation between GL, subledger and source",
+        "Assemble a maintained evidence pack"
+      ],
+      "deliverables": [
+        "Return line-item lineage for the priority submissions",
+        "Automated reconciliation controls with break ageing",
+        "Manual intervention and end-user-computing register with risk ratings",
+        "Regulator-presentable derivation evidence pack",
+        "Model and ECL input quality controls running pre-execution"
+      ],
+      "pillarIds": [
+        "P05",
+        "P07",
+        "P03"
+      ],
+      "kpis": [
+        "Return line items with complete lineage",
+        "Reconciliation break count and ageing",
+        "Submission rework cycles",
+        "Manual interventions in critical flows"
+      ],
+      "exitCriteria": "Derivation of any priority return line item can be evidenced on request from live lineage.",
+      "layer": "banking",
+      "dependsOn": [
+        "W1",
+        "W2"
+      ],
+      "externalDependencies": [
+        "Regulatory reporting specialist time"
+      ]
+    },
+    {
+      "id": "W4",
+      "wave": 4,
+      "name": "Master Data & Single Customer View",
+      "weeks": "Weeks 17–24",
+      "theme": "Fix the entity resolution problem that silently breaks exposure aggregation, KYC currency and customer analytics.",
+      "objectives": [
+        "Define and publish the golden customer record",
+        "Establish the stewardship queue for match exceptions",
+        "Make group and related-party aggregation reliable"
+      ],
+      "deliverables": [
+        "Golden record definition with survivorship rules",
+        "Match and merge rules keyed on validated national identifiers",
+        "Stewardship queue live for match exceptions",
+        "Group and related-party linkage register",
+        "Reference code-set register with named owners and change control"
+      ],
+      "pillarIds": [
+        "P06",
+        "P03"
+      ],
+      "kpis": [
+        "Duplicate rate",
+        "Match confidence distribution",
+        "Exposure aggregation completeness",
+        "Identifier validity rate"
+      ],
+      "exitCriteria": "Group exposure can be aggregated on demand with evidenced completeness; duplicate rate trending down.",
+      "layer": "banking",
+      "dependsOn": [
+        "W2"
+      ],
+      "externalDependencies": [
+        "Credit system access"
+      ]
+    },
+    {
+      "id": "W5",
+      "wave": 5,
+      "name": "AI & Consumption Readiness",
+      "weeks": "Weeks 21–28",
+      "theme": "Turn the governed estate into an AI-deployable one — the wedge that opened the engagement, now closed out.",
+      "objectives": [
+        "Publish a certified dataset and report register",
+        "Install a data-readiness gate in the AI and analytics intake",
+        "Make model inputs traceable to governed elements"
+      ],
+      "deliverables": [
+        "Certified report and trusted dataset register",
+        "AI intake process with an enforced data-readiness gate",
+        "Model input traceability to governed CDEs",
+        "Classification and entitlement controls extended to the AI consumption layer",
+        "Shadow reporting inventory with a rationalisation plan"
+      ],
+      "pillarIds": [
+        "P11",
+        "P08",
+        "P04"
+      ],
+      "kpis": [
+        "Use cases passing the readiness gate",
+        "Certified assets published",
+        "Model inputs traced to CDEs",
+        "Uncertified shadow reports retired"
+      ],
+      "exitCriteria": "An AI use case has passed the gate on evidence rather than assertion, with entitlements enforced at query time.",
+      "layer": "core",
+      "dependsOn": [
+        "W1",
+        "W2"
+      ],
+      "externalDependencies": []
+    },
+    {
+      "id": "W6",
+      "wave": 6,
+      "name": "Run, Prove & Expand",
+      "weeks": "Weeks 25–32",
+      "theme": "Prove the client can run a full cycle unaided, evidence the benefit, and onboard the next domain.",
+      "objectives": [
+        "Demonstrate handover independence over a full cycle",
+        "Measure benefit against the pre-programme baseline",
+        "Scope and mobilise the next domain"
+      ],
+      "deliverables": [
+        "Full monthly cycle run by client staff with the delivery team observing",
+        "Benefit realisation report against baseline",
+        "Access recertification executed with exceptions closed",
+        "Next domain scope statement using the same derivation method",
+        "Transition into the managed governance retainer"
+      ],
+      "pillarIds": [
+        "P01",
+        "P02",
+        "P05",
+        "P08"
+      ],
+      "kpis": [
+        "Cycle completed without intervention",
+        "Benefit delta versus baseline",
+        "Recertification exceptions closed",
+        "Domains governed"
+      ],
+      "exitCriteria": "Client-run cycle completed; benefit evidenced; next domain scoped. Gate G10.",
+      "layer": "core",
+      "dependsOn": [
+        "W0",
+        "W1",
+        "W2",
+        "W5"
+      ],
+      "externalDependencies": []
+    }
+  ],
+  "artefactRegister": [
+    {
+      "id": "AR-01",
+      "artefact": "Maturity heatmap and radar",
+      "pillarId": "P01",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Report + interactive scorecard",
+      "layer": "core"
+    },
+    {
+      "id": "AR-02",
+      "artefact": "Data landscape map",
+      "pillarId": "P03",
+      "rung": 1,
+      "owner": "Data Architect",
+      "format": "Diagram + register",
+      "layer": "core"
+    },
+    {
+      "id": "AR-03",
+      "artefact": "Quantified pain register",
+      "pillarId": "P02",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Register",
+      "layer": "core"
+    },
+    {
+      "id": "AR-04",
+      "artefact": "Prioritised roadmap with ROI hypothesis",
+      "pillarId": "P02",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Report",
+      "layer": "core"
+    },
+    {
+      "id": "AR-05",
+      "artefact": "Illustrative backward-lineage trace",
+      "pillarId": "P07",
+      "rung": 1,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Lineage exhibit",
+      "layer": "core"
+    },
+    {
+      "id": "AR-06",
+      "artefact": "AI readiness gap statement",
+      "pillarId": "P11",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Assessment note",
+      "layer": "core"
+    },
+    {
+      "id": "AR-07",
+      "artefact": "Regulatory exposure summary",
+      "pillarId": "P02",
+      "rung": 1,
+      "owner": "Head of Regulatory Reporting",
+      "format": "Assessment note",
+      "layer": "banking"
+    },
+    {
+      "id": "AR-08",
+      "artefact": "Data Governance charter",
+      "pillarId": "P01",
+      "rung": 2,
+      "owner": "Executive Sponsor",
+      "format": "Document",
+      "layer": "core"
+    },
+    {
+      "id": "AR-09",
+      "artefact": "Target operating model",
+      "pillarId": "P01",
+      "rung": 2,
+      "owner": "Engagement Lead",
+      "format": "Document + RACI",
+      "layer": "core"
+    },
+    {
+      "id": "AR-10",
+      "artefact": "Council terms of reference and decision rights",
+      "pillarId": "P01",
+      "rung": 2,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Governance document",
+      "layer": "core"
+    },
+    {
+      "id": "AR-11",
+      "artefact": "Policy and standards set",
+      "pillarId": "P01",
+      "rung": 2,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Document set",
+      "layer": "core"
+    },
+    {
+      "id": "AR-12",
+      "artefact": "Policy-to-enforcement-point mapping",
+      "pillarId": "P10",
+      "rung": 2,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Mapping",
+      "layer": "core"
+    },
+    {
+      "id": "AR-13",
+      "artefact": "Critical Data Element register",
+      "pillarId": "P03",
+      "rung": 2,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Register",
+      "layer": "core"
+    },
+    {
+      "id": "AR-14",
+      "artefact": "System-of-record map",
+      "pillarId": "P03",
+      "rung": 2,
+      "owner": "Data Architect",
+      "format": "Map",
+      "layer": "core"
+    },
+    {
+      "id": "AR-15",
+      "artefact": "Data classification scheme",
+      "pillarId": "P08",
+      "rung": 2,
+      "owner": "Chief Information Security Officer",
+      "format": "Standard",
+      "layer": "core"
+    },
+    {
+      "id": "AR-16",
+      "artefact": "Issue management workflow definition",
+      "pillarId": "P05",
+      "rung": 2,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Process definition",
+      "layer": "core"
+    },
+    {
+      "id": "AR-17",
+      "artefact": "Tooling recommendation and reference architecture",
+      "pillarId": "P10",
+      "rung": 2,
+      "owner": "Data Architect",
+      "format": "Document + diagram",
+      "layer": "core"
+    },
+    {
+      "id": "AR-18",
+      "artefact": "Business case and phased plan",
+      "pillarId": "P02",
+      "rung": 2,
+      "owner": "Engagement Lead",
+      "format": "Document + plan",
+      "layer": "core"
+    },
+    {
+      "id": "AR-19",
+      "artefact": "Retention schedule",
+      "pillarId": "P09",
+      "rung": 2,
+      "owner": "Head of Legal",
+      "format": "Schedule",
+      "layer": "core"
+    },
+    {
+      "id": "AR-20",
+      "artefact": "Banking reference model mapping",
+      "pillarId": "P03",
+      "rung": 2,
+      "owner": "Data Architect",
+      "format": "Mapping pack",
+      "layer": "banking"
+    },
+    {
+      "id": "AR-21",
+      "artefact": "Return line-item lineage templates",
+      "pillarId": "P07",
+      "rung": 2,
+      "owner": "Head of Regulatory Reporting",
+      "format": "Mapping pack",
+      "layer": "banking"
+    },
+    {
+      "id": "AR-22",
+      "artefact": "Deployed catalogue with scheduled harvest",
+      "pillarId": "P10",
+      "rung": 3,
+      "owner": "Data Engineering",
+      "format": "Working platform",
+      "layer": "core"
+    },
+    {
+      "id": "AR-23",
+      "artefact": "Populated business glossary",
+      "pillarId": "P04",
+      "rung": 3,
+      "owner": "Data Steward",
+      "format": "Glossary",
+      "layer": "core"
+    },
+    {
+      "id": "AR-24",
+      "artefact": "CDE-to-column binding",
+      "pillarId": "P04",
+      "rung": 3,
+      "owner": "Data Steward",
+      "format": "Binding set",
+      "layer": "core"
+    },
+    {
+      "id": "AR-25",
+      "artefact": "End-to-end lineage for governed CDEs",
+      "pillarId": "P07",
+      "rung": 3,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Lineage graph",
+      "layer": "core"
+    },
+    {
+      "id": "AR-26",
+      "artefact": "Profiling baseline",
+      "pillarId": "P05",
+      "rung": 3,
+      "owner": "Data Engineering",
+      "format": "Baseline report",
+      "layer": "core"
+    },
+    {
+      "id": "AR-27",
+      "artefact": "Deployed DQ rule set",
+      "pillarId": "P05",
+      "rung": 3,
+      "owner": "Data Steward",
+      "format": "Rule set in engine",
+      "layer": "core"
+    },
+    {
+      "id": "AR-28",
+      "artefact": "Published DQ scorecard",
+      "pillarId": "P05",
+      "rung": 3,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Dashboard",
+      "layer": "core"
+    },
+    {
+      "id": "AR-29",
+      "artefact": "Issue register with SLA measurement",
+      "pillarId": "P05",
+      "rung": 3,
+      "owner": "Data Steward",
+      "format": "Register",
+      "layer": "core"
+    },
+    {
+      "id": "AR-30",
+      "artefact": "Pipeline-enforced policy control",
+      "pillarId": "P10",
+      "rung": 3,
+      "owner": "Data Engineering",
+      "format": "Pipeline control",
+      "layer": "core"
+    },
+    {
+      "id": "AR-31",
+      "artefact": "Manual intervention register",
+      "pillarId": "P07",
+      "rung": 3,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Register",
+      "layer": "core"
+    },
+    {
+      "id": "AR-32",
+      "artefact": "Golden record definition and match rules",
+      "pillarId": "P06",
+      "rung": 3,
+      "owner": "Data Owner",
+      "format": "Definition + rule set",
+      "layer": "core"
+    },
+    {
+      "id": "AR-33",
+      "artefact": "Reference code-set register",
+      "pillarId": "P06",
+      "rung": 3,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Register",
+      "layer": "core"
+    },
+    {
+      "id": "AR-34",
+      "artefact": "Certified dataset and report register",
+      "pillarId": "P11",
+      "rung": 3,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Register",
+      "layer": "core"
+    },
+    {
+      "id": "AR-35",
+      "artefact": "AI readiness gate in the intake process",
+      "pillarId": "P11",
+      "rung": 3,
+      "owner": "DG Council",
+      "format": "Process control",
+      "layer": "core"
+    },
+    {
+      "id": "AR-36",
+      "artefact": "Core banking rule library deployment",
+      "pillarId": "P05",
+      "rung": 3,
+      "owner": "Data Engineering",
+      "format": "Rule set",
+      "layer": "banking"
+    },
+    {
+      "id": "AR-37",
+      "artefact": "GL-to-subledger reconciliation controls",
+      "pillarId": "P05",
+      "rung": 3,
+      "owner": "Chief Financial Officer",
+      "format": "Control set",
+      "layer": "banking"
+    },
+    {
+      "id": "AR-38",
+      "artefact": "Regulatory derivation evidence pack",
+      "pillarId": "P07",
+      "rung": 3,
+      "owner": "Head of Regulatory Reporting",
+      "format": "Evidence pack",
+      "layer": "banking"
+    },
+    {
+      "id": "AR-39",
+      "artefact": "Group and related-party linkage register",
+      "pillarId": "P06",
+      "rung": 3,
+      "owner": "Chief Risk Officer",
+      "format": "Register",
+      "layer": "banking"
+    },
+    {
+      "id": "AR-40",
+      "artefact": "Monthly scorecard with trend and commentary",
+      "pillarId": "P05",
+      "rung": 4,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Report + dashboard",
+      "layer": "core"
+    },
+    {
+      "id": "AR-41",
+      "artefact": "Council pack, decisions log and action tracker",
+      "pillarId": "P01",
+      "rung": 4,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Governance pack",
+      "layer": "core"
+    },
+    {
+      "id": "AR-42",
+      "artefact": "Benefit realisation report",
+      "pillarId": "P02",
+      "rung": 4,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Report",
+      "layer": "core"
+    },
+    {
+      "id": "AR-43",
+      "artefact": "Access recertification evidence",
+      "pillarId": "P08",
+      "rung": 4,
+      "owner": "Data Owner",
+      "format": "Evidence set",
+      "layer": "core"
+    },
+    {
+      "id": "AR-44",
+      "artefact": "Quarterly domain onboarding increment",
+      "pillarId": "P02",
+      "rung": 4,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Delivery increment",
+      "layer": "core"
+    },
+    {
+      "id": "AR-45",
+      "artefact": "Regulatory change impact assessment",
+      "pillarId": "P02",
+      "rung": 4,
+      "owner": "Head of Regulatory Reporting",
+      "format": "Assessment",
+      "layer": "banking"
+    },
+    {
+      "id": "AR-46",
+      "artefact": "Examination and audit evidence pack, maintained current",
+      "pillarId": "P07",
+      "rung": 4,
+      "owner": "Head of Regulatory Reporting",
+      "format": "Evidence pack",
+      "layer": "banking"
+    }
+  ]
+}

@@ -30,6 +30,7 @@ const TaiwRoutes = lazy(() => import('./taiw'))
 const CoeRoutes = lazy(() => import('./coe'))
 const HaiwRoutes = lazy(() => import('./haiw'))
 const AlmRoutes = lazy(() => import('./alm'))
+const DgiwRoutes = lazy(() => import('./dgiw'))
 
 function App() {
   return (
@@ -77,6 +78,15 @@ function App() {
             <ErrorBoundary moduleName="ALM">
               <Suspense fallback={<PageSkeleton />}>
                 <AlmRoutes />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+
+          {/* DG routes — separate layout, own area */}
+          <Route path="/dg/*" element={
+            <ErrorBoundary moduleName="DGIW">
+              <Suspense fallback={<PageSkeleton />}>
+                <DgiwRoutes />
               </Suspense>
             </ErrorBoundary>
           } />

@@ -1,0 +1,571 @@
+{
+  "principles": [
+    {
+      "title": "Govern critical data elements, not everything",
+      "statement": "Only elements that drive regulatory returns, risk models, board KPIs or P&L are stewarded. Everything else is catalogued but not governed.",
+      "rationale": "A large bank holds on the order of a million columns and a few hundred elements that actually matter. Programmes that attempt full coverage exhaust their sponsor's patience before producing a measurable outcome."
+    },
+    {
+      "title": "Derive scope backwards from consumption",
+      "statement": "Start at the regulatory return line or board KPI, trace lineage back to source, and every element on that path is in scope.",
+      "rationale": "Produces a finite, defensible list with immediate business relevance, and avoids an open-ended nomination process that never converges."
+    },
+    {
+      "title": "Federated ownership, central standards",
+      "statement": "The DG Office sets standards, runs tooling and reports. Domains own their data, their definitions and their quality.",
+      "rationale": "Central-only models collapse at the throughput limit of the central team. Federation scales; centralisation queues."
+    },
+    {
+      "title": "Accountability sits with the business, never with IT",
+      "statement": "Data Owners are business department heads. IT is custodian — it implements and secures, but does not decide what a term means or what quality is acceptable.",
+      "rationale": "When IT owns definitions, business disputes are unresolvable because the arbiter has no authority over the disputing parties."
+    },
+    {
+      "title": "Enforcement over publication",
+      "statement": "Every policy must name at least one enforcement point — a pipeline test, an approval gate or a control — or it is not adopted.",
+      "rationale": "Unenforced policy documents are the most common artefact of failed programmes and the least useful."
+    },
+    {
+      "title": "Stewardship time is explicit and contractual",
+      "statement": "Stewards are named individuals with a written percentage of time in their formal objectives, countersigned by their line manager.",
+      "rationale": "Unallocated stewardship is the single most reliable predictor of programme failure, and the easiest to eliminate before it happens."
+    },
+    {
+      "title": "Every wave publishes a number",
+      "statement": "No wave completes without a measurable output — coverage, defect rate, issue closure or cost baseline.",
+      "rationale": "Governance is invisible until a number moves. Visible movement is what survives the next budget cycle."
+    }
+  ],
+  "roles": [
+    {
+      "id": "RO1",
+      "role": "Executive Sponsor",
+      "sitsIn": "Executive committee — CFO, CRO or COO",
+      "accountableFor": [
+        "Programme funding and reallocation of budget",
+        "Removing organisational blockers that the council cannot resolve",
+        "Holding Data Owners to their accountability at performance-review level",
+        "Chairing or attending the DG Council"
+      ],
+      "timeAllocation": "Half a day per month, plus escalations",
+      "layer": "core",
+      "failureMode": "A sponsor with influence but no budget authority. Decisions bounce indefinitely; qualify this out before contracting."
+    },
+    {
+      "id": "RO2",
+      "role": "Data Owner",
+      "sitsIn": "Business — department or domain head",
+      "accountableFor": [
+        "Approving definitions for data elements in their domain",
+        "Setting acceptable quality thresholds and accepting residual risk",
+        "Approving access requests to their domain's data",
+        "Funding remediation of defects in their domain",
+        "Appointing and time-allocating stewards"
+      ],
+      "timeAllocation": "Two to four hours per month; more during onboarding of their domain",
+      "layer": "core",
+      "failureMode": "Ownership assigned to whoever attended the workshop rather than whoever holds the budget and authority for the domain."
+    },
+    {
+      "id": "RO3",
+      "role": "Data Steward",
+      "sitsIn": "Business — subject-matter expert within the domain",
+      "accountableFor": [
+        "Authoring and maintaining glossary entries for their domain",
+        "Defining quality rules and thresholds with the custodian",
+        "Triaging and resolving data issues day to day",
+        "Maintaining the CDE register entries for their domain",
+        "Reviewing match exceptions and reference-data changes"
+      ],
+      "timeAllocation": "Approximately 20% FTE, written into formal objectives",
+      "layer": "core",
+      "failureMode": "Stewardship added to an already-full role with no objective change. Queues stagnate within two months and the programme silently stops."
+    },
+    {
+      "id": "RO4",
+      "role": "Data Custodian",
+      "sitsIn": "Technology — platform, application or data engineering",
+      "accountableFor": [
+        "Technical implementation of quality rules and controls",
+        "Storage, availability, backup and recovery",
+        "Implementing access entitlements as approved by the owner",
+        "Metadata harvesting and lineage capture from their systems",
+        "Executing remediation at the technical layer"
+      ],
+      "timeAllocation": "Variable by wave; typically 10–20% during active onboarding of their system",
+      "layer": "core",
+      "failureMode": "Custodians treated as owners. Technology ends up arbitrating business definition disputes it has no authority to settle."
+    },
+    {
+      "id": "RO5",
+      "role": "DG Office / Data Governance Lead",
+      "sitsIn": "Central — reporting to the CDO or sponsor",
+      "accountableFor": [
+        "Standards, policies and the artefact set",
+        "Tooling operation and platform administration",
+        "Scorecard production and council secretariat",
+        "Facilitation, training and steward enablement",
+        "Programme reporting and benefit tracking"
+      ],
+      "timeAllocation": "Full time — one to three people depending on estate size",
+      "layer": "core",
+      "failureMode": "The DG Office attempts to do stewardship itself to keep momentum. This works for one quarter and then becomes the bottleneck for everything."
+    },
+    {
+      "id": "RO6",
+      "role": "DG Council",
+      "sitsIn": "Cross-functional forum, chaired by the CDO or sponsor",
+      "accountableFor": [
+        "Arbitrating definition and ownership disputes",
+        "Approving policies, standards and exceptions",
+        "Prioritising remediation and domain onboarding sequence",
+        "Reviewing the scorecard and holding owners to account",
+        "Escalating unresolved items to the executive committee"
+      ],
+      "timeAllocation": "Monthly, ninety minutes, with quorum enforced",
+      "layer": "core",
+      "failureMode": "The council becomes a status meeting rather than a decision forum. If no decision is recorded in two consecutive meetings, it has failed."
+    },
+    {
+      "id": "RO7",
+      "role": "Chief Data Officer",
+      "sitsIn": "Central — executive or direct report to an executive",
+      "accountableFor": [
+        "Data strategy and its alignment to the corporate strategy",
+        "Chairing the DG Council",
+        "Regulatory relationship on data matters",
+        "Investment prioritisation across the data agenda"
+      ],
+      "timeAllocation": "Full time where the role exists; delivered as fractional advisory under the managed rung where it does not",
+      "layer": "core",
+      "failureMode": "The role exists on the organisation chart but carries no decision rights over domain budgets, making it advisory in practice."
+    },
+    {
+      "id": "RO8",
+      "role": "Regulatory Reporting Lead",
+      "sitsIn": "Finance or compliance",
+      "accountableFor": [
+        "Confirming which return line items and disclosures drive CDE scope",
+        "Validating backward lineage traces against submission logic",
+        "Signing off reconciliation rules between GL, subledger and source",
+        "Flagging regulatory change that alters governed element scope"
+      ],
+      "timeAllocation": "10–15% during CDE derivation; consultative thereafter",
+      "layer": "banking",
+      "failureMode": "Excluded from CDE derivation, so the resulting register reflects what technology thinks is reported rather than what is actually submitted."
+    },
+    {
+      "id": "RO9",
+      "role": "Risk Data Lead",
+      "sitsIn": "Risk management",
+      "accountableFor": [
+        "Model input data requirements for credit, market and operational risk",
+        "Risk data aggregation completeness and timeliness expectations",
+        "IFRS 9 staging and provisioning input quality standards",
+        "Group and related-party exposure aggregation rules"
+      ],
+      "timeAllocation": "10–15% during scoping; consultative thereafter",
+      "layer": "banking",
+      "failureMode": "Risk treats data quality as a modelling problem and absorbs defects into model overlays rather than escalating them for remediation at source."
+    },
+    {
+      "id": "RO10",
+      "role": "Compliance / AML Data Lead",
+      "sitsIn": "Compliance",
+      "accountableFor": [
+        "KYC and CDD data completeness standards",
+        "Screening and transaction-monitoring input quality",
+        "Lineage defensibility for suspicious-activity reporting",
+        "Data-sharing and confidentiality constraint definition"
+      ],
+      "timeAllocation": "10% during scoping; consultative thereafter",
+      "layer": "banking",
+      "failureMode": "Compliance data requirements arrive after the CDE register is closed, forcing a rework cycle mid-implementation."
+    }
+  ],
+  "raci": [
+    {
+      "activity": "Approve a business term definition",
+      "dataOwner": "A",
+      "dataSteward": "R",
+      "dataCustodian": "C",
+      "dgCouncil": "C (arbitrates disputes)",
+      "dgOffice": "I"
+    },
+    {
+      "activity": "Nominate a critical data element",
+      "dataOwner": "A",
+      "dataSteward": "R",
+      "dataCustodian": "C",
+      "dgCouncil": "I",
+      "dgOffice": "R (facilitates derivation)"
+    },
+    {
+      "activity": "Set an acceptable quality threshold",
+      "dataOwner": "A",
+      "dataSteward": "R",
+      "dataCustodian": "C",
+      "dgCouncil": "I",
+      "dgOffice": "C"
+    },
+    {
+      "activity": "Author and deploy a DQ rule",
+      "dataOwner": "I",
+      "dataSteward": "A",
+      "dataCustodian": "R",
+      "dgCouncil": "I",
+      "dgOffice": "C"
+    },
+    {
+      "activity": "Triage a data quality issue",
+      "dataOwner": "I",
+      "dataSteward": "A/R",
+      "dataCustodian": "C",
+      "dgCouncil": "I",
+      "dgOffice": "R (SLA tracking)"
+    },
+    {
+      "activity": "Fund and execute defect remediation",
+      "dataOwner": "A",
+      "dataSteward": "C",
+      "dataCustodian": "R",
+      "dgCouncil": "C (prioritises)",
+      "dgOffice": "I"
+    },
+    {
+      "activity": "Approve access to domain data",
+      "dataOwner": "A/R",
+      "dataSteward": "C",
+      "dataCustodian": "R (implements)",
+      "dgCouncil": "I",
+      "dgOffice": "I"
+    },
+    {
+      "activity": "Classify data sensitivity",
+      "dataOwner": "A",
+      "dataSteward": "R",
+      "dataCustodian": "C",
+      "dgCouncil": "C (standard)",
+      "dgOffice": "R (scheme)"
+    },
+    {
+      "activity": "Approve a policy or standard",
+      "dataOwner": "C",
+      "dataSteward": "I",
+      "dataCustodian": "C",
+      "dgCouncil": "A",
+      "dgOffice": "R"
+    },
+    {
+      "activity": "Grant a policy exception",
+      "dataOwner": "C",
+      "dataSteward": "I",
+      "dataCustodian": "I",
+      "dgCouncil": "A",
+      "dgOffice": "R (registers)"
+    },
+    {
+      "activity": "Capture and validate lineage",
+      "dataOwner": "I",
+      "dataSteward": "C",
+      "dataCustodian": "A/R",
+      "dgCouncil": "I",
+      "dgOffice": "R (assures coverage)"
+    },
+    {
+      "activity": "Publish the quality scorecard",
+      "dataOwner": "I",
+      "dataSteward": "C",
+      "dataCustodian": "C",
+      "dgCouncil": "I",
+      "dgOffice": "A/R"
+    },
+    {
+      "activity": "Onboard a new domain or system",
+      "dataOwner": "A (receiving domain)",
+      "dataSteward": "R",
+      "dataCustodian": "R",
+      "dgCouncil": "A (sequencing)",
+      "dgOffice": "R"
+    },
+    {
+      "activity": "Approve an AI or analytics use case for governed data",
+      "dataOwner": "A",
+      "dataSteward": "C",
+      "dataCustodian": "C",
+      "dgCouncil": "A (data-risk gate)",
+      "dgOffice": "R"
+    },
+    {
+      "activity": "Retire or dispose of data",
+      "dataOwner": "A",
+      "dataSteward": "C",
+      "dataCustodian": "R",
+      "dgCouncil": "C",
+      "dgOffice": "I"
+    }
+  ],
+  "council": {
+    "charterPurpose": "To hold decision rights over enterprise data — definitions, ownership, quality standards, access and exceptions — at a level below the executive committee, so that data disputes are resolved by a competent forum rather than escalated to the CEO or left unresolved.",
+    "chair": "Chief Data Officer, or the executive sponsor (CFO / CRO / COO) where no CDO exists",
+    "cadence": "Monthly, ninety minutes, with papers circulated three working days in advance",
+    "quorum": "The chair plus a majority of Data Owners. Attendance by delegate is permitted only where the delegate holds written decision authority.",
+    "members": [
+      "Chair — CDO or executive sponsor",
+      "Data Owners for each governed domain",
+      "Head of Data Governance (secretariat, non-voting)",
+      "Technology representative — head of data engineering or platform",
+      "Risk representative",
+      "Compliance representative",
+      "Finance / regulatory reporting representative",
+      "Information security representative (standing invitee)"
+    ],
+    "decisionRights": [
+      "Arbitrate contested business term definitions where owners disagree",
+      "Approve or reject additions to and removals from the CDE register",
+      "Approve policies, standards and the classification scheme",
+      "Grant, time-limit and review policy exceptions",
+      "Prioritise remediation of defects across competing domains",
+      "Set the sequence for domain and system onboarding",
+      "Gate AI and analytics use cases on data readiness",
+      "Escalate unresolved or under-resourced items to the executive committee"
+    ],
+    "escalationPath": [
+      "Steward attempts resolution within the domain, within SLA",
+      "Unresolved or cross-domain items go to the Data Owners concerned",
+      "Owner-level deadlock or resourcing conflict goes to the DG Council",
+      "Council-level deadlock, or any item requiring budget reallocation, goes to the executive sponsor",
+      "Matters with regulatory consequence go to the relevant board committee"
+    ]
+  },
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Sponsor authority confirmed",
+      "blocking": true,
+      "test": "The named sponsor can reallocate budget and can influence the performance objectives of prospective Data Owners. Influence without budget authority does not pass."
+    },
+    {
+      "id": "G2",
+      "name": "Charter signed",
+      "blocking": true,
+      "test": "A DG charter is signed by the sponsor and records the council's decision rights explicitly."
+    },
+    {
+      "id": "G3",
+      "name": "Data Owners named",
+      "blocking": true,
+      "test": "Every domain in scope has a named Data Owner at department-head level who has accepted the accountability in writing."
+    },
+    {
+      "id": "G4",
+      "name": "Steward time allocated",
+      "blocking": true,
+      "test": "Each steward is named, has a written time percentage in their objectives, and their line manager has countersigned. This gate blocks the start of implementation."
+    },
+    {
+      "id": "G5",
+      "name": "CDE register agreed",
+      "blocking": true,
+      "test": "The register is derived backwards from consumption, has an owner per element, and has been accepted by the council. Unassigned elements are recorded as open risks, not silently carried."
+    },
+    {
+      "id": "G6",
+      "name": "Benefit baseline captured",
+      "blocking": true,
+      "test": "Pre-programme measurements exist for the metrics the business case claims will move. Retro-fitted baselines are not acceptable."
+    },
+    {
+      "id": "G7",
+      "name": "Enforcement point identified per policy",
+      "blocking": false,
+      "test": "Each policy names at least one pipeline test, approval gate or control that enforces it. Policies with no enforcement point are flagged at council."
+    },
+    {
+      "id": "G8",
+      "name": "Scorecard published",
+      "blocking": true,
+      "test": "A quality scorecard covering the governed CDEs is published and has been reviewed in at least one council meeting before the wave is accepted as complete."
+    },
+    {
+      "id": "G9",
+      "name": "Issue workflow operating within SLA",
+      "blocking": false,
+      "test": "Real issues are being raised, triaged and closed within the agreed SLA, by stewards rather than by the delivery team."
+    },
+    {
+      "id": "G10",
+      "name": "Handover independence demonstrated",
+      "blocking": true,
+      "test": "Stewards have run a full monthly cycle — scorecard review, triage, council attendance — without delivery-team intervention. Required before the retainer tier reduces."
+    },
+    {
+      "id": "G11",
+      "name": "Metadata harvesting operating on schedule",
+      "blocking": true,
+      "test": "Harvest jobs for every in-scope system have completed on schedule for two consecutive cycles, and the catalogue reflects the current production schema rather than a point-in-time import."
+    }
+  ],
+  "roleRegistry": [
+    {
+      "name": "Executive Sponsor",
+      "archetype": "RO1",
+      "layer": "core"
+    },
+    {
+      "name": "Data Owner",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Data Steward",
+      "archetype": "RO3",
+      "layer": "core"
+    },
+    {
+      "name": "Data Custodian",
+      "archetype": "RO4",
+      "layer": "core"
+    },
+    {
+      "name": "DG Office / Data Governance Lead",
+      "archetype": "RO5",
+      "layer": "core"
+    },
+    {
+      "name": "DG Council",
+      "archetype": "RO6",
+      "layer": "core"
+    },
+    {
+      "name": "Chief Data Officer",
+      "archetype": "RO7",
+      "layer": "core"
+    },
+    {
+      "name": "Regulatory Reporting Lead",
+      "archetype": "RO8",
+      "layer": "banking"
+    },
+    {
+      "name": "Risk Data Lead",
+      "archetype": "RO9",
+      "layer": "banking"
+    },
+    {
+      "name": "Compliance / AML Data Lead",
+      "archetype": "RO10",
+      "layer": "banking"
+    },
+    {
+      "name": "Engagement Lead",
+      "archetype": "RO5",
+      "layer": "core"
+    },
+    {
+      "name": "Head of Data Governance",
+      "archetype": "RO5",
+      "layer": "core"
+    },
+    {
+      "name": "Data Engineering",
+      "archetype": "RO4",
+      "layer": "core"
+    },
+    {
+      "name": "Data Architect",
+      "archetype": "RO4",
+      "layer": "core"
+    },
+    {
+      "name": "Head of Technology",
+      "archetype": "RO4",
+      "layer": "core"
+    },
+    {
+      "name": "Chief Financial Officer",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Chief Risk Officer",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Chief Information Security Officer",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Head of Legal",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Head of Compliance",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Head of Operations",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Head of Product Management",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Head of Financial Planning",
+      "archetype": "RO2",
+      "layer": "core"
+    },
+    {
+      "name": "Head of Retail Operations",
+      "archetype": "RO2",
+      "layer": "banking"
+    },
+    {
+      "name": "Head of Corporate Banking",
+      "archetype": "RO2",
+      "layer": "banking"
+    },
+    {
+      "name": "Head of Branch Banking",
+      "archetype": "RO2",
+      "layer": "banking"
+    },
+    {
+      "name": "Head of Islamic Banking",
+      "archetype": "RO2",
+      "layer": "banking"
+    },
+    {
+      "name": "Head of Cards",
+      "archetype": "RO2",
+      "layer": "banking"
+    },
+    {
+      "name": "Head of Treasury",
+      "archetype": "RO2",
+      "layer": "banking"
+    },
+    {
+      "name": "Head of Credit Risk",
+      "archetype": "RO2",
+      "layer": "banking"
+    },
+    {
+      "name": "Head of Credit Administration",
+      "archetype": "RO2",
+      "layer": "banking"
+    },
+    {
+      "name": "Head of Regulatory Reporting",
+      "archetype": "RO2",
+      "layer": "banking"
+    }
+  ]
+}

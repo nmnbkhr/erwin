@@ -1,0 +1,176 @@
+{
+  "thesis": "Governance does not sell as governance. It sells as the dependency of a pain the client is already funding. Lead with the pain, deliver governance underneath it — same work, materially higher close rate.",
+  "wedges": [
+    {
+      "id": "W1",
+      "name": "AI Readiness",
+      "pain": "The board has mandated AI. The data cannot be classified, traced or trusted, so no use case can be approved.",
+      "trigger": "Board or ExCo has announced an AI agenda without a data-readiness assessment underneath it.",
+      "opener": "Before we talk about models, can you produce a classified, lineage-traced inventory of what they would run on? We can tell you in three weeks.",
+      "layer": "core"
+    },
+    {
+      "id": "W2",
+      "name": "Regulatory Accuracy & Defensibility",
+      "pain": "Returns are reworked every cycle, examination findings repeat, and derivation of a reported figure cannot be evidenced quickly.",
+      "trigger": "A repeat audit or examination finding on data accuracy, aggregation or lineage.",
+      "opener": "How long does it take to evidence how a reported line item was derived, end to end? If the answer is weeks, that is the engagement.",
+      "layer": "banking"
+    },
+    {
+      "id": "W3",
+      "name": "Cost of Poor Data",
+      "pain": "Reconciliation headcount, repeated report rework cycles and duplicated pipelines are absorbing budget with no owner.",
+      "trigger": "Cost-reduction pressure, headcount freeze, or an operations review naming reconciliation effort.",
+      "opener": "How many FTE-hours per month go into reconciling numbers that should have agreed at source? We quantify it and attack the top three causes.",
+      "layer": "core"
+    },
+    {
+      "id": "W4",
+      "name": "Event-Driven",
+      "pain": "A migration, acquisition or platform replacement has exposed that nobody holds an authoritative map of the data estate.",
+      "trigger": "Core banking migration, cloud migration, M&A due diligence, or a major platform decommission.",
+      "opener": "You are about to move data you have not mapped. The mapping is required work — we do it as governance so it keeps paying after the migration.",
+      "layer": "core"
+    },
+    {
+      "id": "W5",
+      "name": "Risk Data Aggregation",
+      "pain": "Risk figures cannot be aggregated to group level within the required timeframe or with demonstrable accuracy.",
+      "trigger": "BCBS 239 self-assessment gaps, group exposure limit breaches, or slow risk reporting cycles.",
+      "opener": "Can you aggregate group exposure across systems, on demand, with evidence of completeness? That is a governance problem, not a reporting problem.",
+      "layer": "banking"
+    },
+    {
+      "id": "W6",
+      "name": "IFRS 9 / Provisioning Input Quality",
+      "pain": "ECL outputs are challenged because model inputs — staging, cure, restructure flags, collateral values — are unreliable.",
+      "trigger": "Audit challenge on provisioning, or unexplained volatility in ECL between periods.",
+      "opener": "If the ECL number moves and you cannot attribute it to input quality versus genuine credit movement, the inputs are ungoverned.",
+      "layer": "banking"
+    }
+  ],
+  "differentiators": [
+    {
+      "title": "We govern critical data elements, not everything",
+      "detail": "A bank holds on the order of a million columns. It has a few hundred elements that drive regulatory returns, risk models and P&L. We govern those. Everything else is catalogued but not stewarded. This is a stated principle, not a compromise we arrive at when the programme stalls."
+    },
+    {
+      "title": "CDEs are derived backwards from consumption",
+      "detail": "We start at the regulatory return line or the board KPI, trace lineage back to source, and every element on that path becomes a CDE. The list is finite, defensible, and business-relevant on day one — rather than an open-ended nomination exercise."
+    },
+    {
+      "title": "Federated, not centralised",
+      "detail": "The central team sets standards and runs tooling; the domains own their data. Central-only governance collapses at the throughput limit of the central team, usually around month nine."
+    },
+    {
+      "title": "Every wave ships a scorecard",
+      "detail": "Governance is invisible until a number moves. A quality scorecard on the first tranche of CDEs, published inside two months, is what funds the following six."
+    },
+    {
+      "title": "Stewardship time is a contractual gate",
+      "detail": "We do not begin implementation until stewards are formally named with an allocated percentage of time in their objectives. This is the most common cause of failure and the easiest to eliminate contractually."
+    },
+    {
+      "title": "Pre-built banking accelerators",
+      "detail": "A reference-model-aligned CDE catalogue, a core-banking quality rule library and regulatory lineage templates mean a diagnostic that takes a generalist six weeks takes two — at better margin and better depth."
+    }
+  ],
+  "failureModes": [
+    {
+      "failure": "No executive sponsor with budget authority",
+      "symptom": "The sponsor is a head of data with influence but no budget line; decisions bounce and stall.",
+      "counterMeasure": "Qualify out. Sponsorship at a level that can reallocate budget and objectives is a precondition, not a nice-to-have."
+    },
+    {
+      "failure": "Boiling the ocean",
+      "symptom": "Attempting enterprise-wide cataloguing and stewardship before proving value in one domain.",
+      "counterMeasure": "CDE-scoped delivery. One or two domains, a few hundred elements, a published scorecard, then expand."
+    },
+    {
+      "failure": "Tool-first sequencing",
+      "symptom": "A platform is procured before decision rights, ownership and CDEs are defined; it becomes shelfware at low coverage.",
+      "counterMeasure": "Tooling decision deferred to the Blueprint rung, after the operating model and CDE register exist."
+    },
+    {
+      "failure": "Stewards with no allocated time",
+      "symptom": "Stewardship is added to a full-time role with no objective change; glossary and issue queues stagnate.",
+      "counterMeasure": "Named stewards with a written time percentage in their objectives, gated before implementation starts."
+    },
+    {
+      "failure": "No measurable business tie",
+      "symptom": "Progress is reported as artefacts produced rather than outcomes moved; funding evaporates at the next cycle.",
+      "counterMeasure": "Benefit baseline captured before wave 1; scorecard and cost metrics published every wave."
+    },
+    {
+      "failure": "Policy that is never enforced",
+      "symptom": "Standards exist as documents but no pipeline, gate or control references them, so compliance is voluntary.",
+      "counterMeasure": "At least one policy enforced as code in a pipeline per wave — enforcement over publication."
+    },
+    {
+      "failure": "Governance parallel to existing committees",
+      "symptom": "A new DG council competes for authority with risk, finance and technology committees and loses.",
+      "counterMeasure": "Attach the council into the existing committee hierarchy so it inherits authority rather than requesting it."
+    }
+  ],
+  "toolingTiers": [
+    {
+      "tier": "Default open-source stack",
+      "posture": "Standard delivery. Pre-built deployment, best margin, no licence negotiation in the critical path. Recommended for most engagements.",
+      "components": [
+        { "capability": "Catalogue, glossary, lineage", "product": "OpenMetadata (DataHub as alternate)", "note": "Pre-configured connector set; deployment scripted." },
+        { "capability": "Data quality", "product": "Soda Core or Great Expectations", "note": "Plus dbt tests wherever dbt already exists in the estate." },
+        { "capability": "Lineage interchange", "product": "OpenLineage", "note": "Keeps lineage portable if the catalogue is later replaced." },
+        { "capability": "Access and classification", "product": "Native RDBMS controls with a policy layer", "note": "Avoids introducing a second entitlement system." },
+        { "capability": "Scorecards", "product": "Superset or Streamlit over the DQ result store", "note": "Scorecard is the primary visible output — it must not depend on licence seats." }
+      ]
+    },
+    {
+      "tier": "Commercial tier",
+      "posture": "For clients requiring a vendor logo, enterprise support contract, or where a licence is already owned. Same methodology, different substrate.",
+      "components": [
+        { "capability": "Enterprise catalogue and governance", "product": "Collibra, Informatica CDGC, Alation, Atlan", "note": "Selection driven by existing estate and support expectations." },
+        { "capability": "Quality and MDM", "product": "Ataccama, Informatica", "note": "Where master data management is in scope from the outset." },
+        { "capability": "Microsoft-aligned estate", "product": "Microsoft Purview", "note": "Frequently the easiest approval — the licence may already be owned under existing agreements." }
+      ]
+    }
+  ],
+  "accelerators": [
+    {
+      "name": "Maturity assessment instrument",
+      "what": "Weighted question bank across eleven pillars with scoring model, heatmap and auto-generated gap-to-roadmap derivation.",
+      "effect": "Diagnostic delivered in two weeks rather than six, with consistent scoring across engagements and comparable benchmarks over time.",
+      "layer": "core"
+    },
+    {
+      "name": "Reference-model-aligned CDE catalogue",
+      "what": "Pre-mapped critical data elements for retail and corporate banking, bound to a banking reference model and to their consumption points.",
+      "effect": "CDE identification starts from a candidate list rather than a blank page — typically two weeks saved and better coverage.",
+      "layer": "banking"
+    },
+    {
+      "name": "Core banking DQ rule library",
+      "what": "Pre-written executable rules across CIF, accounts, GL, cards, loans and collateral, bound to CDEs and to quality dimensions.",
+      "effect": "First scorecard published in week eight instead of week sixteen; rule authoring cost largely eliminated.",
+      "layer": "banking"
+    },
+    {
+      "name": "Regulatory lineage templates",
+      "what": "Return line item to source field mappings for the common prudential and statistical submissions.",
+      "effect": "Backward CDE derivation and audit-defensibility evidence become a configuration exercise rather than an investigation.",
+      "layer": "banking"
+    },
+    {
+      "name": "One-click platform deployment",
+      "what": "Scripted deployment of catalogue, quality engine and scorecard layer with connectors pre-configured.",
+      "effect": "Platform standing in days rather than weeks; removes infrastructure delay from the critical path.",
+      "layer": "core"
+    },
+    {
+      "name": "Artefact and gate library",
+      "what": "Templated charter, policy set, RACI, issue workflow, council terms of reference and phase-gate checklist.",
+      "effect": "Blueprint rung delivered from templates, keeping the fixed-fee margin intact.",
+      "layer": "core"
+    }
+  ]
+}

@@ -1,0 +1,793 @@
+{
+  "title": "Data Governance Maturity Diagnostic",
+  "description": "55 weighted questions across eleven DAMA-DMBOK / DCAM aligned pillars. 33 core questions form the sector-neutral chassis; 22 banking-overlay questions add regulatory and core-banking specificity. Scored 1–5 against anchored level descriptions, weighted 1–3 by decisiveness.",
+  "scale": {
+    "1": "Initial — absent or ad hoc",
+    "2": "Developing — inconsistent, person-dependent",
+    "3": "Defined — documented and repeatable",
+    "4": "Managed — measured, enforced, accountable",
+    "5": "Optimising — automated, self-correcting, continuously improved"
+  },
+  "questions": [
+    {
+      "id": "DG-P01-01",
+      "pillarId": "P01",
+      "layer": "core",
+      "weight": 3,
+      "text": "Is there a named executive sponsor for data governance who controls budget and can influence the objectives of data owners?",
+      "levelDescriptions": {
+        "1": "No sponsor. Data governance is raised occasionally by individuals with no mandate.",
+        "2": "A sponsor is named but holds influence only — no budget authority and no leverage over other departments.",
+        "3": "A sponsor with budget authority is formally appointed and the appointment is documented.",
+        "4": "The sponsor actively reallocates budget for data work and holds owners accountable in performance reviews.",
+        "5": "Data accountability is embedded in executive objectives across the leadership team, not just the sponsor's."
+      }
+    },
+    {
+      "id": "DG-P01-02",
+      "pillarId": "P01",
+      "layer": "core",
+      "weight": 3,
+      "text": "Are Data Owners formally named for each major domain, with accountability accepted in writing?",
+      "levelDescriptions": {
+        "1": "No ownership exists. Disputes about data are unresolvable or escalate to the chief executive.",
+        "2": "Informal ownership is assumed for some systems, usually by whoever built or maintains them.",
+        "3": "Data Owners are named per domain at department-head level and the accountability is documented.",
+        "4": "Owners actively approve definitions, thresholds and access, and are measured on their domain's quality.",
+        "5": "Ownership is a standing element of the role, transfers cleanly on personnel change, and is audited."
+      }
+    },
+    {
+      "id": "DG-P01-03",
+      "pillarId": "P01",
+      "layer": "core",
+      "weight": 2,
+      "text": "Does a governance forum exist with the authority to make binding decisions on data definitions, standards and exceptions?",
+      "levelDescriptions": {
+        "1": "No forum exists. Data decisions are made unilaterally within each system or project.",
+        "2": "A working group meets irregularly to share information but holds no decision rights.",
+        "3": "A council is constituted with documented terms of reference, membership and quorum.",
+        "4": "The council meets on cadence, records decisions, enforces quorum and tracks actions to closure.",
+        "5": "The council is embedded in the corporate committee hierarchy and its decisions are treated as binding across the organisation."
+      }
+    },
+    {
+      "id": "DG-P01-04",
+      "pillarId": "P01",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Is data governance connected into the bank's existing committee structure — risk, audit or ALCO — rather than operating in parallel to it?",
+      "levelDescriptions": {
+        "1": "No connection. Data governance, where it exists, is a technology initiative invisible to bank governance.",
+        "2": "Occasional reporting into a technology committee; no risk or board-level visibility.",
+        "3": "A defined reporting line into an established bank committee exists and is documented.",
+        "4": "Data matters appear as standing agenda items with recorded decisions at a risk or board committee.",
+        "5": "Data risk is a recognised risk category with defined appetite, reported to the board like any other risk."
+      }
+    },
+    {
+      "id": "DG-P01-05",
+      "pillarId": "P01",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Have internal audit or regulatory examinations raised findings on data ownership, governance or accountability, and have those findings been closed durably?",
+      "levelDescriptions": {
+        "1": "Findings are open, repeat across cycles, or the area has never been examined.",
+        "2": "Findings have been closed with documentation but no structural change; recurrence is likely.",
+        "3": "Findings are tracked with owners and remediation plans that address root cause.",
+        "4": "Structural remediation is evidenced and no repeat findings have arisen in the most recent cycle.",
+        "5": "The bank self-identifies governance gaps ahead of examination and presents remediation proactively."
+      }
+    },
+
+    {
+      "id": "DG-P02-01",
+      "pillarId": "P02",
+      "layer": "core",
+      "weight": 2,
+      "text": "Does a documented data strategy exist that is explicitly linked to funded business outcomes?",
+      "levelDescriptions": {
+        "1": "No data strategy. Data work is generated project by project with no connecting logic.",
+        "2": "A strategy document exists but is generic, unfunded and disconnected from business plans.",
+        "3": "The strategy is approved and maps initiatives to named business outcomes.",
+        "4": "The strategy drives budget allocation and its progress is reviewed against outcome measures.",
+        "5": "Data strategy is a component of corporate strategy, refreshed on the same cycle and tracked with the same rigour."
+      }
+    },
+    {
+      "id": "DG-P02-02",
+      "pillarId": "P02",
+      "layer": "core",
+      "weight": 3,
+      "text": "Can the organisation quantify what poor data quality costs it — rework hours, reconciliation effort, duplicated pipelines or findings?",
+      "levelDescriptions": {
+        "1": "No quantification exists. The cost is acknowledged anecdotally but never measured.",
+        "2": "Isolated estimates exist for individual incidents, produced reactively.",
+        "3": "A cost-of-poor-data model exists covering the main categories with a documented method.",
+        "4": "The cost is baselined, attributed to owning domains, and tracked over time.",
+        "5": "Cost movement is attributed to specific governance interventions and used to prioritise investment."
+      }
+    },
+    {
+      "id": "DG-P02-03",
+      "pillarId": "P02",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is there a benefit baseline captured before governance work starts, against which improvement can be demonstrated?",
+      "levelDescriptions": {
+        "1": "No baseline. Success is described qualitatively or in terms of artefacts produced.",
+        "2": "Baselines are reconstructed after the fact when someone asks for evidence of value.",
+        "3": "Baselines are captured before work begins for the primary claimed benefits.",
+        "4": "Baselines are measured on a defined cadence and variance is explained.",
+        "5": "Benefit tracking is automated from operational systems and reported alongside financial results."
+      }
+    },
+    {
+      "id": "DG-P02-04",
+      "pillarId": "P02",
+      "layer": "banking",
+      "weight": 3,
+      "text": "Is the volume of rework in regulatory submissions — resubmissions, late corrections, manual adjustments — measured?",
+      "levelDescriptions": {
+        "1": "Not measured. Rework is absorbed into month-end effort and never surfaces as a metric.",
+        "2": "Major resubmissions are remembered but no systematic record is kept.",
+        "3": "Resubmissions, corrections and manual adjustments are logged per submission cycle.",
+        "4": "Rework is trended, root-caused to specific data defects and attributed to owning domains.",
+        "5": "Rework is near-zero by design, with pre-submission validation catching defects at source."
+      }
+    },
+    {
+      "id": "DG-P02-05",
+      "pillarId": "P02",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Has the bank assessed which AI or advanced analytics use cases are blocked specifically by data readiness rather than by technology or funding?",
+      "levelDescriptions": {
+        "1": "No assessment. AI ambition and data reality have never been compared.",
+        "2": "Anecdotal awareness that data is a problem, with no use-case-level analysis.",
+        "3": "A documented readiness assessment exists per candidate use case.",
+        "4": "Readiness gaps are costed, owned and sequenced into the data roadmap.",
+        "5": "A data-readiness gate is embedded in the AI intake process; use cases cannot proceed without passing it."
+      }
+    },
+
+    {
+      "id": "DG-P03-01",
+      "pillarId": "P03",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is a system of record formally designated for each major subject area, and honoured by consuming systems?",
+      "levelDescriptions": {
+        "1": "No designation. Consumers pull from whichever source is most convenient.",
+        "2": "Informal convention exists for some subject areas but is not documented or enforced.",
+        "3": "Systems of record are designated and documented for the major subject areas.",
+        "4": "Designation is enforced at the architecture-approval gate and deviations require exception approval.",
+        "5": "Consumption is automatically traceable to designated sources and unauthorised sourcing is detected."
+      }
+    },
+    {
+      "id": "DG-P03-02",
+      "pillarId": "P03",
+      "layer": "core",
+      "weight": 2,
+      "text": "Does a canonical logical data model exist for the governed domains, used as the reference for new development?",
+      "levelDescriptions": {
+        "1": "No enterprise model. Each system defines its own structures independently.",
+        "2": "Models exist for individual systems but are not reconciled to each other.",
+        "3": "A canonical logical model covers the governed domains and is published.",
+        "4": "New development is assessed against the canonical model at design review.",
+        "5": "The model is maintained as a living asset with change control, and physical implementations are traceable to it."
+      }
+    },
+    {
+      "id": "DG-P03-03",
+      "pillarId": "P03",
+      "layer": "core",
+      "weight": 1,
+      "text": "Is the extent of duplicated data pipelines and redundant data copies known and managed?",
+      "levelDescriptions": {
+        "1": "Unknown. New extracts are created freely with no visibility of existing ones.",
+        "2": "Suspected duplication is discussed but never inventoried.",
+        "3": "An inventory of pipelines and copies exists and is periodically refreshed.",
+        "4": "Duplication is measured, attributed to cost, and a retirement backlog is actively worked.",
+        "5": "New pipeline creation requires justification against the existing inventory; duplication trends down."
+      }
+    },
+    {
+      "id": "DG-P03-04",
+      "pillarId": "P03",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Are core banking structures — customer, arrangement, product, transaction — mapped to an industry banking reference model?",
+      "levelDescriptions": {
+        "1": "No mapping exists; no industry reference model is in use.",
+        "2": "A reference model was acquired but the mapping was never completed or maintained.",
+        "3": "Core subject areas are mapped to a banking reference model and the mapping is documented.",
+        "4": "The mapping is maintained through change and used in impact analysis for new products.",
+        "5": "The reference model drives design; product extensions are registered as governed gap extensions."
+      }
+    },
+    {
+      "id": "DG-P03-05",
+      "pillarId": "P03",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Can risk and finance data be aggregated across systems to group level with demonstrable completeness and within required timeframes?",
+      "levelDescriptions": {
+        "1": "Aggregation is manual, slow and its completeness cannot be evidenced.",
+        "2": "Aggregation works for routine reporting but breaks under ad hoc or stress-scenario demands.",
+        "3": "Documented aggregation processes exist with defined completeness checks.",
+        "4": "Aggregation is automated, completeness is evidenced, and timeframes are met consistently.",
+        "5": "On-demand aggregation is available, including under stress conditions, with automated completeness assurance."
+      }
+    },
+
+    {
+      "id": "DG-P04-01",
+      "pillarId": "P04",
+      "layer": "core",
+      "weight": 3,
+      "text": "Does an approved business glossary exist, with a single agreed definition for each key term?",
+      "levelDescriptions": {
+        "1": "No glossary. The same term carries different meanings in different departments without anyone reconciling them.",
+        "2": "Departmental glossaries or spreadsheets exist and contradict each other.",
+        "3": "An enterprise glossary exists with approved definitions for key terms and a defined approval route.",
+        "4": "Definitions are maintained under change control, disputes are arbitrated by the council, and coverage is measured.",
+        "5": "Glossary terms are bound to physical assets and surfaced in reporting and analytics tools at the point of use."
+      }
+    },
+    {
+      "id": "DG-P04-02",
+      "pillarId": "P04",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is technical metadata harvested automatically into a catalogue, rather than maintained manually?",
+      "levelDescriptions": {
+        "1": "No catalogue. Metadata exists only in system documentation and individual knowledge.",
+        "2": "A catalogue exists but is populated manually and is significantly out of date.",
+        "3": "Automated harvesting is configured for the main source systems on a defined schedule.",
+        "4": "Coverage and freshness are measured, and harvest failures are alerted and resolved.",
+        "5": "Harvesting spans the estate including pipelines and reporting layers, with near-real-time freshness."
+      }
+    },
+    {
+      "id": "DG-P04-03",
+      "pillarId": "P04",
+      "layer": "core",
+      "weight": 2,
+      "text": "Are business terms bound to the specific physical columns that implement them?",
+      "levelDescriptions": {
+        "1": "No binding. The glossary, where it exists, is disconnected from any physical implementation.",
+        "2": "Binding is described narratively in documents rather than recorded as structured links.",
+        "3": "Governed terms are bound to their physical assets in the catalogue.",
+        "4": "Binding coverage is measured against the CDE register and gaps are worked.",
+        "5": "Binding is validated automatically and breaks when schemas change, triggering steward review."
+      }
+    },
+    {
+      "id": "DG-P04-04",
+      "pillarId": "P04",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Where a regulator defines a term, is that definition authoritative in the glossary and reconciled against internal management definitions?",
+      "levelDescriptions": {
+        "1": "No distinction is drawn between regulatory and management definitions.",
+        "2": "The difference is known informally and handled by individuals during report preparation.",
+        "3": "Regulatory definitions are recorded as authoritative and management variants are documented separately.",
+        "4": "Reconciliation between regulatory and management figures is documented and explained systematically.",
+        "5": "Both variants are derived from the same governed source with the difference computed and explained automatically."
+      }
+    },
+    {
+      "id": "DG-P04-05",
+      "pillarId": "P04",
+      "layer": "banking",
+      "weight": 1,
+      "text": "Are product hierarchies — including Islamic banking variants where applicable — governed with a single approved structure?",
+      "levelDescriptions": {
+        "1": "Product structures differ across core banking, finance and reporting with no reconciliation.",
+        "2": "A mapping exists between structures but is maintained manually and drifts.",
+        "3": "A governed product hierarchy is approved with a defined change process.",
+        "4": "All consuming systems derive from the governed hierarchy and drift is detected.",
+        "5": "New product introduction requires governed hierarchy registration before it can be launched."
+      }
+    },
+
+    {
+      "id": "DG-P05-01",
+      "pillarId": "P05",
+      "layer": "core",
+      "weight": 3,
+      "text": "Are executable data quality rules defined and running on a schedule against critical data elements?",
+      "levelDescriptions": {
+        "1": "No rules. Quality problems are discovered by the recipient of a report, after publication.",
+        "2": "Ad hoc validation exists inside individual ETL jobs, undocumented and inconsistently applied.",
+        "3": "A rule set is defined against critical elements and executes on a defined schedule.",
+        "4": "Rules cover all governed CDEs, have owners and thresholds, and failures raise issues automatically.",
+        "5": "Rules are version-controlled, tested, and enforced in pipelines so defective data is blocked rather than reported."
+      }
+    },
+    {
+      "id": "DG-P05-02",
+      "pillarId": "P05",
+      "layer": "core",
+      "weight": 3,
+      "text": "Is a data quality scorecard published to business stakeholders on a regular cadence?",
+      "levelDescriptions": {
+        "1": "No scorecard. Quality is not reported in any structured form.",
+        "2": "Quality metrics are produced sporadically, usually in response to an incident.",
+        "3": "A scorecard is published on cadence covering the governed elements.",
+        "4": "The scorecard has a named owner per failing measure, is reviewed at council, and trends are tracked.",
+        "5": "The scorecard drives accountability — persistent failures affect owner objectives and funding decisions."
+      }
+    },
+    {
+      "id": "DG-P05-03",
+      "pillarId": "P05",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is there an issue management workflow with severity, ownership, SLA and root-cause analysis?",
+      "levelDescriptions": {
+        "1": "Issues are raised by email or in meetings and tracked in individuals' heads.",
+        "2": "A spreadsheet or ticket queue exists but lacks severity, SLA or root-cause discipline.",
+        "3": "A defined workflow exists with severity classification, ownership and target resolution times.",
+        "4": "SLA adherence is measured, root cause is recorded, and recurring causes are escalated.",
+        "5": "Root-cause remediation is funded and tracked, and recurrence rates measurably decline."
+      }
+    },
+    {
+      "id": "DG-P05-04",
+      "pillarId": "P05",
+      "layer": "banking",
+      "weight": 3,
+      "text": "Are reconciliation controls between general ledger, subledger and source systems automated and monitored?",
+      "levelDescriptions": {
+        "1": "Reconciliation is entirely manual, performed in spreadsheets at period end.",
+        "2": "Partially automated for major accounts; breaks are investigated reactively with no trend analysis.",
+        "3": "Automated reconciliation covers the main flows with documented tolerances and break handling.",
+        "4": "Breaks are trended, aged, root-caused and attributed to owning domains.",
+        "5": "Reconciliation runs continuously rather than at period end, and break volumes trend structurally down."
+      }
+    },
+    {
+      "id": "DG-P05-05",
+      "pillarId": "P05",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Are the data inputs to provisioning and credit risk models subject to quality controls before the models consume them?",
+      "levelDescriptions": {
+        "1": "No input controls. Model outputs are challenged after the fact when results look implausible.",
+        "2": "Modellers perform their own informal sanity checks with no standard or record.",
+        "3": "Defined input quality checks exist and run before model execution.",
+        "4": "Input quality is reported alongside model output and failures block model runs.",
+        "5": "Output variance can be attributed between genuine credit movement and input data quality change."
+      }
+    },
+
+    {
+      "id": "DG-P06-01",
+      "pillarId": "P06",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is a single trusted version of the primary master entity — customer or party — defined and published to consuming systems?",
+      "levelDescriptions": {
+        "1": "Each system maintains its own version with no reconciliation between them.",
+        "2": "A preferred source is nominated informally but consumers still use local copies.",
+        "3": "A golden record is defined with documented survivorship rules and published.",
+        "4": "Consuming systems subscribe to the golden record and local variants are being retired.",
+        "5": "The golden record is authoritative estate-wide, with match confidence measured and exceptions stewarded."
+      }
+    },
+    {
+      "id": "DG-P06-02",
+      "pillarId": "P06",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is the duplicate rate within master entities measured and actively reduced?",
+      "levelDescriptions": {
+        "1": "Duplication is known to exist but has never been measured.",
+        "2": "Ad hoc de-duplication exercises are run occasionally, usually before a campaign or audit.",
+        "3": "Duplicate rate is measured on a defined method and reported.",
+        "4": "A stewardship queue processes match exceptions continuously and the rate trends down.",
+        "5": "Prevention controls at the point of creation keep new duplication near zero."
+      }
+    },
+    {
+      "id": "DG-P06-03",
+      "pillarId": "P06",
+      "layer": "core",
+      "weight": 1,
+      "text": "Are reference data code sets registered with named owners and a controlled change process?",
+      "levelDescriptions": {
+        "1": "Code sets are embedded in applications and changed without notice or coordination.",
+        "2": "Some code sets are documented; changes are communicated informally when remembered.",
+        "3": "A register exists with owners and a defined change process.",
+        "4": "Changes follow the process, are versioned, and downstream impact is assessed before release.",
+        "5": "Code sets are distributed from a single governed service and drift is impossible by design."
+      }
+    },
+    {
+      "id": "DG-P06-04",
+      "pillarId": "P06",
+      "layer": "banking",
+      "weight": 3,
+      "text": "Can the bank reliably produce a single customer view for exposure aggregation, including related-party and group linkage?",
+      "levelDescriptions": {
+        "1": "No single customer view. Exposure aggregation is manual and its completeness cannot be evidenced.",
+        "2": "A partial view exists for retail or for a single system, with known gaps.",
+        "3": "A single customer view is defined and maintained across the main systems.",
+        "4": "Group and related-party linkages are maintained and used in limit monitoring.",
+        "5": "Aggregation is on demand with evidenced completeness, including indirect and connected exposures."
+      }
+    },
+    {
+      "id": "DG-P06-05",
+      "pillarId": "P06",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Are national identifiers — CNIC, NTN or equivalent — validated at capture and used consistently as matching keys?",
+      "levelDescriptions": {
+        "1": "Identifiers are captured inconsistently, with format errors and placeholder values present.",
+        "2": "Format validation exists in some channels but not others; historical data is unremediated.",
+        "3": "Validation is applied at capture across channels and format rules are documented.",
+        "4": "Historical records are remediated and identifier quality is measured on the scorecard.",
+        "5": "Identifiers are verified against an authoritative external source and used as the primary matching key."
+      }
+    },
+
+    {
+      "id": "DG-P07-01",
+      "pillarId": "P07",
+      "layer": "core",
+      "weight": 3,
+      "text": "Can lineage be traced from a published figure back to its source fields without a manual investigation?",
+      "levelDescriptions": {
+        "1": "No lineage. Tracing a figure requires interviewing whoever wrote the extract, and can take weeks.",
+        "2": "Lineage exists as narrative documentation for some flows, of uncertain currency.",
+        "3": "Lineage is captured in structured form for the governed elements.",
+        "4": "Lineage is maintained automatically from pipeline execution and coverage is measured.",
+        "5": "Lineage is complete end to end including reporting and analytics layers, and is used routinely in impact analysis."
+      }
+    },
+    {
+      "id": "DG-P07-02",
+      "pillarId": "P07",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is impact analysis performed using lineage before changes are made to data structures or pipelines?",
+      "levelDescriptions": {
+        "1": "No impact analysis. Downstream breakage is discovered by consumers after release.",
+        "2": "Impact is assessed from memory and personal knowledge of the estate.",
+        "3": "Lineage-based impact analysis is documented as a required step in the change process.",
+        "4": "Impact analysis is evidenced in change records and consumers are notified before release.",
+        "5": "Impact analysis is automated in the deployment pipeline and blocks changes with unresolved downstream breaks."
+      }
+    },
+    {
+      "id": "DG-P07-03",
+      "pillarId": "P07",
+      "layer": "core",
+      "weight": 2,
+      "text": "Are manual interventions — spreadsheets, hand adjustments, end-user computing — in critical data flows identified and risk-rated?",
+      "levelDescriptions": {
+        "1": "Unknown. Manual steps are embedded throughout and nobody has inventoried them.",
+        "2": "The main spreadsheets are known informally to the teams that operate them.",
+        "3": "An inventory of manual interventions in critical flows exists.",
+        "4": "Interventions are risk-rated, controlled, and a reduction backlog is actively worked.",
+        "5": "Critical flows are free of uncontrolled manual intervention; any remaining steps are controlled and evidenced."
+      }
+    },
+    {
+      "id": "DG-P07-04",
+      "pillarId": "P07",
+      "layer": "banking",
+      "weight": 3,
+      "text": "Can the derivation of a regulatory return line item be evidenced to a regulator on request, end to end?",
+      "levelDescriptions": {
+        "1": "Not without a multi-week investigation dependent on specific individuals.",
+        "2": "Partial documentation exists for major returns but is incomplete and dated.",
+        "3": "Line-item to source-field mapping is documented for the priority returns.",
+        "4": "An evidence pack is maintained current and has been used successfully in an examination.",
+        "5": "Evidence is generated on demand from live lineage rather than maintained as a separate document."
+      }
+    },
+    {
+      "id": "DG-P07-05",
+      "pillarId": "P07",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Is the lineage of anti-money-laundering and transaction-monitoring inputs documented and defensible?",
+      "levelDescriptions": {
+        "1": "No documented lineage for monitoring inputs; completeness of feeds is assumed rather than evidenced.",
+        "2": "Feed documentation exists at interface level without field-level traceability.",
+        "3": "Field-level lineage is documented for monitoring and screening inputs.",
+        "4": "Feed completeness is monitored with alerting on gaps, and lineage is maintained through change.",
+        "5": "Completeness and lineage evidence is produced automatically for each reporting period."
+      }
+    },
+
+    {
+      "id": "DG-P08-01",
+      "pillarId": "P08",
+      "layer": "core",
+      "weight": 3,
+      "text": "Is data classified by sensitivity at column level, with the classification recorded in the catalogue?",
+      "levelDescriptions": {
+        "1": "No classification. Sensitivity is assumed from system context rather than recorded.",
+        "2": "A classification scheme exists on paper but has not been applied to actual data assets.",
+        "3": "Governed elements are classified and the classification is recorded in the catalogue.",
+        "4": "Classification coverage is measured, reviewed periodically, and drives access and masking controls.",
+        "5": "Classification is applied automatically at ingestion with steward validation of exceptions."
+      }
+    },
+    {
+      "id": "DG-P08-02",
+      "pillarId": "P08",
+      "layer": "core",
+      "weight": 2,
+      "text": "Are access entitlements approved by the Data Owner and recertified on a defined cycle?",
+      "levelDescriptions": {
+        "1": "Access is granted by IT on request with no business approval and is never reviewed.",
+        "2": "Approval is sought informally from whoever is available; no recertification takes place.",
+        "3": "The Data Owner approves access and a recertification cycle is defined.",
+        "4": "Recertification is executed on cycle with exceptions revoked and evidenced.",
+        "5": "Entitlements are role-derived and drift is detected automatically between recertification cycles."
+      }
+    },
+    {
+      "id": "DG-P08-03",
+      "pillarId": "P08",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is sensitive data masked or tokenised in non-production environments?",
+      "levelDescriptions": {
+        "1": "Production data is copied to development and test environments unmasked.",
+        "2": "Masking is applied inconsistently, typically only where a specific audit point required it.",
+        "3": "A masking standard exists and is applied to sensitive elements in non-production.",
+        "4": "Masking is enforced in the environment provisioning process and coverage is verified.",
+        "5": "Non-production environments never receive unmasked sensitive data by construction, with automated verification."
+      }
+    },
+    {
+      "id": "DG-P08-04",
+      "pillarId": "P08",
+      "layer": "banking",
+      "weight": 3,
+      "text": "Can the bank state, per data element, what may be shared with an AI service or third-party processor?",
+      "levelDescriptions": {
+        "1": "No. AI and third-party proposals stall because the exposure question cannot be answered.",
+        "2": "Assessed case by case with substantial effort and inconsistent conclusions.",
+        "3": "Classification and sharing rules are documented at element level for governed data.",
+        "4": "A defined intake assesses each use case against classification, with recorded decisions.",
+        "5": "Controls are technically enforced so non-permitted elements cannot reach an external processor."
+      }
+    },
+    {
+      "id": "DG-P08-05",
+      "pillarId": "P08",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Are customer confidentiality and cross-border processing constraints documented and enforced in the data estate?",
+      "levelDescriptions": {
+        "1": "Constraints are known to legal in principle but not reflected in any technical control.",
+        "2": "Documented in policy; enforcement relies on individual awareness.",
+        "3": "Constraints are mapped to specific data elements and systems.",
+        "4": "Technical controls enforce residency and sharing constraints, with exceptions registered.",
+        "5": "Constraint compliance is continuously monitored and evidenced for regulators and auditors."
+      }
+    },
+
+    {
+      "id": "DG-P09-01",
+      "pillarId": "P09",
+      "layer": "core",
+      "weight": 2,
+      "text": "Does a retention schedule exist per data category with a documented legal basis?",
+      "levelDescriptions": {
+        "1": "No schedule. Data is retained indefinitely by default.",
+        "2": "Retention periods are mentioned in policy without mapping to actual data categories or systems.",
+        "3": "A schedule exists per category with legal basis recorded and legal sign-off obtained.",
+        "4": "The schedule is applied operationally with archival and disposal actually executed.",
+        "5": "Retention is enforced automatically with evidence of disposal retained for audit."
+      }
+    },
+    {
+      "id": "DG-P09-02",
+      "pillarId": "P09",
+      "layer": "core",
+      "weight": 1,
+      "text": "Is the number and purpose of data copies across environments known?",
+      "levelDescriptions": {
+        "1": "Unknown. Copies proliferate through project activity with no inventory.",
+        "2": "Major copies are known; extracts and departmental copies are not.",
+        "3": "A copy inventory exists with purpose and owner recorded.",
+        "4": "Redundant copies are identified, attributed to cost, and retired on a worked backlog.",
+        "5": "Copy creation requires registration and justification; the count trends down over time."
+      }
+    },
+    {
+      "id": "DG-P09-03",
+      "pillarId": "P09",
+      "layer": "core",
+      "weight": 1,
+      "text": "Is storage cost attributed to the domains that own the data?",
+      "levelDescriptions": {
+        "1": "Storage is a central technology cost with no attribution.",
+        "2": "Attribution is estimated occasionally for budget discussions.",
+        "3": "Cost is attributed to owning domains on a documented basis.",
+        "4": "Attributed cost is reported to owners and influences retention decisions.",
+        "5": "Owners actively manage their data footprint against a cost budget."
+      }
+    },
+    {
+      "id": "DG-P09-04",
+      "pillarId": "P09",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Are statutory record-retention obligations for account, transaction and KYC records mapped to actual system behaviour?",
+      "levelDescriptions": {
+        "1": "Obligations are known in principle; no mapping to system retention configuration exists.",
+        "2": "Mapping exists for core banking only, with archives and warehouses unassessed.",
+        "3": "Obligations are mapped across the systems holding the relevant records.",
+        "4": "System configuration is verified against obligations and deviations are remediated.",
+        "5": "Compliance is monitored continuously with legal-hold handling integrated."
+      }
+    },
+    {
+      "id": "DG-P09-05",
+      "pillarId": "P09",
+      "layer": "banking",
+      "weight": 1,
+      "text": "Is there a defined disposition plan for legacy data from decommissioned or migrated core systems?",
+      "levelDescriptions": {
+        "1": "Legacy systems are kept running or their data archived indefinitely with no plan.",
+        "2": "A plan is discussed at migration time but not executed after go-live.",
+        "3": "A disposition plan exists covering retention, access and eventual disposal.",
+        "4": "The plan is executed with evidence, and legacy access is controlled and time-limited.",
+        "5": "Legacy disposition is a standard, repeatable component of every migration programme."
+      }
+    },
+
+    {
+      "id": "DG-P10-01",
+      "pillarId": "P10",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is a data catalogue deployed, integrated with source systems, and actively used outside the governance team?",
+      "levelDescriptions": {
+        "1": "No catalogue is deployed.",
+        "2": "A catalogue exists at low coverage and is used almost exclusively by the team that installed it.",
+        "3": "The catalogue is deployed, integrated with the main systems, and coverage is measured.",
+        "4": "Adoption is measured by active users outside the governance team and is growing.",
+        "5": "The catalogue is the default starting point for analysts and engineers seeking data."
+      }
+    },
+    {
+      "id": "DG-P10-02",
+      "pillarId": "P10",
+      "layer": "core",
+      "weight": 2,
+      "text": "Are governance policies enforced as code within pipelines, rather than only published as documents?",
+      "levelDescriptions": {
+        "1": "No enforcement. Policies exist as documents and compliance is voluntary.",
+        "2": "One or two checks exist in isolated pipelines, built by individual engineers.",
+        "3": "Defined policies have named enforcement points implemented in pipelines or gates.",
+        "4": "Enforcement is standard for new pipelines and failures block promotion to production.",
+        "5": "Policy-as-code is version-controlled, tested and applied estate-wide with exception registration."
+      }
+    },
+    {
+      "id": "DG-P10-03",
+      "pillarId": "P10",
+      "layer": "core",
+      "weight": 1,
+      "text": "Is metadata harvesting automated and monitored, with failures alerted?",
+      "levelDescriptions": {
+        "1": "Metadata is entered manually or not at all.",
+        "2": "Harvesting runs for some systems but failures go unnoticed until content is found stale.",
+        "3": "Scheduled harvesting is configured with monitoring in place.",
+        "4": "Failures alert to a named owner and freshness is reported as a metric.",
+        "5": "Harvesting is self-healing with freshness maintained within a defined tolerance."
+      }
+    },
+    {
+      "id": "DG-P10-04",
+      "pillarId": "P10",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Can metadata and lineage be extracted from the vendor core banking platform, or is that estate opaque to governance tooling?",
+      "levelDescriptions": {
+        "1": "The core is entirely opaque; no metadata extraction has been attempted.",
+        "2": "Extraction is manual, via documentation or one-off vendor requests.",
+        "3": "A documented extraction approach exists and has been proven for the core.",
+        "4": "Core metadata is harvested on schedule into the catalogue.",
+        "5": "Core lineage is captured to field level and maintained automatically through vendor releases."
+      }
+    },
+    {
+      "id": "DG-P10-05",
+      "pillarId": "P10",
+      "layer": "banking",
+      "weight": 1,
+      "text": "Is governance tooling integrated with the bank's existing change and release management process?",
+      "levelDescriptions": {
+        "1": "No integration. Governance activity runs outside the bank's change process entirely.",
+        "2": "Governance raises change requests manually where someone remembers to.",
+        "3": "Governance steps are defined within the standard change process.",
+        "4": "Change records reference catalogue and lineage impact analysis as a required input.",
+        "5": "Change approval is automatically gated on governance checks passing."
+      }
+    },
+
+    {
+      "id": "DG-P11-01",
+      "pillarId": "P11",
+      "layer": "core",
+      "weight": 2,
+      "text": "Is there a register of certified reports and trusted datasets that consumers are directed to use?",
+      "levelDescriptions": {
+        "1": "No register. Consumers build their own extracts and reports independently.",
+        "2": "Some reports are informally regarded as authoritative without formal certification.",
+        "3": "A certification standard exists and a register of certified assets is published.",
+        "4": "Certified assets carry owners and quality measures, and uncertified proliferation is being reduced.",
+        "5": "Certification status is surfaced in consumption tools at the point of use."
+      }
+    },
+    {
+      "id": "DG-P11-02",
+      "pillarId": "P11",
+      "layer": "core",
+      "weight": 3,
+      "text": "Do AI and analytics use cases pass a data-readiness gate before development is approved?",
+      "levelDescriptions": {
+        "1": "No gate. Use cases start and later discover the data cannot support them.",
+        "2": "Data suitability is considered informally by the delivery team.",
+        "3": "A documented readiness assessment is required at intake.",
+        "4": "The gate is enforced — use cases failing it do not proceed until gaps are closed.",
+        "5": "Readiness is assessed automatically from catalogue, classification and quality metadata."
+      }
+    },
+    {
+      "id": "DG-P11-03",
+      "pillarId": "P11",
+      "layer": "core",
+      "weight": 2,
+      "text": "Are model and analytics inputs traceable to governed data elements?",
+      "levelDescriptions": {
+        "1": "No traceability. Inputs are assembled by the modelling team from whatever sources they locate.",
+        "2": "Inputs are documented at dataset level without element-level traceability.",
+        "3": "Inputs are traced to governed elements and recorded in model documentation.",
+        "4": "Input quality metrics are reported alongside model performance.",
+        "5": "Model drift is attributable to input data change, and input changes notify model owners automatically."
+      }
+    },
+    {
+      "id": "DG-P11-04",
+      "pillarId": "P11",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Is the content used to ground generative AI — documents, policies, customer records — classified and access-controlled before ingestion?",
+      "levelDescriptions": {
+        "1": "No control. Either nothing is deployed, or content is ingested without classification review.",
+        "2": "Reviewed manually per pilot with inconsistent criteria.",
+        "3": "A classification and approval process governs what may be ingested.",
+        "4": "Access controls on the source are preserved through to the AI consumption layer.",
+        "5": "Ingestion is automatically gated on classification, with entitlement enforced at query time."
+      }
+    },
+    {
+      "id": "DG-P11-05",
+      "pillarId": "P11",
+      "layer": "banking",
+      "weight": 2,
+      "text": "Does model risk management require evidenced data lineage for regulatory and credit models?",
+      "levelDescriptions": {
+        "1": "Data lineage is not part of model validation.",
+        "2": "Validation notes data sources at a high level without lineage evidence.",
+        "3": "Lineage evidence is a documented requirement of model validation.",
+        "4": "Validation is blocked where lineage evidence is absent, and this is enforced in practice.",
+        "5": "Lineage evidence is produced automatically from the governance platform for each validation cycle."
+      }
+    }
+  ]
+}
