@@ -5,6 +5,7 @@ import {
   PolarRadiusAxis, ResponsiveContainer, Legend, Tooltip,
 } from 'recharts'
 import { generateQuickPDF } from '../utils/quickPdfGenerator'
+import { useOrgName } from '../engagement/useOrgName'
 
 interface QuickQuestion {
   id: string
@@ -27,7 +28,8 @@ const MATURITY_LABELS: Record<number, string> = {
 
 export default function QuickAssessment({ questions, title, variant, onBack }: QuickAssessmentProps) {
   const [answers, setAnswers] = useState<Record<string, number>>({})
-  const [orgName, setOrgName] = useState('')
+  // The client's name lives on the active engagement, not in this component.
+  const [orgName, setOrgName] = useOrgName()
   const [showResults, setShowResults] = useState(false)
   const [expandedQ, setExpandedQ] = useState<Record<string, boolean>>({})
 

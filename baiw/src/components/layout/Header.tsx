@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Search } from 'lucide-react'
+import EngagementSwitcher from '../shared/EngagementSwitcher'
 
 interface Props {
   onOpenSearch: () => void
@@ -27,6 +28,7 @@ export default function Header({ onOpenSearch }: Props) {
           Ctrl+K
         </kbd>
       </button>
+      <EngagementSwitcher accent="purple" />
     </header>
   )
 }

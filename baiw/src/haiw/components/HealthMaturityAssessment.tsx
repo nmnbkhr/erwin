@@ -10,9 +10,11 @@ import {
 import { loadHacrQuestions, loadCapabilities } from '../data'
 import type { HacrData, HacrQuestion, HaiwAssessmentAnswer, HaiwCapability } from '../types'
 import HealthReportGenerator from './HealthReportGenerator'
+import { usePersistedState } from '../../engagement/usePersistedState'
 
 // ── Constants ──────────────────────────────────────────────────────────
 
+/** Base key only — the value is filed under the active engagement. */
 const STORAGE_KEY = 'haiw_maturity_answers'
 
 const MATURITY_LABELS: Record<number, string> = {
@@ -25,18 +27,8 @@ const MATURITY_LABELS: Record<number, string> = {
 
 // ── Helpers ────────────────────────────────────────────────────────────
 
-function loadAnswers(): Record<string, HaiwAssessmentAnswer> {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw) return JSON.parse(raw)
-  } catch { /* ignore */ }
-  return {}
-}
-
-function saveAnswers(answers: Record<string, HaiwAssessmentAnswer>) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(answers))
-  } catch { /* ignore */ }
+function isAnswerMap(parsed: unknown): boolean {
+  return !!parsed && typeof parsed === 'object' && !Array.isArray(parsed)
 }
 
 function gapColor(gap: number): string {
@@ -66,7 +58,7 @@ export default function HealthMaturityAssessment() {
   const [hacrData, setHacrData] = useState<HacrData | null>(null)
   const [loading, setLoading] = useState(true)
   const [currentCategoryIdx, setCurrentCategoryIdx] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, HaiwAssessmentAnswer>>(loadAnswers)
+  const [answers, setAnswers] = usePersistedState<Record<string, HaiwAssessmentAnswer>>(STORAGE_KEY, {}, isAnswerMap)
   const [expandedContexts, setExpandedContexts] = useState<Record<string, boolean>>({})
   const [capabilities, setCapabilities] = useState<HaiwCapability[]>([])
 
@@ -80,10 +72,7 @@ export default function HealthMaturityAssessment() {
       .catch(() => setCapabilities([]))
   }, [])
 
-  // Persist answers
-  useEffect(() => {
-    saveAnswers(answers)
-  }, [answers])
+  // Answers persist through usePersistedState, per engagement
 
   const categories = useMemo(() => hacrData?.categories ?? [], [hacrData])
   const currentCategory = categories[currentCategoryIdx]
@@ -156,7 +145,7 @@ export default function HealthMaturityAssessment() {
       ...prev,
       [questionId]: { questionId, currentState, desiredState },
     }))
-  }, [])
+  }, [setAnswers])
 
   const toggleContext = useCallback((qId: string) => {
     setExpandedContexts(prev => ({ ...prev, [qId]: !prev[qId] }))
@@ -166,9 +155,8 @@ export default function HealthMaturityAssessment() {
     if (window.confirm('Clear all assessment answers? This cannot be undone.')) {
       setAnswers({})
       setCurrentCategoryIdx(0)
-      localStorage.removeItem(STORAGE_KEY)
     }
-  }, [])
+  }, [setAnswers])
 
   // ── Render ─────────────────────────────────────────────────────────
 

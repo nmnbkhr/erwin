@@ -36,7 +36,19 @@ export const LAYER_LABEL: Record<Layer, string> = {
  * directly — silently reverted a core-only engagement to the combined view. The
  * scope of an engagement is not a transient UI preference, and a consultant
  * demonstrating "this is the sector-neutral chassis" should not have it swapped
- * out from under them by a refresh. Per-tab, so two engagements can be open at once.
+ * out from under them by a refresh.
+ *
+ * SUPERSEDED (suite-level engagement identity). The original rationale for
+ * sessionStorage rather than localStorage was "per-tab, so two engagements can
+ * be open at once" — with no engagement record to hang the choice on, a browser
+ * tab was the only thing that could stand in for one. There is now a real
+ * `Engagement`, and it carries `layer` directly, so the layer follows the
+ * engagement rather than the tab: switching engagement in one tab switches the
+ * layer with it, which is what the two-tab trick was approximating.
+ *
+ * These functions are kept as the fallback for the one case the engagement
+ * record cannot cover — no engagement created yet. Whenever there is an active
+ * engagement, LayerProvider uses `active.layer` and ignores the session copy.
  */
 const KEY = 'dgiw.layer'
 

@@ -5,6 +5,7 @@ import {
   ListChecks, CalendarRange, Megaphone, ChevronLeft, ChevronRight, ArrowLeft, Home,
 } from 'lucide-react'
 import { useLayer } from './layer'
+import EngagementSwitcher from '../components/shared/EngagementSwitcher'
 import type { LayerFilter } from './types'
 import pillars from './data/pillars.json'
 import diagnostic from './data/diagnostic.json'
@@ -162,6 +163,7 @@ export default function DgiwLayout({ children }: { children: ReactNode }) {
             {filter === 'core' && 'Core chassis — sector-neutral'}
             {filter === 'banking' && 'Banking overlay only'}
           </span>
+          <EngagementSwitcher accent="rose" />
         </header>
 
         <main className="p-6">{children}</main>

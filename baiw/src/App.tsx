@@ -1,6 +1,8 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AssessmentProvider } from './context/AssessmentContext'
+import { EngagementProvider } from './engagement/EngagementContext'
+import { migrateLegacyStorage } from './engagement/migrate'
 import Layout from './components/layout/Layout'
 import PageSkeleton from './components/layout/PageSkeleton'
 import ErrorBoundary from './components/layout/ErrorBoundary'
@@ -32,97 +34,104 @@ const HaiwRoutes = lazy(() => import('./haiw'))
 const AlmRoutes = lazy(() => import('./alm'))
 const DgiwRoutes = lazy(() => import('./dgiw'))
 
+// Runs at import time — before the first render, and so before any provider can
+// read `wb.engagements`. It is guarded internally and copies rather than moves,
+// so running it here costs nothing if there is no legacy data to adopt.
+migrateLegacyStorage()
+
 function App() {
   return (
     <BrowserRouter>
-      <AssessmentProvider>
-        <Routes>
-          {/* Suite Landing — no layout wrapper */}
-          <Route path="/" element={
-            <ErrorBoundary moduleName="Suite">
-              <Suspense fallback={<PageSkeleton />}>
-                <SuiteLanding />
-              </Suspense>
-            </ErrorBoundary>
-          } />
-
-          {/* TAIW routes — separate layout */}
-          <Route path="/taiw/*" element={
-            <ErrorBoundary moduleName="TAIW">
-              <Suspense fallback={<PageSkeleton />}>
-                <TaiwRoutes />
-              </Suspense>
-            </ErrorBoundary>
-          } />
-
-          {/* COE routes — separate layout */}
-          <Route path="/coe/*" element={
-            <ErrorBoundary moduleName="COE">
-              <Suspense fallback={<PageSkeleton />}>
-                <CoeRoutes />
-              </Suspense>
-            </ErrorBoundary>
-          } />
-
-          {/* HAIW routes — separate layout */}
-          <Route path="/haiw/*" element={
-            <ErrorBoundary moduleName="HAIW">
-              <Suspense fallback={<PageSkeleton />}>
-                <HaiwRoutes />
-              </Suspense>
-            </ErrorBoundary>
-          } />
-
-          {/* ALM routes — separate layout */}
-          <Route path="/alm/*" element={
-            <ErrorBoundary moduleName="ALM">
-              <Suspense fallback={<PageSkeleton />}>
-                <AlmRoutes />
-              </Suspense>
-            </ErrorBoundary>
-          } />
-
-          {/* DG routes — separate layout, own area */}
-          <Route path="/dg/*" element={
-            <ErrorBoundary moduleName="DGIW">
-              <Suspense fallback={<PageSkeleton />}>
-                <DgiwRoutes />
-              </Suspense>
-            </ErrorBoundary>
-          } />
-
-          {/* BAIW routes — existing layout */}
-          <Route path="*" element={
-            <Layout>
-              <ErrorBoundary moduleName="BAIW">
+      <EngagementProvider>
+        <AssessmentProvider>
+          <Routes>
+            {/* Suite Landing — no layout wrapper */}
+            <Route path="/" element={
+              <ErrorBoundary moduleName="Suite">
                 <Suspense fallback={<PageSkeleton />}>
-                  <Routes>
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/model" element={<ModelExplorer />} />
-                    <Route path="/capabilities" element={<CapabilityNavigator />} />
-                    <Route path="/graph" element={<DependencyGraph />} />
-                    <Route path="/maturity" element={<MaturityAssessment />} />
-                    <Route path="/profitability" element={<ProfitabilityEngine />} />
-                    <Route path="/customer-profitability" element={<CustomerProfitability />} />
-                    <Route path="/customer-profitability-workbench" element={<CustomerProfitabilityWorkbench />} />
-                    <Route path="/customer-value" element={<CustomerValue />} />
-                    <Route path="/corporate-value" element={<CorporateValue />} />
-                    <Route path="/customer-comparison" element={<CustomerComparison />} />
-                    <Route path="/what-if" element={<WhatIfLab />} />
-                    <Route path="/portfolio" element={<PortfolioRollup />} />
-                    <Route path="/deck" element={<UseCaseDeck />} />
-                    <Route path="/roadmap" element={<RoadmapBuilder />} />
-                    <Route path="/pakistan" element={<PakistanReference />} />
-                    <Route path="/cash-optimization" element={<CashOptimizationEngine />} />
-                    <Route path="/architecture" element={<ArchitectureCockpit />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
+                  <SuiteLanding />
                 </Suspense>
               </ErrorBoundary>
-            </Layout>
-          } />
-        </Routes>
-      </AssessmentProvider>
+            } />
+
+            {/* TAIW routes — separate layout */}
+            <Route path="/taiw/*" element={
+              <ErrorBoundary moduleName="TAIW">
+                <Suspense fallback={<PageSkeleton />}>
+                  <TaiwRoutes />
+                </Suspense>
+              </ErrorBoundary>
+            } />
+
+            {/* COE routes — separate layout */}
+            <Route path="/coe/*" element={
+              <ErrorBoundary moduleName="COE">
+                <Suspense fallback={<PageSkeleton />}>
+                  <CoeRoutes />
+                </Suspense>
+              </ErrorBoundary>
+            } />
+
+            {/* HAIW routes — separate layout */}
+            <Route path="/haiw/*" element={
+              <ErrorBoundary moduleName="HAIW">
+                <Suspense fallback={<PageSkeleton />}>
+                  <HaiwRoutes />
+                </Suspense>
+              </ErrorBoundary>
+            } />
+
+            {/* ALM routes — separate layout */}
+            <Route path="/alm/*" element={
+              <ErrorBoundary moduleName="ALM">
+                <Suspense fallback={<PageSkeleton />}>
+                  <AlmRoutes />
+                </Suspense>
+              </ErrorBoundary>
+            } />
+
+            {/* DG routes — separate layout, own area */}
+            <Route path="/dg/*" element={
+              <ErrorBoundary moduleName="DGIW">
+                <Suspense fallback={<PageSkeleton />}>
+                  <DgiwRoutes />
+                </Suspense>
+              </ErrorBoundary>
+            } />
+
+            {/* BAIW routes — existing layout */}
+            <Route path="*" element={
+              <Layout>
+                <ErrorBoundary moduleName="BAIW">
+                  <Suspense fallback={<PageSkeleton />}>
+                    <Routes>
+                      <Route path="/dashboard" element={<Dashboard />} />
+                      <Route path="/model" element={<ModelExplorer />} />
+                      <Route path="/capabilities" element={<CapabilityNavigator />} />
+                      <Route path="/graph" element={<DependencyGraph />} />
+                      <Route path="/maturity" element={<MaturityAssessment />} />
+                      <Route path="/profitability" element={<ProfitabilityEngine />} />
+                      <Route path="/customer-profitability" element={<CustomerProfitability />} />
+                      <Route path="/customer-profitability-workbench" element={<CustomerProfitabilityWorkbench />} />
+                      <Route path="/customer-value" element={<CustomerValue />} />
+                      <Route path="/corporate-value" element={<CorporateValue />} />
+                      <Route path="/customer-comparison" element={<CustomerComparison />} />
+                      <Route path="/what-if" element={<WhatIfLab />} />
+                      <Route path="/portfolio" element={<PortfolioRollup />} />
+                      <Route path="/deck" element={<UseCaseDeck />} />
+                      <Route path="/roadmap" element={<RoadmapBuilder />} />
+                      <Route path="/pakistan" element={<PakistanReference />} />
+                      <Route path="/cash-optimization" element={<CashOptimizationEngine />} />
+                      <Route path="/architecture" element={<ArchitectureCockpit />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </Suspense>
+                </ErrorBoundary>
+              </Layout>
+            } />
+          </Routes>
+        </AssessmentProvider>
+      </EngagementProvider>
     </BrowserRouter>
   )
 }

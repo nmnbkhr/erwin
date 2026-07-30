@@ -1,22 +1,36 @@
 import { useState, useMemo, type ReactNode } from 'react'
 import type { Layer, LayerFilter } from './types'
 import { LayerCtx, LAYER_LABEL, readStoredFilter, writeStoredFilter, type LayerContextValue } from './layer'
+import { useEngagementOptional } from '../engagement/context'
 
 export function LayerProvider({ children }: { children: ReactNode }) {
-  const [filter, setFilterState] = useState<LayerFilter>(readStoredFilter)
+  const engagement = useEngagementOptional()
+  const active = engagement?.active ?? null
+
+  // Per-tab sessionStorage is now only the fallback for having no engagement at
+  // all — see the header comment in layer.ts for why the original per-tab
+  // rationale no longer applies. An engagement that has not chosen a layer shows
+  // the combined view; it deliberately does NOT inherit whatever the previous
+  // engagement was being viewed as, which would put one client's scope on
+  // another client's screen.
+  const [fallback, setFallback] = useState<LayerFilter>(readStoredFilter)
+  const filter: LayerFilter = active ? (active.layer ?? 'all') : fallback
 
   const value = useMemo<LayerContextValue>(() => {
     const shows = (layer: Layer) => filter === 'all' || filter === layer
     return {
       filter,
       setFilter: (f: LayerFilter) => {
+        // Written both places on purpose: the engagement is the source of truth,
+        // the session copy is what a not-yet-named engagement inherits.
         writeStoredFilter(f)
-        setFilterState(f)
+        setFallback(f)
+        if (active) engagement?.update(active.id, { layer: f })
       },
       shows,
       keep: (items) => items.filter((i) => shows(i.layer)),
     }
-  }, [filter])
+  }, [filter, active, engagement])
 
   return <LayerCtx.Provider value={value}>{children}</LayerCtx.Provider>
 }

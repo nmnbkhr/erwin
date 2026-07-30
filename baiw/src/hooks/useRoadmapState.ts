@@ -1,5 +1,18 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
+import { usePersistedState } from '../engagement/usePersistedState'
 
+/**
+ * Roadmap selection state.
+ *
+ * Was a fixed `baiw-roadmap` localStorage key with a 500ms debounced write; it
+ * is now filed under the active engagement by `usePersistedState`. The debounce
+ * is gone with the hand-rolled write — the persisted payload is a short array of
+ * ids and the hook already skips writes when the serialised value is unchanged,
+ * so the timer bought nothing once the write moved behind that check.
+ *
+ * The public shape (`Set<string>` in, `Set<string>` out) is unchanged so every
+ * call site in RoadmapBuilder keeps working.
+ */
 const STORAGE_KEY = 'baiw-roadmap'
 
 interface RoadmapState {
@@ -12,50 +25,27 @@ const defaultState: RoadmapState = {
   lastUpdated: '',
 }
 
-function loadState(): RoadmapState {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    if (saved) {
-      const parsed = JSON.parse(saved)
-      if (parsed && Array.isArray(parsed.selectedCapabilities)) {
-        return parsed as RoadmapState
-      }
-    }
-  } catch {
-    // corrupt data — reset
-    localStorage.removeItem(STORAGE_KEY)
-  }
-  return defaultState
+function isRoadmapState(parsed: unknown): boolean {
+  return !!parsed && Array.isArray((parsed as RoadmapState).selectedCapabilities)
 }
 
 export function useRoadmapState() {
-  const [selectedCaps, setSelectedCaps] = useState<Set<string>>(() => {
-    const state = loadState()
-    return new Set(state.selectedCapabilities)
-  })
+  const [state, setState] = usePersistedState<RoadmapState>(STORAGE_KEY, defaultState, isRoadmapState)
 
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const selectedCaps = useMemo(() => new Set(state.selectedCapabilities), [state.selectedCapabilities])
 
-  useEffect(() => {
-    if (debounceRef.current) clearTimeout(debounceRef.current)
-    debounceRef.current = setTimeout(() => {
-      const state: RoadmapState = {
-        selectedCapabilities: [...selectedCaps],
-        lastUpdated: new Date().toISOString(),
-      }
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-    }, 500)
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current)
-    }
-  }, [selectedCaps])
+  const setSelectedCaps = useCallback(
+    (next: Set<string> | ((prev: Set<string>) => Set<string>)) => {
+      setState((prev) => {
+        const prevSet = new Set(prev.selectedCapabilities)
+        const nextSet = typeof next === 'function' ? next(prevSet) : next
+        return { selectedCapabilities: [...nextSet], lastUpdated: new Date().toISOString() }
+      })
+    },
+    [setState],
+  )
 
-  const resetRoadmap = useCallback(() => {
-    setSelectedCaps(new Set())
-    localStorage.removeItem(STORAGE_KEY)
-  }, [])
+  const resetRoadmap = useCallback(() => setState(defaultState), [setState])
 
-  const lastUpdated = loadState().lastUpdated
-
-  return { selectedCaps, setSelectedCaps, resetRoadmap, lastUpdated }
+  return { selectedCaps, setSelectedCaps, resetRoadmap, lastUpdated: state.lastUpdated }
 }

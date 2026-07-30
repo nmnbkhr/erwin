@@ -6,6 +6,7 @@ import {
   ChevronLeft, ChevronRight, Search, ArrowLeft, Home,
 } from 'lucide-react'
 import HaiwCommandPalette from './HaiwCommandPalette'
+import EngagementSwitcher from '../../components/shared/EngagementSwitcher'
 
 const navItems = [
   { path: '/haiw', label: 'Dashboard', icon: LayoutDashboard },
@@ -143,6 +144,7 @@ export default function HaiwLayout({ children }: { children: ReactNode }) {
               Ctrl+K
             </kbd>
           </button>
+          <EngagementSwitcher accent="emerald" />
         </header>
 
         <main className="p-6">{children}</main>

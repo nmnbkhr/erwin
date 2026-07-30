@@ -12,6 +12,7 @@ import { downloadJSON, downloadCSV } from '../utils/export'
 import TradeReportGenerator from './TradeReportGenerator'
 import QuickAssessment from '../../components/QuickAssessment'
 import { loadTacrQuestions } from '../data'
+import { usePersistedState } from '../../engagement/usePersistedState'
 import type { TacrData, TacrCategory, TacrSection } from '../types'
 import tradeQuickData from '../../data/taiw/quickAssessment.json'
 
@@ -23,6 +24,7 @@ interface AnswerMap {
   [questionId: string]: { currentState: number; desiredState: number }
 }
 
+/** Base key only — the value is filed under the active engagement. */
 const STORAGE_KEY = 'taiw_maturity'
 
 const MATURITY_LABELS: Record<number, string> = {
@@ -37,17 +39,8 @@ const MATURITY_LABELS: Record<number, string> = {
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-function loadAnswers(): AnswerMap {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    return raw ? (JSON.parse(raw) as AnswerMap) : {}
-  } catch {
-    return {}
-  }
-}
-
-function saveAnswers(answers: AnswerMap) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(answers))
+function isAnswerMap(parsed: unknown): boolean {
+  return !!parsed && typeof parsed === 'object' && !Array.isArray(parsed)
 }
 
 /* ------------------------------------------------------------------ */
@@ -57,7 +50,7 @@ function saveAnswers(answers: AnswerMap) {
 export default function TradeMaturityAssessment() {
   const [data, setData] = useState<TacrData | null>(null)
   const [loading, setLoading] = useState(true)
-  const [answers, setAnswers] = useState<AnswerMap>(loadAnswers)
+  const [answers, setAnswers] = usePersistedState<AnswerMap>(STORAGE_KEY, {}, isAnswerMap)
   const [catIdx, setCatIdx] = useState(0)
   const [secIdx, setSecIdx] = useState(0)
   const [assessmentMode, setAssessmentMode] = useState<'select' | 'quick' | 'standard' | 'deep'>('select')
@@ -72,10 +65,7 @@ export default function TradeMaturityAssessment() {
     })
   }, [])
 
-  // ---- Persist answers ----
-  useEffect(() => {
-    saveAnswers(answers)
-  }, [answers])
+  // ---- Answers persist through usePersistedState, per engagement ----
 
   // ---- Derived ----
   const categories = data?.categories ?? []
@@ -121,7 +111,7 @@ export default function TradeMaturityAssessment() {
         return { ...prev, [qid]: { ...existing, [field]: value } }
       })
     },
-    [],
+    [setAnswers],
   )
 
   const toggleExpand = useCallback((qid: string) => {
@@ -133,8 +123,7 @@ export default function TradeMaturityAssessment() {
     setCatIdx(0)
     setSecIdx(0)
     setViewMode('assessment')
-    localStorage.removeItem(STORAGE_KEY)
-  }, [])
+  }, [setAnswers])
 
   // Navigation helpers
   const goNextSection = useCallback(() => {

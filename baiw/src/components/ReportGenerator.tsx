@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
 import { generateMaturityPDF, generateGapCSV, generateRoadmapMarkdown } from '../utils/reportGenerator'
+import { useOrgName } from '../engagement/useOrgName'
 
 interface CategoryScore {
   category: string
@@ -18,7 +19,8 @@ interface ReportGeneratorProps {
 
 export default function ReportGenerator({ scores, overallScore, answeredCategories, totalCategories }: ReportGeneratorProps) {
   const [expanded, setExpanded] = useState(false)
-  const [bankName, setBankName] = useState('')
+  // The client's name lives on the active engagement, not in this component.
+  const [bankName, setBankName] = useOrgName()
   const [generating, setGenerating] = useState<string | null>(null)
 
   const hasData = answeredCategories > 0

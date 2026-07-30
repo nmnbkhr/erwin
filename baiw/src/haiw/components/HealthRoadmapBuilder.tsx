@@ -1,7 +1,9 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { loadCapabilities, loadFhirResources } from '../data'
 import type { HaiwCapability, HaiwFhirResource } from '../types'
+import { usePersistedState } from '../../engagement/usePersistedState'
 
+/** Base key only — the value is filed under the active engagement. */
 const STORAGE_KEY = 'haiw_roadmap_selections'
 
 // ---------- Template Definitions ----------
@@ -82,7 +84,16 @@ export default function HealthRoadmapBuilder() {
   const [loading, setLoading] = useState(true)
   const [capabilities, setCapabilities] = useState<HaiwCapability[]>([])
   const [fhirResources, setFhirResources] = useState<HaiwFhirResource[]>([])
-  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
+  // Persisted as a plain id array (a Set does not survive JSON) but exposed as a
+  // Set, so every call site below is unchanged.
+  const [savedIds, setSavedIds] = usePersistedState<string[]>(STORAGE_KEY, [], Array.isArray)
+  const selectedIds = useMemo(() => new Set(savedIds), [savedIds])
+  const setSelectedIds = useCallback(
+    (next: Set<string> | ((prev: Set<string>) => Set<string>)) => {
+      setSavedIds((prev) => [...(typeof next === 'function' ? next(new Set(prev)) : next)])
+    },
+    [setSavedIds],
+  )
 
   // Investment calculator state
   const [teamSize, setTeamSize] = useState(15)
@@ -92,21 +103,7 @@ export default function HealthRoadmapBuilder() {
   // Accordion: which themes are expanded
   const [expandedThemes, setExpandedThemes] = useState<Set<string>>(new Set())
 
-  // Load persisted selections
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY)
-      if (saved) {
-        const parsed = JSON.parse(saved) as string[]
-        if (Array.isArray(parsed)) setSelectedIds(new Set(parsed))
-      }
-    } catch { /* ignore */ }
-  }, [])
-
-  // Persist selections
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([...selectedIds]))
-  }, [selectedIds])
+  // Selections load and persist through usePersistedState, per engagement
 
   // Load data
   useEffect(() => {
@@ -204,7 +201,7 @@ export default function HealthRoadmapBuilder() {
       else next.add(id)
       return next
     })
-  }, [])
+  }, [setSelectedIds])
 
   const selectAllInTheme = useCallback((caps: HaiwCapability[]) => {
     setSelectedIds((prev) => {
@@ -212,7 +209,7 @@ export default function HealthRoadmapBuilder() {
       caps.forEach((c) => next.add(c.id))
       return next
     })
-  }, [])
+  }, [setSelectedIds])
 
   const clearAllInTheme = useCallback((caps: HaiwCapability[]) => {
     setSelectedIds((prev) => {
@@ -220,14 +217,14 @@ export default function HealthRoadmapBuilder() {
       caps.forEach((c) => next.delete(c.id))
       return next
     })
-  }, [])
+  }, [setSelectedIds])
 
   const applyTemplate = useCallback(
     (template: Template) => {
       const ids = capabilities.filter(template.filter).map((c) => c.id)
       setSelectedIds(new Set(ids))
     },
-    [capabilities],
+    [capabilities, setSelectedIds],
   )
 
   const toggleTheme = useCallback((theme: string) => {

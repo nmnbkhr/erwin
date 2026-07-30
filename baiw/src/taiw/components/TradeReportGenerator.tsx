@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
 import { generateTradeMaturityPDF, generateTradeGapCSV, generateTradeRoadmapMarkdown } from '../utils/tradeReportGenerator'
+import { useOrgName } from '../../engagement/useOrgName'
 
 interface CategoryScore {
   category: string
@@ -18,7 +19,8 @@ interface TradeReportGeneratorProps {
 
 export default function TradeReportGenerator({ scores, overallScore, answeredCategories, totalCategories }: TradeReportGeneratorProps) {
   const [expanded, setExpanded] = useState(false)
-  const [orgName, setOrgName] = useState('')
+  // The client's name lives on the active engagement, not in this component.
+  const [orgName, setOrgName] = useOrgName()
   const [generating, setGenerating] = useState<string | null>(null)
 
   const hasData = answeredCategories > 0

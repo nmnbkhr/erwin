@@ -4,6 +4,7 @@ import {
   LayoutDashboard, Layers, Activity, Droplets, Scale, Database, BarChart3,
   ChevronLeft, ChevronRight, ArrowLeft, Home,
 } from 'lucide-react'
+import EngagementSwitcher from '../components/shared/EngagementSwitcher'
 
 const navItems = [
   { path: '/alm', label: 'Dashboard', icon: LayoutDashboard },
@@ -116,6 +117,7 @@ export default function AlmLayout({ children }: { children: ReactNode }) {
           <span className="ml-auto text-xs text-slate-400">
             UBL · Sierra + Symbols/CBS → FIS ALM PDM → FSDM
           </span>
+          <EngagementSwitcher accent="indigo" />
         </header>
 
         <main className="p-6">{children}</main>

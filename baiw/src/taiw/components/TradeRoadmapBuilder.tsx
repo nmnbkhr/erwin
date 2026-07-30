@@ -6,6 +6,7 @@ import {
 import type {
   TaiwCapability, TaiwEnrichment, TaiwEnrichmentEntry, TaiwReuseScore,
 } from '../types'
+import { usePersistedState } from '../../engagement/usePersistedState'
 import {
   ChevronDown, ChevronRight, Check, Search, Download, FileText,
   Zap, ShieldCheck, Ship, Layers, RotateCcw, Monitor, Cpu,
@@ -14,6 +15,7 @@ import {
 
 /* ---------- Constants ---------- */
 
+/** Base key only — the value is filed under the active engagement. */
 const STORAGE_KEY = 'taiw_roadmap'
 
 const PHASE_META: Record<number, {
@@ -40,18 +42,6 @@ const PRIORITY_BADGE: Record<string, string> = {
 }
 
 /* ---------- Helpers ---------- */
-
-function loadSavedSelection(): Set<string> {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw) return new Set(JSON.parse(raw) as string[])
-  } catch { /* ignore */ }
-  return new Set()
-}
-
-function saveSelection(ids: Set<string>) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([...ids]))
-}
 
 function getPhaseForCap(
   cap: TaiwCapability,
@@ -131,7 +121,16 @@ export default function TradeRoadmapBuilder() {
   const [loading, setLoading] = useState(true)
 
   /* ---- UI state ---- */
-  const [selectedCaps, setSelectedCaps] = useState<Set<string>>(loadSavedSelection)
+  // Persisted as a plain id array (a Set does not survive JSON) but exposed as a
+  // Set, so every call site below is unchanged.
+  const [savedCapIds, setSavedCapIds] = usePersistedState<string[]>(STORAGE_KEY, [], Array.isArray)
+  const selectedCaps = useMemo(() => new Set(savedCapIds), [savedCapIds])
+  const setSelectedCaps = useCallback(
+    (next: Set<string> | ((prev: Set<string>) => Set<string>)) => {
+      setSavedCapIds(prev => [...(typeof next === 'function' ? next(new Set(prev)) : next)])
+    },
+    [setSavedCapIds],
+  )
   const [expandedThemes, setExpandedThemes] = useState<Set<string>>(new Set())
   const [searchFilter, setSearchFilter] = useState('')
 
@@ -155,8 +154,7 @@ export default function TradeRoadmapBuilder() {
     })
   }, [])
 
-  /* ---- Persist selection ---- */
-  useEffect(() => { saveSelection(selectedCaps) }, [selectedCaps])
+  /* ---- Selection persists through usePersistedState, per engagement ---- */
 
   /* ---- Callbacks ---- */
   const toggleCap = useCallback((id: string) => {
@@ -165,16 +163,16 @@ export default function TradeRoadmapBuilder() {
       if (next.has(id)) next.delete(id); else next.add(id)
       return next
     })
-  }, [])
+  }, [setSelectedCaps])
 
   const applyTemplate = useCallback((tpl: TemplateConfig) => {
     if (!enrichment) return
     let matched = capabilities.filter(c => tpl.filter(c, enrichment))
     if (tpl.limit) matched = matched.slice(0, tpl.limit)
     setSelectedCaps(new Set(matched.map(c => c.id)))
-  }, [capabilities, enrichment])
+  }, [capabilities, enrichment, setSelectedCaps])
 
-  const clearAll = useCallback(() => setSelectedCaps(new Set()), [])
+  const clearAll = useCallback(() => setSelectedCaps(new Set()), [setSelectedCaps])
 
   const toggleThemeAll = useCallback((themeCaps: TaiwCapability[]) => {
     setSelectedCaps(prev => {
@@ -183,7 +181,7 @@ export default function TradeRoadmapBuilder() {
       themeCaps.forEach(c => allSelected ? next.delete(c.id) : next.add(c.id))
       return next
     })
-  }, [])
+  }, [setSelectedCaps])
 
   /* ---- Derived: group by theme ---- */
   const groupedByTheme = useMemo(() => {

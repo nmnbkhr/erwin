@@ -6,6 +6,7 @@ import {
   ChevronLeft, ChevronRight, Search, ArrowLeft, Home,
 } from 'lucide-react'
 import TaiwCommandPalette from './TaiwCommandPalette'
+import EngagementSwitcher from '../../components/shared/EngagementSwitcher'
 
 const navItems = [
   { path: '/taiw', label: 'Dashboard', icon: LayoutDashboard },
@@ -142,6 +143,7 @@ export default function TaiwLayout({ children }: { children: ReactNode }) {
               Ctrl+K
             </kbd>
           </button>
+          <EngagementSwitcher accent="teal" />
         </header>
 
         <main className="p-6">{children}</main>

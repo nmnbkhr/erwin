@@ -1,5 +1,6 @@
-import { createContext, useContext, useReducer, useEffect, type ReactNode } from 'react'
+import { createContext, useContext, useCallback, type ReactNode } from 'react'
 import type { AssessmentAnswer } from '../types'
+import { usePersistedState } from '../engagement/usePersistedState'
 
 interface AssessmentState {
   answers: Record<string, AssessmentAnswer>
@@ -45,23 +46,21 @@ const AssessmentContext = createContext<{
   dispatch: React.Dispatch<AssessmentAction>
 } | null>(null)
 
-export function AssessmentProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, initialState, () => {
-    try {
-      const saved = localStorage.getItem('baiw-assessment')
-      if (saved) {
-        const parsed = JSON.parse(saved)
-        if (parsed && typeof parsed.answers === 'object') return parsed
-      }
-    } catch {
-      localStorage.removeItem('baiw-assessment')
-    }
-    return initialState
-  })
+/** The guard the ad-hoc loader applied inline, kept verbatim. */
+function isAssessmentState(parsed: unknown): boolean {
+  return !!parsed && typeof (parsed as AssessmentState).answers === 'object'
+}
 
-  useEffect(() => {
-    localStorage.setItem('baiw-assessment', JSON.stringify(state))
-  }, [state])
+export function AssessmentProvider({ children }: { children: ReactNode }) {
+  // Same contract as before — the whole reducer state is written on every
+  // change — but filed under the active engagement instead of one fixed key.
+  // The reducer is applied through the setter so `dispatch` keeps its semantics.
+  const [state, setState] = usePersistedState<AssessmentState>('baiw-assessment', initialState, isAssessmentState)
+
+  const dispatch = useCallback<React.Dispatch<AssessmentAction>>(
+    (action) => setState((prev) => reducer(prev, action)),
+    [setState],
+  )
 
   return (
     <AssessmentContext.Provider value={{ state, dispatch }}>

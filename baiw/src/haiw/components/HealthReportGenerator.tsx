@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
 import type { HaiwAssessmentAnswer, HaiwCapability } from '../types'
+import { useOrgName } from '../../engagement/useOrgName'
 
 interface HealthReportGeneratorProps {
   answers: HaiwAssessmentAnswer[]
@@ -11,7 +12,8 @@ interface HealthReportGeneratorProps {
 
 export default function HealthReportGenerator({ answers, capabilities, answeredCategories, totalCategories }: HealthReportGeneratorProps) {
   const [expanded, setExpanded] = useState(false)
-  const [orgName, setOrgName] = useState('')
+  // The client's name lives on the active engagement, not in this component.
+  const [orgName, setOrgName] = useOrgName()
   const [generating, setGenerating] = useState<string | null>(null)
 
   const hasData = answeredCategories > 0

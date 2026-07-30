@@ -12,6 +12,7 @@ import diagnostic from '../data/diagnostic.json'
 import pillars from '../data/pillars.json'
 import implementationPlan from '../data/implementationPlan.json'
 import type { DiagnosticData, Pillar, PillarScore, ImplementationPlanData } from '../types'
+import { useOrgName } from '../../engagement/useOrgName'
 
 const DIAG = diagnostic as DiagnosticData
 const PILLARS = pillars as Pillar[]
@@ -48,7 +49,8 @@ const RANK_MIN_CONFIDENCE = 0.5
 export default function Diagnostic() {
   const { filter, shows } = useLayer()
   const [answers, setAnswers] = useState<Record<string, number>>({})
-  const [orgName, setOrgName] = useState('')
+  // The client's name lives on the active engagement, not in this component.
+  const [orgName, setOrgName] = useOrgName()
   const [showResults, setShowResults] = useState(false)
   const [expandedQ, setExpandedQ] = useState<Record<string, boolean>>({})
   const [openPillar, setOpenPillar] = useState<string | null>(PILLARS[0]?.id ?? null)

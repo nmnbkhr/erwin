@@ -5,6 +5,7 @@ import {
   Cpu, Map, Database, ChevronLeft, ChevronRight, Search,
   ArrowLeft, Home,
 } from 'lucide-react'
+import EngagementSwitcher from '../components/shared/EngagementSwitcher'
 
 const navItems = [
   { path: '/coe', label: 'Dashboard', icon: LayoutDashboard },
@@ -138,6 +139,7 @@ export default function CoeLayout({ children }: { children: ReactNode }) {
               Ctrl+K
             </kbd>
           </button>
+          <EngagementSwitcher accent="amber" />
         </header>
 
         <main className="p-6">{children}</main>
