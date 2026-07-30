@@ -7,6 +7,10 @@ set -e
 cd "$(dirname "$0")"
 
 REPO_ROOT="$(cd .. && pwd)"
+# The pipeline outputs and the BACR workbook that prepare_data.py reads now live
+# in data-sources/ rather than scattered across the repo root. The layout inside
+# that folder is unchanged, so prepare_data.py needs no edit — only this path.
+DATA_SOURCES="$REPO_ROOT/data-sources"
 MODE="${1:-dev}"
 
 case "$MODE" in
@@ -32,7 +36,11 @@ case "$MODE" in
   data)
     echo "=== BAIW Data Conversion ==="
     pip install openpyxl 2>/dev/null || true
-    python3 scripts/prepare_data.py --repo "$REPO_ROOT" --output src/data/ "${@:2}"
+    if [ ! -d "$DATA_SOURCES" ]; then
+      echo "Missing $DATA_SOURCES — the pipeline outputs prepare_data.py reads." >&2
+      exit 1
+    fi
+    python3 scripts/prepare_data.py --repo "$DATA_SOURCES" --output src/data/ "${@:2}"
     ;;
   *)
     echo "Usage: ./dev.sh [dev|build|preview|data]"

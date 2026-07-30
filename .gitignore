@@ -1,10 +1,15 @@
-# Input data files
+# Large source documents — the decks, workbooks, PDFs, schema and erwin model the
+# analysis pipeline was originally run against. Patterns are unanchored so they
+# still apply now that these files live under archive/source-documents/ and
+# data-sources/ rather than at the repo root.
 *.erwin
 *.xlsm
-/*.pptx
-!pptout/*.pptx
+*.pptx
 *.pdf
 *.xsd
+
+# Exception: the generated decks in the pptx authoring workspace are tracked.
+!archive/pptx-authoring/pptout/*.pptx
 
 # Office temp/lock files
 ~$*
@@ -18,4 +23,6 @@ venv/
 
 # Claude settings
 .claude/
+
+# Unpacked pptx working directories — regenerable from the decks.
 unpacked_*/
