@@ -108,3 +108,12 @@ over retyping it.
   stale `/mnt/e/erwin` checkout. The canonical repo is `~/erwin` on ext4.
 - `git` history is 23 coarse commits over five months. It will not explain any
   individual decision. `archive/build-prompts/` is the closer design record.
+- Never `pkill -f vite` or `pkill -f node`. Those patterns kill every project
+  on the machine. Kill by port: `lsof -ti:5174 | xargs -r kill`.
+- `npm run lint` has a standing baseline of 55 problems (46 errors, 9
+  warnings), all pre-existing. Lint is not part of `npm run build`. Report the
+  count; do not fix them as a side quest.
+- Five components reassign an accumulator inside `.map()` during render
+  (CustomerProfitability, CustomerValue, CorporateValue, PortfolioRollup,
+  FtpDecomposition — all profitability waterfalls). Known, deferred. Fix with
+  `reduce` when touched, not as a sweep.

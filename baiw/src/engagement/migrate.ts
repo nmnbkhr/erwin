@@ -1,3 +1,8 @@
+// Called at MODULE SCOPE from App.tsx L40 — before React mounts.
+// Any uncaught throw here blanks the app with no ErrorBoundary and no console
+// trace. Every storage access must go through safeGet/safeSet/writeNsRaw.
+// Do not add a bare localStorage call, a JSON.parse, or crypto.randomUUID here.
+
 /**
  * One-time migration of pre-engagement localStorage into the first engagement.
  *
