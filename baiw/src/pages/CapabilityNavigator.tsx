@@ -228,6 +228,10 @@ export default function CapabilityNavigator() {
 
   return (
     <div className="flex gap-4 h-[calc(100vh-120px)]">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Capability Navigator</h1>
       {/* Left: BVF Hierarchy Tree */}
       <div className="w-[300px] bg-white rounded-lg shadow-sm overflow-y-auto shrink-0">
         <div className="p-3 border-b border-slate-100">

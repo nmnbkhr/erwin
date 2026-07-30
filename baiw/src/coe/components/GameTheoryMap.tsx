@@ -343,8 +343,10 @@ export default function GameTheoryMap() {
                 <th className="w-10"></th>
               </tr>
             </thead>
-            <tbody>
-              {gameTheoryMatrix.map(row => {
+            {/* No wrapping <tbody> here: each row renders its own <tbody> so the
+                summary row and its expanded detail row stay grouped. Nesting one
+                inside another is invalid HTML and React reports a hydration error. */}
+            {gameTheoryMatrix.map(row => {
                 const uc = useCases.find(u => u.id === row.ucId)
                 const isExpanded = expandedRow === row.ucId
                 return (
@@ -397,9 +399,8 @@ export default function GameTheoryMap() {
                       </tr>
                     )}
                   </tbody>
-                )
-              })}
-            </tbody>
+              )
+            })}
           </table>
         </div>
       </div>

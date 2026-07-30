@@ -324,6 +324,10 @@ export default function ModelExplorer() {
 
   return (
     <div className="space-y-4">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">FSDM Model Explorer</h1>
       <div className="flex items-center gap-4">
         <div className="relative flex-1 max-w-lg">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment} from 'react'
 import { loadPakistanContext } from '../utils/dataLoader'
 import type { PakistanContext } from '../types'
 import ExportMenu from '../components/layout/ExportMenu'
@@ -53,6 +53,10 @@ export default function PakistanReference() {
 
   return (
     <div className="space-y-4">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Pakistan Banking Reference</h1>
       <div className="flex items-center justify-between">
         <div className="flex gap-2 flex-wrap">
           {tabs.map((tab) => (
@@ -270,8 +274,8 @@ export default function PakistanReference() {
               </thead>
               <tbody>
                 {SBP_RETURNS.map((ret) => (
-                  <>
-                    <tr key={ret.code} className="border-t border-slate-100 hover:bg-slate-50">
+                  <Fragment key={ret.code}>
+                    <tr className="border-t border-slate-100 hover:bg-slate-50">
                       <td className="px-4 py-3 font-mono font-medium text-emerald-700">{ret.code}</td>
                       <td className="px-4 py-3 text-slate-700 font-medium">{ret.name}</td>
                       <td className="px-4 py-3">
@@ -317,7 +321,7 @@ export default function PakistanReference() {
                         </td>
                       </tr>
                     )}
-                  </>
+                  </Fragment>
                 ))}
               </tbody>
             </table>

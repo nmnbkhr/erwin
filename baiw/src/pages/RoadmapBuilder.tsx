@@ -186,6 +186,10 @@ export default function RoadmapBuilder() {
 
   return (
     <div className="space-y-6">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Roadmap Builder</h1>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {lastUpdated && (

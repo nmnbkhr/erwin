@@ -250,6 +250,10 @@ export default function TaiwDashboard() {
 
   return (
     <div className="space-y-6">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Trade Analytics Dashboard</h1>
       {/* ===== Export Button ===== */}
       <div className="flex justify-end">
         <button

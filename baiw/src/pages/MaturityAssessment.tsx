@@ -209,6 +209,10 @@ export default function MaturityAssessment() {
   // ── Standard Assessment Mode (existing) ──
   return (
     <div className="space-y-6">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Maturity Assessment</h1>
       {/* Mode Toggle */}
       <div className="flex items-center justify-between">
         <div className="flex gap-2">

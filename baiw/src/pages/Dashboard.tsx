@@ -61,6 +61,10 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">BAIW Dashboard</h1>
       <div className="flex justify-end">
         <ExportMenu options={[
           { label: 'Export as JSON', onClick: () => downloadJSON({ totalEntities, domains: domains.length, capabilities: capabilities.length, bacrQuestions: 793, domainData: domains, capabilityData: capabilities }, 'baiw-dashboard') },

@@ -243,6 +243,10 @@ export default function TCFCapabilityNavigator() {
   /* ── render ──────────────────────────────────────────────────── */
   return (
     <div className="flex gap-4 h-[calc(100vh-120px)]">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">TCF Capability Navigator</h1>
 
       {/* ─── LEFT: TCF Hierarchy Tree ─────────────────────────── */}
       <div className="w-[320px] bg-white rounded-lg shadow-sm overflow-y-auto shrink-0 flex flex-col">

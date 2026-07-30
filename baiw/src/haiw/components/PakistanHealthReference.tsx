@@ -57,8 +57,8 @@ const statCategories = [
     keys: [
       { key: 'population', label: 'Population', icon: Users },
       { key: 'lifeExpectancy', label: 'Life Expectancy (years)', icon: Heart },
-      { key: 'infantMortality', label: 'Infant Mortality (per 1000)', icon: Baby },
-      { key: 'maternalMortality', label: 'Maternal Mortality (per 100k)', icon: Activity },
+      { key: 'infantMortalityPer1000', label: 'Infant Mortality (per 1,000)', icon: Baby },
+      { key: 'maternalMortalityPer100K', label: 'Maternal Mortality (per 100k)', icon: Activity },
     ],
   },
   {
@@ -83,9 +83,9 @@ const statCategories = [
     title: 'Coverage & Finance',
     color: 'teal',
     keys: [
-      { key: 'healthExpenditure', label: 'Health Expenditure', icon: TrendingUp },
-      { key: 'outOfPocket', label: 'Out-of-Pocket Spending', icon: Banknote },
-      { key: 'sehatSahulatCoverage', label: 'Sehat Sahulat Coverage', icon: Shield },
+      { key: 'healthExpenditureGDP', label: 'Health Expenditure (% GDP)', icon: TrendingUp },
+      { key: 'outOfPocketPercent', label: 'Out-of-Pocket Spending (%)', icon: Banknote },
+      { key: 'sehatSahulatCoveragePercent', label: 'Sehat Sahulat Coverage (%)', icon: Shield },
     ],
   },
 ]
@@ -141,20 +141,6 @@ export default function PakistanHealthReference() {
     )
   }
 
-  /* Group institutions by type */
-  const institutionGroups = new Map<string, typeof ctx.institutions>()
-  for (const inst of ctx.institutions) {
-    const group = institutionGroups.get(inst.type) || []
-    group.push(inst)
-    institutionGroups.set(inst.type, group)
-  }
-
-  const typeBadgeColor: Record<string, string> = {
-    Federal: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-    Provincial: 'bg-teal-500/20 text-teal-400 border-teal-500/30',
-    Regulatory: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  }
-
   return (
     <div className="space-y-8">
       {/* ─── Hero ─── */}
@@ -180,30 +166,24 @@ export default function PakistanHealthReference() {
           <h2 className="text-white font-semibold text-xl">Institutional Framework</h2>
         </div>
 
-        <div className="space-y-6">
-          {Array.from(institutionGroups.entries()).map(([type, institutions]) => (
-            <div key={type}>
-              <h3 className="text-slate-300 font-medium text-sm uppercase tracking-wider mb-3 flex items-center gap-2">
-                <Layers size={14} className="text-emerald-400/70" />
-                {type} Institutions
-                <span className="text-slate-500 text-xs font-normal normal-case">({institutions.length})</span>
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {institutions.map(inst => (
-                  <div
-                    key={inst.name}
-                    className="bg-slate-700/40 border border-slate-600/30 rounded-lg p-4 hover:border-emerald-500/30 transition-colors"
-                  >
-                    <div className="flex items-start justify-between gap-2 mb-2">
-                      <h4 className="text-white font-semibold text-sm">{inst.name}</h4>
-                      <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full border ${typeBadgeColor[inst.type] || 'bg-slate-600/20 text-slate-400 border-slate-500/30'}`}>
-                        {inst.type}
-                      </span>
-                    </div>
-                    <p className="text-slate-400 text-xs leading-relaxed">{inst.role}</p>
-                  </div>
-                ))}
+        {/* Flat list: the data carries no `type`, so there is nothing to group by.
+            Each institution has a short acronym, a full legal name, its statutory
+            role and why it matters to health-IT standards — all four are shown. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {ctx.institutions.map(inst => (
+            <div
+              key={inst.name}
+              className="bg-slate-700/40 border border-slate-600/30 rounded-lg p-4 hover:border-emerald-500/30 transition-colors"
+            >
+              <div className="flex items-start gap-2 mb-1">
+                <Layers size={14} className="text-emerald-400/70 mt-0.5 shrink-0" />
+                <h4 className="text-white font-semibold text-sm">{inst.name}</h4>
               </div>
+              <p className="text-slate-300 text-xs leading-snug mb-2">{inst.fullName}</p>
+              <p className="text-slate-400 text-xs leading-relaxed">{inst.role}</p>
+              <p className="text-emerald-400/70 text-xs leading-relaxed mt-2 pt-2 border-t border-slate-600/30">
+                {inst.relevance}
+              </p>
             </div>
           ))}
         </div>
@@ -358,15 +338,20 @@ export default function PakistanHealthReference() {
                   </div>
                   <h4 className="text-white font-bold text-sm">{prog.name}</h4>
                 </div>
-                <p className="text-slate-300 text-xs leading-relaxed mb-3">{prog.description}</p>
+                {/* The data has coverage/target/challenges — not description or
+                    keyIndicator, which were bound here and rendered blank. */}
                 <div className="space-y-2 border-t border-slate-600/30 pt-3">
                   <div>
                     <span className="text-emerald-400/70 text-xs uppercase tracking-wider">Coverage</span>
                     <p className="text-slate-300 text-xs">{prog.coverage}</p>
                   </div>
                   <div>
-                    <span className="text-emerald-400/70 text-xs uppercase tracking-wider">Key Indicator</span>
-                    <p className="text-slate-300 text-xs">{prog.keyIndicator}</p>
+                    <span className="text-emerald-400/70 text-xs uppercase tracking-wider">Target Population</span>
+                    <p className="text-slate-300 text-xs">{prog.target}</p>
+                  </div>
+                  <div>
+                    <span className="text-amber-400/70 text-xs uppercase tracking-wider">Challenges</span>
+                    <p className="text-slate-300 text-xs">{prog.challenges}</p>
                   </div>
                 </div>
               </div>
@@ -434,9 +419,9 @@ export default function PakistanHealthReference() {
             </thead>
             <tbody className="divide-y divide-slate-700/30">
               {ctx.codingStandards.map(std => (
-                <tr key={std.name} className="hover:bg-slate-700/20 transition-colors">
+                <tr key={std.standard} className="hover:bg-slate-700/20 transition-colors">
                   <td className="py-3 pr-4">
-                    <span className="text-white font-semibold text-sm">{std.name}</span>
+                    <span className="text-white font-semibold text-sm">{std.standard}</span>
                   </td>
                   <td className="py-3 pr-4">
                     <div className="flex items-center gap-2">
@@ -445,7 +430,10 @@ export default function PakistanHealthReference() {
                     </div>
                   </td>
                   <td className="py-3">
-                    <span className="text-slate-400 text-sm">{std.adoption}</span>
+                    <span className="text-slate-400 text-sm">{std.usage}</span>
+                    {std.challenge && (
+                      <span className="block text-amber-400/70 text-xs mt-1">Blocker: {std.challenge}</span>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -465,7 +453,7 @@ export default function PakistanHealthReference() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {ctx.challenges.map(ch => (
             <div
-              key={ch.challenge}
+              key={ch.area}
               className="bg-slate-700/40 border border-slate-600/30 rounded-lg p-5 hover:border-amber-500/30 transition-colors"
             >
               <div className="flex items-start gap-3">
@@ -473,12 +461,8 @@ export default function PakistanHealthReference() {
                   <AlertTriangle size={16} className="text-amber-400" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-white font-semibold text-sm mb-1">{ch.challenge}</h4>
-                  <p className="text-slate-400 text-xs leading-relaxed mb-3">{ch.description}</p>
-                  <div className="bg-red-500/10 border border-red-500/20 rounded-md px-3 py-2">
-                    <span className="text-red-400/80 text-xs uppercase tracking-wider font-medium">Impact</span>
-                    <p className="text-red-300/90 text-xs mt-0.5">{ch.impact}</p>
-                  </div>
+                  <h4 className="text-white font-semibold text-sm mb-1">{ch.area}</h4>
+                  <p className="text-slate-400 text-xs leading-relaxed">{ch.description}</p>
                 </div>
               </div>
             </div>

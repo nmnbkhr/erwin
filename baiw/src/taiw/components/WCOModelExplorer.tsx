@@ -316,6 +316,10 @@ export default function WCOModelExplorer() {
 
   return (
     <div className="space-y-4">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">WCO Data Model Explorer</h1>
       {/* ===== Search & Filter Bar ===== */}
       <div className="flex items-center gap-4 flex-wrap">
         <div className="relative flex-1 max-w-lg">

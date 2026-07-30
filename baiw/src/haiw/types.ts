@@ -157,13 +157,23 @@ export interface HaiwEnrichment {
   capabilities: Record<string, HaiwEnrichmentEntry>
 }
 
+/**
+ * Shape of `data/haiw/pakistanContext.json`.
+ *
+ * This interface previously declared field names the JSON does not contain —
+ * `institutions.type`, `priorityPrograms.description`/`keyIndicator`,
+ * `codingStandards.name`/`adoption`, `challenges.challenge`/`impact`. The loader
+ * casts rather than validates, so `tsc` passed while the corresponding cells
+ * rendered blank and React warned about missing keys (the keys were `undefined`).
+ * Every field below is now checked against the actual file.
+ */
 export interface HaiwPakistanContext {
-  institutions: { name: string; role: string; type: string }[]
+  institutions: { name: string; fullName: string; role: string; relevance: string }[]
   statistics: Record<string, string | number>
-  facilityHierarchy: { level: string; name: string; count: number | string; description: string }[]
-  priorityPrograms: { name: string; description: string; coverage: string; keyIndicator: string }[]
-  codingStandards: { name: string; status: string; adoption: string }[]
-  challenges: { challenge: string; description: string; impact: string }[]
+  facilityHierarchy: { level: number; name: string; count: number | string; description: string; services: string }[]
+  priorityPrograms: { name: string; coverage: string; target: string; challenges: string }[]
+  codingStandards: { standard: string; status: string; usage: string; challenge: string }[]
+  challenges: { area: string; description: string }[]
 }
 
 export interface HaiwDependencyEntry {

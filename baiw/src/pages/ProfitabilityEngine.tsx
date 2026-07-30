@@ -122,6 +122,10 @@ export default function ProfitabilityEngine() {
 
   return (
     <div className="space-y-4">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Profitability Engine</h1>
       <div className="flex items-center justify-between">
         <div className="flex gap-2">
           {tabs.map((tab) => (

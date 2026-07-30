@@ -828,6 +828,10 @@ export default function TradeAnalyticsEngine() {
 
   return (
     <div className="space-y-6">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Trade Analytics Engine</h1>
       {/* Stats bar */}
       <div className="bg-white rounded-lg shadow-sm px-5 py-3 flex items-center gap-1 text-sm text-slate-600 flex-wrap">
         {statItems.map((s, i) => (

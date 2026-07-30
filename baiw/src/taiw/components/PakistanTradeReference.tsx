@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, Fragment} from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend,
 } from 'recharts'
@@ -84,6 +84,10 @@ export default function PakistanTradeReference() {
 
   return (
     <div className="space-y-4">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and this page had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Pakistan Trade Reference</h1>
       {/* ===== Stats bar ===== */}
       <div className="bg-white rounded-lg shadow-sm px-6 py-3 flex flex-wrap items-center gap-x-6 gap-y-1 text-sm">
         <span className="text-teal-700 font-semibold">{institutionCount} Institutions</span>
@@ -532,7 +536,7 @@ function TradeAgreementsTab({
               const isExpanded = expandedRows.has(a.code)
               const deepDive = getDeepDive(a.code)
               return (
-                <>
+                <Fragment key={a.code}>
                   <tr
                     key={a.code}
                     onClick={() => toggleRow(a.code)}
@@ -599,7 +603,7 @@ function TradeAgreementsTab({
                       </td>
                     </tr>
                   )}
-                </>
+                </Fragment>
               )
             })}
           </tbody>
@@ -828,9 +832,9 @@ function PortsTab({ ports }: { ports: TaiwPakistanContext['ports'] }) {
           </thead>
           <tbody>
             {grouped.map(([type, items]) => (
-              <>
+              <Fragment key={type}>
                 {/* Section header row */}
-                <tr key={`header-${type}`} className="bg-slate-100">
+                <tr className="bg-slate-100">
                   <td colSpan={6} className="px-4 py-2 text-xs font-bold text-slate-600 uppercase tracking-wider">
                     {type} ({items.length})
                   </td>
@@ -860,7 +864,7 @@ function PortsTab({ ports }: { ports: TaiwPakistanContext['ports'] }) {
                     </td>
                   </tr>
                 ))}
-              </>
+              </Fragment>
             ))}
           </tbody>
         </table>

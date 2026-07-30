@@ -335,6 +335,10 @@ export default function DependencyGraph() {
 
   return (
     <div className="relative">
+      {/* Every page needs exactly one h1 for the document outline: screen readers
+          navigate by heading and these pages had none. Visually hidden because the
+          page title is already communicated by the sidebar and header chrome. */}
+      <h1 className="sr-only">Dependency Graph</h1>
       <div className="absolute top-4 right-4 z-10">
         <ExportMenu options={[
           { label: 'Export Graph JSON', onClick: () => downloadJSON({ themes: [...themeFilters], showLabels, highlightP1, viewMode }, 'baiw-dependency-graph') },
