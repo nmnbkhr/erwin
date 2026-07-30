@@ -13,7 +13,7 @@
 import type jsPDF from 'jspdf'
 import { createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
-import type { CsvColumn } from '../../report/csv'
+import { byStringKey, type CsvColumn } from '../../report/csv'
 import { layerShows } from '../layer'
 import cdeRegister from '../data/cdeRegister.json'
 import dqRules from '../data/dqRules.json'
@@ -75,6 +75,12 @@ export function isCdeUnresolved(row: DqRuleRow): boolean {
   return row.cdeStatus !== 'in scope'
 }
 
+/**
+ * Rows for the current layer, sorted by rule id — the same declared-order rule
+ * the CDE register follows, and for the same reason: dqRules.json is in id order
+ * today, so this changes no bytes, and it stops a future dataset edit from
+ * reordering a delivered specification for no stated reason.
+ */
 export function buildDqRuleSpecRows(input: DqRuleSpecInput): {
   rows: DqRuleRow[]
   columns: CsvColumn<DqRuleRow>[]
@@ -104,6 +110,7 @@ export function buildDqRuleSpecRows(input: DqRuleSpecInput): {
       cdeStatus: status,
     }
   })
+  rows.sort(byStringKey((r) => r.id))
   return { rows, columns: COLUMNS }
 }
 

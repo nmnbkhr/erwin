@@ -47,6 +47,32 @@ export function buildCsvRows<T>(rows: T[], columns: CsvColumn<T>[]): Record<stri
 }
 
 /**
+ * Ascending comparator over a string field, by UTF-16 code unit.
+ *
+ * Every deliverable CSV must declare its own row order. The alternative is the
+ * order the JSON file happens to be in, which nobody declared and a dataset edit
+ * can change without touching a line of code — the client-visible symptom is
+ * "the register reordered and nothing else changed", which reads as a defect in
+ * the tool whether or not it is one.
+ *
+ * Deliberately NOT `localeCompare`: it depends on the locale and on the ICU
+ * build, so two consultants on two machines can produce two orderings of the
+ * same register. Code-unit order is the same everywhere.
+ *
+ * Ids in this repo are zero-padded to a fixed width (`CDE-001`, `DQ-001`), so
+ * code-unit order is also numeric order. If that padding is ever dropped,
+ * `CDE-10` sorts before `CDE-2` — the fix is to restore the padding in the
+ * dataset, not to make this comparator cleverer.
+ */
+export function byStringKey<T>(pick: (row: T) => string): (a: T, b: T) => number {
+  return (a, b) => {
+    const x = pick(a)
+    const y = pick(b)
+    return x < y ? -1 : x > y ? 1 : 0
+  }
+}
+
+/**
  * Build and download in one step.
  *
  * Returns false when there was nothing to write — `downloadCSV` returns early on

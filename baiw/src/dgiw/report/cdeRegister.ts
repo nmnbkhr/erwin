@@ -16,7 +16,7 @@
 import type jsPDF from 'jspdf'
 import { createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
-import type { CsvColumn } from '../../report/csv'
+import { byStringKey, type CsvColumn } from '../../report/csv'
 import { layerShows } from '../layer'
 import { archetypeOf } from '../roles'
 import cdeRegister from '../data/cdeRegister.json'
@@ -75,7 +75,16 @@ const COLUMNS: CsvColumn<CdeRow>[] = [
 ]
 
 /**
- * Rows for the current layer, in dataset order.
+ * Rows for the current layer, sorted by CDE id.
+ *
+ * The sort is declared here rather than inherited from cdeRegister.json: the
+ * file happens to be in id order today, so this changes nothing, and that is the
+ * point — the register's order is now a property of this function instead of an
+ * accident of the dataset that a future edit can silently reverse. See
+ * `byStringKey` for why it is not `localeCompare`.
+ *
+ * Ids are unique (check-dgiw.mjs, UNIQUE), so the comparator never ties and the
+ * stability of Array#sort is not being relied on.
  *
  * `dqRuleCount` counts rules that are themselves in scope under this layer — a
  * core-only engagement should not be told a CDE carries fifteen rules when
@@ -110,6 +119,7 @@ export function buildCdeRegisterRows(input: CdeRegisterInput): {
       definition: c.definition,
     }
   })
+  rows.sort(byStringKey((r) => r.id))
   return { rows, columns: COLUMNS }
 }
 

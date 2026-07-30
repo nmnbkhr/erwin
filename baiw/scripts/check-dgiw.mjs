@@ -9,11 +9,20 @@
  * blocking gate no flow ran, a pillar the diagnostic could score but no wave
  * addressed, an owner string that named two accountable people.
  *
+ * Section 10 is the exception to "dataset": it checks the CSV column specs in
+ * src/dgiw/report/, because the constraint it enforces cannot be expressed in
+ * the type system and its failure mode — a header that splits a delivered
+ * spreadsheet into the wrong columns — is the same kind of silent content defect
+ * as the rest of this file.
+ *
  * Run with `npm run check:dgiw`. Wired into `npm run build`.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+// Already a devDependency — it is what `tsc -b` runs. Used here only as a
+// parser, for the CSV header check in section 10.
+import ts from 'typescript'
 
 const D = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'dgiw', 'data')
 const j = (f) => JSON.parse(fs.readFileSync(path.join(D, f), 'utf8'))
@@ -209,6 +218,122 @@ for (const c of coreCdes)
   if (!rules.some((r) => r.cdeRef === c.id && r.layer === 'core'))
     fail('CORE-CHASSIS', `core CDE ${c.id} "${c.element}" has no core DQ rule — it cannot be measured`)
 
+// ── 10. CSV headers must survive an unquoted header row ─────────────────
+// `utils/export.ts::downloadCSV` quotes every data field but emits the header
+// row as a bare `headers.join(',')`. Quoting it would change BAIW, TAIW and HAIW
+// output byte for byte, so the header row stays as it is and the constraint
+// lives here instead: a header containing a comma silently splits into two
+// columns and shifts every value after it by one; a quote or a newline corrupts
+// the file outright for a strict RFC 4180 reader. Today's headers are clean.
+// Nothing enforced that the next one would be.
+//
+// Duplicates are the same defect by a different route. `csv.ts::buildCsvRows`
+// keys each cell by header text into a plain object, so two columns sharing a
+// header are not two columns: the second assignment overwrites the first and the
+// register is delivered a column short, with no error anywhere. The type system
+// cannot see it — `CsvColumn<T>[]` constrains `key`, never `header`.
+//
+// The specs are read with the TypeScript compiler that already builds this repo
+// — no new dependency, no regex guessing at whether a `header:` is real code or
+// prose inside a doc comment, and the generators are never executed. A spec the
+// parser cannot resolve to a plain string literal FAILS: a gate that quietly
+// passes on the thing it could not read is worse than no gate.
+//
+// Limit worth knowing: a header inherited through an object spread
+// (`{ ...COMMON, key: 'x' }`) is not traced back to its source. Nothing does
+// that today, and the CsvColumn-declared-but-no-header check below fires if a
+// spec ever moves somewhere this walk cannot see.
+const REPORT_DIR = path.join(D, '..', 'report')
+const SRC_ROOT = path.join(D, '..', '..', '..')
+const BAD_IN_HEADER = [
+  [',', 'comma', 'splits into two columns'],
+  ['"', 'double quote', 'corrupts the row'],
+  ['\r', 'CR', 'terminates the header row early'],
+  ['\n', 'LF', 'terminates the header row early'],
+]
+
+/**
+ * Nearest enclosing array literal — the scope a duplicate is judged within.
+ *
+ * Per spec array, not per file: two generators in one file may legitimately each
+ * declare a "CDE ID" column, and only a collision inside one spec collapses a
+ * column. `parent` links exist because createSourceFile is called with
+ * setParentNodes = true.
+ */
+const enclosingSpec = (node) => {
+  for (let p = node.parent; p; p = p.parent) if (ts.isArrayLiteralExpression(p)) return p
+  return null
+}
+
+/** Property name as written, for identifiers, string keys and `['header']`. */
+const propName = (name) => {
+  if (ts.isIdentifier(name) || ts.isStringLiteralLike(name)) return name.text
+  if (ts.isComputedPropertyName(name) && ts.isStringLiteralLike(name.expression)) return name.expression.text
+  return null
+}
+
+const specFiles = []
+let headersChecked = 0
+
+const tsFilesIn = (dir) =>
+  fs.existsSync(dir)
+    ? fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+        const p = path.join(dir, e.name)
+        return e.isDirectory() ? tsFilesIn(p) : /\.tsx?$/.test(e.name) ? [p] : []
+      })
+    : []
+
+const reportSources = tsFilesIn(REPORT_DIR)
+if (reportSources.length === 0)
+  fail('CSV-HEADER', `no .ts sources found under ${path.relative(SRC_ROOT, REPORT_DIR)} — the check is looking in the wrong place`)
+
+for (const file of reportSources) {
+  const rel = path.relative(SRC_ROOT, file)
+  const text = fs.readFileSync(file, 'utf8')
+  const sf = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+  const lineOf = (node) => sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1
+  const at = (node) => `${rel}:${lineOf(node)}`
+  let found = 0
+  /** Spec array node → header text → the node that first claimed it. */
+  const claimed = new Map()
+
+  const visit = (node) => {
+    if (ts.isShorthandPropertyAssignment(node) && node.name.text === 'header') {
+      found++
+      fail('CSV-HEADER', `${at(node)} header is a shorthand property — its value cannot be verified here`)
+    } else if (ts.isPropertyAssignment(node) && propName(node.name) === 'header') {
+      found++
+      const init = node.initializer
+      if (!ts.isStringLiteralLike(init)) {
+        // Covers interpolated templates, calls, identifiers and conditionals.
+        fail('CSV-HEADER', `${at(node)} header is not a literal string (\`${init.getText(sf).replace(/\s+/g, ' ').slice(0, 60)}\`) — its value cannot be verified here`)
+      } else {
+        // `.text` is the cooked value, so an escaped comma (',') is caught too.
+        for (const [ch, label, effect] of BAD_IN_HEADER)
+          if (init.text.includes(ch))
+            fail('CSV-HEADER', `${at(node)} header ${JSON.stringify(init.text)} contains a ${label} — the header row is written unquoted, so this ${effect}`)
+
+        // Reported at the second occurrence, naming the first: that is the one a
+        // reader has to go and look at to decide which of the two to rename.
+        const spec = enclosingSpec(node) ?? sf
+        const seen = claimed.get(spec) ?? new Map()
+        claimed.set(spec, seen)
+        const first = seen.get(init.text)
+        if (first)
+          fail('CSV-HEADER', `${at(node)} header ${JSON.stringify(init.text)} duplicates the one at ${rel}:${lineOf(first)} in the same spec — buildCsvRows keys cells by header text, so the second column overwrites the first and the file is delivered a column short`)
+        else seen.set(init.text, node)
+      }
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(sf)
+
+  if (found === 0 && /\bCsvColumn\b/.test(text))
+    fail('CSV-HEADER', `${rel} references CsvColumn but declares no header: property — the column spec has moved somewhere this check cannot see it`)
+  if (found > 0) specFiles.push(rel)
+  headersChecked += found
+}
+
 // ── report ──────────────────────────────────────────────────────────────
 const n = (rows, l) => rows.filter((r) => r.layer === l).length
 console.log('DGIW dataset check')
@@ -216,6 +341,14 @@ console.log(`  pillars ${pillars.length}  questions ${diag.questions.length} (co
 console.log(`  CDEs ${cdes.length} (core ${n(cdes, 'core')} / banking ${n(cdes, 'banking')})  DQ rules ${rules.length} (core ${n(rules, 'core')} / banking ${n(rules, 'banking')})`)
 console.log(`  flows ${prog.flows.length}  steps ${prog.flows.flatMap((f) => f.steps).length}  checklist ${prog.checklist.length}  gates ${om.gates.length}`)
 console.log(`  waves ${plan.waves.length}  artefacts ${plan.artefactRegister.length}  roles ${om.roles.length}  registry ${(om.roleRegistry ?? []).length}`)
+// The verdict is conditional on purpose: a summary line that reads "no comma"
+// while the problem list below it names one is how a reader learns to skim past
+// this output.
+const headerFails = fails.filter((f) => f.startsWith('CSV-HEADER')).length
+console.log(
+  `  CSV-HEADER ${headersChecked} header${headersChecked === 1 ? '' : 's'} across ${specFiles.length} spec file${specFiles.length === 1 ? '' : 's'}` +
+    ` (${specFiles.join(', ') || 'none'}) — ${headerFails ? `${headerFails} REJECTED, see below` : 'no comma, quote, CR, LF or duplicate'}`,
+)
 
 if (fails.length) {
   console.error(`\n${fails.length} problem${fails.length > 1 ? 's' : ''}:`)
