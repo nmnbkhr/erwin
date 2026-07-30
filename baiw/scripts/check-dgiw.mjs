@@ -349,8 +349,34 @@ for (const file of reportSources) {
 // five of the forty-six; a check that failed on the other forty-one would be
 // demanding that the whole register be automated, which is not the intent —
 // most of these artefacts are produced by hand during delivery.
+//
+// The second half of this section enforces the content digest. `createReport`'s
+// second argument is optional and defaults to '', which is the pre-existing
+// identity-only behaviour — so a generator that forgets it compiles, runs, and
+// silently reintroduces the defect the digest was added to fix: two reports with
+// different content sharing a trailer /ID, which a viewer or a DMS reads as "same
+// document, already have it". Nothing about that is visible on the page.
+//
+// Until now the rule lived only in CLAUDE.md. Phase C adds four more generators,
+// which is exactly when a written-down rule stops being followed.
+//
+// A generator with genuinely nothing to digest is meant to FAIL here and be
+// discussed. There is no exemption list on purpose: an exemption is how the
+// default silently comes back.
 const registeredArtefacts = new Set(plan.artefactRegister.map((a) => a.id))
 const implementedArtefacts = new Map() // id → files that declare it
+let digestsChecked = 0
+
+/** True if an empty string literal appears anywhere in this expression. */
+const hidesEmptyLiteral = (node) => {
+  let found = false
+  const scan = (x) => {
+    if (ts.isStringLiteralLike(x) && x.text === '') found = true
+    ts.forEachChild(x, scan)
+  }
+  scan(node)
+  return found
+}
 
 for (const file of reportSources) {
   const rel = path.relative(SRC_ROOT, file)
@@ -358,9 +384,46 @@ for (const file of reportSources) {
   const sf = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
   const at = (node) => `${rel}:${sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1}`
 
+  // Resolve the local name, so `import { createReport as mk }` is still checked
+  // rather than quietly falling outside the walk.
+  let createReportName = null
+  for (const st of sf.statements) {
+    if (!ts.isImportDeclaration(st)) continue
+    const named = st.importClause?.namedBindings
+    if (!named || !ts.isNamedImports(named)) continue
+    for (const el of named.elements)
+      if ((el.propertyName ?? el.name).text === 'createReport') createReportName = el.name.text
+  }
+  // Referenced some other way — a namespace import, a re-export, a dynamic call.
+  // That is unresolvable here, so it fails rather than passing by not being seen.
+  if (createReportName === null && /\bcreateReport\b/.test(text))
+    fail('ARTEFACT-IMPL', `${rel} references createReport but not through a named import — this check cannot resolve the call, so the content digest cannot be verified`)
+
   const visit = (node) => {
+    if (
+      createReportName !== null &&
+      ts.isCallExpression(node) &&
+      ts.isIdentifier(node.expression) &&
+      node.expression.text === createReportName
+    ) {
+      digestsChecked++
+      const arg = node.arguments[1]
+      if (!arg) {
+        fail('ARTEFACT-IMPL', `${at(node)} createReport is called with no content digest — the second argument defaults to '' and the report's /ID would then ignore what it renders`)
+      } else if (ts.isStringLiteralLike(arg) && arg.text === '') {
+        fail('ARTEFACT-IMPL', `${at(node)} createReport is passed an empty string literal as the content digest, which is exactly the default it is meant to replace`)
+      } else if (ts.isStringLiteralLike(arg)) {
+        // Not the empty case, but the same defect: a constant cannot vary with
+        // content, so every revision of the document keeps one /ID.
+        fail('ARTEFACT-IMPL', `${at(node)} createReport is passed the constant digest ${JSON.stringify(arg.text)} — a literal cannot vary with the document's content, so every revision would share one /ID`)
+      } else if (arg.kind === ts.SyntaxKind.NullKeyword || (ts.isIdentifier(arg) && arg.text === 'undefined')) {
+        fail('ARTEFACT-IMPL', `${at(node)} createReport is passed ${arg.getText(sf)} as the content digest, which is the same as omitting it`)
+      } else if (hidesEmptyLiteral(arg)) {
+        fail('ARTEFACT-IMPL', `${at(node)} the content digest expression contains an empty string literal — one branch of it would produce identity-only behaviour`)
+      }
+    }
     // `export const X_ARTEFACT_ID = 'AR-04'` — the declared naming convention.
-    if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && /ARTEFACT_ID$/.test(node.name.text)) {
+    else if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && /ARTEFACT_ID$/.test(node.name.text)) {
       const init = node.initializer
       if (!init || !ts.isStringLiteralLike(init)) {
         fail('ARTEFACT-IMPL', `${at(node)} ${node.name.text} is not a literal string — the artefact id cannot be verified here`)
@@ -401,7 +464,8 @@ const implFails = fails.filter((f) => f.startsWith('ARTEFACT-IMPL')).length
 const covered = [...implementedArtefacts.keys()].sort()
 console.log(
   `  ARTEFACT-IMPL ${covered.length} of ${plan.artefactRegister.length} catalogued artefacts have a generator` +
-    ` (${covered.join(', ') || 'none'})${implFails ? ` — ${implFails} REJECTED, see below` : ''}`,
+    ` (${covered.join(', ') || 'none'}); ${digestsChecked} createReport call${digestsChecked === 1 ? '' : 's'} checked for a content digest` +
+    `${implFails ? ` — ${implFails} REJECTED, see below` : ''}`,
 )
 
 if (fails.length) {
