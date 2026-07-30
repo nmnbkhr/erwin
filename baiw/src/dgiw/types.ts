@@ -249,6 +249,105 @@ export interface ImplementationPlanData {
   }[]
 }
 
+/* ── Framework crosswalk (Phase C) ──────────────────────────────────────
+ *
+ * One assessment, four framework scorecards. The eleven pillars stay the
+ * canonical capability model; a framework is a different vocabulary and a
+ * different emphasis over the same evidence, never a second capability model.
+ *
+ * Nothing imports these shapes in C1 — the datasets exist and check-dgiw.mjs
+ * validates them, but no code reads them until the projection engine in C2.
+ * They are declared here anyway so the check has a contract to be reviewed
+ * against rather than being its own specification.
+ */
+
+/** A published framework the diagnostic can be projected onto. */
+export interface Framework {
+  id: string
+  /** The framework's own short code — DMBOK2, DCAM, DGI, COBIT2019. */
+  code: string
+  name: string
+  publisher: string
+  versionLabel: string
+  /**
+   * The framework's own maturity scale, which is NOT DGIW's 1-5 in every case:
+   * DCAM scores 1-6 and COBIT 2019 uses capability levels 0-5. Recorded so C2
+   * rescales explicitly rather than silently presenting a 1-5 score under a
+   * 0-5 heading.
+   */
+  scaleMin: number
+  scaleMax: number
+  /** How far the authored structure can be trusted against the publication. */
+  structureConfidence: 'high' | 'medium-high' | 'medium' | 'low'
+  /** What specifically is uncertain, and what a reviewer should check first. */
+  structureNotes: string
+}
+
+/**
+ * One dimension of a framework — a knowledge area, component or objective.
+ *
+ * PROJECTION IS LEAF-ONLY. A dimension with children carries no crosswalk
+ * entries; its score rolls up from its children inside the framework. COBIT's
+ * APO14 and its sub-practices must never both count a pillar.
+ */
+export interface FrameworkDimension {
+  id: string
+  frameworkId: string
+  /** null at level 1. Frameworks without hierarchy use null throughout. */
+  parentId: string | null
+  /** The framework's own code — DM01, DCAM5, APO14.02. */
+  code: string
+  name: string
+  /**
+   * Share of the parent (of the framework, at level 1). DGIW's editorial
+   * judgement — none of these four frameworks publishes dimension weights.
+   * Siblings sum to 1.0, so effective leaf weights sum to 1.0 per framework.
+   */
+  weight: number
+  /** 1 = top level, 2 = child. */
+  level: number
+}
+
+/**
+ * A defensible mapping from one leaf dimension to one pillar.
+ *
+ * `coverageWeight` is the share of THIS DIMENSION that THIS PILLAR accounts
+ * for, and the weights within a leaf dimension sum to 1.0 across the full entry
+ * set. It is not "how much of the pillar this dimension covers" — under that
+ * reading a dimension score is not a weighted mean and the four scorecards
+ * cannot be reconciled.
+ */
+export interface CrosswalkEntry {
+  id: string
+  dimensionId: string
+  pillarId: string
+  /** In (0, 1]. Sums to 1.0 per leaf dimension over the full entry set. */
+  coverageWeight: number
+  /** Why this mapping holds. A mapping nobody can defend is not a mapping. */
+  rationale: string
+  /**
+   * 'both' is visible under every filter; 'core'/'banking' follow layerShows.
+   * A dimension carrying a banking-only entry retains less than 1.0 under a
+   * core-only engagement — C2 renormalises the visible subset and must print
+   * the retained share, as scoring.ts prints confidence for a pillar.
+   */
+  layer: Layer | 'both'
+  /**
+   * Reserved, unused in C1. Lets a dimension needing finer resolution than a
+   * pillar name specific diagnostic questions without a schema change.
+   */
+  questionIds?: string[]
+}
+
+export interface FrameworksData {
+  frameworks: Framework[]
+  dimensions: FrameworkDimension[]
+}
+
+export interface CrosswalkData {
+  entries: CrosswalkEntry[]
+}
+
 export interface PositioningData {
   thesis: string
   wedges: { id: string; name: string; pain: string; trigger: string; opener: string; layer: Layer }[]

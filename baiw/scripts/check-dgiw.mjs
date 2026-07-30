@@ -36,6 +36,8 @@ const rules = j('dqRules.json')
 const prog = j('programSetup.json')
 const plan = j('implementationPlan.json')
 const pos = j('positioning.json')
+const fw = j('frameworks.json')
+const xw = j('crosswalk.json')
 
 const fails = []
 const fail = (code, msg) => fails.push(`${code}: ${msg}`)
@@ -442,6 +444,243 @@ for (const [id, files] of implementedArtefacts)
   if (files.length > 1)
     fail('ARTEFACT-IMPL', `artefact ${id} is claimed by ${files.join(' and ')} — two generators producing one catalogue id would overwrite each other's file`)
 
+// ── 12-16. Framework crosswalk ──────────────────────────────────────────
+// One assessment, four framework scorecards. The eleven pillars stay canonical;
+// a framework is a different vocabulary and emphasis over the same evidence.
+//
+// In C1 NOTHING imports frameworks.json or crosswalk.json, so tsc never sees
+// them and lint never sees them. These five classes are the entire guard, not
+// defence in depth — which is why CROSSWALK-SHAPE checks types and unknown keys
+// rather than assuming the file is well formed.
+const XW_LAYERS = ['core', 'banking', 'both']
+const FRAMEWORKS = fw.frameworks ?? []
+const DIMENSIONS = fw.dimensions ?? []
+const ENTRIES = xw.entries ?? []
+
+const frameworkById = new Map(FRAMEWORKS.map((f) => [f.id, f]))
+const dimById = new Map(DIMENSIONS.map((d) => [d.id, d]))
+const hasChildren = new Set(DIMENSIONS.map((d) => d.parentId).filter(Boolean))
+const leafDims = DIMENSIONS.filter((d) => !hasChildren.has(d.id))
+const entriesByDim = new Map()
+for (const e of ENTRIES) entriesByDim.set(e.dimensionId, [...(entriesByDim.get(e.dimensionId) ?? []), e])
+
+/** An entry tagged 'both' is visible everywhere; otherwise the usual layer rule. */
+const xwShows = (filter, layer) => layer === 'both' || filter === 'all' || filter === layer
+
+/** Effective leaf weight: the product of `weight` down the parent chain. */
+const effectiveWeight = (dim) => {
+  let w = 1
+  let cur = dim
+  for (let guard = 0; cur && guard < 8; guard++) {
+    w *= typeof cur.weight === 'number' ? cur.weight : 0
+    cur = cur.parentId ? dimById.get(cur.parentId) : null
+  }
+  return w
+}
+
+// ── 12. CROSSWALK-SHAPE ─────────────────────────────────────────────────
+// Unknown keys FAIL. A typo'd key reads as undefined, contributes zero weight,
+// and produces a scorecard that is quietly wrong rather than loudly broken —
+// the exact failure this module keeps finding.
+const shapeCheck = (label, rows, spec, required) => {
+  const allowed = new Set(Object.keys(spec))
+  for (const [i, row] of rows.entries()) {
+    const where = `${label}[${i}]${row?.id ? ` (${row.id})` : ''}`
+    if (typeof row !== 'object' || row === null) {
+      fail('CROSSWALK-SHAPE', `${where} is not an object`)
+      continue
+    }
+    for (const k of Object.keys(row))
+      if (!allowed.has(k)) fail('CROSSWALK-SHAPE', `${where} has unknown field "${k}" — a typo'd key silently contributes nothing`)
+    for (const [k, test] of Object.entries(spec)) {
+      const present = row[k] !== undefined
+      if (!present) {
+        if (required.includes(k)) fail('CROSSWALK-SHAPE', `${where} is missing required field "${k}"`)
+        continue
+      }
+      const problem = test(row[k])
+      if (problem) fail('CROSSWALK-SHAPE', `${where} field "${k}" ${problem}`)
+    }
+  }
+}
+
+const str = (min = 1) => (v) => (typeof v !== 'string' ? `must be a string, got ${typeof v}` : v.trim().length < min ? `must be a non-empty string` : null)
+const num = (v) => (typeof v !== 'number' || Number.isNaN(v) ? `must be a number, got ${JSON.stringify(v)}` : null)
+const idLike = (re) => (v) => (typeof v !== 'string' ? 'must be a string' : re.test(v) ? null : `does not match ${re} — ids are zero-padded fixed width so code-unit order is numeric order`)
+const oneOf = (vals) => (v) => (vals.includes(v) ? null : `must be one of ${vals.join(', ')}, got ${JSON.stringify(v)}`)
+
+shapeCheck('framework', FRAMEWORKS, {
+  id: idLike(/^FW-\d{2}$/),
+  code: str(),
+  name: str(),
+  publisher: str(),
+  versionLabel: str(),
+  scaleMin: num,
+  scaleMax: num,
+  structureConfidence: oneOf(['high', 'medium-high', 'medium', 'low']),
+  structureNotes: str(20),
+}, ['id', 'code', 'name', 'publisher', 'versionLabel', 'scaleMin', 'scaleMax', 'structureConfidence', 'structureNotes'])
+
+shapeCheck('dimension', DIMENSIONS, {
+  id: idLike(/^DIM-\d{3}$/),
+  frameworkId: idLike(/^FW-\d{2}$/),
+  parentId: (v) => (v === null || /^DIM-\d{3}$/.test(String(v)) ? null : `must be null or a DIM-nnn id, got ${JSON.stringify(v)}`),
+  code: str(),
+  name: str(),
+  weight: (v) => num(v) ?? (v > 0 && v <= 1 ? null : `must be in (0, 1], got ${v}`),
+  level: (v) => (v === 1 || v === 2 ? null : `must be 1 or 2, got ${JSON.stringify(v)}`),
+}, ['id', 'frameworkId', 'parentId', 'code', 'name', 'weight', 'level'])
+
+shapeCheck('crosswalkEntry', ENTRIES, {
+  id: idLike(/^CW-\d{3}$/),
+  dimensionId: idLike(/^DIM-\d{3}$/),
+  pillarId: idLike(/^P\d{2}$/),
+  coverageWeight: (v) => num(v) ?? (v > 0 && v <= 1 ? null : `must be in (0, 1], got ${v} — a zero-weight mapping is a mapping that does nothing`),
+  rationale: str(20),
+  layer: oneOf(XW_LAYERS),
+  questionIds: (v) => (Array.isArray(v) ? null : 'must be an array when present'),
+}, ['id', 'dimensionId', 'pillarId', 'coverageWeight', 'rationale', 'layer'])
+
+unique('framework', FRAMEWORKS.map((f) => f.id))
+unique('dimension', DIMENSIONS.map((d) => d.id))
+unique('crosswalkEntry', ENTRIES.map((e) => e.id))
+
+for (const d of DIMENSIONS) {
+  if (!frameworkById.has(d.frameworkId)) fail('CROSSWALK-SHAPE', `dimension ${d.id} -> framework ${d.frameworkId} does not exist`)
+  if (d.parentId !== null) {
+    const parent = dimById.get(d.parentId)
+    if (!parent) fail('CROSSWALK-SHAPE', `dimension ${d.id} -> parent ${d.parentId} does not exist`)
+    else if (parent.frameworkId !== d.frameworkId) fail('CROSSWALK-SHAPE', `dimension ${d.id} has a parent in a different framework`)
+    else if (parent.level >= d.level) fail('CROSSWALK-SHAPE', `dimension ${d.id} (level ${d.level}) has parent ${d.parentId} at level ${parent.level}`)
+  } else if (d.level !== 1) {
+    fail('CROSSWALK-SHAPE', `dimension ${d.id} has no parent but is level ${d.level}`)
+  }
+}
+
+// Declared sort. Same discipline as the CSV registers: the order is a property
+// of the file, not of whatever the author happened to type.
+const sorted = (name, ids) => {
+  for (let i = 1; i < ids.length; i++)
+    if (!(ids[i - 1] < ids[i])) {
+      fail('CROSSWALK-SHAPE', `${name} is not sorted by id: ${ids[i - 1]} precedes ${ids[i]}`)
+      break
+    }
+}
+sorted('frameworks', FRAMEWORKS.map((f) => f.id))
+sorted('dimensions', DIMENSIONS.map((d) => d.id))
+sorted('crosswalk entries', ENTRIES.map((e) => e.id))
+
+// ── 13. CROSSWALK-WEIGHT ────────────────────────────────────────────────
+// coverageWeights per leaf dimension sum to 1.0 over the FULL entry set. A
+// dimension summing to 0.7 silently under-scores; one summing to 1.3 silently
+// inflates, and neither shows up as anything but a slightly odd number.
+//
+// Sibling `weight` is checked here too. It is not in the original spec, but
+// without it effective leaf weights do not sum to 1.0 per framework, the induced
+// pillar weight vector does not sum to 1.0, and CROSSWALK-DISTINCTNESS is
+// comparing vectors of different total mass — the L1 threshold would then be
+// measuring the authoring error rather than the frameworks.
+const near = (a, b, eps = 0.001) => Math.abs(a - b) <= eps
+const retainedShare = {}
+
+for (const d of leafDims) {
+  const es = entriesByDim.get(d.id) ?? []
+  if (es.length === 0) continue // reported by CROSSWALK-ORPHAN
+  const total = es.reduce((s, e) => s + (typeof e.coverageWeight === 'number' ? e.coverageWeight : 0), 0)
+  if (!near(total, 1))
+    fail('CROSSWALK-WEIGHT', `leaf dimension ${d.id} (${d.code}) coverageWeights sum to ${total.toFixed(4)}, not 1.0 — the dimension would be ${total < 1 ? 'under-scored' : 'inflated'} by ${(Math.abs(1 - total) * 100).toFixed(1)}%`)
+
+  retainedShare[d.id] = {}
+  for (const layer of ['core', 'banking', 'all'])
+    retainedShare[d.id][layer] = es.filter((e) => xwShows(layer, e.layer)).reduce((s, e) => s + e.coverageWeight, 0)
+}
+
+// A dimension with no visible mapping under a layer where its framework is
+// otherwise in scope is an authoring gap dressed as a legitimate not-applicable.
+for (const d of leafDims) {
+  const share = retainedShare[d.id]
+  if (!share) continue
+  for (const layer of ['core', 'banking']) {
+    const frameworkInScope = leafDims.some((o) => o.frameworkId === d.frameworkId && (retainedShare[o.id]?.[layer] ?? 0) > 0)
+    if (share[layer] === 0 && frameworkInScope)
+      fail('CROSSWALK-WEIGHT', `leaf dimension ${d.id} (${d.code}) retains 0 weight under the ${layer} layer while its framework is otherwise in scope — every mapping it has is tagged for the other layer, which is an authoring gap, not a not-applicable`)
+  }
+}
+
+// Dimension weights: siblings sum to 1.0 within each parent, and level-1
+// dimensions sum to 1.0 within each framework.
+for (const f of FRAMEWORKS) {
+  const tops = DIMENSIONS.filter((d) => d.frameworkId === f.id && d.parentId === null)
+  const total = tops.reduce((s, d) => s + (typeof d.weight === 'number' ? d.weight : 0), 0)
+  if (tops.length && !near(total, 1))
+    fail('CROSSWALK-WEIGHT', `framework ${f.id} (${f.code}) level-1 dimension weights sum to ${total.toFixed(4)}, not 1.0 — its induced pillar weight vector would not sum to 1 and could not be compared with the others`)
+}
+for (const parentId of hasChildren) {
+  const kids = DIMENSIONS.filter((d) => d.parentId === parentId)
+  const total = kids.reduce((s, d) => s + (typeof d.weight === 'number' ? d.weight : 0), 0)
+  if (!near(total, 1))
+    fail('CROSSWALK-WEIGHT', `children of ${parentId} have weights summing to ${total.toFixed(4)}, not 1.0`)
+}
+
+// ── 14. CROSSWALK-ORPHAN ────────────────────────────────────────────────
+for (const e of ENTRIES) {
+  const d = dimById.get(e.dimensionId)
+  if (!d) fail('CROSSWALK-ORPHAN', `entry ${e.id} -> dimension ${e.dimensionId} does not exist`)
+  else if (hasChildren.has(d.id))
+    fail('CROSSWALK-ORPHAN', `entry ${e.id} maps ${d.id} (${d.code}), which has children — projection is leaf-only, and a parent counting a pillar its children also count double-counts the same evidence`)
+  if (!pillarIds.has(e.pillarId)) fail('CROSSWALK-ORPHAN', `entry ${e.id} -> pillar ${e.pillarId} does not exist`)
+}
+for (const d of leafDims)
+  if (!(entriesByDim.get(d.id) ?? []).length)
+    fail('CROSSWALK-ORPHAN', `leaf dimension ${d.id} (${d.code}) has no mapping — it would render as an unexplained blank on the scorecard`)
+
+const unmappedPillars = [...pillarIds].filter((p) => !ENTRIES.some((e) => e.pillarId === p)).sort()
+
+// ── 15. FRAMEWORK-COVERAGE (informational) ──────────────────────────────
+const coverage = FRAMEWORKS.map((f) => {
+  const leaves = leafDims.filter((d) => d.frameworkId === f.id)
+  const per = {}
+  for (const layer of ['core', 'banking', 'all']) {
+    const ps = new Set()
+    for (const d of leaves)
+      for (const e of entriesByDim.get(d.id) ?? [])
+        if (xwShows(layer, e.layer) && pillarIds.has(e.pillarId)) ps.add(e.pillarId)
+    per[layer] = ps.size
+  }
+  return { f, leaves: leaves.length, entries: leaves.reduce((s, d) => s + (entriesByDim.get(d.id) ?? []).length, 0), per }
+})
+
+// ── 16. CROSSWALK-DISTINCTNESS ──────────────────────────────────────────
+// W_p = Σ_d (effectiveLeafWeight_d × coverageWeight_d,p), computed over the full
+// entry set. Four frameworks whose induced vectors are nearly equal produce four
+// nearly identical scorecards, which is the whole proposition failing silently —
+// and it is visible from the crosswalk alone, with no answers, which is why this
+// is a check rather than a report.
+const DISTINCTNESS_MIN = 0.15
+const inducedW = new Map()
+for (const f of FRAMEWORKS) {
+  const v = Object.fromEntries([...pillarIds].map((p) => [p, 0]))
+  for (const d of leafDims.filter((x) => x.frameworkId === f.id)) {
+    const ew = effectiveWeight(d)
+    for (const e of entriesByDim.get(d.id) ?? [])
+      if (v[e.pillarId] !== undefined) v[e.pillarId] += ew * e.coverageWeight
+  }
+  inducedW.set(f.id, v)
+}
+const pillarOrder = [...pillarIds].sort()
+const l1Pairs = []
+for (let i = 0; i < FRAMEWORKS.length; i++)
+  for (let k = i + 1; k < FRAMEWORKS.length; k++) {
+    const a = FRAMEWORKS[i]
+    const b = FRAMEWORKS[k]
+    const va = inducedW.get(a.id)
+    const vb = inducedW.get(b.id)
+    const l1 = pillarOrder.reduce((s, p) => s + Math.abs(va[p] - vb[p]), 0)
+    l1Pairs.push({ a: a.code, b: b.code, l1 })
+    if (l1 < DISTINCTNESS_MIN)
+      fail('CROSSWALK-DISTINCTNESS', `${a.code} and ${b.code} have induced pillar weight vectors only ${l1.toFixed(3)} apart in L1, below the ${DISTINCTNESS_MIN} floor. Every framework score is a convex combination of the same 11 pillar scores, so two frameworks this close produce two scorecards a client cannot tell apart. The floor is not arbitrary: DGI and COBIT EDM are genuinely near-identical governance frameworks and a distance around 0.16 is expected and accepted — what this catches is a near-uniform crosswalk, where spread across all four collapses toward 0.02 and the four scorecards become one.`)
+  }
+
 // ── report ──────────────────────────────────────────────────────────────
 const n = (rows, l) => rows.filter((r) => r.layer === l).length
 console.log('DGIW dataset check')
@@ -457,6 +696,21 @@ console.log(
   `  CSV-HEADER ${headersChecked} header${headersChecked === 1 ? '' : 's'} across ${specFiles.length} spec file${specFiles.length === 1 ? '' : 's'}` +
     ` (${specFiles.join(', ') || 'none'}) — ${headerFails ? `${headerFails} REJECTED, see below` : 'no comma, quote, CR, LF or duplicate'}`,
 )
+console.log(
+  `  CROSSWALK ${FRAMEWORKS.length} frameworks  ${DIMENSIONS.length} dimensions (${leafDims.length} leaf)  ${ENTRIES.length} mappings` +
+    `  ${unmappedPillars.length === 0 ? 'every pillar mapped' : `UNMAPPED PILLARS: ${unmappedPillars.join(', ')}`}`,
+)
+for (const c of coverage)
+  console.log(
+    `    ${c.f.code.padEnd(9)} ${String(c.leaves).padStart(2)} leaf dims, ${String(c.entries).padStart(3)} mappings` +
+      `  pillars core ${c.per.core}/${pillarIds.size}  banking ${c.per.banking}/${pillarIds.size}  all ${c.per.all}/${pillarIds.size}` +
+      `  (${Math.round((c.per.all / pillarIds.size) * 100)}% at 'all')  structure confidence: ${c.f.structureConfidence}`,
+  )
+console.log(
+  `    distinctness (L1, floor ${DISTINCTNESS_MIN}): ` +
+    l1Pairs.map((p) => `${p.a}/${p.b} ${p.l1.toFixed(3)}`).join('  '),
+)
+
 // The Phase B scoreboard. Informational: it is printed on every build so the gap
 // between what the register catalogues and what the workbench can actually
 // produce stays visible instead of being rediscovered.

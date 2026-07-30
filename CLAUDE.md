@@ -121,7 +121,15 @@ inputs now simply include the content.
 
 A new generator that omits the digest gets identity-only behaviour and silently
 reintroduces the bug. If a report's content can vary while its meta does not, it
-must pass a content key.
+must pass a content key. `check-dgiw.mjs` ARTEFACT-IMPL enforces that much: every
+`createReport` call under `src/dgiw/report/` must pass a second argument, and it
+may not be a string literal, `undefined`, or an expression with an empty literal
+in any branch.
+
+**ARTEFACT-IMPL verifies a content digest is SUPPLIED, not that it is DERIVED.**
+`contentKey(['constant'])` passes the check and reintroduces the `/ID` bug. When
+reviewing a new generator, read the digest expression and confirm it varies with
+what the report renders — under the active layer, not the whole dataset.
 
 `generatedAt` is truncated to the day **at the call site** — these are dated
 deliverables. Do not pin it to a constant to make a test pass; two runs either
@@ -155,6 +163,45 @@ number, not a missing one.
 Note: with the current dataset every pillar has both core and banking questions,
 so `not-applicable` never occurs through the UI. The state is still computed and
 reported explicitly ("Not applicable 0"). Do not delete the branch as dead code.
+
+## Framework crosswalk
+
+`frameworks.json` and `crosswalk.json` project one assessment onto four published
+frameworks (DMBOK2, DCAM, DGI, COBIT 2019). Five check classes guard them —
+CROSSWALK-SHAPE, -WEIGHT, -ORPHAN, -DISTINCTNESS and FRAMEWORK-COVERAGE.
+
+**The 11 pillars are the canonical capability model.** Frameworks map *into*
+them. Never add a second canonical layer — a bank with two maturity numbers to
+reconcile has been given a problem, not an answer.
+
+**PROJECTION IS LEAF-ONLY.** A dimension with children carries no crosswalk
+entries; its score rolls up from its children *inside the framework*, never
+across the pillar side. COBIT's `APO14` and its ten sub-practices must never both
+count a pillar — that double-counts the same evidence and inflates the component
+it appears in. Same for the three DGI groups. CROSSWALK-ORPHAN fails a mapping
+attached to a parent.
+
+**`coverageWeight` is the share of the DIMENSION that the PILLAR accounts for**,
+summing to 1.0 per leaf dimension over the full entry set. It is *not* "how much
+of the pillar this dimension covers" — under that reading a dimension score is
+not a weighted mean and the four scorecards cannot be reconciled.
+
+**Retained share.** An entry is `core`, `banking` or `both`. A dimension carrying
+a banking-only entry retains less than 1.0 under a core-only engagement (DCAM7
+retains 0.75). C2 renormalises the visible subset **and must print the retained
+share**, exactly as `scoring.ts` prints `confidence` for a pillar. Retained share
+is reported, not asserted — except that retaining *zero* under a layer whose
+framework is otherwise in scope fails, because that is an authoring gap wearing a
+not-applicable costume.
+
+**Dimension `weight` is DGIW's editorial judgement, not published content.** None
+of the four frameworks publishes weights for its own dimensions. The names and
+codes are published structure and carry a `structureConfidence`; the numbers are
+ours. DCAM's component wording and COBIT's APO14 sub-practice titles are the
+weakest links and are flagged in `structureNotes`.
+
+**Scales differ**: DCAM 1-6, COBIT 0-5, DGIW 1-5. `scaleMin`/`scaleMax` exist so
+C2 rescales explicitly rather than printing a 1-5 score under a 0-5 heading.
 
 ## Marketing copy drifts from the datasets
 
