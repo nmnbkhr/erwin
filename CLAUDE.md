@@ -92,6 +92,53 @@ Note: "role" in `src/dgiw/roles.ts` is **domain content, not access control**. I
 gates nothing. The `core`/`banking` layer filter is likewise a content
 visibility concern with no security property.
 
+## Report determinism
+
+`src/report/` output must be **byte-identical across runs**. jsPDF injects two
+sources of nondeterminism that a reader cannot see and a diff can:
+
+- **Creation date** — pinned via `setCreationDate(meta.generatedAt)`.
+- **Trailer `/ID`** — filled from `Math.random` unless set. Pinned via
+  `setFileId(stableFileId(...))`, FNV-1a over
+  `artefactId|engagementId|orgName|layer|generatedAt`.
+
+Both live in the `ReportDoc` constructor, once. Symptom if either regresses: two
+generations of the same report are identical for tens of thousands of bytes and
+differ in one 16-byte run.
+
+`generatedAt` is truncated to the day **at the call site** — these are dated
+deliverables. Do not pin it to a constant to make a test pass; two runs either
+side of UTC midnight differing is correct behaviour, not a bug.
+
+No `Math.random`, `Date.now` or bare `new Date()` anywhere under `src/report/`
+or `src/dgiw/report/`. Dates are formatted from UTC parts, never
+`toLocaleDateString` — the locale form is neither machine- nor timezone-stable,
+and near midnight it disagrees with the filename.
+
+## DGIW scoring
+
+`src/dgiw/scoring.ts` is the single source of every diagnostic figure. Both
+`Diagnostic.tsx` and every report generator call it. **A PDF that disagrees with
+the screen is worse than no PDF.** `layerShows()` in `layer.ts` is likewise the
+one scope predicate — never reimplement the core/banking filter locally.
+
+Three pillar states, and they are distinct facts:
+
+| State | Meaning |
+|---|---|
+| `scored` | applicable questions in this layer, at least one answered |
+| `not-assessed` | applicable questions in this layer, **none** answered |
+| `not-applicable` | **no** questions in this layer at all |
+
+Neither of the latter two may render as `0` or enter any average, count or
+rollup. The overall score's denominator is the scored count and must be stated
+on the page — a bank reading 0 where the truth is "unmeasured" has a wrong
+number, not a missing one.
+
+Note: with the current dataset every pillar has both core and banking questions,
+so `not-applicable` never occurs through the UI. The state is still computed and
+reported explicitly ("Not applicable 0"). Do not delete the branch as dead code.
+
 ## Marketing copy drifts from the datasets
 
 `SuiteLanding.tsx` hardcodes dataset counts that are wrong — it claims 56 CDEs

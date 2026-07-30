@@ -57,6 +57,9 @@ export function buildCsvRows<T>(rows: T[], columns: CsvColumn<T>[]): Record<stri
  */
 export function downloadCsv<T>(rows: T[], columns: CsvColumn<T>[], filename: string): boolean {
   if (rows.length === 0) return false
-  downloadCSV(buildCsvRows(rows, columns), filename)
+  // BOM + CRLF for every deliverable CSV. These files go to a bank and get
+  // opened in Excel on Windows first; the defaults exist to leave BAIW, TAIW and
+  // HAIW output unchanged, not because LF and no-BOM are better here.
+  downloadCSV(buildCsvRows(rows, columns), filename, { bom: true, eol: 'crlf' })
   return true
 }

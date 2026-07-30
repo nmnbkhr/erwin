@@ -26,7 +26,10 @@ const DIMENSION_COLOURS: Record<string, string> = {
   Integrity: '#8b5cf6',
 }
 
+import { useDeliverable } from '../report/useDeliverable'
+
 export default function DqRuleLibrary() {
+  const { busy, message, metaFor, run } = useDeliverable()
   const { keep } = useLayer()
   const [family, setFamily] = useState(ALL)
   const [dimension, setDimension] = useState(ALL)
@@ -61,6 +64,33 @@ export default function DqRuleLibrary() {
 
   const cdeName = (id: string) => CDES.find((c) => c.id === id)?.element ?? id
 
+  const generateCsv = () =>
+    run('csv', async () => {
+      const [{ buildDqRuleSpecRows, DQ_RULE_SPEC_ARTEFACT_ID }, { downloadCsv }, { reportFilename }] =
+        await Promise.all([
+          import('../report/dqRuleSpec'),
+          import('../../report/csv'),
+          import('../../report/naming'),
+        ])
+      const meta = metaFor(DQ_RULE_SPEC_ARTEFACT_ID)
+      const { rows, columns } = buildDqRuleSpecRows({ meta })
+      const wrote = downloadCsv(rows, columns, reportFilename(meta, 'csv'))
+      return wrote ? null : 'No DQ rules are in scope under the current layer, so no file was written.'
+    })
+
+  const generatePdf = () =>
+    run('pdf', async () => {
+      const [{ buildDqRuleSpecPdf, DQ_RULE_SPEC_ARTEFACT_ID }, { saveReport }, { reportFilename }] =
+        await Promise.all([
+          import('../report/dqRuleSpec'),
+          import('../../report/spine'),
+          import('../../report/naming'),
+        ])
+      const meta = metaFor(DQ_RULE_SPEC_ARTEFACT_ID)
+      saveReport(buildDqRuleSpecPdf({ meta }), reportFilename(meta, 'pdf'))
+      return null
+    })
+
   const exportRules = () =>
     downloadCSV(
       filtered.map((r) => ({
@@ -84,8 +114,39 @@ export default function DqRuleLibrary() {
       <PageHeader
         title="Data Quality Rule Library"
         subtitle="Pre-written executable rules bound to critical data elements. This is the accelerator that lets a first scorecard be published in week eight rather than week sixteen — rule authoring becomes a tailoring exercise, not a blank page."
-        actions={<ExportButton onClick={exportRules} label="Export rules (CSV)" />}
+        actions={
+          <>
+            <button
+              onClick={() => void generateCsv()}
+              disabled={busy !== null}
+              className="px-3 py-2 text-sm rounded-lg bg-rose-600 text-white hover:bg-rose-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {busy === 'csv' ? 'Generating…' : 'DQ rule spec (CSV)'}
+            </button>
+            <button
+              onClick={() => void generatePdf()}
+              disabled={busy !== null}
+              className="px-3 py-2 text-sm rounded-lg border border-rose-200 bg-white text-rose-700 hover:bg-rose-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {busy === 'pdf' ? 'Generating…' : 'Rule set summary (PDF)'}
+            </button>
+            <ExportButton onClick={exportRules} label="Export view (CSV)" />
+          </>
+        }
       />
+
+
+      {message && (
+        <div
+          className={`rounded-lg px-4 py-3 text-sm ${
+            message.tone === 'error'
+              ? 'bg-red-50 text-red-700 ring-1 ring-red-200'
+              : 'bg-amber-50 text-amber-800 ring-1 ring-amber-200'
+          }`}
+        >
+          {message.text}
+        </div>
+      )}
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <Stat value={filtered.length} label="Rules in view" tone="rose" />

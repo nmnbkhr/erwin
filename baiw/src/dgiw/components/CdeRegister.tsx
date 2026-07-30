@@ -8,6 +8,7 @@ import { downloadCSV } from '../../utils/export'
 import cdeRegister from '../data/cdeRegister.json'
 import dqRules from '../data/dqRules.json'
 import type { CriticalDataElement, DqRule } from '../types'
+import { useDeliverable } from '../report/useDeliverable'
 
 const CDES = cdeRegister as CriticalDataElement[]
 const RULES = dqRules as DqRule[]
@@ -16,6 +17,7 @@ const ALL = '__all__'
 
 export default function CdeRegister() {
   const { keep } = useLayer()
+  const { busy, message, metaFor, run } = useDeliverable()
   const [domain, setDomain] = useState<string>(ALL)
   const [criticality, setCriticality] = useState<string>(ALL)
   const [query, setQuery] = useState('')
@@ -64,6 +66,41 @@ export default function CdeRegister() {
       })),
       'dg-cde-register'
     )
+
+
+  /**
+   * The full register for the current layer — not the on-screen filter. The
+   * deliverable is the register, and a client who filtered the table to one
+   * domain before clicking export should not receive a partial artefact. The
+   * old "Export view (CSV)" button beside it still exports exactly what is on
+   * screen, which is a different and also useful thing.
+   */
+  const generateCsv = () =>
+    run('csv', async () => {
+      const [{ buildCdeRegisterRows, CDE_REGISTER_ARTEFACT_ID }, { downloadCsv }, { reportFilename }] =
+        await Promise.all([
+          import('../report/cdeRegister'),
+          import('../../report/csv'),
+          import('../../report/naming'),
+        ])
+      const meta = metaFor(CDE_REGISTER_ARTEFACT_ID)
+      const { rows, columns } = buildCdeRegisterRows({ meta })
+      const wrote = downloadCsv(rows, columns, reportFilename(meta, 'csv'))
+      return wrote ? null : 'No critical data elements are in scope under the current layer, so no file was written.'
+    })
+
+  const generatePdf = () =>
+    run('pdf', async () => {
+      const [{ buildCdeRegisterPdf, CDE_REGISTER_ARTEFACT_ID }, { saveReport }, { reportFilename }] =
+        await Promise.all([
+          import('../report/cdeRegister'),
+          import('../../report/spine'),
+          import('../../report/naming'),
+        ])
+      const meta = metaFor(CDE_REGISTER_ARTEFACT_ID)
+      saveReport(buildCdeRegisterPdf({ meta }), reportFilename(meta, 'pdf'))
+      return null
+    })
 
   // ── Detail view ──
   if (selectedCde) {
@@ -171,8 +208,39 @@ export default function CdeRegister() {
       <PageHeader
         title="Critical Data Element Register"
         subtitle="Derived backwards from consumption: start at the regulatory return line or board KPI, trace lineage to source, and every element on that path is critical. This produces a finite, defensible list — the opposite of an open-ended nomination exercise. Everything outside it is catalogued but not stewarded."
-        actions={<ExportButton onClick={exportCdes} label="Export register (CSV)" />}
+        actions={
+          <>
+            <button
+              onClick={() => void generateCsv()}
+              disabled={busy !== null}
+              className="px-3 py-2 text-sm rounded-lg bg-rose-600 text-white hover:bg-rose-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {busy === 'csv' ? 'Generating…' : 'CDE register (CSV)'}
+            </button>
+            <button
+              onClick={() => void generatePdf()}
+              disabled={busy !== null}
+              className="px-3 py-2 text-sm rounded-lg border border-rose-200 bg-white text-rose-700 hover:bg-rose-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {busy === 'pdf' ? 'Generating…' : 'Register summary (PDF)'}
+            </button>
+            <ExportButton onClick={exportCdes} label="Export view (CSV)" />
+          </>
+        }
       />
+
+
+      {message && (
+        <div
+          className={`rounded-lg px-4 py-3 text-sm ${
+            message.tone === 'error'
+              ? 'bg-red-50 text-red-700 ring-1 ring-red-200'
+              : 'bg-amber-50 text-amber-800 ring-1 ring-amber-200'
+          }`}
+        >
+          {message.text}
+        </div>
+      )}
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <Stat value={filtered.length} label="Elements in view" tone="rose" />
