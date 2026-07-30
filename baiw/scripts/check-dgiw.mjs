@@ -334,6 +334,51 @@ for (const file of reportSources) {
   headersChecked += found
 }
 
+// ── 11. every generated artefact id exists in the register ──────────────
+// Each generator names the artefact it produces in a `*_ARTEFACT_ID` constant,
+// and that id ends up on the PDF cover and in the filename. An id that is not in
+// implementationPlan.json's artefactRegister is a deliverable claiming to be a
+// catalogue item that does not exist — the client reads "AR-31" on a cover, goes
+// looking for AR-31 in the register, and finds nothing.
+//
+// Same static approach as section 10, and the same refusal to guess: an id that
+// is not a plain string literal FAILS rather than being skipped. Interpolating
+// the id would defeat the check entirely, and there is no reason to.
+//
+// The coverage number below is informational, never a failure. Phase B built
+// five of the forty-six; a check that failed on the other forty-one would be
+// demanding that the whole register be automated, which is not the intent —
+// most of these artefacts are produced by hand during delivery.
+const registeredArtefacts = new Set(plan.artefactRegister.map((a) => a.id))
+const implementedArtefacts = new Map() // id → files that declare it
+
+for (const file of reportSources) {
+  const rel = path.relative(SRC_ROOT, file)
+  const text = fs.readFileSync(file, 'utf8')
+  const sf = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+  const at = (node) => `${rel}:${sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1}`
+
+  const visit = (node) => {
+    // `export const X_ARTEFACT_ID = 'AR-04'` — the declared naming convention.
+    if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && /ARTEFACT_ID$/.test(node.name.text)) {
+      const init = node.initializer
+      if (!init || !ts.isStringLiteralLike(init)) {
+        fail('ARTEFACT-IMPL', `${at(node)} ${node.name.text} is not a literal string — the artefact id cannot be verified here`)
+      } else if (!registeredArtefacts.has(init.text)) {
+        fail('ARTEFACT-IMPL', `${at(node)} ${node.name.text} = ${JSON.stringify(init.text)} is not in implementationPlan.json artefactRegister — the cover would cite a catalogue entry that does not exist`)
+      } else {
+        implementedArtefacts.set(init.text, [...(implementedArtefacts.get(init.text) ?? []), rel])
+      }
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(sf)
+}
+
+for (const [id, files] of implementedArtefacts)
+  if (files.length > 1)
+    fail('ARTEFACT-IMPL', `artefact ${id} is claimed by ${files.join(' and ')} — two generators producing one catalogue id would overwrite each other's file`)
+
 // ── report ──────────────────────────────────────────────────────────────
 const n = (rows, l) => rows.filter((r) => r.layer === l).length
 console.log('DGIW dataset check')
@@ -348,6 +393,15 @@ const headerFails = fails.filter((f) => f.startsWith('CSV-HEADER')).length
 console.log(
   `  CSV-HEADER ${headersChecked} header${headersChecked === 1 ? '' : 's'} across ${specFiles.length} spec file${specFiles.length === 1 ? '' : 's'}` +
     ` (${specFiles.join(', ') || 'none'}) — ${headerFails ? `${headerFails} REJECTED, see below` : 'no comma, quote, CR, LF or duplicate'}`,
+)
+// The Phase B scoreboard. Informational: it is printed on every build so the gap
+// between what the register catalogues and what the workbench can actually
+// produce stays visible instead of being rediscovered.
+const implFails = fails.filter((f) => f.startsWith('ARTEFACT-IMPL')).length
+const covered = [...implementedArtefacts.keys()].sort()
+console.log(
+  `  ARTEFACT-IMPL ${covered.length} of ${plan.artefactRegister.length} catalogued artefacts have a generator` +
+    ` (${covered.join(', ') || 'none'})${implFails ? ` — ${implFails} REJECTED, see below` : ''}`,
 )
 
 if (fails.length) {

@@ -44,6 +44,12 @@ export const PERSISTED_BASES = [
   'taiw_roadmap',
   'haiw_maturity_answers',
   'haiw_roadmap_selections',
+  // Never a legacy key: DGIW's diagnostic answers were component state and were
+  // thrown away on every reload, so migrateLegacyStorage simply never finds one.
+  // It belongs here for the other three things this list drives — duplicate,
+  // export and delete. An engagement bundle that omitted the diagnostic would be
+  // the same silent data loss the namespacing was built to end.
+  'dgiw-diagnostic-answers',
 ] as const
 
 export type PersistedBase = (typeof PERSISTED_BASES)[number]

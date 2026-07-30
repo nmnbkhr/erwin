@@ -2,7 +2,7 @@ import { type ReactNode, useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import {
   LayoutDashboard, ClipboardCheck, Layers, Users, Database, ShieldCheck,
-  ListChecks, CalendarRange, Megaphone, ChevronLeft, ChevronRight, ArrowLeft, Home,
+  ListChecks, CalendarRange, Megaphone, Package, ChevronLeft, ChevronRight, ArrowLeft, Home,
 } from 'lucide-react'
 import { useLayer } from './layer'
 import EngagementSwitcher from '../components/shared/EngagementSwitcher'
@@ -32,6 +32,7 @@ const navItems = [
   { path: '/dg/program', label: 'Program Setup', icon: ListChecks },
   { path: '/dg/plan', label: 'Implementation Plan', icon: CalendarRange },
   { path: '/dg/one-pager', label: 'Sales One-Pager', icon: Megaphone },
+  { path: '/dg/deliverables', label: 'Deliverables', icon: Package },
 ]
 
 const LAYER_OPTIONS: { value: LayerFilter; label: string; hint: string }[] = [

@@ -14,6 +14,7 @@ import implementationPlan from '../data/implementationPlan.json'
 import type { DiagnosticData, Pillar, ImplementationPlanData } from '../types'
 import { useOrgName } from '../../engagement/useOrgName'
 import { useEngagement } from '../../engagement/context'
+import { useDiagnosticAnswers } from '../answers'
 // Every number on this page comes from scoring.ts, so the PDF cannot disagree
 // with the screen. See the three-state model documented there.
 import {
@@ -49,7 +50,9 @@ const show1 = (n: number | null) => (n === null ? '—' : (Math.round(n * 10) / 
 
 export default function Diagnostic() {
   const { filter, shows } = useLayer()
-  const [answers, setAnswers] = useState<Record<string, number>>({})
+  // Persisted per engagement, not component state: they survive a reload and the
+  // deliverables page reads the same answers this page is collecting.
+  const [answers, setAnswers] = useDiagnosticAnswers()
   // The client's name lives on the active engagement, not in this component.
   const [orgName, setOrgName] = useOrgName()
   const [showResults, setShowResults] = useState(false)
@@ -123,9 +126,11 @@ export default function Diagnostic() {
     })
   }, [ranked, shows])
 
+  // setAnswers is a stable useCallback from usePersistedState, so naming it here
+  // costs nothing and keeps the hook honest about what it closes over.
   const setAnswer = useCallback((qid: string, value: number) => {
     setAnswers((prev) => ({ ...prev, [qid]: value }))
-  }, [])
+  }, [setAnswers])
 
   const handleReset = () => {
     setAnswers({})

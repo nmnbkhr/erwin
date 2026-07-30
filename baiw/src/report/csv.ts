@@ -63,6 +63,10 @@ export function buildCsvRows<T>(rows: T[], columns: CsvColumn<T>[]): Record<stri
  * code-unit order is also numeric order. If that padding is ever dropped,
  * `CDE-10` sorts before `CDE-2` — the fix is to restore the padding in the
  * dataset, not to make this comparator cleverer.
+ *
+ * Not every id family is padded: `G1..G11`, `RO1..RO10` and `W0..W6` are not, and
+ * this comparator is the wrong one for them. See `order.ts` for the numeric
+ * variants the PDF generators use.
  */
 export function byStringKey<T>(pick: (row: T) => string): (a: T, b: T) => number {
   return (a, b) => {

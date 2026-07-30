@@ -13,6 +13,7 @@ const DqRuleLibrary = lazy(() => import('./components/DqRuleLibrary'))
 const ProgramSetup = lazy(() => import('./components/ProgramSetup'))
 const ImplementationPlan = lazy(() => import('./components/ImplementationPlan'))
 const OnePager = lazy(() => import('./components/OnePager'))
+const Deliverables = lazy(() => import('./components/Deliverables'))
 
 export default function DgiwRoutes() {
   return (
@@ -29,6 +30,7 @@ export default function DgiwRoutes() {
             <Route path="/program" element={<ProgramSetup />} />
             <Route path="/plan" element={<ImplementationPlan />} />
             <Route path="/one-pager" element={<OnePager />} />
+            <Route path="/deliverables" element={<Deliverables />} />
           </Routes>
         </Suspense>
       </DgiwLayout>
