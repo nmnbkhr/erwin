@@ -13,7 +13,12 @@ export default defineConfig({
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-charts': ['recharts', 'd3'],
-          'vendor-export': ['jspdf', 'html2canvas'],
+          // jspdf-autotable (30.8 kB) and file-saver were named nowhere, so they
+          // landed in whichever chunk happened to pull them first. Naming them
+          // makes the "PDF engine is never in the initial load" guarantee explicit
+          // instead of incidental. Requires that nothing in the entry chunk import
+          // file-saver statically — see EngagementContext.exportOne.
+          'vendor-export': ['jspdf', 'jspdf-autotable', 'html2canvas', 'file-saver'],
         },
       },
     },

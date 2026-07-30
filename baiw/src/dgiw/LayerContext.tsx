@@ -1,6 +1,6 @@
 import { useState, useMemo, type ReactNode } from 'react'
 import type { Layer, LayerFilter } from './types'
-import { LayerCtx, LAYER_LABEL, readStoredFilter, writeStoredFilter, type LayerContextValue } from './layer'
+import { LayerCtx, LAYER_LABEL, layerShows, readStoredFilter, writeStoredFilter, type LayerContextValue } from './layer'
 import { useEngagementOptional } from '../engagement/context'
 
 export function LayerProvider({ children }: { children: ReactNode }) {
@@ -17,7 +17,7 @@ export function LayerProvider({ children }: { children: ReactNode }) {
   const filter: LayerFilter = active ? (active.layer ?? 'all') : fallback
 
   const value = useMemo<LayerContextValue>(() => {
-    const shows = (layer: Layer) => filter === 'all' || filter === layer
+    const shows = (layer: Layer) => layerShows(filter, layer)
     return {
       filter,
       setFilter: (f: LayerFilter) => {

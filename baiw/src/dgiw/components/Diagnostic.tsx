@@ -3,7 +3,7 @@ import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
   ResponsiveContainer, Tooltip, Legend,
 } from 'recharts'
-import { ChevronDown, ChevronUp, RotateCcw } from 'lucide-react'
+import { ChevronDown, ChevronUp, FileText, RotateCcw } from 'lucide-react'
 import { Card, PageHeader, SectionTitle, Stat, ExportButton, TableWrap } from './ui'
 import { LayerBadge } from '../LayerContext'
 import { useLayer } from '../layer'
@@ -11,16 +11,24 @@ import { downloadCSV, downloadJSON } from '../../utils/export'
 import diagnostic from '../data/diagnostic.json'
 import pillars from '../data/pillars.json'
 import implementationPlan from '../data/implementationPlan.json'
-import type { DiagnosticData, Pillar, PillarScore, ImplementationPlanData } from '../types'
+import type { DiagnosticData, Pillar, ImplementationPlanData } from '../types'
 import { useOrgName } from '../../engagement/useOrgName'
+import { useEngagement } from '../../engagement/context'
+// Every number on this page comes from scoring.ts, so the PDF cannot disagree
+// with the screen. See the three-state model documented there.
+import {
+  LEVEL_LABEL,
+  RANK_MIN_CONFIDENCE,
+  applicableQuestions,
+  overallScore,
+  rankPillars,
+  scorePillars,
+  type PillarOutcome,
+} from '../scoring'
 
 const DIAG = diagnostic as DiagnosticData
 const PILLARS = pillars as Pillar[]
 const PLAN = implementationPlan as ImplementationPlanData
-
-const LEVEL_LABEL: Record<number, string> = {
-  1: 'Initial', 2: 'Developing', 3: 'Defined', 4: 'Managed', 5: 'Optimising',
-}
 
 const WEIGHT_LABEL: Record<number, string> = {
   1: 'Contextual', 2: 'Important', 3: 'Decisive',
@@ -39,13 +47,6 @@ function heatColour(score: number | null): string {
 /** One decimal for display. Scores are held unrounded so the overall doesn't inherit rounding drift. */
 const show1 = (n: number | null) => (n === null ? '—' : (Math.round(n * 10) / 10).toFixed(1))
 
-/**
- * A pillar must have at least this share of its question weight answered before it
- * is allowed to be ranked as a strength or a priority gap. Without a floor, the
- * report's headline finding can rest on a single contextual question.
- */
-const RANK_MIN_CONFIDENCE = 0.5
-
 export default function Diagnostic() {
   const { filter, shows } = useLayer()
   const [answers, setAnswers] = useState<Record<string, number>>({})
@@ -54,51 +55,33 @@ export default function Diagnostic() {
   const [showResults, setShowResults] = useState(false)
   const [expandedQ, setExpandedQ] = useState<Record<string, boolean>>({})
   const [openPillar, setOpenPillar] = useState<string | null>(PILLARS[0]?.id ?? null)
+  const [generating, setGenerating] = useState(false)
+  const [pdfError, setPdfError] = useState<string | null>(null)
+  const { active } = useEngagement()
 
-  const questions = useMemo(
-    () => DIAG.questions.filter((q) => shows(q.layer)),
-    [shows]
-  )
+  const questions = useMemo(() => applicableQuestions(DIAG.questions, filter), [filter])
 
   const answeredCount = questions.filter((q) => answers[q.id]).length
   const progress = questions.length ? Math.round((answeredCount / questions.length) * 100) : 0
 
-  /** Weighted mean per pillar — a decisive (weight 3) question moves the score three times as much. */
-  const pillarScores = useMemo<PillarScore[]>(() => {
-    return PILLARS.map((p) => {
-      const qs = questions.filter((q) => q.pillarId === p.id)
-      const answeredQs = qs.filter((q) => answers[q.id])
-      const weightSum = answeredQs.reduce((s, q) => s + q.weight, 0)
-      const weightTotal = qs.reduce((s, q) => s + q.weight, 0)
-      const weighted = answeredQs.reduce((s, q) => s + answers[q.id] * q.weight, 0)
-      return {
-        pillarId: p.id,
-        name: p.name,
-        short: p.short,
-        // Held unrounded. Rounding here and re-weighting in `overall` let up to
-        // 0.05 of drift into the headline number for no benefit.
-        score: weightSum ? weighted / weightSum : null,
-        answered: answeredQs.length,
-        total: qs.length,
-        weightAnswered: weightSum,
-        weightTotal,
-        confidence: weightTotal ? weightSum / weightTotal : 0,
-      }
-    }).filter((s) => s.total > 0)
-  }, [questions, answers])
+  /** All eleven pillars, each tagged scored / not-assessed / not-applicable. */
+  const allOutcomes = useMemo<PillarOutcome[]>(
+    () => scorePillars(PILLARS, questions, answers),
+    [questions, answers]
+  )
 
   /**
-   * Weighted mean over every answered question, computed from raw responses rather
-   * than by re-weighting the per-pillar means. The two agree mathematically, but
-   * only if the pillar means are unrounded — recomposing from rounded values is
-   * how a diagnostic ends up reporting 3.2 when the evidence says 3.15.
+   * What this page renders: pillars that exist under the current layer. The
+   * not-applicable ones are excluded here — as they always were — but they are no
+   * longer invisible, because the generated report lists them explicitly with the
+   * reason. See scoring.ts.
    */
-  const overall = useMemo<number | null>(() => {
-    const answered = questions.filter((q) => answers[q.id])
-    const w = answered.reduce((s, q) => s + q.weight, 0)
-    if (!w) return null
-    return answered.reduce((s, q) => s + answers[q.id] * q.weight, 0) / w
-  }, [questions, answers])
+  const pillarScores = useMemo(
+    () => allOutcomes.filter((p) => p.state !== 'not-applicable'),
+    [allOutcomes]
+  )
+
+  const overall = useMemo<number | null>(() => overallScore(questions, answers), [questions, answers])
 
   /** Unanswered pillars are omitted, not plotted at zero — a zero reads as a finding. */
   const radarData = useMemo(
@@ -109,36 +92,11 @@ export default function Diagnostic() {
     [pillarScores]
   )
 
-  /** Ranked weakest-first. Only pillars with enough coverage to defend a claim. */
-  const ranked = useMemo(
-    () =>
-      pillarScores
-        .filter((p) => p.score !== null && p.confidence >= RANK_MIN_CONFIDENCE)
-        .sort((a, b) => a.score! - b.score!),
-    [pillarScores]
+  /** Ranking, coverage floor and the strengths/gaps partition all live in scoring.ts. */
+  const { ranked, underCovered, strengths, gaps } = useMemo(
+    () => rankPillars(allOutcomes),
+    [allOutcomes]
   )
-
-  /** Answered, but too thinly to rank. Surfaced rather than silently dropped. */
-  const underCovered = useMemo(
-    () => pillarScores.filter((p) => p.score !== null && p.confidence < RANK_MIN_CONFIDENCE),
-    [pillarScores]
-  )
-
-  /**
-   * Strengths and gaps are a partition, never an overlap. With only three pillars
-   * ranked, `top3` and `bottom3` are the same three, and the report previously
-   * listed each pillar as both a top strength and a priority gap.
-   */
-  const { strengths, gaps } = useMemo(() => {
-    // Gaps take precedence when the ranked set is small: with one pillar ranked,
-    // calling it a "top strength" overstates the evidence, calling it a gap doesn't.
-    const nGaps = Math.min(3, Math.ceil(ranked.length / 2))
-    const nStrengths = Math.min(3, ranked.length - nGaps)
-    return {
-      gaps: ranked.slice(0, nGaps),
-      strengths: nStrengths ? ranked.slice(ranked.length - nStrengths).reverse() : [],
-    }
-  }, [ranked])
 
   /**
    * Gap-to-roadmap: the weakest pillars, mapped to the waves that address them.
@@ -192,6 +150,44 @@ export default function Diagnostic() {
     )
   }
 
+  /**
+   * The generator and the PDF engine are pulled at click time, not imported at
+   * the top of this file — the HAIW pattern, and the only one of the three
+   * existing report components that keeps jsPDF out of the page's own chunk.
+   */
+  const generatePdf = async () => {
+    setPdfError(null)
+    setGenerating(true)
+    try {
+      const [{ buildDiagnosticReport, DIAGNOSTIC_ARTEFACT_ID }, { saveReport }, { reportFilename }] =
+        await Promise.all([
+          import('../report/diagnosticReport'),
+          import('../../report/spine'),
+          import('../../report/naming'),
+        ])
+      const meta = {
+        orgName: orgName.trim() || 'Unnamed engagement',
+        engagementId: active?.id ?? '',
+        // Read here, once, rather than inside the report — and truncated to the
+        // day on purpose. This is a dated deliverable, so millisecond precision
+        // buys nothing and would make two clicks on the same afternoon produce
+        // files differing only in PDF metadata. Same engagement + same answers +
+        // same layer + same day now means byte-identical output.
+        generatedAt: `${new Date().toISOString().slice(0, 10)}T00:00:00.000Z`,
+        layer: filter,
+        accent: [225, 29, 72] as const, // rose-600, the DGIW accent
+        isDraft: progress < 100,
+        artefactId: DIAGNOSTIC_ARTEFACT_ID,
+      }
+      saveReport(buildDiagnosticReport({ meta, answers }), reportFilename(meta, 'pdf'))
+    } catch (err) {
+      console.error('[dgiw] diagnostic report failed', err)
+      setPdfError(err instanceof Error ? err.message : 'Report generation failed.')
+    } finally {
+      setGenerating(false)
+    }
+  }
+
   const exportFull = () => {
     downloadJSON(
       {
@@ -222,6 +218,14 @@ export default function Diagnostic() {
           subtitle={`Weighted maturity across ${pillarScores.length} pillars, scored on ${answeredCount} of ${questions.length} questions in the ${filter === 'all' ? 'combined core + banking' : filter} layer.`}
           actions={
             <>
+              <button
+                onClick={() => void generatePdf()}
+                disabled={generating}
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-sm rounded-lg bg-rose-600 text-white hover:bg-rose-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <FileText size={14} />
+                {generating ? 'Generating…' : 'Generate diagnostic report'}
+              </button>
               <ExportButton onClick={exportScores} label="Export scores (CSV)" />
               <ExportButton onClick={exportFull} label="Export full (JSON)" />
               <button
@@ -239,6 +243,12 @@ export default function Diagnostic() {
             </>
           }
         />
+
+        {pdfError && (
+          <Card className="p-4 border border-red-200">
+            <p className="text-sm text-red-600">Report generation failed: {pdfError}</p>
+          </Card>
+        )}
 
         <Card className="p-4">
           <label className="text-sm text-slate-600 mb-1 block">Organisation name (used in exports)</label>

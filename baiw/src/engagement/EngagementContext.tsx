@@ -8,7 +8,6 @@
  * lives at suite level rather than inside each module.
  */
 import { useCallback, useMemo, useState, type ReactNode } from 'react'
-import { saveAs } from 'file-saver'
 import type { Engagement, EngagementBundle } from './types'
 import { engagementLabel } from './migrate'
 import { EngagementCtx, type EngagementContextValue } from './context'
@@ -115,9 +114,19 @@ export function EngagementProvider({ children }: { children: ReactNode }) {
     [commit],
   )
 
-  const exportOne = useCallback((id: string) => {
+  // Async so file-saver is pulled at click time rather than imported statically.
+  // A static import here put file-saver in the entry chunk, and because rollup
+  // folds it into `vendor-export`, the entry then depended on vendor-export and
+  // every first paint fetched the PDF engine, whether or not the visitor ever
+  // exported anything. Measured both ways before changing it.
+  //
+  // Rejections propagate to the caller by design — the switcher renders them in
+  // its error line. Swallowing them here would make a failed export look like a
+  // successful one that produced no file.
+  const exportOne = useCallback(async (id: string) => {
     const source = readEngagements().find((e) => e.id === id)
     if (!source) return
+    const { saveAs } = await import('file-saver')
     const bundle: EngagementBundle = {
       kind: 'godaitec.engagement',
       version: 1,

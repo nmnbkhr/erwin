@@ -106,6 +106,19 @@ export default function EngagementSwitcher({ accent = 'purple' }: { accent?: Acc
     }
   }
 
+  // exportOne loads file-saver on demand, so it can fail on a flaky network or a
+  // blocked download. Surfaced in the same error line as import rather than
+  // becoming a silent unhandled rejection.
+  const handleExport = async (id: string) => {
+    setError(null)
+    try {
+      await exportOne(id)
+    } catch (err) {
+      console.error('[engagement] export failed', err)
+      setError(err instanceof Error ? err.message : 'Export failed.')
+    }
+  }
+
   return (
     <div className="relative shrink-0" ref={rootRef}>
       <button
@@ -257,7 +270,7 @@ export default function EngagementSwitcher({ accent = 'purple' }: { accent?: Acc
                           </button>
                           <button
                             title="Export"
-                            onClick={() => exportOne(e.id)}
+                            onClick={() => void handleExport(e.id)}
                             className="p-1.5 text-slate-400 hover:text-slate-700 rounded hover:bg-white"
                           >
                             <Download size={13} />

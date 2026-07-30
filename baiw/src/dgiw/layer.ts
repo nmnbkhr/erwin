@@ -30,6 +30,18 @@ export const LAYER_LABEL: Record<Layer, string> = {
 }
 
 /**
+ * The visibility rule itself, with no React attached.
+ *
+ * LayerProvider builds its `shows` from this, and so does anything that has to
+ * apply the same filter outside a component — a report generator runs from a
+ * click handler, not from a hook, and a second copy of this predicate is exactly
+ * how a PDF ends up disagreeing with the screen about what is in scope.
+ */
+export function layerShows(filter: LayerFilter, layer: Layer): boolean {
+  return filter === 'all' || filter === layer
+}
+
+/**
  * The selected layer survives a reload.
  *
  * It was component state, so refreshing the page — or opening any DGIW route

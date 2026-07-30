@@ -22,7 +22,13 @@ export interface EngagementContextValue {
   remove: (id: string) => void
   setActive: (id: string) => void
   duplicate: (id: string) => Engagement | null
-  exportOne: (id: string) => void
+  /**
+   * Async because file-saver is loaded on demand. Typed as Promise so a caller
+   * cannot accidentally fire-and-forget it: declaring it `=> void` over an async
+   * implementation turns a failed `import()` or a blocked download into an
+   * unhandled rejection with nothing shown to the user.
+   */
+  exportOne: (id: string) => Promise<void>
   importOne: (file: File) => Promise<Engagement>
 }
 
