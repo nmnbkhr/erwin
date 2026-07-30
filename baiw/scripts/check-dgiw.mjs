@@ -19,7 +19,10 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+// Already installed — vite depends on it. Used to compile projection.ts so the
+// invariant check runs the real engine instead of a copy of it.
+import { build as esbuildBuild } from 'esbuild'
 // Already a devDependency — it is what `tsc -b` runs. Used here only as a
 // parser, for the CSV header check in section 10.
 import ts from 'typescript'
@@ -467,16 +470,9 @@ for (const e of ENTRIES) entriesByDim.set(e.dimensionId, [...(entriesByDim.get(e
 /** An entry tagged 'both' is visible everywhere; otherwise the usual layer rule. */
 const xwShows = (filter, layer) => layer === 'both' || filter === 'all' || filter === layer
 
-/** Effective leaf weight: the product of `weight` down the parent chain. */
-const effectiveWeight = (dim) => {
-  let w = 1
-  let cur = dim
-  for (let guard = 0; cur && guard < 8; guard++) {
-    w *= typeof cur.weight === 'number' ? cur.weight : 0
-    cur = cur.parentId ? dimById.get(cur.parentId) : null
-  }
-  return w
-}
+// The induced-weight maths that used to live here is now
+// projection.ts::inducedPillarWeights, loaded below. One implementation, not two
+// — a check carrying its own copy of the formula verifies its copy.
 
 // ── 12. CROSSWALK-SHAPE ─────────────────────────────────────────────────
 // Unknown keys FAIL. A typo'd key reads as undefined, contributes zero weight,
@@ -650,6 +646,48 @@ const coverage = FRAMEWORKS.map((f) => {
   return { f, leaves: leaves.length, entries: leaves.reduce((s, d) => s + (entriesByDim.get(d.id) ?? []).length, 0), per }
 })
 
+// ── Load the real projection engine ─────────────────────────────────────
+// check-dgiw.mjs is plain Node and cannot import TypeScript, so projection.ts
+// and scoring.ts are bundled to ESM with the esbuild that vite already depends
+// on, and imported. No new dependency, and — the point — no second copy of the
+// maths. A check that reimplements the thing it is checking verifies its own
+// reimplementation and would pass a broken engine.
+//
+// scoring.ts is bundled separately and on purpose: invariant I1 compares the
+// pillar scores the projection USED against pillar scores computed by calling
+// scoring.ts directly. Sharing one import would make that comparison circular.
+//
+// Output goes under node_modules (gitignored, and where Node can resolve the
+// externalised 'react' that layer.ts pulls in for its context — projection.ts
+// only ever calls the pure `layerShows`, so React is never executed).
+const SRC_DGIW = path.join(D, '..')
+let projection = null
+let scoring = null
+let buildDir = null
+try {
+  buildDir = fs.mkdtempSync(path.join(SRC_DGIW, '..', '..', 'node_modules', '.dgiw-projection-'))
+  await esbuildBuild({
+    entryPoints: [path.join(SRC_DGIW, 'projection.ts'), path.join(SRC_DGIW, 'scoring.ts')],
+    bundle: true,
+    format: 'esm',
+    platform: 'node',
+    outdir: buildDir,
+    // esbuild names the output after the ENTRY's extension, so without this the
+    // emitted file is projection.js and Node loads it as CommonJS and throws.
+    outExtension: { '.js': '.mjs' },
+    external: ['react'],
+    logLevel: 'silent',
+  })
+  projection = await import(pathToFileURL(path.join(buildDir, 'projection.mjs')).href)
+  scoring = await import(pathToFileURL(path.join(buildDir, 'scoring.mjs')).href)
+} catch (err) {
+  // Loudly, never silently. A skipped invariant check is worse than none,
+  // because the build still says OK.
+  fail('PROJECTION-INVARIANT', `could not build or load projection.ts — the invariants were NOT checked: ${err?.message ?? err}`)
+} finally {
+  if (buildDir) fs.rmSync(buildDir, { recursive: true, force: true })
+}
+
 // ── 16. CROSSWALK-DISTINCTNESS ──────────────────────────────────────────
 // W_p = Σ_d (effectiveLeafWeight_d × coverageWeight_d,p), computed over the full
 // entry set. Four frameworks whose induced vectors are nearly equal produce four
@@ -657,19 +695,12 @@ const coverage = FRAMEWORKS.map((f) => {
 // and it is visible from the crosswalk alone, with no answers, which is why this
 // is a check rather than a report.
 const DISTINCTNESS_MIN = 0.15
-const inducedW = new Map()
-for (const f of FRAMEWORKS) {
-  const v = Object.fromEntries([...pillarIds].map((p) => [p, 0]))
-  for (const d of leafDims.filter((x) => x.frameworkId === f.id)) {
-    const ew = effectiveWeight(d)
-    for (const e of entriesByDim.get(d.id) ?? [])
-      if (v[e.pillarId] !== undefined) v[e.pillarId] += ew * e.coverageWeight
-  }
-  inducedW.set(f.id, v)
-}
+const inducedW = new Map(
+  projection ? FRAMEWORKS.map((f) => [f.id, projection.inducedPillarWeights(f.id, 'all')]) : [],
+)
 const pillarOrder = [...pillarIds].sort()
 const l1Pairs = []
-for (let i = 0; i < FRAMEWORKS.length; i++)
+if (projection) for (let i = 0; i < FRAMEWORKS.length; i++)
   for (let k = i + 1; k < FRAMEWORKS.length; k++) {
     const a = FRAMEWORKS[i]
     const b = FRAMEWORKS[k]
@@ -680,6 +711,144 @@ for (let i = 0; i < FRAMEWORKS.length; i++)
     if (l1 < DISTINCTNESS_MIN)
       fail('CROSSWALK-DISTINCTNESS', `${a.code} and ${b.code} have induced pillar weight vectors only ${l1.toFixed(3)} apart in L1, below the ${DISTINCTNESS_MIN} floor. Every framework score is a convex combination of the same 11 pillar scores, so two frameworks this close produce two scorecards a client cannot tell apart. The floor is not arbitrary: DGI and COBIT EDM are genuinely near-identical governance frameworks and a distance around 0.16 is expected and accepted — what this catches is a near-uniform crosswalk, where spread across all four collapses toward 0.02 and the four scorecards become one.`)
   }
+
+// ── 17. PROJECTION-INVARIANT ────────────────────────────────────────────
+// Four properties that must hold for every profile. They are a BUILD GATE, not a
+// one-time browser check: C3 adds render code and Phase D may add frameworks,
+// and both are ways for the maths to drift without anyone noticing.
+//
+// Profiles are synthetic and fully deterministic — no user data, no clock, no
+// network. The seeded one uses a fixed LCG over question ids in sorted order, so
+// it is the same profile on every machine and every run.
+const EPS = 1e-9
+const QIDS = [...diag.questions].map((q) => q.id).sort()
+const QBY = new Map(diag.questions.map((q) => [q.id, q]))
+
+const constantProfile = (v) => Object.fromEntries(QIDS.map((id) => [id, v]))
+const seededProfile = () => {
+  // Numerical Recipes LCG. Not for randomness — for a fixed, spread-out profile
+  // that nobody chose by hand and that is identical everywhere.
+  let s = 12345
+  const out = {}
+  for (const id of QIDS) {
+    s = (s * 1103515245 + 12345) % 2147483648
+    out[id] = 1 + (s % 5)
+  }
+  return out
+}
+const withoutPillars = (base, skip) =>
+  Object.fromEntries(Object.entries(base).filter(([id]) => !skip.includes(QBY.get(id)?.pillarId)))
+
+const SEEDED = seededProfile()
+const PROFILES = [
+  { name: 'flat 3.0', layer: 'all', answers: constantProfile(3), flat: true },
+  // The same flat profile under core, and it is NOT redundant. At layer 'all'
+  // every weight set already sums to 1, so a flat profile returns 3.0 under a
+  // wide class of weight bugs and I4 proves little. Under core the dimensions
+  // carrying banking-only mappings retain less than 1 (DCAM7 at 0.75), so a
+  // missing renormalisation shows up here and only here.
+  { name: 'flat 3.0, core only', layer: 'core', answers: constantProfile(3), flat: true },
+  { name: 'all 1', layer: 'all', answers: constantProfile(1) },
+  { name: 'all 5', layer: 'all', answers: constantProfile(5) },
+  { name: 'seeded', layer: 'all', answers: SEEDED },
+  { name: 'seeded, P03/P07/P11 unanswered', layer: 'all', answers: withoutPillars(SEEDED, ['P03', 'P07', 'P11']) },
+  { name: 'seeded, core only', layer: 'core', answers: SEEDED },
+]
+
+let invariantsRun = 0
+if (projection && scoring) {
+  for (const profile of PROFILES) {
+    const { answers, layer } = profile
+    const projections = projection.projectAll(answers, layer)
+
+    // Independent pillar scores: scoring.ts called directly, not read back out
+    // of the projection. This is what makes I1 and I3 mean anything.
+    const independent = new Map(
+      scoring
+        .scorePillars(pillars, scoring.applicableQuestions(diag.questions, layer), answers)
+        .map((o) => [o.pillarId, o]),
+    )
+
+    for (const proj of projections) {
+      const at = `${profile.name} / ${proj.code}`
+
+      // I1 — DECOMPOSITION
+      for (const dim of proj.dimensions) {
+        if (!dim.isLeaf && dim.contributions.length > 0)
+          fail('PROJECTION-INVARIANT', `I1 ${at}: parent ${dim.code} carries ${dim.contributions.length} pillar contributions — projection is leaf-only and a parent counting a pillar its children also count double-counts the evidence`)
+        if (dim.state !== 'scored') {
+          if (dim.score !== null)
+            fail('PROJECTION-INVARIANT', `I1 ${at}: ${dim.code} is ${dim.state} but carries score ${dim.score} — an unmeasured dimension must be null, never a number`)
+          continue
+        }
+        if (!dim.isLeaf) continue
+        const total = dim.contributions.reduce((s, c) => s + c.contribution, 0)
+        if (Math.abs(total - dim.score) > EPS)
+          fail('PROJECTION-INVARIANT', `I1 ${at}: ${dim.code} contributions sum to ${total} but score is ${dim.score} (delta ${Math.abs(total - dim.score)})`)
+        const wsum = dim.contributions.reduce((s, c) => s + c.weight, 0)
+        if (Math.abs(wsum - 1) > EPS)
+          fail('PROJECTION-INVARIANT', `I1 ${at}: ${dim.code} renormalised weights sum to ${wsum}, not 1 — w' must be renormalised over the SCORED pillars`)
+        for (const c of dim.contributions) {
+          const truth = independent.get(c.pillarId)
+          if (!truth || truth.state !== 'scored')
+            fail('PROJECTION-INVARIANT', `I1 ${at}: ${dim.code} contributes pillar ${c.pillarId}, which scoring.ts reports as ${truth?.state ?? 'absent'}`)
+          else if (Math.abs(truth.score - c.pillarScore) > EPS)
+            fail('PROJECTION-INVARIANT', `I1 ${at}: ${dim.code} used ${c.pillarScore} for ${c.pillarId} but scoring.ts computes ${truth.score} — a second scoring path or a cached value`)
+        }
+        if (dim.scoredShare > dim.retainedShare + EPS)
+          fail('PROJECTION-INVARIANT', `I1 ${at}: ${dim.code} scoredShare ${dim.scoredShare} exceeds retainedShare ${dim.retainedShare} — more was measured than applies`)
+      }
+
+      // I2 — RECONCILIATION
+      if (proj.state === 'scored') {
+        const wsum = Object.values(proj.effectiveWeights).reduce((s, w) => s + w, 0)
+        if (Math.abs(wsum - 1) > EPS)
+          fail('PROJECTION-INVARIANT', `I2 ${at}: induced pillar weights sum to ${wsum}, not 1 — the weight basis is unnormalised, so the overall is not a weighted mean of anything`)
+        let recon = 0
+        for (const [pillarId, w] of Object.entries(proj.effectiveWeights)) {
+          if (w === 0) continue
+          const truth = independent.get(pillarId)
+          if (!truth || truth.state !== 'scored') {
+            fail('PROJECTION-INVARIANT', `I2 ${at}: pillar ${pillarId} carries weight ${w} but is ${truth?.state ?? 'absent'} — an unscored pillar must not enter the basis`)
+            continue
+          }
+          recon += w * truth.score
+        }
+        if (Math.abs(recon - proj.overall) > EPS)
+          fail('PROJECTION-INVARIANT', `I2 ${at}: overall is ${proj.overall} but Σ W_p·score(p) is ${recon} (delta ${Math.abs(recon - proj.overall)}) — the framework roll-up and the crosswalk disagree`)
+      }
+      invariantsRun++
+    }
+
+    // I3 — INTERSECTION AGREEMENT
+    const seenBy = new Map()
+    for (const proj of projections)
+      for (const dim of proj.dimensions)
+        for (const c of dim.contributions) {
+          const row = seenBy.get(c.pillarId) ?? new Map()
+          row.set(proj.code, [...(row.get(proj.code) ?? []), c.pillarScore])
+          seenBy.set(c.pillarId, row)
+        }
+    for (const [pillarId, byFramework] of seenBy) {
+      if (byFramework.size !== projections.length) continue // not in the intersection
+      const values = [...byFramework.values()].flat()
+      const spread = Math.max(...values) - Math.min(...values)
+      if (spread > EPS)
+        fail('PROJECTION-INVARIANT', `I3 ${profile.name}: pillar ${pillarId} is used with ${values.length} different values across the four frameworks, spread ${spread} — every projection must read the same score from scoring.ts`)
+    }
+
+    // I4 — FLAT PROFILE
+    if (profile.flat) {
+      const overalls = projections.map((p) => p.overall)
+      for (const [i, o] of overalls.entries())
+        if (o === null || Math.abs(o - 3) > EPS)
+          fail('PROJECTION-INVARIANT', `I4 ${profile.name}: ${projections[i].code} overall is ${o}, not 3.0 — with every pillar at exactly 3.0 any convex combination is 3.0, so a deviation is a maths error and almost always an unnormalised weight basis`)
+      const spread = Math.max(...overalls) - Math.min(...overalls)
+      if (spread > EPS)
+        fail('PROJECTION-INVARIANT', `I4 ${profile.name}: the four overalls spread by ${spread}, which must be 0 when every pillar scores identically`)
+    }
+  }
+}
 
 // ── report ──────────────────────────────────────────────────────────────
 const n = (rows, l) => rows.filter((r) => r.layer === l).length
@@ -710,6 +879,55 @@ console.log(
   `    distinctness (L1, floor ${DISTINCTNESS_MIN}): ` +
     l1Pairs.map((p) => `${p.a}/${p.b} ${p.l1.toFixed(3)}`).join('  '),
 )
+
+if (projection) {
+  console.log(`  PROJECTION-INVARIANT ${invariantsRun} framework projections over ${PROFILES.length} deterministic profiles (I1 decomposition, I2 reconciliation, I3 intersection, I4 flat)`)
+
+  // Coverage gaps: which dimensions a framework simply does not speak to under a
+  // layer, and which it speaks to but nobody measured. Two different findings and
+  // both are honest differentiation — this is what a generic maturity model
+  // cannot tell a client.
+  // Both counts are taken against a FULLY ANSWERED profile on purpose: anything
+  // still not-applicable or not-assessed there is a property of the crosswalk and
+  // the layer, not of how much of the diagnostic somebody filled in. `partial` is
+  // the number retaining less than all of their own definition — the DCAM7-at-0.75
+  // case, which is the coverage gap actually worth showing a client.
+  const fullyAnswered = constantProfile(3)
+  for (const f of FRAMEWORKS) {
+    const cells = ['core', 'banking', 'all'].map((layer) => {
+      const dims = projection.decompose(f.id, fullyAnswered, layer).filter((d) => d.isLeaf)
+      const na = dims.filter((d) => d.state === 'not-applicable').length
+      const unassessed = dims.filter((d) => d.state === 'not-assessed').length
+      const partial = dims.filter((d) => d.state === 'scored' && d.retainedShare < 1 - 1e-9)
+      const worst = partial.length ? Math.min(...partial.map((d) => d.retainedShare)) : 1
+      return `${layer}: ${na} n/a, ${unassessed} unassessed, ${partial.length} partial${partial.length ? ` (min retained ${worst.toFixed(2)})` : ''}`
+    })
+    console.log(`    ${f.code.padEnd(9)} ${cells.join('  |  ')}`)
+  }
+
+  // Rank divergence on the seeded profile. If the four worst-three lists are the
+  // same, the scorecards differ only in arithmetic and not in what a consultant
+  // actually presents — which is the granularity risk, visible at build time.
+  const worst = projection.projectAll(SEEDED, 'all').map((p) => ({
+    code: p.code,
+    overall: p.overall,
+    three: p.dimensions
+      .filter((d) => d.isLeaf && d.state === 'scored')
+      .sort((a, b) => a.score - b.score || (a.dimensionId < b.dimensionId ? -1 : 1))
+      .slice(0, 3),
+  }))
+  const overalls = worst.map((w) => w.overall)
+  console.log(
+    `    seeded profile overalls: ` +
+      worst.map((w) => `${w.code} ${w.overall.toFixed(3)}`).join('  ') +
+      `   spread ${(Math.max(...overalls) - Math.min(...overalls)).toFixed(3)}`,
+  )
+  for (const w of worst)
+    console.log(`    ${w.code.padEnd(9)} worst three: ` + w.three.map((d) => `${d.code} ${d.score.toFixed(2)}`).join(', '))
+  const signatures = new Set(worst.map((w) => w.three.map((d) => d.code).join('|')))
+  if (signatures.size === 1)
+    console.log(`    NOTE: all four worst-three lists are identical on a non-flat profile — the four scorecards differ only in arithmetic, not in what a consultant would present.`)
+}
 
 // The Phase B scoreboard. Informational: it is printed on every build so the gap
 // between what the register catalogues and what the workbench can actually
