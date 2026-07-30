@@ -89,8 +89,16 @@ function lineHeight(size: number): number {
  * was a 16-byte /ID. Determinism has to hold at the byte level to be worth
  * claiming, so the id is a pure function of what the document is about.
  *
+ * The seed covers the document's identity AND a digest of its content. Identity
+ * alone was not enough: two AR-01 reports for the same engagement on the same day
+ * with different answers are different documents, and /ID is the field a viewer
+ * or a DMS uses to decide exactly that. Sharing one meant a revised report sent
+ * to a client could be treated as the copy already held, and not refreshed.
+ *
  * FNV-1a, four times over salted variants. Not a cryptographic hash and not
- * required to be: this is a document identifier, not a security control.
+ * required to be: this is a document identifier, not a security control. It is
+ * not a change-detection guarantee either — a collision is possible in principle
+ * and simply means two documents share an id, which is where this started.
  */
 function stableFileId(seed: string): string {
   let out = ''
@@ -104,6 +112,31 @@ function stableFileId(seed: string): string {
     out += h.toString(16).padStart(8, '0')
   }
   return out.toUpperCase()
+}
+
+/**
+ * Separator for content-key parts. A C0 control, so no id, title or activity
+ * string can contain it and no two different part lists can join to the same
+ * string. Written as an escape on purpose — a literal U+0001 here would be
+ * invisible in every editor, exactly like the BOM in utils/export.ts.
+ */
+const KEY_SEP = '\u0001'
+
+/**
+ * Fold the things a document actually renders into one stable string, for
+ * `createReport`'s content digest.
+ *
+ * Sorted here rather than trusted from the caller, and sorted with the default
+ * comparator, which compares UTF-16 code units and is therefore locale- and
+ * engine-independent — `localeCompare` would let two machines derive two ids for
+ * the same document, which is the defect this exists to prevent.
+ *
+ * Callers pass prefixed parts (`wave:W0`, `gate:G1`) wherever two id families are
+ * mixed, so a wave and a gate that happened to share a number cannot swap places
+ * without changing the key.
+ */
+export function contentKey(parts: readonly string[]): string {
+  return [...parts].sort().join(KEY_SEP)
 }
 
 /* ------------------------------------------------------------------ */
@@ -138,7 +171,15 @@ export class ReportDoc {
   /** Pages whose header chrome is already painted, so it is never drawn twice. */
   private readonly chromeDrawn = new Set<number>()
 
-  constructor(meta: ReportMeta) {
+  /**
+   * @param contentDigest what this document renders, from `contentKey()`. Folded
+   *        into the trailer /ID so a revised report is a different document. It
+   *        is deliberately NOT part of ReportMeta: meta is built at the call site
+   *        from the engagement, which knows nothing about the rows the generator
+   *        is about to select. An empty digest is allowed and means "identity
+   *        only" — the pre-existing behaviour, not a silent failure.
+   */
+  constructor(meta: ReportMeta, contentDigest = '') {
     this.meta = meta
     this.doc = new jsPDF('p', 'mm', 'a4')
     this.pageWidth = this.doc.internal.pageSize.getWidth()
@@ -151,7 +192,9 @@ export class ReportDoc {
     const created = new Date(meta.generatedAt)
     if (!Number.isNaN(created.getTime())) this.doc.setCreationDate(created)
     this.doc.setFileId(
-      stableFileId(`${meta.artefactId}|${meta.engagementId}|${meta.orgName}|${meta.layer}|${meta.generatedAt}`),
+      stableFileId(
+        `${meta.artefactId}|${meta.engagementId}|${meta.orgName}|${meta.layer}|${meta.generatedAt}|${contentDigest}`,
+      ),
     )
     this.doc.setProperties({
       title: `${meta.artefactId} — ${meta.orgName}`,
@@ -445,8 +488,8 @@ export class ReportDoc {
 }
 
 /** Start a report. Nothing is written until a method is called. */
-export function createReport(meta: ReportMeta): ReportDoc {
-  return new ReportDoc(meta)
+export function createReport(meta: ReportMeta, contentDigest = ''): ReportDoc {
+  return new ReportDoc(meta, contentDigest)
 }
 
 /**

@@ -51,7 +51,7 @@
  * declared order, checklist phases in order of first appearance.
  */
 import type jsPDF from 'jspdf'
-import { createReport, SLATE } from '../../report/spine'
+import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import { byNumber, idOrdinal } from '../../report/order'
 import { layerShows } from '../layer'
@@ -269,7 +269,16 @@ export function buildOperatingModelPdf(input: OperatingModelInput): jsPDF {
   const checklistInScope = phases.reduce((n, p) => n + p.items.length, 0)
   const registryInScope = OM.roleRegistry.filter((e) => layerShows(meta.layer, e.layer)).length
 
-  const r = createReport(meta)
+  // The RACI activities and the role archetypes in scope. Activities have no id
+  // in the dataset, so the activity text is the identifier — which is correct
+  // here anyway: rewording an activity changes what the matrix says.
+  const r = createReport(
+    meta,
+    contentKey([
+      ...OM.raci.map((x) => `activity:${x.activity}`),
+      ...inScopeRoles.map((x) => `role:${x.role.id}`),
+    ]),
+  )
   r.cover('Target Operating Model', `${inScopeRoles.length} of ${OM.roles.length} role archetypes in scope`)
 
   /* ---- summary ---- */

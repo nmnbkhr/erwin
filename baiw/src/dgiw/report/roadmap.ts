@@ -41,7 +41,7 @@
  * before it is rendered.
  */
 import type jsPDF from 'jspdf'
-import { createReport, SLATE } from '../../report/spine'
+import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import { byNumber, idOrdinal } from '../../report/order'
 import { layerShows } from '../layer'
@@ -240,7 +240,15 @@ export function buildRoadmapPdf(input: RoadmapInput): jsPDF {
     ...new Set(PLAN.waves.flatMap((w) => unknownGateIdsNamedIn(w.exitCriteria))),
   ].sort(byNumber(idOrdinal))
 
-  const r = createReport(meta)
+  // The waves and gates this roadmap puts in scope. Prefixed because the two id
+  // families are mixed in one key and `W1` and `G1` must not be interchangeable.
+  const r = createReport(
+    meta,
+    contentKey([
+      ...inScopeWaves.map((w) => `wave:${w.wave.id}`),
+      ...inScopeGates.map((g) => `gate:${g.id}`),
+    ]),
+  )
   r.cover('Implementation Roadmap', `${inScopeWaves.length} of ${PLAN.waves.length} waves in scope`)
 
   /* ---- summary ---- */

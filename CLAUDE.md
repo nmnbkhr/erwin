@@ -100,11 +100,28 @@ sources of nondeterminism that a reader cannot see and a diff can:
 - **Creation date** — pinned via `setCreationDate(meta.generatedAt)`.
 - **Trailer `/ID`** — filled from `Math.random` unless set. Pinned via
   `setFileId(stableFileId(...))`, FNV-1a over
-  `artefactId|engagementId|orgName|layer|generatedAt`.
+  `artefactId|engagementId|orgName|layer|generatedAt|contentDigest`.
 
 Both live in the `ReportDoc` constructor, once. Symptom if either regresses: two
 generations of the same report are identical for tens of thousands of bytes and
 differ in one 16-byte run.
+
+**`/ID` covers content, not just identity.** The digest is the last seed field
+and comes from `contentKey()` in `spine.ts` — sorted, `U+0001`-joined, default
+comparator so it is locale- and engine-independent. Each generator passes what it
+actually renders as the second argument to `createReport`: AR-01 the rendered
+answers, AR-13 the in-scope CDE ids, AR-27 the rule ids, AR-04 prefixed
+`wave:`/`gate:` ids, AR-09 prefixed `activity:`/`role:` ids.
+
+Identity alone was not enough: two AR-01 reports for one engagement on one day
+with different answers are different documents, and `/ID` is the field a viewer
+or DMS uses to decide that. Sharing one meant a revised report could be treated
+as the copy already held and never refreshed. Determinism is unchanged — the
+inputs now simply include the content.
+
+A new generator that omits the digest gets identity-only behaviour and silently
+reintroduces the bug. If a report's content can vary while its meta does not, it
+must pass a content key.
 
 `generatedAt` is truncated to the day **at the call site** — these are dated
 deliverables. Do not pin it to a constant to make a test pass; two runs either

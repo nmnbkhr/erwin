@@ -11,7 +11,7 @@
  * know. It stays in the register, flagged, and it is counted on the summary page.
  */
 import type jsPDF from 'jspdf'
-import { createReport, SLATE } from '../../report/spine'
+import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import { byStringKey, type CsvColumn } from '../../report/csv'
 import { layerShows } from '../layer'
@@ -129,7 +129,9 @@ export function buildDqRuleSpecPdf(input: DqRuleSpecInput): jsPDF {
   const { rows } = buildDqRuleSpecRows(input)
   const broken = rows.filter(isCdeUnresolved)
 
-  const r = createReport(meta)
+  // The rules this specification covers. A rule added to or dropped from the set
+  // is a revision, and a revision is a different document.
+  const r = createReport(meta, contentKey(rows.map((x) => x.id)))
   r.cover('Data Quality Rule Specification', `${rows.length} rules in scope`)
 
   r.page('Rule set summary')

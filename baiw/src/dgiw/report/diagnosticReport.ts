@@ -17,7 +17,7 @@
  * same layer are byte-identical, including the PDF's CreationDate.
  */
 import type jsPDF from 'jspdf'
-import { createReport, SLATE } from '../../report/spine'
+import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import {
   LEVEL_LABEL,
@@ -83,7 +83,18 @@ export function buildDiagnosticReport(input: DiagnosticReportInput): jsPDF {
   const notAssessed = outcomes.filter((p) => p.state === 'not-assessed')
   const notApplicable = outcomes.filter((p) => p.state === 'not-applicable')
 
-  const r = createReport(meta)
+  /*
+   * The answers, restricted to the questions this layer actually renders.
+   *
+   * Restricted rather than the whole answer map: an answer to a banking question
+   * changes nothing in a core-only report, and giving that report a new /ID would
+   * claim a revision that a reader cannot see. The converse is the one that
+   * matters — changing an answer that IS rendered must change the id.
+   */
+  const r = createReport(
+    meta,
+    contentKey(questions.filter((q) => answers[q.id] !== undefined).map((q) => `${q.id}=${answers[q.id]}`)),
+  )
 
   /* ── Cover ─────────────────────────────────────────────────────────
      orgName, date, artefact id and layer are painted by the spine from

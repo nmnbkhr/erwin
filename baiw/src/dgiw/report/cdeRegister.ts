@@ -14,7 +14,7 @@
  * spreadsheet reads as "no owner" when the truth is "owner not in the registry".
  */
 import type jsPDF from 'jspdf'
-import { createReport, SLATE } from '../../report/spine'
+import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import { byStringKey, type CsvColumn } from '../../report/csv'
 import { layerShows } from '../layer'
@@ -135,7 +135,9 @@ export function buildCdeRegisterPdf(input: CdeRegisterInput): jsPDF {
   const { rows } = buildCdeRegisterRows(input)
   const unresolved = rows.filter((r) => r.ownerArchetype === UNRESOLVED_OWNER)
 
-  const r = createReport(meta)
+  // The elements this document actually lists. Adding, removing or re-scoping a
+  // CDE makes it a different register, and the /ID has to say so.
+  const r = createReport(meta, contentKey(rows.map((x) => x.id)))
   r.cover('Critical Data Element Register', `${rows.length} governed elements in scope`)
 
   r.page('Register summary')
