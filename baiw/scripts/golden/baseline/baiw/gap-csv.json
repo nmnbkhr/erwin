@@ -1,0 +1,63 @@
+{
+  "artefact": "gap-csv",
+  "assertableSha256": "4c7fe626eaf4e801d6ebc62a7ea058b2b3f5a5ea60dc3e0c1dfaf24061a5fbcf",
+  "bytes": null,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": null,
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "columnCount": 9,
+  "filename": "BAIW_Capability_Gap_Analysis.csv",
+  "filenameNormalised": "BAIW_Capability_Gap_Analysis.csv",
+  "firstThreeRows": [
+    "1,Business Strategy & Planning,Business,Strategy,⟨SKIPPED⟩,1.5,⟨SKIPPED⟩,⟨SKIPPED⟩,Party; Agreement",
+    "2,Business Analytics,Business,Analytics,⟨SKIPPED⟩,1.5,⟨SKIPPED⟩,⟨SKIPPED⟩,Party; Agreement",
+    "3,Business Reporting,Business,Reporting,⟨SKIPPED⟩,1.5,⟨SKIPPED⟩,⟨SKIPPED⟩,Party; Agreement"
+  ],
+  "fullTextSha256": null,
+  "generator": "generateGapCSV",
+  "header": [
+    "ID",
+    "Name",
+    "Theme",
+    "Group",
+    "Current Level",
+    "Required Level",
+    "Gap",
+    "Priority",
+    "FSDM Dependencies"
+  ],
+  "kind": "csv",
+  "lastThreeRows": [
+    "110,Outcomes Predictive Models,Outcomes,Predictive,⟨SKIPPED⟩,5.0,⟨SKIPPED⟩,⟨SKIPPED⟩,Party; Agreement",
+    "111,Outcomes Dashboard & Visualization,Outcomes,Visualization,⟨SKIPPED⟩,5.0,⟨SKIPPED⟩,⟨SKIPPED⟩,Party; Agreement",
+    "112,Outcomes Data Quality,Outcomes,Quality,⟨SKIPPED⟩,5.0,⟨SKIPPED⟩,⟨SKIPPED⟩,Party; Agreement"
+  ],
+  "module": "baiw",
+  "notReproducible": {
+    "bytes": "nondeterministic — Math.random at reportGenerator.ts:695",
+    "fullTextSha256": "nondeterministic — Math.random at reportGenerator.ts:695",
+    "rawBytesSha256": "nondeterministic — Math.random at reportGenerator.ts:695"
+  },
+  "rawBytesAsserted": false,
+  "rawBytesSha256": null,
+  "rowCount": 112,
+  "sampleRowsMasked": true,
+  "unassertable": [
+    "Current Level",
+    "Gap",
+    "Priority"
+  ],
+  "unassertableColumnIndexes": [
+    4,
+    6,
+    7
+  ],
+  "unassertableReason": "nondeterministic — Math.random at reportGenerator.ts:695"
+}

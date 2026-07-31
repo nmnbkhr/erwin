@@ -1,0 +1,57 @@
+{
+  "artefact": "roadmap-md",
+  "bytes": 4483,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": null,
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "clockDerived": {
+    "dateLineRaw": "## Prepared by Godaitec | 7/31/2026",
+    "renderedDates": [
+      "7/31/2026"
+    ]
+  },
+  "filename": "Fixture_Customs_Authority_Trade_Analytics_Roadmap.md",
+  "filenameNormalised": "Fixture_Customs_Authority_Trade_Analytics_Roadmap.md",
+  "generator": "generateTradeRoadmapMarkdown",
+  "headingCount": 26,
+  "headings": [
+    "# Fixture Customs Authority — Trade Analytics Transformation Roadmap",
+    "## Prepared by Godaitec | 7/31/2026",
+    "## Slide 1: Title",
+    "### Fixture Customs Authority Trade Analytics Transformation Roadmap",
+    "## Slide 2: Current State",
+    "### Where We Are Today",
+    "## Slide 3: Target State",
+    "### Where We Need To Be",
+    "## Slide 4: The Gap",
+    "### What Needs To Change",
+    "## Slide 5: Phase 1 — Quick Wins (Months 1–6)",
+    "### Investment: PKR 40–70 Million",
+    "## Slide 6: Phase 2 — Core Build (Months 7–18)",
+    "### Investment: PKR 100–200 Million",
+    "## Slide 7: Phase 3 — Advanced Analytics (Months 19–36)",
+    "### Investment: PKR 60–130 Million",
+    "## Slide 8: Data Foundation",
+    "### WCO Data Model v4.2 Reference Architecture",
+    "## Slide 9: Investment Summary",
+    "### Total: PKR 200–400 Million over 3 Years",
+    "## Slide 10: ROI Projection",
+    "### Expected Returns",
+    "## Slide 11: Why Godaitec",
+    "### Our Expertise",
+    "## Slide 12: Contact",
+    "### Let's Build Your Trade Analytics Future"
+  ],
+  "kind": "md",
+  "lineCount": 135,
+  "module": "taiw",
+  "normalisedTextSha256": "4f00fdcefc231e12db3b5265528420760ae245b66f48bdf4032fa7e5bfbe6459",
+  "rawBytesSha256": "f7e6f9a6fac5701865fe6832be239d977e759d1c1642d80912d5c24e2b875071"
+}

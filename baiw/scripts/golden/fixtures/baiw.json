@@ -1,0 +1,135 @@
+{
+  "module": "baiw",
+  "entry": "src/utils/reportGenerator.ts",
+  "orgName": "Fixture Bank Limited",
+  "generatedAt": null,
+  "notes": [
+    "generatedAt is null because none of the three BAIW generators accept one -",
+    "they call new Date() directly. The harness pins TZ=UTC and normalises the",
+    "rendered date to a <DATE> token; the raw value is recorded but not asserted.",
+    "answeredCategories === totalCategories so isDraft is false. The DRAFT",
+    "watermark path is therefore NOT covered - see README."
+  ],
+  "assessment": {
+    "scores": [
+      {
+        "category": "Business",
+        "current": 1,
+        "desired": 1.5,
+        "gap": 0.5
+      },
+      {
+        "category": "Culture",
+        "current": 1.5,
+        "desired": 2.7,
+        "gap": 1.2
+      },
+      {
+        "category": "Governance",
+        "current": 2,
+        "desired": 3.8,
+        "gap": 1.8
+      },
+      {
+        "category": "Information",
+        "current": 2.5,
+        "desired": 5,
+        "gap": 2.5
+      },
+      {
+        "category": "Applications",
+        "current": 3,
+        "desired": 3.5,
+        "gap": 0.5
+      },
+      {
+        "category": "Systems",
+        "current": 3.5,
+        "desired": 4.7,
+        "gap": 1.2
+      },
+      {
+        "category": "Agility",
+        "current": 4,
+        "desired": 5,
+        "gap": 1
+      },
+      {
+        "category": "Outcomes",
+        "current": 4.5,
+        "desired": 5,
+        "gap": 0.5
+      },
+      {
+        "category": "Overall Assessment",
+        "current": 5,
+        "desired": 5,
+        "gap": 0
+      }
+    ],
+    "overallScore": 3,
+    "answeredCategories": 9,
+    "totalCategories": 9
+  },
+  "data": {
+    "src/data/benchmarks.json": {
+      "pakistanBankingAverage": {
+        "Business": 2.1,
+        "Culture": 1.9,
+        "Governance": 1.7,
+        "Information": 2,
+        "Applications": 1.8,
+        "Systems": 2.3,
+        "Agility": 1.6,
+        "Outcomes": 1.5,
+        "Overall Assessment": 1.86
+      },
+      "regionalLeaders": {
+        "Business": 3.5,
+        "Culture": 3.2,
+        "Governance": 3,
+        "Information": 3.4,
+        "Applications": 3.6,
+        "Systems": 3.8,
+        "Agility": 3.1,
+        "Outcomes": 2.8,
+        "Overall Assessment": 3.18,
+        "examples": "UAE National Bank, Maybank (MY), DBS (SG)"
+      },
+      "globalBest": {
+        "Business": 4.5,
+        "Culture": 4.2,
+        "Governance": 4,
+        "Information": 4.3,
+        "Applications": 4.6,
+        "Systems": 4.5,
+        "Agility": 4.1,
+        "Outcomes": 3.8,
+        "Overall Assessment": 4.13,
+        "examples": "JPMorgan Chase, Goldman Sachs, ICBC"
+      },
+      "maturityLevelDescriptions": {
+        "1": {
+          "label": "Ad-Hoc",
+          "description": "No formal analytics. Decisions based on intuition and spreadsheets."
+        },
+        "2": {
+          "label": "Developing",
+          "description": "Basic reporting exists. Some BI tools deployed. Siloed data."
+        },
+        "3": {
+          "label": "Defined",
+          "description": "Enterprise DWH in place. Standardized reporting. Some predictive models."
+        },
+        "4": {
+          "label": "Managed",
+          "description": "Advanced analytics embedded in operations. Real-time dashboards. ML models in production."
+        },
+        "5": {
+          "label": "Optimizing",
+          "description": "AI-driven decisions. Autonomous processes. Continuous learning systems."
+        }
+      }
+    }
+  }
+}

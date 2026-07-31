@@ -1,0 +1,57 @@
+{
+  "artefact": "roadmap-md",
+  "bytes": 3988,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": null,
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "clockDerived": {
+    "dateLineRaw": "## Prepared by Godaitec | 7/31/2026",
+    "renderedDates": [
+      "7/31/2026"
+    ]
+  },
+  "filename": "Fixture_Bank_Limited_Analytics_Roadmap.md",
+  "filenameNormalised": "Fixture_Bank_Limited_Analytics_Roadmap.md",
+  "generator": "generateRoadmapMarkdown",
+  "headingCount": 26,
+  "headings": [
+    "# Fixture Bank Limited — Analytics Transformation Roadmap",
+    "## Prepared by Godaitec | 7/31/2026",
+    "## Slide 1: Title",
+    "### Fixture Bank Limited Analytics Transformation Roadmap",
+    "## Slide 2: Current State",
+    "### Where We Are Today",
+    "## Slide 3: Target State",
+    "### Where We Need To Be",
+    "## Slide 4: The Gap",
+    "### What Needs To Change",
+    "## Slide 5: Phase 1 — Quick Wins (Months 1–6)",
+    "### Investment: PKR 50–80 Million",
+    "## Slide 6: Phase 2 — Core Build (Months 7–18)",
+    "### Investment: PKR 150–250 Million",
+    "## Slide 7: Phase 3 — Advanced Analytics (Months 19–36)",
+    "### Investment: PKR 100–200 Million",
+    "## Slide 8: Data Foundation",
+    "### FSDM Reference Architecture",
+    "## Slide 9: Investment Summary",
+    "### Total: PKR 300–530 Million over 3 Years",
+    "## Slide 10: ROI Projection",
+    "### Expected Returns",
+    "## Slide 11: Why Godaitec",
+    "### Our Expertise",
+    "## Slide 12: Contact",
+    "### Let's Build Your Analytics Future"
+  ],
+  "kind": "md",
+  "lineCount": 133,
+  "module": "baiw",
+  "normalisedTextSha256": "aec26cd6887ab40faad15f7618574656a8c7bfdf547438a44530c24753bb597d",
+  "rawBytesSha256": "2874c8704982d858ce3c0fd287283334e5cf137b6299206e802078bf8feafbde"
+}

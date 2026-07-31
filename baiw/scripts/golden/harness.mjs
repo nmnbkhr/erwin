@@ -1,0 +1,859 @@
+/**
+ * Golden-output harness — shared core for capture.mjs and compare.mjs.
+ *
+ * WHY THIS FILE EXISTS AT ALL
+ * ---------------------------
+ * The dominant structural fact of this repo is copy-paste (CLAUDE.md says so at
+ * length: six layout shells, three report generators). Capture and compare need
+ * the same Vite driver, the same fixture loading, the same PDF/CSV/Markdown
+ * analysis and the same normalisation. Duplicating ~400 lines across two scripts
+ * would guarantee they drift, and a compare that analyses differently from the
+ * capture it is diffing against is worse than no harness. One core, two thin
+ * entry points.
+ *
+ * WHAT IT DRIVES
+ * --------------
+ * Vite's programmatic SSR (`createServer` + `ssrLoadModule`), not a browser and
+ * not CDP. It loads the real generator `.ts` modules with their real imports,
+ * which is what D2 changes. `file-saver` is aliased to a sink and
+ * `jsPDF.API.save` is patched so artefacts come back as bytes instead of
+ * triggering a download.
+ *
+ * `resolve.conditions` is forced to browser. The app ships jspdf.es.min.js; the
+ * `node` condition would resolve jspdf.node.min.js, a different bundle no user
+ * ever renders (and CJS, which Vite's SSR inliner cannot evaluate at all).
+ *
+ * NOTHING HERE MAY READ THE CLOCK OR Math.random. The harness has to be more
+ * deterministic than the thing it is measuring.
+ */
+
+import { createServer } from 'vite'
+import { createHash } from 'node:crypto'
+import { readFileSync, existsSync } from 'node:fs'
+import { spawnSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+
+const HERE = path.dirname(fileURLToPath(import.meta.url))
+
+/** `baiw/` — the Vite root and the base for every repo-relative path here. */
+export const APP_ROOT = path.resolve(HERE, '../..')
+export const FIXTURE_DIR = path.join(HERE, 'fixtures')
+export const BASELINE_DIR = path.join(HERE, 'baseline')
+/** Raw artefacts for eyeballing. Gitignored — see scripts/golden/.gitignore. */
+export const RAW_DIR = path.join(HERE, 'raw')
+
+export const MODULES = ['baiw', 'taiw', 'haiw']
+
+// ── Environment pinning ──────────────────────────────────────────────────
+// Step 1 measured this: TZ=Pacific/Kiritimati changes both the PDF's extracted
+// text (the cover date rolls to the next day) and the markdown date line. A
+// capture taken on a differently-configured machine would therefore differ from
+// the baseline for no reason a reviewer could act on. Pin, don't document.
+
+export const PINNED = {
+  TZ: 'UTC',
+  LANG: 'en_US.UTF-8',
+  LC_ALL: 'en_US.UTF-8',
+  /** What Intl must resolve to once LC_ALL has taken hold. */
+  locale: 'en-US',
+}
+
+/**
+ * Pin TZ and the ICU default locale, re-executing if the locale cannot be fixed
+ * in place.
+ *
+ * `process.env.TZ = ...` takes effect immediately (V8 clears its timezone
+ * cache). `process.env.LC_ALL = ...` does NOT — ICU resolves the default locale
+ * once, at process start, and ignores later assignment. Verified on Node
+ * v22.22.2: starting under LC_ALL=de_DE and assigning en_US.UTF-8 still leaves
+ * `Intl.DateTimeFormat().resolvedOptions().locale === 'de-DE'`, which is enough
+ * to change `toLocaleDateString()` from `7/31/2026` to `31.7.2026`.
+ *
+ * So: fix TZ in place, and if the locale is wrong, re-run ourselves with the
+ * right environment. Loud, deterministic, one extra process at most.
+ */
+export function pinEnvironment() {
+  process.env.TZ = PINNED.TZ
+  const locale = new Intl.DateTimeFormat().resolvedOptions().locale
+  if (locale === PINNED.locale) return
+
+  if (process.env.GOLDEN_REEXEC === '1') {
+    throw new Error(
+      `Cannot pin the ICU locale: wanted ${PINNED.locale}, got ${locale}, even after re-exec ` +
+      `with LC_ALL=${PINNED.LC_ALL}. This Node build may lack full ICU. Refusing to capture ` +
+      `against an unpinned locale — the markdown date line would silently differ.`,
+    )
+  }
+
+  const r = spawnSync(process.execPath, [process.argv[1], ...process.argv.slice(2)], {
+    stdio: 'inherit',
+    env: { ...process.env, ...PINNED, GOLDEN_REEXEC: '1' },
+  })
+  process.exit(r.status ?? 1)
+}
+
+/**
+ * The EFFECTIVE environment — what actually decides what the generators render.
+ * Recorded in every baseline so a mismatch is visible rather than mysterious.
+ *
+ * Deliberately not the raw env vars: pinEnvironment() may or may not have needed
+ * to re-exec, so LC_ALL is set on one machine and unset on another while both
+ * resolve `en-US`. Comparing the raw vars would flag a difference that changes
+ * no byte of output. The raw vars are recorded separately, as context.
+ */
+export function environmentStamp() {
+  const resolved = new Intl.DateTimeFormat().resolvedOptions()
+  return { tz: process.env.TZ ?? null, icuLocale: resolved.locale, icuTimeZone: resolved.timeZone }
+}
+
+/** The raw variables behind the stamp. Context for a human, never compared. */
+export function environmentVars() {
+  return { LANG: process.env.LANG ?? null, LC_ALL: process.env.LC_ALL ?? null, reexeced: process.env.GOLDEN_REEXEC === '1' }
+}
+
+// ── CLI ──────────────────────────────────────────────────────────────────
+
+export function parseArgs(argv) {
+  const out = { modules: [...MODULES] }
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i]
+    if (a === '--module' || a === '-m') {
+      const v = argv[++i]
+      if (!MODULES.includes(v)) throw new Error(`--module must be one of ${MODULES.join('|')}, got ${JSON.stringify(v)}`)
+      out.modules = [v]
+    } else if (a.startsWith('--module=')) {
+      const v = a.slice('--module='.length)
+      if (!MODULES.includes(v)) throw new Error(`--module must be one of ${MODULES.join('|')}, got ${JSON.stringify(v)}`)
+      out.modules = [v]
+    } else if (a === '--help' || a === '-h') {
+      out.help = true
+    } else {
+      throw new Error(`unknown argument ${JSON.stringify(a)}`)
+    }
+  }
+  return out
+}
+
+// ── The nine artefacts ───────────────────────────────────────────────────
+// `id` is the baseline filename and is deliberately NOT the output filename:
+// D2 renames every output via reportFilename(), and the artefact's identity has
+// to survive that.
+
+export const REGISTRY = {
+  baiw: {
+    entry: '/src/utils/reportGenerator.ts',
+    artefacts: [
+      { id: 'maturity-pdf', kind: 'pdf', exportName: 'generateMaturityPDF', call: (m, f) => m.generateMaturityPDF(f.assessment, f.orgName) },
+      {
+        id: 'gap-csv',
+        kind: 'csv',
+        exportName: 'generateGapCSV',
+        call: (m, f) => m.generateGapCSV(f.assessment),
+        // Math.random at src/utils/reportGenerator.ts:695. See docs/known-defects.md.
+        unassertable: ['Current Level', 'Gap', 'Priority'],
+        unassertableReason: 'nondeterministic — Math.random at reportGenerator.ts:695',
+      },
+      { id: 'roadmap-md', kind: 'md', exportName: 'generateRoadmapMarkdown', call: (m, f) => m.generateRoadmapMarkdown(f.assessment, f.orgName) },
+    ],
+  },
+  taiw: {
+    entry: '/src/taiw/utils/tradeReportGenerator.ts',
+    artefacts: [
+      { id: 'maturity-pdf', kind: 'pdf', exportName: 'generateTradeMaturityPDF', call: (m, f) => m.generateTradeMaturityPDF(f.assessment, f.orgName) },
+      {
+        id: 'gap-csv',
+        kind: 'csv',
+        exportName: 'generateTradeGapCSV',
+        call: (m, f) => m.generateTradeGapCSV(f.assessment),
+        // Math.random at src/taiw/utils/tradeReportGenerator.ts:721.
+        unassertable: ['Current Level', 'Gap', 'Priority'],
+        unassertableReason: 'nondeterministic — Math.random at tradeReportGenerator.ts:721',
+      },
+      { id: 'roadmap-md', kind: 'md', exportName: 'generateTradeRoadmapMarkdown', call: (m, f) => m.generateTradeRoadmapMarkdown(f.assessment, f.orgName) },
+    ],
+  },
+  haiw: {
+    entry: '/src/haiw/utils/healthReportGenerator.ts',
+    artefacts: [
+      {
+        id: 'maturity-pdf',
+        kind: 'pdf',
+        exportName: 'generateHealthMaturityPDF',
+        // benchmarks is null in the fixture -> undefined here, which is exactly
+        // what HealthReportGenerator.tsx passes, so DEFAULT_BENCHMARKS applies.
+        call: (m, f) => m.generateHealthMaturityPDF(f.answers, f.capabilities, f.benchmarks ?? undefined, f.orgName),
+      },
+      {
+        id: 'gap-csv',
+        kind: 'csv',
+        exportName: 'generateHealthGapCSV',
+        call: (m, f) => m.generateHealthGapCSV(f.answers, f.capabilities),
+        // THE CONTROL. Step 1 found no clock read and no RNG in this generator,
+        // and its bytes were identical across four TZ/locale environments. It is
+        // therefore baselined on raw bytes as well as normalised text: if this
+        // one ever reports a diff on an unchanged generator, the harness is
+        // broken, not the generator.
+        assertRawBytes: true,
+      },
+      { id: 'roadmap-md', kind: 'md', exportName: 'generateHealthRoadmapMarkdown', call: (m, f) => m.generateHealthRoadmapMarkdown(f.answers, f.capabilities, f.orgName) },
+    ],
+  },
+}
+
+export function artefactSpec(module, id) {
+  const spec = REGISTRY[module]?.artefacts.find(a => a.id === id)
+  if (!spec) throw new Error(`no artefact ${module}/${id} in the registry`)
+  return spec
+}
+
+// ── Fixtures ─────────────────────────────────────────────────────────────
+
+export function loadFixture(module) {
+  const p = path.join(FIXTURE_DIR, `${module}.json`)
+  if (!existsSync(p)) throw new Error(`missing fixture ${p}`)
+  const f = JSON.parse(readFileSync(p, 'utf8'))
+  if (f.module !== module) throw new Error(`fixture ${p} declares module ${f.module}`)
+  return f
+}
+
+// ── Vite driver ──────────────────────────────────────────────────────────
+
+/**
+ * Serve the fixture's frozen copy of any dataset the generator imports.
+ *
+ * `reportGenerator.ts` does `import benchmarks from '../data/benchmarks.json'`.
+ * That is a module-level import, not a parameter, so the only way to freeze it
+ * without editing the generator (which D1 may not do) is to intercept the
+ * resolution. Redirecting to a virtual id rather than rewriting the .json keeps
+ * Vite's own JSON plugin out of the way.
+ *
+ * `served` is exported so the caller can assert the interception actually
+ * happened. If D2 moves an import and the plugin silently stops matching, the
+ * baseline would quietly go back to reading live data — which is exactly the
+ * vacuous pass this repo has already been bitten by four times.
+ */
+function fixtureDataPlugin(dataByAbsPath, served) {
+  // The path is base64url'd into the virtual id rather than appended raw. Vite's
+  // own `vite:json` plugin filters on the id ending in `.json` and would try to
+  // JSON.parse the `export default {...}` this plugin returns.
+  const VIRTUAL = '\0golden-fixture:'
+  const enc = p => Buffer.from(p, 'utf8').toString('base64url')
+  const dec = t => Buffer.from(t, 'base64url').toString('utf8')
+
+  return {
+    name: 'golden-fixture-data',
+    enforce: 'pre',
+    resolveId(source, importer) {
+      if (!importer || source.startsWith('\0')) return null
+      const base = importer.startsWith('/') && !existsSync(path.dirname(importer))
+        ? path.join(APP_ROOT, path.dirname(importer))
+        : path.dirname(importer)
+      const abs = path.resolve(base, source)
+      if (Object.hasOwn(dataByAbsPath, abs)) return VIRTUAL + enc(abs)
+      return null
+    },
+    load(id) {
+      if (!id.startsWith(VIRTUAL)) return null
+      const key = dec(id.slice(VIRTUAL.length))
+      served.add(key)
+      return `export default ${JSON.stringify(dataByAbsPath[key])}`
+    },
+  }
+}
+
+/**
+ * Boot one Vite SSR server that can generate every requested module's artefacts.
+ * Returns `{ generate, close }`.
+ */
+export async function createDriver(modules) {
+  const fixtures = Object.fromEntries(modules.map(m => [m, loadFixture(m)]))
+
+  // Sorted so the plugin's match order never depends on object insertion order.
+  const dataByAbsPath = {}
+  for (const m of [...modules].sort()) {
+    for (const rel of Object.keys(fixtures[m].data ?? {}).sort()) {
+      dataByAbsPath[path.join(APP_ROOT, rel)] = fixtures[m].data[rel]
+    }
+  }
+  const served = new Set()
+
+  const server = await createServer({
+    configFile: false,
+    root: APP_ROOT,
+    appType: 'custom',
+    logLevel: 'silent',
+    server: { middlewareMode: true, hmr: false, watch: null, fs: { allow: [APP_ROOT], strict: false } },
+    plugins: [fixtureDataPlugin(dataByAbsPath, served)],
+    resolve: {
+      alias: [{ find: /^file-saver$/, replacement: path.join(HERE, 'file-saver-sink.mjs') }],
+      conditions: ['browser', 'import', 'module', 'default'],
+    },
+    ssr: {
+      resolve: { conditions: ['browser', 'import', 'module', 'default'] },
+      // Inline them so the browser build is what gets evaluated.
+      noExternal: ['jspdf', 'jspdf-autotable'],
+    },
+    // SSR never touches the pre-bundle; discovery would crawl the whole app for
+    // nothing and then complain when we close the server.
+    optimizeDeps: { noDiscovery: true, include: [] },
+  })
+
+  const sink = await server.ssrLoadModule(path.join(HERE, 'file-saver-sink.mjs'))
+  const jsPDF = (await server.ssrLoadModule('jspdf')).default
+  const pdfs = []
+  jsPDF.API.save = function (filename) {
+    pdfs.push({ filename, bytes: Buffer.from(this.output('arraybuffer')) })
+    return this
+  }
+  // src/report/spine.ts's saveReport() ends at doc.save() too, so this same hook
+  // captures post-D2 output. That is the one thing that lets the baseline
+  // outlive the migration it exists to review.
+
+  const ruler = new jsPDF('p', 'pt', 'a4')
+
+  async function generate(module) {
+    const fixture = fixtures[module]
+    const { entry, artefacts } = REGISTRY[module]
+    const mod = await server.ssrLoadModule(entry)
+    const out = []
+    for (const spec of artefacts) {
+      if (typeof mod[spec.exportName] !== 'function') {
+        throw new Error(`${entry} no longer exports ${spec.exportName}() — the registry is stale`)
+      }
+      pdfs.length = 0
+      sink.SINK.length = 0
+      spec.call(mod, fixture)
+      const produced = pdfs.length + sink.SINK.length
+      if (produced !== 1) {
+        throw new Error(`${module}/${spec.id}: expected exactly one artefact, got ${produced}`)
+      }
+      if (pdfs.length) {
+        out.push({ spec, filename: pdfs[0].filename, bytes: pdfs[0].bytes })
+      } else {
+        const { filename, blob } = sink.SINK[0]
+        out.push({ spec, filename, bytes: Buffer.from(await blob.text(), 'utf8') })
+      }
+    }
+    return out
+  }
+
+  function assertFixtureDataWasServed() {
+    const expected = Object.keys(dataByAbsPath).sort()
+    const missing = expected.filter(k => !served.has(k))
+    if (missing.length) {
+      throw new Error(
+        `fixture data was never requested: ${missing.map(m => path.relative(APP_ROOT, m)).join(', ')}. ` +
+        `The generator's import path probably moved, so it read LIVE src/data/ instead of the frozen ` +
+        `fixture copy. Fix the fixture's data keys before trusting this capture.`,
+      )
+    }
+  }
+
+  return { generate, ruler, assertFixtureDataWasServed, close: () => server.close() }
+}
+
+// ── Hashing and stable serialisation ─────────────────────────────────────
+
+export const sha256 = s => createHash('sha256').update(typeof s === 'string' ? Buffer.from(s, 'utf8') : s).digest('hex')
+
+/** JSON with object keys sorted at every depth. Arrays keep their order. */
+export function stableStringify(value, indent = 2) {
+  const walk = v => {
+    if (Array.isArray(v)) return v.map(walk)
+    if (v && typeof v === 'object') {
+      const out = {}
+      for (const k of Object.keys(v).sort()) out[k] = walk(v[k])
+      return out
+    }
+    return v
+  }
+  return JSON.stringify(walk(value), null, indent) + '\n'
+}
+
+/**
+ * Compact, key-sorted JSON for EQUALITY CHECKS.
+ *
+ * Plain JSON.stringify preserves insertion order, so a freshly built object and
+ * the same object round-tripped through a key-sorted baseline file compare
+ * unequal while being identical. That bug had the first compare run reporting
+ * nine environment changes against a baseline captured seconds earlier.
+ */
+export function stableJson(value) {
+  return stableStringify(value, 0).trimEnd()
+}
+
+// ── Date normalisation ───────────────────────────────────────────────────
+// Two clock-derived strings survive into content, and both must be neutralised
+// before hashing or the baseline expires at the next local midnight. The raw
+// value is recorded next to the hash so a reviewer can still see it.
+
+export const DATE_TOKEN = '⟨DATE⟩'
+/** Stands in for a column whose value the harness has declared unassertable. */
+export const SKIP_TOKEN = '⟨SKIPPED⟩'
+
+const MONTHS = 'January|February|March|April|May|June|July|August|September|October|November|December'
+
+/**
+ * `July 31, 2026` — the PDF cover date.
+ * Pre-D2 this comes from `new Date().toLocaleDateString('en-US', {...})`;
+ * post-D2 from `formatCoverDate()` in src/report/naming.ts, which builds the
+ * same long form from UTC parts. One pattern covers both.
+ */
+export const LONG_DATE_RE = new RegExp(`\\b(?:${MONTHS}) \\d{1,2}, \\d{4}\\b`, 'g')
+
+/**
+ * `7/31/2026` — the markdown date, from bare `toLocaleDateString()` with no
+ * locale argument. Locale-shaped as well as clock-shaped; the harness pins the
+ * locale so only the clock can move it.
+ */
+export const SHORT_DATE_RE = /\b\d{1,2}\/\d{1,2}\/\d{4}\b/g
+
+/** `2026-07-31` — appears in post-D2 filenames from reportFilename(). */
+export const ISO_DATE_RE = /\b\d{4}-\d{2}-\d{2}\b/g
+
+export function normaliseDates(text) {
+  return text
+    .replace(LONG_DATE_RE, DATE_TOKEN)
+    .replace(SHORT_DATE_RE, DATE_TOKEN)
+}
+
+export function normaliseFilename(name) {
+  return name.replace(ISO_DATE_RE, DATE_TOKEN)
+}
+
+export function findDates(text) {
+  const hits = [...(text.match(LONG_DATE_RE) ?? []), ...(text.match(SHORT_DATE_RE) ?? [])]
+  return [...new Set(hits)].sort()
+}
+
+// ── PDF reader ───────────────────────────────────────────────────────────
+// jsPDF writes uncompressed content streams (no /FlateDecode anywhere in the
+// output), so every text run's string, position, font and size is directly
+// recoverable. That is why this harness needs no PDF library.
+
+const PT_PER_MM = 72 / 25.4
+/** The margin all three generators hand-place against, and src/report/spine.ts's MARGIN. */
+export const MARGIN_MM = 15
+export const MARGIN_PT = MARGIN_MM * PT_PER_MM
+
+/** Byte ranges of every `stream ... endstream` body, so object scanning can skip them. */
+function streamRanges(s) {
+  const ranges = []
+  const re = /stream\r?\n/g
+  let m
+  while ((m = re.exec(s)) !== null) {
+    if (s.slice(m.index - 3, m.index) === 'end') continue   // this is "endstream"
+    const end = s.indexOf('endstream', re.lastIndex)
+    if (end < 0) break
+    ranges.push([re.lastIndex, end])
+    re.lastIndex = end + 'endstream'.length
+  }
+  return ranges
+}
+
+const inRanges = (ranges, off) => ranges.some(([a, b]) => off >= a && off < b)
+
+function indirectObjects(s, ranges) {
+  const objs = new Map()
+  const re = /(\d+)\s+0\s+obj\b/g
+  let m
+  while ((m = re.exec(s)) !== null) {
+    if (inRanges(ranges, m.index)) continue
+    let end = s.indexOf('endobj', re.lastIndex)
+    while (end >= 0 && inRanges(ranges, end)) end = s.indexOf('endobj', end + 'endobj'.length)
+    if (end < 0) continue
+    objs.set(Number(m[1]), s.slice(re.lastIndex, end))
+  }
+  return objs
+}
+
+function streamBodyOf(objBody) {
+  const m = /stream\r?\n([\s\S]*?)\r?\nendstream/.exec(objBody)
+  return m ? m[1] : null
+}
+
+/**
+ * WinAnsiEncoding 0x80-0x9F -> Unicode.
+ *
+ * Every font jsPDF emits declares /WinAnsiEncoding, where 0xA0-0xFF matches
+ * Latin-1 but 0x80-0x9F does not — it holds the typographic punctuation these
+ * reports are full of. Without this table `—`, `–` and `•` decode to invisible
+ * C1 control characters, which silently corrupts the extracted text, the glyph
+ * count and the hash. Caught when a captured page read
+ * "Closing this gap requires 1824 months".
+ */
+const WIN_ANSI_HIGH = {
+  0x80: '€', 0x82: '‚', 0x83: 'ƒ', 0x84: '„', 0x85: '…',
+  0x86: '†', 0x87: '‡', 0x88: 'ˆ', 0x89: '‰', 0x8A: 'Š',
+  0x8B: '‹', 0x8C: 'Œ', 0x8E: 'Ž', 0x91: '‘', 0x92: '’',
+  0x93: '“', 0x94: '”', 0x95: '•', 0x96: '–', 0x97: '—',
+  0x98: '˜', 0x99: '™', 0x9A: 'š', 0x9B: '›', 0x9C: 'œ',
+  0x9E: 'ž', 0x9F: 'Ÿ',
+}
+
+function decodeWinAnsi(s) {
+  let out = ''
+  for (const ch of s) {
+    const code = ch.codePointAt(0)
+    out += code >= 0x80 && code <= 0x9f ? (WIN_ANSI_HIGH[code] ?? ch) : ch
+  }
+  return out
+}
+
+function unescapePdfString(literal) {
+  const bytes = literal
+    .slice(1, -1)
+    .replace(/\\(\d{1,3})/g, (_, o) => String.fromCharCode(parseInt(o, 8)))
+    .replace(/\\([\\()nrtbf])/g, (_, c) => ({ n: '\n', r: '\r', t: '\t', b: '\b', f: '\f' }[c] ?? c))
+  return decodeWinAnsi(bytes)
+}
+
+const BASE_FONT_MAP = {
+  Helvetica: ['helvetica', 'normal'],
+  'Helvetica-Bold': ['helvetica', 'bold'],
+  'Helvetica-Oblique': ['helvetica', 'italic'],
+  'Helvetica-BoldOblique': ['helvetica', 'bolditalic'],
+  Courier: ['courier', 'normal'],
+  'Courier-Bold': ['courier', 'bold'],
+  'Courier-Oblique': ['courier', 'italic'],
+  'Courier-BoldOblique': ['courier', 'bolditalic'],
+  'Times-Roman': ['times', 'normal'],
+  'Times-Bold': ['times', 'bold'],
+  'Times-Italic': ['times', 'italic'],
+  'Times-BoldItalic': ['times', 'bolditalic'],
+  Symbol: ['symbol', 'normal'],
+  ZapfDingbats: ['zapfdingbats', 'normal'],
+}
+
+const round2 = n => Math.round(n * 100) / 100
+
+/**
+ * Walk one page's content stream and return its text runs in draw order.
+ *
+ * jsPDF emits one `BT ... ET` block per text() call with a single absolute `Td`
+ * (BT resets the text matrix, so Td is absolute here rather than relative).
+ * Rotated text uses `Tm` instead; those runs are collected but excluded from the
+ * right-edge extent, because a 45-degree DRAFT watermark has no meaningful one.
+ */
+function readTextRuns(body, fontByResource, ruler, unknownFonts, usedBaseFonts) {
+  const runs = []
+  let font = null, size = 12, x = 0, y = 0, rotated = false
+
+  const emit = str => {
+    if (!str.length) return
+    const base = font ? fontByResource[font] : undefined
+    if (font && !base) unknownFonts.add(font)
+    if (base) usedBaseFonts.add(base)
+    const mapped = BASE_FONT_MAP[base] ?? ['helvetica', 'normal']
+    if (base && !BASE_FONT_MAP[base]) unknownFonts.add(base)
+    ruler.setFont(mapped[0], mapped[1])
+    ruler.setFontSize(size)
+    const width = ruler.getStringUnitWidth(str) * size
+    runs.push({ text: str, x: round2(x), y: round2(y), size: round2(size), width: round2(width), right: round2(x + width), rotated })
+  }
+
+  for (const rawLine of body.split('\n')) {
+    const line = rawLine.trim()
+    let t
+    if (line === 'BT') { rotated = false; continue }
+    if ((t = /^\/(\w+)\s+([\d.]+)\s+Tf$/.exec(line))) { font = t[1]; size = Number(t[2]); continue }
+    if ((t = /^([-\d.]+)\s+([-\d.]+)\s+(?:Td|TD)$/.exec(line))) { x = Number(t[1]); y = Number(t[2]); rotated = false; continue }
+    if ((t = /^([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+Tm$/.exec(line))) {
+      x = Number(t[5]); y = Number(t[6])
+      rotated = Number(t[2]) !== 0 || Number(t[3]) !== 0
+      continue
+    }
+    if ((t = /^(\((?:\\[\s\S]|[^\\()])*\))\s*Tj$/.exec(line))) { emit(unescapePdfString(t[1])); continue }
+    if ((t = /^\[([\s\S]*)\]\s*TJ$/.exec(line))) {
+      const lits = t[1].match(/\((?:\\[\s\S]|[^\\()])*\)/g) ?? []
+      emit(lits.map(unescapePdfString).join(''))
+      continue
+    }
+  }
+  return runs
+}
+
+/**
+ * Analyse one PDF into the reviewable shape the baseline stores.
+ *
+ * Deliberately NOT a hash of the bytes: Step 1 measured that /CreationDate (23
+ * bytes, wall clock) and the trailer /ID (77 bytes, Math.random) move on every
+ * single run. Hashing extracted text excludes both without having to special-case
+ * byte offsets that D2 will shift anyway.
+ */
+export function analysePdf(buf, ruler) {
+  const s = buf.toString('latin1')
+  const ranges = streamRanges(s)
+  const objs = indirectObjects(s, ranges)
+
+  // Page order comes from the Pages tree's /Kids, not from stream order.
+  let kids = null
+  for (const [, body] of [...objs].sort((a, b) => a[0] - b[0])) {
+    if (!/\/Type\s*\/Pages\b/.test(body)) continue
+    const m = /\/Kids\s*\[([^\]]*)\]/.exec(body)
+    if (m) { kids = [...m[1].matchAll(/(\d+)\s+0\s+R/g)].map(k => Number(k[1])); break }
+  }
+  if (!kids || !kids.length) throw new Error('PDF has no /Pages /Kids — cannot establish page order')
+
+  // /Fn -> BaseFont, resolved through each page's /Resources.
+  const baseFontOf = objNum => /\/BaseFont\s*\/([\w-]+)/.exec(objs.get(objNum) ?? '')?.[1] ?? null
+  const fontsForResources = resObjNum => {
+    const body = objs.get(resObjNum) ?? ''
+    const map = {}
+    const fd = /\/Font\s*<<([\s\S]*?)>>/.exec(body)
+    for (const m of (fd?.[1] ?? '').matchAll(/\/(\w+)\s+(\d+)\s+0\s+R/g)) map[m[1]] = baseFontOf(Number(m[2]))
+    return map
+  }
+
+  // decodeWinAnsi() assumes /WinAnsiEncoding. jsPDF registers all fourteen
+  // standard fonts in every document whether or not they are drawn with, and two
+  // of them (Symbol, ZapfDingbats) carry their own built-in encodings. Flagging
+  // those unconditionally would put a permanent false positive in every baseline,
+  // so only fonts a text run actually SELECTS are checked, below.
+  const nonWinAnsiBase = new Set()
+  for (const [n, body] of [...objs].sort((a, b) => a[0] - b[0])) {
+    if (!/\/Type\s*\/Font\b/.test(body)) continue
+    if (/\/WinAnsiEncoding\b/.test(body)) continue
+    nonWinAnsiBase.add(/\/BaseFont\s*\/([\w-]+)/.exec(body)?.[1] ?? `obj ${n}`)
+  }
+
+  const usedBaseFonts = new Set()
+  const unknownFonts = new Set()
+  const pages = []
+  for (const pageObj of kids) {
+    const body = objs.get(pageObj)
+    if (body === undefined) throw new Error(`page object ${pageObj} referenced by /Kids is missing`)
+    const contents = Number(/\/Contents\s+(\d+)\s+0\s+R/.exec(body)?.[1])
+    const resources = Number(/\/Resources\s+(\d+)\s+0\s+R/.exec(body)?.[1])
+    const mediaBox = /\/MediaBox\s*\[\s*([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s*\]/.exec(body)
+    const stream = Number.isFinite(contents) ? streamBodyOf(objs.get(contents) ?? '') : null
+    const runs = stream === null ? [] : readTextRuns(stream, fontsForResources(resources), ruler, unknownFonts, usedBaseFonts)
+    pages.push({
+      widthPt: mediaBox ? round2(Number(mediaBox[3])) : null,
+      heightPt: mediaBox ? round2(Number(mediaBox[4])) : null,
+      runs,
+    })
+  }
+
+  const pageReports = pages.map((p, i) => {
+    const straight = p.runs.filter(r => !r.rotated)
+    const rightEdgePt = straight.length ? round2(Math.max(...straight.map(r => r.right))) : 0
+    const widest = straight.length ? straight.reduce((a, b) => (b.right > a.right ? b : a)) : null
+    const pageW = p.widthPt ?? 0
+    const marginEdge = round2(pageW - MARGIN_PT)
+
+    // Table-row proxy, defined against the artefact rather than against
+    // jspdf-autotable: a baseline (shared y) carrying >= 3 distinct x positions.
+    // Page chrome puts exactly two runs on a shared baseline (header left/right,
+    // footer left/right), so >= 3 excludes it while every real table row — the
+    // narrowest here has four columns — is counted. Documented in README.md
+    // because it is a proxy, not a parse of the table model.
+    const byBaseline = new Map()
+    for (const r of p.runs) {
+      const key = r.y.toFixed(2)
+      if (!byBaseline.has(key)) byBaseline.set(key, new Set())
+      byBaseline.get(key).add(r.x.toFixed(2))
+    }
+    let tableRows = 0, multiColumnBaselines = 0
+    for (const xs of byBaseline.values()) {
+      if (xs.size >= 2) multiColumnBaselines++
+      if (xs.size >= 3) tableRows++
+    }
+
+    return {
+      page: i + 1,
+      widthPt: p.widthPt,
+      heightPt: p.heightPt,
+      textRuns: p.runs.length,
+      rotatedRuns: p.runs.filter(r => r.rotated).length,
+      glyphs: p.runs.reduce((n, r) => n + r.text.length, 0),
+      tableRows,
+      multiColumnBaselines,
+      rightEdgePt,
+      rightMarginPt: marginEdge,
+      pastMarginPt: round2(Math.max(0, rightEdgePt - marginEdge)),
+      pastPaperPt: round2(Math.max(0, rightEdgePt - pageW)),
+      runsPastMargin: straight.filter(r => r.right > marginEdge + 0.05).length,
+      runsPastPaper: straight.filter(r => r.right > pageW + 0.05).length,
+      widestText: widest ? widest.text : null,
+      text: p.runs.map(r => r.text),
+    }
+  })
+
+  const allText = pageReports.map(p => p.text.join('\n')).join('\n\f\n')
+  const dates = findDates(allText)
+
+  return {
+    kind: 'pdf',
+    pageCount: pageReports.length,
+    glyphCount: pageReports.reduce((n, p) => n + p.glyphs, 0),
+    textRunCount: pageReports.reduce((n, p) => n + p.textRuns, 0),
+    tableRowsTotal: pageReports.reduce((n, p) => n + p.tableRows, 0),
+    unknownFonts: [...unknownFonts].sort(),
+    // Only fonts actually drawn with — see the comment where nonWinAnsiBase is built.
+    nonWinAnsiFonts: [...usedBaseFonts].filter(f => nonWinAnsiBase.has(f)).sort(),
+    usedFonts: [...usedBaseFonts].sort(),
+    // Hash of the TEXT, not the bytes. See the comment on this function.
+    normalisedTextSha256: sha256(normaliseDates(allText)),
+    // Deliberately NOT recorded. jsPDF re-rolls the trailer /ID from Math.random
+    // on every call, so a byte hash is a different number every run. Storing it
+    // would make three of the nine baseline files churn on every capture for a
+    // value that can never be asserted — and a golden file that rewrites itself
+    // is not reviewable. The reason is recorded instead of the number.
+    rawBytesSha256: null,
+    notReproducible: { rawBytesSha256: 'jsPDF fills the trailer /ID from Math.random and /CreationDate from the clock' },
+    bytes: buf.length,
+    // Recorded, never asserted: these are the clock's, and they are exactly the
+    // values a reviewer wants to see when the text hash moves for no other reason.
+    clockDerived: { renderedDates: dates },
+    pages: pageReports,
+  }
+}
+
+// ── CSV reader ───────────────────────────────────────────────────────────
+
+/** Split one CSV line, honouring the double-quoting the generators emit. */
+export function splitCsvRow(line) {
+  const out = []
+  let cur = '', inQuotes = false
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i]
+    if (inQuotes) {
+      if (c === '"' && line[i + 1] === '"') { cur += '"'; i++ }
+      else if (c === '"') inQuotes = false
+      else cur += c
+    } else if (c === '"') inQuotes = true
+    else if (c === ',') { out.push(cur); cur = '' }
+    else cur += c
+  }
+  out.push(cur)
+  return out
+}
+
+export function analyseCsv(buf, spec) {
+  const text = buf.toString('utf8')
+  const lines = text.split('\n')
+  while (lines.length && lines[lines.length - 1] === '') lines.pop()
+  if (!lines.length) throw new Error('CSV is empty')
+
+  const header = splitCsvRow(lines[0])
+  const dataLines = lines.slice(1)
+  const unassertable = spec.unassertable ?? []
+  const unassertableIdx = unassertable.map(name => {
+    const i = header.indexOf(name)
+    if (i < 0) throw new Error(`declared-unassertable column ${JSON.stringify(name)} is not in the header [${header.join(', ')}]`)
+    return i
+  }).sort((a, b) => a - b)
+
+  // The assertable hash covers every column EXCEPT the declared ones. Masking
+  // rather than dropping keeps column positions stable in the digest, so adding
+  // a column is still visible.
+  const mask = line => {
+    if (!unassertableIdx.length) return line
+    const cells = splitCsvRow(line)
+    for (const i of unassertableIdx) cells[i] = SKIP_TOKEN
+    return cells.join(',')
+  }
+
+  // A baseline may only record REPRODUCIBLE facts. Where a column is
+  // unassertable, everything downstream of it is unassertable too: the row
+  // bytes, the file length and both whole-file hashes all move with the RNG.
+  // Recording them would churn two of the nine baseline files on every capture
+  // and give a reviewer numbers they must not trust. The reason is recorded in
+  // their place, and the genuinely verbatim output is written to the gitignored
+  // raw/ directory for anyone who wants to look at it.
+  const rng = unassertableIdx.length > 0
+  const reason = spec.unassertableReason ?? 'derived from an unassertable column'
+
+  return {
+    kind: 'csv',
+    rowCount: dataLines.length,
+    columnCount: header.length,
+    header,
+    // Verbatim where verbatim is meaningful. For the two Math.random CSVs the
+    // unassertable cells carry a token instead of a number that would differ on
+    // the next capture — every other cell is untouched.
+    firstThreeRows: dataLines.slice(0, 3).map(mask),
+    lastThreeRows: dataLines.slice(-3).map(mask),
+    sampleRowsMasked: rng,
+    unassertable,
+    unassertableReason: spec.unassertableReason ?? null,
+    unassertableColumnIndexes: unassertableIdx,
+    assertableSha256: sha256([header.join(','), ...dataLines.map(mask)].join('\n')),
+    fullTextSha256: rng ? null : sha256(text),
+    rawBytesSha256: rng ? null : sha256(buf),
+    rawBytesAsserted: Boolean(spec.assertRawBytes),
+    bytes: rng ? null : buf.length,
+    notReproducible: rng ? { bytes: reason, fullTextSha256: reason, rawBytesSha256: reason } : {},
+  }
+}
+
+// ── Markdown reader ──────────────────────────────────────────────────────
+
+export function analyseMd(buf) {
+  const text = buf.toString('utf8')
+  const lines = text.split('\n')
+  const headings = lines.filter(l => /^#{1,6}\s/.test(l))
+  return {
+    kind: 'md',
+    lineCount: lines.length,
+    headingCount: headings.length,
+    headings,
+    normalisedTextSha256: sha256(normaliseDates(text)),
+    rawBytesSha256: sha256(buf),
+    bytes: buf.length,
+    clockDerived: { renderedDates: findDates(text), dateLineRaw: lines[1] ?? null },
+  }
+}
+
+// ── Non-emptiness ────────────────────────────────────────────────────────
+// Four times in this project a check has passed vacuously over an empty set.
+// Every collection the baseline stores is asserted non-empty at capture, and
+// again when a baseline is read back.
+
+export function assertNonEmpty(label, analysis) {
+  const bad = m => { throw new Error(`${label}: ${m} — refusing to write a vacuous baseline`) }
+  if (!analysis || typeof analysis !== 'object') bad('analysis is not an object')
+  if (analysis.bytes === 0) bad('artefact is zero bytes')
+  if (analysis.rawBytesAsserted && !analysis.rawBytesSha256) bad('raw bytes are asserted but no raw hash was recorded')
+  if (analysis.kind === 'pdf') {
+    if (!analysis.pageCount) bad('zero pages')
+    if (!analysis.textRunCount) bad('zero text runs')
+    if (!analysis.glyphCount) bad('zero glyphs')
+    if (!analysis.tableRowsTotal) bad('zero table rows across the whole document')
+    if (!analysis.pages?.length) bad('empty pages array')
+    if (analysis.pages.some(p => !p.widthPt)) bad('a page has no /MediaBox width')
+  } else if (analysis.kind === 'csv') {
+    if (!analysis.rowCount) bad('zero data rows')
+    if (!analysis.columnCount) bad('zero columns')
+    if (!analysis.header?.length) bad('empty header row')
+    if (!analysis.firstThreeRows?.length) bad('no sample rows captured')
+  } else if (analysis.kind === 'md') {
+    if (!analysis.lineCount) bad('zero lines')
+    if (!analysis.headingCount) bad('zero headings')
+  } else {
+    bad(`unknown artefact kind ${JSON.stringify(analysis.kind)}`)
+  }
+}
+
+// ── Analysis entry point ─────────────────────────────────────────────────
+
+export function analyse(artefact, ruler) {
+  const { spec, filename, bytes } = artefact
+  const body = spec.kind === 'pdf' ? analysePdf(bytes, ruler)
+    : spec.kind === 'csv' ? analyseCsv(bytes, spec)
+      : analyseMd(bytes)
+  return {
+    artefact: spec.id,
+    kind: spec.kind,
+    generator: spec.exportName,
+    // Recorded raw, compared normalised. D2 renames every output through
+    // reportFilename(); that is an expected change, not a regression.
+    filename,
+    filenameNormalised: normaliseFilename(filename),
+    ...body,
+  }
+}
+
+export const baselinePath = (module, id) => path.join(BASELINE_DIR, module, `${id}.json`)

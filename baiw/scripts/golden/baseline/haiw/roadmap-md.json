@@ -1,0 +1,57 @@
+{
+  "artefact": "roadmap-md",
+  "bytes": 4647,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": null,
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "clockDerived": {
+    "dateLineRaw": "## Prepared by Godaitec | 7/31/2026",
+    "renderedDates": [
+      "7/31/2026"
+    ]
+  },
+  "filename": "Fixture_Health_Authority_Healthcare_Analytics_Roadmap.md",
+  "filenameNormalised": "Fixture_Health_Authority_Healthcare_Analytics_Roadmap.md",
+  "generator": "generateHealthRoadmapMarkdown",
+  "headingCount": 26,
+  "headings": [
+    "# Fixture Health Authority — Healthcare Analytics Transformation Roadmap",
+    "## Prepared by Godaitec | 7/31/2026",
+    "## Slide 1: Title",
+    "### Fixture Health Authority Healthcare Analytics Transformation Roadmap",
+    "## Slide 2: Current State",
+    "### Where We Are Today",
+    "## Slide 3: Target State",
+    "### Where We Need To Be",
+    "## Slide 4: The Gap",
+    "### What Needs To Change",
+    "## Slide 5: Phase 1 — Quick Wins (Months 1–6)",
+    "### Investment: PKR 40–70 Million",
+    "## Slide 6: Phase 2 — Core Build (Months 7–18)",
+    "### Investment: PKR 100–200 Million",
+    "## Slide 7: Phase 3 — Advanced Analytics (Months 19–36)",
+    "### Investment: PKR 60–180 Million",
+    "## Slide 8: Data Foundation",
+    "### FHIR + HCDM Reference Architecture",
+    "## Slide 9: Investment Summary",
+    "### Total: PKR 200–450 Million over 3 Years",
+    "## Slide 10: ROI & Impact Projection",
+    "### Expected Returns",
+    "## Slide 11: UHC Alignment & WHO Indicators",
+    "### Contributing to Universal Health Coverage",
+    "## Slide 12: Contact",
+    "### Let's Build Your Healthcare Analytics Future"
+  ],
+  "kind": "md",
+  "lineCount": 132,
+  "module": "haiw",
+  "normalisedTextSha256": "f1f046f1b779deab1d8ae0683d6c4121f52227fc6730982153c04ae12837ca16",
+  "rawBytesSha256": "87500449cb121374fcb9445486ed066ed02e356066aa1a6e2741b0913f021817"
+}
