@@ -79,9 +79,10 @@ export const STRUCTURE_CAVEATS: string[] = [
     'deliberately NOT authored: they were not recalled reliably enough to put in front of an ' +
     'auditor, and an absent level is recoverable where an invented one is not. DCAM v3.0 ' +
     'reorganised the model and is not what is represented here.',
-  'COBIT 2019 APO14 sub-practice titles are indicative and paraphrased, pending verification ' +
-    'against the ISACA publication. The five EDM governance objectives are high confidence; the ' +
-    'APO14 breakdown is the single item in this pack most likely to need correction.',
+  'COBIT 2019 APO14 sub-practice titles have been checked against a public COBIT 2019 reference ' +
+    'and corrected where they differed. They have NOT been checked against the ISACA publication ' +
+    'itself, which is the only source an audit function should accept — treat them as verified ' +
+    'secondhand, not as quoted. The five EDM governance objectives are high confidence.',
   'The three DGI groupings used as parents are how the published DGI diagram arranges the ten ' +
     'components; treating that arrangement as a formal level is a modelling choice, not published ' +
     'hierarchy.',

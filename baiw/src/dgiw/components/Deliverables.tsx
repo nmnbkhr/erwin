@@ -129,7 +129,7 @@ const SPECS: Spec[] = [
     shortcut: '/dg/operating-model',
   },
   {
-    artefactId: 'AR-40',
+    artefactId: 'AR-48',
     title: 'Multi-Framework Scorecard',
     blurb:
       'All four published frameworks side by side from one assessment, with each framework’s ' +
@@ -141,7 +141,7 @@ const SPECS: Spec[] = [
     shortcut: '/dg/frameworks',
   },
   {
-    artefactId: 'AR-46',
+    artefactId: 'AR-47',
     title: 'Framework Alignment Pack',
     blurb:
       'The audit-facing document: dimension by dimension, how this programme satisfies one ' +
@@ -229,12 +229,12 @@ export default function Deliverables() {
           saveReport(buildOperatingModelPdf({ meta }), reportFilename(meta, 'pdf'))
           return null
         }
-        case 'AR-40': {
+        case 'AR-48': {
           const { buildMultiFrameworkScorecardPdf } = await import('../report/multiFrameworkScorecard')
           saveReport(buildMultiFrameworkScorecardPdf({ meta, answers }), reportFilename(meta, 'pdf'))
           return null
         }
-        case 'AR-46': {
+        case 'AR-47': {
           const { buildFrameworkAlignmentPdf } = await import('../report/frameworkAlignment')
           const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, '_dmbok2.pdf')
           saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId: 'FW-01' }), name)

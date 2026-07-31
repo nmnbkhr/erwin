@@ -753,6 +753,24 @@
       "owner": "Head of Regulatory Reporting",
       "format": "Evidence pack",
       "layer": "banking"
+    },
+    {
+      "id": "AR-47",
+      "artefact": "Framework alignment statement (DMBOK2, DCAM, DGI, COBIT 2019)",
+      "pillarId": "P01",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Report",
+      "layer": "core"
+    },
+    {
+      "id": "AR-48",
+      "artefact": "Multi-framework maturity scorecard",
+      "pillarId": "P01",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Report + interactive scorecard",
+      "layer": "core"
     }
   ]
 }

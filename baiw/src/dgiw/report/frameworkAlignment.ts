@@ -8,19 +8,19 @@
  * crosswalk is "who decided that DCAM's Data Control Environment is 45% security,
  * and why", and this document answers it in the row.
  *
- * ARTEFACT ID — AND IT IS A STRETCH, UNLIKE AR-13/AR-27
+ * ARTEFACT ID — NOW AN EXACT MATCH, PREVIOUSLY A STRETCH
  *
- * implementationPlan.json's artefactRegister has no entry for a framework
- * crosswalk deliverable. AR-46 "Examination and audit evidence pack, maintained
- * current" is the closest by PURPOSE — this is exactly what is handed to an
- * examiner — but the fit is imperfect in two ways that are stated rather than
- * glossed: it sits at rung 4 (managed service) where this document is produced
- * from rung 1 onward, and it is tagged `banking` where the alignment document
- * applies to a core engagement too.
+ * This shipped against AR-46 "Examination and audit evidence pack, maintained
+ * current", which was the closest entry by PURPOSE but wrong in three attributes
+ * a consultant reads straight off /dg/deliverables: rung 4 where this is
+ * produced from rung 1 onward, owner "Head of Regulatory Reporting" where the
+ * Engagement Lead produces it, and layer `banking` where it applies to a core
+ * engagement too. The register simply did not catalogue the deliverable.
  *
- * The honest reading is that Phase C produced a deliverable the implementation
- * plan does not catalogue. Adding a register entry is a dataset change and needs
- * approval, so this stretch is carried explicitly instead.
+ * AR-47 was added for it — rung 1, Engagement Lead, core. Pillar P01, matching
+ * AR-01: this is the same maturity assessment expressed in a second vocabulary,
+ * so it belongs to the pillar AR-01 belongs to rather than to the pillar of
+ * whichever framework dimension scores worst.
  *
  * Every figure comes from projection.ts, which reads scoring.ts. Nothing is
  * recomputed here — a framework alignment pack that disagreed with the
@@ -48,11 +48,11 @@ const XW = crosswalkData as unknown as CrosswalkData
 const PILLARS = pillarsData as Pillar[]
 
 /**
- * artefactRegister: "Examination and audit evidence pack, maintained current",
- * rung 4, owned by the Head of Regulatory Reporting. See the header note — this
- * is a purpose match, not the exact catalogue match AR-13 and AR-27 were.
+ * artefactRegister: "Framework alignment statement (DMBOK2, DCAM, DGI, COBIT
+ * 2019)", rung 1, owned by the Engagement Lead, core. An exact catalogue match,
+ * as AR-13 and AR-27 are.
  */
-export const FRAMEWORK_ALIGNMENT_ARTEFACT_ID = 'AR-46'
+export const FRAMEWORK_ALIGNMENT_ARTEFACT_ID = 'AR-47'
 
 export interface FrameworkAlignmentInput {
   meta: ReportMeta

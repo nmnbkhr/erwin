@@ -87,7 +87,7 @@ export default function Frameworks() {
     : 0
 
   const generateScorecard = () =>
-    run('AR-40:pdf', async () => {
+    run('AR-48:pdf', async () => {
       const [{ buildMultiFrameworkScorecardPdf, MULTI_FRAMEWORK_ARTEFACT_ID }, { saveReport }, { reportFilename }] =
         await Promise.all([
           import('../report/multiFrameworkScorecard'),
@@ -100,7 +100,7 @@ export default function Frameworks() {
     })
 
   const generateAlignment = (frameworkId: string, code: string) =>
-    run(`AR-46:${frameworkId}`, async () => {
+    run(`AR-47:${frameworkId}`, async () => {
       const [{ buildFrameworkAlignmentPdf, FRAMEWORK_ALIGNMENT_ARTEFACT_ID }, { saveReport }, { reportFilename }] =
         await Promise.all([
           import('../report/frameworkAlignment'),
@@ -127,7 +127,7 @@ export default function Frameworks() {
             className="inline-flex items-center gap-1.5 px-3 py-2 text-sm rounded-lg bg-rose-600 text-white hover:bg-rose-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             <FileText size={15} />
-            {busy === 'AR-40:pdf' ? 'Generating…' : 'Multi-framework scorecard (PDF)'}
+            {busy === 'AR-48:pdf' ? 'Generating…' : 'Multi-framework scorecard (PDF)'}
           </button>
         }
       />
@@ -248,7 +248,7 @@ export default function Frameworks() {
                   className="inline-flex items-center gap-1.5 px-3 py-2 text-sm rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
                   <FileText size={15} />
-                  {busy === `AR-46:${p.frameworkId}` ? 'Generating…' : 'Alignment pack (PDF)'}
+                  {busy === `AR-47:${p.frameworkId}` ? 'Generating…' : 'Alignment pack (PDF)'}
                 </button>
               </div>
             </Card>

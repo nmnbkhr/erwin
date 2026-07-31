@@ -70,7 +70,7 @@
       "scaleMin": 0,
       "scaleMax": 5,
       "structureConfidence": "medium",
-      "structureNotes": "The five EDM governance objectives are high confidence, including EDM05 'Ensured Stakeholder Engagement' (renamed from COBIT 5's 'Ensure Stakeholder Transparency'). APO14 Managed Data is MEDIUM-LOW confidence and is the single most likely thing in this file to be wrong: APO14 was new in COBIT 2019, I believe it carries ten management practices APO14.01-APO14.10, and the practice titles below are paraphrased from memory rather than quoted. Treat the APO14 sub-practice titles as indicative and verify against the ISACA publication before this reaches an audit function. COBIT 2019 capability levels run 0-5, which is why scaleMin is 0 and not 1. Giving APO14 55% of the framework weight is DGIW's judgement: it is the only data-specific objective in COBIT, so a COBIT-framed DATA assessment cannot sensibly be dominated by the generic governance domain."
+      "structureNotes": "The five EDM governance objectives are high confidence, including EDM05 'Ensured Stakeholder Engagement' (renamed from COBIT 5's 'Ensure Stakeholder Transparency'). APO14 Managed Data was new in COBIT 2019 and carries ten management practices APO14.01-APO14.10. The titles below were originally paraphrased from memory; they have since been checked against a public COBIT 2019 reference and two were corrected (APO14.03 lost a stray 'the', APO14.08 now reads 'life cycle' as two words). They have NOT been checked against the ISACA publication itself, which is the only source an audit function should accept — that verification is still outstanding and is why structureConfidence stays at medium rather than rising. COBIT 2019 capability levels run 0-5, which is why scaleMin is 0 and not 1. Giving APO14 55% of the framework weight is DGIW's judgement: it is the only data-specific objective in COBIT, so a COBIT-framed DATA assessment cannot sensibly be dominated by the generic governance domain."
     }
   ],
 
@@ -118,12 +118,12 @@
     { "id": "DIM-038", "frameworkId": "FW-04", "parentId": null, "code": "APO14", "name": "Managed Data", "weight": 0.55, "level": 1 },
     { "id": "DIM-039", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.01", "name": "Define and communicate the data management strategy, roles and responsibilities", "weight": 0.14, "level": 2 },
     { "id": "DIM-040", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.02", "name": "Define and maintain a consistent business glossary", "weight": 0.11, "level": 2 },
-    { "id": "DIM-041", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.03", "name": "Establish the processes and infrastructure for metadata management", "weight": 0.11, "level": 2 },
+    { "id": "DIM-041", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.03", "name": "Establish processes and infrastructure for metadata management", "weight": 0.11, "level": 2 },
     { "id": "DIM-042", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.04", "name": "Define a data quality strategy", "weight": 0.11, "level": 2 },
     { "id": "DIM-043", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.05", "name": "Establish data profiling methodologies, processes and tools", "weight": 0.10, "level": 2 },
     { "id": "DIM-044", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.06", "name": "Ensure a data quality assessment approach", "weight": 0.10, "level": 2 },
     { "id": "DIM-045", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.07", "name": "Define the data cleansing approach", "weight": 0.09, "level": 2 },
-    { "id": "DIM-046", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.08", "name": "Manage the lifecycle of data assets", "weight": 0.09, "level": 2 },
+    { "id": "DIM-046", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.08", "name": "Manage the life cycle of data assets", "weight": 0.09, "level": 2 },
     { "id": "DIM-047", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.09", "name": "Support data archiving and retention", "weight": 0.08, "level": 2 },
     { "id": "DIM-048", "frameworkId": "FW-04", "parentId": "DIM-038", "code": "APO14.10", "name": "Manage data backup and restore arrangements", "weight": 0.07, "level": 2 }
   ]

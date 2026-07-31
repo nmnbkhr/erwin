@@ -16,17 +16,18 @@
  * more room than the headline numbers, because that is where the four views
  * actually diverge and it is what a consultant presents.
  *
- * ARTEFACT ID — A STRETCH, AND SAID SO
+ * ARTEFACT ID — NOW AN EXACT MATCH, PREVIOUSLY A STRETCH
  *
- * artefactRegister has no entry for a framework crosswalk deliverable. AR-40
- * "Monthly scorecard with trend and commentary" is the closest available by
- * shape — a periodic scorecard with commentary, owned by the DG Office — but it
- * is weaker than the AR-13/AR-27 matches: AR-40 is the rung-4 operational
- * scorecard tracking a live programme, where this is a point-in-time framework
- * comparison. There is no trend line here, because one assessment has no trend.
+ * This shipped against AR-40 "Monthly scorecard with trend and commentary",
+ * which matched the SHAPE and nothing else: AR-40 is the rung-4 operational
+ * scorecard tracking a live programme, owned by the DG Office, and it carries a
+ * trend line that a single point-in-time assessment cannot have. A consultant
+ * reading /dg/deliverables was being told this was rung 4 and someone else's to
+ * produce, both wrong.
  *
- * The register not cataloguing this deliverable is a finding worth acting on;
- * adding an entry is a dataset change and needs approval.
+ * AR-48 was added for it — rung 1, Engagement Lead, core. Pillar P01, matching
+ * AR-01, for the same reason given in frameworkAlignment.ts: this is the
+ * maturity assessment in four vocabularies, not a new measurement.
  */
 import type jsPDF from 'jspdf'
 import { contentKey, createReport, SLATE } from '../../report/spine'
@@ -48,10 +49,10 @@ import type { Pillar } from '../types'
 const PILLARS = [...(pillarsData as Pillar[])].sort((a, b) => (a.id < b.id ? -1 : 1))
 
 /**
- * artefactRegister: "Monthly scorecard with trend and commentary", rung 4, owned
- * by the DG Office. See the header note — a shape match, not an exact one.
+ * artefactRegister: "Multi-framework maturity scorecard", rung 1, owned by the
+ * Engagement Lead, core. An exact catalogue match.
  */
-export const MULTI_FRAMEWORK_ARTEFACT_ID = 'AR-40'
+export const MULTI_FRAMEWORK_ARTEFACT_ID = 'AR-48'
 
 export interface MultiFrameworkInput {
   meta: ReportMeta
