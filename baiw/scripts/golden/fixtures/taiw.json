@@ -2,10 +2,17 @@
   "module": "taiw",
   "entry": "src/taiw/utils/tradeReportGenerator.ts",
   "orgName": "Fixture Customs Authority",
-  "generatedAt": null,
+  "engagementId": "golden-0000-4000-8000-000000000003",
+  "generatedAt": "2026-07-31T00:00:00.000Z",
+  "layer": "all",
   "notes": [
     "Same seeding rule as baiw.json, applied to the nine TACR categories.",
-    "answeredCategories === totalCategories so isDraft is false."
+    "answeredCategories === totalCategories so isDraft is false.",
+    "engagementId/generatedAt/layer were added in D2 step 2, for the same reason",
+    "they were added to haiw.json in step 1: the PDF and the markdown now take a",
+    "ReportMeta, and a clock-derived date would make them un-reproducible from",
+    "one day to the next. The gap CSV reads none of the three - its baseline is",
+    "unaffected, and that is checked rather than assumed."
   ],
   "assessment": {
     "scores": [

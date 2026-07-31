@@ -44,7 +44,7 @@ export interface ReportProfile {
  * component that imported its profile from its generator would pull jsPDF into
  * the page chunk and undo the `await import()` those pages do on purpose.
  *
- * TAIW and BAIW join this in D2 steps 2 and 3.
+ * BAIW joins this in D2 step 3.
  */
 export const REPORT_PROFILES = {
   haiw: {
@@ -53,6 +53,13 @@ export const REPORT_PROFILES = {
     // emerald-500, matching the workbench's own accent.
     accent: [16, 185, 129],
     orgFallback: 'Your Healthcare Organization',
+  },
+  taiw: {
+    poweredBy: 'TAIW',
+    scopeLabel: 'Trade analytics maturity — TACR categories and WCO Data Model v4.2 conformity',
+    // teal-600, matching the workbench's own accent.
+    accent: [13, 148, 136],
+    orgFallback: 'Pakistan Customs',
   },
 } as const satisfies Record<string, ReportProfile>
 

@@ -167,10 +167,26 @@ export const REGISTRY = {
       { id: 'roadmap-md', kind: 'md', exportName: 'generateRoadmapMarkdown', call: (m, f) => m.generateRoadmapMarkdown(f.assessment, f.orgName) },
     ],
   },
+  /*
+   * TAIW — migrated onto the spine in D2 step 2, PDF and markdown only. Same
+   * shape as HAIW: `artefactIdExport` so the harness reads the id from the
+   * generator rather than restating it, and `profile` naming the REPORT_PROFILES
+   * entry the real call site passes to useReportMeta().
+   *
+   * gap-csv is untouched and still nondeterministic. Its three fabricated
+   * columns stay SKIPPED, which is the only reason a compare on it can pass.
+   */
   taiw: {
     entry: '/src/taiw/utils/tradeReportGenerator.ts',
     artefacts: [
-      { id: 'maturity-pdf', kind: 'pdf', exportName: 'generateTradeMaturityPDF', call: (m, f) => m.generateTradeMaturityPDF(f.assessment, f.orgName) },
+      {
+        id: 'maturity-pdf',
+        kind: 'pdf',
+        exportName: 'generateTradeMaturityPDF',
+        artefactIdExport: 'TRADE_MATURITY_ARTEFACT_ID',
+        profile: 'taiw',
+        call: (m, f, c) => m.generateTradeMaturityPDF(f.assessment, c.meta),
+      },
       {
         id: 'gap-csv',
         kind: 'csv',
@@ -180,7 +196,14 @@ export const REGISTRY = {
         unassertable: ['Current Level', 'Gap', 'Priority'],
         unassertableReason: 'nondeterministic — Math.random at tradeReportGenerator.ts:721',
       },
-      { id: 'roadmap-md', kind: 'md', exportName: 'generateTradeRoadmapMarkdown', call: (m, f) => m.generateTradeRoadmapMarkdown(f.assessment, f.orgName) },
+      {
+        id: 'roadmap-md',
+        kind: 'md',
+        exportName: 'generateTradeRoadmapMarkdown',
+        artefactIdExport: 'TRADE_ROADMAP_ARTEFACT_ID',
+        profile: 'taiw',
+        call: (m, f, c) => m.generateTradeRoadmapMarkdown(f.assessment, c.meta),
+      },
     ],
   },
   /*

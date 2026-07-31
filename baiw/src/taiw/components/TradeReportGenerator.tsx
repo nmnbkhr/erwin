@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
-import { generateTradeMaturityPDF, generateTradeGapCSV, generateTradeRoadmapMarkdown } from '../utils/tradeReportGenerator'
+import {
+  generateTradeMaturityPDF, generateTradeGapCSV, generateTradeRoadmapMarkdown,
+  TRADE_MATURITY_ARTEFACT_ID, TRADE_ROADMAP_ARTEFACT_ID,
+} from '../utils/tradeReportGenerator'
 import { useOrgName } from '../../engagement/useOrgName'
+import { useReportMeta, REPORT_PROFILES } from '../../engagement/useReportMeta'
 
 interface CategoryScore {
   category: string
@@ -21,6 +25,9 @@ export default function TradeReportGenerator({ scores, overallScore, answeredCat
   const [expanded, setExpanded] = useState(false)
   // The client's name lives on the active engagement, not in this component.
   const [orgName, setOrgName] = useOrgName()
+  // Engagement identity, date and page chrome for the two spine deliverables.
+  // The org name it reads is the same useOrgName() the input below writes to.
+  const metaFor = useReportMeta(REPORT_PROFILES.taiw)
   const [generating, setGenerating] = useState<string | null>(null)
 
   const hasData = answeredCategories > 0
@@ -37,13 +44,19 @@ export default function TradeReportGenerator({ scores, overallScore, answeredCat
   }
 
   const handleGenerate = async (type: 'pdf' | 'csv' | 'markdown') => {
-    const name = orgName.trim() || 'Pakistan Customs'
     setGenerating(type)
     try {
       await new Promise(r => setTimeout(r, 100))
-      if (type === 'pdf') generateTradeMaturityPDF(assessmentData, name)
-      else if (type === 'csv') generateTradeGapCSV(assessmentData)
-      else generateTradeRoadmapMarkdown(assessmentData, name)
+      if (type === 'pdf') {
+        // isDraft is not passed: the generator derives it from assessmentData,
+        // which is where it has always been derived.
+        generateTradeMaturityPDF(assessmentData, metaFor(TRADE_MATURITY_ARTEFACT_ID))
+      } else if (type === 'csv') {
+        // Still the pre-spine generator, deliberately — blocked on D-001.
+        generateTradeGapCSV(assessmentData)
+      } else {
+        generateTradeRoadmapMarkdown(assessmentData, metaFor(TRADE_ROADMAP_ARTEFACT_ID))
+      }
     } finally {
       setGenerating(null)
     }
