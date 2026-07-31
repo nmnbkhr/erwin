@@ -23,6 +23,7 @@ import { useLayer } from '../layer'
 import { useDiagnosticAnswers } from '../answers'
 import { useDeliverable } from '../report/useDeliverable'
 import { inducedPillarWeights, projectAll, type DimensionDecomposition } from '../projection'
+import { findingCodes, leafCount, worstFindings } from '../report/findings'
 import { LEVEL_LABEL } from '../scoring'
 import {
   FRAMEWORKS,
@@ -255,6 +256,60 @@ export default function Frameworks() {
           )
         })}
       </div>
+
+      {/* ── Weakest findings ──
+          Mirrors the scorecard PDF's "Priorities by framework" page exactly,
+          through the same worstFindings() call. This is the table a consultant
+          presents, so screen and paper agreeing is not optional. */}
+      <Card className="p-5">
+        <SectionTitle hint="Three FINDINGS, which is not always three dimensions. Two dimensions scoring identically through an identical set of pillars cannot diverge — they are one finding, shown on one row with the reason stated. Dimensions that merely happen to share a number today are kept apart.">
+          Weakest findings by framework
+        </SectionTitle>
+        <div className="grid gap-3 md:grid-cols-2">
+          {projections.map((p) => {
+            const findings = worstFindings(p, 3)
+            const covered = leafCount(findings)
+            return (
+              <div key={p.frameworkId} className="border border-slate-200 rounded-lg p-3">
+                <div className="flex items-baseline justify-between gap-2">
+                  <p className="text-sm font-semibold text-slate-800">{p.code}</p>
+                  <p className="text-[11px] text-slate-400">
+                    {covered === findings.length
+                      ? `${findings.length} finding${findings.length === 1 ? '' : 's'}`
+                      : `${findings.length} findings across ${covered} dimensions`}
+                  </p>
+                </div>
+                {findings.length === 0 ? (
+                  <p className="text-xs text-slate-500 mt-2">
+                    No dimension of this framework is scored, so no priorities can be drawn.
+                  </p>
+                ) : (
+                  <ol className="mt-2 space-y-1.5">
+                    {findings.map((f) => (
+                      <li key={f.codes.join('|')} className="text-xs flex gap-2">
+                        <span className="font-mono text-slate-500 shrink-0">{findingCodes(f)}</span>
+                        <span className="text-slate-700 flex-1">
+                          {f.leaves.map((d) => d.name).join(' · ')}
+                          {f.cause && (
+                            <span className="text-amber-700"> — {f.cause}</span>
+                          )}
+                        </span>
+                        {/* Two decimals HERE and nowhere else on the page. This
+                            list's premise is that a repeated number means "one
+                            finding, shown once". At one decimal DGI04/05 (2.50)
+                            and DGI09 (2.55) both print 2.5, so two genuinely
+                            distinct findings look like a collapse that failed —
+                            the exact confusion this section exists to remove. */}
+                        <span className="font-semibold text-slate-900 shrink-0">{f.score.toFixed(2)}</span>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </Card>
 
       {/* ── Drill-down ── */}
       {detail && (

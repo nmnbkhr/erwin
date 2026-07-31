@@ -33,6 +33,7 @@ import type jsPDF from 'jspdf'
 import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import { inducedPillarWeights, projectAll, type FrameworkProjection } from '../projection'
+import { findingCodes, findingNames, leafCount, worstFindings, type Finding } from './findings'
 import { LEVEL_LABEL } from '../scoring'
 import {
   ONE_ASSESSMENT,
@@ -63,19 +64,36 @@ const pct = (x: number): string => `${Math.round(x * 100)}%`
 const show1 = (n: number | null): string => (n === null ? '—' : (Math.round(n * 10) / 10).toFixed(1))
 const show2 = (n: number): string => (Math.round(n * 100) / 100).toFixed(2)
 
+/**
+ * One percentage, or a range when a collapsed finding's leaves differ.
+ *
+ * Identical decomposition does not imply identical scope: a dimension whose
+ * banking-only entry drops out under a core engagement can renormalise onto the
+ * same pillars as one that never had it, scoring the same way from less of the
+ * framework's definition. Printing the first leaf's figure would silently
+ * attribute one leaf's scope to the other.
+ */
+function shareRange(f: Finding, pick: (d: Finding['leaves'][number]) => number): string {
+  const vs = f.leaves.map(pick)
+  const lo = Math.min(...vs)
+  const hi = Math.max(...vs)
+  return Math.round(lo * 100) === Math.round(hi * 100) ? pct(lo) : `${pct(lo)}–${pct(hi)}`
+}
+
 function overallLabel(p: FrameworkProjection): string {
   if (p.state === 'not-applicable') return 'NOT APPLICABLE'
   if (p.state === 'not-assessed') return 'NOT ASSESSED'
   return show1(p.overall)
 }
 
-/** Weakest scored leaves, lowest first, ties broken by id so the order is stable. */
-function worstThree(p: FrameworkProjection) {
-  return p.dimensions
-    .filter((d) => d.isLeaf && d.state === 'scored')
-    .sort((a, b) => (a.score as number) - (b.score as number) || (a.dimensionId < b.dimensionId ? -1 : 1))
-    .slice(0, 3)
-}
+/**
+ * Weakest three FINDINGS, not rows — see `findings.ts`.
+ *
+ * This used to slice the three lowest-scoring leaves, which meant DGI's list was
+ * DGI04, DGI05 and DGI08 all at one number, because each mapped wholly to P01.
+ * Three rows, one finding, and a real third priority pushed off the page.
+ */
+const worstThree = (p: FrameworkProjection): Finding[] => worstFindings(p, 3)
 
 export function buildMultiFrameworkScorecardPdf(input: MultiFrameworkInput): jsPDF {
   const { meta, answers } = input
@@ -141,37 +159,58 @@ export function buildMultiFrameworkScorecardPdf(input: MultiFrameworkInput): jsP
   r.paragraph(SCALE_CAVEAT, { color: SLATE, size: 8 })
 
   /* ---- where they actually differ ---- */
-  r.page('Priorities by framework', 'The weakest three dimensions each framework identifies')
+  r.page('Priorities by framework', 'The weakest three findings each framework identifies')
   r.paragraph(
     'This is the part that differs. Two frameworks can agree on an overall figure and still ' +
       'disagree about what to fix first, because they group and weight the same capabilities ' +
       'differently. A consultant presents this table, not the overall.',
     { color: SLATE, size: 8 },
   )
+  r.paragraph(
+    'Three FINDINGS, which is not always three dimensions. Where two dimensions score identically ' +
+      'through an identical set of pillars, they are one finding and are shown on one row with the ' +
+      'reason stated — they cannot diverge, so presenting them separately would overstate how much ' +
+      'there is to do. Dimensions that merely happen to share a number are kept apart.',
+    { color: SLATE, size: 8 },
+  )
   for (const p of projections) {
     const three = worstThree(p)
     r.pageBreakIfNeeded(28)
-    r.sectionHeading(`${p.code} — ${overallLabel(p)}`)
+    const covered = leafCount(three)
+    r.sectionHeading(
+      `${p.code} — ${overallLabel(p)}` +
+        (covered === three.length
+          ? ''
+          : `  ·  ${three.length} findings across ${covered} dimensions`),
+    )
     if (three.length === 0) {
       r.paragraph('No dimension of this framework is scored, so no priorities can be drawn.', { size: 8 })
       continue
     }
     r.table({
       head: ['Code', 'Dimension', 'Score', 'Retained', 'Scored', 'Driven by'],
-      rows: three.map((d) => [
-        d.code,
-        d.name,
-        show1(d.score),
-        pct(d.retainedShare),
-        pct(d.scoredShare),
-        d.contributions
-          .slice()
-          .sort((a, b) => b.weight - a.weight || (a.pillarId < b.pillarId ? -1 : 1))
-          .map((c) => `${c.pillarId} ${pct(c.weight)}`)
-          .join(', '),
-      ]),
+      rows: three.map((f) => {
+        const d = f.leaves[0]
+        return [
+          findingCodes(f),
+          f.cause === null ? d.name : `${findingNames(f)} — ${f.cause}`,
+          // Two decimals in this table only — see the matching note on the page.
+          // At one decimal, 2.50 and 2.55 both read 2.5 and two distinct findings
+          // look like a failed collapse.
+          show2(f.score),
+          // A collapsed finding's leaves share a decomposition, not necessarily a
+          // scope. Ranges are printed rather than one leaf's figure standing in.
+          shareRange(f, (x) => x.retainedShare),
+          shareRange(f, (x) => x.scoredShare),
+          d.contributions
+            .slice()
+            .sort((a, b) => b.weight - a.weight || (a.pillarId < b.pillarId ? -1 : 1))
+            .map((c) => `${c.pillarId} ${pct(c.weight)}`)
+            .join(', '),
+        ]
+      }),
       columnStyles: {
-        0: { cellWidth: 22 },
+        0: { cellWidth: 26 },
         2: { cellWidth: 16, halign: 'center' },
         3: { cellWidth: 18, halign: 'center' },
         4: { cellWidth: 16, halign: 'center' },
@@ -180,10 +219,15 @@ export function buildMultiFrameworkScorecardPdf(input: MultiFrameworkInput): jsP
       gapAfter: 5,
     })
   }
-  const signatures = new Set(projections.map((p) => worstThree(p).map((d) => d.code).join('|')))
+  // Compared on the dimensions nominated, not on the finding grouping — two
+  // frameworks that name the same dimensions have the same priorities whether or
+  // not one of them happened to tie.
+  const signatures = new Set(
+    projections.map((p) => worstThree(p).flatMap((f) => f.codes).join('|')),
+  )
   r.paragraph(
     signatures.size === 1
-      ? 'All four frameworks nominate the same three dimensions. On this evidence the four ' +
+      ? 'All four frameworks nominate the same dimensions. On this evidence the four ' +
         'scorecards differ only in arithmetic, not in what would be presented.'
       : `The four frameworks nominate ${signatures.size} distinct sets of priorities. The scorecards ` +
         `differ in substance, not only in vocabulary.`,

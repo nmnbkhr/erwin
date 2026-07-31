@@ -89,7 +89,7 @@
     { "id": "CW-051", "dimensionId": "DIM-028", "pillarId": "P01", "coverageWeight": 0.25, "layer": "both", "rationale": "Control ownership and the escalation path when a control fails is P01." },
     { "id": "CW-052", "dimensionId": "DIM-029", "pillarId": "P01", "coverageWeight": 0.70, "layer": "both", "rationale": "Identifying and engaging stakeholders is operating-model work — who sits in the forum and who is consulted." },
     { "id": "CW-053", "dimensionId": "DIM-029", "pillarId": "P02", "coverageWeight": 0.30, "layer": "both", "rationale": "Stakeholder engagement is also how the mandate is sustained, which P02 assesses." },
-    { "id": "CW-054", "dimensionId": "DIM-030", "pillarId": "P01", "coverageWeight": 1.00, "layer": "both", "rationale": "The DG Office is a structural element of the operating model. A clean one-to-one with P01." },
+    { "id": "CW-054", "dimensionId": "DIM-030", "pillarId": "P01", "coverageWeight": 0.60, "layer": "both", "rationale": "The DG Office as a structural element of the operating model — its constitution, its place in the forum hierarchy and its decision rights — is P01. This was authored at 1.00 as 'a clean one-to-one'; that was true of the office's EXISTENCE and wrong about the component, which also covers how the office is funded and what it operates. Reduced to 0.60 with the remainder mapped explicitly." },
     { "id": "CW-055", "dimensionId": "DIM-031", "pillarId": "P01", "coverageWeight": 0.75, "layer": "both", "rationale": "Stewardship as a role — appointment, mandate, time allocation — is P01." },
     { "id": "CW-056", "dimensionId": "DIM-031", "pillarId": "P05", "coverageWeight": 0.25, "layer": "both", "rationale": "What stewards actually do day to day is triage and remediate quality issues, which P05 measures." },
     { "id": "CW-057", "dimensionId": "DIM-032", "pillarId": "P01", "coverageWeight": 0.45, "layer": "both", "rationale": "The governance processes themselves — issue escalation, exception handling, change — are P01." },
@@ -125,6 +125,8 @@
     { "id": "CW-086", "dimensionId": "DIM-046", "pillarId": "P03", "coverageWeight": 0.30, "layer": "both", "rationale": "Lifecycle stages have to be designed into the architecture to be enforceable, P03." },
     { "id": "CW-087", "dimensionId": "DIM-047", "pillarId": "P09", "coverageWeight": 1.00, "layer": "both", "rationale": "Archiving and retention is P09. A clean one-to-one." },
     { "id": "CW-088", "dimensionId": "DIM-048", "pillarId": "P10", "coverageWeight": 0.70, "layer": "both", "rationale": "Backup and restore is an operational platform capability, P10." },
-    { "id": "CW-089", "dimensionId": "DIM-048", "pillarId": "P09", "coverageWeight": 0.30, "layer": "both", "rationale": "Restore windows are set by retention obligations, which P09 measures." }
+    { "id": "CW-089", "dimensionId": "DIM-048", "pillarId": "P09", "coverageWeight": 0.30, "layer": "both", "rationale": "Restore windows are set by retention obligations, which P09 measures." },
+    { "id": "CW-090", "dimensionId": "DIM-030", "pillarId": "P02", "coverageWeight": 0.20, "layer": "both", "rationale": "DGI's DGO component covers the office's mandate and funding strategy, not only its structure. A DG Office that cannot fund itself past the next budget cycle is the failure P02 measures, and nothing else in the DGI crosswalk reaches it." },
+    { "id": "CW-091", "dimensionId": "DIM-030", "pillarId": "P10", "coverageWeight": 0.20, "layer": "both", "rationale": "The DGO is the operator of the catalogue, quality engine and lineage collection. A governance tool at 8% population is a DGO capacity finding that gets misread as a tooling problem, and P10 is where it is actually measured." }
   ]
 }
