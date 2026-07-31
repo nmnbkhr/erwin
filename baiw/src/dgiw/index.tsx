@@ -14,6 +14,7 @@ const ProgramSetup = lazy(() => import('./components/ProgramSetup'))
 const ImplementationPlan = lazy(() => import('./components/ImplementationPlan'))
 const OnePager = lazy(() => import('./components/OnePager'))
 const Deliverables = lazy(() => import('./components/Deliverables'))
+const Frameworks = lazy(() => import('./components/Frameworks'))
 
 export default function DgiwRoutes() {
   return (
@@ -31,6 +32,7 @@ export default function DgiwRoutes() {
             <Route path="/plan" element={<ImplementationPlan />} />
             <Route path="/one-pager" element={<OnePager />} />
             <Route path="/deliverables" element={<Deliverables />} />
+            <Route path="/frameworks" element={<Frameworks />} />
           </Routes>
         </Suspense>
       </DgiwLayout>

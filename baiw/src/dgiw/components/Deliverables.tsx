@@ -36,10 +36,12 @@ import operatingModel from '../data/operatingModel.json'
 import cdeRegister from '../data/cdeRegister.json'
 import dqRules from '../data/dqRules.json'
 import diagnostic from '../data/diagnostic.json'
+import frameworks from '../data/frameworks.json'
 import type {
   CriticalDataElement,
   DiagnosticData,
   DqRule,
+  FrameworksData,
   ImplementationPlanData,
   LayerFilter,
   OperatingModelData,
@@ -50,6 +52,7 @@ const OM = operatingModel as OperatingModelData
 const CDES = cdeRegister as CriticalDataElement[]
 const RULES = dqRules as DqRule[]
 const DIAG = diagnostic as DiagnosticData
+const FW = frameworks as unknown as FrameworksData
 
 const ARTEFACTS = new Map(PLAN.artefactRegister.map((a) => [a.id, a]))
 
@@ -125,6 +128,33 @@ const SPECS: Spec[] = [
     countLabel: 'role archetypes',
     shortcut: '/dg/operating-model',
   },
+  {
+    artefactId: 'AR-40',
+    title: 'Multi-Framework Scorecard',
+    blurb:
+      'All four published frameworks side by side from one assessment, with each framework’s ' +
+      'weakest three dimensions and the coverage gaps — including which capabilities a framework ' +
+      'maps nothing to at all.',
+    primary: 'pdf',
+    count: () => FW.frameworks.length,
+    countLabel: 'frameworks',
+    shortcut: '/dg/frameworks',
+  },
+  {
+    artefactId: 'AR-46',
+    title: 'Framework Alignment Pack',
+    blurb:
+      'The audit-facing document: dimension by dimension, how this programme satisfies one ' +
+      'framework, carrying the authored rationale for every mapping. Generated per framework from ' +
+      'the crosswalk page.',
+    primary: 'pdf',
+    // From here the pack is generated for DMBOK2, the one framework at high
+    // structure confidence. The other three are generated from the crosswalk
+    // page, where the reader can see the confidence qualification first.
+    count: () => FW.dimensions.filter((d) => d.frameworkId === 'FW-01').length,
+    countLabel: 'DMBOK2 dimensions — other frameworks from the crosswalk page',
+    shortcut: '/dg/frameworks',
+  },
 ]
 
 export default function Deliverables() {
@@ -197,6 +227,17 @@ export default function Deliverables() {
         case 'AR-09': {
           const { buildOperatingModelPdf } = await import('../report/operatingModel')
           saveReport(buildOperatingModelPdf({ meta }), reportFilename(meta, 'pdf'))
+          return null
+        }
+        case 'AR-40': {
+          const { buildMultiFrameworkScorecardPdf } = await import('../report/multiFrameworkScorecard')
+          saveReport(buildMultiFrameworkScorecardPdf({ meta, answers }), reportFilename(meta, 'pdf'))
+          return null
+        }
+        case 'AR-46': {
+          const { buildFrameworkAlignmentPdf } = await import('../report/frameworkAlignment')
+          const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, '_dmbok2.pdf')
+          saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId: 'FW-01' }), name)
           return null
         }
         default:
