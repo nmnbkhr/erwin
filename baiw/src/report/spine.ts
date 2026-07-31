@@ -45,8 +45,15 @@ export const MARGIN = 15
 
 /** First baseline of body content on a page carrying header chrome. */
 const CONTENT_TOP = 24
-/** No content is written below `pageHeight - FOOTER_RESERVE`. */
-const FOOTER_RESERVE = 20
+/**
+ * No content is written below `pageHeight - FOOTER_RESERVE`.
+ *
+ * Exported because per-module drawing that goes through the `doc` escape hatch —
+ * the three radar charts — has to know where the footer band starts, and the
+ * alternative is the same 20 hardcoded in three files with nothing tying it to
+ * the band it is avoiding.
+ */
+export const FOOTER_RESERVE = 20
 const HEADER_RULE_Y = 12
 const HEADER_TEXT_Y = 10
 const FOOTER_RULE_UP = 12
@@ -72,6 +79,43 @@ const LAYER_LABEL: Record<ReportMeta['layer'], string> = {
   core: 'Core chassis — sector-neutral',
   banking: 'Banking overlay',
   all: 'Core chassis + banking overlay',
+}
+
+/*
+ * Three strings used to be hardcoded DGIW, in places a caller could not reach:
+ * `drawChrome` is private, `cover()` renders unconditionally, and
+ * `setProperties` runs in the constructor. A non-DGIW report built on this spine
+ * got "Powered by DGIW" on every content page, a cover claiming a banking
+ * overlay, and PDF properties naming the wrong product.
+ *
+ * They are resolved through these two helpers rather than inlined at each site
+ * so the default lives once. The defaults reproduce the previous literals
+ * exactly, which is what keeps every existing DGIW artefact byte-identical —
+ * and, since 0a, provably so rather than merely intended.
+ */
+
+/** Product name for the chrome and the PDF Creator. */
+function poweredByOf(meta: ReportMeta): string {
+  return meta.poweredBy ?? 'DGIW'
+}
+
+/** Scope sentence for the cover line and the PDF Subject. */
+function scopeLabelOf(meta: ReportMeta): string {
+  return meta.scopeLabel ?? LAYER_LABEL[meta.layer]
+}
+
+/**
+ * Join the parts of a compound label, dropping the ones that are not there.
+ *
+ * The cover tag and the PDF title are both `<artefact id><sep><something>`, and
+ * both have to survive an empty artefact id: a module with no artefact register
+ * still needs an id for the filename and the /ID seed, but printing it would cite
+ * a catalogue that does not exist — the exact defect ARTEFACT-IMPL guards against.
+ * With every part present the output is character-for-character what the template
+ * literals produced before.
+ */
+function joinParts(parts: readonly (string | undefined)[], sep: string): string {
+  return parts.map((p) => p?.trim() ?? '').filter((p) => p.length > 0).join(sep)
 }
 
 /** jsPDF points → millimetres, with the leading the existing reports read at. */
@@ -197,10 +241,10 @@ export class ReportDoc {
       ),
     )
     this.doc.setProperties({
-      title: `${meta.artefactId} — ${meta.orgName}`,
+      title: joinParts([meta.artefactId, meta.orgName], ' — '),
       author: 'Godaitec',
-      creator: 'Godaitec DGIW',
-      subject: LAYER_LABEL[meta.layer],
+      creator: `Godaitec ${poweredByOf(meta)}`,
+      subject: scopeLabelOf(meta),
     })
   }
 
@@ -251,7 +295,11 @@ export class ReportDoc {
     doc.setFontSize(SIZE.coverMeta)
     if (subtitle) doc.text(subtitle, w / 2, 66, { align: 'center', maxWidth: w - 40 })
     doc.text(formatCoverDate(meta.generatedAt), w / 2, 78, { align: 'center' })
-    doc.text(`${meta.artefactId} · ${LAYER_LABEL[meta.layer]}`, w / 2, 88, { align: 'center' })
+    // Skipped entirely when both parts are empty, rather than emitting a text
+    // run for the empty string — a caller with neither an artefact id nor a
+    // scope label should get no line, not a blank one.
+    const coverTag = joinParts([meta.artefactId, scopeLabelOf(meta)], ' · ')
+    if (coverTag) doc.text(coverTag, w / 2, 88, { align: 'center' })
 
     doc.setTextColor(...SLATE)
     doc.setFontSize(SIZE.coverMeta)
@@ -441,7 +489,7 @@ export class ReportDoc {
     doc.setFontSize(SIZE.caption)
     doc.setTextColor(...SLATE)
     doc.text(`${meta.orgName} — ${this.headerTitle}`, MARGIN, HEADER_TEXT_Y, { maxWidth: w * 0.6 })
-    doc.text('Powered by DGIW', w - MARGIN, HEADER_TEXT_Y, { align: 'right' })
+    doc.text(`Powered by ${poweredByOf(meta)}`, w - MARGIN, HEADER_TEXT_Y, { align: 'right' })
 
     this.drawWatermark(pageNumber)
     doc.setPage(prev)

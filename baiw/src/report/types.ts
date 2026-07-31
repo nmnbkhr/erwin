@@ -28,8 +28,31 @@ export interface ReportMeta {
   accent: RGB
   /** Renders the DRAFT watermark. These are paid deliverables; a final must be clean. */
   isDraft: boolean
-  /** Artefact id from artefacts.json. Appears on the cover and in the filename. */
+  /**
+   * Artefact id from artefacts.json. Appears in the filename, in the /ID seed,
+   * and on the cover — the last only when it is non-empty, so a module with no
+   * artefact register can carry an id for identity without citing a catalogue
+   * that does not exist.
+   */
   artefactId: string
+  /**
+   * Product name in the page chrome ("Powered by …") and the PDF's Creator.
+   *
+   * Defaults to `'DGIW'`, which is what every existing artefact rendered when
+   * this was a hardcoded string. It is a field because the spine is about to
+   * carry BAIW, TAIW and HAIW reports, and seventeen pages reading "Powered by
+   * DGIW" on a healthcare maturity assessment is wrong in a way no reader could
+   * explain.
+   */
+  poweredBy?: string
+  /**
+   * What this document covers, for the cover line and the PDF's Subject.
+   *
+   * Defaults to DGIW's layer sentence — "Core chassis + banking overlay" and its
+   * two siblings. Those describe a data-governance chassis and are false on any
+   * other module's report, so a caller outside DGIW supplies its own.
+   */
+  scopeLabel?: string
 }
 
 /** One table, in the spine's vocabulary rather than autoTable's. */
