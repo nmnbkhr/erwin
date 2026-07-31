@@ -1,0 +1,60 @@
+{
+  "artefact": "dq-rule-spec-csv",
+  "assertableSha256": "46910063e561db190a6f4ed4fcea471ca82a8b6a0cf4f3522981c56ce5370945",
+  "bytes": 40263,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": null,
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "columnCount": 13,
+  "datasets": {
+    "dir": "src/dgiw/data",
+    "files": 11,
+    "sha256": "1a36e2aea284a5e7806a7bb858088913292ab4822cda8fba0203af438871c9f7"
+  },
+  "filename": "AR-27_fixture-bank-limited_all_2026-07-31.csv",
+  "filenameNormalised": "AR-27_fixture-bank-limited_all_2026-07-31.csv",
+  "firstThreeRows": [
+    "\"DQ-001\",\"CIF number is unique across the customer master\",\"CIF & Party\",\"Uniqueness\",\"BLOCKER\",\"banking\",\"0 duplicates\",\"duplicate_count(cif_no) = 0\",\"Route duplicates to the stewardship merge queue; suppress from aggregation until resolved.\",\"CDE-001\",\"Customer Unique Identifier (CIF No.)\",\"CRITICAL\",\"in scope\"\r",
+    "\"DQ-002\",\"Every account references an existing CIF\",\"CIF & Party\",\"Integrity\",\"BLOCKER\",\"banking\",\"0 orphans\",\"count(accounts a LEFT JOIN cif c ON a.cif_no = c.cif_no WHERE c.cif_no IS NULL) = 0\",\"Orphaned accounts are excluded from customer aggregation and raised as a blocker to the account owner.\",\"CDE-001\",\"Customer Unique Identifier (CIF No.)\",\"CRITICAL\",\"in scope\"\r",
+    "\"DQ-003\",\"CNIC conforms to the 13-digit national format\",\"CIF & Party\",\"Validity\",\"BLOCKER\",\"banking\",\"≥ 99.5% valid\",\"regexp_like(cnic, '^[0-9]{13}$')\",\"Reject at capture; queue historical failures for branch remediation with a target date.\",\"CDE-002\",\"National Identity Number (CNIC)\",\"CRITICAL\",\"in scope\"\r"
+  ],
+  "fullTextSha256": "46910063e561db190a6f4ed4fcea471ca82a8b6a0cf4f3522981c56ce5370945",
+  "generator": "buildDqRuleSpecRows",
+  "header": [
+    "﻿Rule ID",
+    "Rule",
+    "Family",
+    "DQ dimension",
+    "Severity",
+    "Layer",
+    "Threshold",
+    "Expression",
+    "Remediation",
+    "CDE ID",
+    "CDE",
+    "CDE criticality",
+    "CDE status\r"
+  ],
+  "kind": "csv",
+  "lastThreeRows": [
+    "\"DQ-113\",\"Code set versions are distributed to consumers within the publication SLA\",\"Reference Data\",\"Timeliness\",\"MEDIUM\",\"core\",\"<= 2 days\",\"lag_days(publication_date, consumer_effective_date) <= 2\",\"Report the lagging consumers to their custodians; divergent code set versions break cross-system joins.\",\"CDE-075\",\"Reference Code Set Value\",\"HIGH\",\"in scope\"\r",
+    "\"DQ-114\",\"Every hierarchy node resolves to a parent and the graph is acyclic\",\"Reference Data\",\"Integrity\",\"BLOCKER\",\"core\",\"0 defects\",\"orphan_count(parent_id) = 0 AND cycle_count(org_hierarchy) = 0\",\"Correct in the source hierarchy before the reporting cycle; a cycle makes every roll-up non-terminating or silently truncated.\",\"CDE-076\",\"Organisational Hierarchy Node\",\"HIGH\",\"in scope\"\r",
+    "\"DQ-115\",\"Hierarchy effective dates permit point-in-time restatement\",\"Reference Data\",\"Timeliness\",\"HIGH\",\"core\",\"0 nodes\",\"count(node WITHOUT effective_from) = 0\",\"Backfill effective dates with the change owner; without them a reorganisation rewrites history rather than versioning it.\",\"CDE-076\",\"Organisational Hierarchy Node\",\"HIGH\",\"in scope\""
+  ],
+  "module": "dgiw",
+  "notReproducible": {},
+  "rawBytesAsserted": true,
+  "rawBytesSha256": "46910063e561db190a6f4ed4fcea471ca82a8b6a0cf4f3522981c56ce5370945",
+  "rowCount": 115,
+  "sampleRowsMasked": false,
+  "unassertable": [],
+  "unassertableColumnIndexes": [],
+  "unassertableReason": null
+}

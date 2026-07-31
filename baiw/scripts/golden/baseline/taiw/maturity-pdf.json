@@ -16,6 +16,7 @@
       "July 31, 2026"
     ]
   },
+  "datasets": null,
   "filename": "Fixture_Customs_Authority_Trade_Analytics_Maturity_Assessment.pdf",
   "filenameNormalised": "Fixture_Customs_Authority_Trade_Analytics_Maturity_Assessment.pdf",
   "generator": "generateTradeMaturityPDF",
@@ -996,6 +997,7 @@
       "widthPt": 595.28
     }
   ],
+  "rawBytesAsserted": false,
   "rawBytesSha256": null,
   "tableRowsTotal": 65,
   "textRunCount": 624,

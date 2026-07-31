@@ -9,18 +9,28 @@ report generators that have **not** yet been migrated onto `src/report/`:
 | TAIW | `src/taiw/utils/tradeReportGenerator.ts` | `generateTradeMaturityPDF` | `generateTradeGapCSV` | `generateTradeRoadmapMarkdown` |
 | HAIW | `src/haiw/utils/healthReportGenerator.ts` | `generateHealthMaturityPDF` | `generateHealthGapCSV` | `generateHealthRoadmapMarkdown` |
 
+Since D2 step 0a it also covers **DGIW's seven generators**, which are already on
+the spine — fourteen artefacts under `baseline/dgiw/`. See "DGIW coverage" below;
+they are asserted far more strictly than the three above.
+
 It exists for one job: **D2 migrates these three onto `src/report/`, and this is
 the only safety net in the repo.** There are zero tests. `check-dgiw.mjs` is a
 dataset gate and knows nothing about these generators.
 
 ## Read this before you use it
 
-**A clean diff after D2 means the migration did nothing.** D2 is supposed to
-change output — pagination, `maxWidth` wrapping that stops text running off the
+**Whether a clean diff is good depends on what you changed.**
+
+For a **generator migration**, a clean diff means the migration did nothing. D2
+is supposed to change output — pagination, `maxWidth` wrapping that stops text running off the
 page edge, real page counts replacing the hardcoded `totalPages = 18`, and new
 filenames from `reportFilename()`. If `compare.mjs` prints "no actionable
 differences" after D2, the first hypothesis is that D2 did not run, not that it
 was perfectly behaviour-preserving.
+
+For a **shared-infrastructure change** — a `src/report/spine.ts` edit intended to
+be behaviour-preserving — a clean diff is the entire goal. That is what the DGIW
+baselines exist for.
 
 The deliverable is **a reviewable diff**, not a pass/fail verdict. Every finding
 is classified so you can tell a fix from a regression:
@@ -257,6 +267,59 @@ baselined on **raw bytes** as well as normalised text.
 **If `haiw/gap-csv` ever reports a raw-bytes diff on an untouched generator, the
 harness is wrong, not the generator.** Debug the harness first.
 
+## DGIW coverage — a stronger assertion than the other three
+
+The three pre-spine generators are baselined on *extracted text*, because jsPDF
+re-rolls the trailer `/ID` from `Math.random` on every call. DGIW's are baselined
+on **raw bytes**.
+
+They can be, because `ReportDoc`'s constructor pins both sources of drift from
+`meta.generatedAt` — `setCreationDate` and a FNV-1a `setFileId` over the
+document's identity plus its content digest. The fixture supplies a fixed
+`generatedAt`, so every DGIW artefact is byte-reproducible. `rawBytesAsserted` is
+`true` on all fourteen.
+
+That is the point of covering DGIW at all: it makes "this spine change altered
+nothing" **provable** rather than asserted. Seven generators shipping to clients
+depended on `src/report/` with no coverage whatsoever, which meant any edit for a
+new caller was unverifiable for the existing ones.
+
+What the fourteen are:
+
+| Artefacts | Why |
+|---|---|
+| AR-01 diagnostic × **3 layers** (`all`, `core`, `banking`) | `layer` filters `applicableQuestions()`, so these are materially different documents — 55 / 33 / 22 questions. They are also the only place `LAYER_LABEL`'s three strings are rendered. |
+| AR-13 CDE register, PDF + CSV | |
+| AR-27 DQ rule spec, PDF + CSV | |
+| AR-04 roadmap, AR-09 operating model, AR-48 multi-framework scorecard | |
+| AR-47 framework alignment × **4 frameworks** | One artefact id, four documents. The crosswalk is recent work; a projection silently changing under a spine edit is exactly what this is for. |
+
+Each registry entry mirrors its component call site line for line — including
+`saveReport(...)` and `reportFilename(...)` — rather than paraphrasing it, so the
+harness exercises the real save path.
+
+### DGIW reads live datasets, and that is recorded
+
+The pre-spine fixtures freeze their datasets so a dataset edit cannot read as a
+generator regression. DGIW cannot: its seven generators import a dozen JSON files
+between them, and freezing ~2 MB into a fixture would mean the baseline stopped
+describing the module in production.
+
+So `datasetFingerprint()` records a sha over every file in `src/dgiw/data/` in
+each DGIW baseline. If a dataset changed between capture and compare, compare
+reports it as **its own finding** rather than leaving a spine edit holding the
+blame for the content changes underneath it.
+
+### The CSV path runs for real
+
+DGIW's CSVs go through `report/csv.ts::downloadCsv` → `utils/export.ts::downloadCSV`,
+which needs `URL.createObjectURL` and an anchor to click. `dom-sink.mjs` supplies
+the minimum for that and takes the Blob at `click()`. The alternative —
+reimplementing CSV assembly in the harness — would have meant the baseline
+described the harness's idea of a CSV. The BOM, the CRLF terminator and the
+quote-every-field rule all live inside `downloadCSV`, and those are precisely the
+bytes worth asserting.
+
 ## What this does not cover
 
 Worth knowing before you rely on it:
@@ -273,5 +336,9 @@ Worth knowing before you rely on it:
   Text, geometry and structure are.
 - **The React components** that call these generators. The harness drives the
   generator functions directly, matching the call sites in
-  `ReportGenerator.tsx`, `TradeReportGenerator.tsx` and
-  `HealthReportGenerator.tsx`.
+  `ReportGenerator.tsx`, `TradeReportGenerator.tsx`,
+  `HealthReportGenerator.tsx`, and for DGIW `Deliverables.tsx`, `Diagnostic.tsx`,
+  `CdeRegister.tsx`, `DqRuleLibrary.tsx` and `Frameworks.tsx`.
+- **DGIW under a draft engagement.** `isDraft` is `false` in the fixture, so the
+  spine's watermark path is uncovered for DGIW too — the same hole the three
+  pre-spine modules have.

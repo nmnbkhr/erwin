@@ -20,7 +20,7 @@ import path from 'node:path'
 import {
   pinEnvironment, environmentStamp, environmentVars, parseArgs, createDriver, analyse,
   assertNonEmpty, stableStringify, stableJson, baselinePath, BASELINE_DIR, RAW_DIR,
-  REGISTRY, MODULES,
+  REGISTRY, MODULES, datasetFingerprint,
 } from './harness.mjs'
 
 pinEnvironment()
@@ -68,7 +68,15 @@ try {
 
       // capturedWith is the EFFECTIVE environment and IS compared.
       // capturedEnvVars is context for a human and is not.
-      const record = { module, capturedWith: env, capturedEnvVars: environmentVars(), ...analysis }
+      const record = {
+        module,
+        capturedWith: env,
+        capturedEnvVars: environmentVars(),
+        // DGIW reads live datasets — see datasetFingerprint's comment. null for
+        // the modules whose fixtures freeze their data.
+        datasets: module === 'dgiw' ? datasetFingerprint('src/dgiw/data') : null,
+        ...analysis,
+      }
       writeFileSync(baselinePath(module, analysis.artefact), stableStringify(record))
       writeFileSync(path.join(rawDir, artefact.filename), artefact.bytes)
       written++
@@ -78,8 +86,8 @@ try {
         : analysis.kind === 'csv'
           ? `${analysis.rowCount} rows × ${analysis.columnCount} cols${analysis.unassertable.length ? ` · ${analysis.unassertable.length} unassertable cols` : ''}`
           : `${analysis.lineCount} lines · ${analysis.headingCount} headings`
-      console.log(`  ${module}/${analysis.artefact}`.padEnd(26) + `${analysis.generator}`.padEnd(30) + detail)
-      console.log(' '.repeat(26) + `-> ${artefact.filename}`)
+      console.log(`  ${module}/${analysis.artefact}`.padEnd(38) + `${analysis.generator}`.padEnd(32) + detail)
+      console.log(' '.repeat(38) + `-> ${artefact.filename}`)
     }
   }
 

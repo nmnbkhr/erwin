@@ -16,6 +16,7 @@
       "July 31, 2026"
     ]
   },
+  "datasets": null,
   "filename": "Fixture_Bank_Limited_Analytics_Maturity_Assessment.pdf",
   "filenameNormalised": "Fixture_Bank_Limited_Analytics_Maturity_Assessment.pdf",
   "generator": "generateMaturityPDF",
@@ -967,6 +968,7 @@
       "widthPt": 595.28
     }
   ],
+  "rawBytesAsserted": false,
   "rawBytesSha256": null,
   "tableRowsTotal": 62,
   "textRunCount": 595,

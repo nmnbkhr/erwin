@@ -29,10 +29,11 @@
 
 import { createServer } from 'vite'
 import { createHash } from 'node:crypto'
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+import { installDomSink, DOM_SINK } from './dom-sink.mjs'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 
@@ -43,7 +44,16 @@ export const BASELINE_DIR = path.join(HERE, 'baseline')
 /** Raw artefacts for eyeballing. Gitignored — see scripts/golden/.gitignore. */
 export const RAW_DIR = path.join(HERE, 'raw')
 
-export const MODULES = ['baiw', 'taiw', 'haiw']
+export const MODULES = ['baiw', 'taiw', 'haiw', 'dgiw']
+
+/**
+ * DGIW's accent, copied from useDeliverable.ts's DGIW_ACCENT (rose-600).
+ * Duplicated rather than imported because that module is a React hook.
+ */
+const DGIW_ACCENT = [225, 29, 72]
+
+/** Every DGIW deliverable the UI can produce, mirrored from its call sites. */
+const DGIW_REPORT = (file) => `/src/dgiw/report/${file}.ts`
 
 // ── Environment pinning ──────────────────────────────────────────────────
 // Step 1 measured this: TZ=Pacific/Kiritimati changes both the PDF's extracted
@@ -199,7 +209,119 @@ export const REGISTRY = {
       { id: 'roadmap-md', kind: 'md', exportName: 'generateHealthRoadmapMarkdown', call: (m, f) => m.generateHealthRoadmapMarkdown(f.answers, f.capabilities, f.orgName) },
     ],
   },
+
+  /*
+   * DGIW — the seven generators already on the spine.
+   *
+   * Added in D2 step 0a, before the spine gains `poweredBy`/`scopeLabel`. These
+   * are the artefacts actually in production, and until now the only module with
+   * NO golden coverage was the only one whose reports ship through src/report/.
+   * Changing shared report infrastructure for three new callers while nothing
+   * verified the seven existing ones is how C1-C3 gets silently broken.
+   *
+   * Three things differ from the pre-spine modules:
+   *
+   *  - Each artefact has its own `entry`. DGIW's UI imports one generator module
+   *    per deliverable; there is no single module exporting all of them.
+   *  - `call` receives a third argument carrying `meta` and the spine's own
+   *    `saveReport` / `downloadCsv` / `reportFilename`, so each line here mirrors
+   *    the component call site verbatim rather than paraphrasing it.
+   *  - `assertRawBytes` is on for ALL of them. `meta.generatedAt` is caller-
+   *    supplied and the spine pins both /CreationDate and /ID from it, so a DGIW
+   *    artefact is byte-reproducible in a way no pre-spine one is. That is what
+   *    makes "the spine change altered nothing" provable instead of asserted.
+   */
+  dgiw: {
+    artefacts: [
+      {
+        id: 'diagnostic-pdf', entry: DGIW_REPORT('diagnosticReport'), kind: 'pdf',
+        exportName: 'buildDiagnosticReport', artefactIdExport: 'DIAGNOSTIC_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf')),
+      },
+      // The same report under the other two layers. Not label coverage: layer
+      // filters applicableQuestions(), so these are materially different
+      // documents — and they are the only place LAYER_LABEL's other two strings
+      // are rendered, which is exactly what scopeLabel is about to touch.
+      {
+        id: 'diagnostic-pdf-core', entry: DGIW_REPORT('diagnosticReport'), kind: 'pdf',
+        exportName: 'buildDiagnosticReport', artefactIdExport: 'DIAGNOSTIC_ARTEFACT_ID',
+        assertRawBytes: true, layer: 'core',
+        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf')),
+      },
+      {
+        id: 'diagnostic-pdf-banking', entry: DGIW_REPORT('diagnosticReport'), kind: 'pdf',
+        exportName: 'buildDiagnosticReport', artefactIdExport: 'DIAGNOSTIC_ARTEFACT_ID',
+        assertRawBytes: true, layer: 'banking',
+        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf')),
+      },
+      {
+        id: 'cde-register-pdf', entry: DGIW_REPORT('cdeRegister'), kind: 'pdf',
+        exportName: 'buildCdeRegisterPdf', artefactIdExport: 'CDE_REGISTER_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildCdeRegisterPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf')),
+      },
+      {
+        id: 'cde-register-csv', entry: DGIW_REPORT('cdeRegister'), kind: 'csv',
+        exportName: 'buildCdeRegisterRows', artefactIdExport: 'CDE_REGISTER_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => {
+          const { rows, columns } = m.buildCdeRegisterRows({ meta: c.meta })
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'))
+        },
+      },
+      {
+        id: 'dq-rule-spec-pdf', entry: DGIW_REPORT('dqRuleSpec'), kind: 'pdf',
+        exportName: 'buildDqRuleSpecPdf', artefactIdExport: 'DQ_RULE_SPEC_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildDqRuleSpecPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf')),
+      },
+      {
+        id: 'dq-rule-spec-csv', entry: DGIW_REPORT('dqRuleSpec'), kind: 'csv',
+        exportName: 'buildDqRuleSpecRows', artefactIdExport: 'DQ_RULE_SPEC_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => {
+          const { rows, columns } = m.buildDqRuleSpecRows({ meta: c.meta })
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'))
+        },
+      },
+      {
+        id: 'roadmap-pdf', entry: DGIW_REPORT('roadmap'), kind: 'pdf',
+        exportName: 'buildRoadmapPdf', artefactIdExport: 'ROADMAP_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildRoadmapPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf')),
+      },
+      {
+        id: 'operating-model-pdf', entry: DGIW_REPORT('operatingModel'), kind: 'pdf',
+        exportName: 'buildOperatingModelPdf', artefactIdExport: 'OPERATING_MODEL_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildOperatingModelPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf')),
+      },
+      {
+        id: 'multi-framework-pdf', entry: DGIW_REPORT('multiFrameworkScorecard'), kind: 'pdf',
+        exportName: 'buildMultiFrameworkScorecardPdf', artefactIdExport: 'MULTI_FRAMEWORK_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildMultiFrameworkScorecardPdf({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf')),
+      },
+      // AR-47 is one artefact id producing four documents, one per framework.
+      // All four are captured: the crosswalk work is recent, and a projection
+      // that silently changed under a spine edit is exactly what 0a is for.
+      ...['FW-01', 'FW-02', 'FW-03', 'FW-04'].map((frameworkId) => ({
+        id: `framework-alignment-${frameworkId.toLowerCase()}-pdf`,
+        entry: DGIW_REPORT('frameworkAlignment'), kind: 'pdf',
+        exportName: 'buildFrameworkAlignmentPdf', artefactIdExport: 'FRAMEWORK_ALIGNMENT_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(
+          m.buildFrameworkAlignmentPdf({ meta: c.meta, answers: f.answers, frameworkId }),
+          c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, `_${frameworkId.toLowerCase()}.pdf`),
+        ),
+      })),
+    ],
+  },
 }
+
+/** Per-artefact entry, falling back to the module-level one. */
+export const artefactEntry = (module, spec) => spec.entry ?? REGISTRY[module].entry
 
 export function artefactSpec(module, id) {
   const spec = REGISTRY[module]?.artefacts.find(a => a.id === id)
@@ -299,6 +421,10 @@ export async function createDriver(modules) {
     optimizeDeps: { noDiscovery: true, include: [] },
   })
 
+  // downloadCSV builds the real bytes — BOM, CRLF, quote-every-field — and only
+  // needs a browser to hand them over. Installed before any module loads.
+  installDomSink()
+
   const sink = await server.ssrLoadModule(path.join(HERE, 'file-saver-sink.mjs'))
   const jsPDF = (await server.ssrLoadModule('jspdf')).default
   const pdfs = []
@@ -312,27 +438,66 @@ export async function createDriver(modules) {
 
   const ruler = new jsPDF('p', 'pt', 'a4')
 
+  // The spine's own save/CSV/filename helpers, so a DGIW registry entry can
+  // mirror its component call site line for line instead of paraphrasing it.
+  const spine = modules.includes('dgiw')
+    ? {
+        saveReport: (await server.ssrLoadModule('/src/report/spine.ts')).saveReport,
+        downloadCsv: (await server.ssrLoadModule('/src/report/csv.ts')).downloadCsv,
+        reportFilename: (await server.ssrLoadModule('/src/report/naming.ts')).reportFilename,
+      }
+    : {}
+
+  /**
+   * ReportMeta for a DGIW artefact, mirroring useDeliverable().metaFor.
+   *
+   * `artefactId` is read from the generator's own exported constant rather than
+   * repeated here: if an id changes, the harness follows it instead of asserting
+   * a stale one. `generatedAt` comes from the fixture, which is what makes a DGIW
+   * artefact byte-reproducible.
+   */
+  function metaFor(fixture, spec, mod) {
+    const artefactId = mod[spec.artefactIdExport]
+    if (typeof artefactId !== 'string' || !artefactId) {
+      throw new Error(`${spec.entry} does not export ${spec.artefactIdExport} as a string — the registry is stale`)
+    }
+    return {
+      orgName: fixture.orgName,
+      engagementId: fixture.engagementId,
+      generatedAt: fixture.generatedAt,
+      layer: spec.layer ?? fixture.layer,
+      accent: fixture.accent ?? DGIW_ACCENT,
+      isDraft: fixture.isDraft ?? false,
+      artefactId,
+    }
+  }
+
   async function generate(module) {
     const fixture = fixtures[module]
-    const { entry, artefacts } = REGISTRY[module]
-    const mod = await server.ssrLoadModule(entry)
+    const { artefacts } = REGISTRY[module]
     const out = []
     for (const spec of artefacts) {
+      const entry = artefactEntry(module, spec)
+      const mod = await server.ssrLoadModule(entry)
       if (typeof mod[spec.exportName] !== 'function') {
         throw new Error(`${entry} no longer exports ${spec.exportName}() — the registry is stale`)
       }
       pdfs.length = 0
       sink.SINK.length = 0
-      spec.call(mod, fixture)
-      const produced = pdfs.length + sink.SINK.length
+      DOM_SINK.length = 0
+
+      const ctx = spec.artefactIdExport ? { ...spine, meta: metaFor(fixture, spec, mod) } : {}
+      spec.call(mod, fixture, ctx)
+
+      const produced = pdfs.length + sink.SINK.length + DOM_SINK.length
       if (produced !== 1) {
         throw new Error(`${module}/${spec.id}: expected exactly one artefact, got ${produced}`)
       }
       if (pdfs.length) {
         out.push({ spec, filename: pdfs[0].filename, bytes: pdfs[0].bytes })
       } else {
-        const { filename, blob } = sink.SINK[0]
-        out.push({ spec, filename, bytes: Buffer.from(await blob.text(), 'utf8') })
+        const { filename, blob } = sink.SINK[0] ?? DOM_SINK[0]
+        out.push({ spec, filename, bytes: Buffer.from(await blob.arrayBuffer()) })
       }
     }
     return out
@@ -582,7 +747,7 @@ function readTextRuns(body, fontByResource, ruler, unknownFonts, usedBaseFonts) 
  * single run. Hashing extracted text excludes both without having to special-case
  * byte offsets that D2 will shift anyway.
  */
-export function analysePdf(buf, ruler) {
+export function analysePdf(buf, ruler, spec = {}) {
   const s = buf.toString('latin1')
   const ranges = streamRanges(s)
   const objs = indirectObjects(s, ranges)
@@ -696,13 +861,23 @@ export function analysePdf(buf, ruler) {
     usedFonts: [...usedBaseFonts].sort(),
     // Hash of the TEXT, not the bytes. See the comment on this function.
     normalisedTextSha256: sha256(normaliseDates(allText)),
-    // Deliberately NOT recorded. jsPDF re-rolls the trailer /ID from Math.random
-    // on every call, so a byte hash is a different number every run. Storing it
-    // would make three of the nine baseline files churn on every capture for a
-    // value that can never be asserted — and a golden file that rewrites itself
-    // is not reviewable. The reason is recorded instead of the number.
-    rawBytesSha256: null,
-    notReproducible: { rawBytesSha256: 'jsPDF fills the trailer /ID from Math.random and /CreationDate from the clock' },
+    // Recorded only when the caller pins the document's identity.
+    //
+    // A PRE-SPINE PDF cannot: jsPDF re-rolls the trailer /ID from Math.random on
+    // every call, so a byte hash is a different number every run. Storing it
+    // would churn the baseline file on every capture for a value that can never
+    // be asserted, and a golden file that rewrites itself is not reviewable.
+    //
+    // A SPINE PDF can. ReportDoc's constructor feeds meta.generatedAt to
+    // setCreationDate and a FNV-1a of the document's identity plus content digest
+    // to setFileId, so both sources of drift are pinned. That is what lets a DGIW
+    // baseline assert raw bytes and makes "the spine change altered nothing"
+    // provable rather than asserted.
+    rawBytesSha256: spec.assertRawBytes ? sha256(buf) : null,
+    rawBytesAsserted: Boolean(spec.assertRawBytes),
+    notReproducible: spec.assertRawBytes
+      ? {}
+      : { rawBytesSha256: 'jsPDF fills the trailer /ID from Math.random and /CreationDate from the clock' },
     bytes: buf.length,
     // Recorded, never asserted: these are the clock's, and they are exactly the
     // values a reviewer wants to see when the text hash moves for no other reason.
@@ -841,7 +1016,7 @@ export function assertNonEmpty(label, analysis) {
 
 export function analyse(artefact, ruler) {
   const { spec, filename, bytes } = artefact
-  const body = spec.kind === 'pdf' ? analysePdf(bytes, ruler)
+  const body = spec.kind === 'pdf' ? analysePdf(bytes, ruler, spec)
     : spec.kind === 'csv' ? analyseCsv(bytes, spec)
       : analyseMd(bytes)
   return {
@@ -854,6 +1029,28 @@ export function analyse(artefact, ruler) {
     filenameNormalised: normaliseFilename(filename),
     ...body,
   }
+}
+
+/**
+ * sha256 over every JSON file a module's generators read live.
+ *
+ * The pre-spine fixtures freeze their datasets, because those baselines have to
+ * survive weeks of migration and a dataset edit must not read as a generator
+ * regression. DGIW cannot do that: its seven generators import a dozen datasets
+ * between them, and freezing ~2 MB of them into a fixture would mean the baseline
+ * stopped describing the module actually in production.
+ *
+ * So DGIW reads live data, and this fingerprint closes the ambiguity that
+ * creates. If a dataset changed between capture and compare, the report says so
+ * in its own finding instead of leaving a spine edit holding the blame.
+ */
+export function datasetFingerprint(dir) {
+  const abs = path.join(APP_ROOT, dir)
+  if (!existsSync(abs)) return null
+  const files = readdirSync(abs).filter((f) => f.endsWith('.json')).sort()
+  if (files.length === 0) return null
+  const h = files.map((f) => `${f}:${sha256(readFileSync(path.join(abs, f)))}`).join('\n')
+  return { dir, files: files.length, sha256: sha256(h) }
 }
 
 export const baselinePath = (module, id) => path.join(BASELINE_DIR, module, `${id}.json`)

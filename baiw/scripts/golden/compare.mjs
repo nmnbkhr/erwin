@@ -29,7 +29,7 @@ import path from 'node:path'
 import {
   pinEnvironment, environmentStamp, parseArgs, createDriver, analyse, assertNonEmpty,
   baselinePath, splitCsvRow, SKIP_TOKEN, MARGIN_MM, REGISTRY, BASELINE_DIR,
-  stableJson, environmentVars,
+  stableJson, environmentVars, datasetFingerprint,
 } from './harness.mjs'
 
 pinEnvironment()
@@ -144,6 +144,15 @@ function diffCommon(findings, base, now) {
   if (base.generator !== now.generator) {
     findings.push({ severity: 'CHANGED', label: 'generator export', lines: [`${base.generator} -> ${now.generator}`] })
   }
+  if (base.datasets && stableJson(base.datasets) !== stableJson(now.datasets ?? null)) {
+    findings.push({
+      severity: 'CHANGED',
+      label: 'source datasets',
+      lines: [`${stableJson(base.datasets)} -> ${stableJson(now.datasets ?? null)}`,
+        YELLOW('  this module reads live data; a dataset edit explains content changes below'),
+        DIM('  it is reported separately so a spine or generator change is not blamed for it')],
+    })
+  }
   const bd = stableJson(base.clockDerived ?? null)
   const nd = stableJson(now.clockDerived ?? null)
   if (bd !== nd) {
@@ -155,7 +164,34 @@ function diffCommon(findings, base, now) {
   }
 }
 
+/**
+ * Raw-bytes equality, for the artefacts whose identity is pinned.
+ *
+ * Two populations reach this: haiw/gap-csv (no clock, no RNG) and every DGIW
+ * artefact (the spine pins /CreationDate and /ID from meta.generatedAt). For
+ * both, a byte difference on an untouched generator means the harness moved.
+ */
+function diffRawBytes(findings, base, now) {
+  if (!base.rawBytesAsserted) return
+  if (!base.rawBytesSha256 || !now.rawBytesSha256) {
+    throw new Error('artefact asserts raw bytes but no raw hash was recorded — the harness is misconfigured, not the generator')
+  }
+  if (base.rawBytesSha256 !== now.rawBytesSha256) {
+    findings.push({
+      severity: 'FAIL',
+      label: 'raw bytes',
+      lines: [`${base.rawBytesSha256.slice(0, 12)} -> ${now.rawBytesSha256.slice(0, 12)}`,
+        RED('  Byte-reproducible by construction — no clock, no RNG, identity pinned by the'),
+        RED('  spine — so this is a real output change, not drift. If you edited src/report/,'),
+        RED('  that edit is NOT behaviour-preserving. If nothing was edited, suspect the harness.')],
+    })
+  } else {
+    findings.push({ severity: 'INFO', label: 'raw bytes', lines: [`stable (${base.rawBytesSha256.slice(0, 12)})`] })
+  }
+}
+
 function diffPdf(findings, base, now) {
+  diffRawBytes(findings, base, now)
   scalar(findings, 'CHANGED', 'page count', base.pageCount, now.pageCount,
     base.pageCount !== now.pageCount ? DIM('   — every generator hardcodes "Page N of 18"; check the footers agree') : '')
   scalar(findings, 'CHANGED', 'glyph count', base.glyphCount, now.glyphCount)
@@ -282,25 +318,7 @@ function diffCsv(findings, base, now) {
     })
   }
 
-  // THE CONTROL. generateHealthGapCSV reads no clock and uses no RNG, and its
-  // bytes were byte-identical across four TZ/locale environments in Step 1. If
-  // this fires on an untouched generator, the harness is wrong.
-  if (base.rawBytesAsserted) {
-    if (!base.rawBytesSha256 || !now.rawBytesSha256) {
-      throw new Error('control artefact has no raw-bytes hash — the harness is misconfigured, not the generator')
-    }
-    if (base.rawBytesSha256 !== now.rawBytesSha256) {
-      findings.push({
-        severity: 'FAIL',
-        label: 'CONTROL: raw bytes',
-        lines: [`${base.rawBytesSha256.slice(0, 12)} -> ${now.rawBytesSha256.slice(0, 12)}`,
-          RED('  This artefact is the harness\'s control. It has no clock read and no RNG.'),
-          RED('  If the generator was not touched, the HARNESS is broken — not the generator.')],
-      })
-    } else {
-      findings.push({ severity: 'INFO', label: 'CONTROL: raw bytes', lines: [`stable (${base.rawBytesSha256.slice(0, 12)})`] })
-    }
-  }
+  diffRawBytes(findings, base, now)
 }
 
 function diffMd(findings, base, now) {
@@ -339,6 +357,8 @@ try {
 
     for (const artefact of artefacts) {
       const now = analyse(artefact, driver.ruler)
+      // Mirrors what capture.mjs records, so diffCommon compares like with like.
+      now.datasets = module === 'dgiw' ? datasetFingerprint('src/dgiw/data') : null
       const bp = baselinePath(module, now.artefact)
       if (!existsSync(bp)) {
         throw new Error(`no baseline at ${path.relative(process.cwd(), bp)} — run: node scripts/golden/capture.mjs --module ${module}`)
@@ -407,4 +427,6 @@ if (failing) {
 }
 console.log()
 console.log(`  ${GREEN('exit 0')} — no actionable differences.`)
-console.log(DIM('  If you just ran D2, that means the migration changed nothing. Check that it ran.'))
+console.log(DIM('  Whether that is good depends on what you changed. For shared infrastructure'))
+console.log(DIM('  (a spine edit meant to be behaviour-preserving) it is the goal. After a'))
+console.log(DIM('  generator migration it means the migration did nothing — check that it ran.'))

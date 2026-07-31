@@ -16,6 +16,7 @@
       "July 31, 2026"
     ]
   },
+  "datasets": null,
   "filename": "Fixture_Health_Authority_Healthcare_Maturity_Assessment.pdf",
   "filenameNormalised": "Fixture_Health_Authority_Healthcare_Maturity_Assessment.pdf",
   "generator": "generateHealthMaturityPDF",
@@ -979,6 +980,7 @@
       "widthPt": 595.28
     }
   ],
+  "rawBytesAsserted": false,
   "rawBytesSha256": null,
   "tableRowsTotal": 61,
   "textRunCount": 607,
