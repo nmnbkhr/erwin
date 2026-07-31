@@ -168,7 +168,11 @@ is the opposite: fully baselined and asserted. See
 
 ## D-002 — TAIW's benchmark page draws text 166 pt past the edge of the paper
 
-**Status** — open. Found during Phase D1 characterisation, 2026-07-31.
+**Status** — FIXED in Phase D2 step 2, 2026-07-31, when TAIW moved onto the
+spine. Found during Phase D1 characterisation the same day. The sentence now
+wraps to two runs, both inside the margin, and reassembles character-identical to
+the original — 37 of its 155 characters had been off the sheet. Kept here because
+the measurement below is the reference case for the class.
 
 **Where** — `baiw/src/taiw/utils/tradeReportGenerator.ts:602`, page 16
 ("Benchmark Comparison") of `generateTradeMaturityPDF`:
@@ -194,12 +198,16 @@ margin at 552.76 pt):
 Customs (JKDM)"` — long enough that the line runs off the sheet. A reader sees
 the sentence stop mid-word.
 
-**What a fix looks like**
+**What the fix was**
 
-Pass `maxWidth: w - 30`, matching what the HAIW generator already does on its
-equivalent line (`healthReportGenerator.ts:811`) and what `src/report/spine.ts`
-does throughout. This is squarely in D2's path — it is one of the changes the
-golden harness expects to see.
+`spine.ts::text()`, which splits unconditionally and emits one `doc.text` per
+line. NOT `maxWidth: w - 30`, which is what this entry originally recommended and
+what HAIW's equivalent line already did — that option computes the split and then
+draws only the first line, so it would have traded a visible overflow for a
+silent truncation. See D-004, which is that mistake, found two steps later.
+
+The BAIW and HAIW rows above are separate defects, not the same one: HAIW's radar
+label was fixed in step 1, and BAIW page 15 is D-006 and is still open.
 
 **Harness status** — `scripts/golden/` records right-edge extent **per page**, so
 this shows up as a number moving from `166.64pt PAST THE PAPER EDGE` to inside
@@ -398,3 +406,52 @@ step 1 and reported at the time rather than worked around) corrected with it.
 **Why it is not a style nit** — the fix is a two-line reorder, but it moved the
 byte-level identity of half the DGIW deliverable set. That is the measure of how
 long a silent layout bug can live in shared code with no test around it.
+
+---
+
+## D-006 — BAIW's roadmap phase boxes are laid out 5 mm past the content margin
+
+**Status** — open. Found during Phase D2 step 3 (BAIW's spine migration),
+2026-07-31. Deliberately not fixed there: it is a geometry change, not a
+migration, and the migration's value is that nothing else moved.
+
+**Where** — `baiw/src/utils/reportGenerator.ts`, page 15 ("Roadmap Summary") of
+`generateMaturityPDF`, and the same grid copied into
+`taiw/utils/tradeReportGenerator.ts`:
+
+```js
+const boxW = 55
+const x = MARGIN + i * (boxW + 10)      // 15, 80, 145 → third box ends at 200 mm
+```
+
+**What it does**
+
+Three 55 mm boxes with two 10 mm gaps span 15–200 mm. The content column ends at
+195 mm. The third box is 5 mm over the margin before a glyph is drawn:
+
+| | width | centre | right edge | verdict |
+|---|---|---|---|---|
+| box 1 "Phase 1: Quick Wins" | 32.60 mm | 42.5 mm | 166.67 pt | inside |
+| box 2 "Phase 2: Core Build" | 31.15 mm | 107.5 mm | 348.87 pt | inside |
+| box 3 "Phase 3: Advanced Analytics" | 45.40 mm | 172.5 mm | **553.33 pt** | **0.57 pt past the 15 mm margin** |
+
+Nothing is off the paper and nothing is truncated — the whole title renders, 42
+pt inside the sheet edge. It is the smallest overflow in the suite, and it is
+recorded because it is the only one the spine migration did **not** close.
+
+**Why the spine does not fix it** — this is not a wrapping defect. Routing the
+title through `spine.ts::text()` would left-align it out of its box. Wrapping it
+to the box width still permits 200 mm, because the box is what breaks the margin.
+Wrapping it to the available half — the treatment the three radar charts got,
+`min(x - MARGIN, pageWidth - MARGIN - x)` — gives 45.00 mm against a 45.40 mm
+title, so it would fold onto two lines inside a box sized for one, 10 mm above
+"Months 19–36".
+
+**What a fix looks like** — narrow the boxes to `(contentWidth - 2 * gap) / 3` =
+53.33 mm, which brings the grid to exactly 195 mm. That moves all twelve text
+baselines on the page and changes three filled rectangles, in both BAIW and TAIW.
+Worth doing on its own, with its own before/after.
+
+**Harness status** — `scripts/golden/walk.mjs` reports it every run:
+`page 15 … 553.33 -> 553.33  pastMargin 0.57 -> 0.57  runs>margin 1 -> 1`, with
+the widest run named. It cannot be closed silently and it cannot be forgotten.

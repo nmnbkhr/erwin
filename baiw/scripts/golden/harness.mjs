@@ -151,20 +151,43 @@ export function parseArgs(argv) {
 // to survive that.
 
 export const REGISTRY = {
+  /*
+   * BAIW — migrated onto the spine in D2 step 3, PDF and markdown only. Same
+   * shape as HAIW's and TAIW's: `artefactIdExport` so the harness reads the id
+   * from the generator rather than restating it, and `profile` naming the
+   * REPORT_PROFILES entry the real call site passes to useReportMeta().
+   *
+   * gap-csv is untouched and still nondeterministic. Its three fabricated
+   * columns stay SKIPPED, which is the only reason a compare on it can pass.
+   */
   baiw: {
     entry: '/src/utils/reportGenerator.ts',
     artefacts: [
-      { id: 'maturity-pdf', kind: 'pdf', exportName: 'generateMaturityPDF', call: (m, f) => m.generateMaturityPDF(f.assessment, f.orgName) },
+      {
+        id: 'maturity-pdf',
+        kind: 'pdf',
+        exportName: 'generateMaturityPDF',
+        artefactIdExport: 'MATURITY_ARTEFACT_ID',
+        profile: 'baiw',
+        call: (m, f, c) => m.generateMaturityPDF(f.assessment, c.meta),
+      },
       {
         id: 'gap-csv',
         kind: 'csv',
         exportName: 'generateGapCSV',
         call: (m, f) => m.generateGapCSV(f.assessment),
-        // Math.random at src/utils/reportGenerator.ts:695. See docs/known-defects.md.
+        // Math.random at src/utils/reportGenerator.ts:756. See docs/known-defects.md.
         unassertable: ['Current Level', 'Gap', 'Priority'],
-        unassertableReason: 'nondeterministic — Math.random at reportGenerator.ts:695',
+        unassertableReason: 'nondeterministic — Math.random at reportGenerator.ts:756',
       },
-      { id: 'roadmap-md', kind: 'md', exportName: 'generateRoadmapMarkdown', call: (m, f) => m.generateRoadmapMarkdown(f.assessment, f.orgName) },
+      {
+        id: 'roadmap-md',
+        kind: 'md',
+        exportName: 'generateRoadmapMarkdown',
+        artefactIdExport: 'ROADMAP_ARTEFACT_ID',
+        profile: 'baiw',
+        call: (m, f, c) => m.generateRoadmapMarkdown(f.assessment, c.meta),
+      },
     ],
   },
   /*

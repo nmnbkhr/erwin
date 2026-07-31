@@ -44,9 +44,20 @@ export interface ReportProfile {
  * component that imported its profile from its generator would pull jsPDF into
  * the page chunk and undo the `await import()` those pages do on purpose.
  *
- * BAIW joins this in D2 step 3.
+ * All three module workbenches are here as of D2 step 3.
  */
 export const REPORT_PROFILES = {
+  baiw: {
+    poweredBy: 'BAIW',
+    scopeLabel: 'Banking analytics maturity — BACR categories, BVF capabilities and FSDM data readiness',
+    // purple-900 (#581C87), the PURPLE the generator has always painted its
+    // cover banner, page rules and five of its six table heads with.
+    accent: [88, 28, 135],
+    // Exactly the string ReportGenerator.tsx used to compute inline as
+    // `bankName.trim() || 'Your Bank'`. Moving the fallback here rather than
+    // changing it keeps every cover and filename a nameless export produced.
+    orgFallback: 'Your Bank',
+  },
   haiw: {
     poweredBy: 'HAIW',
     scopeLabel: 'Healthcare analytics maturity — HACR across eight categories',

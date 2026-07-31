@@ -2,13 +2,20 @@
   "module": "baiw",
   "entry": "src/utils/reportGenerator.ts",
   "orgName": "Fixture Bank Limited",
-  "generatedAt": null,
+  "engagementId": "golden-0000-4000-8000-000000000001",
+  "generatedAt": "2026-07-31T00:00:00.000Z",
+  "layer": "all",
   "notes": [
-    "generatedAt is null because none of the three BAIW generators accept one -",
-    "they call new Date() directly. The harness pins TZ=UTC and normalises the",
-    "rendered date to a <DATE> token; the raw value is recorded but not asserted.",
     "answeredCategories === totalCategories so isDraft is false. The DRAFT",
-    "watermark path is therefore NOT covered - see README."
+    "watermark path is therefore NOT covered - see README.",
+    "engagementId/generatedAt/layer were added in D2 step 3, for the same reason",
+    "they were added to haiw.json in step 1 and taiw.json in step 2: the PDF and",
+    "the markdown now take a ReportMeta, and a clock-derived date would make them",
+    "un-reproducible from one day to the next. generatedAt was null before that,",
+    "because none of the three BAIW generators accepted one - they called",
+    "new Date() directly, and the harness could only normalise the result to a",
+    "<DATE> token. The gap CSV reads none of the three - its baseline is",
+    "unaffected, and that is checked rather than assumed."
   ],
   "assessment": {
     "scores": [

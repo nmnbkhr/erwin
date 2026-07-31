@@ -70,11 +70,14 @@ The dominant structural fact of this repo is copy-paste:
 - **Six near-identical module layout shells**, ~120 lines each, differing only by
   colour and `navItems`. Anything new that belongs in a module header goes in
   **one shared component** imported by all six, not pasted a seventh time.
-- **Two remaining pre-spine PDF report generators** (`utils/reportGenerator.ts`,
-  `taiw/utils/tradeReportGenerator.ts`). `haiw/utils/healthReportGenerator.ts`
-  was the third and is now on `src/report/spine.ts` — copy that migration, do not
-  clone either of the other two. Its gap CSV is deliberately still pre-spine; all
-  three gap CSVs move together once D-001 is decided.
+- **No pre-spine PDF report generator remains.** All three —
+  `utils/reportGenerator.ts`, `taiw/utils/tradeReportGenerator.ts`,
+  `haiw/utils/healthReportGenerator.ts` — are on `src/report/spine.ts` as of D2
+  step 3. A fourth module's report starts from one of them, not from scratch.
+  What each still keeps to itself, behind the public `doc` escape hatch, is its
+  radar chart, score disc and coloured boxes; those own their overflow and must
+  call `moveTo()` afterwards. All three **gap CSVs are deliberately still
+  pre-spine** and move together once D-001 is decided.
 - **Two generations of workbench components** — `components/workbench/` is the
   shared data-driven one; `components/profitability/` is BAIW's unmigrated
   predecessor. Build against `components/workbench/`.
@@ -171,9 +174,14 @@ measuring at 18pt and drawing at 9pt breaks a line at half width; measuring at
 8pt and drawing at 9pt ran the operating-model report **off the sheet**.
 
 Do not assume the three pre-spine generators were the careful ones. BAIW and
-TAIW pass no width at all and overflow visibly (D-002); HAIW passed `maxWidth`
-and truncated invisibly (D-004). Invisible is worse. The spine is the floor,
-not any of them.
+TAIW passed no width at all and overflowed visibly (D-002); HAIW passed
+`maxWidth` and truncated invisibly (D-004). Invisible is worse. The spine is the
+floor, not any of them.
+
+One overflow survives the migration and is not a text defect: BAIW's page-15
+roadmap boxes are laid out to 200 mm against a 195 mm content column, so the
+third title sits 0.57 pt past the margin. That is **D-006** — box geometry, open,
+and not something `text()` can fix. TAIW has the same grid with shorter titles.
 
 ## DGIW scoring
 

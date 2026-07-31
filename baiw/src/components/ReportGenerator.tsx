@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
-import { generateMaturityPDF, generateGapCSV, generateRoadmapMarkdown } from '../utils/reportGenerator'
+import {
+  generateMaturityPDF, generateGapCSV, generateRoadmapMarkdown,
+  MATURITY_ARTEFACT_ID, ROADMAP_ARTEFACT_ID,
+} from '../utils/reportGenerator'
 import { useOrgName } from '../engagement/useOrgName'
+import { useReportMeta, REPORT_PROFILES } from '../engagement/useReportMeta'
 
 interface CategoryScore {
   category: string
@@ -21,6 +25,11 @@ export default function ReportGenerator({ scores, overallScore, answeredCategori
   const [expanded, setExpanded] = useState(false)
   // The client's name lives on the active engagement, not in this component.
   const [bankName, setBankName] = useOrgName()
+  // Engagement identity, date and page chrome for the two spine deliverables.
+  // The org name it reads is the same useOrgName() the input below writes to,
+  // and REPORT_PROFILES.baiw.orgFallback carries the 'Your Bank' default this
+  // handler used to compute inline.
+  const metaFor = useReportMeta(REPORT_PROFILES.baiw)
   const [generating, setGenerating] = useState<string | null>(null)
 
   const hasData = answeredCategories > 0
@@ -37,14 +46,20 @@ export default function ReportGenerator({ scores, overallScore, answeredCategori
   }
 
   const handleGenerate = async (type: 'pdf' | 'csv' | 'markdown') => {
-    const name = bankName.trim() || 'Your Bank'
     setGenerating(type)
     try {
       // Small delay to show loading state
       await new Promise(r => setTimeout(r, 100))
-      if (type === 'pdf') generateMaturityPDF(assessmentData, name)
-      else if (type === 'csv') generateGapCSV(assessmentData)
-      else generateRoadmapMarkdown(assessmentData, name)
+      if (type === 'pdf') {
+        // isDraft is not passed: the generator derives it from assessmentData,
+        // which is where it has always been derived.
+        generateMaturityPDF(assessmentData, metaFor(MATURITY_ARTEFACT_ID))
+      } else if (type === 'csv') {
+        // Still the pre-spine generator, deliberately — blocked on D-001.
+        generateGapCSV(assessmentData)
+      } else {
+        generateRoadmapMarkdown(assessmentData, metaFor(ROADMAP_ARTEFACT_ID))
+      }
     } finally {
       setGenerating(null)
     }
