@@ -1,6 +1,6 @@
 {
   "artefact": "roadmap-md",
-  "bytes": 4647,
+  "bytes": 4651,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -12,19 +12,19 @@
     "tz": "UTC"
   },
   "clockDerived": {
-    "dateLineRaw": "## Prepared by Godaitec | 7/31/2026",
+    "dateLineRaw": "## Prepared by Godaitec | July 31, 2026",
     "renderedDates": [
-      "7/31/2026"
+      "July 31, 2026"
     ]
   },
   "datasets": null,
-  "filename": "Fixture_Health_Authority_Healthcare_Analytics_Roadmap.md",
-  "filenameNormalised": "Fixture_Health_Authority_Healthcare_Analytics_Roadmap.md",
+  "filename": "MR-HAIW-ROADMAP_fixture-health-authority_all_2026-07-31.md",
+  "filenameNormalised": "MR-HAIW-ROADMAP_fixture-health-authority_all_2026-07-31.md",
   "generator": "generateHealthRoadmapMarkdown",
   "headingCount": 26,
   "headings": [
     "# Fixture Health Authority — Healthcare Analytics Transformation Roadmap",
-    "## Prepared by Godaitec | 7/31/2026",
+    "## Prepared by Godaitec | July 31, 2026",
     "## Slide 1: Title",
     "### Fixture Health Authority Healthcare Analytics Transformation Roadmap",
     "## Slide 2: Current State",
@@ -54,5 +54,5 @@
   "lineCount": 132,
   "module": "haiw",
   "normalisedTextSha256": "f1f046f1b779deab1d8ae0683d6c4121f52227fc6730982153c04ae12837ca16",
-  "rawBytesSha256": "87500449cb121374fcb9445486ed066ed02e356066aa1a6e2741b0913f021817"
+  "rawBytesSha256": "26a4b31f503d13d6ed9730ffb3092968dc949c7098861b9ca4ce997d5d3abc26"
 }

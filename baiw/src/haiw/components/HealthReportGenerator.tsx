@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
 import type { HaiwAssessmentAnswer, HaiwCapability } from '../types'
 import { useOrgName } from '../../engagement/useOrgName'
+import { useReportMeta, REPORT_PROFILES } from '../../engagement/useReportMeta'
 
 interface HealthReportGeneratorProps {
   answers: HaiwAssessmentAnswer[]
@@ -14,6 +15,9 @@ export default function HealthReportGenerator({ answers, capabilities, answeredC
   const [expanded, setExpanded] = useState(false)
   // The client's name lives on the active engagement, not in this component.
   const [orgName, setOrgName] = useOrgName()
+  // Engagement identity, date and page chrome for the two spine deliverables.
+  // The org name it reads is the same useOrgName() the input below writes to.
+  const metaFor = useReportMeta(REPORT_PROFILES.haiw)
   const [generating, setGenerating] = useState<string | null>(null)
 
   const hasData = answeredCategories > 0
@@ -23,14 +27,24 @@ export default function HealthReportGenerator({ answers, capabilities, answeredC
   if (!hasData) return null
 
   const handleGenerate = async (type: 'pdf' | 'csv' | 'markdown') => {
-    const name = orgName.trim() || 'Your Healthcare Organization'
     setGenerating(type)
     try {
       await new Promise(r => setTimeout(r, 100))
-      const { generateHealthMaturityPDF, generateHealthGapCSV, generateHealthRoadmapMarkdown } = await import('../utils/healthReportGenerator')
-      if (type === 'pdf') generateHealthMaturityPDF(answers, capabilities, undefined, name)
-      else if (type === 'csv') generateHealthGapCSV(answers, capabilities)
-      else generateHealthRoadmapMarkdown(answers, capabilities, name)
+      // The artefact ids come out of the dynamic import too. Importing them at
+      // the top of this file would pull healthReportGenerator — and with it
+      // jsPDF — into the page chunk, which is the whole reason this import is
+      // here rather than up there.
+      const gen = await import('../utils/healthReportGenerator')
+      if (type === 'pdf') {
+        // isDraft is not passed: the generator derives it from the answers, which
+        // is where it has always been derived. See the note on reportMeta there.
+        gen.generateHealthMaturityPDF(answers, capabilities, undefined, metaFor(gen.HEALTH_MATURITY_ARTEFACT_ID))
+      } else if (type === 'csv') {
+        // Still the pre-spine generator, deliberately — see D-001.
+        gen.generateHealthGapCSV(answers, capabilities)
+      } else {
+        gen.generateHealthRoadmapMarkdown(answers, capabilities, metaFor(gen.HEALTH_ROADMAP_ARTEFACT_ID))
+      }
     } finally {
       setGenerating(null)
     }

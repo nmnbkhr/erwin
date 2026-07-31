@@ -12,9 +12,12 @@
  *  - Page geometry. MARGIN is one constant, used by hand-placed text AND passed
  *    to autoTable, which otherwise defaults to 14mm and disagrees with the 15mm
  *    every other element uses.
- *  - Text that always wraps. `splitTextToSize` is applied unconditionally; of the
- *    three existing generators only HAIW passes maxWidth, so BAIW and TAIW run
- *    long strings off the page edge. DGIW content is arbitrary-length free text.
+ *  - Text that always wraps. `splitTextToSize` is applied unconditionally and one
+ *    `doc.text` is emitted per line. BAIW and TAIW pass no width at all and run
+ *    long strings off the page edge (D-002); HAIW passed jsPDF's `maxWidth`
+ *    option, which computes the split and then draws only the first line, so it
+ *    lost the rest (D-004). Neither is the floor. DGIW content is
+ *    arbitrary-length free text and needs the real thing.
  *  - Real pagination. Every write advances a cursor and breaks the page before it
  *    reaches the footer band.
  *  - A footer pass that runs LAST, over doc.getNumberOfPages(). The existing
@@ -121,6 +124,37 @@ function joinParts(parts: readonly (string | undefined)[], sep: string): string 
 /** jsPDF points → millimetres, with the leading the existing reports read at. */
 function lineHeight(size: number): number {
   return size * 0.3528 * 1.45
+}
+
+/**
+ * One line, marked when it had to be cut.
+ *
+ * Three places here genuinely have room for one line and no more — the cover
+ * title and subtitle sit at fixed y positions with the next element 12mm below,
+ * and the page header shares its baseline with "Powered by …" on the right. All
+ * three used to say `doc.text(s, x, y, { maxWidth: n })`, which LOOKS like
+ * wrapping and is not: jsPDF computes the split and then emits only the first
+ * line. Everything past the break was silently discarded — see D-004 in
+ * docs/known-defects.md, where three sentences lost from every shipped HAIW PDF
+ * are recorded.
+ *
+ * Same one-line outcome, one visible difference: an ellipsis, so a reader can
+ * tell "this was cut" from "this is what they wrote". Output is unchanged
+ * character for character whenever the text already fits, which is every
+ * artefact in the suite today.
+ *
+ * The caller must have set the font size already — measuring before setting it
+ * is the other half of the same class of bug, fixed below in bullets() and
+ * keyValueBlock().
+ */
+function fitOneLine(doc: jsPDF, value: string, width: number): string {
+  const lines = doc.splitTextToSize(value, width) as string[]
+  if (lines.length <= 1) return lines[0] ?? value
+  // Re-split against the room an ellipsis leaves, so the mark is inside the
+  // width rather than the first thing to overflow it.
+  const ellipsisWidth = (doc.getStringUnitWidth('…') * doc.getFontSize()) / doc.internal.scaleFactor
+  const head = doc.splitTextToSize(value, Math.max(1, width - ellipsisWidth)) as string[]
+  return `${(head[0] ?? lines[0]).trimEnd()}…`
 }
 
 /**
@@ -290,10 +324,10 @@ export class ReportDoc {
     doc.text(doc.splitTextToSize(meta.orgName, w - 40)[0] ?? meta.orgName, w / 2, 38, { align: 'center' })
 
     doc.setFontSize(SIZE.coverTitle)
-    doc.text(title, w / 2, 54, { align: 'center', maxWidth: w - 30 })
+    doc.text(fitOneLine(doc, title, w - 30), w / 2, 54, { align: 'center' })
 
     doc.setFontSize(SIZE.coverMeta)
-    if (subtitle) doc.text(subtitle, w / 2, 66, { align: 'center', maxWidth: w - 40 })
+    if (subtitle) doc.text(fitOneLine(doc, subtitle, w - 40), w / 2, 66, { align: 'center' })
     doc.text(formatCoverDate(meta.generatedAt), w / 2, 78, { align: 'center' })
     // `??`, not `||`: '' is a meaningful value here — it suppresses the line —
     // and `||` would fold it back into the default, which is the opposite.
@@ -384,6 +418,14 @@ export class ReportDoc {
     const lh = lineHeight(size)
     const bulletX = MARGIN + (opts.indent ?? 0)
     const textX = bulletX + 5
+    // BEFORE the split, not after it. splitTextToSize measures at whatever size
+    // the document is currently set to, so this used to wrap the FIRST item of
+    // every list against the size left behind by the previous call — an 18pt
+    // page title, typically, which halves the usable width. Items two onward
+    // came out right because the loop below had by then set the size, which is
+    // what made it invisible: one short line at the top of a list reads as the
+    // author's line break. See docs/known-defects.md D-005.
+    this.doc.setFontSize(size)
     for (const item of items) {
       const lines = this.doc.splitTextToSize(item, this.pageWidth - MARGIN - textX) as string[]
       lines.forEach((line, i) => {
@@ -410,6 +452,12 @@ export class ReportDoc {
     const lh = lineHeight(size)
     const valueX = MARGIN + labelWidth
     const valueWidth = this.pageWidth - MARGIN - valueX
+    // Same fix as bullets(), same reason: the value split below measures at the
+    // current font size, so the first row of every block used to wrap against
+    // the previous call's size. The LABEL split on line 458 was always correct —
+    // it happens after the setFontSize inside the loop — which is why one half
+    // of this method behaved and the other did not.
+    this.doc.setFontSize(size)
     for (const [label, value] of pairs) {
       const lines = this.doc.splitTextToSize(value, valueWidth) as string[]
       this.pageBreakIfNeeded(lh * lines.length)
@@ -489,7 +537,9 @@ export class ReportDoc {
     doc.line(MARGIN, HEADER_RULE_Y, w - MARGIN, HEADER_RULE_Y)
     doc.setFontSize(SIZE.caption)
     doc.setTextColor(...SLATE)
-    doc.text(`${meta.orgName} — ${this.headerTitle}`, MARGIN, HEADER_TEXT_Y, { maxWidth: w * 0.6 })
+    // 60% of the sheet, because "Powered by …" is right-aligned on this same
+    // baseline. One line by necessity, not by accident.
+    doc.text(fitOneLine(doc, `${meta.orgName} — ${this.headerTitle}`, w * 0.6), MARGIN, HEADER_TEXT_Y)
     doc.text(`Powered by ${poweredByOf(meta)}`, w - MARGIN, HEADER_TEXT_Y, { align: 'right' })
 
     this.drawWatermark(pageNumber)

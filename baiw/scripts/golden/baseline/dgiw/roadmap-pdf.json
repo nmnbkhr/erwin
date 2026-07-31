@@ -1,6 +1,6 @@
 {
   "artefact": "roadmap-pdf",
-  "bytes": 91496,
+  "bytes": 91406,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -24,11 +24,11 @@
   "filename": "AR-04_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-04_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildRoadmapPdf",
-  "glyphCount": 13583,
+  "glyphCount": 13584,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "5b0cade4e4edc303bb7bc0c8f2ae65f8db079f0d5f553a6de0363a48fa469d97",
+  "normalisedTextSha256": "088a25eef8faae6ff242e33dd1b58fc0199509eac30a163f33c353bc44c9fbfa",
   "notReproducible": {},
   "pageCount": 12,
   "pages": [
@@ -161,7 +161,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1615,
+      "glyphs": 1616,
       "heightPt": 841.89,
       "multiColumnBaselines": 17,
       "page": 3,
@@ -254,9 +254,8 @@
         "In scope",
         "What the two blank cases mean",
         "•",
-        "4 of 7 waves name no gate in their exit criteria (W1, W3, W4, W5). Their exit criteria",
-        "are written as outcomes rather than as controls. That is not necessarily wrong, but it",
-        "means those waves close on judgement rather than on a test somebody has to pass.",
+        "4 of 7 waves name no gate in their exit criteria (W1, W3, W4, W5). Their exit criteria are written as outcomes rather than as controls. That is",
+        "not necessarily wrong, but it means those waves close on judgement rather than on a test somebody has to pass.",
         "•",
         "3 of 11 gates are named by no wave (G7, G9, G11). Each is still run inside a flow, so it is a control that exists and is executed but is not tied",
         "to a wave boundary — nothing in the plan stops a wave closing while one of them is unmet.",
@@ -265,7 +264,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 3 of 12"
       ],
-      "textRuns": 90,
+      "textRuns": 89,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -812,9 +811,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "b8d7d6f02d7cb384bf0a8111278451dedce514d9df2ccf715605250df62ad769",
+  "rawBytesSha256": "aabe32fc56359ba6a6683e4e31b1a3831346de5bfe3e5d64ac7bc9df42049ef0",
   "tableRowsTotal": 20,
-  "textRunCount": 550,
+  "textRunCount": 549,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

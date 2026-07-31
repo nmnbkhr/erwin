@@ -1,6 +1,6 @@
 {
   "artefact": "multi-framework-pdf",
-  "bytes": 73896,
+  "bytes": 73803,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -24,11 +24,11 @@
   "filename": "AR-48_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-48_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildMultiFrameworkScorecardPdf",
-  "glyphCount": 7068,
+  "glyphCount": 7069,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "b57a284461ecae50052ac0d54138f5cbfd9c86cc5d21acda9700fab43eb1db34",
+  "normalisedTextSha256": "43378c01ce06f3bf9926578825860481b19f2b3cd3fd4555341a0d7a55d17d65",
   "notReproducible": {},
   "pageCount": 6,
   "pages": [
@@ -427,7 +427,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1875,
+      "glyphs": 1876,
       "heightPt": 841.89,
       "multiColumnBaselines": 9,
       "page": 6,
@@ -459,10 +459,9 @@
         "audit context.",
         "Structural qualifications",
         "•",
-        "DCAM is modelled at v2.2. Its capability and sub-capability levels beneath each",
-        "component are deliberately NOT authored: they were not recalled reliably enough to",
-        "put in front of an auditor, and an absent level is recoverable where an invented one is",
-        "not. DCAM v3.0 reorganised the model and is not what is represented here.",
+        "DCAM is modelled at v2.2. Its capability and sub-capability levels beneath each component are deliberately NOT authored: they were not",
+        "recalled reliably enough to put in front of an auditor, and an absent level is recoverable where an invented one is not. DCAM v3.0",
+        "reorganised the model and is not what is represented here.",
         "•",
         "COBIT 2019 APO14 sub-practice titles have been checked against a public COBIT 2019 reference and corrected where they differed. They",
         "have NOT been checked against the ISACA publication itself, which is the only source an audit function should accept — treat them as",
@@ -473,15 +472,15 @@
         "Prepared by Godaitec | godai.tech",
         "Page 6 of 6"
       ],
-      "textRuns": 32,
+      "textRuns": 31,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "4dac3f11128e4bfc849903bbf0d21a4e018cbb1486a29c8be7c6bc6f6d45a1c9",
+  "rawBytesSha256": "5915238b256feb69fb0b0033a275aeab21371e75cbd0045efd23e260972f0132",
   "tableRowsTotal": 38,
-  "textRunCount": 331,
+  "textRunCount": 330,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

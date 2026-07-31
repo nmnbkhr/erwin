@@ -275,6 +275,12 @@ const SRC_ROOT = path.join(D, '..', '..', '..')
  * or back is a restructure this list has to be told about.
  */
 const REPORT_SOURCE_LOCATIONS = [
+  // The spine itself. Added in D2 step 2, when the maxWidth check below found
+  // THREE live instances in here — the cover title, the cover subtitle and the
+  // page header — against zero in DGIW's generators. A gate over the callers
+  // that skipped the shared code they all call would have reported green while
+  // the worst instances sat in the one file every report goes through.
+  { rel: 'src/report', kind: 'dir' },
   { rel: 'src/dgiw/report', kind: 'dir' },
   { rel: 'src/haiw/utils/healthReportGenerator.ts', kind: 'file' },
   { rel: 'src/taiw/utils/tradeReportGenerator.ts', kind: 'file' },
@@ -361,10 +367,15 @@ for (const file of reportSources) {
   const lineOf = (node) => sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1
   const at = (node) => `${rel}:${lineOf(node)}`
   let found = 0
+  // The file that DEFINES CsvColumn references it without declaring any column,
+  // and that is not the defect the guard below is looking for. Structural, not an
+  // exemption list: you cannot import a type from the file that declares it.
+  let declaresCsvColumn = false
   /** Spec array node → header text → the node that first claimed it. */
   const claimed = new Map()
 
   const visit = (node) => {
+    if (ts.isInterfaceDeclaration(node) && node.name.text === 'CsvColumn') declaresCsvColumn = true
     if (ts.isShorthandPropertyAssignment(node) && node.name.text === 'header') {
       found++
       fail('CSV-HEADER', `${at(node)} header is a shorthand property — its value cannot be verified here`)
@@ -395,10 +406,77 @@ for (const file of reportSources) {
   }
   visit(sf)
 
-  if (found === 0 && /\bCsvColumn\b/.test(text))
+  if (found === 0 && !declaresCsvColumn && /\bCsvColumn\b/.test(text))
     fail('CSV-HEADER', `${rel} references CsvColumn but declares no header: property — the column spec has moved somewhere this check cannot see it`)
   if (found > 0) specFiles.push(rel)
   headersChecked += found
+}
+
+// ── 10b. TEXT-MAXWIDTH — jsPDF's maxWidth option loses text ─────────────
+// `doc.text(s, x, y, { maxWidth: n })` reads as "wrap this". It is not. jsPDF
+// computes the split and then emits ONLY THE FIRST LINE; everything past the
+// break is discarded with no error, no clipping and nothing visible on the page
+// except a sentence that stops. Measured directly:
+//
+//     splitTextToSize(180)              -> 2 lines
+//     doc.text(.., { maxWidth: 180 })   -> 1 text run drawn
+//
+// Three sentences were lost from every HAIW PDF ever exported, and three more
+// instances were sitting in src/report/spine.ts — the file every report in the
+// suite goes through. See docs/known-defects.md D-004.
+//
+// The rule is therefore absolute: the key does not appear in report code. Wrap
+// with splitTextToSize and emit one text() per line, or, where only one line
+// fits, call spine.ts::fitOneLine so the cut is marked rather than silent.
+//
+// Deliberately callee-agnostic. Matching only `doc.text(...)` would miss an
+// alias, a bound method or a helper that forwards its options, and in this
+// codebase `maxWidth` has exactly one meaning. An unresolvable options bag — a
+// spread, or an identifier where a literal should be — FAILS rather than being
+// skipped, on the same principle as section 10: a check that quietly passes on
+// what it could not read is worse than no check.
+let textCalls = 0
+
+/** `x.text(...)` / `x.y.text(...)`. */
+const isTextCall = (node) =>
+  ts.isCallExpression(node) &&
+  ts.isPropertyAccessExpression(node.expression) &&
+  node.expression.name.text === 'text'
+
+/** Nearest enclosing call, for naming what the offending option belongs to. */
+const enclosingCall = (node) => {
+  for (let p = node.parent; p; p = p.parent) if (ts.isCallExpression(p)) return p
+  return null
+}
+
+for (const file of reportSources) {
+  const rel = path.relative(SRC_ROOT, file)
+  const sf = ts.createSourceFile(file, fs.readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+  const at = (node) => `${rel}:${sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1}`
+
+  const visit = (node) => {
+    if (isTextCall(node)) {
+      textCalls++
+      // jsPDF's signature is text(text, x, y, options). A bag this walk cannot
+      // read is a bag that could carry maxWidth.
+      const bag = node.arguments[3]
+      if (bag && !ts.isObjectLiteralExpression(bag)) {
+        fail('TEXT-MAXWIDTH', `${at(node)} the options argument to ${node.expression.getText(sf)}() is \`${bag.getText(sf).replace(/\s+/g, ' ').slice(0, 40)}\`, not an object literal — this check cannot see whether it carries maxWidth`)
+      } else if (bag && bag.properties.some((p) => ts.isSpreadAssignment(p))) {
+        fail('TEXT-MAXWIDTH', `${at(node)} the options argument to ${node.expression.getText(sf)}() spreads another object — this check cannot see whether it carries maxWidth`)
+      }
+    }
+    const isMaxWidthKey =
+      (ts.isPropertyAssignment(node) || ts.isShorthandPropertyAssignment(node)) &&
+      propName(node.name) === 'maxWidth'
+    if (isMaxWidthKey) {
+      const call = enclosingCall(node)
+      const where = call ? `${call.expression.getText(sf).replace(/\s+/g, ' ')}()` : 'an options object'
+      fail('TEXT-MAXWIDTH', `${at(node)} ${where} is passed maxWidth — jsPDF computes the line split and then draws only the FIRST line, so every line after the break is silently discarded. Split with splitTextToSize and emit one text() per line, or use spine.ts::fitOneLine where only one line fits.`)
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(sf)
 }
 
 // ── 11. every generated artefact id exists in the register ──────────────
@@ -529,9 +607,15 @@ for (const file of reportSources) {
     for (const el of named.elements)
       if ((el.propertyName ?? el.name).text === 'createReport') createReportName = el.name.text
   }
+  // spine.ts DEFINES createReport and cannot import it. Structural, like the
+  // CsvColumn case in section 10 — not an exemption, just the difference between
+  // a definition site and a call site.
+  const declaresCreateReport = sf.statements.some(
+    (st) => ts.isFunctionDeclaration(st) && st.name?.text === 'createReport',
+  )
   // Referenced some other way — a namespace import, a re-export, a dynamic call.
   // That is unresolvable here, so it fails rather than passing by not being seen.
-  if (createReportName === null && /\bcreateReport\b/.test(text))
+  if (createReportName === null && !declaresCreateReport && /\bcreateReport\b/.test(text))
     fail('ARTEFACT-IMPL', `${rel} references createReport but not through a named import — this check cannot resolve the call, so the content digest cannot be verified`)
 
   const visit = (node) => {
@@ -1003,6 +1087,11 @@ const sourceFails = fails.filter((f) => f.startsWith('REPORT-SOURCES')).length
 console.log(
   `  REPORT-SOURCES ${reportSources.length} file${reportSources.length === 1 ? '' : 's'} from ${REPORT_SOURCE_LOCATIONS.length} declared location${REPORT_SOURCE_LOCATIONS.length === 1 ? '' : 's'}` +
     ` (${REPORT_SOURCE_LOCATIONS.map((l) => l.rel).join(', ')})${sourceFails ? ` — ${sourceFails} UNRESOLVED, see below` : ''}`,
+)
+const maxWidthFails = fails.filter((f) => f.startsWith('TEXT-MAXWIDTH')).length
+console.log(
+  `  TEXT-MAXWIDTH ${textCalls} text() call${textCalls === 1 ? '' : 's'} across ${reportSources.length} report source${reportSources.length === 1 ? '' : 's'}` +
+    ` — ${maxWidthFails ? `${maxWidthFails} REJECTED, see below` : 'no maxWidth option, which discards every line after the first'}`,
 )
 const headerFails = fails.filter((f) => f.startsWith('CSV-HEADER')).length
 console.log(

@@ -2,7 +2,9 @@
   "module": "haiw",
   "entry": "src/haiw/utils/healthReportGenerator.ts",
   "orgName": "Fixture Health Authority",
-  "generatedAt": null,
+  "engagementId": "golden-0000-4000-8000-000000000002",
+  "generatedAt": "2026-07-31T00:00:00.000Z",
+  "layer": "all",
   "notes": [
     "All 720 HACR questions answered, in hacrQuestions.json order, which is the",
     "order Object.values(answers) yields in the live component.",
@@ -10,7 +12,13 @@
     "benchmarks is null so the generator uses its own DEFAULT_BENCHMARKS, which",
     "is exactly what HealthReportGenerator.tsx passes (undefined).",
     "capabilities is frozen from src/data/haiw/capabilities.json - the generator",
-    "takes the non-empty branch, one CSV row per HCF capability."
+    "takes the non-empty branch, one CSV row per HCF capability.",
+    "engagementId/generatedAt/layer were added in D2 step 1: the PDF and the",
+    "markdown now take a ReportMeta, and generatedAt was null. A clock-derived",
+    "date would make the migrated artefacts un-reproducible from one day to the",
+    "next, which is the one property the spine exists to give them. The gap CSV",
+    "reads none of these three - its raw-bytes baseline is unaffected, and that",
+    "is checked, not assumed."
   ],
   "answers": [
     {

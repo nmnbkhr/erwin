@@ -183,6 +183,18 @@ export const REGISTRY = {
       { id: 'roadmap-md', kind: 'md', exportName: 'generateTradeRoadmapMarkdown', call: (m, f) => m.generateTradeRoadmapMarkdown(f.assessment, f.orgName) },
     ],
   },
+  /*
+   * HAIW — migrated onto the spine in D2 step 1, PDF and markdown only.
+   *
+   * Those two now take `meta: ReportMeta` where they took `orgName: string`, so
+   * they carry `artefactIdExport` (the harness reads the id from the generator
+   * rather than repeating it) and `profile`, which names the entry in
+   * REPORT_PROFILES that the real call site passes to useReportMeta(). Reading
+   * the profile out of the app instead of restating it here is the difference
+   * between mirroring the call site and paraphrasing it.
+   *
+   * gap-csv is untouched: no meta, no profile, still the pre-spine generator.
+   */
   haiw: {
     entry: '/src/haiw/utils/healthReportGenerator.ts',
     artefacts: [
@@ -190,9 +202,11 @@ export const REGISTRY = {
         id: 'maturity-pdf',
         kind: 'pdf',
         exportName: 'generateHealthMaturityPDF',
+        artefactIdExport: 'HEALTH_MATURITY_ARTEFACT_ID',
+        profile: 'haiw',
         // benchmarks is null in the fixture -> undefined here, which is exactly
         // what HealthReportGenerator.tsx passes, so DEFAULT_BENCHMARKS applies.
-        call: (m, f) => m.generateHealthMaturityPDF(f.answers, f.capabilities, f.benchmarks ?? undefined, f.orgName),
+        call: (m, f, c) => m.generateHealthMaturityPDF(f.answers, f.capabilities, f.benchmarks ?? undefined, c.meta),
       },
       {
         id: 'gap-csv',
@@ -206,7 +220,14 @@ export const REGISTRY = {
         // broken, not the generator.
         assertRawBytes: true,
       },
-      { id: 'roadmap-md', kind: 'md', exportName: 'generateHealthRoadmapMarkdown', call: (m, f) => m.generateHealthRoadmapMarkdown(f.answers, f.capabilities, f.orgName) },
+      {
+        id: 'roadmap-md',
+        kind: 'md',
+        exportName: 'generateHealthRoadmapMarkdown',
+        artefactIdExport: 'HEALTH_ROADMAP_ARTEFACT_ID',
+        profile: 'haiw',
+        call: (m, f, c) => m.generateHealthRoadmapMarkdown(f.answers, f.capabilities, c.meta),
+      },
     ],
   },
 
@@ -448,28 +469,56 @@ export async function createDriver(modules) {
       }
     : {}
 
+  /*
+   * REPORT_PROFILES, read from the app rather than restated here.
+   *
+   * DGIW_ACCENT above is a copied constant with a comment explaining why — that
+   * was acceptable for one number. `poweredBy`, `scopeLabel`, the accent and the
+   * org-name fallback are four per-module facts across three modules, and a
+   * harness carrying its own copy would be asserting its copy. useReportMeta.ts
+   * is a hook module, but importing it only evaluates it; nothing here renders.
+   */
+  const needsProfiles = modules.some(m => REGISTRY[m].artefacts.some(a => a.profile))
+  const reportProfiles = needsProfiles
+    ? (await server.ssrLoadModule('/src/engagement/useReportMeta.ts')).REPORT_PROFILES
+    : {}
+
   /**
-   * ReportMeta for a DGIW artefact, mirroring useDeliverable().metaFor.
+   * ReportMeta for a spine artefact, mirroring the hook its call site uses —
+   * useDeliverable().metaFor for DGIW, useReportMeta() for a module with a
+   * `profile`.
    *
    * `artefactId` is read from the generator's own exported constant rather than
    * repeated here: if an id changes, the harness follows it instead of asserting
-   * a stale one. `generatedAt` comes from the fixture, which is what makes a DGIW
-   * artefact byte-reproducible.
+   * a stale one. `generatedAt` comes from the fixture, which is what makes a
+   * spine artefact byte-reproducible.
    */
   function metaFor(fixture, spec, mod) {
     const artefactId = mod[spec.artefactIdExport]
     if (typeof artefactId !== 'string' || !artefactId) {
-      throw new Error(`${spec.entry} does not export ${spec.artefactIdExport} as a string — the registry is stale`)
+      throw new Error(`${spec.id} does not export ${spec.artefactIdExport} as a string — the registry is stale`)
     }
-    return {
+    let profile = null
+    if (spec.profile) {
+      profile = reportProfiles[spec.profile]
+      if (!profile) {
+        throw new Error(`REPORT_PROFILES has no "${spec.profile}" — the registry names a profile the app does not define`)
+      }
+    }
+    const base = {
       orgName: fixture.orgName,
       engagementId: fixture.engagementId,
       generatedAt: fixture.generatedAt,
       layer: spec.layer ?? fixture.layer,
-      accent: fixture.accent ?? DGIW_ACCENT,
+      accent: profile?.accent ?? fixture.accent ?? DGIW_ACCENT,
       isDraft: fixture.isDraft ?? false,
       artefactId,
     }
+    // The three fields useReportMeta() sets and useDeliverable() does not. Absent
+    // for DGIW, so its metas — and its bytes — are exactly what they were.
+    return profile
+      ? { ...base, poweredBy: profile.poweredBy, scopeLabel: profile.scopeLabel, coverTag: '' }
+      : base
   }
 
   async function generate(module) {

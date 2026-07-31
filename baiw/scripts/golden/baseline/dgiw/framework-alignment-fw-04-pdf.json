@@ -1,6 +1,6 @@
 {
   "artefact": "framework-alignment-fw-04-pdf",
-  "bytes": 111926,
+  "bytes": 111744,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -24,11 +24,11 @@
   "filename": "AR-47_fixture-bank-limited_all_2026-07-31_fw-04.pdf",
   "filenameNormalised": "AR-47_fixture-bank-limited_all_2026-07-31_fw-04.pdf",
   "generator": "buildFrameworkAlignmentPdf",
-  "glyphCount": 11159,
+  "glyphCount": 11161,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "d015b38cf99138d413f43e73d5a2908b8d89367e34656cef34a3560f5c5c7d6e",
+  "normalisedTextSha256": "f80c827725a040202d98f9b88def8dc94b6a1dd77b734271a97cf30aaeb61793",
   "notReproducible": {},
   "pageCount": 8,
   "pages": [
@@ -58,7 +58,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 2965,
+      "glyphs": 2966,
       "heightPt": 841.89,
       "multiColumnBaselines": 11,
       "page": 2,
@@ -75,8 +75,7 @@
         "Powered by DGIW",
         "Alignment summary",
         "Framework",
-        "COBIT 2019 — governance objectives and",
-        "Managed Data (COBIT 2019 (EDM01-05,",
+        "COBIT 2019 — governance objectives and Managed Data (COBIT 2019 (EDM01-05,",
         "APO14))",
         "Publisher",
         "ISACA",
@@ -120,7 +119,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 2 of 8"
       ],
-      "textRuns": 48,
+      "textRuns": 47,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -659,7 +658,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1167,
+      "glyphs": 1168,
       "heightPt": 841.89,
       "multiColumnBaselines": 5,
       "page": 8,
@@ -678,10 +677,9 @@
         "Every leaf dimension of COBIT2019 is both in scope under this layer and measured. Nothing in the framework is unaddressed.",
         "Structural qualifications",
         "•",
-        "DCAM is modelled at v2.2. Its capability and sub-capability levels beneath each",
-        "component are deliberately NOT authored: they were not recalled reliably enough to",
-        "put in front of an auditor, and an absent level is recoverable where an invented one is",
-        "not. DCAM v3.0 reorganised the model and is not what is represented here.",
+        "DCAM is modelled at v2.2. Its capability and sub-capability levels beneath each component are deliberately NOT authored: they were not",
+        "recalled reliably enough to put in front of an auditor, and an absent level is recoverable where an invented one is not. DCAM v3.0",
+        "reorganised the model and is not what is represented here.",
         "•",
         "COBIT 2019 APO14 sub-practice titles have been checked against a public COBIT 2019 reference and corrected where they differed. They",
         "have NOT been checked against the ISACA publication itself, which is the only source an audit function should accept — treat them as",
@@ -692,15 +690,15 @@
         "Prepared by Godaitec | godai.tech",
         "Page 8 of 8"
       ],
-      "textRuns": 19,
+      "textRuns": 18,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "b5fc144ae6743f706bb5f579f5bfff79c78bffa8c341d9e41de275582ef7b0bc",
+  "rawBytesSha256": "eb60f64898cd99b7d1b87dbb6a73ed002404acafb9ecd0757ef6703a86d2ba2e",
   "tableRowsTotal": 61,
-  "textRunCount": 512,
+  "textRunCount": 510,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

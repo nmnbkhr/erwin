@@ -1,8 +1,31 @@
-import jsPDF from 'jspdf'
-import autoTable from 'jspdf-autotable'
+// jsPDF stays as a TYPE, for drawRadarChart's `doc` parameter — the chart is
+// drawn through the spine's escape hatch. `jspdf-autotable` is gone entirely:
+// all five tables now go through ReportDoc.table(), which is where the
+// `lastAutoTable.finalY` cast and the 15mm margin live.
+import type jsPDF from 'jspdf'
 import { saveAs } from 'file-saver'
 
+import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '../../report/spine'
+import { formatCoverDate, reportFilename } from '../../report/naming'
+import type { ReportMeta } from '../../report/types'
 import type { HaiwCapability, HaiwAssessmentAnswer } from '../types'
+
+/*
+ * Artefact ids for the two deliverables on the spine.
+ *
+ * `MR-`, not `AR-`: these are declared in MODULE_ARTEFACT_IDS in
+ * scripts/check-dgiw.mjs, not in DGIW's implementationPlan.json artefactRegister,
+ * because HAIW has no artefact register to be a catalogue entry of. They drive the
+ * filename and the trailer /ID seed and are deliberately NOT printed on the cover
+ * — `useReportMeta` sets `coverTag: ''` for exactly that reason.
+ *
+ * The gap CSV has no id yet. It is not on the spine: it is the golden harness's
+ * deterministic control, and no route through report/csv.ts preserves its bytes
+ * (BOM, CRLF, quote-every-field). All three gap CSVs migrate together once D-001
+ * is decided — see docs/known-defects.md.
+ */
+export const HEALTH_MATURITY_ARTEFACT_ID = 'MR-HAIW-MATURITY'
+export const HEALTH_ROADMAP_ARTEFACT_ID = 'MR-HAIW-ROADMAP'
 
 // ── Types ──
 interface CategoryScore {
@@ -173,34 +196,14 @@ function computeCategoryScores(answers: HaiwAssessmentAnswer[]): CategoryScore[]
   })
 }
 
-// ── Helper: Add page header/footer ──
-function addHeaderFooter(doc: jsPDF, pageNum: number, totalPages: number, orgName: string, isDraft: boolean) {
-  const w = doc.internal.pageSize.getWidth()
-  const h = doc.internal.pageSize.getHeight()
-
-  // Header line
-  doc.setDrawColor(...EMERALD)
-  doc.setLineWidth(0.5)
-  doc.line(15, 12, w - 15, 12)
-
-  // Header text
-  doc.setFontSize(7)
-  doc.setTextColor(...SLATE)
-  doc.text(orgName + ' — Healthcare Analytics Maturity Assessment', 15, 10)
-  doc.text('Powered by HAIW', w - 15, 10, { align: 'right' })
-
-  // Footer
-  doc.line(15, h - 12, w - 15, h - 12)
-  doc.text('Prepared by Godaitec | godai.tech', 15, h - 8)
-  doc.text(`Page ${pageNum} of ${totalPages}`, w - 15, h - 8, { align: 'right' })
-
-  // Draft watermark
-  if (isDraft) {
-    doc.setFontSize(50)
-    doc.setTextColor(200, 200, 200)
-    doc.text('DRAFT', w / 2, h / 2, { align: 'center', angle: 45 })
-  }
-}
+/*
+ * `addHeaderFooter` used to live here: a per-page header rule, header text,
+ * footer rule, footer text and watermark, called by hand on all seventeen content
+ * pages with a hardcoded `totalPages = 18`. All of it is now `spine.ts` —
+ * `page()` paints the chrome and `build()` stamps the footers last, over the REAL
+ * page count, so an autoTable overflow page can no longer be footed "Page 19 of
+ * 18" or left bare.
+ */
 
 // ── Draw radar chart ──
 function drawRadarChart(
@@ -230,6 +233,19 @@ function drawRadarChart(
   }
 
   // Draw axes and labels
+  //
+  // The labels used to be one unwrapped `doc.text(..., { align: 'center' })` per
+  // axis, and the two horizontal ones — "Data Governance & Standards" at 0° and
+  // "Patient & Community Engagement" at 180° — ran 16.17 pt past the 15 mm
+  // margin. Same class of defect as D-002 in docs/known-defects.md, just on paper
+  // rather than off it.
+  //
+  // Wrapping to the content width would not fix it: a label centred at x has only
+  // `min(x - MARGIN, pageWidth - MARGIN - x)` on its NARROW side before it hits a
+  // margin, so the usable width is twice that half, not the page. The six labels
+  // with room to spare are unaffected; the two at the horizontal extremes fold.
+  const pageWidth = doc.internal.pageSize.getWidth()
+  const labelLine = 3.5 // mm, the 7pt leading the rest of this chart reads at
   doc.setFontSize(7)
   doc.setTextColor(...SLATE)
   for (let i = 0; i < n; i++) {
@@ -237,7 +253,12 @@ function drawRadarChart(
     const x = centerX + (radius + 14) * Math.cos(angle)
     const y = centerY + (radius + 14) * Math.sin(angle)
     doc.line(centerX, centerY, centerX + radius * Math.cos(angle), centerY + radius * Math.sin(angle))
-    doc.text(data[i].category, x, y, { align: 'center' })
+    const half = Math.max(1, Math.min(x - MARGIN, pageWidth - MARGIN - x))
+    const lines = doc.splitTextToSize(data[i].category, 2 * half) as string[]
+    // Centred on the anchor rather than hung below it, so a label that folds
+    // stays where the unwrapped one sat instead of drifting toward the chart.
+    const top = y - ((lines.length - 1) * labelLine) / 2
+    lines.forEach((line, li) => doc.text(line, x, top + li * labelLine, { align: 'center' }))
   }
 
   // Draw current scores (solid emerald)
@@ -314,14 +335,84 @@ function drawRadarChart(
   doc.text('Pakistan Avg', centerX + 37, ly + 1)
 }
 
+/** One row of the page-13 matrix. `id` exists for the content digest. */
+interface CapabilityGap {
+  id: string
+  name: string
+  theme: string
+  current: number
+  required: number
+  gap: number
+}
+
+/**
+ * The twenty widest capability gaps.
+ *
+ * Hoisted out of the page-13 block because `createReport`'s content digest needs
+ * it before the first page is drawn — the /ID has to cover what the document
+ * renders, and which twenty capabilities made the cut is part of that.
+ *
+ * D-003 IS PRESERVED HERE ON PURPOSE. `scores` is keyed by the eight HACR
+ * categories; `cap.theme` is one of the six HCF themes. The two vocabularies are
+ * disjoint, so this `find` never matches, `catScore` is always the fallback, and
+ * every row comes out at level 1.0 with a gap of 0.0 regardless of what the client
+ * answered. `THEME_TO_CATEGORY` at the top of this file is the bridge that fixes
+ * it and is used only by the CSV. Migrating it faithfully keeps this diff readable
+ * — a twenty-row semantic correction inside the one change that has to prove the
+ * spine migration is sound would confound both. See docs/known-defects.md D-003.
+ */
+function buildCapabilityGaps(scores: CategoryScore[], capabilities: HaiwCapability[]): CapabilityGap[] {
+  if (capabilities.length > 0) {
+    return capabilities
+      .map(cap => {
+        const catScore = scores.find(s => s.category === cap.theme) || { current: 0, gap: 0 }
+        const variation = (cap.id.charCodeAt(cap.id.length - 1) % 10 - 5) * 0.1
+        const current = Math.max(1, Math.min(5, catScore.current + variation))
+        const required = Math.max(current, current + catScore.gap)
+        return { id: cap.id, name: cap.name, theme: cap.theme, current, required, gap: required - current }
+      })
+      .sort((a, b) => b.gap - a.gap)
+      .slice(0, 20)
+  }
+  // No capability dataset: synthesise three rows per category. Ids are derived
+  // from what is rendered rather than invented, so the digest still moves when
+  // the selection does.
+  return HACR_CATEGORIES.flatMap(cat => {
+    const score = scores.find(s => s.category === cat) || { current: 0, gap: 0 }
+    return [
+      { id: `${cat}::Strategy`, name: `${cat} Strategy`, theme: cat, current: score.current, required: score.current + score.gap, gap: score.gap },
+      { id: `${cat}::Analytics`, name: `${cat} Analytics`, theme: cat, current: Math.max(1, score.current - 0.3), required: score.current + score.gap, gap: score.gap + 0.3 },
+      { id: `${cat}::Automation`, name: `${cat} Automation`, theme: cat, current: Math.max(1, score.current - 0.5), required: score.current + score.gap, gap: score.gap + 0.5 },
+    ]
+  })
+    .sort((a, b) => b.gap - a.gap)
+    .slice(0, 20)
+}
+
 // ══════════════════════════════════════════════════════════
 // MAIN PDF GENERATOR
 // ══════════════════════════════════════════════════════════
+/**
+ * The eighteen-page maturity assessment, on src/report/spine.ts.
+ *
+ * The trailing `orgName: string` is now `meta: ReportMeta` — same arity, same
+ * position. Not an addition alongside it: the client's name would then have had
+ * two sources, which is the defect the engagement work exists to remove.
+ *
+ * Everything the spine does here the old code did by hand and slightly wrong: a
+ * hardcoded `totalPages = 18` in every footer, per-page header chrome pasted
+ * seventeen times, `new Date().toLocaleDateString()` on the cover (neither
+ * machine- nor timezone-stable), and no wrapping on hand-placed text. What is
+ * still drawn through the `doc` escape hatch is the per-module material the spine
+ * deliberately has no opinion about — the score disc, the radar, the deep-dive
+ * header bars and the phase boxes. Each of those owns its overflow and calls
+ * `moveTo()` to hand the cursor back.
+ */
 export function generateHealthMaturityPDF(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
-  benchmarks?: Partial<HealthBenchmarks>,
-  orgName = 'Your Healthcare Organization',
+  benchmarks: Partial<HealthBenchmarks> | undefined,
+  meta: ReportMeta,
 ) {
   const bm: HealthBenchmarks = {
     pakistanAverage: { ...DEFAULT_BENCHMARKS.pakistanAverage, ...benchmarks?.pakistanAverage },
@@ -335,36 +426,40 @@ export function generateHealthMaturityPDF(
   )
   const answeredCategories = scores.filter(s => s.current > 0).length
   const totalCategories = HACR_CATEGORIES.length
-  const isDraft = answeredCategories < totalCategories
 
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
+  const capGaps = buildCapabilityGaps(scores, capabilities)
 
-  const doc = new jsPDF('p', 'mm', 'a4')
-  const w = doc.internal.pageSize.getWidth()
-  const totalPages = 18
-  let page = 1
+  /*
+   * Draft state stays derived HERE rather than being taken from meta.
+   *
+   * It is a fact about the answers — how many HACR categories carry any response
+   * — and the page that renders the export buttons counts categories a different
+   * way (`categoryProgress.filter(c => c.touched)`, over the dataset's category
+   * list rather than HACR_CATEGORIES). Moving the derivation to the call site
+   * would have been a behaviour change smuggled into a migration whose entire
+   * value is that nothing else moved. A caller that sets isDraft still wins.
+   */
+  const reportMeta: ReportMeta = {
+    ...meta,
+    isDraft: meta.isDraft || answeredCategories < totalCategories,
+  }
+
+  const r = createReport(
+    reportMeta,
+    contentKey([
+      ...answers.map(a => `ans:${a.questionId}=${a.currentState}/${a.desiredState}`),
+      ...capGaps.map(c => `cap:${c.id}`),
+    ]),
+  )
+  const { doc } = r
+  const w = r.pageWidth
 
   // ── PAGE 1: COVER ──
-  // Emerald gradient header
-  doc.setFillColor(6, 95, 70)   // dark emerald
-  doc.rect(0, 0, w, 50, 'F')
-  doc.setFillColor(...EMERALD)
-  doc.rect(0, 50, w, 50, 'F')
+  r.cover('Healthcare Analytics Maturity Assessment', 'HACR — Healthcare Analytics Capability Review')
 
-  doc.setTextColor(...WHITE)
-  doc.setFontSize(28)
-  doc.text(orgName, w / 2, 35, { align: 'center' })
-  doc.setFontSize(16)
-  doc.text('Healthcare Analytics Maturity Assessment', w / 2, 55, { align: 'center' })
-  doc.setFontSize(10)
-  doc.text(
-    new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-    w / 2, 70,
-    { align: 'center' },
-  )
-  doc.text('Powered by Healthcare Analytics Intelligence Workbench (HAIW)', w / 2, 80, { align: 'center' })
-
-  // Score circle
+  // Score disc. Per-module, so it goes through the escape hatch; the spine's
+  // cover leaves the cursor below the banner and this reclaims it afterwards.
   doc.setFillColor(...WHITE)
   doc.circle(w / 2, 140, 30, 'F')
   doc.setTextColor(...EMERALD)
@@ -374,96 +469,57 @@ export function generateHealthMaturityPDF(
   doc.text('/ 5.0', w / 2, 155, { align: 'center' })
   doc.setFontSize(14)
   doc.text(levelLabel(overallScore), w / 2, 180, { align: 'center' })
-
-  doc.setTextColor(...SLATE)
-  doc.setFontSize(10)
-  doc.text('Prepared by Godaitec (godai.tech)', w / 2, 270, { align: 'center' })
-  if (isDraft) {
-    doc.setFontSize(50)
-    doc.setTextColor(200, 200, 200)
-    doc.text('DRAFT', w / 2, 220, { align: 'center', angle: 45 })
-  }
+  r.moveTo(190)
 
   // ── PAGE 2: EXECUTIVE SUMMARY ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
+  r.page('Executive Summary')
+  r.text(`Overall HACR Score: ${overallScore} / 5.0`, { size: 12, gapAfter: 4 })
+  r.text(`Level: ${levelLabel(overallScore)} — ${levelDescription(overallScore)}`, { size: 10, gapAfter: 8 })
 
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('Executive Summary', 15, 25)
-
-  doc.setTextColor(0, 0, 0)
-  doc.setFontSize(12)
-  doc.text(`Overall HACR Score: ${overallScore} / 5.0`, 15, 40)
-  doc.setFontSize(10)
-  doc.text(`Level: ${levelLabel(overallScore)} — ${levelDescription(overallScore)}`, 15, 48, { maxWidth: w - 30 })
-
-  // Key Findings
-  doc.setFontSize(13)
-  doc.setTextColor(...EMERALD)
-  doc.text('Key Findings', 15, 66)
-  doc.setFontSize(9)
-  doc.setTextColor(0, 0, 0)
-
-  let y = 74
-  const findings = sortedByGap.slice(0, 3)
-  findings.forEach((f, i) => {
+  r.sectionHeading('Key Findings')
+  // Numbered rather than bulleted, exactly as before — `bullets()` would have
+  // rendered "• 1. …".
+  sortedByGap.slice(0, 3).forEach((f, i) => {
     const pkScore = bm.pakistanAverage[f.category] ?? 1.5
-    doc.text(
+    r.text(
       `${i + 1}. ${f.category} maturity (${f.current}) is ${f.current < pkScore ? 'below' : 'at/above'} Pakistan average (${pkScore}). Gap to target: ${f.gap}`,
-      20, y, { maxWidth: w - 40 },
+      { size: 9, indent: 5, gapAfter: 4 },
     )
-    y += 10
   })
 
-  // Priority Recommendations
-  y += 5
-  doc.setFontSize(13)
-  doc.setTextColor(...EMERALD)
-  doc.text('Priority Recommendations', 15, y)
-  y += 10
-  doc.setFontSize(9)
-  doc.setTextColor(0, 0, 0)
-
+  r.spacer(4)
+  r.sectionHeading('Priority Recommendations')
   const recommendations = [
     `1. Establish a Chief Health Informatics Officer and data governance framework (closes ${sortedByGap[0]?.gap || 0}-level gap in ${sortedByGap[0]?.category || 'Data Governance'})`,
     `2. Deploy FHIR-compliant health information exchange using HCDM as reference architecture`,
     `3. Build predictive analytics capability starting with disease surveillance and patient outcomes`,
   ]
-  recommendations.forEach(r => {
-    doc.text(r, 20, y, { maxWidth: w - 40 })
-    y += 10
-  })
+  for (const rec of recommendations) r.text(rec, { size: 9, indent: 5, gapAfter: 4 })
 
-  y += 5
-  doc.setFontSize(10)
-  doc.text('Estimated total investment: PKR 200–450 million over 3 years', 15, y)
+  r.spacer(4)
+  r.text('Estimated total investment: PKR 200–450 million over 3 years', { size: 10 })
 
   // ── PAGE 3: MATURITY RADAR ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
-
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('Maturity Radar — HACR Categories', 15, 25)
-
-  drawRadarChart(doc, scores, w / 2, 135, 65, bm.pakistanAverage)
+  r.page('Maturity Radar — HACR Categories')
+  {
+    // The radar bypasses the cursor, so it sizes itself against the real content
+    // box: the spine's own footer band rather than a 20 repeated in three
+    // generators, and the cursor rather than a hardcoded centre of 135.
+    const top = r.cursorY
+    const floor = r.pageHeight - FOOTER_RESERVE
+    const radius = 65
+    const labelRing = 14   // how far the axis labels sit outside the rings
+    const legendDrop = 25  // drawRadarChart puts its legend at centerY + radius + 25
+    const centerY = Math.min(top + labelRing + radius, floor - legendDrop - radius)
+    drawRadarChart(doc, scores, w / 2, centerY, radius, bm.pakistanAverage)
+    r.moveTo(centerY + radius + legendDrop + 6)
+  }
 
   // ── PAGE 4: CATEGORY SCORECARD ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
-
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('Category Scorecard', 15, 25)
-
-  autoTable(doc, {
-    startY: 35,
-    head: [['Category', 'Current', 'Target', 'Gap', 'Level', 'vs Pakistan Avg']],
-    body: sortedByGap.map(s => {
+  r.page('Category Scorecard')
+  r.table({
+    head: ['Category', 'Current', 'Target', 'Gap', 'Level', 'vs Pakistan Avg'],
+    rows: sortedByGap.map(s => {
       const pkScore = bm.pakistanAverage[s.category] ?? 1.5
       const diff = s.current - pkScore
       return [
@@ -475,7 +531,6 @@ export function generateHealthMaturityPDF(
         `${diff >= 0 ? '+' : ''}${diff.toFixed(1)}`,
       ]
     }),
-    headStyles: { fillColor: [...EMERALD], textColor: [...WHITE] },
     columnStyles: {
       1: { halign: 'center' },
       2: { halign: 'center' },
@@ -536,128 +591,59 @@ export function generateHealthMaturityPDF(
     ],
   }
 
-  for (let ci = 0; ci < HACR_CATEGORIES.length; ci++) {
-    doc.addPage()
-    page++
-    addHeaderFooter(doc, page, totalPages, orgName, isDraft)
+  for (const cat of HACR_CATEGORIES) {
+    r.page()
 
-    const cat = HACR_CATEGORIES[ci]
     const score = scores.find(s => s.category === cat) || { category: cat, current: 0, desired: 0, gap: 0 }
     const pkScore = bm.pakistanAverage[cat] ?? 1.5
     const regScore = bm.regionalLeaders[cat] ?? 3.0
 
-    // Header bar
-    const scoreColor = colorForScore(score.current)
-    doc.setFillColor(...scoreColor)
-    doc.roundedRect(15, 18, w - 30, 20, 3, 3, 'F')
+    // Score-coloured header bar. Per-module, so it is hand-drawn between the
+    // spine's header rule (y=12) and the first content baseline.
+    doc.setFillColor(...colorForScore(score.current))
+    doc.roundedRect(MARGIN, 18, w - 2 * MARGIN, 20, 3, 3, 'F')
     doc.setTextColor(...WHITE)
     doc.setFontSize(14)
-    doc.text(`${cat} — ${score.current.toFixed(1)} / 5.0`, 20, 31)
-    doc.text(levelLabel(score.current), w - 20, 31, { align: 'right' })
+    doc.text(`${cat} — ${score.current.toFixed(1)} / 5.0`, MARGIN + 5, 31)
+    doc.text(levelLabel(score.current), w - MARGIN - 5, 31, { align: 'right' })
+    r.moveTo(48)
 
-    y = 48
-    doc.setTextColor(0, 0, 0)
-    doc.setFontSize(10)
-    doc.text(`Current Level: ${levelLabel(score.current)}`, 15, y)
-    doc.setFontSize(8)
-    doc.text(levelDescription(score.current), 15, y + 6, { maxWidth: w - 30 })
-    y += 18
+    r.text(`Current Level: ${levelLabel(score.current)}`, { size: 10, gapAfter: 1 })
+    r.text(levelDescription(score.current), { size: 8, gapAfter: 6 })
+    r.text(`Target Level: ${levelLabel(score.desired)}`, { size: 10, gapAfter: 1 })
+    r.text(levelDescription(score.desired), { size: 8, gapAfter: 8 })
 
-    doc.setFontSize(10)
-    doc.text(`Target Level: ${levelLabel(score.desired)}`, 15, y)
-    doc.setFontSize(8)
-    doc.text(levelDescription(score.desired), 15, y + 6, { maxWidth: w - 30 })
-    y += 22
-
-    // Key Strengths
-    doc.setFontSize(11)
-    doc.setTextColor(...EMERALD)
-    doc.text('Key Strengths', 15, y)
-    y += 7
-    doc.setFontSize(8)
-    doc.setTextColor(0, 0, 0)
-    const strengths = [
+    r.text('Key Strengths', { size: 11, color: EMERALD, gapAfter: 3 })
+    r.bullets([
       score.current >= pkScore
         ? `Scoring above Pakistan healthcare average (${pkScore})`
         : `Awareness of ${cat.toLowerCase()} importance is growing`,
       `Foundation for ${cat.toLowerCase()} improvement is in place`,
       `Leadership recognizes the need for ${cat.toLowerCase()} advancement`,
-    ]
-    strengths.forEach(s => { doc.text(`• ${s}`, 20, y); y += 6 })
+    ], { size: 8, gapAfter: 5 })
 
-    y += 5
-    // Key Gaps
-    doc.setFontSize(11)
-    doc.setTextColor(...RED)
-    doc.text('Key Gaps', 15, y)
-    y += 7
-    doc.setFontSize(8)
-    doc.setTextColor(0, 0, 0)
-    const gaps = [
+    r.text('Key Gaps', { size: 11, color: RED, gapAfter: 3 })
+    r.bullets([
       `Gap of ${score.gap.toFixed(1)} levels to reach target state`,
       score.current < pkScore
         ? `Below Pakistan healthcare average by ${(pkScore - score.current).toFixed(1)} levels`
         : `Still ${(regScore - score.current).toFixed(1)} levels behind regional leaders`,
       'Requires structured investment and capability building',
-    ]
-    gaps.forEach(g => { doc.text(`• ${g}`, 20, y); y += 6 })
+    ], { size: 8, gapAfter: 5 })
 
-    y += 5
-    // Recommended Actions (healthcare-specific)
-    doc.setFontSize(11)
-    doc.setTextColor(...BLUE)
-    doc.text('Recommended Actions', 15, y)
-    y += 7
-    doc.setFontSize(8)
-    doc.setTextColor(0, 0, 0)
-    const actions = categoryRecommendations[cat] || [
+    r.text('Recommended Actions', { size: 11, color: BLUE, gapAfter: 3 })
+    r.bullets(categoryRecommendations[cat] || [
       `Conduct a detailed ${cat.toLowerCase()} capability assessment`,
       `Develop a 12-month improvement roadmap with quick wins`,
       `Benchmark against regional leaders and WHO targets`,
-    ]
-    actions.forEach(a => { doc.text(`• ${a}`, 20, y, { maxWidth: w - 40 }); y += 8 })
+    ], { size: 8 })
   }
 
   // ── PAGE 13: CAPABILITY GAP MATRIX ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
-
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('Capability Gap Matrix', 15, 25)
-  doc.setFontSize(9)
-  doc.setTextColor(...SLATE)
-  doc.text('Top 20 HCF capabilities with largest estimated gaps based on category scores', 15, 33)
-
-  // Build capability gaps from capabilities data or synthesize from scores
-  const capGaps = capabilities.length > 0
-    ? capabilities.map(cap => {
-        const catScore = scores.find(s => s.category === cap.theme) || { current: 0, gap: 0 }
-        const variation = (cap.id.charCodeAt(cap.id.length - 1) % 10 - 5) * 0.1
-        const current = Math.max(1, Math.min(5, catScore.current + variation))
-        const required = Math.max(current, current + catScore.gap)
-        return {
-          name: cap.name,
-          theme: cap.theme,
-          current,
-          required,
-          gap: required - current,
-        }
-      }).sort((a, b) => b.gap - a.gap).slice(0, 20)
-    : HACR_CATEGORIES.flatMap(cat => {
-        const score = scores.find(s => s.category === cat) || { current: 0, gap: 0 }
-        return [
-          { name: `${cat} Strategy`, theme: cat, current: score.current, required: score.current + score.gap, gap: score.gap },
-          { name: `${cat} Analytics`, theme: cat, current: Math.max(1, score.current - 0.3), required: score.current + score.gap, gap: score.gap + 0.3 },
-          { name: `${cat} Automation`, theme: cat, current: Math.max(1, score.current - 0.5), required: score.current + score.gap, gap: score.gap + 0.5 },
-        ]
-      }).sort((a, b) => b.gap - a.gap).slice(0, 20)
-
-  autoTable(doc, {
-    startY: 38,
-    head: [['#', 'Capability', 'Theme', 'Current', 'Required', 'Gap', 'Priority']],
-    body: capGaps.map((c, i) => [
+  r.page('Capability Gap Matrix', 'Top 20 HCF capabilities with largest estimated gaps based on category scores')
+  r.table({
+    head: ['#', 'Capability', 'Theme', 'Current', 'Required', 'Gap', 'Priority'],
+    rows: capGaps.map((c, i) => [
       i + 1,
       c.name,
       c.theme,
@@ -666,8 +652,8 @@ export function generateHealthMaturityPDF(
       c.gap.toFixed(1),
       priorityLabel(c.gap),
     ]),
-    headStyles: { fillColor: [...EMERALD], textColor: [...WHITE], fontSize: 7 },
-    bodyStyles: { fontSize: 7 },
+    headFontSize: 7,
+    bodyFontSize: 7,
     columnStyles: {
       0: { halign: 'center', cellWidth: 8 },
       3: { halign: 'center' },
@@ -683,23 +669,13 @@ export function generateHealthMaturityPDF(
   })
 
   // ── PAGE 14: FHIR READINESS ASSESSMENT ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
-
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('FHIR Readiness Assessment', 15, 25)
-  doc.setFontSize(9)
-  doc.setTextColor(...SLATE)
-  doc.text('FHIR R4 resource categories needed based on capability gaps', 15, 33)
-
-  autoTable(doc, {
-    startY: 38,
-    head: [['FHIR Category', 'Resources Needed', 'Gap', 'Priority']],
-    body: FHIR_READINESS.map(d => [d.category, d.resources, d.gap, d.priority]),
-    headStyles: { fillColor: [...BLUE], textColor: [...WHITE], fontSize: 8 },
-    bodyStyles: { fontSize: 8 },
+  r.page('FHIR Readiness Assessment', 'FHIR R4 resource categories needed based on capability gaps')
+  r.table({
+    head: ['FHIR Category', 'Resources Needed', 'Gap', 'Priority'],
+    rows: FHIR_READINESS.map(d => [d.category, d.resources, d.gap, d.priority]),
+    // The head fill was BLUE here and EMERALD on every other table. The spine
+    // paints table heads in meta.accent, once, so this page now matches the
+    // other four — one accent per document is the point of having one.
     columnStyles: { 2: { halign: 'center' }, 3: { halign: 'center' } },
     didParseCell(data) {
       if (data.section === 'body' && data.column.index === 3) {
@@ -712,76 +688,55 @@ export function generateHealthMaturityPDF(
   })
 
   // ── PAGE 15: ROADMAP SUMMARY ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
-
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('Roadmap Summary', 15, 25)
-
-  const phases = [
-    { name: 'Phase 1: Quick Wins', months: '1–6', capabilities: 8, investment: 'PKR 40–70M', color: EMERALD },
-    { name: 'Phase 2: Core Build', months: '7–18', capabilities: 18, investment: 'PKR 100–200M', color: BLUE },
-    { name: 'Phase 3: Advanced', months: '19–36', capabilities: 25, investment: 'PKR 60–180M', color: TEAL },
-  ]
-
-  y = 45
-  phases.forEach((p, i) => {
+  r.page('Roadmap Summary')
+  {
+    const phases = [
+      { name: 'Phase 1: Quick Wins', months: '1–6', capabilities: 8, investment: 'PKR 40–70M', color: EMERALD },
+      { name: 'Phase 2: Core Build', months: '7–18', capabilities: 18, investment: 'PKR 100–200M', color: BLUE },
+      { name: 'Phase 3: Advanced', months: '19–36', capabilities: 25, investment: 'PKR 60–180M', color: TEAL },
+    ]
+    const boxTop = r.cursorY + 6
     const boxW = 55
-    const x = 15 + i * (boxW + 10)
-    doc.setFillColor(p.color[0], p.color[1], p.color[2])
-    doc.roundedRect(x, y, boxW, 60, 3, 3, 'F')
-    doc.setTextColor(...WHITE)
-    doc.setFontSize(10)
-    doc.text(p.name, x + boxW / 2, y + 12, { align: 'center' })
-    doc.setFontSize(8)
-    doc.text(`Months ${p.months}`, x + boxW / 2, y + 22, { align: 'center' })
-    doc.text(`${p.capabilities} capabilities`, x + boxW / 2, y + 32, { align: 'center' })
-    doc.text(p.investment, x + boxW / 2, y + 42, { align: 'center' })
+    const boxH = 60
+    phases.forEach((p, i) => {
+      const x = MARGIN + i * (boxW + 10)
+      doc.setFillColor(p.color[0], p.color[1], p.color[2])
+      doc.roundedRect(x, boxTop, boxW, boxH, 3, 3, 'F')
+      doc.setTextColor(...WHITE)
+      doc.setFontSize(10)
+      // No `maxWidth`: jsPDF's text option DROPS every line after the first
+      // rather than wrapping — see D-004. Phase names are short and fixed, so
+      // this is deliberately unwrapped rather than silently truncatable.
+      doc.text(p.name, x + boxW / 2, boxTop + 12, { align: 'center' })
+      doc.setFontSize(8)
+      doc.text(`Months ${p.months}`, x + boxW / 2, boxTop + 22, { align: 'center' })
+      doc.text(`${p.capabilities} capabilities`, x + boxW / 2, boxTop + 32, { align: 'center' })
+      doc.text(p.investment, x + boxW / 2, boxTop + 42, { align: 'center' })
 
-    // Arrow between boxes
-    if (i < phases.length - 1) {
-      doc.setDrawColor(...SLATE)
-      doc.setLineWidth(0.5)
-      const arrowX = x + boxW + 2
-      doc.line(arrowX, y + 30, arrowX + 6, y + 30)
-      doc.line(arrowX + 4, y + 28, arrowX + 6, y + 30)
-      doc.line(arrowX + 4, y + 32, arrowX + 6, y + 30)
-    }
-  })
+      // Arrow between boxes
+      if (i < phases.length - 1) {
+        doc.setDrawColor(...SLATE)
+        doc.setLineWidth(0.5)
+        const arrowX = x + boxW + 2
+        doc.line(arrowX, boxTop + 30, arrowX + 6, boxTop + 30)
+        doc.line(arrowX + 4, boxTop + 28, arrowX + 6, boxTop + 30)
+        doc.line(arrowX + 4, boxTop + 32, arrowX + 6, boxTop + 30)
+      }
+    })
+    r.moveTo(boxTop + boxH + 15)
+  }
 
-  // Phase details below boxes
-  y = 120
-  doc.setFontSize(9)
-  doc.setTextColor(0, 0, 0)
-  const phaseDetails = [
+  r.keyValueBlock([
     ['Phase 1:', 'Master Patient Index, basic clinical reporting, DHIS2 integration, data governance setup'],
     ['Phase 2:', 'FHIR-based HIE, disease surveillance, clinical decision support, population health dashboards'],
     ['Phase 3:', 'AI/ML models, predictive analytics, real-time monitoring, UHC coverage analytics'],
-  ]
-  phaseDetails.forEach(([label, detail]) => {
-    doc.setFontSize(9)
-    doc.setTextColor(...EMERALD)
-    doc.text(label!, 15, y)
-    doc.setTextColor(0, 0, 0)
-    doc.text(detail!, 40, y, { maxWidth: w - 55 })
-    y += 12
-  })
+  ], { size: 9, labelWidth: 25, gapAfter: 6 })
 
   // ── PAGE 16: BENCHMARK COMPARISON ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
-
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('Benchmark Comparison', 15, 25)
-
-  autoTable(doc, {
-    startY: 35,
-    head: [['Category', 'Your Org', 'Pakistan Avg', 'Regional Leaders', 'WHO Targets']],
-    body: HACR_CATEGORIES.map(cat => {
+  r.page('Benchmark Comparison')
+  r.table({
+    head: ['Category', 'Your Org', 'Pakistan Avg', 'Regional Leaders', 'WHO Targets'],
+    rows: HACR_CATEGORIES.map(cat => {
       const score = scores.find(s => s.category === cat) || { current: 0 }
       return [
         cat,
@@ -791,146 +746,102 @@ export function generateHealthMaturityPDF(
         (bm.whoTargets[cat] ?? 4.0).toFixed(1),
       ]
     }),
-    headStyles: { fillColor: [...EMERALD], textColor: [...WHITE], fontSize: 8 },
-    bodyStyles: { fontSize: 8 },
     columnStyles: {
       1: { halign: 'center' },
       2: { halign: 'center' },
       3: { halign: 'center' },
       4: { halign: 'center' },
     },
+    gapAfter: 15,
   })
 
   const regAvg = Object.values(bm.regionalLeaders).reduce((a, b) => a + b, 0) / Object.values(bm.regionalLeaders).length
   const gapToRegional = (regAvg - overallScore).toFixed(1)
-  y = (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable?.finalY || 150
-  doc.setFontSize(10)
-  doc.setTextColor(0, 0, 0)
-  doc.text(
+  r.text(
     `Your organization is ${gapToRegional} levels behind regional healthcare leaders. Closing this gap requires an estimated 24–36 months.`,
-    15, y + 15, { maxWidth: w - 30 },
+    { size: 10 },
   )
 
   // ── PAGE 17: NEXT STEPS + UHC ALIGNMENT ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
-
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('Next Steps', 15, 25)
-
-  y = 45
-  doc.setFontSize(10)
-  doc.setTextColor(0, 0, 0)
+  r.page('Next Steps')
+  r.spacer(6)
   const steps = [
     'Present this assessment to your Health Informatics Leadership Committee',
     'Validate findings with clinical, IT, and administrative department heads',
     'Prioritize Phase 1 Quick Win capabilities for immediate impact on patient outcomes',
     'Engage Godaitec for a Deep Dive Workshop to build a detailed implementation plan',
   ]
-  steps.forEach((s, i) => {
-    doc.setFontSize(11)
-    doc.setTextColor(...EMERALD)
-    doc.text(`${i + 1}.`, 15, y)
-    doc.setFontSize(10)
-    doc.setTextColor(0, 0, 0)
-    doc.text(s, 25, y, { maxWidth: w - 40 })
-    y += 12
+  r.keyValueBlock(steps.map((s, i) => [`${i + 1}.`, s] as [string, string]), {
+    size: 10,
+    labelWidth: 10,
+    gapAfter: 8,
   })
 
-  // UHC Alignment section
-  y += 10
-  doc.setFontSize(14)
-  doc.setTextColor(...EMERALD)
-  doc.text('Universal Health Coverage (UHC) Alignment', 15, y)
-  y += 12
-  doc.setFontSize(9)
-  doc.setTextColor(0, 0, 0)
-  const uhcItems = [
+  r.spacer(6)
+  r.text('Universal Health Coverage (UHC) Alignment', { size: 14, color: EMERALD, gapAfter: 6 })
+  r.bullets([
     'SDG 3.8 — Achieve universal health coverage, including financial risk protection',
     'WHO Digital Health Strategy — Align with global standards for health data exchange',
     'Pakistan UHC Benefit Package — Ensure analytics support essential health services monitoring',
     'Sehat Sahulat Programme — Integrate analytics for social health protection coverage tracking',
-  ]
-  uhcItems.forEach(item => {
-    doc.text(`• ${item}`, 20, y, { maxWidth: w - 40 })
-    y += 8
-  })
+  ], { size: 9, gapAfter: 8 })
 
-  y += 10
-  doc.setFillColor(245, 245, 245)
-  doc.roundedRect(15, y, w - 30, 30, 3, 3, 'F')
-  doc.setFontSize(11)
-  doc.setTextColor(...EMERALD)
-  doc.text('Contact Us', w / 2, y + 10, { align: 'center' })
-  doc.setFontSize(9)
-  doc.setTextColor(...SLATE)
-  doc.text('Godaitec | godai.tech | info@godai.tech', w / 2, y + 20, { align: 'center' })
+  {
+    const boxTop = r.cursorY
+    doc.setFillColor(245, 245, 245)
+    doc.roundedRect(MARGIN, boxTop, w - 2 * MARGIN, 30, 3, 3, 'F')
+    doc.setFontSize(11)
+    doc.setTextColor(...EMERALD)
+    doc.text('Contact Us', w / 2, boxTop + 10, { align: 'center' })
+    doc.setFontSize(9)
+    doc.setTextColor(...SLATE)
+    doc.text('Godaitec | godai.tech | info@godai.tech', w / 2, boxTop + 20, { align: 'center' })
+    r.moveTo(boxTop + 30 + 6)
+  }
 
   // ── PAGE 18: METHODOLOGY ──
-  doc.addPage()
-  page++
-  addHeaderFooter(doc, page, totalPages, orgName, isDraft)
-
-  doc.setTextColor(...EMERALD)
-  doc.setFontSize(18)
-  doc.text('Methodology', 15, 25)
-
-  y = 40
-  doc.setFontSize(9)
-  doc.setTextColor(0, 0, 0)
-  const methodology = [
+  r.page('Methodology')
+  r.bullets([
     'This assessment uses the Healthcare Capability Framework (HCF) — 108 analytics capabilities across 8 themes',
     'Data model readiness assessed against FHIR R4 resources mapped to HCDM (Healthcare Data Model)',
     'Maturity measured using HACR (Healthcare Analytics Capability Review) — 5-level scale',
     'Benchmarks include Pakistan healthcare averages, regional leaders, and WHO target levels',
-  ]
-  methodology.forEach(m => { doc.text(`• ${m}`, 15, y, { maxWidth: w - 30 }); y += 8 })
+  ], { size: 9, gapAfter: 8 })
 
-  y += 10
-  autoTable(doc, {
-    startY: y,
-    head: [['Level', 'Label', 'Description']],
-    body: [1, 2, 3, 4, 5].map(l => [l, levelLabel(l), levelDescription(l)]),
-    headStyles: { fillColor: [...EMERALD], textColor: [...WHITE], fontSize: 8 },
-    bodyStyles: { fontSize: 8 },
+  r.table({
+    head: ['Level', 'Label', 'Description'],
+    rows: [1, 2, 3, 4, 5].map(l => [l, levelLabel(l), levelDescription(l)]),
     columnStyles: { 0: { halign: 'center', cellWidth: 12 } },
+    gapAfter: 12,
   })
 
-  y = (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable?.finalY || 200
-  y += 15
-  doc.setFontSize(9)
-  doc.setTextColor(...EMERALD)
-  doc.text('Frameworks Used:', 15, y)
-  y += 8
-  doc.setTextColor(0, 0, 0)
-  doc.setFontSize(8)
-  const frameworks = [
+  r.text('Frameworks Used:', { size: 9, color: EMERALD, gapAfter: 4 })
+  r.bullets([
     'HCF — Healthcare Capability Framework (108 capabilities across 8 themes)',
     'HACR — Healthcare Analytics Capability Review (5-level maturity assessment)',
     'FHIR — Fast Healthcare Interoperability Resources R4 (HL7 standard)',
     'HCDM — Healthcare Data Model (reference data architecture for healthcare analytics)',
-  ]
-  frameworks.forEach(f => { doc.text(`• ${f}`, 20, y, { maxWidth: w - 40 }); y += 7 })
+  ], { size: 8, gapAfter: 6 })
 
-  y += 8
-  doc.setFillColor(236, 253, 245) // emerald-50
-  doc.roundedRect(15, y, w - 30, 25, 3, 3, 'F')
-  doc.setFontSize(10)
-  doc.setTextColor(...EMERALD)
-  doc.text('Ready to transform your healthcare analytics?', w / 2, y + 9, { align: 'center' })
-  doc.setFontSize(9)
-  doc.setTextColor(...SLATE)
-  doc.text('Contact Godaitec for a Deep Dive Workshop — godai.tech', w / 2, y + 17, { align: 'center' })
+  {
+    const boxTop = r.cursorY
+    doc.setFillColor(236, 253, 245) // emerald-50
+    doc.roundedRect(MARGIN, boxTop, w - 2 * MARGIN, 25, 3, 3, 'F')
+    doc.setFontSize(10)
+    doc.setTextColor(...EMERALD)
+    doc.text('Ready to transform your healthcare analytics?', w / 2, boxTop + 9, { align: 'center' })
+    doc.setFontSize(9)
+    doc.setTextColor(...SLATE)
+    doc.text('Contact Godaitec for a Deep Dive Workshop — godai.tech', w / 2, boxTop + 17, { align: 'center' })
+    r.moveTo(boxTop + 25 + 8)
+  }
 
-  y += 30
-  doc.setFontSize(7)
-  doc.setTextColor(...SLATE)
-  doc.text('Disclaimer: Benchmark data based on healthcare industry research and consulting experience.', 15, y)
+  r.text('Disclaimer: Benchmark data based on healthcare industry research and consulting experience.', {
+    size: 7,
+    color: SLATE,
+  })
 
-  // Save
-  doc.save(`${orgName.replace(/\s+/g, '_')}_Healthcare_Maturity_Assessment.pdf`)
+  saveReport(r.build(), reportFilename(reportMeta, 'pdf'))
 }
 
 // ══════════════════════════════════════════════════════════
@@ -1000,10 +911,24 @@ export function generateHealthGapCSV(
 // ══════════════════════════════════════════════════════════
 // ROADMAP MARKDOWN GENERATOR
 // ══════════════════════════════════════════════════════════
+/**
+ * The twelve-slide roadmap, on the spine's CONVENTIONS rather than its builder —
+ * there is no markdown analogue of ReportDoc and src/report/ is not the place to
+ * invent one for a single caller.
+ *
+ * What that means concretely: the org name and the date come from `meta`, the
+ * date is `formatCoverDate()` (UTC parts, machine-stable) instead of
+ * `toLocaleDateString()` (neither), and the filename is `reportFilename()`. The
+ * old bare `toLocaleDateString()` rendered `7/31/2026` on an en-US machine and
+ * `31.7.2026` on a German one, for the same assessment.
+ *
+ * `capabilities` is unused and was unused before. Kept for arity: the three
+ * export buttons call their generators through one handler.
+ */
 export function generateHealthRoadmapMarkdown(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
-  orgName = 'Your Healthcare Organization',
+  meta: ReportMeta,
 ) {
   const scores = computeCategoryScores(answers)
   const overallScore = parseFloat(
@@ -1011,13 +936,13 @@ export function generateHealthRoadmapMarkdown(
   )
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
 
-  const md = `# ${orgName} — Healthcare Analytics Transformation Roadmap
-## Prepared by Godaitec | ${new Date().toLocaleDateString()}
+  const md = `# ${meta.orgName} — Healthcare Analytics Transformation Roadmap
+## Prepared by Godaitec | ${formatCoverDate(meta.generatedAt)}
 
 ---
 
 ## Slide 1: Title
-### ${orgName} Healthcare Analytics Transformation Roadmap
+### ${meta.orgName} Healthcare Analytics Transformation Roadmap
 **Current HACR Maturity: ${overallScore} / 5.0 (${levelLabel(overallScore)})**
 Prepared by Godaitec (godai.tech)
 
@@ -1124,5 +1049,5 @@ Email: info@godai.tech
 `
 
   const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' })
-  saveAs(blob, `${orgName.replace(/\s+/g, '_')}_Healthcare_Analytics_Roadmap.md`)
+  saveAs(blob, reportFilename(meta, 'md'))
 }

@@ -265,3 +265,136 @@ own review. Flag it if that is the wrong call.
 D-001's inversion. The twenty zero-gap rows are covered by
 `normalisedTextSha256`, so correcting the bug will report as a `CHANGED`
 finding.
+
+---
+
+## D-004 — jsPDF's `maxWidth` text option drops every line after the first
+
+**Status** — the two HAIW instances are fixed by the D2 step 1 migration. The
+jsPDF behaviour behind them is unchanged and will do the same to the next caller,
+which is why this is written down rather than closed.
+
+**Where it bit** — `baiw/src/haiw/utils/healthReportGenerator.ts`, pre-migration:
+
+```js
+doc.text(`Level: ${levelLabel(x)} — ${levelDescription(x)}`, 15, 48, { maxWidth: w - 30 })
+```
+
+**What it does**
+
+`doc.text(s, x, y, { maxWidth })` looks like wrapping. It is not. Measured
+directly against `splitTextToSize` on the same string, font size and width:
+
+```
+splitTextToSize(180)           -> 2 lines: [".. documented and", "repeatable."]
+doc.text(.., { maxWidth: 180 })-> 1 text run drawn
+```
+
+The overflow is computed and then never emitted. Nothing errors, nothing is
+clipped at a visible edge, and the page looks deliberate — the sentence simply
+stops.
+
+Two client-facing sentences were lost in every HAIW PDF ever exported, both
+captured verbatim in the D1 golden baseline
+(`scripts/golden/baseline/haiw/maturity-pdf.json`):
+
+| Page | Shipped text | Missing |
+|---|---|---|
+| 2 | "… healthcare analytics capabilities are documented and" | "repeatable." |
+| 2 | "… (closes 1.3-level gap in Strategy &" | "Leadership)" |
+| 16 | "… Closing this gap requires an estimated 24–36" | "months." |
+
+**Why it was missed**
+
+`CLAUDE.md` records the opposite belief — "of the three existing generators only
+HAIW passes maxWidth, so BAIW and TAIW run long strings off the page edge" —
+which reads as HAIW being the careful one. It was the careful one in a way that
+loses text instead of showing it. BAIW and TAIW pass `maxWidth` **nowhere**
+(grep: zero occurrences in either file), so they overflow visibly (D-002) rather
+than truncating silently. Between the two failure modes, HAIW's was the harder to
+notice.
+
+**What the fix was**
+
+`src/report/spine.ts::text()` calls `splitTextToSize` itself and emits one
+`doc.text` per line. Migrating HAIW onto it recovered all three sentences —
+visible in the golden diff as +22 glyphs on page 2 and +7 on page 16, which is
+the recovered text, not new content.
+
+**Standing hazard — now gated.** `{ maxWidth }` must not appear in report code.
+`check-dgiw.mjs` **TEXT-MAXWIDTH** rejects the key across all five declared
+report source locations, names the file and line, and fails rather than skips on
+an options bag it cannot read (a spread, or an identifier where a literal should
+be). `src/report` was added to `REPORT_SOURCE_LOCATIONS` for this check and
+immediately found three more instances — see below.
+
+**Three more instances, in the spine itself** — found D2 step 2, fixed:
+`spine.ts` cover title, cover subtitle and page header chrome all used
+`{ maxWidth }`. None of them truncated for any artefact shipping today (every
+title, subtitle and header fitted — verified by sweeping all 23 golden artefacts
+for the ellipsis), but they were three loaded guns in the one file every report
+in the suite passes through. All three now call `spine.ts::fitOneLine`, which
+keeps the single line and appends `…` when it has to cut, so the reader can tell
+a truncation from a full stop.
+
+---
+
+## D-005 — the spine wrapped the first item of every list at the wrong width
+
+**Status** — fixed in D2 step 2. Present in every DGIW deliverable since Phase B.
+
+**Where** — `baiw/src/report/spine.ts`, `bullets()` and `keyValueBlock()`:
+
+```js
+const lines = this.doc.splitTextToSize(item, width)   // measured HERE
+lines.forEach((line, i) => {
+  this.doc.setFontSize(size)                          // set only HERE
+  ...
+})
+```
+
+**What it does**
+
+`splitTextToSize` measures at whatever font size the document is currently set
+to. Splitting before `setFontSize` therefore wraps against the **previous
+call's** size. Items two onward came out right, because by then the loop had set
+it — which is precisely why it survived four phases: one odd line break at the
+top of a list reads as the author's own.
+
+Demonstrated with the same string twice in one `bullets()` call, straight after
+an 18 pt page title:
+
+```
+"This assessment uses the Healthcare Capability Framework"
+"(HCF) — 108 analytics capabilities across 8 themes"
+"This assessment uses the Healthcare Capability Framework (HCF) — 108 analytics capabilities across 8 themes"
+```
+
+**Both directions are wrong, and one of them is not cosmetic**
+
+| Measured at | Drawn at | Effect |
+|---|---|---|
+| 18 pt (a page title) | 9 pt | breaks at ~half width — a short line, ugly, harmless |
+| 8 pt (a caption or a preceding small paragraph) | 9 pt | line ~12% too wide — **runs past the margin, and off the sheet** |
+
+The second case was live. `operatingModel.ts:315` calls
+`keyValueBlock` once per principle inside a loop, so every pair is a "first
+pair", and the preceding call is an 8 pt paragraph. Page 2 of AR-09 carried **six
+runs past the 15 mm margin, two of them 3.78 pt past the paper edge** — clipped
+by the sheet, invisible to a reader:
+
+```
+"Start at the regulatory return line or board KPI, trace lineage back to source, and every element on that path"
+```
+
+Page 3 carried one run 36.13 pt past the margin. Both pages now sit inside it.
+
+**Blast radius** — ~30 call sites across all seven DGIW generators. Seven of the
+fourteen golden artefacts changed; the other seven had first items that happened
+to fit at both sizes. Nothing outside text geometry moved: no page count, no
+table row count, no filename, no font. HAIW's two instances (introduced in D2
+step 1 and reported at the time rather than worked around) corrected with it.
+
+**Why it is not a style nit** — the fix is a two-line reorder, but it moved the
+byte-level identity of half the DGIW deliverable set. That is the measure of how
+long a silent layout bug can live in shared code with no test around it.

@@ -50,6 +50,10 @@ uses.
    `archive/README.md`. Do not import from it. Do not treat it as live.
 2. **`check-dgiw.mjs` is the only quality gate in the repo.** Extend it, never
    bypass it. If you touch a DGIW dataset, `npm run check:dgiw` must still pass.
+   Despite the name it is no longer DGIW-only: `REPORT_SOURCE_LOCATIONS` declares
+   five locations — `src/report`, `src/dgiw/report` and the three module
+   generators — and CSV-HEADER, TEXT-MAXWIDTH and ARTEFACT-IMPL all run over
+   them. A declared location that goes missing is a finding, never a skip.
 3. **`npm run build` and `./dev.sh build` are not equivalent.** Only the npm
    script runs the dataset gate. Always verify with `npm run build`.
 4. **Zero tests exist.** No vitest, jest or playwright. If a task needs tests,
@@ -66,9 +70,11 @@ The dominant structural fact of this repo is copy-paste:
 - **Six near-identical module layout shells**, ~120 lines each, differing only by
   colour and `navItems`. Anything new that belongs in a module header goes in
   **one shared component** imported by all six, not pasted a seventh time.
-- **Three near-identical PDF report generators** (`utils/reportGenerator.ts`,
-  `taiw/utils/tradeReportGenerator.ts`, `haiw/utils/healthReportGenerator.ts`).
-  A fourth should extract the shared spine, not clone the file.
+- **Two remaining pre-spine PDF report generators** (`utils/reportGenerator.ts`,
+  `taiw/utils/tradeReportGenerator.ts`). `haiw/utils/healthReportGenerator.ts`
+  was the third and is now on `src/report/spine.ts` — copy that migration, do not
+  clone either of the other two. Its gap CSV is deliberately still pre-spine; all
+  three gap CSVs move together once D-001 is decided.
 - **Two generations of workbench components** — `components/workbench/` is the
   shared data-driven one; `components/profitability/` is BAIW's unmigrated
   predecessor. Build against `components/workbench/`.
@@ -139,6 +145,35 @@ No `Math.random`, `Date.now` or bare `new Date()` anywhere under `src/report/`
 or `src/dgiw/report/`. Dates are formatted from UTC parts, never
 `toLocaleDateString` — the locale form is neither machine- nor timezone-stable,
 and near midnight it disagrees with the filename.
+
+## Text in a report must go through the spine
+
+Two ways to lose text on a page, both silent, both found by measurement rather
+than by reading the code. Neither is a style preference.
+
+**Never `doc.text(s, x, y, { maxWidth: n })`.** It reads as "wrap this". jsPDF
+computes the split and then draws **only the first line**; everything past the
+break is discarded with no error and nothing visible except a sentence that
+stops. Three sentences were lost from every HAIW PDF ever exported, and three
+instances were sitting in `spine.ts` itself. `check-dgiw.mjs` **TEXT-MAXWIDTH**
+now rejects the key outright across all five declared report source locations.
+Wrap with `splitTextToSize` and emit one `doc.text` per line — which is what
+`spine.ts::text()` does — or, where only one line fits, call
+`spine.ts::fitOneLine`, which marks the cut with an ellipsis instead of hiding
+it.
+
+**Set the font size BEFORE you measure.** `splitTextToSize` measures at whatever
+size the document is currently set to, so a split computed before `setFontSize`
+wraps against the *previous* call's size. `bullets()` and `keyValueBlock()` did
+this, so the first item of every list wrapped wrongly and the rest were fine —
+which is exactly why it survived from Phase B to Phase D. Both directions hurt:
+measuring at 18pt and drawing at 9pt breaks a line at half width; measuring at
+8pt and drawing at 9pt ran the operating-model report **off the sheet**.
+
+Do not assume the three pre-spine generators were the careful ones. BAIW and
+TAIW pass no width at all and overflow visibly (D-002); HAIW passed `maxWidth`
+and truncated invisibly (D-004). Invisible is worse. The spine is the floor,
+not any of them.
 
 ## DGIW scoring
 
