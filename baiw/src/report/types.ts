@@ -29,10 +29,16 @@ export interface ReportMeta {
   /** Renders the DRAFT watermark. These are paid deliverables; a final must be clean. */
   isDraft: boolean
   /**
-   * Artefact id from artefacts.json. Appears in the filename, in the /ID seed,
-   * and on the cover — the last only when it is non-empty, so a module with no
-   * artefact register can carry an id for identity without citing a catalogue
-   * that does not exist.
+   * The document's identity: the filename and the /ID seed, both of which need
+   * it and neither of which tolerates it being blank.
+   *
+   * It also feeds the default cover line, but only as a default — see
+   * `coverTag`, which is how a module with no artefact register keeps the id for
+   * identity without printing it and citing a catalogue that does not exist.
+   *
+   * DGIW ids come from implementationPlan.json's artefactRegister; module report
+   * ids from MODULE_ARTEFACT_IDS in check-dgiw.mjs. The gate accepts an id from
+   * either and nothing else.
    */
   artefactId: string
   /**
@@ -53,6 +59,26 @@ export interface ReportMeta {
    * other module's report, so a caller outside DGIW supplies its own.
    */
   scopeLabel?: string
+  /**
+   * The small line under the cover date, overridden outright.
+   *
+   *  - `undefined` — the default: artefact id and scope label, joined by ` · `.
+   *  - `''`        — no line at all.
+   *  - any string  — rendered verbatim.
+   *
+   * This exists because presentation and identity were the same field and should
+   * not have been. `artefactId` has three jobs — the filename, the /ID seed and
+   * the cover — and the module reports need the first two while wanting nothing
+   * to do with the third: printing `MR-BAIW-MATURITY` on a cover invites a reader
+   * to look it up in an artefact register that BAIW does not have. Blanking the
+   * id to clear the cover would have taken the filename and the /ID with it, so
+   * the cover gets its own field instead and the id keeps its two real jobs.
+   *
+   * Only the cover. `scopeLabel` still supplies the PDF's Subject, which is
+   * metadata rather than presentation and is worth keeping even when the cover
+   * says nothing.
+   */
+  coverTag?: string
 }
 
 /** One table, in the spine's vocabulary rather than autoTable's. */

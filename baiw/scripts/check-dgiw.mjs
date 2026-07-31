@@ -9,11 +9,15 @@
  * blocking gate no flow ran, a pillar the diagnostic could score but no wave
  * addressed, an owner string that named two accountable people.
  *
- * Section 10 is the exception to "dataset": it checks the CSV column specs in
- * src/dgiw/report/, because the constraint it enforces cannot be expressed in
- * the type system and its failure mode — a header that splits a delivered
- * spreadsheet into the wrong columns — is the same kind of silent content defect
- * as the rest of this file.
+ * Sections 10 and 11 are the exception to "dataset": they check report source
+ * code, because the constraints they enforce cannot be expressed in the type
+ * system and their failure modes — a header that splits a delivered spreadsheet
+ * into the wrong columns, a report whose /ID ignores what it renders — are the
+ * same kind of silent content defect as the rest of this file.
+ *
+ * Both read one declared source set, REPORT_SOURCE_LOCATIONS. It is not only
+ * src/dgiw/report/: the three module generators build on the same spine and are
+ * subject to the same two rules.
  *
  * Run with `npm run check:dgiw`. Wired into `npm run build`.
  */
@@ -248,8 +252,35 @@ for (const c of coreCdes)
 // (`{ ...COMMON, key: 'x' }`) is not traced back to its source. Nothing does
 // that today, and the CsvColumn-declared-but-no-header check below fires if a
 // spec ever moves somewhere this walk cannot see.
-const REPORT_DIR = path.join(D, '..', 'report')
 const SRC_ROOT = path.join(D, '..', '..', '..')
+
+/**
+ * The source set sections 10 and 11 read, declared rather than discovered.
+ *
+ * It used to be `src/dgiw/report/` alone, which was right while that was the
+ * only code building on the spine. Phase D migrates the three module generators
+ * onto it, and they live outside that directory — so a scope that stayed at
+ * src/dgiw/report/ would give the three generators MOST likely to forget a
+ * content digest no digest check at all, being ported from a world where none
+ * existed, and the build would report green while doing it.
+ *
+ * Declared, not globbed, for two reasons. A glob over src/ would sweep in every
+ * file that happens to mention `header:` and turn section 10 into a repo-wide
+ * style rule it was never designed to be. And a glob cannot tell "no generator
+ * here" from "the directory moved": if a declared location disappears that is a
+ * FINDING, below, not a silent shrink of the source set. This gate has passed
+ * vacuously over an empty set before; it does not get to do it again.
+ *
+ * `kind` is asserted, not inferred. A location that flips from file to directory
+ * or back is a restructure this list has to be told about.
+ */
+const REPORT_SOURCE_LOCATIONS = [
+  { rel: 'src/dgiw/report', kind: 'dir' },
+  { rel: 'src/haiw/utils/healthReportGenerator.ts', kind: 'file' },
+  { rel: 'src/taiw/utils/tradeReportGenerator.ts', kind: 'file' },
+  { rel: 'src/utils/reportGenerator.ts', kind: 'file' },
+]
+
 const BAD_IN_HEADER = [
   [',', 'comma', 'splits into two columns'],
   ['"', 'double quote', 'corrupts the row'],
@@ -280,17 +311,48 @@ const propName = (name) => {
 const specFiles = []
 let headersChecked = 0
 
+// Sorted at every level: readdirSync returns directory order, which differs
+// between filesystems, so without this the reported spec-file list and the order
+// findings appear in are properties of the disk rather than of the repo.
 const tsFilesIn = (dir) =>
   fs.existsSync(dir)
-    ? fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
-        const p = path.join(dir, e.name)
-        return e.isDirectory() ? tsFilesIn(p) : /\.tsx?$/.test(e.name) ? [p] : []
-      })
+    ? fs
+        .readdirSync(dir, { withFileTypes: true })
+        .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+        .flatMap((e) => {
+          const p = path.join(dir, e.name)
+          return e.isDirectory() ? tsFilesIn(p) : /\.tsx?$/.test(e.name) ? [p] : []
+        })
     : []
 
-const reportSources = tsFilesIn(REPORT_DIR)
+// Resolve the declared locations. Every failure path here is a finding: the two
+// checks below are only as wide as this list, and a location that silently
+// contributes nothing narrows them without saying so.
+const reportSources = []
+for (const loc of REPORT_SOURCE_LOCATIONS) {
+  const abs = path.join(SRC_ROOT, loc.rel)
+  if (!fs.existsSync(abs)) {
+    fail('REPORT-SOURCES', `declared report source ${loc.rel} does not exist — either it moved, in which case this list is stale, or it was deleted; sections 10 and 11 are not checking it either way`)
+    continue
+  }
+  const stat = fs.statSync(abs)
+  if (loc.kind === 'dir' && !stat.isDirectory()) {
+    fail('REPORT-SOURCES', `declared report source ${loc.rel} is declared a directory but is a file`)
+    continue
+  }
+  if (loc.kind === 'file' && !stat.isFile()) {
+    fail('REPORT-SOURCES', `declared report source ${loc.rel} is declared a file but is a directory`)
+    continue
+  }
+  const found = loc.kind === 'dir' ? tsFilesIn(abs) : /\.tsx?$/.test(abs) ? [abs] : []
+  if (found.length === 0) {
+    fail('REPORT-SOURCES', `declared report source ${loc.rel} contributes no .ts sources — the check is looking in the wrong place`)
+    continue
+  }
+  reportSources.push(...found)
+}
 if (reportSources.length === 0)
-  fail('CSV-HEADER', `no .ts sources found under ${path.relative(SRC_ROOT, REPORT_DIR)} — the check is looking in the wrong place`)
+  fail('REPORT-SOURCES', `no report sources resolved from any of the ${REPORT_SOURCE_LOCATIONS.length} declared locations — sections 10 and 11 would pass over an empty set`)
 
 for (const file of reportSources) {
   const rel = path.relative(SRC_ROOT, file)
@@ -369,7 +431,75 @@ for (const file of reportSources) {
 // discussed. There is no exemption list on purpose: an exemption is how the
 // default silently comes back.
 const registeredArtefacts = new Set(plan.artefactRegister.map((a) => a.id))
-const implementedArtefacts = new Map() // id → files that declare it
+
+/**
+ * Artefact ids for the three module workbenches' reports.
+ *
+ * WHY THIS LIVES IN THE GATE AND NOT IN A DATASET
+ *
+ * The obvious home looks like implementationPlan.json's artefactRegister, and it
+ * is the wrong one. That register is a DGIW DELIVERY CATALOGUE: forty-eight
+ * artefacts a consultant produces during a data-governance engagement, each with
+ * a pillarId, a ladder rung, an owner and a layer, and each citable by a client
+ * who reads "AR-13" on a cover and goes looking for it. BAIW's maturity PDF is
+ * not one of those. It has no pillar, no rung and no governance owner, and
+ * adding it would mean either inventing those fields or making them optional —
+ * which turns a catalogue with a meaning into a list of strings, and quietly
+ * moves the ARTEFACT-IMPL scoreboard from "7 of 48 catalogued artefacts have a
+ * generator" to a number that no longer measures anything.
+ *
+ * So the gate declares what it accepts. Adding a module report means editing
+ * this list, in the same commit as the generator, and the list cannot drift from
+ * the gate because it IS the gate. The cost is that it is not data; the benefit
+ * is that there is exactly one authority and no dataset had to be bent to hold
+ * something it does not describe.
+ *
+ * NAMESPACE
+ *
+ * `MR-` for module report, and the suffix is always `<MODULE>-<KIND>`, never
+ * digits. Register ids are `AR-` plus two digits; nothing in this shape can be
+ * read as one, which matters because these ids DO reach the client — they are in
+ * the filename, even though the cover deliberately does not print them (that is
+ * what ReportMeta.coverTag = '' is for). An id that looked like AR-07 in a
+ * filename would send a reader to a register that has no entry for it. Both
+ * properties are asserted immediately below rather than left to this comment.
+ *
+ * Nine ids, not three: PDF, gap CSV and roadmap markdown are three documents per
+ * module, and `reportFilename()` distinguishes deliverables by artefact id, not
+ * by extension. Sharing one across a module's three would also trip the
+ * duplicate-claim check below, since all three generators live in one file.
+ *
+ * Unused entries are fine and expected — the generators are migrated one at a
+ * time and each claims its id when it lands. The count is reported, never failed.
+ */
+const MODULE_ARTEFACT_IDS = Object.freeze([
+  'MR-BAIW-MATURITY',
+  'MR-BAIW-GAP',
+  'MR-BAIW-ROADMAP',
+  'MR-TAIW-MATURITY',
+  'MR-TAIW-GAP',
+  'MR-TAIW-ROADMAP',
+  'MR-HAIW-MATURITY',
+  'MR-HAIW-GAP',
+  'MR-HAIW-ROADMAP',
+])
+const moduleArtefactIds = new Set(MODULE_ARTEFACT_IDS)
+
+// The two namespaces must stay separable, and the list must stay a list of the
+// shape it claims. Checked here so a future edit to the array cannot quietly
+// introduce an id that collides with the register or reads like one.
+const MODULE_ID_SHAPE = /^MR-(BAIW|TAIW|HAIW)-[A-Z]+$/
+for (const id of MODULE_ARTEFACT_IDS) {
+  if (!MODULE_ID_SHAPE.test(id))
+    fail('ARTEFACT-IMPL', `MODULE_ARTEFACT_IDS entry ${JSON.stringify(id)} does not match ${MODULE_ID_SHAPE} — module ids must be unmistakable for an AR-nn register id, because they appear in delivered filenames`)
+  if (registeredArtefacts.has(id))
+    fail('ARTEFACT-IMPL', `MODULE_ARTEFACT_IDS entry ${JSON.stringify(id)} is also in implementationPlan.json artefactRegister — one id cannot mean both a catalogued DGIW artefact and a module report`)
+}
+if (moduleArtefactIds.size !== MODULE_ARTEFACT_IDS.length)
+  fail('ARTEFACT-IMPL', `MODULE_ARTEFACT_IDS contains duplicates`)
+
+const implementedArtefacts = new Map() // catalogued AR- id → files that declare it
+const implementedModuleIds = new Map() // MR- id → files that declare it
 let digestsChecked = 0
 
 /** True if an empty string literal appears anywhere in this expression. */
@@ -432,10 +562,12 @@ for (const file of reportSources) {
       const init = node.initializer
       if (!init || !ts.isStringLiteralLike(init)) {
         fail('ARTEFACT-IMPL', `${at(node)} ${node.name.text} is not a literal string — the artefact id cannot be verified here`)
-      } else if (!registeredArtefacts.has(init.text)) {
-        fail('ARTEFACT-IMPL', `${at(node)} ${node.name.text} = ${JSON.stringify(init.text)} is not in implementationPlan.json artefactRegister — the cover would cite a catalogue entry that does not exist`)
-      } else {
+      } else if (registeredArtefacts.has(init.text)) {
         implementedArtefacts.set(init.text, [...(implementedArtefacts.get(init.text) ?? []), rel])
+      } else if (moduleArtefactIds.has(init.text)) {
+        implementedModuleIds.set(init.text, [...(implementedModuleIds.get(init.text) ?? []), rel])
+      } else {
+        fail('ARTEFACT-IMPL', `${at(node)} ${node.name.text} = ${JSON.stringify(init.text)} is in neither implementationPlan.json artefactRegister nor MODULE_ARTEFACT_IDS — a DGIW deliverable would put an id on its cover that the register does not contain, and a module report would put one in a filename that nothing declares`)
       }
     }
     ts.forEachChild(node, visit)
@@ -443,9 +575,13 @@ for (const file of reportSources) {
   visit(sf)
 }
 
-for (const [id, files] of implementedArtefacts)
-  if (files.length > 1)
-    fail('ARTEFACT-IMPL', `artefact ${id} is claimed by ${files.join(' and ')} — two generators producing one catalogue id would overwrite each other's file`)
+// Both namespaces, and the module one especially: a module's three generators
+// share a file, so a copy-pasted id there names two documents that then collide
+// on one filename.
+for (const map of [implementedArtefacts, implementedModuleIds])
+  for (const [id, files] of map)
+    if (files.length > 1)
+      fail('ARTEFACT-IMPL', `artefact ${id} is claimed by ${files.join(' and ')} — two generators producing one id would overwrite each other's file`)
 
 // ── 12-16. Framework crosswalk ──────────────────────────────────────────
 // One assessment, four framework scorecards. The eleven pillars stay canonical;
@@ -860,6 +996,14 @@ console.log(`  waves ${plan.waves.length}  artefacts ${plan.artefactRegister.len
 // The verdict is conditional on purpose: a summary line that reads "no comma"
 // while the problem list below it names one is how a reader learns to skim past
 // this output.
+// Printed so a scope that has quietly narrowed is visible on every build. The
+// number of files is the thing to watch: sections 10 and 11 can only be as wide
+// as this.
+const sourceFails = fails.filter((f) => f.startsWith('REPORT-SOURCES')).length
+console.log(
+  `  REPORT-SOURCES ${reportSources.length} file${reportSources.length === 1 ? '' : 's'} from ${REPORT_SOURCE_LOCATIONS.length} declared location${REPORT_SOURCE_LOCATIONS.length === 1 ? '' : 's'}` +
+    ` (${REPORT_SOURCE_LOCATIONS.map((l) => l.rel).join(', ')})${sourceFails ? ` — ${sourceFails} UNRESOLVED, see below` : ''}`,
+)
 const headerFails = fails.filter((f) => f.startsWith('CSV-HEADER')).length
 console.log(
   `  CSV-HEADER ${headersChecked} header${headersChecked === 1 ? '' : 's'} across ${specFiles.length} spec file${specFiles.length === 1 ? '' : 's'}` +
@@ -934,10 +1078,17 @@ if (projection) {
 // produce stays visible instead of being rediscovered.
 const implFails = fails.filter((f) => f.startsWith('ARTEFACT-IMPL')).length
 const covered = [...implementedArtefacts.keys()].sort()
+const moduleCovered = [...implementedModuleIds.keys()].sort()
 console.log(
   `  ARTEFACT-IMPL ${covered.length} of ${plan.artefactRegister.length} catalogued artefacts have a generator` +
     ` (${covered.join(', ') || 'none'}); ${digestsChecked} createReport call${digestsChecked === 1 ? '' : 's'} checked for a content digest` +
     `${implFails ? ` — ${implFails} REJECTED, see below` : ''}`,
+)
+// Separate line, and separate from the "of 48" denominator on purpose: module
+// reports are not catalogue entries, so folding them into that fraction would
+// make the DGIW delivery scoreboard read higher than it is.
+console.log(
+  `    module reports ${moduleCovered.length} of ${MODULE_ARTEFACT_IDS.length} declared ids claimed (${moduleCovered.join(', ') || 'none'})`,
 )
 
 if (fails.length) {

@@ -295,10 +295,11 @@ export class ReportDoc {
     doc.setFontSize(SIZE.coverMeta)
     if (subtitle) doc.text(subtitle, w / 2, 66, { align: 'center', maxWidth: w - 40 })
     doc.text(formatCoverDate(meta.generatedAt), w / 2, 78, { align: 'center' })
-    // Skipped entirely when both parts are empty, rather than emitting a text
-    // run for the empty string — a caller with neither an artefact id nor a
-    // scope label should get no line, not a blank one.
-    const coverTag = joinParts([meta.artefactId, scopeLabelOf(meta)], ' · ')
+    // `??`, not `||`: '' is a meaningful value here — it suppresses the line —
+    // and `||` would fold it back into the default, which is the opposite.
+    // Skipped entirely rather than emitting a text run for the empty string, so
+    // a caller who wants no line gets no line and not a blank one.
+    const coverTag = meta.coverTag ?? joinParts([meta.artefactId, scopeLabelOf(meta)], ' · ')
     if (coverTag) doc.text(coverTag, w / 2, 88, { align: 'center' })
 
     doc.setTextColor(...SLATE)
