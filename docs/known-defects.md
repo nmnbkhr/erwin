@@ -1,25 +1,46 @@
-# Known defects — logged, not fixed
+# Known defects — the register
 
-Live defects found by measurement and deliberately left in place, so they survive
-to whoever picks up the work that should fix them. Each entry names where it was
-found, what it does to a client-facing artefact, and what a correct fix has to
-establish first.
+Defects found by measurement, each recording where it was found, what it did to a
+client-facing artefact, and what the fix was — or, while it is still open, what a
+correct fix has to establish first.
 
-Adding an entry here is not a substitute for fixing it. It is a substitute for
+Entries are **kept after they are fixed**. The diagnosis is the durable part: it
+is what stops the same mistake being made again, and twice now an entry's stated
+remedy has turned out to be wrong while its measurement stayed right (D-002
+recommended the option that causes D-004; D-001 recommended carrying a category
+score onto a capability row, which the fix deliberately did not do). Adding an
+entry here is not a substitute for fixing it — it is a substitute for
 *forgetting* it.
+
+| | Defect | Status |
+|---|---|---|
+| D-001 | fabricated per-capability scores in four deliverables | **fixed** 2026-08-01 — by removal |
+| D-002 | TAIW text 166 pt past the paper edge | **fixed** — D2 step 2 |
+| D-003 | HAIW's twenty zero gaps | **fixed** 2026-08-01 — by derivation |
+| D-004 | jsPDF `maxWidth` drops every line after the first | **fixed** + gated by TEXT-MAXWIDTH |
+| D-005 | spine wrapped the first list item at the wrong width | **fixed** — D2 step 2 |
+| D-006 | roadmap phase boxes 5 mm past the content column | **fixed** 2026-08-01 — all three modules |
+| D-007 | two capability↔requirement relations disagree with themselves | **open** — dataset-level, not client-visible |
+
+D-001 and D-003 are the pair worth reading together: the same defect class, and
+the fixes are opposites. HAIW had the relation authored, so its scores were
+*derived*; BAIW and TAIW did not, so theirs were *removed*. What decided it was
+the data, not a preference for one remedy.
 
 ---
 
 ## D-001 — fabricated per-capability scores in four client deliverables
 
-**Status** — open. Found during Phase D1 characterisation, 2026-07-31; scope
-widened 2026-07-31 during Phase D2 Step 0. Logged, not fixed: D1's job was to
-record what the output is today, and fixing this changes it.
+**Status** — FIXED 2026-08-01 **by removal**, in BAIW and TAIW. HAIW's variant
+was fixed separately and differently, by derivation — see D-003. Found during
+Phase D1 characterisation, 2026-07-31; scope widened the same day during Phase D2
+Step 0. Held open through D2 because the resolution was a product decision, not
+an engineering one, and it differed per module.
 
-**This has shipped to clients.** These are the export buttons on the maturity
-pages of three live workbenches. Every assessment run through them has produced
-a deliverable containing invented capability scores, and the PDF is the document
-a client is most likely to circulate.
+**This shipped to clients.** These were the export buttons on the maturity pages
+of three live workbenches. Every assessment run through them produced a
+deliverable containing invented capability scores, and the PDF is the document a
+client is most likely to circulate.
 
 **Where — the CSVs (nondeterministic)**
 
@@ -148,21 +169,102 @@ over, is visibly not a capability assessment. **The jitter's only function is to
 make 112 copies of eight numbers read as 112 measurements.** It is a disguise,
 not scaffolding.
 
-Resolutions differ per module, and the same change is not right for all three:
+Resolutions differ per module, and the same change was not right for all three:
 
 - **BAIW / TAIW** — stop emitting `Current Level`, `Gap` and `Priority`, from
-  both the CSV and page 13. Emit the real 112 / 100 capabilities with the
-  columns that are real (`ID`, `Name`, `Theme`, `Group`, `dataReqCount`,
-  `phase`, dependencies) plus the *category* score under a heading that says
-  category. "These are the capabilities in a theme you scored 2.1" is
-  defensible. "This capability scores 2.3" is not.
+  both the CSV and page 13.
 - **HAIW** — derive it. The links exist on all 720 questions.
 
-**Harness status** — `scripts/golden/` declares the three CSV columns
-**unassertable** and prints `SKIPPED` for them on every run; D2 could change
-every number in them and the harness would not notice. Page 13 of all three PDFs
-is the opposite: fully baselined and asserted. See
-`baiw/scripts/golden/README.md`.
+## What the fix was — removal, not repair
+
+**The two axes do not meet.** BACR's eight categories are a generic maturity
+dimension. BVF's 112 capabilities are FSDM-specific banking functions. A
+capability's `themeName` is not a narrower version of a BACR category — they are
+orthogonal, and **the relation is absent from the data rather than merely
+unwired**. TACR/TCF is the same shape. So there was nothing to repair: no join to
+fix, no lookup to add, no heading that would make the number true. The columns
+had to go.
+
+**One earlier recommendation in this entry was overruled, deliberately.** The
+list above ended "…plus the *category* score under a heading that says category".
+That was rejected on the decision that carried the fix: a category score printed
+on a capability row is read as the capability's score no matter what the heading
+says, and the register would have re-imported the confusion it was removing. No
+category score appears in either deliverable. It is on the radar, the scorecard
+and the eight deep dives, against categories, where the axis is right. (D-002
+carried a similarly stale recommendation — "pass `maxWidth`" — which would have
+caused D-004. An entry's diagnosis outlives its proposed fix.)
+
+**The CSVs are now capability registers.** Real rows, authored attributes only:
+
+| | BAIW | TAIW |
+|---|---|---|
+| artefact id | `MR-BAIW-REGISTER` (was `MR-BAIW-GAP`) | `MR-TAIW-REGISTER` (was `MR-TAIW-GAP`) |
+| rows | 112 real BVF capabilities | 100 real TCF capabilities (was **96** synthesised) |
+| columns | 9 → 8 | 9 → 7 |
+| dropped | `Current Level`, `Required Level`, `Gap`, `Priority` | same |
+| kept, real | ID, Name, Theme, Group, Phase, declared data requirements, FSDM subject areas, Description | ID, Name, TCF Theme, Group, authored Framework Priority, declared data requirements, WCO DM domains |
+
+The ids were renamed rather than left saying GAP over content that is not one.
+HAIW keeps `MR-HAIW-GAP`: since D-003 its gap column is computed from real
+`capabilityLinks`, so there the word is accurate. **The asymmetry records which
+module has the relation authored.**
+
+TAIW's `Priority` is not the removed one. The old column thresholded a jittered
+category score; the new one is the dataset's own per-capability field — framework
+editorial judgement, fixed for every client — and the header says
+"Framework Priority (authored)" so the two cannot be confused.
+
+Both CSVs are on `src/report/csv.ts` (BOM, CRLF, every field quoted). The old
+BAIW code interpolated unquoted, so a capability name containing a comma
+corrupted the row.
+
+**Page 13 reports the framework instead of scoring it.** "Top 20 … with largest
+estimated gaps" had no top 20 left once the fabricated gaps went, so both pages
+became capability *coverage*: one row per group, with the delivery phase spread
+(BAIW) or the authored priority mix (TAIW), and a count of how many capabilities
+have a data dependency recorded. Every number is a fact about the framework, none
+is a fact about the client, and the caption says so.
+
+**The absence is now visible rather than papered over.** Both pages print the
+dependency-coverage number instead of the four hardcoded strings that used to
+fill that column — BAIW **15 of 112** capabilities have an FSDM subject area
+recorded, TAIW **91 of 100** have a WCO DM domain. The 97 and the 9 get an empty
+cell in the register. Empty is the truth.
+
+**The path to a real per-capability score is authoring `capabilityLinks`** on
+BACR's 804 and TACR's 640 questions, which is exactly what HAIW has and what
+makes its gap column legitimate. **Not scheduled.** It is recorded here because
+that is the point of removal: the gap in the authoring is now something a reader
+can see, rather than something a jittered number was hiding.
+
+## What removing the RNG unblocked
+
+`Math.random` left the report code entirely with this change. Consequences,
+measured:
+
+| | before | after |
+|---|---|---|
+| unassertable column sets | 2 (3 columns each) | **0** |
+| `compare.mjs` SKIPPED findings | 4 | **0** |
+| artefacts asserting raw bytes | 21 of 23 | **23 of 23** |
+| raw artefacts byte-identical over two runs | 33 of 35 | **35 of 35** |
+
+**All 23 golden artefacts are now byte-reproducible, and two consecutive captures
+of the whole suite are byte-identical — the first time in this project.**
+
+**Harness status** — the `unassertable` declarations are **gone, not relaxed**:
+the three columns they named no longer exist. Both entries now carry
+`assertRawBytes: true`. The registry ids stay `gap-csv` while the artefact ids
+became `MR-*-REGISTER`, so the committed baselines keep their identity and the
+diff reads as a change rather than a deletion plus an addition.
+
+Note what this closes, in the entry's own terms: the section above argues that
+deterministic fabrication is *more* dangerous than nondeterministic fabrication,
+because a stable wrong number acquires a baseline and a review process defending
+it. Page 13 was exactly that — twenty fabricated rows asserted by
+`normalisedTextSha256` on every run. Removing them is the only move that does not
+leave the harness guarding a fiction.
 
 ---
 
@@ -573,3 +675,64 @@ content column. All fourteen DGIW artefacts were clean throughout.
 
 It is **not** wired into `compare.mjs` and nothing asserts it on every capture —
 run it deliberately after any change to hand-placed boxes, grids or charts.
+
+---
+
+## D-007 — two capability↔requirement relations disagree with themselves
+
+**Status** — open, dataset-level, **not client-visible today**. Found 2026-08-01
+while closing D-001, by building the capability registers out of the real
+relations for the first time.
+
+Neither of these moves a byte of any deliverable, because both registers report
+what is actually linked and leave the rest blank. They are recorded because the
+next person to reach for these fields will assume they reconcile, and they do not.
+
+**BAIW — `dataReqCount` is not the number of data requirements**
+
+`src/data/capabilities.json` declares a `dataReqCount` per capability.
+`src/data/dataRequirements.json` holds 142 rows carrying a `capabilityId`. They
+agree for **1 of 112** capabilities:
+
+| Capability | `dataReqCount` says | rows actually present |
+|---|---|---|
+| 2 Predictive Models | 30 | 27 |
+| 3 Event Detection | 52 | 22 |
+| 4 Customer Value | 26 | 7 |
+| 5 Customer, Product & Channel insight | 55 | 16 |
+
+Worse than the mismatch: the 142 rows name only **15 of the 112** capabilities,
+so 97 have no FSDM subject area at all. The register therefore prints
+`dataReqCount` under a header that says **"(declared)"** and the derived subject
+areas under one that says **"(linked)"**, so the two cannot be read as the same
+fact. Page 13 prints the 15-of-112 coverage explicitly.
+
+**TAIW — four dangling capability ids, and `capabilitiesUsing` matches nothing**
+
+`src/data/taiw/dataRequirements.json` links the other way, each requirement
+listing the capabilities that use it. Two problems:
+
+- **Four referenced ids do not exist** in `capabilities.json`:
+  `trader_communication_outreach`, `warehouse_bonded_area_utilization`,
+  `sanctions_embargo_screening`, `refund_drawback_management`. Each has a
+  near-twin that does exist with `_and_` in it —
+  `trader_communication_and_outreach`, `refund_and_drawback_management` — so this
+  looks like a rename that was applied to one file and not the other. The
+  inversion in `tradeReportGenerator.ts` drops them silently.
+- **`capabilitiesUsing` disagrees with `capabilities.length` in 114 of 114 rows**
+  — every single one. `req_trader_identity` says 15 and lists 6.
+
+Coverage is otherwise good: 91 of 100 capabilities have at least one requirement.
+The nine that do not are listed by `wcoDomainsByCapability`'s call site.
+
+**Why it is not fixed here** — editing a dataset is not the change that removed
+the fabricated scores, and the four dangling ids need someone to say which side
+of the rename is correct. Fixing the `_and_` ids would also move
+`aeo_compliance_monitoring_aeo`, which looks like a suffix applied twice.
+
+**Harness status** — invisible to it, and that is the point. `compare.mjs` now
+asserts all 23 artefacts byte-for-byte, but it compares output to output; a
+dataset that disagrees with itself produces perfectly reproducible output.
+`check-dgiw.mjs` is the tool with the right shape for this — it already validates
+DGIW's datasets — and extending it to BAIW's and TAIW's capability relations is
+the natural home for a guard.

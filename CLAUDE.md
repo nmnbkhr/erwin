@@ -76,8 +76,9 @@ The dominant structural fact of this repo is copy-paste:
   step 3. A fourth module's report starts from one of them, not from scratch.
   What each still keeps to itself, behind the public `doc` escape hatch, is its
   radar chart, score disc and coloured boxes; those own their overflow and must
-  call `moveTo()` afterwards. All three **gap CSVs are deliberately still
-  pre-spine** and move together once D-001 is decided.
+  call `moveTo()` afterwards. BAIW's and TAIW's third CSV moved onto
+  `src/report/csv.ts` when D-001 was closed; **HAIW's gap CSV is the last
+  hand-rolled one** and is the next to migrate.
 - **Two generations of workbench components** — `components/workbench/` is the
   shared data-driven one; `components/profitability/` is BAIW's unmigrated
   predecessor. Build against `components/workbench/`.
@@ -254,6 +255,35 @@ report takes questions as a **parameter** typed
 `Pick<HacrQuestion, 'id' | 'weight' | 'capabilityLinks'>` rather than importing
 the dataset. Keep it that way: it is an honest contract about what is read, and
 it keeps a second copy out of the report chunk.
+
+## A capability score needs a link, not a heading
+
+Every module has two vocabularies: an **assessment** axis (BACR / TACR / HACR
+categories — a generic maturity dimension) and a **capability** axis (BVF 112,
+TCF 100, HCF 108 — framework-specific business functions). They are
+**orthogonal**. A capability's theme is not a narrower version of a category, and
+projecting one onto the other is not a rounding error — it is a fabrication.
+
+**Only HAIW can score a capability**, because only HACR's 720 questions carry
+`capabilityLinks`. BACR's 804 and TACR's 640 do not. That is the whole
+difference, and it is a data fact, not a wiring gap:
+
+| Module | Link authored | Per-capability score |
+|---|---|---|
+| HAIW | `capabilityLinks` on 720 of 720 | **derived** — see D-003 |
+| BAIW | none | **not emitted** — D-001, removed |
+| TAIW | none | **not emitted** — D-001, removed |
+
+BAIW and TAIW therefore ship a capability **register** (`MR-*-REGISTER`) —
+authored attributes only — and their page 13 reports framework *coverage*. HAIW
+ships a gap register (`MR-HAIW-GAP`) because there the word is true. **Do not
+"fix" the asymmetry**; it records which module has the relation authored.
+
+If a future module wants per-capability numbers, author the links. Do not carry a
+category score onto a capability row, and do not rename the column to make it
+defensible — a reader takes the number as the row's own no matter what the
+heading says. This is the D-001 rule, and it cost four client-facing deliverables
+to learn.
 
 ## Framework crosswalk
 

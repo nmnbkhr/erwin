@@ -1,5 +1,9 @@
 # D2 — the three module report generators, onto the spine
 
+> Snapshot of the defect register as it stood at D2 close, 2026-07-31. Statuses
+> here are historical and not maintained. The live register is
+> [`docs/known-defects.md`](known-defects.md).
+
 **Closed 2026-07-31.** Six commits, five steps, one deliberate re-baseline.
 
 ## What it set out to do

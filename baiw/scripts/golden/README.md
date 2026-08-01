@@ -10,8 +10,9 @@ three module generators are now on `src/report/spine.ts`, alongside DGIW's seven
 | HAIW | `src/haiw/utils/healthReportGenerator.ts` | `generateHealthMaturityPDF` ✅ | `generateHealthGapCSV` ⛔ | `generateHealthRoadmapMarkdown` ✅ |
 | DGIW | seven files under `src/dgiw/report/` | 12 PDFs ✅ | 2 CSVs ✅ | — |
 
-The three gap CSVs are the only pre-spine code left. They are blocked on **D-001**
-and move together when it is decided.
+`generateHealthGapCSV` is the last pre-spine generator in the suite. BAIW's and
+TAIW's third CSV moved onto `src/report/csv.ts` when **D-001** was closed by
+removal; HAIW's was out of that change's scope and is still hand-rolled.
 
 It exists for one job: **there are zero tests in this repo, and `check-dgiw.mjs`
 is a static dataset gate that knows nothing about rendered output.** This is the
@@ -277,28 +278,33 @@ their own each day. The one long-form date pattern matches both the pre-D2
 `toLocaleDateString('en-US', …)` output and the post-D2 `formatCoverDate()`
 output, so it keeps working across the migration.
 
-## Unassertable — declared, not ignored
+## Unassertable — the mechanism, currently unused
 
-`baiw/gap-csv` and `taiw/gap-csv` columns **`Current Level`, `Gap`, `Priority`**
-are not compared. They come from `Math.random()` in `generateGapCSV` and
-`generateTradeGapCSV`.
+**Nothing is declared unassertable today. `compare.mjs` prints 0 SKIPPED.**
 
-The reason string names the **function**, not a line number. It used to say
-`reportGenerator.ts:695`, which the D2 migration silently invalidated twice —
-the string is copied verbatim into the committed baseline, so a rotted line
-reference is a rotted golden file.
+Until D-001 was closed, `baiw/gap-csv` and `taiw/gap-csv` declared their
+`Current Level`, `Gap` and `Priority` columns unassertable, because those three
+came from `Math.random()`. The declaration was never a way of ignoring them: it
+printed on every run, and the README said plainly that a change to every number
+in them would go unnoticed. That was the honest position given the RNG.
 
-`compare.mjs` prints them every run as
-`SKIPPED (nondeterministic — Math.random in generateGapCSV (reportGenerator.ts))`.
+The RNG is gone — the columns were removed, not frozen, because BACR/TACR
+categories and BVF/TCF capabilities are orthogonal axes with no join in the data.
+Both CSVs are now capability registers and assert their raw bytes.
 
-**State it plainly: a change to every number in those three columns would go
-unnoticed by this harness.** That is the honest position given the RNG, and
-fixing the RNG is D-001's job, not D2's. See
-[`docs/known-defects.md`](../../../docs/known-defects.md).
+The mechanism stays, and so does its shape, for the next generator that needs it:
 
-The `assertableSha256` masks those columns with a token rather than dropping
-them, so column positions stay stable in the digest and *adding* a column is
-still visible.
+- `unassertable` names **columns**, `unassertableReason` says why.
+- The reason string names the **function**, never a line number. It used to say
+  `reportGenerator.ts:695`, which the D2 migration silently invalidated twice —
+  the string is copied verbatim into the committed baseline, so a rotted line
+  reference is a rotted golden file.
+- `assertableSha256` masks the columns with a token rather than dropping them, so
+  column positions stay stable in the digest and *adding* a column is still
+  visible.
+
+Declaring a column unassertable is a last resort. D-001's lesson is that the
+declaration is usually evidence the column should not exist.
 
 ## The control
 
@@ -434,11 +440,13 @@ Two full captures, byte-compared, all 23:
 
 | | Result |
 |---|---|
-| **21 of 23** | byte-identical run to run |
-| `baiw/gap-csv`, `taiw/gap-csv` | **differ** — `Math.random()`, D-001 |
+| **23 of 23** | byte-identical run to run |
+| exceptions | **none** |
 
-Every artefact on the spine is reproducible. The two that are not are the two
-that are not on it.
+**Every golden artefact is byte-reproducible, and two consecutive captures of the
+whole suite are byte-identical.** That became true when D-001's removal took
+`Math.random` out of the report code entirely; before it, `baiw/gap-csv` and
+`taiw/gap-csv` were the only two that differed, and they differed on every run.
 
 **`rawBytesAsserted` is `true` on 21 of the 23** — everything except those two.
 Byte equality is the strongest assertion available and it now covers every
@@ -461,9 +469,14 @@ That is the fourth time this project has hit that shape.
 
 Four things, stated so nobody has to discover them:
 
-1. **The two RNG column sets.** `Current Level`, `Gap` and `Priority` in
-   `baiw/gap-csv` and `taiw/gap-csv` — six column-artefact pairs, unassertable
-   until D-001 is resolved. Declared, printed every run, never silently ignored.
+1. **Dataset truth.** Every artefact is now asserted byte-for-byte, but the
+   harness compares output to output — it cannot tell you a dataset is wrong.
+   Two examples found while closing D-001, both still live: BVF's `dataReqCount`
+   disagrees with the actual row count in `dataRequirements.json` in **111 of
+   112** capabilities, and TAIW's `dataRequirements.json` references **four
+   capability ids that do not exist**. Both are recorded in `known-defects.md`;
+   neither would move a single byte of a baseline. *(This slot used to hold the
+   two RNG column sets, which no longer exist.)*
 2. **The `DRAFT` watermark path.** Every fixture answers every question, so
    `isDraft` is `false` everywhere — in all three module fixtures **and** in
    DGIW's. Nothing draws the watermark, in any of the 23. A change to it would go

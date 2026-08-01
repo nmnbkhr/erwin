@@ -5,9 +5,12 @@
 import type jsPDF from 'jspdf'
 import { saveAs } from 'file-saver'
 import benchmarks from '../../data/taiw/benchmarks.json'
+import capabilities from '../../data/taiw/capabilities.json'
+import dataRequirements from '../../data/taiw/dataRequirements.json'
 
 import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '../../report/spine'
 import { formatCoverDate, reportFilename } from '../../report/naming'
+import { downloadCsv, byStringKey, type CsvColumn } from '../../report/csv'
 import type { ReportMeta } from '../../report/types'
 
 /*
@@ -19,13 +22,14 @@ import type { ReportMeta } from '../../report/types'
  * trailer /ID seed and are deliberately NOT printed on the cover —
  * `useReportMeta` sets `coverTag: ''` for exactly that reason.
  *
- * The gap CSV has no id. It is not on the spine and is not migrating in this
- * step: it is blocked on the D-001 product decision along with BAIW's, and its
- * three fabricated columns stay SKIPPED in the golden baseline. See
- * docs/known-defects.md.
+ * `MR-TAIW-REGISTER` was `MR-TAIW-GAP` until D-001 was resolved by REMOVAL. The
+ * document is a capability register — the 100 real TCF capabilities and their
+ * authored attributes — and it no longer reports a gap, because TAIW has no
+ * per-capability gap to report. See the note on `TcfCapability` below.
  */
 export const TRADE_MATURITY_ARTEFACT_ID = 'MR-TAIW-MATURITY'
 export const TRADE_ROADMAP_ARTEFACT_ID = 'MR-TAIW-ROADMAP'
+export const TRADE_REGISTER_ARTEFACT_ID = 'MR-TAIW-REGISTER'
 
 // ── Types ──
 interface CategoryScore {
@@ -40,6 +44,104 @@ interface AssessmentData {
   overallScore: number
   answeredCategories: number
   totalCategories: number
+}
+
+/*
+ * ── TCF capabilities — structure, deliberately NOT scored ──────────────────
+ *
+ * D-001, resolved by removal, exactly as in BAIW. TACR's eight categories are a
+ * generic maturity dimension; TCF's 100 capabilities are WCO-DM-specific customs
+ * functions. ORTHOGONAL AXES, no join in any dataset, therefore no honest
+ * per-capability score — and no column heading that makes one true.
+ *
+ * What was here invented one: 96 rows named `${cat} Strategy & Planning` and
+ * friends, matching no row in capabilities.json, scored from a TACR category
+ * plus `(Math.random() - 0.5) * 0.6`, with the theme column taken from a
+ * hand-written `tcfThemes` array indexed by category position — a mapping
+ * nothing in the data supports.
+ *
+ * TCF's own `priority` field IS authored per capability and is real. It is not a
+ * maturity score and must not be read as one: it is the framework's editorial
+ * view of which capabilities matter, fixed in the dataset and identical for
+ * every client. It is reported as such.
+ *
+ * The path to a real per-capability score is authoring `capabilityLinks` on
+ * TACR's 640 questions. Not scheduled. See docs/known-defects.md D-001.
+ */
+type TcfCapability = (typeof capabilities)[number]
+
+/** Exported so the report card counts from the data. See BAIW's equivalent. */
+export const TRADE_CAPABILITY_COUNT = capabilities.length
+
+/**
+ * capability id → the WCO Data Model domains it depends on.
+ *
+ * `dataRequirements.json` records the relation the other way round, one row per
+ * requirement carrying the capabilities that use it, so it is inverted once here.
+ *
+ * Coverage is 91 of 100 and the nine without a requirement get an EMPTY cell,
+ * not an assumed domain. Four ids referenced by requirements do not exist in
+ * capabilities.json and are silently dropped by this inversion — they are
+ * reported in docs/known-defects.md rather than fixed here, because editing a
+ * dataset is not this change.
+ */
+const wcoDomainsByCapability = ((): Map<string, string[]> => {
+  const m = new Map<string, Set<string>>()
+  for (const req of dataRequirements) {
+    for (const capId of req.capabilities ?? []) {
+      if (!m.has(capId)) m.set(capId, new Set())
+      m.get(capId)!.add(req.wcoDomain)
+    }
+  }
+  return new Map([...m].map(([id, set]) => [id, [...set].sort()]))
+})()
+
+const wcoDomainsFor = (cap: TcfCapability): string[] => wcoDomainsByCapability.get(cap.id) ?? []
+
+/**
+ * Priority classes in severity order, with anything unrecognised appended.
+ *
+ * Derived from the dataset rather than hardcoded to the three that happen to be
+ * present today (CRITICAL 16, HIGH 65, MEDIUM 19, LOW 0): a fourth class added
+ * to the JSON would otherwise vanish from the page with no error.
+ */
+const PRIORITY_ORDER = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']
+const prioritiesPresent = (caps: readonly TcfCapability[]): string[] => {
+  const present = [...new Set(caps.map(c => c.priority))]
+  const known = PRIORITY_ORDER.filter(p => present.includes(p))
+  return [...known, ...present.filter(p => !PRIORITY_ORDER.includes(p)).sort()]
+}
+
+/** One row of the page-13 coverage table: a TCF group. */
+interface GroupCoverage {
+  group: string
+  theme: string
+  count: number
+  byPriority: Record<string, number>
+  /** Capabilities in this group with at least one WCO DM domain recorded. */
+  wcoLinked: number
+}
+
+/**
+ * Group-level coverage of the TCF framework, in dataset order.
+ *
+ * Group rather than theme (six is a thin page) and rather than capability (100
+ * rows is a register, which is what the CSV is for). Dataset order keeps each
+ * theme's groups contiguous; alphabetical would interleave the six themes.
+ */
+function groupCoverage(caps: readonly TcfCapability[]): GroupCoverage[] {
+  const rows = new Map<string, GroupCoverage>()
+  for (const cap of caps) {
+    let row = rows.get(cap.group)
+    if (!row) {
+      row = { group: cap.group, theme: cap.theme, count: 0, byPriority: {}, wcoLinked: 0 }
+      rows.set(cap.group, row)
+    }
+    row.count++
+    row.byPriority[cap.priority] = (row.byPriority[cap.priority] ?? 0) + 1
+    if (wcoDomainsFor(cap).length > 0) row.wcoLinked++
+  }
+  return [...rows.values()]
 }
 
 const CATEGORIES = [
@@ -413,60 +515,75 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
     ], { size: 8 })
   }
 
-  // ── PAGE 13: TCF CAPABILITY GAP MATRIX ──
-  r.page('TCF Capability Gap Matrix', 'Top 20 Trade Capability Framework capabilities with largest estimated gaps')
-
-  const tcfThemes = [
-    'Revenue & Duty Management', 'Risk Management & Compliance',
-    'Trade Facilitation & Operations', 'Trade Intelligence & Analytics',
-    'Trader & Stakeholder Management', 'Digital Customs & Modernization'
-  ]
-
+  // ── PAGE 13: TCF CAPABILITY COVERAGE ──
   /*
-   * D-001 IS PRESERVED HERE ON PURPOSE.
+   * WAS "TCF Capability Gap Matrix — Top 20 ... with largest estimated gaps".
+   * D-001, resolved by removal: those twenty rows were not TCF capabilities, and
+   * their theme column came from a hand-written array indexed by TACR category
+   * position. See the note on `TcfCapability` above.
    *
-   * These twenty rows are not TCF capabilities. There is no lookup: the names
-   * are string-concatenated from the eight TACR category names, and the three
-   * scores are the category score offset by fixed amounts. `priorityLabel`
-   * thresholds the invented number, so the page tells a client which fabricated
-   * capabilities are Critical. The same defect, with the same three offsets,
-   * sits on page 13 of BAIW's report.
-   *
-   * Migrating it verbatim keeps this diff readable. A twenty-row semantic
-   * correction inside the one change that has to establish the spine migration
-   * is sound would confound both, and the resolution is a product decision that
-   * differs per module — see docs/known-defects.md D-001.
+   * The replacement reports the framework, which is real: how the 100
+   * capabilities distribute across groups, the authored priority mix, and how
+   * many have a WCO Data Model dependency recorded. No assessment score appears
+   * on this page — TACR maturity is on the radar, the scorecard and the deep
+   * dives, against categories, where it belongs.
    */
-  const capGaps = CATEGORIES.slice(0, 8).flatMap((cat, ci) => {
-    const score = scores.find(s => s.category === cat) || { current: 0, gap: 0 }
-    const theme = tcfThemes[ci % tcfThemes.length]
-    return [
-      { name: `${cat} Strategy & Planning`, theme, currentLevel: score.current, requiredLevel: score.current + score.gap, gap: score.gap, rank: ci * 3 + 1 },
-      { name: `${cat} Analytics & Reporting`, theme, currentLevel: Math.max(1, score.current - 0.3), requiredLevel: score.current + score.gap, gap: score.gap + 0.3, rank: ci * 3 + 2 },
-      { name: `${cat} Process Automation`, theme, currentLevel: Math.max(1, score.current - 0.5), requiredLevel: score.current + score.gap, gap: score.gap + 0.5, rank: ci * 3 + 3 },
-    ]
-  }).sort((a, b) => b.gap - a.gap).slice(0, 20)
+  const coverage = groupCoverage(capabilities)
+  const priorities = prioritiesPresent(capabilities)
+  const wcoLinkedTotal = capabilities.filter(c => wcoDomainsFor(c).length > 0).length
+  const themeCount = new Set(capabilities.map(c => c.theme)).size
+  const titleCase = (s: string) => s.charAt(0) + s.slice(1).toLowerCase()
+
+  r.page(
+    'TCF Capability Coverage',
+    `Structure of the Trade Capability Framework as authored: ${capabilities.length} capabilities ` +
+    `in ${coverage.length} groups across ${themeCount} themes. Framework scope and its authored ` +
+    `priority mix, not assessment results — priority is fixed in the dataset and identical for ` +
+    `every client; maturity is scored against TACR categories, a separate axis, on the radar and ` +
+    `scorecard.`,
+  )
 
   r.table({
-    head: ['#', 'Capability', 'TCF Theme', 'Current', 'Required', 'Gap', 'Priority'],
-    rows: capGaps.map((c, i) => [
-      i + 1,
-      c.name,
-      c.theme,
-      c.currentLevel.toFixed(1),
-      c.requiredLevel.toFixed(1),
-      c.gap.toFixed(1),
-      priorityLabel(c.gap),
-    ]),
+    head: ['Group', 'Theme', 'Caps', ...priorities.map(titleCase), 'WCO'],
+    rows: [
+      ...coverage.map(g => [
+        g.group,
+        g.theme,
+        g.count,
+        ...priorities.map(p => g.byPriority[p] ?? 0),
+        g.wcoLinked,
+      ]),
+      [
+        'All groups',
+        `${themeCount} themes`,
+        capabilities.length,
+        ...priorities.map(p => capabilities.filter(c => c.priority === p).length),
+        wcoLinkedTotal,
+      ],
+    ],
     headFontSize: 7,
     bodyFontSize: 7,
-    columnStyles: { 0: { halign: 'center', cellWidth: 8 }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' }, 6: { halign: 'center' } },
+    columnStyles: {
+      2: { halign: 'center', cellWidth: 12 },
+      ...Object.fromEntries(priorities.map((_, i) => [3 + i, { halign: 'center', cellWidth: 14 }])),
+      [3 + priorities.length]: { halign: 'center', cellWidth: 12 },
+    },
     didParseCell(data) {
-      if (data.section === 'body' && data.row.index < 5) {
-        data.cell.styles.fillColor = [255, 251, 235]
+      // Totals row identified by index, not by matching its text.
+      if (data.section === 'body' && data.row.index === coverage.length) {
+        data.cell.styles.fillColor = [241, 245, 249]
+        data.cell.styles.fontStyle = 'bold'
       }
     },
   })
+
+  r.text(
+    `WCO counts capabilities with at least one entry in dataRequirements.json. ` +
+    `${wcoLinkedTotal} of ${capabilities.length} have one; the remaining ` +
+    `${capabilities.length - wcoLinkedTotal} have no WCO DM domain recorded, and are blank in the ` +
+    `capability register rather than filled with an assumed value.`,
+    { size: 7, color: SLATE, gapAfter: 3 },
+  )
 
   // ── PAGE 14: WCO DM CONFORMITY ASSESSMENT ──
   r.page('WCO Data Model Conformity', 'Assessment of WCO DM v4.2 domain coverage and readiness for trade analytics')
@@ -644,56 +761,53 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
 }
 
 // ══════════════════════════════════════════════════════════
-// TRADE GAP CSV GENERATOR
+// TCF CAPABILITY REGISTER CSV
 // ══════════════════════════════════════════════════════════
-export function generateTradeGapCSV(assessment: AssessmentData) {
-  const { scores } = assessment
+/*
+ * D-001 CLOSED BY REMOVAL, the same way as BAIW's. This was
+ * `generateTradeGapCSV` and it emitted 96 rows — against 100 real capabilities —
+ * of `Current Level`, `Required Level`, `Gap` and `Priority` that no dataset
+ * supports:
+ *
+ *   - names built at export time from TACR category names, matching no row in
+ *     capabilities.json;
+ *   - `Current Level` a category score plus `(Math.random() - 0.5) * 0.6`;
+ *   - `Priority` thresholding that jitter, so the class was unstable between two
+ *     exports of one unchanged assessment;
+ *   - `TCF Theme` from `tcfThemes[ci]`, a hand-written array indexed by category
+ *     position, with two themes repeated to reach eight entries;
+ *   - `WCO DM Dependencies` one of five strings chosen by category name.
+ *
+ * The columns are GONE rather than renamed. What ships is the register: the 100
+ * real capabilities and the attributes actually authored against them.
+ *
+ * `Priority` in the new file is the DATASET's own per-capability field, not a
+ * derived one. It is framework editorial judgement, fixed for every client, and
+ * the header says so.
+ *
+ * Now on src/report/csv.ts — BOM, CRLF, every field quoted.
+ */
+const TRADE_REGISTER_COLUMNS: CsvColumn<TcfCapability>[] = [
+  { key: 'id', header: 'ID' },
+  // `sub` is the capability's own name in this dataset; `theme` and `group` are
+  // its parents. TCF has no `name`/`description` field — unlike BVF — so the
+  // register carries what TCF actually authored rather than inventing the rest.
+  { key: 'sub', header: 'Name' },
+  { key: 'theme', header: 'TCF Theme' },
+  { key: 'group', header: 'Group' },
+  { key: 'priority', header: 'Framework Priority (authored)' },
+  { key: 'dataReqCount', header: 'Data Requirements (declared)' },
+  {
+    key: 'id',
+    header: 'WCO DM Domains (linked)',
+    format: cap => wcoDomainsFor(cap).join('; '),
+  },
+]
 
-  // Header
-  let csv = 'ID,Name,TCF Theme,Group,Current Level,Required Level,Gap,Priority,WCO DM Dependencies\n'
-
-  const tcfThemes = [
-    'Revenue & Duty Management', 'Risk Management & Compliance',
-    'Trade Facilitation & Operations', 'Trade Intelligence & Analytics',
-    'Trader & Stakeholder Management', 'Digital Customs & Modernization',
-    'Revenue & Duty Management', 'Trade Intelligence & Analytics'
-  ]
-
-  // Generate capability rows from category scores
-  let id = 1
-  CATEGORIES.slice(0, 8).forEach((cat, ci) => {
-    const score = scores.find(s => s.category === cat) || { current: 0, desired: 0, gap: 0 }
-    const theme = tcfThemes[ci]
-    const capabilities = [
-      { name: `${cat} Strategy & Planning`, group: 'Strategy' },
-      { name: `${cat} Analytics`, group: 'Analytics' },
-      { name: `${cat} Reporting`, group: 'Reporting' },
-      { name: `${cat} Process Automation`, group: 'Automation' },
-      { name: `${cat} Data Integration`, group: 'Data' },
-      { name: `${cat} Risk Assessment`, group: 'Risk' },
-      { name: `${cat} Compliance Monitoring`, group: 'Compliance' },
-      { name: `${cat} Performance Management`, group: 'Performance' },
-      { name: `${cat} Trader Analytics`, group: 'Trader' },
-      { name: `${cat} Optimization`, group: 'Optimization' },
-      { name: `${cat} Real-Time Monitoring`, group: 'Real-Time' },
-      { name: `${cat} Predictive Models`, group: 'Predictive' },
-    ]
-    capabilities.forEach(cap => {
-      const variation = (Math.random() - 0.5) * 0.6
-      const current = Math.max(1, Math.min(5, score.current + variation))
-      const required = Math.max(current, score.desired)
-      const gap = required - current
-      const wcoDeps = cat === 'Data Governance' ? 'Declaration; Goods; Transport' :
-                      cat === 'Information & Integration' ? 'Consignment; Financial; Party' :
-                      cat === 'Analytics & Technology' ? 'Risk & Control; Classification' :
-                      cat === 'Infrastructure' ? 'All domains' : 'Declaration; Goods; Party'
-      csv += `${id},"${cap.name}","${theme}",${cap.group},${current.toFixed(1)},${required.toFixed(1)},${gap.toFixed(1)},${priorityLabel(gap)},"${wcoDeps}"\n`
-      id++
-    })
-  })
-
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' })
-  saveAs(blob, 'TAIW_Trade_Capability_Gap_Analysis.csv')
+export function generateTradeCapabilityRegisterCSV(meta: ReportMeta) {
+  // byStringKey is correct here: TCF ids are slugs, not numbers.
+  const rows = [...capabilities].sort(byStringKey(c => c.id))
+  downloadCsv(rows, TRADE_REGISTER_COLUMNS, reportFilename(meta, 'csv'))
 }
 
 // ══════════════════════════════════════════════════════════

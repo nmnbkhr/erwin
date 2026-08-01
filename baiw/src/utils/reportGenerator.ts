@@ -5,9 +5,13 @@
 import type jsPDF from 'jspdf'
 import { saveAs } from 'file-saver'
 import benchmarks from '../data/benchmarks.json'
+import capabilities from '../data/capabilities.json'
+import dataRequirements from '../data/dataRequirements.json'
 
 import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '../report/spine'
 import { formatCoverDate, reportFilename } from '../report/naming'
+import { downloadCsv, type CsvColumn } from '../report/csv'
+import { byNumber } from '../report/order'
 import type { ReportMeta } from '../report/types'
 
 /*
@@ -19,13 +23,17 @@ import type { ReportMeta } from '../report/types'
  * trailer /ID seed and are deliberately NOT printed on the cover —
  * `useReportMeta` sets `coverTag: ''` for exactly that reason.
  *
- * The gap CSV has no id. It is not on the spine and is not migrating in this
- * step: it is blocked on the D-001 product decision along with TAIW's and
- * HAIW's, and its three fabricated columns stay SKIPPED in the golden baseline.
- * See docs/known-defects.md.
+ * `MR-BAIW-REGISTER` was `MR-BAIW-GAP` until D-001 was resolved by REMOVAL. The
+ * document is a capability register — the 112 real BVF capabilities and their
+ * authored attributes — and it no longer reports a gap, because BAIW has no
+ * per-capability gap to report. Renaming the id rather than leaving a filename
+ * that says GAP over content that is not one. HAIW keeps `MR-HAIW-GAP`: since
+ * D-003 its gap column is computed from real `capabilityLinks`, so there the
+ * name is accurate. The asymmetry is the point.
  */
 export const MATURITY_ARTEFACT_ID = 'MR-BAIW-MATURITY'
 export const ROADMAP_ARTEFACT_ID = 'MR-BAIW-ROADMAP'
+export const REGISTER_ARTEFACT_ID = 'MR-BAIW-REGISTER'
 
 // ── Types ──
 interface CategoryScore {
@@ -41,6 +49,107 @@ interface AssessmentData {
   answeredCategories: number
   totalCategories: number
 }
+
+/*
+ * ── BVF capabilities — structure, deliberately NOT scored ──────────────────
+ *
+ * D-001, resolved by removal. BACR's eight categories are a generic maturity
+ * dimension; BVF's 112 capabilities are FSDM-specific banking functions. They
+ * are ORTHOGONAL AXES — a capability's `themeName` is not a narrower version of
+ * a BACR category, and no join between them exists in any dataset. There is
+ * therefore no honest per-capability score to compute, and no column heading
+ * makes one true.
+ *
+ * What was here before invented one: 112 rows whose names were string-built at
+ * export time (`${cat} Strategy & Planning`), matching no row in
+ * capabilities.json, carrying a category score jittered by `Math.random` and a
+ * Priority label thresholding that jitter — so the class flipped in 46 of 112
+ * rows between two exports of one unchanged assessment.
+ *
+ * Everything below reads authored attributes only. Category maturity is
+ * reported on the radar, the scorecard and the deep dives, and is not restated
+ * against a capability anywhere.
+ *
+ * The path to a real per-capability score is authoring `capabilityLinks` on
+ * BACR's 804 questions, which is what HAIW has and what makes its gap column
+ * legitimate. Not scheduled. See docs/known-defects.md D-001.
+ */
+type BvfCapability = (typeof capabilities)[number]
+
+/**
+ * Exported so the report card states a count derived from the data.
+ *
+ * CLAUDE.md, "Marketing copy drifts from the datasets": `SuiteLanding.tsx`
+ * hardcodes four dataset counts and all four are now wrong. Nothing checks them.
+ * Deriving is one import and cannot rot.
+ */
+export const CAPABILITY_COUNT = capabilities.length
+
+/**
+ * capability id → the FSDM subject areas it actually depends on.
+ *
+ * Built from `dataRequirements.json`, which is the only place the relation is
+ * recorded. Module-level and derived once: the inputs are static imports, so
+ * this is a pure function of the bundle and cannot vary between two exports.
+ *
+ * COVERAGE IS PARTIAL AND THAT IS REPORTED, NOT HIDDEN: 142 requirement rows
+ * name only 15 of the 112 capabilities, so 97 capabilities have no FSDM subject
+ * area and their cell is EMPTY. Empty is the truth. The previous code filled
+ * this column by switching on the BACR category name — four hardcoded strings
+ * standing in for a relation nobody had authored.
+ */
+const fsdmByCapability = ((): Map<number, string[]> => {
+  const m = new Map<number, Set<string>>()
+  for (const req of dataRequirements) {
+    if (!m.has(req.capabilityId)) m.set(req.capabilityId, new Set())
+    m.get(req.capabilityId)!.add(req.fsdmSubjectArea)
+  }
+  // Sorted so the cell text is stable regardless of row order in the dataset.
+  return new Map([...m].map(([id, set]) => [id, [...set].sort()]))
+})()
+
+const fsdmFor = (cap: BvfCapability): string[] => fsdmByCapability.get(cap.id) ?? []
+
+/** One row of the page-13 coverage table: a BVF group, with its phase spread. */
+interface GroupCoverage {
+  group: string
+  theme: string
+  count: number
+  /** Index 0 unused; phases are 1-based in the dataset. */
+  byPhase: number[]
+  /** Capabilities in this group with at least one FSDM subject area. */
+  fsdmLinked: number
+}
+
+/**
+ * Group-level coverage of the BVF framework, in dataset order.
+ *
+ * Group rather than theme because there are only three themes — a three-row
+ * page is not worth printing — and rather than capability because 112 rows is a
+ * register, which is what the CSV is for.
+ *
+ * Order is the order groups first appear in `capabilities.json`, which keeps
+ * each theme's groups contiguous. Not sorted alphabetically: that would
+ * interleave the three themes and destroy the only structure the page has.
+ */
+function groupCoverage(caps: readonly BvfCapability[]): GroupCoverage[] {
+  const rows = new Map<string, GroupCoverage>()
+  for (const cap of caps) {
+    let row = rows.get(cap.groupName)
+    if (!row) {
+      row = { group: cap.groupName, theme: cap.themeName, count: 0, byPhase: [], fsdmLinked: 0 }
+      rows.set(cap.groupName, row)
+    }
+    row.count++
+    row.byPhase[cap.phase] = (row.byPhase[cap.phase] ?? 0) + 1
+    if (fsdmFor(cap).length > 0) row.fsdmLinked++
+  }
+  return [...rows.values()]
+}
+
+/** Every phase present in the dataset, ascending — not a hardcoded 1..4. */
+const phasesPresent = (caps: readonly BvfCapability[]): number[] =>
+  [...new Set(caps.map(c => c.phase))].sort((a, b) => a - b)
 
 const CATEGORIES = [
   'Business', 'Culture', 'Governance', 'Information', 'Applications',
@@ -421,54 +530,78 @@ export function generateMaturityPDF(assessment: AssessmentData, meta: ReportMeta
     ], { size: 8 })
   }
 
-  // ── PAGE 13: CAPABILITY GAP MATRIX ──
-  r.page('Capability Gap Matrix', 'Top 20 BVF capabilities with largest estimated gaps based on category scores')
-
+  // ── PAGE 13: BVF CAPABILITY COVERAGE ──
   /*
-   * D-001 IS PRESERVED HERE ON PURPOSE, AND THIS IS THE ORIGINAL INSTANCE.
+   * WAS "Capability Gap Matrix — Top 20 BVF capabilities with largest estimated
+   * gaps". D-001, resolved by removal: those twenty rows were not BVF
+   * capabilities and the three scores on each were a BACR category score offset
+   * by 0, -0.3 and -0.5. See the note on `BvfCapability` above for why no honest
+   * per-capability score exists.
    *
-   * These twenty rows are not BVF capabilities. There is no lookup into the 112
-   * the methodology page cites: the names are string-concatenated from the eight
-   * BACR category names, the theme column repeats the category rather than
-   * naming a BVF theme, and the three scores are the category score offset by
-   * fixed amounts (0, -0.3, -0.5). `priorityLabel` thresholds the invented
-   * number, so the page tells a bank which fabricated capabilities are Critical.
-   * TAIW's page 13 is a copy of this code with the same three offsets.
+   * What replaces it reports the FRAMEWORK, which is real: how the 112
+   * capabilities distribute across groups, when each group is scheduled, and how
+   * many capabilities have an FSDM dependency recorded. A reader can act on the
+   * phase spread — it is the delivery sequence — and the FSDM column is the
+   * honest coverage number rather than four hardcoded strings.
    *
-   * Migrating it verbatim keeps this diff readable. A twenty-row semantic
-   * correction inside the one change that has to establish the spine migration
-   * is sound would confound both, and the resolution is a product decision that
-   * differs per module — see docs/known-defects.md D-001.
+   * Category maturity is NOT restated here. It is on the radar (page 3), the
+   * scorecard (page 4) and the eight deep dives, correctly, against categories.
    */
-  const capGaps = CATEGORIES.slice(0, 8).flatMap((cat, ci) => {
-    const score = scores.find(s => s.category === cat) || { current: 0, gap: 0 }
-    return [
-      { name: `${cat} Strategy & Planning`, theme: cat, currentLevel: score.current, requiredLevel: score.current + score.gap, gap: score.gap, rank: ci * 3 + 1 },
-      { name: `${cat} Analytics & Reporting`, theme: cat, currentLevel: Math.max(1, score.current - 0.3), requiredLevel: score.current + score.gap, gap: score.gap + 0.3, rank: ci * 3 + 2 },
-      { name: `${cat} Process Automation`, theme: cat, currentLevel: Math.max(1, score.current - 0.5), requiredLevel: score.current + score.gap, gap: score.gap + 0.5, rank: ci * 3 + 3 },
-    ]
-  }).sort((a, b) => b.gap - a.gap).slice(0, 20)
+  const coverage = groupCoverage(capabilities)
+  const phases = phasesPresent(capabilities)
+  const fsdmLinkedTotal = capabilities.filter(c => fsdmFor(c).length > 0).length
+  const themeCount = new Set(capabilities.map(c => c.themeName)).size
+
+  r.page(
+    'BVF Capability Coverage',
+    `Structure of the Banking Value Framework as authored: ${capabilities.length} capabilities ` +
+    `in ${coverage.length} groups across ${themeCount} themes. Framework scope and delivery ` +
+    `sequence, not assessment results — maturity is scored against BACR categories, which are a ` +
+    `separate axis, and is reported on the radar and scorecard.`,
+  )
 
   r.table({
-    head: ['#', 'Capability', 'Theme', 'Current', 'Required', 'Gap', 'Priority'],
-    rows: capGaps.map((c, i) => [
-      i + 1,
-      c.name,
-      c.theme,
-      c.currentLevel.toFixed(1),
-      c.requiredLevel.toFixed(1),
-      c.gap.toFixed(1),
-      priorityLabel(c.gap),
-    ]),
+    head: ['Group', 'Theme', 'Caps', ...phases.map(p => `P${p}`), 'FSDM'],
+    rows: [
+      ...coverage.map(g => [
+        g.group,
+        g.theme,
+        g.count,
+        ...phases.map(p => g.byPhase[p] ?? 0),
+        g.fsdmLinked,
+      ]),
+      [
+        'All groups',
+        `${themeCount} themes`,
+        capabilities.length,
+        ...phases.map(p => capabilities.filter(c => c.phase === p).length),
+        fsdmLinkedTotal,
+      ],
+    ],
     headFontSize: 7,
     bodyFontSize: 7,
-    columnStyles: { 0: { halign: 'center', cellWidth: 8 }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' }, 6: { halign: 'center' } },
+    columnStyles: {
+      2: { halign: 'center', cellWidth: 12 },
+      ...Object.fromEntries(phases.map((_, i) => [3 + i, { halign: 'center', cellWidth: 10 }])),
+      [3 + phases.length]: { halign: 'center', cellWidth: 14 },
+    },
     didParseCell(data) {
-      if (data.section === 'body' && data.row.index < 5) {
-        data.cell.styles.fillColor = [255, 251, 235]
+      // The totals row is the last body row, identified by index rather than by
+      // matching its text — a group could legitimately be named "All groups".
+      if (data.section === 'body' && data.row.index === coverage.length) {
+        data.cell.styles.fillColor = [241, 245, 249]
+        data.cell.styles.fontStyle = 'bold'
       }
     },
   })
+
+  r.text(
+    `FSDM counts capabilities with at least one entry in dataRequirements.json. ` +
+    `${fsdmLinkedTotal} of ${capabilities.length} have one; the remaining ` +
+    `${capabilities.length - fsdmLinkedTotal} have no FSDM subject area recorded, and are ` +
+    `blank in the capability register rather than filled with an assumed value.`,
+    { size: 7, color: SLATE, gapAfter: 3 },
+  )
 
   // ── PAGE 14: FSDM DATA READINESS ──
   r.page('FSDM Data Readiness', 'Which FSDM domains are needed based on capability gaps')
@@ -658,58 +791,56 @@ export function generateMaturityPDF(assessment: AssessmentData, meta: ReportMeta
 }
 
 // ══════════════════════════════════════════════════════════
-// GAP CSV GENERATOR
+// CAPABILITY REGISTER CSV
 // ══════════════════════════════════════════════════════════
 /*
- * NOT MIGRATED, deliberately. Blocked on D-001 with TAIW's and HAIW's: the
- * per-capability scores below are `score.current + (Math.random() - 0.5) * 0.6`,
- * so 112 rows of fabricated levels, gaps and priorities go to a client and no
- * two exports of one assessment agree. Moving it onto src/report/csv.ts would
- * change its bytes without changing that, and the three move together once the
- * product decision lands. Its three affected columns stay SKIPPED in the golden
- * baseline; its nondeterminism is expected, not a regression.
+ * D-001 CLOSED BY REMOVAL. This was `generateGapCSV`, and it emitted 112 rows of
+ * `Current Level`, `Required Level`, `Gap` and `Priority` that no dataset
+ * supports:
+ *
+ *   - the names were built at export time — `${cat} Strategy & Planning` —
+ *     and matched no row in capabilities.json;
+ *   - `Current Level` was a BACR category score plus
+ *     `(Math.random() - 0.5) * 0.6`;
+ *   - `Priority` thresholded that jitter, so the class flipped in 46 of 112 rows
+ *     between two exports of one unchanged assessment;
+ *   - `FSDM Dependencies` was one of four strings chosen by category name.
+ *
+ * The columns are GONE rather than renamed. BACR categories and BVF capabilities
+ * are orthogonal axes with no join in any dataset, so there is nothing to
+ * compute and no heading that would make the number true. What ships is the
+ * register: the 112 real capabilities and the attributes actually authored
+ * against them.
+ *
+ * Now on src/report/csv.ts, which quotes every field — the old code interpolated
+ * unquoted, so a capability name containing a comma corrupted the row, and four
+ * of the real names contain one. BOM + CRLF, as every deliverable CSV here.
+ *
+ * Removing Math.random makes this file byte-identical across exports for the
+ * first time; the golden baseline asserts its raw bytes rather than skipping
+ * three columns.
  */
-export function generateGapCSV(assessment: AssessmentData) {
-  const { scores } = assessment
+const REGISTER_COLUMNS: CsvColumn<BvfCapability>[] = [
+  { key: 'id', header: 'ID' },
+  { key: 'name', header: 'Name' },
+  { key: 'themeName', header: 'Theme' },
+  { key: 'groupName', header: 'Group' },
+  { key: 'phase', header: 'Phase' },
+  { key: 'dataReqCount', header: 'Data Requirements (declared)' },
+  // Semicolon-joined, matching the register convention in DGIW's CDE export.
+  // Empty for the 97 capabilities with no recorded FSDM dependency — see
+  // `fsdmByCapability`. The header says "(linked)" because it is derived from
+  // dataRequirements.json, whereas the count beside it is the capability's own
+  // authored field; the two do NOT reconcile and must not look like they do.
+  { key: 'id', header: 'FSDM Subject Areas (linked)', format: cap => fsdmFor(cap).join('; ') },
+  { key: 'description', header: 'Description' },
+]
 
-  // Header
-  let csv = 'ID,Name,Theme,Group,Current Level,Required Level,Gap,Priority,FSDM Dependencies\n'
-
-  // Generate capability rows from category scores
-  let id = 1
-  CATEGORIES.slice(0, 8).forEach(cat => {
-    const score = scores.find(s => s.category === cat) || { current: 0, desired: 0, gap: 0 }
-    const capabilities = [
-      { name: `${cat} Strategy & Planning`, group: 'Strategy' },
-      { name: `${cat} Analytics`, group: 'Analytics' },
-      { name: `${cat} Reporting`, group: 'Reporting' },
-      { name: `${cat} Process Automation`, group: 'Automation' },
-      { name: `${cat} Data Integration`, group: 'Data' },
-      { name: `${cat} Model Development`, group: 'Models' },
-      { name: `${cat} Performance Management`, group: 'Performance' },
-      { name: `${cat} Risk Assessment`, group: 'Risk' },
-      { name: `${cat} Customer Analytics`, group: 'Customer' },
-      { name: `${cat} Optimization`, group: 'Optimization' },
-      { name: `${cat} Real-Time Decisioning`, group: 'Real-Time' },
-      { name: `${cat} Predictive Models`, group: 'Predictive' },
-      { name: `${cat} Dashboard & Visualization`, group: 'Visualization' },
-      { name: `${cat} Data Quality`, group: 'Quality' },
-    ]
-    capabilities.forEach(cap => {
-      const variation = (Math.random() - 0.5) * 0.6
-      const current = Math.max(1, Math.min(5, score.current + variation))
-      const required = Math.max(current, score.desired)
-      const gap = required - current
-      const fsdm = cat === 'Information' ? 'Party; Agreement; Transaction' :
-                   cat === 'Applications' ? 'Campaign; Channel; Product' :
-                   cat === 'Systems' ? 'All domains' : 'Party; Agreement'
-      csv += `${id},${cap.name},${cat},${cap.group},${current.toFixed(1)},${required.toFixed(1)},${gap.toFixed(1)},${priorityLabel(gap)},${fsdm}\n`
-      id++
-    })
-  })
-
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' })
-  saveAs(blob, 'BAIW_Capability_Gap_Analysis.csv')
+export function generateCapabilityRegisterCSV(meta: ReportMeta) {
+  // byNumber, not byStringKey: BVF ids are unpadded integers 1..112, so code-unit
+  // order would put 10 before 2. src/report/csv.ts documents exactly this trap.
+  const rows = [...capabilities].sort(byNumber(c => c.id))
+  downloadCsv(rows, REGISTER_COLUMNS, reportFilename(meta, 'csv'))
 }
 
 // ══════════════════════════════════════════════════════════

@@ -166,8 +166,10 @@ export const REGISTRY = {
    * text is no longer the strongest thing that can be asserted about them, and
    * asserting less than you can measure is how a regression gets through.
    *
-   * gap-csv is untouched and still nondeterministic. Its three fabricated
-   * columns stay SKIPPED, which is the only reason a compare on it can pass.
+   * gap-csv asserts raw bytes too as of D-001's removal. It emitted three
+   * `Math.random` columns until then, so a byte hash was a different number
+   * every run; the columns are gone, the file is the 112-row BVF capability
+   * register, and nothing in it varies between two exports.
    */
   baiw: {
     entry: '/src/utils/reportGenerator.ts',
@@ -184,14 +186,20 @@ export const REGISTRY = {
       {
         id: 'gap-csv',
         kind: 'csv',
-        exportName: 'generateGapCSV',
-        call: (m, f) => m.generateGapCSV(f.assessment),
-        // D-001. The reason string names the FUNCTION, not a line: it is copied
-        // verbatim into the committed baseline, and the two line numbers that
-        // used to be here (695, then 756) were both already wrong by the time
-        // anyone read them — the generator moved under them twice during D2.
-        unassertable: ['Current Level', 'Gap', 'Priority'],
-        unassertableReason: 'nondeterministic — Math.random in generateGapCSV (reportGenerator.ts)',
+        exportName: 'generateCapabilityRegisterCSV',
+        artefactIdExport: 'REGISTER_ARTEFACT_ID',
+        profile: 'baiw',
+        // D-001 CLOSED BY REMOVAL. `unassertable` is gone, not relaxed: the
+        // three columns it named — Current Level, Gap, Priority — no longer
+        // exist. Nothing here is derived from the assessment any more, so the
+        // call takes only meta.
+        //
+        // The baseline id stays `gap-csv` while the artefact id became
+        // MR-BAIW-REGISTER: renaming the id would orphan the committed baseline
+        // and read as a deletion plus an addition in the diff, which is the
+        // opposite of what this change wants to show.
+        assertRawBytes: true,
+        call: (m, _f, c) => m.generateCapabilityRegisterCSV(c.meta),
       },
       {
         id: 'roadmap-md',
@@ -210,8 +218,8 @@ export const REGISTRY = {
    * generator rather than restating it, and `profile` naming the REPORT_PROFILES
    * entry the real call site passes to useReportMeta().
    *
-   * gap-csv is untouched and still nondeterministic. Its three fabricated
-   * columns stay SKIPPED, which is the only reason a compare on it can pass.
+   * gap-csv asserts raw bytes too as of D-001's removal — the 100-row TCF
+   * capability register, with no derived column left in it.
    */
   taiw: {
     entry: '/src/taiw/utils/tradeReportGenerator.ts',
@@ -228,12 +236,13 @@ export const REGISTRY = {
       {
         id: 'gap-csv',
         kind: 'csv',
-        exportName: 'generateTradeGapCSV',
-        call: (m, f) => m.generateTradeGapCSV(f.assessment),
-        // D-001. Named by function rather than by line, for the same reason as
-        // BAIW's above: ":721" was stale from the moment step 2 landed.
-        unassertable: ['Current Level', 'Gap', 'Priority'],
-        unassertableReason: 'nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)',
+        exportName: 'generateTradeCapabilityRegisterCSV',
+        artefactIdExport: 'TRADE_REGISTER_ARTEFACT_ID',
+        profile: 'taiw',
+        // D-001 closed by removal, as BAIW's above. Baseline id kept as
+        // `gap-csv` for the same reason; artefact id is now MR-TAIW-REGISTER.
+        assertRawBytes: true,
+        call: (m, _f, c) => m.generateTradeCapabilityRegisterCSV(c.meta),
       },
       {
         id: 'roadmap-md',

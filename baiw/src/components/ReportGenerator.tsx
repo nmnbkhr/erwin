@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
 import {
-  generateMaturityPDF, generateGapCSV, generateRoadmapMarkdown,
-  MATURITY_ARTEFACT_ID, ROADMAP_ARTEFACT_ID,
+  generateMaturityPDF, generateCapabilityRegisterCSV, generateRoadmapMarkdown,
+  MATURITY_ARTEFACT_ID, ROADMAP_ARTEFACT_ID, REGISTER_ARTEFACT_ID, CAPABILITY_COUNT,
 } from '../utils/reportGenerator'
 import { useOrgName } from '../engagement/useOrgName'
 import { useReportMeta, REPORT_PROFILES } from '../engagement/useReportMeta'
@@ -55,8 +55,10 @@ export default function ReportGenerator({ scores, overallScore, answeredCategori
         // which is where it has always been derived.
         generateMaturityPDF(assessmentData, metaFor(MATURITY_ARTEFACT_ID))
       } else if (type === 'csv') {
-        // Still the pre-spine generator, deliberately — blocked on D-001.
-        generateGapCSV(assessmentData)
+        // The capability REGISTER, not a gap analysis: D-001 was closed by
+        // removing the fabricated per-capability scores, so this no longer reads
+        // the assessment at all — it exports the 112 authored BVF capabilities.
+        generateCapabilityRegisterCSV(metaFor(REGISTER_ARTEFACT_ID))
       } else {
         generateRoadmapMarkdown(assessmentData, metaFor(ROADMAP_ARTEFACT_ID))
       }
@@ -130,14 +132,16 @@ export default function ReportGenerator({ scores, overallScore, answeredCategori
               </div>
             </div>
 
-            {/* CSV Gap Analysis */}
+            {/* CSV capability register — not a gap analysis; see D-001. */}
             <div className="border border-slate-200 rounded-lg p-4 flex flex-col">
               <div className="flex items-center gap-2 mb-2">
                 <BarChart3 size={18} className="text-green-500" />
                 <span className="font-medium text-slate-700 text-sm">CSV Export</span>
               </div>
-              <p className="text-xs text-slate-500 mb-1">Capability Gap Analysis</p>
-              <p className="text-xs text-slate-400 mb-3">112 capabilities • Priorities</p>
+              <p className="text-xs text-slate-500 mb-1">BVF Capability Register</p>
+              {/* Counted from the dataset rather than typed: the card next door
+                  in SuiteLanding.tsx has drifted from its data three times. */}
+              <p className="text-xs text-slate-400 mb-3">{CAPABILITY_COUNT} capabilities • Themes, phases, FSDM</p>
               <div className="mt-auto">
                 <button
                   onClick={() => handleGenerate('csv')}

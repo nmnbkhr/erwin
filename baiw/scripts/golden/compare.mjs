@@ -167,12 +167,13 @@ function diffCommon(findings, base, now) {
 /**
  * Raw-bytes equality, for the artefacts whose identity is pinned.
  *
- * Three populations reach this: haiw/gap-csv (no clock, no RNG), every DGIW
- * artefact, and — since D3 — the six migrated module artefacts. For all of them
- * the spine pins /CreationDate and /ID from meta.generatedAt, or there is nothing
- * to pin, so a byte difference on an untouched generator means the harness moved.
+ * ALL 23 artefacts reach this as of D-001's removal. The spine pins
+ * /CreationDate and /ID from meta.generatedAt, or there is nothing to pin, so a
+ * byte difference on an untouched generator means the harness moved.
  *
- * The two gap CSVs still opt out, and only they: `Math.random` in D-001.
+ * Nothing opts out any more. `Math.random` left the report code entirely when
+ * BAIW's and TAIW's fabricated capability scores were removed — until then those
+ * two CSVs were the only artefacts whose bytes were a different number every run.
  */
 function diffRawBytes(findings, base, now) {
   if (!base.rawBytesAsserted) return

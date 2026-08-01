@@ -1,7 +1,7 @@
 {
   "artefact": "gap-csv",
-  "assertableSha256": "c385c0a0286e1f1767597057e455e20aa73d3c3e69c1877cea6cda70b6362087",
-  "bytes": null,
+  "assertableSha256": "160af9a860f37e282cfb1e4b6f69b379bcc0438643ed3c3df4ffabb422b6a77e",
+  "bytes": 15244,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -12,53 +12,39 @@
     "icuTimeZone": "UTC",
     "tz": "UTC"
   },
-  "columnCount": 9,
+  "columnCount": 7,
   "datasets": null,
-  "filename": "TAIW_Trade_Capability_Gap_Analysis.csv",
-  "filenameNormalised": "TAIW_Trade_Capability_Gap_Analysis.csv",
+  "filename": "MR-TAIW-REGISTER_fixture-customs-authority_all_2026-07-31.csv",
+  "filenameNormalised": "MR-TAIW-REGISTER_fixture-customs-authority_all_2026-07-31.csv",
   "firstThreeRows": [
-    "1,Strategy & Vision Strategy & Planning,Revenue & Duty Management,Strategy,⟨SKIPPED⟩,1.5,⟨SKIPPED⟩,⟨SKIPPED⟩,Declaration; Goods; Party",
-    "2,Strategy & Vision Analytics,Revenue & Duty Management,Analytics,⟨SKIPPED⟩,1.5,⟨SKIPPED⟩,⟨SKIPPED⟩,Declaration; Goods; Party",
-    "3,Strategy & Vision Reporting,Revenue & Duty Management,Reporting,⟨SKIPPED⟩,1.5,⟨SKIPPED⟩,⟨SKIPPED⟩,Declaration; Goods; Party"
+    "\"24_7_clearance_analytics\",\"24/7 Clearance Analytics\",\"Trade Facilitation & Operations\",\"Clearance Process Optimization\",\"MEDIUM\",\"5\",\"Declaration\"\r",
+    "\"advance_ruling_compliance\",\"Advance Ruling Compliance\",\"Revenue & Duty Management\",\"Customs Valuation Analytics\",\"MEDIUM\",\"6\",\"\"\r",
+    "\"aeo_application_pipeline\",\"AEO Application Pipeline\",\"Trader & Stakeholder Management\",\"AEO Program\",\"CRITICAL\",\"7\",\"Party\"\r"
   ],
-  "fullTextSha256": null,
-  "generator": "generateTradeGapCSV",
+  "fullTextSha256": "160af9a860f37e282cfb1e4b6f69b379bcc0438643ed3c3df4ffabb422b6a77e",
+  "generator": "generateTradeCapabilityRegisterCSV",
   "header": [
-    "ID",
+    "﻿ID",
     "Name",
     "TCF Theme",
     "Group",
-    "Current Level",
-    "Required Level",
-    "Gap",
-    "Priority",
-    "WCO DM Dependencies"
+    "Framework Priority (authored)",
+    "Data Requirements (declared)",
+    "WCO DM Domains (linked)\r"
   ],
   "kind": "csv",
   "lastThreeRows": [
-    "94,Outcomes & Impact Optimization,Trade Intelligence & Analytics,Optimization,⟨SKIPPED⟩,5.0,⟨SKIPPED⟩,⟨SKIPPED⟩,Declaration; Goods; Party",
-    "95,Outcomes & Impact Real-Time Monitoring,Trade Intelligence & Analytics,Real-Time,⟨SKIPPED⟩,5.0,⟨SKIPPED⟩,⟨SKIPPED⟩,Declaration; Goods; Party",
-    "96,Outcomes & Impact Predictive Models,Trade Intelligence & Analytics,Predictive,⟨SKIPPED⟩,5.0,⟨SKIPPED⟩,⟨SKIPPED⟩,Declaration; Goods; Party"
+    "\"warehouse_and_bonded_area_utilization\",\"Warehouse & Bonded Area Utilization\",\"Trade Facilitation & Operations\",\"Port & Terminal Operations\",\"HIGH\",\"8\",\"\"\r",
+    "\"wco_dm_conformity_assessment\",\"WCO DM Conformity Assessment\",\"Digital Customs & Modernization\",\"Data Quality & Governance\",\"CRITICAL\",\"8\",\"Classification; Declaration\"\r",
+    "\"weboc_system_performance\",\"WeBOC System Performance\",\"Digital Customs & Modernization\",\"WeBOC & PSW Analytics\",\"CRITICAL\",\"9\",\"Declaration\""
   ],
   "module": "taiw",
-  "notReproducible": {
-    "bytes": "nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)",
-    "fullTextSha256": "nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)",
-    "rawBytesSha256": "nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)"
-  },
-  "rawBytesAsserted": false,
-  "rawBytesSha256": null,
-  "rowCount": 96,
-  "sampleRowsMasked": true,
-  "unassertable": [
-    "Current Level",
-    "Gap",
-    "Priority"
-  ],
-  "unassertableColumnIndexes": [
-    4,
-    6,
-    7
-  ],
-  "unassertableReason": "nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)"
+  "notReproducible": {},
+  "rawBytesAsserted": true,
+  "rawBytesSha256": "160af9a860f37e282cfb1e4b6f69b379bcc0438643ed3c3df4ffabb422b6a77e",
+  "rowCount": 100,
+  "sampleRowsMasked": false,
+  "unassertable": [],
+  "unassertableColumnIndexes": [],
+  "unassertableReason": null
 }

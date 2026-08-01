@@ -550,12 +550,23 @@ const registeredArtefacts = new Set(plan.artefactRegister.map((a) => a.id))
  * Unused entries are fine and expected — the generators are migrated one at a
  * time and each claims its id when it lands. The count is reported, never failed.
  */
+/*
+ * BAIW's and TAIW's third deliverable was `-GAP` until D-001 was resolved by
+ * REMOVAL. Neither module has a per-capability gap to report — BACR/TACR
+ * categories and BVF/TCF capabilities are orthogonal axes with no join in any
+ * dataset — so both now ship a capability REGISTER and the id says so rather
+ * than leaving a filename that promises a gap analysis.
+ *
+ * HAIW keeps `-GAP` deliberately: since D-003 its gap column is computed from
+ * real `capabilityLinks` on all 720 HACR questions, so there the word is
+ * accurate. The asymmetry records which module has the relation authored.
+ */
 const MODULE_ARTEFACT_IDS = Object.freeze([
   'MR-BAIW-MATURITY',
-  'MR-BAIW-GAP',
+  'MR-BAIW-REGISTER',
   'MR-BAIW-ROADMAP',
   'MR-TAIW-MATURITY',
-  'MR-TAIW-GAP',
+  'MR-TAIW-REGISTER',
   'MR-TAIW-ROADMAP',
   'MR-HAIW-MATURITY',
   'MR-HAIW-GAP',

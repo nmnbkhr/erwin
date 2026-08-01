@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
 import {
-  generateTradeMaturityPDF, generateTradeGapCSV, generateTradeRoadmapMarkdown,
-  TRADE_MATURITY_ARTEFACT_ID, TRADE_ROADMAP_ARTEFACT_ID,
+  generateTradeMaturityPDF, generateTradeCapabilityRegisterCSV, generateTradeRoadmapMarkdown,
+  TRADE_MATURITY_ARTEFACT_ID, TRADE_ROADMAP_ARTEFACT_ID, TRADE_REGISTER_ARTEFACT_ID,
+  TRADE_CAPABILITY_COUNT,
 } from '../utils/tradeReportGenerator'
 import { useOrgName } from '../../engagement/useOrgName'
 import { useReportMeta, REPORT_PROFILES } from '../../engagement/useReportMeta'
@@ -52,8 +53,10 @@ export default function TradeReportGenerator({ scores, overallScore, answeredCat
         // which is where it has always been derived.
         generateTradeMaturityPDF(assessmentData, metaFor(TRADE_MATURITY_ARTEFACT_ID))
       } else if (type === 'csv') {
-        // Still the pre-spine generator, deliberately — blocked on D-001.
-        generateTradeGapCSV(assessmentData)
+        // The capability REGISTER, not a gap analysis: D-001 was closed by
+        // removing the fabricated per-capability scores, so this no longer reads
+        // the assessment at all — it exports the 100 authored TCF capabilities.
+        generateTradeCapabilityRegisterCSV(metaFor(TRADE_REGISTER_ARTEFACT_ID))
       } else {
         generateTradeRoadmapMarkdown(assessmentData, metaFor(TRADE_ROADMAP_ARTEFACT_ID))
       }
@@ -127,14 +130,17 @@ export default function TradeReportGenerator({ scores, overallScore, answeredCat
               </div>
             </div>
 
-            {/* CSV Gap Analysis */}
+            {/* CSV capability register — not a gap analysis; see D-001. */}
             <div className="border border-slate-200 rounded-lg p-4 flex flex-col">
               <div className="flex items-center gap-2 mb-2">
                 <BarChart3 size={18} className="text-green-500" />
                 <span className="font-medium text-slate-700 text-sm">CSV Export</span>
               </div>
-              <p className="text-xs text-slate-500 mb-1">Trade Capability Gap Analysis</p>
-              <p className="text-xs text-slate-400 mb-3">96 capabilities • TCF themes</p>
+              <p className="text-xs text-slate-500 mb-1">TCF Capability Register</p>
+              {/* Counted from the dataset, not typed. The old card said 96 — the
+                  number of rows the synthesiser happened to emit — against 100
+                  real capabilities. */}
+              <p className="text-xs text-slate-400 mb-3">{TRADE_CAPABILITY_COUNT} capabilities • Themes, priority, WCO DM</p>
               <div className="mt-auto">
                 <button
                   onClick={() => handleGenerate('csv')}
