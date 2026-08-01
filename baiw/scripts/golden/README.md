@@ -5,14 +5,21 @@ three module generators are now on `src/report/spine.ts`, alongside DGIW's seven
 
 | Module | Generator file | PDF | CSV | Markdown |
 |---|---|---|---|---|
-| BAIW | `src/utils/reportGenerator.ts` | `generateMaturityPDF` ✅ spine | `generateGapCSV` ⛔ pre-spine | `generateRoadmapMarkdown` ✅ spine |
-| TAIW | `src/taiw/utils/tradeReportGenerator.ts` | `generateTradeMaturityPDF` ✅ | `generateTradeGapCSV` ⛔ | `generateTradeRoadmapMarkdown` ✅ |
-| HAIW | `src/haiw/utils/healthReportGenerator.ts` | `generateHealthMaturityPDF` ✅ | `generateHealthGapCSV` ⛔ | `generateHealthRoadmapMarkdown` ✅ |
+| BAIW | `src/utils/reportGenerator.ts` | `generateMaturityPDF` ✅ spine | `generateCapabilityRegisterCSV` ✅ csv.ts | `generateRoadmapMarkdown` ✅ spine |
+| TAIW | `src/taiw/utils/tradeReportGenerator.ts` | `generateTradeMaturityPDF` ✅ | `generateTradeCapabilityRegisterCSV` ✅ | `generateTradeRoadmapMarkdown` ✅ |
+| HAIW | `src/haiw/utils/healthReportGenerator.ts` | `generateHealthMaturityPDF` ✅ | `generateHealthGapCSV` ✅ | `generateHealthRoadmapMarkdown` ✅ |
 | DGIW | seven files under `src/dgiw/report/` | 12 PDFs ✅ | 2 CSVs ✅ | — |
 
-`generateHealthGapCSV` is the last pre-spine generator in the suite. BAIW's and
-TAIW's third CSV moved onto `src/report/csv.ts` when **D-001** was closed by
-removal; HAIW's was out of that change's scope and is still hand-rolled.
+**No pre-spine generator remains.** The three module CSVs were the last, and all
+moved on 2026-08-01: BAIW's and TAIW's when **D-001** was closed by removal —
+which is also why they are `…RegisterCSV` and no longer emit a gap — and HAIW's
+straight after, as a pure plumbing migration that changed its encoding and its
+filename but not one cell value.
+
+HAIW's keeps the id `MR-HAIW-GAP` where the other two became `MR-*-REGISTER`.
+That asymmetry is deliberate: only HACR's questions carry `capabilityLinks`, so
+only HAIW has a real gap to report. See CLAUDE.md, "A capability score needs a
+link, not a heading".
 
 It exists for one job: **there are zero tests in this repo, and `check-dgiw.mjs`
 is a static dataset gate that knows nothing about rendered output.** This is the

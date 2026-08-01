@@ -7,11 +7,12 @@ import { saveAs } from 'file-saver'
 
 import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '../../report/spine'
 import { formatCoverDate, reportFilename } from '../../report/naming'
+import { downloadCsv, byStringKey, type CsvColumn } from '../../report/csv'
 import type { ReportMeta } from '../../report/types'
 import type { HaiwCapability, HaiwAssessmentAnswer, HacrQuestion } from '../types'
 
 /*
- * Artefact ids for the two deliverables on the spine.
+ * Artefact ids for all three deliverables.
  *
  * `MR-`, not `AR-`: these are declared in MODULE_ARTEFACT_IDS in
  * scripts/check-dgiw.mjs, not in DGIW's implementationPlan.json artefactRegister,
@@ -19,13 +20,16 @@ import type { HaiwCapability, HaiwAssessmentAnswer, HacrQuestion } from '../type
  * filename and the trailer /ID seed and are deliberately NOT printed on the cover
  * — `useReportMeta` sets `coverTag: ''` for exactly that reason.
  *
- * The gap CSV has no id yet. It is not on the spine: it is the golden harness's
- * deterministic control, and no route through report/csv.ts preserves its bytes
- * (BOM, CRLF, quote-every-field). All three gap CSVs migrate together once D-001
- * is decided — see docs/known-defects.md.
+ * `MR-HAIW-GAP` keeps `-GAP` where BAIW's and TAIW's became `-REGISTER`. That
+ * asymmetry is load-bearing, not an oversight: since D-003 this file's gap column
+ * is computed from real `capabilityLinks` on all 720 HACR questions, so the word
+ * is TRUE here and false there. It records which module has the relation
+ * authored. Do not "fix" it. See CLAUDE.md, "A capability score needs a link, not
+ * a heading".
  */
 export const HEALTH_MATURITY_ARTEFACT_ID = 'MR-HAIW-MATURITY'
 export const HEALTH_ROADMAP_ARTEFACT_ID = 'MR-HAIW-ROADMAP'
+export const HEALTH_GAP_ARTEFACT_ID = 'MR-HAIW-GAP'
 
 // ── Types ──
 interface CategoryScore {
@@ -486,7 +490,10 @@ interface CapabilityGapReport {
  * each has six or seven questions assessing it. The score below is the
  * weight-weighted mean of the ANSWERED ones — the honest number, not a proxy for
  * it. There is no authoring gap to work around, which is what separates HAIW from
- * BAIW and TAIW, where D-001 remains open precisely because no such link exists.
+ * BAIW and TAIW: no such link exists there, so D-001 was closed for those two by
+ * REMOVING the per-capability columns rather than deriving them. Same defect
+ * class, opposite remedies, and the data decided which — see CLAUDE.md, "A
+ * capability score needs a link, not a heading".
  */
 function scoreCapabilities(
   capabilities: HaiwCapability[],
@@ -555,7 +562,9 @@ function buildCapabilityGaps(
    * DEGRADED PATH: no capability dataset, so there is nothing to link questions
    * to and no per-capability score to compute. Three synthesised rows per category
    * — the D-001 shape, and unavoidable here, because the input that makes the
-   * honest version possible is the input that is missing. Reached only when
+   * honest version possible is the input that is missing. BAIW and TAIW could
+   * remove theirs outright; this one cannot, because removing it leaves the page
+   * empty in the one case it exists to cover. Reached only when
    * `loadCapabilities()` rejects; the caption says what the reader is looking at.
    */
   const rows = HACR_CATEGORIES.flatMap(cat => {
@@ -1082,9 +1091,9 @@ export function generateHealthMaturityPDF(
 }
 
 // ══════════════════════════════════════════════════════════
-// GAP CSV GENERATOR
+// GAP CSV — MR-HAIW-GAP
 // ══════════════════════════════════════════════════════════
-/**
+/*
  * One row per HCF capability, from the SAME `scoreCapabilities` page 13 uses.
  *
  * What this used to be, recorded because it is the second half of D-003: the
@@ -1103,63 +1112,172 @@ export function generateHealthMaturityPDF(
  * survives a spreadsheet import as blank; a zero would be averaged. The header is
  * unchanged — Priority is already a text column and carries the state without a
  * schema change for consumers.
+ *
+ * ── ON THE SPINE as of 2026-08-01, the LAST hand-rolled CSV in the suite ──
+ *
+ * Escaping is delegated to `downloadCSV` via `src/report/csv.ts`, which quotes
+ * every field and doubles embedded quotes. The hand-rolled version quoted four of
+ * its nine columns by hand and left `ID` and the three scores bare — safe only
+ * because nothing in those cells can contain a comma today.
+ *
+ * Three things change in the bytes and NOTHING changes in the content: a UTF-8
+ * BOM, CRLF line endings, and every field quoted. Those are the defaults
+ * `downloadCsv` applies to every deliverable CSV in this repo, because these
+ * files reach a client and get opened in Excel on Windows first.
+ *
+ * The filename moves from a fixed `HAIW_Capability_Gap_Analysis.csv` to
+ * `reportFilename(meta, 'csv')`, so it now carries the engagement, the layer and
+ * the date like the other eight module deliverables.
  */
+/**
+ * One row of the gap register, in either path below.
+ *
+ * The numeric cells are STRINGS, not numbers: an unscored capability writes an
+ * empty cell, and `number | ''` would let a `0` through the same slot. Formatting
+ * happens where the state is known, so `toFixed(1)` cannot be reached for a
+ * capability that has no score. See CLAUDE.md, "HAIW scoring".
+ */
+interface GapRow {
+  ordinal: number
+  name: string
+  theme: string
+  group: string
+  current: string
+  desired: string
+  gap: string
+  /** `priorityLabel(gap)` when scored; otherwise the state, spelled out. */
+  priority: string
+  fhir: string
+}
+
+/*
+ * The nine columns, in order, unchanged from the hand-rolled version.
+ *
+ * `ID` is the ORDINAL, not `cap.id` — it was `i + 1` before this migration and
+ * still is. Adding an `HCF-nnn` column would be a schema change for consumers,
+ * which a plumbing migration is not allowed to be.
+ */
+const GAP_COLUMNS: CsvColumn<GapRow>[] = [
+  { key: 'ordinal', header: 'ID' },
+  { key: 'name', header: 'Name' },
+  { key: 'theme', header: 'Theme' },
+  { key: 'group', header: 'Group' },
+  { key: 'current', header: 'Current Score' },
+  { key: 'desired', header: 'Target Score' },
+  { key: 'gap', header: 'Gap' },
+  { key: 'priority', header: 'Priority' },
+  { key: 'fhir', header: 'FHIR Resources' },
+]
+
+function buildGapRows(
+  answers: HaiwAssessmentAnswer[],
+  capabilities: HaiwCapability[],
+  questions: readonly HacrQuestionLink[],
+): GapRow[] {
+  const scores = computeCategoryScores(answers)
+
+  if (capabilities.length > 0) {
+    /*
+     * Row order is DECLARED, per src/report/csv.ts: "the alternative is the order
+     * the JSON file happens to be in, which nobody declared and a dataset edit can
+     * change without touching a line of code".
+     *
+     * `byStringKey` is right for `HCF-001`-style zero-padded ids, and this sort is
+     * a no-op today — capabilities.json is already in id order, verified — so
+     * declaring it moves no row and changes no ordinal. That is the point: the
+     * order stops being an accident without the file changing.
+     */
+    const ordered = [...capabilities].sort(byStringKey(c => c.id))
+    return scoreCapabilities(ordered, questions, answers).map((cap, i) => ({
+      ordinal: i + 1,
+      name: cap.name,
+      theme: cap.theme,
+      group: cap.group,
+      ...(cap.state === 'scored'
+        ? {
+            current: cap.current.toFixed(1),
+            desired: cap.desired.toFixed(1),
+            gap: cap.gap.toFixed(1),
+            priority: priorityLabel(cap.gap),
+          }
+        : {
+            // Empty numeric cells, state in Priority. An empty cell imports as
+            // blank; a 0.0 would be averaged into a number nobody measured.
+            current: '',
+            desired: '',
+            gap: '',
+            priority: cap.state === 'not-assessed' ? 'Not Assessed' : 'Not Applicable',
+          }),
+      fhir: cap.fhirResources.join('; '),
+    }))
+  }
+
+  /*
+   * DEGRADED PATH: no capability dataset, so there is nothing to link questions
+   * to. Migrated VERBATIM — same names, same offsets, same order, same 108 rows.
+   *
+   * It is D-001-shaped and it knows it: `${cat} — ${group}` names that match no
+   * HCF capability, carrying a category score offset by `(ci % 5 - 2) * 0.15`.
+   * That is the pattern removed from BAIW and TAIW. It survives here for two
+   * reasons — this change is a plumbing migration and is not permitted to move a
+   * number, and unlike BAIW/TAIW the honest version exists directly above and is
+   * what every real caller reaches. This branch runs only if `loadCapabilities()`
+   * rejects, which no fixture and no UI path does.
+   *
+   * Recorded rather than quietly kept: see docs/known-defects.md D-001.
+   */
+  const rows: GapRow[] = []
+  let id = 1
+  const capGroups = [
+    'Strategy', 'Analytics', 'Reporting', 'Automation', 'Data Integration',
+    'Model Development', 'Performance Mgmt', 'Clinical Decision Support',
+    'Population Health', 'Surveillance', 'Quality Improvement',
+    'Patient Experience', 'Resource Optimization', 'Compliance',
+  ]
+  const fhirMap: Record<string, string> = {
+    'Strategy & Leadership': 'Organization; HealthcareService',
+    'Workforce & Skills': 'Practitioner; PractitionerRole',
+    'Data Governance & Standards': 'AuditEvent; Provenance; Consent',
+    'Infrastructure & Systems': 'Endpoint; CapabilityStatement; Bundle',
+    'Analytics & Intelligence': 'MeasureReport; Observation; DiagnosticReport',
+    'Integration & Interoperability': 'Bundle; MessageHeader; OperationOutcome',
+    'Patient & Community Engagement': 'Patient; RelatedPerson; Communication',
+    'Outcomes & Impact': 'Condition; Procedure; ClinicalImpression',
+  }
+  HACR_CATEGORIES.forEach(cat => {
+    const score = scores.find(s => s.category === cat) || { current: 0, desired: 0, gap: 0 }
+    // ~13-14 capabilities per category to reach ~108 total
+    const count = cat === 'Outcomes & Impact' ? 10 : 14
+    for (let ci = 0; ci < count && id <= 108; ci++) {
+      const group = capGroups[ci % capGroups.length]
+      const variation = (ci % 5 - 2) * 0.15
+      const current = Math.max(1, Math.min(5, score.current + variation))
+      const target = Math.max(current, score.desired)
+      const gap = target - current
+      rows.push({
+        ordinal: id,
+        name: `${cat} — ${group}`,
+        theme: cat,
+        group,
+        current: current.toFixed(1),
+        desired: target.toFixed(1),
+        gap: gap.toFixed(1),
+        priority: priorityLabel(gap),
+        fhir: fhirMap[cat] || 'Patient; Encounter',
+      })
+      id++
+    }
+  })
+  return rows
+}
+
 export function generateHealthGapCSV(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
   questions: readonly HacrQuestionLink[],
+  meta: ReportMeta,
 ) {
-  const scores = computeCategoryScores(answers)
-
-  // Header
-  let csv = 'ID,Name,Theme,Group,Current Score,Target Score,Gap,Priority,FHIR Resources\n'
-
-  if (capabilities.length > 0) {
-    scoreCapabilities(capabilities, questions, answers).forEach((cap, i) => {
-      const fhirList = cap.fhirResources.join('; ')
-      const cells = cap.state === 'scored'
-        ? `${cap.current.toFixed(1)},${cap.desired.toFixed(1)},${cap.gap.toFixed(1)},${priorityLabel(cap.gap)}`
-        : `,,,${cap.state === 'not-assessed' ? 'Not Assessed' : 'Not Applicable'}`
-      csv += `${i + 1},"${cap.name}","${cap.theme}","${cap.group}",${cells},"${fhirList}"\n`
-    })
-  } else {
-    // Synthesize 108 rows (approximately 13–14 per category) from category scores
-    let id = 1
-    const capGroups = [
-      'Strategy', 'Analytics', 'Reporting', 'Automation', 'Data Integration',
-      'Model Development', 'Performance Mgmt', 'Clinical Decision Support',
-      'Population Health', 'Surveillance', 'Quality Improvement',
-      'Patient Experience', 'Resource Optimization', 'Compliance',
-    ]
-    HACR_CATEGORIES.forEach(cat => {
-      const score = scores.find(s => s.category === cat) || { current: 0, desired: 0, gap: 0 }
-      const fhirMap: Record<string, string> = {
-        'Strategy & Leadership': 'Organization; HealthcareService',
-        'Workforce & Skills': 'Practitioner; PractitionerRole',
-        'Data Governance & Standards': 'AuditEvent; Provenance; Consent',
-        'Infrastructure & Systems': 'Endpoint; CapabilityStatement; Bundle',
-        'Analytics & Intelligence': 'MeasureReport; Observation; DiagnosticReport',
-        'Integration & Interoperability': 'Bundle; MessageHeader; OperationOutcome',
-        'Patient & Community Engagement': 'Patient; RelatedPerson; Communication',
-        'Outcomes & Impact': 'Condition; Procedure; ClinicalImpression',
-      }
-      // ~13-14 capabilities per category to reach ~108 total
-      const count = cat === 'Outcomes & Impact' ? 10 : 14
-      for (let ci = 0; ci < count && id <= 108; ci++) {
-        const group = capGroups[ci % capGroups.length]
-        const variation = (ci % 5 - 2) * 0.15
-        const current = Math.max(1, Math.min(5, score.current + variation))
-        const target = Math.max(current, score.desired)
-        const gap = target - current
-        const fhir = fhirMap[cat] || 'Patient; Encounter'
-        csv += `${id},"${cat} — ${group}","${cat}","${group}",${current.toFixed(1)},${target.toFixed(1)},${gap.toFixed(1)},${priorityLabel(gap)},"${fhir}"\n`
-        id++
-      }
-    })
-  }
-
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' })
-  saveAs(blob, 'HAIW_Capability_Gap_Analysis.csv')
+  downloadCsv(buildGapRows(answers, capabilities, questions), GAP_COLUMNS, reportFilename(meta, 'csv'))
 }
 
 // ══════════════════════════════════════════════════════════

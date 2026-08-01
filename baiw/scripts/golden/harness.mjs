@@ -286,12 +286,19 @@ export const REGISTRY = {
         id: 'gap-csv',
         kind: 'csv',
         exportName: 'generateHealthGapCSV',
-        call: (m, f) => m.generateHealthGapCSV(f.answers, f.capabilities, f.questions),
+        artefactIdExport: 'HEALTH_GAP_ARTEFACT_ID',
+        profile: 'haiw',
+        call: (m, f, c) => m.generateHealthGapCSV(f.answers, f.capabilities, f.questions, c.meta),
         // THE CONTROL. Step 1 found no clock read and no RNG in this generator,
         // and its bytes were identical across four TZ/locale environments. It is
         // therefore baselined on raw bytes as well as normalised text: if this
         // one ever reports a diff on an unchanged generator, the harness is
         // broken, not the generator.
+        //
+        // On src/report/csv.ts since 2026-08-01, the last of the three to move.
+        // That migration changed its encoding — BOM, CRLF, every field quoted —
+        // and its filename, but no cell value; the walk asserted the parsed cell
+        // matrix was identical before and after.
         assertRawBytes: true,
       },
       {

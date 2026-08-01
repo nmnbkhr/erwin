@@ -49,9 +49,10 @@ export default function HealthReportGenerator({ answers, capabilities, questions
         // is where it has always been derived. See the note on reportMeta there.
         gen.generateHealthMaturityPDF(answers, capabilities, questions, undefined, metaFor(gen.HEALTH_MATURITY_ARTEFACT_ID))
       } else if (type === 'csv') {
-        // Still the pre-spine generator, deliberately — see D-001. It shares the
-        // PDF's capability scoring, so the two cannot disagree.
-        gen.generateHealthGapCSV(answers, capabilities, questions)
+        // On src/report/csv.ts since 2026-08-01 — it was the last hand-rolled CSV
+        // in the suite. It shares the PDF's capability scoring, so the two cannot
+        // disagree, and it keeps the -GAP id because HAIW's gap column is real.
+        gen.generateHealthGapCSV(answers, capabilities, questions, metaFor(gen.HEALTH_GAP_ARTEFACT_ID))
       } else {
         gen.generateHealthRoadmapMarkdown(answers, capabilities, metaFor(gen.HEALTH_ROADMAP_ARTEFACT_ID))
       }

@@ -1,7 +1,7 @@
 {
   "artefact": "gap-csv",
-  "assertableSha256": "2614c80ea31994921db22661d4482d2bd5eeb98dbb110965d1fb4f0a3810dec5",
-  "bytes": 16604,
+  "assertableSha256": "6d6d605fbb5b74429dd550b2c4d64c5fdd20f4f0ef58e88c834cde63a22cf3ff",
+  "bytes": 17794,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -14,17 +14,17 @@
   },
   "columnCount": 9,
   "datasets": null,
-  "filename": "HAIW_Capability_Gap_Analysis.csv",
-  "filenameNormalised": "HAIW_Capability_Gap_Analysis.csv",
+  "filename": "MR-HAIW-GAP_fixture-health-authority_all_2026-07-31.csv",
+  "filenameNormalised": "MR-HAIW-GAP_fixture-health-authority_all_2026-07-31.csv",
   "firstThreeRows": [
-    "1,\"Patient Master Index Management\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",3.0,4.9,1.9,High,\"Patient; Person; RelatedPerson\"",
-    "2,\"Patient Demographics Profiling\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",2.9,3.8,0.9,Low,\"Patient; Group; Organization\"",
-    "3,\"Patient Identity Matching & Deduplication\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",3.1,4.4,1.3,Medium,\"Patient; Person; Linkage\""
+    "\"1\",\"Patient Master Index Management\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",\"3.0\",\"4.9\",\"1.9\",\"High\",\"Patient; Person; RelatedPerson\"\r",
+    "\"2\",\"Patient Demographics Profiling\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",\"2.9\",\"3.8\",\"0.9\",\"Low\",\"Patient; Group; Organization\"\r",
+    "\"3\",\"Patient Identity Matching & Deduplication\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",\"3.1\",\"4.4\",\"1.3\",\"Medium\",\"Patient; Person; Linkage\"\r"
   ],
-  "fullTextSha256": "1d10d01e3087e8cd816d6fb3846f5d271a661559d0cf546654e1c07d7bd07209",
+  "fullTextSha256": "6d6d605fbb5b74429dd550b2c4d64c5fdd20f4f0ef58e88c834cde63a22cf3ff",
   "generator": "generateHealthGapCSV",
   "header": [
-    "ID",
+    "﻿ID",
     "Name",
     "Theme",
     "Group",
@@ -32,18 +32,18 @@
     "Target Score",
     "Gap",
     "Priority",
-    "FHIR Resources"
+    "FHIR Resources\r"
   ],
   "kind": "csv",
   "lastThreeRows": [
-    "106,\"Data Lineage & Provenance Tracking\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",3.3,4.8,1.5,Medium,\"Provenance; AuditEvent; Bundle\"",
-    "107,\"Terminology Standardization\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",2.7,3.6,0.9,Low,\"CodeSystem; ValueSet; ConceptMap\"",
-    "108,\"Analytics Maturity Assessment\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",2.8,4.4,1.6,High,\"MeasureReport; Questionnaire; QuestionnaireResponse\""
+    "\"106\",\"Data Lineage & Provenance Tracking\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",\"3.3\",\"4.8\",\"1.5\",\"Medium\",\"Provenance; AuditEvent; Bundle\"\r",
+    "\"107\",\"Terminology Standardization\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",\"2.7\",\"3.6\",\"0.9\",\"Low\",\"CodeSystem; ValueSet; ConceptMap\"\r",
+    "\"108\",\"Analytics Maturity Assessment\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",\"2.8\",\"4.4\",\"1.6\",\"High\",\"MeasureReport; Questionnaire; QuestionnaireResponse\""
   ],
   "module": "haiw",
   "notReproducible": {},
   "rawBytesAsserted": true,
-  "rawBytesSha256": "1d10d01e3087e8cd816d6fb3846f5d271a661559d0cf546654e1c07d7bd07209",
+  "rawBytesSha256": "6d6d605fbb5b74429dd550b2c4d64c5fdd20f4f0ef58e88c834cde63a22cf3ff",
   "rowCount": 108,
   "sampleRowsMasked": false,
   "unassertable": [],

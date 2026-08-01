@@ -76,9 +76,10 @@ The dominant structural fact of this repo is copy-paste:
   step 3. A fourth module's report starts from one of them, not from scratch.
   What each still keeps to itself, behind the public `doc` escape hatch, is its
   radar chart, score disc and coloured boxes; those own their overflow and must
-  call `moveTo()` afterwards. BAIW's and TAIW's third CSV moved onto
-  `src/report/csv.ts` when D-001 was closed; **HAIW's gap CSV is the last
-  hand-rolled one** and is the next to migrate.
+  call `moveTo()` afterwards. **No hand-rolled CSV remains either**: all three
+  module CSVs are on `src/report/csv.ts` as of 2026-08-01 — BAIW's and TAIW's
+  when D-001 was closed, HAIW's straight after. Every deliverable in the suite
+  now goes through `spine.ts` or `csv.ts`.
 - **Two generations of workbench components** — `components/workbench/` is the
   shared data-driven one; `components/profitability/` is BAIW's unmigrated
   predecessor. Build against `components/workbench/`.
