@@ -13,13 +13,23 @@
  * and it reports zero paths past the content column across the 23 artefacts.
  *
  * This script reads the same page streams and reports the extent of every drawn
- * PATH. It reports rather than fails: a full-bleed band is legitimate geometry,
- * and only a human can say whether a given shape is meant to respect the text
- * margin. Run it after any change to hand-placed boxes, grids or charts.
+ * PATH. It reports rather than fails BY DEFAULT: a full-bleed band is legitimate
+ * geometry, and only a human can say whether a given shape is meant to respect
+ * the text margin. Run it after any change to hand-placed boxes, grids or charts.
  *
- *   node scripts/golden/geometry.mjs                # all PDF artefacts
- *   node scripts/golden/geometry.mjs --module baiw  # one module
- *   node scripts/golden/geometry.mjs --page 15      # one page across modules
+ *   node scripts/golden/geometry.mjs                    # all PDF artefacts
+ *   node scripts/golden/geometry.mjs --module baiw      # one module
+ *   node scripts/golden/geometry.mjs --page 15          # one page across modules
+ *   node scripts/golden/geometry.mjs --fail-on-overflow # exit 1 if any path overflows
+ *
+ * `--fail-on-overflow` is opt-in and stays out of `npm run build`, deliberately.
+ * The default contract is unchanged — the judgement about whether a given shape
+ * should respect the text margin is still a human's. What the flag buys is that
+ * this script can be DEMONSTRATED failing: a reporter that always exits 0 is
+ * indistinguishable, from the outside, from a reporter that stopped running, and
+ * three of the D-006 instances were invisible for the whole of D2 precisely
+ * because nothing here could go red. Full-bleed bands are excluded from the
+ * count, exactly as they are from the report.
  *
  * jsPDF emits no `cm`, `q`/`Q`, `v` or `y` operators, so coordinates are
  * absolute points and no transform stack is needed. Asserted below rather than
@@ -123,13 +133,16 @@ function pagesOf(buf) {
   })
 }
 
-// `--page` is local to this script; strip it before the shared parser, which
-// throws on arguments it does not know rather than ignoring them.
+// `--page` and `--fail-on-overflow` are local to this script; strip them before
+// the shared parser, which throws on arguments it does not know rather than
+// ignoring them.
 const argv = process.argv.slice(2)
 let onlyPage = null
+let failOnOverflow = false
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--page') { onlyPage = Number(argv[i + 1]); argv.splice(i, 2); i-- }
   else if (argv[i].startsWith('--page=')) { onlyPage = Number(argv[i].slice(7)); argv.splice(i, 1); i-- }
+  else if (argv[i] === '--fail-on-overflow') { failOnOverflow = true; argv.splice(i, 1); i-- }
 }
 const only = parseArgs(argv).modules
 
@@ -176,4 +189,13 @@ for (const module of only) {
 }
 
 console.log(`\n${overflowing} path(s) past the content column, ${fullBleed} full-bleed band(s) ignored`)
+if (failOnOverflow && overflowing > 0) {
+  console.error(
+    `\nFAIL --fail-on-overflow: ${overflowing} drawn path(s) cross the content column.\n` +
+    `Hand-placed geometry must be derived from r.contentWidth, never from a literal\n` +
+    `that happens to fit today — that literal was boxW = 55 in all three modules and\n` +
+    `only BAIW's longer phase title made it visible. See docs/known-defects.md D-006.`
+  )
+  process.exit(1)
+}
 process.exit(0)

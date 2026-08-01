@@ -8,6 +8,8 @@
     "build": "cd baiw && npm run build",
     "preview": "cd baiw && npm run preview",
     "lint": "cd baiw && npm run lint",
-    "check:dgiw": "cd baiw && npm run check:dgiw"
+    "check": "cd baiw && npm run check",
+    "check:dgiw": "cd baiw && npm run check:dgiw",
+    "check:selftest": "cd baiw && npm run check:selftest"
   }
 }

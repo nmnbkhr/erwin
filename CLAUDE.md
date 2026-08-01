@@ -48,20 +48,106 @@ uses.
 
 1. **`archive/` is never read by the app.** Verified by grep, recorded in
    `archive/README.md`. Do not import from it. Do not treat it as live.
-2. **`check-dgiw.mjs` is the only quality gate in the repo.** Extend it, never
-   bypass it. If you touch a DGIW dataset, `npm run check:dgiw` must still pass.
-   Despite the name it is no longer DGIW-only: `REPORT_SOURCE_LOCATIONS` declares
-   five locations — `src/report`, `src/dgiw/report` and the three module
-   generators — and CSV-HEADER, TEXT-MAXWIDTH and ARTEFACT-IMPL all run over
-   them. A declared location that goes missing is a finding, never a skip.
-3. **`npm run build` and `./dev.sh build` are not equivalent.** Only the npm
-   script runs the dataset gate. Always verify with `npm run build`.
-4. **Zero tests exist.** No vitest, jest or playwright. If a task needs tests,
-   propose the framework and wait for approval — do not install one unasked.
-5. **`tsc -b` must pass.** `strict: true`. `noUnusedLocals` and
+2. **`scripts/check.mjs` is the suite's quality gate.** Extend it, never bypass
+   it. `npm run check` runs it; `npm run build` runs it before `tsc -b`.
+   `npm run check:dgiw` is the *same full run* under the old name, and
+   `scripts/check-dgiw.mjs` is a three-line shim. The name was wrong for two
+   phases — four of its classes read every module's report code — and survives
+   only because six source files and three docs cite the path.
+3. **The gate is a registry, not a file.** `scripts/check/modules/index.mjs` is
+   an ordered array; each entry is a rule file declaring that module's `dataDir`,
+   `datasets`, `reportSources`, `artefactIds` and `checks`. **Adding a module is
+   one import and one array slot** — its report sources join REPORT-SOURCES, its
+   artefact ids join ARTEFACT-IMPL *and widen the accepted `MR-` prefix, which is
+   derived from the registry rather than written down*, its summary lines join
+   the report. Nothing else has to be told.
+
+   The array order is the printed order of findings and summary lines. Declared,
+   never sorted or globbed.
+
+   A module that declares nothing is legal — COE and ALM do, and the REGISTRY
+   line still names them with `0`, so "not covered by the gate" is a stated fact
+   rather than an absence you would have to notice. A module that declares a
+   `dataDir`, a dataset or a `reportSources` entry that does **not resolve**
+   fails. An empty registry fails, rather than printing `0 entries, 0 checks` and
+   exiting green.
+4. **A check that examined nothing fails.** Every check returns `{ examined }`;
+   examining zero while reporting nothing is a **VACUOUS** failure. A green build
+   over an empty set prints identically to a green build over a real one, and
+   this repo has shipped that shape thirteen times. A check that legitimately
+   runs over nothing declares `mayBeEmpty: '<reason>'` — the reason is mandatory,
+   because if a check can run over nothing then someone should have to write down
+   why. Nothing declares it today.
+5. **`npm run check:selftest` demonstrates every finding code.** 35 mutations,
+   32 codes, ~13 s. It copies `src/` and `scripts/` to a scratch root under
+   `node_modules`, applies one mutation per code, asserts the code is reported
+   *and* the tool exits non-zero, then restores and re-runs the control. **No
+   tracked file is ever written.** Run it after touching the gate: a refactor
+   that leaves a check passing because it stopped running is the failure mode it
+   exists for, and inspection has missed that twelve times.
+6. **`npm run build` and `./dev.sh build` are not equivalent.** Only the npm
+   script runs the gate. Always verify with `npm run build`.
+7. **There is no test framework.** No vitest, jest or playwright. The gate,
+   `check:selftest` and `scripts/golden/` are harnesses, not tests, and none of
+   them asserts application behaviour. If a task needs tests, propose the
+   framework and wait for approval — do not install one unasked.
+8. **`tsc -b` must pass.** `strict: true`. `noUnusedLocals` and
    `noUnusedParameters` are deliberately off — do not turn them on.
-6. **Additive only.** Do not delete or rewrite an existing file. Extend it.
-7. **Do not add a seventh copy of the layout shell.** See below.
+9. **Additive only.** Do not delete or rewrite an existing file. Extend it.
+10. **Do not add a seventh copy of the layout shell.** See below.
+
+### Three finding codes did not exist before D3
+
+| Code | Before D3 |
+|---|---|
+| **FRAMEWORK-COVERAGE** | **no `fail()` anywhere in it** — five lines of arithmetic feeding a printed table, described *in this file* as one of five classes guarding the crosswalk, for an entire phase |
+| **REGISTRY** | there was no registry; a gate whose declared inputs went missing had no way to say so |
+| **VACUOUS** | nothing measured whether a check ran over anything at all |
+
+**CROSSWALK-ORPHAN** also gained a failure it always implied: a pillar mapped by
+no crosswalk entry in any framework. That list was computed, printed and nothing
+more. Such a pillar is scorable on the diagnostic and contributes to none of the
+four scorecards — the same defect as a leaf dimension with no mapping, read from
+the pillar side.
+
+And one silent defect was fixed rather than carried across: an esbuild failure
+loading `projection.ts` disabled **two** classes while only PROJECTION-INVARIANT
+said so, because CROSSWALK-DISTINCTNESS went quiet behind a `projection ? … : []`.
+Both now report under their own names.
+
+The lesson generalises past these four. **A class that cannot fail is
+decoration**, and this document had been calling one a guard for a phase. That is
+what `npm run check:selftest` is for: it does not check that the gate is right,
+it checks that every code can still be reached.
+
+## The declared report source set
+
+Three classes — CSV-HEADER, TEXT-MAXWIDTH and ARTEFACT-IMPL — read source code
+rather than data, and they read exactly what the registry declares. Five
+locations from five rule files, resolving to 18 `.ts` files:
+
+| Location | Declared by |
+|---|---|
+| `src/report` | `check/modules/_spine.mjs` |
+| `src/utils/reportGenerator.ts` | `check/modules/baiw.mjs` |
+| `src/taiw/utils/tradeReportGenerator.ts` | `check/modules/taiw.mjs` |
+| `src/haiw/utils/healthReportGenerator.ts` | `check/modules/haiw.mjs` |
+| `src/dgiw/report` | `check/modules/dgiw.mjs` |
+
+**Declared, never globbed.** A glob over `src/` would sweep in every file that
+happens to mention `header:` and turn CSV-HEADER into a repo-wide style rule it
+was never designed to be. And a glob cannot tell "no generator here" from "the
+directory moved": a declared location that resolves to nothing is a **finding**,
+not a silent shrink of the set. `kind` is asserted too — a location that flips
+between file and directory is a restructure the rule file has to be told about.
+
+The REPORT-SOURCES line prints the file count on every build because those three
+classes can only ever be as wide as it. **Watch that number.**
+
+The spine is in the set because when it was added in D2, TEXT-MAXWIDTH found
+three live instances inside `spine.ts` against zero in DGIW's generators. A gate
+over the callers that skipped the shared code they all call would have reported
+green while the worst instances sat in the one file every report goes through.
 
 ## Known duplication — do not extend it
 
@@ -91,13 +177,20 @@ The dominant structural fact of this repo is copy-paste:
 
 ## DGIW is the pattern to copy
 
-It is the newest and most rigorously built module. It is the only one with a
-dataset integrity gate, the only one with a documented layer model (`core` vs
-`banking`, tagged on every record — `src/dgiw/layer.ts`), the only one with a
-role registry resolving free-text owner strings to archetypes
-(`src/dgiw/roles.ts`), and the only one whose source carries *why*-comments
-explaining the defect that motivated the code. Match that standard. BAIW is the
-pattern that accreted — do not use it as a model.
+It is the newest and most rigorously built module. It is the only one whose rule
+file declares any dataset checks — fifteen of them, in
+`scripts/check/modules/dgiw.mjs`, against `checks: []` everywhere else — the only
+one with a documented layer model (`core` vs `banking`, tagged on every record —
+`src/dgiw/layer.ts`), the only one with a role registry resolving free-text owner
+strings to archetypes (`src/dgiw/roles.ts`), and the only one whose source
+carries *why*-comments explaining the defect that motivated the code. Match that
+standard. BAIW is the pattern that accreted — do not use it as a model.
+
+The empty rule files are where the other modules' checks go, and
+`docs/known-defects.md` already names the first candidates: BAIW's and TAIW's
+capability relations, where `capabilitiesUsing` disagrees with
+`capabilities.length` in 114 of 114 rows and four requirement ids dangle across a
+rename. Those had nowhere to live before D3.
 
 Note: "role" in `src/dgiw/roles.ts` is **domain content, not access control**. It
 gates nothing. The `core`/`banking` layer filter is likewise a content
@@ -132,10 +225,12 @@ inputs now simply include the content.
 
 A new generator that omits the digest gets identity-only behaviour and silently
 reintroduces the bug. If a report's content can vary while its meta does not, it
-must pass a content key. `check-dgiw.mjs` ARTEFACT-IMPL enforces that much: every
-`createReport` call under `src/dgiw/report/` must pass a second argument, and it
-may not be a string literal, `undefined`, or an expression with an empty literal
-in any branch.
+must pass a content key. **ARTEFACT-IMPL** enforces that much: every
+`createReport` call **anywhere in the declared report source set** — five
+locations, 18 files, not just `src/dgiw/report/` — must pass a second argument,
+and it may not be a string literal, `undefined`, or an expression with an empty
+literal in any branch. A `createReport` reached through anything but a named
+import fails too: an unresolvable call is unverifiable, not acceptable.
 
 **ARTEFACT-IMPL verifies a content digest is SUPPLIED, not that it is DERIVED.**
 `contentKey(['constant'])` passes the check and reintroduces the `/ID` bug. When
@@ -160,8 +255,8 @@ than by reading the code. Neither is a style preference.
 computes the split and then draws **only the first line**; everything past the
 break is discarded with no error and nothing visible except a sentence that
 stops. Three sentences were lost from every HAIW PDF ever exported, and three
-instances were sitting in `spine.ts` itself. `check-dgiw.mjs` **TEXT-MAXWIDTH**
-now rejects the key outright across all five declared report source locations.
+instances were sitting in `spine.ts` itself. **TEXT-MAXWIDTH** rejects the key
+outright across the whole declared report source set.
 Wrap with `splitTextToSize` and emit one `doc.text` per line — which is what
 `spine.ts::text()` does — or, where only one line fits, call
 `spine.ts::fitOneLine`, which marks the cut with an ellipsis instead of hiding
@@ -192,10 +287,31 @@ overflowed and every text-based check called those pages clean** — two of the
 three instances were invisible for the whole of D2, and their fixes are invisible
 too (the walk reports nothing but `bytes +7`).
 `scripts/golden/geometry.mjs` exists for this: it walks page content streams for
-drawn *paths* rather than glyph runs. It is not wired into `compare.mjs` — run it
-deliberately after any change to hand-placed boxes, grids or charts. Hand-placed
-geometry must be derived from `r.contentWidth`, never from a literal that happens
-to fit today.
+drawn *paths* rather than glyph runs. It is not wired into `compare.mjs` or into
+`npm run build` — run it deliberately after any change to hand-placed boxes,
+grids or charts. Hand-placed geometry must be derived from `r.contentWidth`,
+never from a literal that happens to fit today.
+
+It **reports** by default and that is deliberate: a full-bleed band is legitimate
+cover chrome and only a human can say whether a given shape is meant to respect
+the text margin. `--fail-on-overflow` makes it exit 1 instead, with full-bleed
+bands still excluded. The flag exists so the tool can be *demonstrated* failing —
+a reporter that always exits 0 is indistinguishable, from outside, from a
+reporter that stopped running, which is precisely how two of D-006's three
+instances stayed invisible for the whole of D2. `check:selftest`'s
+GEOMETRY-OVERFLOW row widens one real drawn box in a copy of a captured PDF and
+asserts both halves: that the overflow is counted, *and* that the full-bleed
+bands are still ignored. That row needs `raw/` populated — run
+`node scripts/golden/capture.mjs` first; it will tell you so rather than skip.
+
+**`capture.mjs` will not overwrite a baseline without `--accept`.** The baseline
+is the reviewable record of what the generators produce; overwriting it before
+reading the difference is how a change stops being reviewable, and the old header
+enforced that with nothing but the reader's attention. If a recapture would
+change, add or orphan any baseline it prints exactly what would move, writes
+nothing, and exits 1. `raw/` is refreshed either way, so the new output is on
+disk to look at. The walk is still yours — `compare.mjs`, then `walk.mjs` on
+whatever moved — but freezing an unwalked diff now takes a deliberate flag.
 
 ## DGIW scoring
 
@@ -310,7 +426,14 @@ to report the real fault.
 
 `frameworks.json` and `crosswalk.json` project one assessment onto four published
 frameworks (DMBOK2, DCAM, DGI, COBIT 2019). Five check classes guard them —
-CROSSWALK-SHAPE, -WEIGHT, -ORPHAN, -DISTINCTNESS and FRAMEWORK-COVERAGE.
+CROSSWALK-SHAPE, -WEIGHT, -ORPHAN, -DISTINCTNESS and FRAMEWORK-COVERAGE — though
+FRAMEWORK-COVERAGE only became one of them in D3; before that it could not fail,
+and this sentence claimed otherwise for a phase. See "Three finding codes did not
+exist before D3" above. It now fails when a framework covers pillars at `'all'`
+but zero under a layer: every mapping it has is tagged for the other layer, so an
+engagement at that layer renders its scorecard blank with no stated reason. That
+is the same authoring-gap-in-a-not-applicable-costume rule CROSSWALK-WEIGHT
+applies per leaf dimension, read one level up.
 
 **The 11 pillars are the canonical capability model.** Frameworks map *into*
 them. Never add a second canonical layer — a bank with two maturity numbers to
@@ -321,7 +444,8 @@ entries; its score rolls up from its children *inside the framework*, never
 across the pillar side. COBIT's `APO14` and its ten sub-practices must never both
 count a pillar — that double-counts the same evidence and inflates the component
 it appears in. Same for the three DGI groups. CROSSWALK-ORPHAN fails a mapping
-attached to a parent.
+attached to a parent, a leaf dimension with no mapping, and — since D3 — a pillar
+no framework maps at all.
 
 **`coverageWeight` is the share of the DIMENSION that the PILLAR accounts for**,
 summing to 1.0 per leaf dimension over the full entry set. It is *not* "how much
