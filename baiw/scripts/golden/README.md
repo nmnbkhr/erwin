@@ -78,11 +78,14 @@ after D2.
 ## Usage
 
 ```sh
-node scripts/golden/capture.mjs                  # all four modules
+node scripts/golden/capture.mjs                  # all four modules — dry run
 node scripts/golden/capture.mjs --module taiw    # one module
+node scripts/golden/capture.mjs --accept         # actually write the baselines
 node scripts/golden/compare.mjs
 node scripts/golden/compare.mjs --module haiw
 node scripts/golden/walk.mjs --module baiw       # page-by-page reconciliation
+node scripts/golden/geometry.mjs                 # drawn paths, not glyphs
+node scripts/golden/geometry.mjs --fail-on-overflow   # exit 1 if any path overflows
 node scripts/golden/clickthrough.mjs             # needs `npm run dev` on 5174
 ```
 
@@ -95,20 +98,37 @@ Workflow:
    starting point makes every later finding ambiguous.
 2. **After the change** — `compare.mjs`, then `walk.mjs --module <mod>` on
    anything that moved. Decide, finding by finding, whether each change is
-   intended. For a call-site or engagement change, `clickthrough.mjs`.
-3. **Accept** — `capture.mjs`, and commit the baseline churn *in its own commit*
-   so the review is a readable diff rather than noise inside the change.
+   intended. For a call-site or engagement change, `clickthrough.mjs`. For a
+   change to hand-placed boxes, grids or charts, `geometry.mjs` — `walk.mjs`
+   measures text runs and cannot see a filled box past the margin.
+3. **Accept** — `capture.mjs --accept`, and commit the baseline churn *in its own
+   commit* so the review is a readable diff rather than noise inside the change.
 
 D2 followed exactly this, once per module, with a written walk each time.
+
+**`capture.mjs` will not write without `--accept`.** Step 3 used to be enforced
+by nothing but the reader's attention, and on 2026-08-01 a careful operator ran
+capture before compare; only an md5 snapshot taken beforehand showed that nothing
+had in fact moved. If a recapture would **change, add or orphan** any baseline,
+capture now names exactly what would move, writes nothing, and exits 1. NEW and
+ORPHANED are gated alongside CHANGED because a renamed generator produces one of
+each, and that pair is precisely the case where a silent write destroys the only
+record of what the old output was. `raw/` is refreshed either way, and
+`compare.mjs` regenerates rather than reading it, so a refused capture still
+leaves you able to see the same diff.
+
+The walk is still yours. What changed is that freezing an unwalked diff now takes
+a deliberate flag.
 
 ## Layout
 
 ```
 scripts/golden/
   harness.mjs           shared core: driver, analysis, normalisation
-  capture.mjs           writes baselines
+  capture.mjs           writes baselines — refuses without --accept
   compare.mjs           recaptures and diffs
   walk.mjs              per-page reconciliation of one module's diff
+  geometry.mjs          drawn paths past the content column; --fail-on-overflow
   clickthrough.mjs      drives real Chrome through the three report components
   cdp.mjs               ~80-line DevTools Protocol client, no npm dependency
   file-saver-sink.mjs   stands in for file-saver under SSR
@@ -472,18 +492,81 @@ to fire by corrupting a stored hash and watching compare go `FAIL … exit 1`.
 A recorded value that nothing reads is indistinguishable from a passing check.
 That is the fourth time this project has hit that shape.
 
+### The twelve `clickthrough.mjs` files are a weaker claim, on purpose
+
+The table above is about the 23 offline captures. It does **not** extend to
+`raw/clickthrough/`, and the difference is not a defect. Measured over two
+consecutive same-day runs with a dev server up:
+
+| | Result |
+|---|---|
+| 9 of 12 | byte-identical run to run |
+| **3 of 12** | differ — and they are exactly the three **engagement-backed PDFs** |
+
+The three that move are identical for **140,288 of 140,383 bytes** and differ
+only in the trailer:
+
+```
+/ID [ <34C9677FFD30781E20EC045187909B70> <34C9677FFD30781E20EC045187909B70> ]
+/ID [ <6D09196EA67DEE4326831C2027E0AFAD> <6D09196EA67DEE4326831C2027E0AFAD> ]
+```
+
+56 differing bytes, in two 16-byte runs, at one offset. That is precisely the
+signature CLAUDE.md gives for a `/ID` regression — which is why it is written
+down here rather than left to be rediscovered and "fixed".
+
+**It is correct behaviour.** `clickthrough.mjs` creates an engagement through
+the real switcher; `storage.ts` mints the id with `crypto.randomUUID()`; and
+`engagementId` is a seed field of `stableFileId()`. Each run is therefore a
+genuinely *different engagement*, and a different engagement is a different
+document. Pinning it would be the bug — it would assert that two engagements
+share a document identity, which is the exact failure `/ID` exists to prevent.
+
+**The 9 that hold isolate the cause better than the 3 that move:**
+
+- the **three no-engagement PDFs** hold, because `engagementId` falls back to
+  `''` — a constant seed;
+- **all six markdown files hold**, including the three engagement-backed ones.
+  Same varying `engagementId`, same run, no movement — because markdown has no
+  `/ID`, and the filename slug comes from the org name, which is fixed.
+
+So the variation tracks `/ID` specifically, not the engagement generally.
+
+**What this means in practice:** these three are reproducible *within* one
+engagement, not *across* runs. Do not add them to `compare.mjs`, and do not read
+a changed `/ID` here as drift. Everything else the click-through asserts — the
+filename pattern, the cover org name, the console cleanliness — is stable, which
+is what the tool is for.
+
+One further trap: clickthrough filenames carry **today's** UTC date, because
+`generatedAt` is truncated to the day at the call site. A run on a later day
+re-dates all twelve. The committed set is a snapshot of the day it was taken, and
+re-running it to "restore" a set you deleted does not restore it — it replaces
+it. See the ordering note at the top of `clickthrough.mjs`'s main block.
+
 ## What this does not cover
 
 Four things, stated so nobody has to discover them:
 
 1. **Dataset truth.** Every artefact is now asserted byte-for-byte, but the
-   harness compares output to output — it cannot tell you a dataset is wrong.
-   Two examples found while closing D-001, both still live: BVF's `dataReqCount`
-   disagrees with the actual row count in `dataRequirements.json` in **111 of
-   112** capabilities, and TAIW's `dataRequirements.json` references **four
-   capability ids that do not exist**. Both are recorded in `known-defects.md`;
-   neither would move a single byte of a baseline. *(This slot used to hold the
-   two RNG column sets, which no longer exist.)*
+   harness compares output to output — it cannot tell you a dataset is wrong. A
+   dataset that disagrees with itself produces perfectly reproducible output.
+
+   The worked example is D-007. TAIW's `dataRequirements.json` referenced **four
+   capability ids that did not exist**, costing four real capabilities their
+   entire WCO cell, and every baseline was green throughout. Correcting the 11
+   references moved coverage 91 → 95 of 100 — a change the harness could measure
+   only *after* someone found it by other means.
+
+   D-007 also cuts the other way, and that half is the more useful warning. It
+   was filed with two further items that turned out **not** to be defects: BVF's
+   `dataReqCount` "disagreeing" with `dataRequirements.json` in 111 of 112 rows,
+   and `capabilitiesUsing` in 114 of 114. Both fields count something else
+   entirely, and recomputing `dataReqCount` — offered at the time as the safe
+   default — would have put 97 capabilities at zero and broken two live roadmap
+   views. Writing a dataset check here is easy; knowing which of two fields is
+   authoritative is not, and no harness supplies that. See `known-defects.md`.
+   *(This slot used to hold the two RNG column sets, which no longer exist.)*
 2. **The `DRAFT` watermark path.** Every fixture answers every question, so
    `isDraft` is `false` everywhere — in all three module fixtures **and** in
    DGIW's. Nothing draws the watermark, in any of the 23. A change to it would go

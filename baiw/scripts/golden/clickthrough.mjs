@@ -245,19 +245,48 @@ async function runModule(b, mod, { engagementOrg }) {
 // ── main ─────────────────────────────────────────────────────────────────
 
 if (!existsSync(path.join(APP_ROOT, 'package.json'))) throw new Error('APP_ROOT looks wrong')
-rmSync(DL, { recursive: true, force: true })
-mkdirSync(DL, { recursive: true })
 
+/*
+ * ORDER IS LOAD-BEARING: every way this run can fail to start is checked BEFORE
+ * anything is deleted.
+ *
+ * This used to rmSync(DL) as its first act, above the dev-server check. Running
+ * it without a server on 5174 therefore wiped the previous run's twelve
+ * artefacts and *then* exited 2 — a tool that destroys its own output when
+ * invoked wrongly, which is the invocation most likely to happen by accident.
+ *
+ * The loss is not recoverable from git: scripts/golden/.gitignore excludes
+ * `raw/`, so these twelve files are local-only. The only way back is a
+ * successful run, and that re-dates every filename to today (`generatedAt` is
+ * truncated to the day at the call site), so a stale-by-one-day set cannot be
+ * restored — it can only be replaced.
+ *
+ * Reachability first, then Chrome, then delete. Note the clear is files-only
+ * and happens AFTER launch: findChrome() throws when no binary is present, and
+ * that is just as much a run that never started. Browser.setDownloadBehavior
+ * has already been handed this path by then, so the directory itself must
+ * survive — removing its contents is safe, removing the inode is not.
+ */
 try {
   await fetch(BASE)
 } catch {
   console.error(`\nNo dev server at ${BASE}. Start it with \`npm run dev\` and retry.\n`)
+  console.error(`Nothing was deleted; ${path.relative(APP_ROOT, DL)} is untouched.\n`)
   process.exit(2)
 }
+
+mkdirSync(DL, { recursive: true })
 
 console.log(`\nclick-through — real Chrome over CDP, no npm dependency\n  dev server ${BASE}\n  downloads  ${path.relative(APP_ROOT, DL)}`)
 
 const b = await launch({ downloadPath: DL })
+
+// Past this point the run is committed, so the previous set can go. Files only:
+// see the note above on why DL itself has to outlive the clear.
+const stale = readdirSync(DL)
+for (const f of stale) rmSync(path.join(DL, f), { recursive: true, force: true })
+if (stale.length) console.log(`  cleared    ${stale.length} file(s) from the previous run`)
+
 try {
   console.log(`\n${BOLD('PASS 1 — with an active engagement')}`)
   // The switcher lives in the module shell header, not on the suite landing page.
