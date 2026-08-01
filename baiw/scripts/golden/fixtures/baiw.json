@@ -6,8 +6,35 @@
   "generatedAt": "2026-07-31T00:00:00.000Z",
   "layer": "all",
   "notes": [
+    "Seeded per BACR category index i, the same rule taiw.json uses:",
+    "  current = 1 + 0.5i,  desired = min(5, current + [0.5, 1.2, 1.8, 2.5][i % 4]),",
+    "  gap = desired - current.",
+    "overallScore is the mean of the SCORED categories, one decimal:",
+    "22 / 8 = 2.75 -> 2.8. That is also what MaturityAssessment.tsx computes, since",
+    "it filters `current > 0` before averaging.",
     "answeredCategories === totalCategories so isDraft is false. The DRAFT",
     "watermark path is therefore NOT covered - see README.",
+    "",
+    "THE NINTH CATEGORY IS GONE. This block carried a ninth row, \"Overall",
+    "Assessment\" (5 / 5 / 0). bacrQuestions.json holds 804 questions across EIGHT",
+    "distinct categories and none of them is \"Overall Assessment\", so no client",
+    "answer can ever produce that row. A perfect 5.0 averaged in as if it were a",
+    "real category put 27 / 9 = 3.0 on the cover where the eight measured",
+    "categories say 22 / 8 = 2.8 — inflating the headline and understating every",
+    "distance derived from it (page 16 read 0.2 levels behind regional leaders",
+    "where the truth is 0.4).",
+    "",
+    "WHAT THIS FIXTURE STILL DOES NOT MIRROR, and it is a source defect, not a",
+    "fixture one: MaturityAssessment.tsx hardcodes its own nine-entry CATEGORIES",
+    "array and passes `totalCategories: CATEGORIES.length` = 9, with a ninth",
+    "radarData row of 0 / 0 / 0 because no question carries that category. So on",
+    "the real screen answeredCategories is 8 and totalCategories is 9 — meaning",
+    "isDraft is TRUE for every complete BAIW assessment, and the scorecard carries",
+    "a 0.0 row. Fixing that is a source change to CATEGORIES in both",
+    "pages/MaturityAssessment.tsx and utils/reportGenerator.ts. Until then this",
+    "fixture agrees with the screen on the cover score and on all eight measured",
+    "rows, and differs only by the phantom.",
+    "",
     "engagementId/generatedAt/layer were added in D2 step 3, for the same reason",
     "they were added to haiw.json in step 1 and taiw.json in step 2: the PDF and",
     "the markdown now take a ReportMeta, and a clock-derived date would make them",
@@ -66,17 +93,11 @@
         "current": 4.5,
         "desired": 5,
         "gap": 0.5
-      },
-      {
-        "category": "Overall Assessment",
-        "current": 5,
-        "desired": 5,
-        "gap": 0
       }
     ],
-    "overallScore": 3,
-    "answeredCategories": 9,
-    "totalCategories": 9
+    "overallScore": 2.8,
+    "answeredCategories": 8,
+    "totalCategories": 8
   },
   "data": {
     "src/data/benchmarks.json": {

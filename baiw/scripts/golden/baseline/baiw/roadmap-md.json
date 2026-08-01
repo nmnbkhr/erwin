@@ -1,6 +1,6 @@
 {
   "artefact": "roadmap-md",
-  "bytes": 3992,
+  "bytes": 3839,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -51,9 +51,9 @@
     "### Let's Build Your Analytics Future"
   ],
   "kind": "md",
-  "lineCount": 133,
+  "lineCount": 130,
   "module": "baiw",
-  "normalisedTextSha256": "aec26cd6887ab40faad15f7618574656a8c7bfdf547438a44530c24753bb597d",
+  "normalisedTextSha256": "3dbfe232c62c24439be288bbe092e0774443990a455b2341c9eb25a5609abd80",
   "rawBytesAsserted": true,
-  "rawBytesSha256": "1090326a2117d3adc32fd3a03cd2b00f981c1c02a653eded6955aaa1f1950245"
+  "rawBytesSha256": "ed10417837daf27a0ce06d9ed061ed8105565874fc1ab995d693f6b581b37f23"
 }

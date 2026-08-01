@@ -1,6 +1,6 @@
 {
   "artefact": "maturity-pdf",
-  "bytes": 139339,
+  "bytes": 136987,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -20,16 +20,16 @@
   "filename": "MR-BAIW-MATURITY_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "MR-BAIW-MATURITY_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "generateMaturityPDF",
-  "glyphCount": 13135,
+  "glyphCount": 13080,
   "kind": "pdf",
   "module": "baiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "bf3a41985cf7bb9bb3169f24aa421e0f3b052808d5133eeda64cb023e4b007ce",
+  "normalisedTextSha256": "6360f1010793f372239194c3e441b64844d58d4a2b5e84654fe1fa8c0eb459cd",
   "notReproducible": {},
   "pageCount": 18,
   "pages": [
     {
-      "glyphs": 150,
+      "glyphs": 152,
       "heightPt": 841.89,
       "multiColumnBaselines": 0,
       "page": 1,
@@ -47,7 +47,7 @@
         "BACR — Banking Analytics Capability Review",
         "July 31, 2026",
         "Prepared by Godaitec (godai.tech)",
-        "3",
+        "2.8",
         "/ 5.0",
         "Defined"
       ],
@@ -56,7 +56,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 848,
+      "glyphs": 850,
       "heightPt": 841.89,
       "multiColumnBaselines": 2,
       "page": 2,
@@ -72,7 +72,7 @@
         "Fixture Bank Limited — Analytics Maturity Assessment",
         "Powered by BAIW",
         "Executive Summary",
-        "Overall Maturity: 3 / 5.0",
+        "Overall Maturity: 2.8 / 5.0",
         "Level: Defined — Enterprise DWH in place. Standardized reporting. Some predictive models.",
         "Key Findings",
         "1. Your Information maturity (2.5) is at Pakistan average (2). Gap to target: 2.5",
@@ -91,9 +91,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 239,
+      "glyphs": 221,
       "heightPt": 841.89,
-      "multiColumnBaselines": 7,
+      "multiColumnBaselines": 6,
       "page": 3,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -115,21 +115,20 @@
         "Systems",
         "Agility",
         "Outcomes",
-        "Overall Assessment",
         "Current",
         "Target",
         "Pakistan Avg",
         "Prepared by Godaitec | godai.tech",
         "Page 3 of 18"
       ],
-      "textRuns": 17,
+      "textRuns": 16,
       "widestText": "Powered by BAIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 453,
+      "glyphs": 412,
       "heightPt": 841.89,
-      "multiColumnBaselines": 12,
+      "multiColumnBaselines": 11,
       "page": 4,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -138,7 +137,7 @@
       "rotatedRuns": 0,
       "runsPastMargin": 0,
       "runsPastPaper": 0,
-      "tableRows": 10,
+      "tableRows": 9,
       "text": [
         "Fixture Bank Limited — Analytics Maturity Assessment",
         "Powered by BAIW",
@@ -197,16 +196,10 @@
         "0.5",
         "Optimizing",
         "+3.0",
-        "Overall Assessment",
-        "5.0",
-        "5.0",
-        "0.0",
-        "Optimizing",
-        "+3.1",
         "Prepared by Godaitec | godai.tech",
         "Page 4 of 18"
       ],
-      "textRuns": 65,
+      "textRuns": 59,
       "widestText": "Powered by BAIW",
       "widthPt": 595.28
     },
@@ -918,7 +911,7 @@
         "1.5",
         "2.8",
         "3.8",
-        "You are 0.2 levels behind regional leaders. Closing this gap requires an estimated 18–24 months.",
+        "You are 0.4 levels behind regional leaders. Closing this gap requires an estimated 18–24 months.",
         "Prepared by Godaitec | godai.tech",
         "Page 16 of 18"
       ],
@@ -1011,9 +1004,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "84212176a965be44afbdaabf0d6c67dea3ba0fc876283096092eea103e129a0b",
-  "tableRowsTotal": 55,
-  "textRunCount": 639,
+  "rawBytesSha256": "a22a7496a52d2f48d413757159053b703def566e1194fa173e1f6290928d93f0",
+  "tableRowsTotal": 54,
+  "textRunCount": 632,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",
