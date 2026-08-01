@@ -464,6 +464,12 @@ interface CapabilityGapReport {
   notAssessed: number
   notApplicable: number
   total: number
+  /**
+   * False when `capabilities.json` never arrived — a load failure, not an empty
+   * assessment. The two produce the same zero rows and mean opposite things, so
+   * the caption has to tell them apart. See D-008.
+   */
+  datasetAvailable: boolean
 }
 
 /**
@@ -538,44 +544,46 @@ function scoreCapabilities(
  * depends on.
  */
 function buildCapabilityGaps(
-  scores: CategoryScore[],
   capabilities: HaiwCapability[],
   questions: readonly HacrQuestionLink[],
   answers: HaiwAssessmentAnswer[],
 ): CapabilityGapReport {
-  if (capabilities.length > 0) {
-    const scored = scoreCapabilities(capabilities, questions, answers)
-    const rows = scored
-      .flatMap(c => (c.state === 'scored'
-        ? [{ id: c.id, name: c.name, theme: c.theme, current: c.current, required: c.desired, gap: c.gap }]
-        : []))
-      .sort((a, b) => b.gap - a.gap || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
-    return {
-      rows: rows.slice(0, TOP_CAPABILITY_GAPS),
-      scored: scored.filter(c => c.state === 'scored').length,
-      notAssessed: scored.filter(c => c.state === 'not-assessed').length,
-      notApplicable: scored.filter(c => c.state === 'not-applicable').length,
-      total: capabilities.length,
-    }
-  }
   /*
-   * DEGRADED PATH: no capability dataset, so there is nothing to link questions
-   * to and no per-capability score to compute. Three synthesised rows per category
-   * — the D-001 shape, and unavoidable here, because the input that makes the
-   * honest version possible is the input that is missing. BAIW and TAIW could
-   * remove theirs outright; this one cannot, because removing it leaves the page
-   * empty in the one case it exists to cover. Reached only when
-   * `loadCapabilities()` rejects; the caption says what the reader is looking at.
+   * D-008: NO CAPABILITY DATASET MEANS NO ROWS. It does not mean invent some.
+   *
+   * This used to synthesise 24 rows — three per HACR category, named
+   * `${cat} Strategy` / `Analytics` / `Automation`, carrying the category score
+   * offset by 0, -0.3 and -0.5 — and then report them as
+   * `scored: 24, notAssessed: 0, notApplicable: 0`. Two lies in one branch: rows
+   * that are not capabilities, and a census claiming every one of them was
+   * measured.
+   *
+   * It ran only when `loadCapabilities()` rejected, which nothing does today, so
+   * it was dead code that fabricated. That is the worst combination available:
+   * never exercised, never reviewed, and reached exactly when a client's data is
+   * missing — the moment they are least able to tell.
+   *
+   * The empty report below is the honest answer, and `datasetAvailable` carries
+   * WHY it is empty so the caption does not blame the assessment for a fetch.
    */
-  const rows = HACR_CATEGORIES.flatMap(cat => {
-    const score = scores.find(s => s.category === cat) || { current: 0, gap: 0 }
-    return [
-      { id: `${cat}::Strategy`, name: `${cat} Strategy`, theme: cat, current: score.current, required: score.current + score.gap, gap: score.gap },
-      { id: `${cat}::Analytics`, name: `${cat} Analytics`, theme: cat, current: Math.max(1, score.current - 0.3), required: score.current + score.gap, gap: score.gap + 0.3 },
-      { id: `${cat}::Automation`, name: `${cat} Automation`, theme: cat, current: Math.max(1, score.current - 0.5), required: score.current + score.gap, gap: score.gap + 0.5 },
-    ]
-  }).sort((a, b) => b.gap - a.gap || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
-  return { rows: rows.slice(0, TOP_CAPABILITY_GAPS), scored: rows.length, notAssessed: 0, notApplicable: 0, total: rows.length }
+  if (capabilities.length === 0) {
+    return { rows: [], scored: 0, notAssessed: 0, notApplicable: 0, total: 0, datasetAvailable: false }
+  }
+
+  const scored = scoreCapabilities(capabilities, questions, answers)
+  const rows = scored
+    .flatMap(c => (c.state === 'scored'
+      ? [{ id: c.id, name: c.name, theme: c.theme, current: c.current, required: c.desired, gap: c.gap }]
+      : []))
+    .sort((a, b) => b.gap - a.gap || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
+  return {
+    rows: rows.slice(0, TOP_CAPABILITY_GAPS),
+    scored: scored.filter(c => c.state === 'scored').length,
+    notAssessed: scored.filter(c => c.state === 'not-assessed').length,
+    notApplicable: scored.filter(c => c.state === 'not-applicable').length,
+    total: capabilities.length,
+    datasetAvailable: true,
+  }
 }
 
 // ══════════════════════════════════════════════════════════
@@ -631,7 +639,10 @@ export function generateHealthMaturityPDF(
   const totalCategories = HACR_CATEGORIES.length
 
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
-  const capGaps = buildCapabilityGaps(scores, capabilities, questions, answers)
+  // No `scores` argument since D-008: the only thing that read the category
+  // scores here was the synthesis, and it is gone. Capability scoring goes
+  // through capabilityLinks or it does not happen.
+  const capGaps = buildCapabilityGaps(capabilities, questions, answers)
 
   /*
    * Draft state stays derived HERE rather than being taken from meta.
@@ -860,43 +871,58 @@ export function generateHealthMaturityPDF(
    * DGIW prints "Not applicable 0" rather than omitting the line. Zero is a
    * measurement; a missing line is an unanswered question.
    */
-  const capCaption =
-    `Weight-weighted mean of the answered HACR questions linked to each capability. ` +
-    `Scored ${capGaps.scored} of ${capGaps.total} capabilities · not assessed ${capGaps.notAssessed} · ` +
-    `not applicable ${capGaps.notApplicable}. ` +
-    // "Showing the top 0" is technically true and reads like a bug. An empty
-    // ranking is the correct output for an unanswered assessment and should say
-    // why, not leave a reader counting rows that are not there.
-    (capGaps.rows.length > 0
-      ? `Showing the top ${capGaps.rows.length} by gap, ties broken by capability id.`
-      : `No capability has an answered question yet, so there is nothing to rank.`)
+  /*
+   * Three outcomes, and they are different facts (D-008):
+   *   dataset missing   — we could not look. Says so, and blames nothing else.
+   *   dataset, no rows  — we looked; nothing has been answered yet.
+   *   rows              — the ranking.
+   * The first two both produce zero rows. Collapsing them would tell a client
+   * their assessment is empty when the truth is that a file failed to load.
+   */
+  const capCaption = !capGaps.datasetAvailable
+    ? `The HCF capability dataset could not be loaded, so no capability could be scored ` +
+      `for this report. This page is empty for that reason and for no other — it is not a ` +
+      `finding about the assessment. Category maturity elsewhere in this report is unaffected.`
+    : `Weight-weighted mean of the answered HACR questions linked to each capability. ` +
+      `Scored ${capGaps.scored} of ${capGaps.total} capabilities · not assessed ${capGaps.notAssessed} · ` +
+      `not applicable ${capGaps.notApplicable}. ` +
+      // "Showing the top 0" is technically true and reads like a bug. An empty
+      // ranking is the correct output for an unanswered assessment and should say
+      // why, not leave a reader counting rows that are not there.
+      (capGaps.rows.length > 0
+        ? `Showing the top ${capGaps.rows.length} by gap, ties broken by capability id.`
+        : `No capability has an answered question yet, so there is nothing to rank.`)
   r.page('Capability Gap Matrix', capCaption)
-  r.table({
-    head: ['#', 'Capability', 'Theme', 'Current', 'Required', 'Gap', 'Priority'],
-    rows: capGaps.rows.map((c, i) => [
-      i + 1,
-      c.name,
-      c.theme,
-      c.current.toFixed(1),
-      c.required.toFixed(1),
-      c.gap.toFixed(1),
-      priorityLabel(c.gap),
-    ]),
-    headFontSize: 7,
-    bodyFontSize: 7,
-    columnStyles: {
-      0: { halign: 'center', cellWidth: 8 },
-      3: { halign: 'center' },
-      4: { halign: 'center' },
-      5: { halign: 'center' },
-      6: { halign: 'center' },
-    },
-    didParseCell(data) {
-      if (data.section === 'body' && data.row.index < 5) {
-        data.cell.styles.fillColor = [236, 253, 245] // emerald-50
-      }
-    },
-  })
+  // A header row over nothing reads as a rendering fault. The caption above has
+  // already said which of the two empty cases this is.
+  if (capGaps.rows.length > 0) {
+    r.table({
+      head: ['#', 'Capability', 'Theme', 'Current', 'Required', 'Gap', 'Priority'],
+      rows: capGaps.rows.map((c, i) => [
+        i + 1,
+        c.name,
+        c.theme,
+        c.current.toFixed(1),
+        c.required.toFixed(1),
+        c.gap.toFixed(1),
+        priorityLabel(c.gap),
+      ]),
+      headFontSize: 7,
+      bodyFontSize: 7,
+      columnStyles: {
+        0: { halign: 'center', cellWidth: 8 },
+        3: { halign: 'center' },
+        4: { halign: 'center' },
+        5: { halign: 'center' },
+        6: { halign: 'center' },
+      },
+      didParseCell(data) {
+        if (data.section === 'body' && data.row.index < 5) {
+          data.cell.styles.fillColor = [236, 253, 245] // emerald-50
+        }
+      },
+    })
+  }
 
   // ── PAGE 14: FHIR READINESS ASSESSMENT ──
   r.page('FHIR Readiness Assessment', 'FHIR R4 resource categories needed based on capability gaps')
@@ -1174,110 +1200,71 @@ function buildGapRows(
   capabilities: HaiwCapability[],
   questions: readonly HacrQuestionLink[],
 ): GapRow[] {
-  const scores = computeCategoryScores(answers)
-
-  if (capabilities.length > 0) {
-    /*
-     * Row order is DECLARED, per src/report/csv.ts: "the alternative is the order
-     * the JSON file happens to be in, which nobody declared and a dataset edit can
-     * change without touching a line of code".
-     *
-     * `byStringKey` is right for `HCF-001`-style zero-padded ids, and this sort is
-     * a no-op today — capabilities.json is already in id order, verified — so
-     * declaring it moves no row and changes no ordinal. That is the point: the
-     * order stops being an accident without the file changing.
-     */
-    const ordered = [...capabilities].sort(byStringKey(c => c.id))
-    return scoreCapabilities(ordered, questions, answers).map((cap, i) => ({
-      ordinal: i + 1,
-      name: cap.name,
-      theme: cap.theme,
-      group: cap.group,
-      ...(cap.state === 'scored'
-        ? {
-            current: cap.current.toFixed(1),
-            desired: cap.desired.toFixed(1),
-            gap: cap.gap.toFixed(1),
-            priority: priorityLabel(cap.gap),
-          }
-        : {
-            // Empty numeric cells, state in Priority. An empty cell imports as
-            // blank; a 0.0 would be averaged into a number nobody measured.
-            current: '',
-            desired: '',
-            gap: '',
-            priority: cap.state === 'not-assessed' ? 'Not Assessed' : 'Not Applicable',
-          }),
-      fhir: cap.fhirResources.join('; '),
-    }))
-  }
+  /*
+   * D-008: NO CAPABILITY DATASET MEANS NO ROWS.
+   *
+   * This used to synthesise 108 rows named `${cat} — ${group}` from fourteen
+   * hardcoded group names, each carrying a category score offset by
+   * `(ci % 5 - 2) * 0.15`, with a per-category FHIR resource list picked from a
+   * hardcoded map. None of it was a capability. The variation existed to stop one
+   * number reading as one number.
+   *
+   * `downloadCsv` returns false on an empty set and writes no file, so the caller
+   * can tell the user the truth instead of handing them a spreadsheet. A client
+   * receiving 108 plausible rows because a fetch failed is the worst outcome this
+   * codebase can produce: it is indistinguishable from real output.
+   */
+  if (capabilities.length === 0) return []
 
   /*
-   * DEGRADED PATH: no capability dataset, so there is nothing to link questions
-   * to. Migrated VERBATIM — same names, same offsets, same order, same 108 rows.
+   * Row order is DECLARED, per src/report/csv.ts: "the alternative is the order
+   * the JSON file happens to be in, which nobody declared and a dataset edit can
+   * change without touching a line of code".
    *
-   * It is D-001-shaped and it knows it: `${cat} — ${group}` names that match no
-   * HCF capability, carrying a category score offset by `(ci % 5 - 2) * 0.15`.
-   * That is the pattern removed from BAIW and TAIW. It survives here for two
-   * reasons — this change is a plumbing migration and is not permitted to move a
-   * number, and unlike BAIW/TAIW the honest version exists directly above and is
-   * what every real caller reaches. This branch runs only if `loadCapabilities()`
-   * rejects, which no fixture and no UI path does.
-   *
-   * Recorded rather than quietly kept: see docs/known-defects.md D-001.
+   * `byStringKey` is right for `HCF-001`-style zero-padded ids, and this sort is
+   * a no-op today — capabilities.json is already in id order, verified — so
+   * declaring it moves no row and changes no ordinal. That is the point: the
+   * order stops being an accident without the file changing.
    */
-  const rows: GapRow[] = []
-  let id = 1
-  const capGroups = [
-    'Strategy', 'Analytics', 'Reporting', 'Automation', 'Data Integration',
-    'Model Development', 'Performance Mgmt', 'Clinical Decision Support',
-    'Population Health', 'Surveillance', 'Quality Improvement',
-    'Patient Experience', 'Resource Optimization', 'Compliance',
-  ]
-  const fhirMap: Record<string, string> = {
-    'Strategy & Leadership': 'Organization; HealthcareService',
-    'Workforce & Skills': 'Practitioner; PractitionerRole',
-    'Data Governance & Standards': 'AuditEvent; Provenance; Consent',
-    'Infrastructure & Systems': 'Endpoint; CapabilityStatement; Bundle',
-    'Analytics & Intelligence': 'MeasureReport; Observation; DiagnosticReport',
-    'Integration & Interoperability': 'Bundle; MessageHeader; OperationOutcome',
-    'Patient & Community Engagement': 'Patient; RelatedPerson; Communication',
-    'Outcomes & Impact': 'Condition; Procedure; ClinicalImpression',
-  }
-  HACR_CATEGORIES.forEach(cat => {
-    const score = scores.find(s => s.category === cat) || { current: 0, desired: 0, gap: 0 }
-    // ~13-14 capabilities per category to reach ~108 total
-    const count = cat === 'Outcomes & Impact' ? 10 : 14
-    for (let ci = 0; ci < count && id <= 108; ci++) {
-      const group = capGroups[ci % capGroups.length]
-      const variation = (ci % 5 - 2) * 0.15
-      const current = Math.max(1, Math.min(5, score.current + variation))
-      const target = Math.max(current, score.desired)
-      const gap = target - current
-      rows.push({
-        ordinal: id,
-        name: `${cat} — ${group}`,
-        theme: cat,
-        group,
-        current: current.toFixed(1),
-        desired: target.toFixed(1),
-        gap: gap.toFixed(1),
-        priority: priorityLabel(gap),
-        fhir: fhirMap[cat] || 'Patient; Encounter',
-      })
-      id++
-    }
-  })
-  return rows
+  const ordered = [...capabilities].sort(byStringKey(c => c.id))
+  return scoreCapabilities(ordered, questions, answers).map((cap, i) => ({
+    ordinal: i + 1,
+    name: cap.name,
+    theme: cap.theme,
+    group: cap.group,
+    ...(cap.state === 'scored'
+      ? {
+          current: cap.current.toFixed(1),
+          desired: cap.desired.toFixed(1),
+          gap: cap.gap.toFixed(1),
+          priority: priorityLabel(cap.gap),
+        }
+      : {
+          // Empty numeric cells, state in Priority. An empty cell imports as
+          // blank; a 0.0 would be averaged into a number nobody measured.
+          current: '',
+          desired: '',
+          gap: '',
+          priority: cap.state === 'not-assessed' ? 'Not Assessed' : 'Not Applicable',
+        }),
+    fhir: cap.fhirResources.join('; '),
+  }))
 }
+
+/**
+ * @returns false when no file was written, which happens only when the capability
+ * dataset is unavailable. The caller MUST surface that — a button that silently
+ * does nothing reads as a broken download, and the user's next move is to try
+ * again rather than to report the real fault.
+ */
 
 export function generateHealthGapCSV(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
   questions: readonly HacrQuestionLink[],
   meta: ReportMeta,
-) {
-  downloadCsv(buildGapRows(answers, capabilities, questions), GAP_COLUMNS, reportFilename(meta, 'csv'))
+): boolean {
+  return downloadCsv(buildGapRows(answers, capabilities, questions), GAP_COLUMNS, reportFilename(meta, 'csv'))
 }
 
 // ══════════════════════════════════════════════════════════

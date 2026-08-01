@@ -21,11 +21,28 @@ entry here is not a substitute for fixing it — it is a substitute for
 | D-005 | spine wrapped the first list item at the wrong width | **fixed** — D2 step 2 |
 | D-006 | roadmap phase boxes 5 mm past the content column | **fixed** 2026-08-01 — all three modules |
 | D-007 | two capability↔requirement relations disagree with themselves | **open** — dataset-level, not client-visible |
+| D-008 | HAIW invented 132 rows when the capability dataset failed to load | **fixed** 2026-08-01 — by removal |
 
-D-001 and D-003 are the pair worth reading together: the same defect class, and
-the fixes are opposites. HAIW had the relation authored, so its scores were
-*derived*; BAIW and TAIW did not, so theirs were *removed*. What decided it was
-the data, not a preference for one remedy.
+**Three of these are one defect wearing three costumes.** D-001, D-003 and D-008
+are all *a plausible number substituted where a real one was unavailable*:
+
+| | What was missing | What was substituted |
+|---|---|---|
+| D-001 | any BACR→BVF / TACR→TCF link | a category score, jittered, on 112 + 96 invented capability rows |
+| D-003 | a working lookup (the `find` never matched) | a constant 1.0/1.0/0.0 on twenty rows headed "largest gaps" |
+| D-008 | `capabilities.json` itself, at runtime | 108 CSV rows + 24 PDF rows built from category scores |
+
+The remedies differ because the *data* differs, not because of taste: HAIW had
+`capabilityLinks` authored, so D-003 was fixed by **deriving**; BAIW and TAIW had
+no such relation and D-001 was fixed by **removing**; D-008's input was missing
+at runtime and no derivation is possible, so it too was **removed**.
+
+The rule this yields, worth more than any of the three instances: **when the
+input is unavailable, produce nothing and say so.** Never a placeholder, never a
+neighbouring number, never a variation on one. Variation is the tell — every one
+of these three added spread (`Math.random`, fixed offsets, `charCodeAt`,
+`(ci % 5 - 2) * 0.15`) for no reason except to stop one number reading as one
+number.
 
 ---
 
@@ -736,3 +753,113 @@ dataset that disagrees with itself produces perfectly reproducible output.
 `check-dgiw.mjs` is the tool with the right shape for this — it already validates
 DGIW's datasets — and extending it to BAIW's and TAIW's capability relations is
 the natural home for a guard.
+
+---
+
+## D-008 — HAIW invented 132 rows when the capability dataset failed to load
+
+**Status** — FIXED 2026-08-01, by removal. Found the same day, immediately after
+migrating HAIW's CSV onto `src/report/csv.ts`, by reading the branch that
+migration was not allowed to touch.
+
+**Where** — `baiw/src/haiw/utils/healthReportGenerator.ts`, two fallbacks reached
+on the same condition, `capabilities.length === 0`:
+
+- `buildGapRows` — **108 CSV rows**, named `${cat} — ${group}` from fourteen
+  hardcoded group names, each carrying a HACR category score offset by
+  `(ci % 5 - 2) * 0.15`, with FHIR resources from a hardcoded per-category map.
+- `buildCapabilityGaps` — **24 PDF rows** for page 13, named `${cat} Strategy` /
+  `Analytics` / `Automation`, offset by 0, −0.3 and −0.5.
+
+**What it did**
+
+None of the 132 rows was an HCF capability. Every number on them was one of eight
+category scores wearing a disguise.
+
+The PDF half told a second lie on top of the first. It returned
+`scored: 24, notAssessed: 0, notApplicable: 0`, so the caption printed
+**"Scored 24 of 24 capabilities · not assessed 0 · not applicable 0"** over rows
+that had never been measured at all — the exact census machinery added in D-003
+to prevent this, reporting a fabrication as fully assessed.
+
+**Why it was worse than D-001, despite never having run**
+
+`loadCapabilities()` rejects nowhere in any fixture or UI path, so this was **dead
+code that fabricates** — the worst available combination:
+
+- **Never exercised**, so never reviewed and never in a baseline. The golden
+  harness has 23 artefacts and not one covers it.
+- **Reached exactly when the client's data is missing** — the one moment a reader
+  has no way to sanity-check what they are holding.
+- **Indistinguishable from real output.** 108 rows with plausible names, a spread
+  of scores and a Priority column is what success looks like.
+
+The trigger path made it silent end to end:
+`loadCapabilities().catch(() => setCapabilities([]))` in
+`HealthMaturityAssessment.tsx` swallowed the rejection into an empty array, and
+`[]` is also what "still loading" looks like. A fetch failure became a
+deliverable with no error anywhere in between.
+
+**What the fix was**
+
+Both fallbacks deleted. No substitute:
+
+- `buildGapRows` returns `[]`. `downloadCsv` already returns `false` on an empty
+  set and writes no file, and `generateHealthGapCSV` now propagates that boolean
+  so the caller can act on it.
+- `buildCapabilityGaps` returns an empty report carrying a new
+  **`datasetAvailable: false`**. That flag exists because zero rows has two
+  causes — a failed load and an unanswered assessment — and they mean opposite
+  things. Page 13 renders no table and states which one it is. The rest of the
+  eighteen pages are category-based and unaffected.
+- `HealthMaturityAssessment` tracks the rejection instead of erasing it, logs it,
+  and passes `capabilitiesFailed` down.
+- `HealthReportGenerator` shows a red panel **before** the buttons, disables the
+  CSV button, replaces the hardcoded "108 capability scores" caption with a count
+  derived from the data, and surfaces any generation failure in an
+  `role="alert"` box. The `handleGenerate` try/finally also gained a `catch`: a
+  throw previously vanished, leaving the spinner to stop with no file and no
+  explanation.
+
+Measured after, with the dataset withheld:
+
+```
+CSV  generateHealthGapCSV(...) -> false, 0 files written
+PDF  1 file, 18 pages, page 13 reads:
+     "The HCF capability dataset could not be loaded, so no capability could be
+      scored for this report. This page is empty for that reason and for no other
+      — it is not a finding about the assessment. Category maturity elsewhere in
+      this report is unaffected."
+     synthesised names present: false
+```
+
+The normal path did not move: all three HAIW artefacts byte-identical, all 23
+baselines unchanged, `compare.mjs` exit 0 with 23 raw-byte checks.
+
+**The audit this prompted**
+
+BAIW, TAIW and DGIW were swept for the same shape — a fallback that substitutes
+rather than fails. **Nothing else of this class was found.** DGIW's many
+`if (x.length === 0)` branches are the opposite pattern: they exist to *report*
+the empty case in prose. BAIW's and TAIW's post-D-001 coverage counts likewise
+report what is missing.
+
+Two lesser things surfaced and are left alone deliberately:
+
+- **`1.86` in `reportGenerator.ts`**, five times, as
+  `typeof pkVal === 'number' ? pkVal : 1.86` — a hardcoded Pakistan banking
+  average substituted for a missing benchmark. Same class, but **unreachable
+  today**: all eight BAIW categories have a numeric benchmark in
+  `benchmarks.json`. It would fire silently if a category were ever removed. One
+  number, not 132 rows.
+- **`scores.find(...) || { current: 0 }`** in all three generators.
+  `computeCategoryScores` always returns every category, so the miss is
+  structurally impossible; the default is defensive and dead. Worth knowing it
+  would render as `0.0` rather than as "unmeasured" if it ever fired.
+
+**Harness status** — invisible to it, and it is worth being precise about why.
+`compare.mjs` asserts 23 artefacts byte-for-byte, but every one is generated from
+a **complete** fixture. There is no fixture for a failed load, so no golden
+artefact exercises either fallback. This is the same blind spot the README lists
+for the `DRAFT` watermark: the harness proves the happy path is stable and says
+nothing about the others. Finding D-008 took reading the branch, not running it.

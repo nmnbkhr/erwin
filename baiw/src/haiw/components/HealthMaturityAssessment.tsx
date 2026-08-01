@@ -61,6 +61,17 @@ export default function HealthMaturityAssessment() {
   const [answers, setAnswers] = usePersistedState<Record<string, HaiwAssessmentAnswer>>(STORAGE_KEY, {}, isAnswerMap)
   const [expandedContexts, setExpandedContexts] = useState<Record<string, boolean>>({})
   const [capabilities, setCapabilities] = useState<HaiwCapability[]>([])
+  /*
+   * D-008. `[]` used to be the only signal a capability load had failed, and it
+   * is ambiguous: "still loading" and "the fetch rejected" are the same value.
+   * The report generators read that empty array and synthesised plausible rows
+   * from it, so a failed fetch produced a deliverable rather than an error.
+   *
+   * Tracked explicitly so the report panel can say which of the two it is. The
+   * error is still swallowed here on purpose — the assessment itself does not
+   * need capabilities and must stay usable — but it is no longer silent.
+   */
+  const [capabilitiesFailed, setCapabilitiesFailed] = useState(false)
 
   // Load data
   useEffect(() => {
@@ -68,8 +79,12 @@ export default function HealthMaturityAssessment() {
       .then(data => setHacrData(data))
       .finally(() => setLoading(false))
     loadCapabilities()
-      .then(setCapabilities)
-      .catch(() => setCapabilities([]))
+      .then(caps => { setCapabilities(caps); setCapabilitiesFailed(false) })
+      .catch(err => {
+        console.error('[haiw] capabilities.json failed to load; capability sections of the report are unavailable', err)
+        setCapabilities([])
+        setCapabilitiesFailed(true)
+      })
   }, [])
 
   // Answers persist through usePersistedState, per engagement
@@ -494,6 +509,7 @@ export default function HealthMaturityAssessment() {
           <HealthReportGenerator
             answers={Object.values(answers)}
             capabilities={capabilities}
+            capabilitiesFailed={capabilitiesFailed}
             questions={allQuestions}
             answeredCategories={touchedCategoryCount}
             totalCategories={categories.length}

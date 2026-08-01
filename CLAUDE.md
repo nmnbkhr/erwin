@@ -286,6 +286,26 @@ defensible — a reader takes the number as the row's own no matter what the
 heading says. This is the D-001 rule, and it cost four client-facing deliverables
 to learn.
 
+**When an input is unavailable, produce nothing and say so.** Never a
+placeholder, never a neighbouring number, never a variation on one. D-001, D-003
+and D-008 are the same defect three times — a plausible number substituted where
+a real one was missing — and the third was the worst of them precisely because it
+was **dead code that fabricated**: 132 rows built from category scores, reached
+only when `capabilities.json` failed to load, so never exercised, never
+baselined, and triggered exactly when the client could least tell.
+
+**Variation is the tell.** `Math.random`, fixed −0.3/−0.5 offsets, `charCodeAt`,
+`(ci % 5 - 2) * 0.15` — every instance added spread for no reason except to stop
+one number reading as one number. Spread with no source is a disguise, not data.
+
+Concretely, for any generator: an empty result is a legitimate output.
+`downloadCsv` returns `false` and writes no file on an empty set; propagate that
+boolean and let the caller tell the user. A report page with nothing to show says
+**why** it is empty, and distinguishes "the data failed to load" from "nothing has
+been answered yet" — they produce the same zero rows and mean opposite things.
+A silent no-op reads as a broken button and sends the user to retry rather than
+to report the real fault.
+
 ## Framework crosswalk
 
 `frameworks.json` and `crosswalk.json` project one assessment onto four published
