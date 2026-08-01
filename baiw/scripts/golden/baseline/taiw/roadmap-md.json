@@ -1,6 +1,6 @@
 {
   "artefact": "roadmap-md",
-  "bytes": 4487,
+  "bytes": 4360,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -51,9 +51,9 @@
     "### Let's Build Your Trade Analytics Future"
   ],
   "kind": "md",
-  "lineCount": 135,
+  "lineCount": 133,
   "module": "taiw",
-  "normalisedTextSha256": "4f00fdcefc231e12db3b5265528420760ae245b66f48bdf4032fa7e5bfbe6459",
+  "normalisedTextSha256": "1a28a48f8d361a8686d3f9f33a4fbf839c6ff28fcfe308e4130807a6177fe770",
   "rawBytesAsserted": true,
-  "rawBytesSha256": "c657f993b02e516c0809e5c0fa339c8819d576cd18fd2d44404dcfb6a37693ba"
+  "rawBytesSha256": "3dea26504ab6ca06e16bce034b9dd1efe004e2087b3359c3afc71498ced34fae"
 }

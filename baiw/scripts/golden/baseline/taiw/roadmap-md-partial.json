@@ -1,6 +1,6 @@
 {
-  "artefact": "roadmap-md",
-  "bytes": 4677,
+  "artefact": "roadmap-md-partial",
+  "bytes": 3732,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -18,15 +18,15 @@
     ]
   },
   "datasets": null,
-  "filename": "MR-HAIW-ROADMAP_fixture-health-authority_all_2026-07-31.md",
-  "filenameNormalised": "MR-HAIW-ROADMAP_fixture-health-authority_all_2026-07-31.md",
-  "generator": "generateHealthRoadmapMarkdown",
+  "filename": "MR-TAIW-ROADMAP_fixture-customs-authority-partial_all_2026-07-31.md",
+  "filenameNormalised": "MR-TAIW-ROADMAP_fixture-customs-authority-partial_all_2026-07-31.md",
+  "generator": "generateTradeRoadmapMarkdown",
   "headingCount": 26,
   "headings": [
-    "# Fixture Health Authority — Healthcare Analytics Transformation Roadmap",
+    "# Fixture Customs Authority Partial — Trade Analytics Transformation Roadmap",
     "## Prepared by Godaitec | July 31, 2026",
     "## Slide 1: Title",
-    "### Fixture Health Authority Healthcare Analytics Transformation Roadmap",
+    "### Fixture Customs Authority Partial Trade Analytics Transformation Roadmap",
     "## Slide 2: Current State",
     "### Where We Are Today",
     "## Slide 3: Target State",
@@ -38,22 +38,22 @@
     "## Slide 6: Phase 2 — Core Build (Months 7–18)",
     "### Investment: PKR 100–200 Million",
     "## Slide 7: Phase 3 — Advanced Analytics (Months 19–36)",
-    "### Investment: PKR 60–180 Million",
+    "### Investment: PKR 60–130 Million",
     "## Slide 8: Data Foundation",
-    "### FHIR + HCDM Reference Architecture",
+    "### WCO Data Model v4.2 Reference Architecture",
     "## Slide 9: Investment Summary",
-    "### Total: PKR 200–450 Million over 3 Years",
-    "## Slide 10: ROI & Impact Projection",
+    "### Total: PKR 200–400 Million over 3 Years",
+    "## Slide 10: ROI Projection",
     "### Expected Returns",
-    "## Slide 11: UHC Alignment & WHO Indicators",
-    "### Contributing to Universal Health Coverage",
+    "## Slide 11: Why Godaitec",
+    "### Our Expertise",
     "## Slide 12: Contact",
-    "### Let's Build Your Healthcare Analytics Future"
+    "### Let's Build Your Trade Analytics Future"
   ],
   "kind": "md",
-  "lineCount": 133,
-  "module": "haiw",
-  "normalisedTextSha256": "4b9ceee7a27fdb88b7e38288eed1573828e029010cd683e7808c1e816e0aba77",
+  "lineCount": 121,
+  "module": "taiw",
+  "normalisedTextSha256": "af2dd07299a37016b30c03b07e4fb2a965d5f056db5ea46d7d3e7d2b54cfabef",
   "rawBytesAsserted": true,
-  "rawBytesSha256": "8f1097a8f39486708d8fba0733648f61df2d5c2f415f5f7c0ca9da0260a7b7f4"
+  "rawBytesSha256": "0feab2f98e7090e73181e6c49630617c654534a080b061495e5a2a8957e3765e"
 }

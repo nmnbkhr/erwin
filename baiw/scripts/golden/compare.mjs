@@ -15,16 +15,36 @@
  *
  *   FAIL      the harness's own control broke — trust the harness less, not the
  *             generator (see the haiw/gap-csv note in README.md)
+ *   NEW       an artefact this run produced and no baseline covers. Nothing was
+ *             verified about it — see below.
+ *   ORPHANED  a baseline on disk this run produced no artefact for. Nothing was
+ *             verified about it either, from the other side.
  *   CHANGED   a real difference. Read it and decide.
  *   EXPECTED  a difference D2 is known to cause (filenames). Not red.
  *   SKIPPED   a field this harness declared unassertable. Never silently ignored.
  *   INFO      clock-derived values that move on their own (rendered dates).
  *
- * Exit code is 1 when anything is FAIL or CHANGED, 0 otherwise. After D2 that
- * exit 1 is the expected outcome and means "go read the report", not "revert".
+ * Exit code is 1 when anything is FAIL, NEW, ORPHANED or CHANGED, 0 otherwise.
+ * After D2 that exit 1 is the expected outcome and means "go read the report",
+ * not "revert".
+ *
+ * ─── NEW IS A FINDING, NOT A CRASH ─────────────────────────────────────────
+ *
+ * A missing baseline used to `throw`, which aborted the run at the first unseen
+ * artefact and made every LATER artefact's diff invisible until you captured.
+ * Adding a fixture is a normal act — D4 added four — and the tool failing hardest
+ * on the normal act pushed the operator toward `capture --accept` to see the rest
+ * of the report, which is precisely the unwalked freeze capture.mjs was hardened
+ * against. It also made the two halves of the harness disagree: capture.mjs
+ * classifies NEW and ORPHANED and refuses; compare.mjs crashed on one and could
+ * not see the other at all.
+ *
+ * So both are findings now. The run completes, every other artefact is still
+ * diffed, and the exit code is still non-zero — because an artefact nobody has a
+ * baseline for has been verified exactly as much as one nobody ran.
  */
 
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 import {
   pinEnvironment, environmentStamp, parseArgs, createDriver, analyse, assertNonEmpty,
@@ -40,8 +60,10 @@ compare.mjs — diff a fresh capture against the committed golden baselines
   node scripts/golden/compare.mjs                    all three modules
   node scripts/golden/compare.mjs --module taiw      one module
 
-Exit 1 when anything is CHANGED or FAIL. Run capture.mjs to accept new output,
-but read this report first.
+Exit 1 when anything is CHANGED, FAIL, NEW or ORPHANED. A NEW artefact (no
+baseline) and an ORPHANED baseline (no artefact) are findings, not crashes: the
+run completes so the rest of the diff stays visible. Run capture.mjs to accept
+new output, but read this report first.
 `.trim()
 
 const args = parseArgs(process.argv.slice(2))
@@ -59,7 +81,11 @@ const DIM = s => c('2', s)
 const BOLD = s => c('1', s)
 
 const SEVERITY = {
-  FAIL: { rank: 4, paint: RED },
+  FAIL: { rank: 6, paint: RED },
+  // Above CHANGED on purpose. A CHANGED artefact was measured and disagreed; a
+  // NEW or ORPHANED one was not measured at all, and unmeasured outranks wrong.
+  NEW: { rank: 5, paint: RED },
+  ORPHANED: { rank: 4, paint: RED },
   CHANGED: { rank: 3, paint: YELLOW },
   SKIPPED: { rank: 2, paint: BLUE },
   EXPECTED: { rank: 1, paint: BLUE },
@@ -347,6 +373,19 @@ function diffMd(findings, base, now) {
   }
 }
 
+/**
+ * One line describing what a fresh analysis holds, for a NEW artefact.
+ *
+ * Mirrors capture.mjs's per-artefact `detail` line: with no baseline there is
+ * nothing to diff, so the only useful thing to print is the shape of what was
+ * produced — which is also what the reader is about to be asked to accept.
+ */
+function shapeSummary(a) {
+  if (a.kind === 'pdf') return `${a.pageCount} pages · ${a.glyphCount} glyphs · ${a.textRunCount} runs · ${a.tableRowsTotal} table rows`
+  if (a.kind === 'csv') return `${a.rowCount} rows × ${a.columnCount} cols`
+  return `${a.lineCount} lines · ${a.headingCount} headings`
+}
+
 // ── Run ──────────────────────────────────────────────────────────────────
 
 const env = environmentStamp()
@@ -357,8 +396,12 @@ console.log(`  modules: ${args.modules.join(', ')}`)
 console.log()
 
 const driver = await createDriver(args.modules)
-const tally = { SAME: 0, INFO: 0, EXPECTED: 0, SKIPPED: 0, CHANGED: 0, FAIL: 0 }
+const tally = { SAME: 0, INFO: 0, EXPECTED: 0, SKIPPED: 0, CHANGED: 0, ORPHANED: 0, NEW: 0, FAIL: 0 }
 let compared = 0
+/** Artefacts this run produced that no baseline covers. Reported, not thrown. */
+const unbaselined = []
+/** Baseline filenames this run produced an artefact for, per module. */
+const producedByModule = new Map(args.modules.map((m) => [m, new Set()]))
 
 try {
   for (const module of args.modules) {
@@ -370,8 +413,23 @@ try {
       // Mirrors what capture.mjs records, so diffCommon compares like with like.
       now.datasets = module === 'dgiw' ? datasetFingerprint('src/dgiw/data') : null
       const bp = baselinePath(module, now.artefact)
+      producedByModule.get(module).add(path.basename(bp))
       if (!existsSync(bp)) {
-        throw new Error(`no baseline at ${path.relative(process.cwd(), bp)} — run: node scripts/golden/capture.mjs --module ${module}`)
+        // Not a throw. See the header: aborting here hid every later artefact's
+        // diff and made `capture --accept` the cheapest way to see the report.
+        unbaselined.push(`${module}/${now.artefact}`)
+        tally.NEW++
+        console.log(RULE)
+        console.log(`${BOLD(`${module}/${now.artefact}`.padEnd(22))} ${DIM(now.generator.padEnd(28))} ${SEVERITY.NEW.paint('NEW')}`)
+        console.log(`  ${SEVERITY.NEW.paint('NEW'.padEnd(9))} no baseline at ${path.relative(process.cwd(), bp)}`)
+        console.log(`    produced ${shapeSummary(now)}`)
+        console.log(`    -> ${now.filename}`)
+        console.log(`    ${RED('nothing about this artefact was verified — there is nothing to verify it against')}`)
+        // walk.mjs needs a BEFORE side and says so; for a NEW artefact the only
+        // review material is the artefact itself, which capture drops in raw/
+        // whether or not it is allowed to write a baseline.
+        console.log(`    ${DIM(`read it in scripts/golden/raw/${module}/, then: node scripts/golden/capture.mjs --accept`)}`)
+        continue
       }
       const base = JSON.parse(readFileSync(bp, 'utf8'))
       // A baseline that was written empty would let every comparison pass
@@ -414,20 +472,57 @@ try {
   }
 
   driver.assertFixtureDataWasServed()
-  if (compared === 0) throw new Error('compared zero artefacts — nothing was verified')
+  // Every registry artefact must have been REACHED, whether or not it had a
+  // baseline. A shortfall here is the harness or the registry, not the baselines.
   const expected = args.modules.reduce((n, m) => n + REGISTRY[m].artefacts.length, 0)
-  if (compared !== expected) throw new Error(`compared ${compared} artefacts, expected ${expected}`)
+  const reached = compared + unbaselined.length
+  if (reached !== expected) throw new Error(`reached ${reached} artefacts, expected ${expected}`)
+  // Vacuity: a run that verified nothing must not print like a run that verified
+  // everything. When some artefacts were reached but none had a baseline, the NEW
+  // findings above already say so and the exit code is 1 — throwing on top of
+  // that would only discard the report explaining why.
+  if (reached === 0) throw new Error('reached zero artefacts — nothing was generated, let alone verified')
 } finally {
   await driver.close()
+}
+
+/*
+ * A baseline on disk this run produced no artefact for — the other half of the
+ * pair capture.mjs reports, and the half compare.mjs could not see at all.
+ *
+ * It iterates the artefacts it GENERATES, so a baseline for a removed or renamed
+ * artefact was simply never opened: it sat in git being compared by nothing, and
+ * the summary said "27 artefacts compared" with no hint that a 28th file was
+ * being carried. Renaming an artefact id produces one of these and one NEW.
+ */
+const orphaned = []
+for (const module of args.modules) {
+  const dir = path.join(BASELINE_DIR, module)
+  if (!existsSync(dir)) continue
+  const produced = producedByModule.get(module)
+  for (const f of readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
+    if (produced.has(f)) continue
+    orphaned.push(`${module}/${f.replace(/\.json$/, '')}`)
+  }
+}
+for (const o of orphaned) {
+  tally.ORPHANED++
+  console.log(RULE)
+  console.log(`${BOLD(o.padEnd(22))} ${DIM(''.padEnd(28))} ${SEVERITY.ORPHANED.paint('ORPHANED')}`)
+  console.log(`  ${SEVERITY.ORPHANED.paint('ORPHANED'.padEnd(9))} baseline on disk, this run produced no such artefact`)
+  console.log(`    ${RED('compared by nothing — it is carried in git and read by no check')}`)
+  console.log(`    ${DIM('delete it deliberately, or restore the artefact the registry stopped producing')}`)
 }
 
 console.log(RULE)
 console.log(BOLD('summary'))
 console.log(`  ${compared} artefact(s) compared against ${path.relative(process.cwd(), BASELINE_DIR)}`)
-for (const k of ['FAIL', 'CHANGED', 'EXPECTED', 'SKIPPED', 'INFO']) {
+if (unbaselined.length) console.log(`  ${RED(`${unbaselined.length} artefact(s) had no baseline and were NOT compared`)}: ${unbaselined.join(', ')}`)
+if (orphaned.length) console.log(`  ${RED(`${orphaned.length} baseline(s) had no artefact and were NOT compared`)}: ${orphaned.join(', ')}`)
+for (const k of ['FAIL', 'NEW', 'ORPHANED', 'CHANGED', 'EXPECTED', 'SKIPPED', 'INFO']) {
   if (tally[k]) console.log(`  ${SEVERITY[k].paint(k.padEnd(9))} ${tally[k]} finding(s)`)
 }
-const failing = tally.FAIL + tally.CHANGED
+const failing = tally.FAIL + tally.NEW + tally.ORPHANED + tally.CHANGED
 if (failing) {
   console.log()
   console.log(`  ${YELLOW('exit 1')} — ${failing} actionable finding(s). Read them before deciding.`)

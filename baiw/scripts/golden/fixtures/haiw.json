@@ -26,7 +26,14 @@
     "45 kB rather than the 1.1 MB the full records would be, and is complete for what",
     "is read rather than a sample. The real call site passes full HacrQuestion",
     "objects; the extra fields are unread by the generator, which is why narrowing",
-    "the parameter type was worth doing."
+    "the parameter type was worth doing.",
+    "",
+    "answersPartial (D4) — four of eight HACR categories answered, the fourth",
+    "(\"Infrastructure & Systems\") only halfway. The other four are NOT ASSESSED:",
+    "questions exist for them and none is answered, which is the state that used to",
+    "collapse into not-applicable because category scoring bucketed the ANSWERS",
+    "rather than the question universe.",
+    "315 of 720 questions answered."
   ],
   "answers": [
     {
@@ -4001,7 +4008,7 @@
         "institution": "DHQ/THQ",
         "system": "Provincial Health Dept",
         "challenge": "Inefficient referral chains",
-        "opportunity": "Structured referral pathways BHU\u2192RHC\u2192THQ\u2192DHQ"
+        "opportunity": "Structured referral pathways BHU→RHC→THQ→DHQ"
       },
       "relatedCapabilities": [
         "HCF-010",
@@ -7430,7 +7437,7 @@
     },
     {
       "id": "HACR-SL-002",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-003"
       ]
@@ -7465,7 +7472,7 @@
     },
     {
       "id": "HACR-SL-007",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-008"
       ]
@@ -7500,7 +7507,7 @@
     },
     {
       "id": "HACR-SL-012",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-013"
       ]
@@ -7535,7 +7542,7 @@
     },
     {
       "id": "HACR-SL-017",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-018"
       ]
@@ -7570,7 +7577,7 @@
     },
     {
       "id": "HACR-SL-022",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-023"
       ]
@@ -7605,7 +7612,7 @@
     },
     {
       "id": "HACR-SL-027",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-028"
       ]
@@ -7640,7 +7647,7 @@
     },
     {
       "id": "HACR-SL-032",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-033"
       ]
@@ -7675,7 +7682,7 @@
     },
     {
       "id": "HACR-SL-037",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-038"
       ]
@@ -7710,7 +7717,7 @@
     },
     {
       "id": "HACR-SL-042",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-043"
       ]
@@ -7745,7 +7752,7 @@
     },
     {
       "id": "HACR-SL-047",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-048"
       ]
@@ -7780,7 +7787,7 @@
     },
     {
       "id": "HACR-SL-052",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-053"
       ]
@@ -7815,7 +7822,7 @@
     },
     {
       "id": "HACR-SL-057",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-058"
       ]
@@ -7850,7 +7857,7 @@
     },
     {
       "id": "HACR-SL-062",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-063"
       ]
@@ -7885,7 +7892,7 @@
     },
     {
       "id": "HACR-SL-067",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-068"
       ]
@@ -7920,7 +7927,7 @@
     },
     {
       "id": "HACR-SL-072",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-073"
       ]
@@ -7955,7 +7962,7 @@
     },
     {
       "id": "HACR-SL-077",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-078"
       ]
@@ -7990,7 +7997,7 @@
     },
     {
       "id": "HACR-SL-082",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-083"
       ]
@@ -8025,7 +8032,7 @@
     },
     {
       "id": "HACR-SL-087",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-088"
       ]
@@ -8060,7 +8067,7 @@
     },
     {
       "id": "HACR-WS-092",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-093"
       ]
@@ -8095,7 +8102,7 @@
     },
     {
       "id": "HACR-WS-097",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-098"
       ]
@@ -8130,7 +8137,7 @@
     },
     {
       "id": "HACR-WS-102",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-103"
       ]
@@ -8165,7 +8172,7 @@
     },
     {
       "id": "HACR-WS-107",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-108"
       ]
@@ -8200,7 +8207,7 @@
     },
     {
       "id": "HACR-WS-112",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-005"
       ]
@@ -8235,7 +8242,7 @@
     },
     {
       "id": "HACR-WS-117",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-010"
       ]
@@ -8270,7 +8277,7 @@
     },
     {
       "id": "HACR-WS-122",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-015"
       ]
@@ -8305,7 +8312,7 @@
     },
     {
       "id": "HACR-WS-127",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-020"
       ]
@@ -8340,7 +8347,7 @@
     },
     {
       "id": "HACR-WS-132",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-025"
       ]
@@ -8375,7 +8382,7 @@
     },
     {
       "id": "HACR-WS-137",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-030"
       ]
@@ -8410,7 +8417,7 @@
     },
     {
       "id": "HACR-WS-142",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-035"
       ]
@@ -8445,7 +8452,7 @@
     },
     {
       "id": "HACR-WS-147",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-040"
       ]
@@ -8480,7 +8487,7 @@
     },
     {
       "id": "HACR-WS-152",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-045"
       ]
@@ -8515,7 +8522,7 @@
     },
     {
       "id": "HACR-WS-157",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-050"
       ]
@@ -8550,7 +8557,7 @@
     },
     {
       "id": "HACR-WS-162",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-055"
       ]
@@ -8585,7 +8592,7 @@
     },
     {
       "id": "HACR-WS-167",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-060"
       ]
@@ -8620,7 +8627,7 @@
     },
     {
       "id": "HACR-WS-172",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-065"
       ]
@@ -8655,7 +8662,7 @@
     },
     {
       "id": "HACR-WS-177",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-070"
       ]
@@ -8690,7 +8697,7 @@
     },
     {
       "id": "HACR-DG-182",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-075"
       ]
@@ -8725,7 +8732,7 @@
     },
     {
       "id": "HACR-DG-187",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-080"
       ]
@@ -8760,7 +8767,7 @@
     },
     {
       "id": "HACR-DG-192",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-085"
       ]
@@ -8795,7 +8802,7 @@
     },
     {
       "id": "HACR-DG-197",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-090"
       ]
@@ -8830,7 +8837,7 @@
     },
     {
       "id": "HACR-DG-202",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-095"
       ]
@@ -8865,7 +8872,7 @@
     },
     {
       "id": "HACR-DG-207",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-100"
       ]
@@ -8900,7 +8907,7 @@
     },
     {
       "id": "HACR-DG-212",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-105"
       ]
@@ -8935,7 +8942,7 @@
     },
     {
       "id": "HACR-DG-217",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-002"
       ]
@@ -8970,7 +8977,7 @@
     },
     {
       "id": "HACR-DG-222",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-007"
       ]
@@ -9005,7 +9012,7 @@
     },
     {
       "id": "HACR-DG-227",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-012"
       ]
@@ -9040,7 +9047,7 @@
     },
     {
       "id": "HACR-DG-232",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-017"
       ]
@@ -9075,7 +9082,7 @@
     },
     {
       "id": "HACR-DG-237",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-022"
       ]
@@ -9110,7 +9117,7 @@
     },
     {
       "id": "HACR-DG-242",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-027"
       ]
@@ -9145,7 +9152,7 @@
     },
     {
       "id": "HACR-DG-247",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-032"
       ]
@@ -9180,7 +9187,7 @@
     },
     {
       "id": "HACR-DG-252",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-037"
       ]
@@ -9215,7 +9222,7 @@
     },
     {
       "id": "HACR-DG-257",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-042"
       ]
@@ -9250,7 +9257,7 @@
     },
     {
       "id": "HACR-DG-262",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-047"
       ]
@@ -9285,7 +9292,7 @@
     },
     {
       "id": "HACR-DG-267",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-052"
       ]
@@ -9320,7 +9327,7 @@
     },
     {
       "id": "HACR-IS-272",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-057"
       ]
@@ -9355,7 +9362,7 @@
     },
     {
       "id": "HACR-IS-277",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-062"
       ]
@@ -9390,7 +9397,7 @@
     },
     {
       "id": "HACR-IS-282",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-067"
       ]
@@ -9425,7 +9432,7 @@
     },
     {
       "id": "HACR-IS-287",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-072"
       ]
@@ -9460,7 +9467,7 @@
     },
     {
       "id": "HACR-IS-292",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-077"
       ]
@@ -9495,7 +9502,7 @@
     },
     {
       "id": "HACR-IS-297",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-082"
       ]
@@ -9530,7 +9537,7 @@
     },
     {
       "id": "HACR-IS-302",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-087"
       ]
@@ -9565,7 +9572,7 @@
     },
     {
       "id": "HACR-IS-307",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-092"
       ]
@@ -9600,7 +9607,7 @@
     },
     {
       "id": "HACR-IS-312",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-097"
       ]
@@ -9635,7 +9642,7 @@
     },
     {
       "id": "HACR-IS-317",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-102"
       ]
@@ -9670,7 +9677,7 @@
     },
     {
       "id": "HACR-IS-322",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-107"
       ]
@@ -9705,7 +9712,7 @@
     },
     {
       "id": "HACR-IS-327",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-004"
       ]
@@ -9740,7 +9747,7 @@
     },
     {
       "id": "HACR-IS-332",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-009"
       ]
@@ -9775,7 +9782,7 @@
     },
     {
       "id": "HACR-IS-337",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-014"
       ]
@@ -9810,7 +9817,7 @@
     },
     {
       "id": "HACR-IS-342",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-019"
       ]
@@ -9845,7 +9852,7 @@
     },
     {
       "id": "HACR-IS-347",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-024"
       ]
@@ -9880,7 +9887,7 @@
     },
     {
       "id": "HACR-IS-352",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-029"
       ]
@@ -9915,7 +9922,7 @@
     },
     {
       "id": "HACR-IS-357",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-034"
       ]
@@ -9950,7 +9957,7 @@
     },
     {
       "id": "HACR-AI-362",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-039"
       ]
@@ -9985,7 +9992,7 @@
     },
     {
       "id": "HACR-AI-367",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-044"
       ]
@@ -10020,7 +10027,7 @@
     },
     {
       "id": "HACR-AI-372",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-049"
       ]
@@ -10055,7 +10062,7 @@
     },
     {
       "id": "HACR-AI-377",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-054"
       ]
@@ -10090,7 +10097,7 @@
     },
     {
       "id": "HACR-AI-382",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-059"
       ]
@@ -10125,7 +10132,7 @@
     },
     {
       "id": "HACR-AI-387",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-064"
       ]
@@ -10160,7 +10167,7 @@
     },
     {
       "id": "HACR-AI-392",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-069"
       ]
@@ -10195,7 +10202,7 @@
     },
     {
       "id": "HACR-AI-397",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-074"
       ]
@@ -10230,7 +10237,7 @@
     },
     {
       "id": "HACR-AI-402",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-079"
       ]
@@ -10265,7 +10272,7 @@
     },
     {
       "id": "HACR-AI-407",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-084"
       ]
@@ -10300,7 +10307,7 @@
     },
     {
       "id": "HACR-AI-412",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-089"
       ]
@@ -10335,7 +10342,7 @@
     },
     {
       "id": "HACR-AI-417",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-094"
       ]
@@ -10370,7 +10377,7 @@
     },
     {
       "id": "HACR-AI-422",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-099"
       ]
@@ -10405,7 +10412,7 @@
     },
     {
       "id": "HACR-AI-427",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-104"
       ]
@@ -10440,7 +10447,7 @@
     },
     {
       "id": "HACR-AI-432",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-001"
       ]
@@ -10475,7 +10482,7 @@
     },
     {
       "id": "HACR-AI-437",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-006"
       ]
@@ -10510,7 +10517,7 @@
     },
     {
       "id": "HACR-AI-442",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-011"
       ]
@@ -10545,7 +10552,7 @@
     },
     {
       "id": "HACR-AI-447",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-016"
       ]
@@ -10580,7 +10587,7 @@
     },
     {
       "id": "HACR-II-452",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-021"
       ]
@@ -10615,7 +10622,7 @@
     },
     {
       "id": "HACR-II-457",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-026"
       ]
@@ -10650,7 +10657,7 @@
     },
     {
       "id": "HACR-II-462",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-031"
       ]
@@ -10685,7 +10692,7 @@
     },
     {
       "id": "HACR-II-467",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-036"
       ]
@@ -10720,7 +10727,7 @@
     },
     {
       "id": "HACR-II-472",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-041"
       ]
@@ -10755,7 +10762,7 @@
     },
     {
       "id": "HACR-II-477",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-046"
       ]
@@ -10790,7 +10797,7 @@
     },
     {
       "id": "HACR-II-482",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-051"
       ]
@@ -10825,7 +10832,7 @@
     },
     {
       "id": "HACR-II-487",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-056"
       ]
@@ -10860,7 +10867,7 @@
     },
     {
       "id": "HACR-II-492",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-061"
       ]
@@ -10895,7 +10902,7 @@
     },
     {
       "id": "HACR-II-497",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-066"
       ]
@@ -10930,7 +10937,7 @@
     },
     {
       "id": "HACR-II-502",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-071"
       ]
@@ -10965,7 +10972,7 @@
     },
     {
       "id": "HACR-II-507",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-076"
       ]
@@ -11000,7 +11007,7 @@
     },
     {
       "id": "HACR-II-512",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-081"
       ]
@@ -11035,7 +11042,7 @@
     },
     {
       "id": "HACR-II-517",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-086"
       ]
@@ -11070,7 +11077,7 @@
     },
     {
       "id": "HACR-II-522",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-091"
       ]
@@ -11105,7 +11112,7 @@
     },
     {
       "id": "HACR-II-527",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-096"
       ]
@@ -11140,7 +11147,7 @@
     },
     {
       "id": "HACR-II-532",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-101"
       ]
@@ -11175,7 +11182,7 @@
     },
     {
       "id": "HACR-II-537",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-106"
       ]
@@ -11210,7 +11217,7 @@
     },
     {
       "id": "HACR-PC-542",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-003"
       ]
@@ -11245,7 +11252,7 @@
     },
     {
       "id": "HACR-PC-547",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-008"
       ]
@@ -11280,7 +11287,7 @@
     },
     {
       "id": "HACR-PC-552",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-013"
       ]
@@ -11315,7 +11322,7 @@
     },
     {
       "id": "HACR-PC-557",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-018"
       ]
@@ -11350,7 +11357,7 @@
     },
     {
       "id": "HACR-PC-562",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-023"
       ]
@@ -11385,7 +11392,7 @@
     },
     {
       "id": "HACR-PC-567",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-028"
       ]
@@ -11420,7 +11427,7 @@
     },
     {
       "id": "HACR-PC-572",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-033"
       ]
@@ -11455,7 +11462,7 @@
     },
     {
       "id": "HACR-PC-577",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-038"
       ]
@@ -11490,7 +11497,7 @@
     },
     {
       "id": "HACR-PC-582",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-043"
       ]
@@ -11525,7 +11532,7 @@
     },
     {
       "id": "HACR-PC-587",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-048"
       ]
@@ -11560,7 +11567,7 @@
     },
     {
       "id": "HACR-PC-592",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-053"
       ]
@@ -11595,7 +11602,7 @@
     },
     {
       "id": "HACR-PC-597",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-058"
       ]
@@ -11630,7 +11637,7 @@
     },
     {
       "id": "HACR-PC-602",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-063"
       ]
@@ -11665,7 +11672,7 @@
     },
     {
       "id": "HACR-PC-607",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-068"
       ]
@@ -11700,7 +11707,7 @@
     },
     {
       "id": "HACR-PC-612",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-073"
       ]
@@ -11735,7 +11742,7 @@
     },
     {
       "id": "HACR-PC-617",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-078"
       ]
@@ -11770,7 +11777,7 @@
     },
     {
       "id": "HACR-PC-622",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-083"
       ]
@@ -11805,7 +11812,7 @@
     },
     {
       "id": "HACR-PC-627",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-088"
       ]
@@ -11840,7 +11847,7 @@
     },
     {
       "id": "HACR-OI-632",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-093"
       ]
@@ -11875,7 +11882,7 @@
     },
     {
       "id": "HACR-OI-637",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-098"
       ]
@@ -11910,7 +11917,7 @@
     },
     {
       "id": "HACR-OI-642",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-103"
       ]
@@ -11945,7 +11952,7 @@
     },
     {
       "id": "HACR-OI-647",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-108"
       ]
@@ -11980,7 +11987,7 @@
     },
     {
       "id": "HACR-OI-652",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-005"
       ]
@@ -12015,7 +12022,7 @@
     },
     {
       "id": "HACR-OI-657",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-010"
       ]
@@ -12050,7 +12057,7 @@
     },
     {
       "id": "HACR-OI-662",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-015"
       ]
@@ -12085,7 +12092,7 @@
     },
     {
       "id": "HACR-OI-667",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-020"
       ]
@@ -12120,7 +12127,7 @@
     },
     {
       "id": "HACR-OI-672",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-025"
       ]
@@ -12155,7 +12162,7 @@
     },
     {
       "id": "HACR-OI-677",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-030"
       ]
@@ -12190,7 +12197,7 @@
     },
     {
       "id": "HACR-OI-682",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-035"
       ]
@@ -12225,7 +12232,7 @@
     },
     {
       "id": "HACR-OI-687",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-040"
       ]
@@ -12260,7 +12267,7 @@
     },
     {
       "id": "HACR-OI-692",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-045"
       ]
@@ -12295,7 +12302,7 @@
     },
     {
       "id": "HACR-OI-697",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-050"
       ]
@@ -12330,7 +12337,7 @@
     },
     {
       "id": "HACR-OI-702",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-055"
       ]
@@ -12365,7 +12372,7 @@
     },
     {
       "id": "HACR-OI-707",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-060"
       ]
@@ -12400,7 +12407,7 @@
     },
     {
       "id": "HACR-OI-712",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-065"
       ]
@@ -12435,7 +12442,7 @@
     },
     {
       "id": "HACR-OI-717",
-      "weight": 1.0,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-070"
       ]
@@ -12460,6 +12467,1583 @@
       "capabilityLinks": [
         "HCF-073"
       ]
+    }
+  ],
+  "answersPartial": [
+    {
+      "questionId": "HACR-SL-001",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-SL-002",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-003",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-004",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-005",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-006",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-007",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-008",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-009",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-010",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-011",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-012",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-013",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-014",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-015",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-016",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-SL-017",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-018",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-019",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-020",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-021",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-022",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-023",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-024",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-025",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-026",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-027",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-028",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-029",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-030",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-031",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-SL-032",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-033",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-034",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-035",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-036",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-037",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-038",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-039",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-040",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-041",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-042",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-043",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-044",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-045",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-046",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-SL-047",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-048",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-049",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-050",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-051",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-052",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-053",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-054",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-055",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-056",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-057",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-058",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-059",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-060",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-061",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-SL-062",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-063",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-064",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-065",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-066",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-067",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-068",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-069",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-070",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-071",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-072",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-073",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-074",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-075",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-076",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-SL-077",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-078",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-079",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-080",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-081",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-082",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-083",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-084",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-085",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-086",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-SL-087",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-088",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-SL-089",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-SL-090",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-091",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-WS-092",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-093",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-094",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-095",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-096",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-097",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-098",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-099",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-100",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-101",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-102",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-103",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-104",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-105",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-106",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-WS-107",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-108",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-109",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-110",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-111",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-112",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-113",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-114",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-115",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-116",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-117",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-118",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-119",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-120",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-121",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-WS-122",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-123",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-124",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-125",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-126",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-127",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-128",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-129",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-130",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-131",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-132",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-133",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-134",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-135",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-136",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-WS-137",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-138",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-139",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-140",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-141",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-142",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-143",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-144",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-145",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-146",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-147",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-148",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-149",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-150",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-151",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-WS-152",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-153",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-154",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-155",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-156",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-157",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-158",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-159",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-160",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-161",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-162",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-163",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-164",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-165",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-166",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-WS-167",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-168",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-169",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-170",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-171",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-172",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-173",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-174",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-175",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-176",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-WS-177",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-178",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-WS-179",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-WS-180",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-181",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-DG-182",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-183",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-184",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-185",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-186",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-187",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-188",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-189",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-190",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-191",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-192",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-193",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-194",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-195",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-196",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-DG-197",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-198",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-199",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-200",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-201",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-202",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-203",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-204",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-205",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-206",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-207",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-208",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-209",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-210",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-211",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-DG-212",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-213",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-214",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-215",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-216",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-217",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-218",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-219",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-220",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-221",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-222",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-223",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-224",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-225",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-226",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-DG-227",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-228",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-229",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-230",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-231",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-232",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-233",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-234",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-235",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-236",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-237",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-238",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-239",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-240",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-241",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-DG-242",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-243",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-244",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-245",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-246",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-247",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-248",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-249",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-250",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-251",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-252",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-253",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-254",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-255",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-256",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-DG-257",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-258",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-259",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-260",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-261",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-262",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-263",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-264",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-265",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-266",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-DG-267",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-268",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-DG-269",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-DG-270",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-271",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-IS-272",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-273",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-274",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-275",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-276",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-277",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-IS-278",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-279",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-280",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-281",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-IS-282",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-283",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-284",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-285",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-286",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-IS-287",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-288",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-289",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-290",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-291",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-292",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-IS-293",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-294",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-295",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-296",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-IS-297",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-298",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-299",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-300",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-301",
+      "currentState": 1,
+      "desiredState": 2
+    },
+    {
+      "questionId": "HACR-IS-302",
+      "currentState": 2,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-303",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-304",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-305",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-306",
+      "currentState": 1,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-307",
+      "currentState": 2,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-IS-308",
+      "currentState": 3,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-309",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-310",
+      "currentState": 5,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-311",
+      "currentState": 1,
+      "desiredState": 3
+    },
+    {
+      "questionId": "HACR-IS-312",
+      "currentState": 2,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-313",
+      "currentState": 3,
+      "desiredState": 4
+    },
+    {
+      "questionId": "HACR-IS-314",
+      "currentState": 4,
+      "desiredState": 5
+    },
+    {
+      "questionId": "HACR-IS-315",
+      "currentState": 5,
+      "desiredState": 5
     }
   ]
 }

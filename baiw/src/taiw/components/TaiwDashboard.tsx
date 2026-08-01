@@ -11,6 +11,10 @@ import {
   CheckCircle2, Download, Briefcase,
 } from 'lucide-react'
 import { downloadJSON } from '../utils/export'
+import { useEngagementOptional } from '../../engagement/context'
+import { readNsRaw } from '../../engagement/storage'
+/** TACR's question count, for the "N of M answered" nav subtitle. */
+const TACR_TOTAL_QUESTIONS = 640
 import {
   loadIndex, loadDomains, loadCapabilities, loadPakistanContext,
 } from '../data'
@@ -98,6 +102,9 @@ function ConformityGauge({ level, maxLevel }: { level: number; maxLevel: number 
 function getNavDetail(
   label: string,
   index: TaiwIndex | null,
+  /* The engagement whose stored state the two counts below belong to. Threaded
+   * rather than read from the bare key: see getConformityLevel's note. */
+  activeId: string | null,
 ): string {
   const stats = index?.stats ?? {}
   switch (label) {
@@ -110,27 +117,32 @@ function getNavDetail(
     case 'Dependencies':
       return `${stats.mappings ?? '430'}+ mappings`
     case 'Maturity': {
+      // `${Object.keys(parsed).length}/8 categories assessed` counted ANSWERED
+      // QUESTIONS against a denominator of categories, so a half-finished
+      // assessment read "412/8 categories assessed". Questions against questions.
+      if (activeId === null) return 'Not started'
       try {
-        const raw = localStorage.getItem('taiw_maturity')
+        const raw = readNsRaw('taiw_maturity', activeId)
         if (raw) {
-          const parsed = JSON.parse(raw)
-          const done = Object.keys(parsed).length
-          return `${done}/8 categories assessed`
+          const parsed: unknown = JSON.parse(raw)
+          const done = parsed && typeof parsed === 'object' ? Object.keys(parsed).length : 0
+          if (done > 0) return `${done} of ${TACR_TOTAL_QUESTIONS} questions answered`
         }
-      } catch { /* ignore */ }
+      } catch { /* corrupt value — treat as not started */ }
       return 'Not started'
     }
     case 'Analytics':
       return `${stats.starTables ?? 21} tables + ${stats.starViews ?? 6} views`
     case 'Roadmap': {
+      if (activeId === null) return 'Build your plan'
       try {
-        const raw = localStorage.getItem('taiw_roadmap')
+        const raw = readNsRaw('taiw_roadmap', activeId)
         if (raw) {
-          const parsed = JSON.parse(raw)
-          const count = Array.isArray(parsed) ? parsed.length : Object.keys(parsed).length
-          return `${count} capabilities selected`
+          const parsed: unknown = JSON.parse(raw)
+          const count = Array.isArray(parsed) ? parsed.length : parsed && typeof parsed === 'object' ? Object.keys(parsed).length : 0
+          if (count > 0) return `${count} capabilities selected`
         }
-      } catch { /* ignore */ }
+      } catch { /* corrupt value — treat as not started */ }
       return 'Build your plan'
     }
     case 'Pakistan Trade':
@@ -140,33 +152,52 @@ function getNavDetail(
   }
 }
 
-/* ---------- TD3: Derive conformity level from maturity assessment ---------- */
-function getConformityLevel(): number {
+/* ---------- TD3: Derive conformity level from maturity assessment ----------
+ *
+ * READS THE ACTIVE ENGAGEMENT, AND SAYS WHEN THERE IS NOTHING TO READ.
+ *
+ * This called `localStorage.getItem('taiw_maturity')` — the bare key. Answers
+ * have been filed under `taiw_maturity::<engagementId>` since engagements landed
+ * (`usePersistedState` → `nsKey`), and nothing in `src/` writes the bare one. So
+ * on a fresh browser this fell through to `return 1` and the dashboard showed
+ * "Level 1 of 4" for every client; and on a browser that had pre-engagement data,
+ * `migrate.ts` COPIES and leaves the original in place, so it showed a frozen
+ * snapshot from before engagements existed — the same numbers no matter which
+ * engagement was active. That is precisely the defect `usePersistedState` was
+ * written to remove, surviving in a component that had not been migrated with it.
+ *
+ * It also averaged `a.currentState ?? 1`, inventing a Level 1 answer for every
+ * unanswered question, and clamped to 1..4 against a 1..5 scale.
+ *
+ * Now: read the active engagement's answers, score them through the one
+ * primitive, and return `null` when nothing has been answered. `null` renders as
+ * "not assessed" rather than as Level 1 — an unmeasured conformity level is not a
+ * bad one.
+ */
+function getConformityLevel(activeId: string | null): number | null {
+  if (activeId === null) return null
   try {
-    const raw = localStorage.getItem('taiw_maturity')
-    if (raw) {
-      const parsed = JSON.parse(raw)
-      // Look for Data Governance category score
-      if (parsed['Data Governance']) {
-        const dgAnswers = parsed['Data Governance']
-        if (Array.isArray(dgAnswers) && dgAnswers.length > 0) {
-          const avg = dgAnswers.reduce((sum: number, a: { currentState?: number }) => sum + (a.currentState ?? 1), 0) / dgAnswers.length
-          return Math.max(1, Math.min(4, Math.round(avg)))
-        }
-      }
-      // Fallback: average across all categories
-      const allAnswers = Object.values(parsed).flat() as { currentState?: number }[]
-      if (allAnswers.length > 0) {
-        const avg = allAnswers.reduce((sum, a) => sum + (a.currentState ?? 1), 0) / allAnswers.length
-        return Math.max(1, Math.min(4, Math.round(avg)))
-      }
-    }
-  } catch { /* ignore */ }
-  return 1 // Default: Level 1
+    const raw = readNsRaw('taiw_maturity', activeId)
+    if (!raw) return null
+    const parsed: unknown = JSON.parse(raw)
+    if (!parsed || typeof parsed !== 'object') return null
+    const answers = Object.values(parsed as Record<string, { currentState?: number }>)
+      .filter(a => a && typeof a.currentState === 'number' && a.currentState > 0)
+    if (answers.length === 0) return null
+    const mean = answers.reduce((s, a) => s + (a.currentState as number), 0) / answers.length
+    // WCO DM conformity is a 1..4 ladder against a 1..5 maturity scale, so the
+    // clamp is real rather than defensive. It is applied to a mean of ANSWERED
+    // questions; unanswered ones are absent from both sides of the division.
+    return Math.max(1, Math.min(4, Math.round(mean)))
+  } catch { /* corrupt value — treat as unassessed, not as Level 1 */ }
+  return null
 }
 
 export default function TaiwDashboard() {
   const navigate = useNavigate()
+  // Stored state is filed per engagement. Reading it without this is how the
+  // dashboard came to show one client's answers under another's name.
+  const activeId = useEngagementOptional()?.activeId ?? null
   const [index, setIndex] = useState<TaiwIndex | null>(null)
   const [domains, setDomains] = useState<TaiwDomain[]>([])
   const [capabilities, setCapabilities] = useState<TaiwCapability[]>([])
@@ -245,8 +276,8 @@ export default function TaiwDashboard() {
     { label: 'Active Traders', value: tradeStats?.activeTraders ?? '50,000+' },
   ]
 
-  // TD3: Conformity level
-  const conformityLevel = getConformityLevel()
+  // TD3: Conformity level for the ACTIVE engagement. null = not assessed.
+  const conformityLevel = getConformityLevel(activeId)
 
   return (
     <div className="space-y-6">
@@ -437,38 +468,43 @@ export default function TaiwDashboard() {
             <h3 className="text-base font-semibold text-slate-700">WCO DM Conformity</h3>
           </div>
           <div className="flex items-center gap-6">
-            <ConformityGauge level={conformityLevel} maxLevel={4} />
+            {/* NOT ASSESSED is not Level 1. The gauge used to read Level 1 for
+                every client because it fell through to a hardcoded default; an
+                unmeasured conformity level is not a bad one, and a client shown
+                "Level 1 of 4" has been given a wrong number, not a missing one. */}
+            <ConformityGauge level={conformityLevel ?? 0} maxLevel={4} />
             <div className="flex-1 space-y-3">
               <div>
                 <p className="text-sm font-semibold text-slate-700">
                   Pakistan WCO DM Conformity
                 </p>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  Level {conformityLevel} of 4
+                  {conformityLevel === null ? 'NOT ASSESSED' : `Level ${conformityLevel} of 4`}
                 </p>
               </div>
               <div className="space-y-1.5">
-                {['L1: Basic Mapping', 'L2: Partial Alignment', 'L3: Full Alignment', 'L4: Advanced Integration'].map((lbl, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div
-                      className={`w-3 h-3 rounded-full border-2 ${
-                        i + 1 <= conformityLevel
-                          ? 'border-teal-500 bg-teal-500'
-                          : 'border-slate-300 bg-white'
-                      }`}
-                    />
-                    <span className={`text-xs ${i + 1 <= conformityLevel ? 'text-teal-700 font-medium' : 'text-slate-400'}`}>
-                      {lbl}
-                    </span>
-                  </div>
-                ))}
+                {['L1: Basic Mapping', 'L2: Partial Alignment', 'L3: Full Alignment', 'L4: Advanced Integration'].map((lbl, i) => {
+                  const reached = conformityLevel !== null && i + 1 <= conformityLevel
+                  return (
+                    <div key={i} className="flex items-center gap-2">
+                      <div
+                        className={`w-3 h-3 rounded-full border-2 ${
+                          reached ? 'border-teal-500 bg-teal-500' : 'border-slate-300 bg-white'
+                        }`}
+                      />
+                      <span className={`text-xs ${reached ? 'text-teal-700 font-medium' : 'text-slate-400'}`}>
+                        {lbl}
+                      </span>
+                    </div>
+                  )
+                })}
               </div>
-              {conformityLevel === 1 && (
+              {(conformityLevel === null || conformityLevel === 1) && (
                 <button
                   onClick={() => navigate('/taiw/maturity')}
                   className="text-xs text-teal-600 hover:text-teal-800 underline mt-1"
                 >
-                  Take TACR Assessment to update
+                  {conformityLevel === null ? 'Take the TACR Assessment to derive this' : 'Take TACR Assessment to update'}
                 </button>
               )}
             </div>
@@ -488,7 +524,7 @@ export default function TaiwDashboard() {
                 <m.icon size={18} className={`${m.color} mt-0.5 shrink-0`} />
                 <div>
                   <p className="text-sm font-medium text-slate-700">{m.label}</p>
-                  <p className="text-xs text-slate-400 leading-tight">{getNavDetail(m.label, index)}</p>
+                  <p className="text-xs text-slate-400 leading-tight">{getNavDetail(m.label, index, activeId)}</p>
                 </div>
               </button>
             ))}

@@ -78,8 +78,8 @@ uses.
    runs over nothing declares `mayBeEmpty: '<reason>'` — the reason is mandatory,
    because if a check can run over nothing then someone should have to write down
    why. Nothing declares it today.
-5. **`npm run check:selftest` demonstrates every finding code.** 35 mutations,
-   32 codes, ~13 s. It copies `src/` and `scripts/` to a scratch root under
+5. **`npm run check:selftest` demonstrates every finding code.** 54 mutations,
+   48 codes, ~20 s. It copies `src/` and `scripts/` to a scratch root under
    `node_modules`, applies one mutation per code, asserts the code is reported
    *and* the tool exits non-zero, then restores and re-runs the control. **No
    tracked file is ever written.** Run it after touching the gate: a refactor
@@ -177,20 +177,33 @@ The dominant structural fact of this repo is copy-paste:
 
 ## DGIW is the pattern to copy
 
-It is the newest and most rigorously built module. It is the only one whose rule
-file declares any dataset checks — fifteen of them, in
-`scripts/check/modules/dgiw.mjs`, against `checks: []` everywhere else — the only
-one with a documented layer model (`core` vs `banking`, tagged on every record —
-`src/dgiw/layer.ts`), the only one with a role registry resolving free-text owner
-strings to archetypes (`src/dgiw/roles.ts`), and the only one whose source
+It is the newest and most rigorously built module: fifteen dataset checks in
+`scripts/check/modules/dgiw.mjs`, a documented layer model (`core` vs `banking`,
+tagged on every record — `src/dgiw/layer.ts`), a role registry resolving
+free-text owner strings to archetypes (`src/dgiw/roles.ts`), and source that
 carries *why*-comments explaining the defect that motivated the code. Match that
 standard. BAIW is the pattern that accreted — do not use it as a model.
 
-The empty rule files are where the other modules' checks go, and
-`docs/known-defects.md` already names the first candidates: BAIW's and TAIW's
-capability relations, where `capabilitiesUsing` disagrees with
-`capabilities.length` in 114 of 114 rows and four requirement ids dangle across a
-rename. Those had nowhere to live before D3.
+D4 filled two of the empty rule files: TAIW has 9 checks and HAIW 7, so the gate
+now runs 40 across three modules. **BAIW, COE and ALM still declare
+`checks: []`** — legal, and printed on the REGISTRY line every build so it stays
+a stated fact. BAIW's capability relations are the obvious next candidate;
+`docs/known-defects.md` names them.
+
+Note what D4's rules are NOT. `TCF-COVERAGE` reports that `dataReqCount` matches
+the observed requirement count for **2 of 100** capabilities and asserts nothing
+about it, because the two fields were never counting the same thing. D-007 was
+filed claiming they should match, and the "safe default" fix offered at the time
+would have zeroed 97 capabilities and broken two live roadmap views. **Writing a
+dataset check is easy; establishing that two fields mean the same thing before
+comparing them is the work.**
+
+`TCF-SLUG` carries exactly one declared exception —
+`aeo_compliance_monitoring_aeo`, D-009 — named in `SLUG_EXCEPTIONS` with its
+defect id, on the `mayBeEmpty` precedent: a rule with an exception should require
+someone to write down which and why, in source. A stale exception, one that no
+longer violates the rule, **fails** — otherwise a fixed defect leaves a permanent
+hole in the check.
 
 Note: "role" in `src/dgiw/roles.ts` is **domain content, not access control**. It
 gates nothing. The `core`/`banking` layer filter is likewise a content
@@ -337,17 +350,60 @@ Note: with the current dataset every pillar has both core and banking questions,
 so `not-applicable` never occurs through the UI. The state is still computed and
 reported explicitly ("Not applicable 0"). Do not delete the branch as dead code.
 
-## HAIW scoring
+## Category scoring — TAIW and HAIW
 
-**Every score in `src/haiw/` goes through `aggregate()` in
-`utils/healthReportGenerator.ts`. Do not add a second path.** It returns the same
-three states as DGIW — `scored` / `not-assessed` / `not-applicable` — as a
-**discriminated union**, so `current`, `desired` and `gap` are unreachable until
-`state === 'scored'`. That is deliberate: the `current: number` shape carrying
-`0` for "unmeasured" is what produced D-003, twenty capabilities ranked at gap
-0.0 on a page headed "largest gaps". A reviewer catching that is luck; the
-compiler refusing it is not. Unscored items are excluded from a ranking, never
-sorted to the end of it, and the denominator is printed on the page.
+**`src/scoring/maturity.ts` is the one implementation.** Both modules' assessment
+screens and both report generators call it. It returns the same three states as
+DGIW — `scored` / `not-assessed` / `not-applicable` — as a **discriminated
+union**, so `current`, `desired` and `gap` are unreachable until
+`state === 'scored'`. The `current: number` shape carrying `0` for "unmeasured"
+is what produced D-003; a reviewer catching that is luck, the compiler refusing
+it is not.
+
+**This file previously said every HAIW score went through `aggregate()`. That was
+false**, and the paragraph below it half-admitted so while framing it as
+agreement. There were **four** implementations of the category mean and **three**
+rules for rolling them up:
+
+| | overall |
+|---|---|
+| `TradeMaturityAssessment.tsx` | ÷ ALL categories |
+| `QuickAssessment.tsx` (shared with BAIW) | ÷ scored |
+| `HealthMaturityAssessment.tsx` | ÷ scored |
+| `healthReportGenerator.ts` | ÷ ALL categories |
+
+Four of eight categories answered at 3.0 therefore printed **1.5 and 3.0 for the
+same client on the same day** — TAIW's own quick and deep screens disagreeing
+with each other, and HAIW's screen disagreeing with its PDF. `tradeReportGenerator.ts`
+even carried a comment asserting the component averaged only the answered
+categories; it did not.
+
+**÷ SCORED is the rule.** An unmeasured thing leaves the numerator AND the
+denominator. And the overall is built from the **unrounded** category means:
+averaging the 1dp values shown in the table is the recomposition
+`dgiw/scoring.ts` warns about.
+
+**Print the denominator.** Every deliverable states `Scored N of M categories`,
+because 3.0 from four of eight is not the same claim as 3.0 from eight and the
+number alone cannot tell them apart. Fixing the arithmetic without printing the
+coverage would leave a reader unable to distinguish a complete assessment from a
+half-finished one — the D-003 lesson, one level up.
+
+**The fixtures could not see any of this.** Every golden fixture answered every
+question, and at 8-of-8 all four rules coincide. `taiw.json::assessmentPartial`
+and `haiw.json::answersPartial` are the first artefacts in the repo that exercise
+an unanswered category — four of eight, with the fourth answered only halfway so
+the within-category path is covered too. A change to category scoring that leaves
+those two baselines unmoved has not been tested.
+
+**HAIW's category buckets are built from the QUESTION UNIVERSE, not the answer
+set.** `computeCategoryOutcomes` used to bucket `answers`, so a category nobody
+had answered produced an empty list and `aggregate()` called it `not-applicable`
+— the two states that "must never collapse into each other", collapsed inside the
+function written to keep them apart. `HACR-CATEGORY-MAP` asserts the invariant
+that makes the screen's partition and the report's the same partition.
+
+Unscored items are excluded from a ranking, never sorted to the end of it.
 
 Page 13 of the PDF and `generateHealthGapCSV` both call `scoreCapabilities()`.
 Before D-003 they each computed their own numbers and **disagreed about the same
@@ -355,16 +411,19 @@ capability on the same day**. One function, or the two deliverables drift again.
 
 **Categories are an unweighted mean; capabilities are weight-weighted. The
 difference is passed as an argument, not implemented twice** — `aggregate()`
-takes a weight per entry, and category scoring passes `1`. Do not "tidy" this
-into two functions, and do not make it uniform without deciding to:
+takes a weight per entry, and category scoring passes `1`. TACR questions carry
+no `weight` field at all, so for TAIW the `1` is the only thing it could be; for
+HAIW it is a choice. Do not "tidy" this into two functions, and do not make it
+uniform without deciding to:
 
 `question.weight` is declared in `types.ts` and is read **only** by capability
 scoring. Weighting the categories too moves every category's gap 1.3 → 1.4 and
 desired 4.3 → 4.4, which moves the cover score, the radar, eight deep-dive pages
-and the markdown — and puts the PDF at odds with the on-screen scorecard in
-`HealthMaturityAssessment.tsx`, which takes a plain mean. **A PDF that disagrees
-with the screen is worse than no PDF.** Making the module weighted throughout is
-a content decision deserving its own change and its own before/after, not a
+and the markdown. The screen would move with it, since D4 put both on the same
+function — that is the point of one implementation — but **a PDF that disagrees
+with the screen is worse than no PDF**, and the way to keep them agreeing is one
+primitive, not two careful copies. Making the module weighted throughout is a
+content decision deserving its own change and its own before/after, not a
 refactor done in passing.
 
 `hacrQuestions.json` is 1.18 MB and already loaded by the assessment page, so the
@@ -401,6 +460,21 @@ category score onto a capability row, and do not rename the column to make it
 defensible — a reader takes the number as the row's own no matter what the
 heading says. This is the D-001 rule, and it cost four client-facing deliverables
 to learn.
+
+**D4 found a fifth instance, armed and waiting.** `TCFCapabilityNavigator.tsx`
+put a "TACR" badge on every capability row, scored by keyword-matching the
+capability's theme name onto a TACR category (`lower.includes('data') → 'data'`).
+It never rendered — two independent bugs held it inert: it read the bare
+`taiw_maturity` key, which nothing has written since answers were namespaced per
+engagement, and it split ids on `-` where TACR ids contain none. **Fixing either
+one alone would have started the fabrication**, in a component nobody would be
+reviewing for D-001 at the time. Removed, not repaired: dead code that fabricates
+on repair is the D-008 shape and is worse than code that is merely wrong.
+
+Deriving the projection more carefully is not the fix. `TACR-CATEGORY-PREFIX`
+gives the real question-prefix → category relation, and it still says nothing
+about themes: TCF has 6, TACR has 8, and **no dataset joins them**. The badge
+comes back when TACR questions carry `capabilityLinks`, and not before.
 
 **When an input is unavailable, produce nothing and say so.** Never a
 placeholder, never a neighbouring number, never a variation on one. D-001, D-003

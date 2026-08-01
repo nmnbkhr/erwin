@@ -81,7 +81,13 @@ const sub = (rel, from, to) => {
 const append = (rel, text) => fs.appendFileSync(P(rel), text)
 const remove = (rel) => fs.rmSync(P(rel), { recursive: true, force: true })
 
+/** The TCF id derivation, mirrored from modules/taiw.mjs so a mutation can avoid
+ *  accidentally producing a compliant id. */
+const slugOf = (s) => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
+
 const DGIW = 'src/dgiw/data'
+const TAIW = 'src/data/taiw'
+const HAIW = 'src/data/haiw'
 const RAW_BAIW = 'scripts/golden/raw/baiw'
 const GEOM_PROBE = `${RAW_BAIW}/__geomprobe.pdf`
 
@@ -398,6 +404,162 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     what: 'projection.ts unbuildable — the invariants cannot run',
     touches: ['src/dgiw/projection.ts'],
     apply: () => sub('src/dgiw/projection.ts', 'export', 'this is not valid typescript export'),
+  },
+
+  // ── TAIW, D4 ────────────────────────────────────────────────────────────
+  {
+    code: 'TACR-SHAPE',
+    what: 'a TACR question whose levels are not 1..5',
+    touches: [`${TAIW}/tacrQuestions.json`],
+    apply: () => json(`${TAIW}/tacrQuestions.json`, (d) => { delete d.categories[0].sections[0].questions[0].levels['5'] }),
+  },
+  {
+    code: 'TACR-SHAPE',
+    what: 'totalQuestions disagreeing with the file — the progress bar never reaches 100%',
+    touches: [`${TAIW}/tacrQuestions.json`],
+    apply: () => json(`${TAIW}/tacrQuestions.json`, (d) => { d.totalQuestions = 639 }),
+  },
+  {
+    code: 'TACR-UNIQUE',
+    what: 'two TACR questions sharing one id — and therefore one answer',
+    touches: [`${TAIW}/tacrQuestions.json`],
+    apply: () => json(`${TAIW}/tacrQuestions.json`, (d) => {
+      const qs = d.categories[0].sections[0].questions
+      qs[1].id = qs[0].id
+    }),
+  },
+  {
+    code: 'TACR-CATEGORY-PREFIX',
+    what: 'one id prefix used by two categories',
+    touches: [`${TAIW}/tacrQuestions.json`],
+    apply: () => json(`${TAIW}/tacrQuestions.json`, (d) => {
+      // Re-prefix every question of category 1 with category 0's prefix.
+      const p0 = d.categories[0].sections[0].questions[0].id.split('_')[0]
+      for (const s of d.categories[1].sections)
+        for (const q of s.questions) q.id = `${p0}_${q.id.split('_').slice(1).join('_')}`
+    }),
+  },
+  {
+    code: 'TCF-SHAPE',
+    what: 'a capability priority outside the declared set',
+    touches: [`${TAIW}/capabilities.json`],
+    apply: () => json(`${TAIW}/capabilities.json`, (c) => { c[0].priority = 'URGENT' }),
+  },
+  {
+    code: 'TCF-SHAPE',
+    what: 'a theme block split in two — page 13 would count it twice',
+    touches: [`${TAIW}/capabilities.json`],
+    apply: () => json(`${TAIW}/capabilities.json`, (c) => {
+      // Move the first capability to the end: its theme block now resumes after
+      // every other theme has been walked.
+      c.push(c.shift())
+    }),
+  },
+  {
+    code: 'TCF-SLUG',
+    what: 'a capability id that is not slug(sub) — the rule D-007’s four broke',
+    touches: [`${TAIW}/capabilities.json`],
+    apply: () => json(`${TAIW}/capabilities.json`, (c) => {
+      const victim = c.find((x) => x.id !== 'aeo_compliance_monitoring_aeo')
+      victim.id = victim.id.replace(/_and_/g, '_')
+      if (victim.id === slugOf(victim.sub)) victim.id = `${victim.id}_x`
+    }),
+  },
+  {
+    code: 'TCF-SLUG',
+    what: 'a stale SLUG_EXCEPTIONS entry — a fixed defect leaving a permanent hole',
+    touches: [`${TAIW}/capabilities.json`],
+    apply: () => json(`${TAIW}/capabilities.json`, (c) => {
+      // Give D-009's id the name its slug rule wants. The exception is now stale.
+      const victim = c.find((x) => x.id === 'aeo_compliance_monitoring_aeo')
+      if (!victim) throw new Error('D-009 id not present — update this mutation')
+      victim.sub = 'AEO Compliance Monitoring Aeo'
+    }),
+  },
+  {
+    code: 'TCF-THEME-CONSISTENT',
+    what: 'one theme carrying two themeIndex values',
+    touches: [`${TAIW}/capabilities.json`],
+    apply: () => json(`${TAIW}/capabilities.json`, (c) => {
+      const t = c[0].theme
+      const other = c.find((x) => x.theme === t && x !== c[0])
+      if (!other) throw new Error('no second capability in the first theme')
+      other.themeIndex = c[0].themeIndex + 50
+    }),
+  },
+  {
+    code: 'TCF-FK',
+    what: 'a dangling capability id in dataRequirements — D-007 itself',
+    touches: [`${TAIW}/dataRequirements.json`],
+    apply: () => json(`${TAIW}/dataRequirements.json`, (d) => {
+      const row = d.find((r) => (r.capabilities ?? []).length > 0)
+      row.capabilities[0] = row.capabilities[0].replace(/_and_/g, '_') + '_gone'
+    }),
+  },
+  {
+    code: 'TCF-COVERAGE',
+    what: 'the WCO DM relation gone entirely',
+    touches: [`${TAIW}/dataRequirements.json`],
+    apply: () => json(`${TAIW}/dataRequirements.json`, (d) => { for (const r of d) r.capabilities = [] }),
+  },
+  {
+    code: 'TAIW-BENCHMARK-KEYS',
+    what: 'a TACR category with no benchmark — the client is compared to a hardcoded constant',
+    touches: [`${TAIW}/benchmarks.json`],
+    apply: () => json(`${TAIW}/benchmarks.json`, (b) => { delete b.pakistanCustomsAverage['Data Governance'] }),
+  },
+
+  // ── HAIW, D4 ────────────────────────────────────────────────────────────
+  {
+    code: 'HACR-SHAPE',
+    what: 'a HACR question with an empty capabilityLinks array',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => { q[0].capabilityLinks = [] }),
+  },
+  {
+    code: 'HACR-UNIQUE',
+    what: 'two HACR questions sharing one id',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => { q[1].id = q[0].id }),
+  },
+  {
+    code: 'HACR-CATEGORY-MAP',
+    what: 'a question whose id code and category field disagree — the screen and the PDF would bucket it differently',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => { q[0].category = 'Outcomes & Impact' }),
+  },
+  {
+    code: 'HCF-SHAPE',
+    what: 'a capability id outside the HCF-nnn shape',
+    touches: [`${HAIW}/capabilities.json`],
+    apply: () => json(`${HAIW}/capabilities.json`, (c) => { c[0].id = 'HCF-1' }),
+  },
+  {
+    code: 'HCF-LINK',
+    what: 'a capability no HACR question reaches — unscoreable, and indistinguishable from a scope decision',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => {
+      const caps = readJson(`${HAIW}/capabilities.json`)
+      const victim = (Array.isArray(caps) ? caps : caps.capabilities)[0].id
+      json(`${HAIW}/hacrQuestions.json`, (qs) => {
+        for (const q of qs) q.capabilityLinks = (q.capabilityLinks ?? []).filter((l) => l !== victim)
+        // Keep every question linked to something, so HACR-SHAPE stays quiet and
+        // this row demonstrates HCF-LINK's capability side on its own.
+        for (const q of qs) if (q.capabilityLinks.length === 0) q.capabilityLinks = ['HCF-002']
+      })
+    },
+  },
+  {
+    code: 'HCF-FK',
+    what: 'a capability naming a FHIR resource that does not exist',
+    touches: [`${HAIW}/capabilities.json`],
+    apply: () => json(`${HAIW}/capabilities.json`, (c) => { c[0].fhirResources = ['NotAResource'] }),
+  },
+  {
+    code: 'HAIW-WEIGHT',
+    what: 'a zero weight — aggregate() would silently fall back to an unweighted mean',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => { q[0].weight = 0 }),
   },
 
   // ── the gate's own two ──────────────────────────────────────────────────

@@ -361,17 +361,33 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
   }
 
   /*
-   * `overallScore` is caller-computed and rendered on the cover, and it is NOT
-   * derivable from `scores` — the component averages only the answered
-   * categories. Two assessments with the same per-category scores and a
-   * different overall are different documents, so it is its own key part rather
-   * than something the reader is expected to recompute.
+   * `overallScore` is caller-computed and rendered on the cover.
+   *
+   * THE COMMENT THAT USED TO BE HERE WAS FALSE, and it is worth recording rather
+   * than quietly replacing. It said the component "averages only the answered
+   * categories". It did not: `TradeMaturityAssessment.tsx` divided by
+   * `radarData.length`, every category, so an unanswered one entered the headline
+   * as a 0. Four of eight answered at 3.0 put **1.5** on this cover while TAIW's
+   * own quick-scan screen printed 3.0 for the same client. The component now does
+   * what the comment claimed, through `src/scoring/maturity.ts`.
+   *
+   * Still passed rather than derived: `scores` carries only the SCORED categories,
+   * so the overall genuinely is not recoverable from it — the denominator is
+   * `totalCategories`, not `scores.length`. Two assessments with the same
+   * per-category scores and a different overall are different documents, so it
+   * stays its own key part.
+   *
+   * The digest covers the coverage line too. A report of four scored categories
+   * and one of eight are different documents even when every shared row matches,
+   * and /ID is the field a viewer uses to decide that.
    */
+  const coverageLine = `Scored ${assessment.answeredCategories} of ${assessment.totalCategories} categories.`
   const r = createReport(
     reportMeta,
     contentKey([
       ...scores.map(s => `cat:${s.category}=${s.current}/${s.desired}`),
       `overall:${overallScore}`,
+      `coverage:${assessment.answeredCategories}/${assessment.totalCategories}`,
     ]),
   )
   const { doc } = r
@@ -396,7 +412,11 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
   // ── PAGE 2: EXECUTIVE SUMMARY ──
   r.page('Executive Summary')
   r.text(`Overall Trade Analytics Maturity: ${overallScore} / 5.0`, { size: 12, gapAfter: 4 })
-  r.text(`Level: ${levelLabel(overallScore)} — ${levelDescription(overallScore)}`, { size: 10, gapAfter: 8 })
+  r.text(`Level: ${levelLabel(overallScore)} — ${levelDescription(overallScore)}`, { size: 10, gapAfter: 4 })
+  // The denominator behind the number above. A cover score of 3.0 from four of
+  // eight categories is not the same claim as 3.0 from eight, and the number
+  // alone cannot tell them apart.
+  r.text(coverageLine, { size: 9, gapAfter: 8 })
 
   r.sectionHeading('Key Findings')
   // Numbered rather than bulleted, exactly as before — `bullets()` would have
@@ -478,7 +498,27 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
     r.page()
 
     const cat = CATEGORIES[ci]
-    const score = scores.find(s => s.category === cat) || { category: cat, current: 0, desired: 0, gap: 0 }
+    /*
+     * NO 0-SCORED FALLBACK. This was
+     *   `scores.find(...) || { category: cat, current: 0, desired: 0, gap: 0 }`
+     * — a category the caller did not supply got a full deep-dive page reading
+     * "0.0 / 5.0", "Initial", "Gap of 0.0 levels to reach target state" and three
+     * invented strengths. That is D-008's shape exactly: a plausible number
+     * substituted where a real one was missing, on a page a client reads as a
+     * measurement. The caller now passes only scored categories, so an absent one
+     * says why it is absent and stops.
+     */
+    const score = scores.find(s => s.category === cat)
+    if (!score) {
+      r.text(cat, { size: 14, gapAfter: 4 })
+      r.text('NOT ASSESSED', { size: 11, color: SLATE, gapAfter: 4 })
+      r.text(
+        `No question in this category has been answered, so there is no maturity level to report. ` +
+        `This page is intentionally empty rather than showing 0.0, which would read as a measurement.`,
+        { size: 9 },
+      )
+      continue
+    }
     const pkVal = (pkAvg as Record<string, number | string>)[cat]
     const pkScore = typeof pkVal === 'number' ? pkVal : 1.56
 
@@ -676,13 +716,18 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
   r.table({
     head: ['Category', 'You', 'Pakistan Avg', 'Regional Leaders', 'WCO Targets'],
     rows: CATEGORIES.slice(0, 8).map(cat => {
-      const score = scores.find(s => s.category === cat) || { current: 0 }
+      // `|| { current: 0 }` here too, and the same defect: a category with no
+      // answers appeared in the "You" column as 0.0, ranked against the Pakistan
+      // average and the WCO target as though it had been measured. The three
+      // benchmark columns are authored constants and still print; only the
+      // client's own column can be unmeasured, and it says so.
+      const score = scores.find(s => s.category === cat)
       const pk = (pkAvg as Record<string, number | string>)[cat]
       const reg = (regional as Record<string, number | string>)[cat]
       const wco = (wcoTargets as Record<string, number | string>)[cat]
       return [
         cat,
-        score.current.toFixed(1),
+        score ? score.current.toFixed(1) : '—',
         typeof pk === 'number' ? pk.toFixed(1) : '1.6',
         typeof reg === 'number' ? reg.toFixed(1) : '3.4',
         typeof wco === 'number' ? wco.toFixed(1) : '4.3',
@@ -836,6 +881,9 @@ export function generateTradeCapabilityRegisterCSV(meta: ReportMeta) {
 export function generateTradeRoadmapMarkdown(assessment: AssessmentData, meta: ReportMeta) {
   const { scores, overallScore } = assessment
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
+  // As the PDF: `scores` carries only the scored categories, so the deck states
+  // how many of the total it rests on rather than leaving a reader to assume all.
+  const coverage = `Scored ${assessment.answeredCategories} of ${assessment.totalCategories} categories.`
 
   const md = `# ${meta.orgName} — Trade Analytics Transformation Roadmap
 ## Prepared by Godaitec | ${formatCoverDate(meta.generatedAt)}
@@ -854,6 +902,7 @@ Prepared by Godaitec (godai.tech)
 ${scores.map(s => `- **${s.category}**: ${s.current.toFixed(1)} / 5.0 (${levelLabel(s.current)})`).join('\n')}
 
 **Overall Score: ${overallScore} / 5.0**
+${coverage}
 
 ---
 

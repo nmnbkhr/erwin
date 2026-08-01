@@ -13,6 +13,7 @@ import TradeReportGenerator from './TradeReportGenerator'
 import QuickAssessment from '../../components/QuickAssessment'
 import { loadTacrQuestions } from '../data'
 import { usePersistedState } from '../../engagement/usePersistedState'
+import { scoreCategories, overallCurrent, coverageStatement, scoreLabel } from '../../scoring/maturity'
 import type { TacrData, TacrCategory, TacrSection } from '../types'
 import tradeQuickData from '../../data/taiw/quickAssessment.json'
 
@@ -149,28 +150,49 @@ export default function TradeMaturityAssessment() {
   const isLastSection =
     catIdx === categories.length - 1 && secIdx === sections.length - 1
 
-  // ---- Radar data ----
-  const radarData = useMemo(() => {
-    return categories.map((cat) => {
-      const allQ = cat.sections.flatMap((s) => s.questions)
-      const answered = allQ.filter((q) => answers[q.id])
-      const currentAvg =
-        answered.length > 0
-          ? answered.reduce((s, q) => s + (answers[q.id]?.currentState || 0), 0) / answered.length
-          : 0
-      const desiredAvg =
-        answered.length > 0
-          ? answered.reduce((s, q) => s + (answers[q.id]?.desiredState || 0), 0) / answered.length
-          : 0
-      return {
-        category: cat.name.length > 14 ? cat.name.slice(0, 12) + '...' : cat.name,
-        fullName: cat.name,
-        current: Math.round(currentAvg * 10) / 10,
-        desired: Math.round(desiredAvg * 10) / 10,
-        gap: Math.round((desiredAvg - currentAvg) * 10) / 10,
-      }
-    })
-  }, [categories, answers])
+  /*
+   * ---- Scoring ----
+   *
+   * SCORED THROUGH src/scoring/maturity.ts, NOT HERE.
+   *
+   * This was one of four implementations of the category mean in the suite, and
+   * the one with the worst overall rule: it divided by EVERY category, so an
+   * unanswered one entered the headline as a 0. TAIW's own quick-scan screen
+   * (`QuickAssessment.tsx`, shared with BAIW) divided by the scored count. Four
+   * of eight categories answered at 3.0 gave **1.5** here and **3.0** there — two
+   * TAIW screens, one client, one day. `tradeReportGenerator.ts` even carried a
+   * comment asserting this component averaged only the answered categories. It
+   * did not; now it does.
+   *
+   * `weight: 1` — TACR questions carry no weight field at all, unlike HACR's
+   * 0.8–1.2. The unweighted mean is stated as an argument rather than as a second
+   * function. See the primitive's header.
+   */
+  const outcomes = useMemo(
+    () => scoreCategories(categories.map((cat) => ({
+      name: cat.name,
+      entries: cat.sections.flatMap((s) => s.questions).map((q) => ({ weight: 1, answer: answers[q.id] })),
+    }))),
+    [categories, answers],
+  )
+
+  const radarData = useMemo(
+    () => outcomes.map((o) => ({
+      category: o.name.length > 14 ? o.name.slice(0, 12) + '...' : o.name,
+      fullName: o.name,
+      state: o.agg.state,
+      // Recharts needs a number for the polygon; the table below labels an
+      // unscored category rather than printing this 0 as if it were a measurement.
+      current: o.agg.current ?? 0,
+      desired: o.agg.desired ?? 0,
+      gap: o.agg.gap ?? 0,
+    })),
+    [outcomes],
+  )
+
+  /** ÷ scored, from the UNROUNDED category means. Null when nothing is scored. */
+  const overallScore = useMemo(() => overallCurrent(outcomes), [outcomes])
+  const coverage = useMemo(() => coverageStatement(outcomes), [outcomes])
 
   // ---- Loading state ----
   if (loading) {
@@ -323,10 +345,17 @@ export default function TradeMaturityAssessment() {
             </button>
             <button
               onClick={() => downloadCSV(
-                radarData.map(r => ({
-                  category: r.fullName, current: r.current, desired: r.desired, gap: r.gap,
-                  priority: r.gap >= 2 ? 'High' : r.gap >= 1 ? 'Medium' : 'Low',
-                })),
+                // Unscored categories carry their state, not a 0 — a spreadsheet
+                // reader has no way to tell a measured 0.0 from an unanswered one.
+                outcomes.map(o => o.agg.state === 'scored'
+                  ? {
+                      category: o.name, current: String(o.agg.current), desired: String(o.agg.desired),
+                      gap: String(o.agg.gap), priority: o.agg.gap >= 2 ? 'High' : o.agg.gap >= 1 ? 'Medium' : 'Low',
+                    }
+                  : {
+                      category: o.name, current: scoreLabel(o.agg), desired: scoreLabel(o.agg),
+                      gap: scoreLabel(o.agg), priority: scoreLabel(o.agg),
+                    }),
                 `taiw-maturity-scores-${new Date().toISOString().slice(0, 10)}.csv`,
               )}
               className="inline-flex items-center gap-1.5 px-3 py-2 text-sm rounded-lg bg-white text-slate-600 hover:bg-teal-50 border border-slate-200"
@@ -378,7 +407,10 @@ export default function TradeMaturityAssessment() {
 
         {/* Gap Analysis Table */}
         <div className="bg-white rounded-lg shadow-sm p-6">
-          <h3 className="text-base font-semibold text-slate-700 mb-4">Gap Analysis</h3>
+          <h3 className="text-base font-semibold text-slate-700 mb-1">Gap Analysis</h3>
+          {/* The denominator behind every number on this page and on the cover of
+              the PDF generated below it. */}
+          <p className="text-xs text-slate-400 mb-4">{coverage}</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-slate-50">
@@ -394,24 +426,35 @@ export default function TradeMaturityAssessment() {
                 {[...radarData].sort((a, b) => b.gap - a.gap).map((r) => (
                   <tr key={r.fullName} className="border-t border-slate-100">
                     <td className="px-4 py-3 text-slate-700">{r.fullName}</td>
-                    <td className="px-4 py-3 text-center font-medium text-teal-600">{r.current}</td>
-                    <td className="px-4 py-3 text-center font-medium text-cyan-600">{r.desired}</td>
-                    <td className="px-4 py-3 text-center">
-                      <span
-                        className={`px-2 py-0.5 rounded text-xs font-medium ${
-                          r.gap >= 2
-                            ? 'bg-red-100 text-red-700'
-                            : r.gap >= 1
-                              ? 'bg-amber-100 text-amber-700'
-                              : 'bg-green-100 text-green-700'
-                        }`}
-                      >
-                        {r.gap}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-center text-xs text-slate-500">
-                      {r.gap >= 2 ? 'High' : r.gap >= 1 ? 'Medium' : 'Low'}
-                    </td>
+                    {/* An unscored category says so across the numeric columns.
+                        0.0 in a gap column reads as "no gap" — the opposite of
+                        "not measured". */}
+                    {r.state === 'scored' ? (
+                      <>
+                        <td className="px-4 py-3 text-center font-medium text-teal-600">{r.current}</td>
+                        <td className="px-4 py-3 text-center font-medium text-cyan-600">{r.desired}</td>
+                        <td className="px-4 py-3 text-center">
+                          <span
+                            className={`px-2 py-0.5 rounded text-xs font-medium ${
+                              r.gap >= 2
+                                ? 'bg-red-100 text-red-700'
+                                : r.gap >= 1
+                                  ? 'bg-amber-100 text-amber-700'
+                                  : 'bg-green-100 text-green-700'
+                            }`}
+                          >
+                            {r.gap}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-center text-xs text-slate-500">
+                          {r.gap >= 2 ? 'High' : r.gap >= 1 ? 'Medium' : 'Low'}
+                        </td>
+                      </>
+                    ) : (
+                      <td className="px-4 py-3 text-center text-xs text-slate-400" colSpan={4}>
+                        {r.state === 'not-applicable' ? 'NOT APPLICABLE' : 'NOT ASSESSED'}
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>
@@ -419,10 +462,16 @@ export default function TradeMaturityAssessment() {
           </div>
         </div>
 
-        {/* Report Generator */}
+        {/* Report Generator.
+            `scores` carries only the SCORED categories: an unscored one has no
+            number to put on a scorecard row, and passing it as 0 is what let the
+            PDF print a measurement where there was none. The generator states the
+            denominator from `answeredCategories` / `totalCategories`. */}
         <TradeReportGenerator
-          scores={radarData.map(r => ({ category: r.fullName, current: r.current, desired: r.desired, gap: r.gap }))}
-          overallScore={Math.round(radarData.reduce((s, r) => s + r.current, 0) / radarData.length * 10) / 10}
+          scores={outcomes.flatMap(o => o.agg.state === 'scored'
+            ? [{ category: o.name, current: o.agg.current, desired: o.agg.desired, gap: o.agg.gap }]
+            : [])}
+          overallScore={overallScore ?? 0}
           answeredCategories={answeredCategoryCount}
           totalCategories={categories.length}
         />

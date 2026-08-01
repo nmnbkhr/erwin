@@ -9,11 +9,20 @@
  * `sorted` under a TAIW code.
  */
 
-/** Duplicate ids. Emits UNIQUE, which is what every existing call site expects. */
-export const unique = (fail, name, ids) => {
+/**
+ * Duplicate ids.
+ *
+ * `code` is a parameter, as it is for `sorted` and `shapeCheck`. It used to
+ * hardcode `UNIQUE`, which meant a module check DECLARING `TACR-UNIQUE` emitted
+ * `UNIQUE` instead — the check ran, found the duplicate, failed the build, and
+ * reported it under a code its own rule file never mentions. `check:selftest`
+ * caught it as two NOT TRIPPED rows; nothing else would have, because from the
+ * outside a failing build looks the same either way.
+ */
+export const unique = (fail, code, name, ids) => {
   const seen = new Set()
   for (const i of ids) {
-    if (seen.has(i)) fail('UNIQUE', `duplicate ${name} id "${i}"`)
+    if (seen.has(i)) fail(code, `duplicate ${name} id "${i}"`)
     seen.add(i)
   }
   return ids.length

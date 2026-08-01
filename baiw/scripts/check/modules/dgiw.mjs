@@ -72,17 +72,17 @@ const uniqueIds = {
     const { pillars, diag, cdes, rules, prog, plan, om } = ctx.data
     const f = ctx.failAs
     let examined = 0
-    examined += unique(f, 'pillar', pillars.map((p) => p.id))
-    examined += unique(f, 'question', diag.questions.map((q) => q.id))
-    examined += unique(f, 'cde', cdes.map((c) => c.id))
-    examined += unique(f, 'dqRule', rules.map((r) => r.id))
-    examined += unique(f, 'checklist', prog.checklist.map((c) => c.id))
-    examined += unique(f, 'artefact', plan.artefactRegister.map((a) => a.id))
-    examined += unique(f, 'role', om.roles.map((r) => r.id))
-    examined += unique(f, 'gate', om.gates.map((g) => g.id))
-    examined += unique(f, 'wave', plan.waves.map((w) => w.id))
-    examined += unique(f, 'programStep', prog.flows.flatMap((fl) => fl.steps.map((s) => s.id)))
-    examined += unique(f, 'roleRegistry', (om.roleRegistry ?? []).map((r) => r.name))
+    examined += unique(f, 'UNIQUE', 'pillar', pillars.map((p) => p.id))
+    examined += unique(f, 'UNIQUE', 'question', diag.questions.map((q) => q.id))
+    examined += unique(f, 'UNIQUE', 'cde', cdes.map((c) => c.id))
+    examined += unique(f, 'UNIQUE', 'dqRule', rules.map((r) => r.id))
+    examined += unique(f, 'UNIQUE', 'checklist', prog.checklist.map((c) => c.id))
+    examined += unique(f, 'UNIQUE', 'artefact', plan.artefactRegister.map((a) => a.id))
+    examined += unique(f, 'UNIQUE', 'role', om.roles.map((r) => r.id))
+    examined += unique(f, 'UNIQUE', 'gate', om.gates.map((g) => g.id))
+    examined += unique(f, 'UNIQUE', 'wave', plan.waves.map((w) => w.id))
+    examined += unique(f, 'UNIQUE', 'programStep', prog.flows.flatMap((fl) => fl.steps.map((s) => s.id)))
+    examined += unique(f, 'UNIQUE', 'roleRegistry', (om.roleRegistry ?? []).map((r) => r.name))
     return { examined }
   },
 }
@@ -332,9 +332,9 @@ const crosswalkShape = {
       questionIds: (v) => (Array.isArray(v) ? null : 'must be an array when present'),
     }, ['id', 'dimensionId', 'pillarId', 'coverageWeight', 'rationale', 'layer'])
 
-    unique(f, 'framework', FRAMEWORKS.map((x) => x.id))
-    unique(f, 'dimension', DIMENSIONS.map((d) => d.id))
-    unique(f, 'crosswalkEntry', ENTRIES.map((e) => e.id))
+    unique(f, 'UNIQUE', 'framework', FRAMEWORKS.map((x) => x.id))
+    unique(f, 'UNIQUE', 'dimension', DIMENSIONS.map((d) => d.id))
+    unique(f, 'UNIQUE', 'crosswalkEntry', ENTRIES.map((e) => e.id))
 
     for (const d of DIMENSIONS) {
       if (!frameworkById.has(d.frameworkId)) fail(`dimension ${d.id} -> framework ${d.frameworkId} does not exist`)

@@ -11,6 +11,10 @@ import { loadHacrQuestions, loadCapabilities } from '../data'
 import type { HacrData, HacrQuestion, HaiwAssessmentAnswer, HaiwCapability } from '../types'
 import HealthReportGenerator from './HealthReportGenerator'
 import { usePersistedState } from '../../engagement/usePersistedState'
+import {
+  scoreCategories, coverageStatement,
+  overallCurrent as overallCurrentOf, overallDesired as overallDesiredOf,
+} from '../../scoring/maturity'
 
 // ── Constants ──────────────────────────────────────────────────────────
 
@@ -126,37 +130,46 @@ export default function HealthMaturityAssessment() {
     })
   }, [questionsPerCategory, answers])
 
-  // Radar data
-  const radarData = useMemo(() => {
-    return questionsPerCategory.map(({ category: cat, questions: qs }) => {
-      const answered = qs.filter(q => answers[q.id])
-      const currentAvg = answered.length > 0
-        ? answered.reduce((s, q) => s + (answers[q.id]?.currentState || 0), 0) / answered.length
-        : 0
-      const targetAvg = answered.length > 0
-        ? answered.reduce((s, q) => s + (answers[q.id]?.desiredState || 0), 0) / answered.length
-        : 0
-      return {
-        category: cat.name.length > 14 ? cat.name.slice(0, 12) + '..' : cat.name,
-        fullName: cat.name,
-        current: Math.round(currentAvg * 10) / 10,
-        target: Math.round(targetAvg * 10) / 10,
-        gap: Math.round((targetAvg - currentAvg) * 10) / 10,
-      }
-    })
-  }, [questionsPerCategory, answers])
+  /*
+   * SCORED THROUGH src/scoring/maturity.ts, NOT HERE.
+   *
+   * This block used to be its own implementation of the category mean — one of
+   * four in the suite — and the report generator was another. They agreed on this
+   * page's numbers and disagreed on the cover: the screen divided the overall by
+   * the SCORED categories, the PDF divided by all eight. Four of eight answered at
+   * 3.0 printed 3.0 here and 1.5 there, for the same client on the same day, and
+   * no golden fixture could see it because every fixture answers everything.
+   *
+   * The overall is now built from the UNROUNDED category means as well. Averaging
+   * the 1dp values shown in the table is the recomposition `dgiw/scoring.ts` warns
+   * about — it is how a headline reads 3.2 when the evidence says 3.15.
+   */
+  const outcomes = useMemo(
+    () => scoreCategories(questionsPerCategory.map(({ category: cat, questions: qs }) => ({
+      name: cat.name,
+      entries: qs.map(q => ({ weight: 1, answer: answers[q.id] })),
+    }))),
+    [questionsPerCategory, answers],
+  )
 
-  const overallCurrent = useMemo(() => {
-    const scored = radarData.filter(r => r.current > 0)
-    if (scored.length === 0) return 0
-    return Math.round((scored.reduce((s, r) => s + r.current, 0) / scored.length) * 10) / 10
-  }, [radarData])
+  const radarData = useMemo(
+    () => outcomes.map(o => ({
+      category: o.name.length > 14 ? o.name.slice(0, 12) + '..' : o.name,
+      fullName: o.name,
+      state: o.agg.state,
+      // Recharts needs a number for the polygon. An unscored category is drawn at
+      // 0 and LABELLED as unscored in the table below; the coverage line states
+      // how many of the eight the overall rests on.
+      current: o.agg.current ?? 0,
+      target: o.agg.desired ?? 0,
+      gap: o.agg.gap ?? 0,
+    })),
+    [outcomes],
+  )
 
-  const overallTarget = useMemo(() => {
-    const scored = radarData.filter(r => r.target > 0)
-    if (scored.length === 0) return 0
-    return Math.round((scored.reduce((s, r) => s + r.target, 0) / scored.length) * 10) / 10
-  }, [radarData])
+  const overallCurrent = useMemo(() => overallCurrentOf(outcomes) ?? 0, [outcomes])
+  const overallTarget = useMemo(() => overallDesiredOf(outcomes) ?? 0, [outcomes])
+  const coverage = useMemo(() => coverageStatement(outcomes), [outcomes])
 
   const touchedCategoryCount = useMemo(() => {
     return categoryProgress.filter(c => c.touched).length
@@ -482,6 +495,9 @@ export default function HealthMaturityAssessment() {
 
           {/* Score Overview */}
           <div className="bg-white rounded-lg shadow-sm p-4">
+            {/* The denominator behind the three numbers below. 3.0 from four of
+                eight categories is not the same claim as 3.0 from eight. */}
+            <p className="text-xs text-slate-400 mb-2">{coverage}</p>
             <div className="grid grid-cols-3 gap-3 text-center">
               <div>
                 <p className="text-xs text-slate-400 uppercase tracking-wide">Current</p>
@@ -541,14 +557,25 @@ export default function HealthMaturityAssessment() {
                         <td className="py-1.5 text-slate-700 truncate max-w-[120px]" title={r.fullName}>
                           {r.fullName}
                         </td>
-                        <td className="py-1.5 text-center text-emerald-600 font-medium">{r.current}</td>
-                        <td className="py-1.5 text-center text-orange-500 font-medium">{r.target}</td>
-                        <td className="py-1.5 text-center">
-                          <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${gapTextColor(r.gap)}`}>
-                            {r.gap}
-                          </span>
-                        </td>
-                        <td className="py-1.5 text-center text-slate-500">{priorityLabel(r.gap)}</td>
+                        {/* An unscored category shows why, not a 0. A reader
+                            cannot tell "measured at zero" from "nobody answered"
+                            when both print the same digit — the D-003 lesson. */}
+                        {r.state === 'scored' ? (
+                          <>
+                            <td className="py-1.5 text-center text-emerald-600 font-medium">{r.current}</td>
+                            <td className="py-1.5 text-center text-orange-500 font-medium">{r.target}</td>
+                            <td className="py-1.5 text-center">
+                              <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${gapTextColor(r.gap)}`}>
+                                {r.gap}
+                              </span>
+                            </td>
+                            <td className="py-1.5 text-center text-slate-500">{priorityLabel(r.gap)}</td>
+                          </>
+                        ) : (
+                          <td className="py-1.5 text-center text-slate-400 text-xs" colSpan={4}>
+                            {r.state === 'not-applicable' ? 'NOT APPLICABLE' : 'NOT ASSESSED'}
+                          </td>
+                        )}
                       </tr>
                     ))}
                   </tbody>

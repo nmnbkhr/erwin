@@ -9,6 +9,10 @@ import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '..
 import { formatCoverDate, reportFilename } from '../../report/naming'
 import { downloadCsv, byStringKey, type CsvColumn } from '../../report/csv'
 import type { ReportMeta } from '../../report/types'
+import {
+  aggregate, scoreCategories, overallCurrent, coverageStatement, scoreLabel,
+  type Applicable, type Aggregate, type CategoryOutcome,
+} from '../../scoring/maturity'
 import type { HaiwCapability, HaiwAssessmentAnswer, HacrQuestion } from '../types'
 
 /*
@@ -188,103 +192,79 @@ function levelDescription(level: number): string {
 
 // ── The one scoring primitive ─────────────────────────────────────────────
 
-const round1 = (n: number): number => parseFloat(n.toFixed(1))
-
-/** The suite's three states. See CLAUDE.md, "DGIW scoring". */
-export type ScoreState = 'scored' | 'not-assessed' | 'not-applicable'
-
-/** One question that applies to whatever is being scored, answered or not. */
-interface Applicable {
-  weight: number
-  /** `undefined` when the client has not answered it. */
-  answer: HaiwAssessmentAnswer | undefined
-}
-
 /**
- * A weighted aggregate, as a discriminated union so `current` cannot be read
- * without first establishing that it exists.
+ * The suite's three states, and the weighted aggregate behind them, now live in
+ * `src/scoring/maturity.ts` — one implementation for TAIW and HAIW rather than
+ * four. `round1` went with `aggregate()`, which was its only caller.
  *
- * The union is the point. `current: number` with a 0 for "unmeasured" is the
- * shape that produced D-003 — twenty capabilities reported at gap 0.0 under a
- * heading reading "largest estimated gaps" — and CLAUDE.md forbids it in as many
- * words: an unmeasured thing "may not render as 0 or enter any average, count or
- * rollup". Making the number unreachable in the other two states is how the type
- * system enforces that rather than a reviewer.
+ * `ScoreState` is re-exported because it was already part of this module's public
+ * surface. See that file's header for what the four implementations were, and for
+ * the 1.5 versus 3.0 they printed for the same client on the same day.
  */
-type Aggregate =
-  | { state: 'scored'; current: number; desired: number; gap: number; answered: number; applicable: number }
-  | { state: 'not-assessed'; current: null; desired: null; gap: null; answered: 0; applicable: number }
-  | { state: 'not-applicable'; current: null; desired: null; gap: null; answered: 0; applicable: 0 }
-
-/**
- * Score one group of applicable questions. Every number in this module comes
- * from here — category scores, capability scores, the PDF and the CSV.
- *
- * Unanswered questions leave both the numerator and the denominator, rather than
- * counting as zero. That is the difference between "this capability is weak" and
- * "nobody has told us about this capability yet", and the two must not print the
- * same digit.
- */
-function aggregate(entries: readonly Applicable[]): Aggregate {
-  if (entries.length === 0) {
-    return { state: 'not-applicable', current: null, desired: null, gap: null, answered: 0, applicable: 0 }
-  }
-  const answered = entries.filter((e): e is { weight: number; answer: HaiwAssessmentAnswer } => e.answer !== undefined)
-  if (answered.length === 0) {
-    return { state: 'not-assessed', current: null, desired: null, gap: null, answered: 0, applicable: entries.length }
-  }
-  const totalWeight = answered.reduce((s, e) => s + e.weight, 0)
-  // A non-positive total weight divides to NaN, and "NaN" on a client deliverable
-  // is worse than an unweighted mean. The weights would be unusable; the answers
-  // still are not. Cannot happen with today's dataset (weights are 0.8–1.2) and
-  // is handled rather than assumed.
-  const usable = totalWeight > 0
-  const denom = usable ? totalWeight : answered.length
-  const w = (e: { weight: number }) => (usable ? e.weight : 1)
-  const current = round1(answered.reduce((s, e) => s + e.answer.currentState * w(e), 0) / denom)
-  const desired = round1(answered.reduce((s, e) => s + e.answer.desiredState * w(e), 0) / denom)
-  // Rounded inputs, deliberately: the gap a reader computes from the two printed
-  // numbers must equal the gap printed next to them.
-  return { state: 'scored', current, desired, gap: round1(desired - current), answered: answered.length, applicable: entries.length }
-}
+export type { ScoreState } from '../../scoring/maturity'
 
 // ── Compute category scores from answers ──
 /**
  * EQUAL WEIGHTS HERE, WEIGHTED FOR CAPABILITIES, AND THAT IS A DELIBERATE SPLIT.
  *
  * This function has always taken a plain arithmetic mean, and so does the on-screen
- * scorecard in `HealthMaturityAssessment.tsx` — `question.weight` is declared in
- * types.ts and, before this change, read by nothing in `src/haiw/`. Switching this
- * to weighted moves the fixture's every category from desired 4.3 to 4.4 and every
- * gap from 1.3 to 1.4, which would change the cover score, the radar, the
- * scorecard, all eight deep dives, the benchmark page and the markdown — and put
- * the PDF at odds with the screen, which CLAUDE.md calls worse than no PDF.
+ * scorecard in `HealthMaturityAssessment.tsx` — which now calls this same code
+ * rather than its own copy of it. Switching to weighted moves the fixture's every
+ * category from desired 4.3 to 4.4 and every gap from 1.3 to 1.4, which would
+ * change the cover score, the radar, the scorecard, all eight deep dives, the
+ * benchmark page and the markdown. Making the whole module weighted is a content
+ * decision for its own change, with its own walk.
  *
  * So it stays a mean, and it says so by passing `weight: 1` through the same
  * `aggregate()` the capability scoring uses. One primitive, one place, the
  * weighting choice visible as an argument instead of as two code paths that could
- * drift. Making the whole module weighted is a content decision for its own
- * change, with its own walk.
+ * drift.
  *
- * The `?? 0` below preserves this function's long-standing behaviour for a
- * category with no answers. It is the zero-as-unknown CLAUDE.md warns about, kept
- * because changing it moves seventeen pages; it is confined to this one call site
- * rather than living in the primitive.
+ * THE QUESTION UNIVERSE IS THE INPUT, NOT THE ANSWER SET. This used to bucket
+ * `answers`, so a category nobody had answered produced an EMPTY entry list and
+ * `aggregate()` called it `not-applicable` — "this category does not exist under
+ * this scope" — when the truth was `not-assessed`, "nobody has answered it yet".
+ * Those are the two states CLAUDE.md says must never collapse into each other,
+ * collapsed inside the function written to keep them apart. Bucketing the
+ * questions and attaching answers to them distinguishes the two, and makes
+ * `not-applicable` mean what it means everywhere else in the suite: HACR declares
+ * no question carrying that category's code at all.
  */
-function computeCategoryScores(answers: HaiwAssessmentAnswer[]): CategoryScore[] {
+function computeCategoryOutcomes(
+  answers: HaiwAssessmentAnswer[],
+  questions: readonly HacrQuestionLink[],
+): CategoryOutcome[] {
+  const answerById = new Map(answers.map(a => [a.questionId, a]))
   const byCategory = new Map<string, Applicable[]>()
   HACR_CATEGORIES.forEach(cat => byCategory.set(cat, []))
 
-  answers.forEach(a => {
-    // questionId format: "HACR-SL-001" — the letter code selects the category
-    const cat = CODE_TO_CATEGORY[a.questionId.split('-')[1]]
-    if (cat && byCategory.has(cat)) byCategory.get(cat)!.push({ weight: 1, answer: a })
+  questions.forEach(q => {
+    // questionId format: "HACR-SL-001" — the letter code selects the category.
+    // HACR-CATEGORY-MAP asserts this agrees with the question's own `category`
+    // field for all 720, which is what makes this partition and the assessment
+    // screen's produce the same buckets.
+    const cat = CODE_TO_CATEGORY[q.id.split('-')[1]]
+    if (cat && byCategory.has(cat)) byCategory.get(cat)!.push({ weight: 1, answer: answerById.get(q.id) })
   })
 
-  return HACR_CATEGORIES.map(cat => {
-    const agg = aggregate(byCategory.get(cat)!)
-    return { category: cat, current: agg.current ?? 0, desired: agg.desired ?? 0, gap: agg.gap ?? 0 }
-  })
+  return scoreCategories(HACR_CATEGORIES.map(cat => ({ name: cat, entries: byCategory.get(cat)! })))
+}
+
+/**
+ * The flat `{ current, desired, gap }` rows the radar, the scorecard and the deep
+ * dives draw. Confined to the drawing code: an unscored category reaches this as
+ * 0, which is the zero-as-unknown CLAUDE.md warns about, and every caller that
+ * needs to tell 0 from unmeasured reads `CategoryOutcome.agg.state` instead. The
+ * coverage statement printed alongside them is what makes the difference legible
+ * on the page.
+ */
+function flatten(outcomes: readonly CategoryOutcome[]): CategoryScore[] {
+  return outcomes.map(o => ({
+    category: o.name,
+    current: o.agg.current ?? 0,
+    desired: o.agg.desired ?? 0,
+    gap: o.agg.gap ?? 0,
+  }))
 }
 
 /*
@@ -631,11 +611,32 @@ export function generateHealthMaturityPDF(
     whoTargets: { ...DEFAULT_BENCHMARKS.whoTargets, ...benchmarks?.whoTargets },
   }
 
-  const scores = computeCategoryScores(answers)
-  const overallScore = parseFloat(
-    (scores.reduce((sum, s) => sum + s.current, 0) / scores.length).toFixed(1),
-  )
-  const answeredCategories = scores.filter(s => s.current > 0).length
+  const outcomes = computeCategoryOutcomes(answers, questions)
+  const scores = flatten(outcomes)
+  /*
+   * ÷ SCORED, not ÷ 8.
+   *
+   * This divided by `scores.length` — every HACR category, including the ones
+   * nobody had answered, each contributing a 0. Four of eight categories answered
+   * at 3.0 printed **1.5** on the cover while the assessment screen, which
+   * divided by the scored count, printed **3.0** for the same client on the same
+   * day. Neither fixture could see it: both answer every question, and at 8-of-8
+   * the two rules coincide.
+   *
+   * `null` when nothing is scored, and the caller decides what to print. The old
+   * expression returned 0, which reads as "assessed, and terrible".
+   */
+  const overall = overallCurrent(outcomes)
+  const overallScore = overall ?? 0
+  /*
+   * The denominator, printed. A cover score of 3.0 from four of eight categories
+   * is not the same claim as 3.0 from eight, and the number alone cannot tell
+   * them apart — fixing the arithmetic without printing the coverage would leave
+   * a reader unable to distinguish a complete assessment from a half-finished
+   * one. DGIW prints its scored count for exactly this reason.
+   */
+  const coverage = coverageStatement(outcomes)
+  const answeredCategories = outcomes.filter(o => o.agg.state === 'scored').length
   const totalCategories = HACR_CATEGORIES.length
 
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
@@ -693,7 +694,10 @@ export function generateHealthMaturityPDF(
   // ── PAGE 2: EXECUTIVE SUMMARY ──
   r.page('Executive Summary')
   r.text(`Overall HACR Score: ${overallScore} / 5.0`, { size: 12, gapAfter: 4 })
-  r.text(`Level: ${levelLabel(overallScore)} — ${levelDescription(overallScore)}`, { size: 10, gapAfter: 8 })
+  r.text(`Level: ${levelLabel(overallScore)} — ${levelDescription(overallScore)}`, { size: 10, gapAfter: 4 })
+  // The denominator behind the number above. See `coverage` at the top of this
+  // function for why it is on the page rather than only in the arithmetic.
+  r.text(coverage, { size: 9, gapAfter: 8 })
 
   r.sectionHeading('Key Findings')
   // Numbered rather than bulleted, exactly as before — `bullets()` would have
@@ -1283,16 +1287,26 @@ export function generateHealthGapCSV(
  *
  * `capabilities` is unused and was unused before. Kept for arity: the three
  * export buttons call their generators through one handler.
+ *
+ * `questions` IS read, and was added when category scoring moved onto the
+ * question universe. Deriving the categories from the answers alone cannot tell
+ * "no question carries this category's code" from "nobody answered it", which is
+ * the state collapse `computeCategoryOutcomes` exists to avoid. Same
+ * `HacrQuestionLink` projection the other two take, for the same reason: an
+ * honest contract about what is read, and no second copy of a 1.18 MB dataset in
+ * the report chunk.
  */
 export function generateHealthRoadmapMarkdown(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
+  questions: readonly HacrQuestionLink[],
   meta: ReportMeta,
 ) {
-  const scores = computeCategoryScores(answers)
-  const overallScore = parseFloat(
-    (scores.reduce((sum, s) => sum + s.current, 0) / scores.length).toFixed(1),
-  )
+  const outcomes = computeCategoryOutcomes(answers, questions)
+  const scores = flatten(outcomes)
+  // ÷ scored, as the PDF. See the note there.
+  const overallScore = overallCurrent(outcomes) ?? 0
+  const coverage = coverageStatement(outcomes)
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
 
   const md = `# ${meta.orgName} — Healthcare Analytics Transformation Roadmap
@@ -1309,9 +1323,12 @@ Prepared by Godaitec (godai.tech)
 
 ## Slide 2: Current State
 ### Where We Are Today
-${scores.map(s => `- **${s.category}**: ${s.current.toFixed(1)} / 5.0 (${levelLabel(s.current)})`).join('\n')}
+${outcomes.map(o => o.agg.state === 'scored'
+  ? `- **${o.name}**: ${o.agg.current.toFixed(1)} / 5.0 (${levelLabel(o.agg.current)})`
+  : `- **${o.name}**: ${scoreLabel(o.agg)}`).join('\n')}
 
 **Overall HACR Score: ${overallScore} / 5.0**
+${coverage}
 
 ---
 

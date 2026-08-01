@@ -76,7 +76,10 @@ export default function HealthReportGenerator({ answers, capabilities, capabilit
           )
         }
       } else {
-        gen.generateHealthRoadmapMarkdown(answers, capabilities, metaFor(gen.HEALTH_ROADMAP_ARTEFACT_ID))
+        // `questions` is passed since D4: category scoring is built from the
+        // question universe, not the answer set, so that an unanswered category
+        // reads NOT ASSESSED rather than 0.0.
+        gen.generateHealthRoadmapMarkdown(answers, capabilities, questions, metaFor(gen.HEALTH_ROADMAP_ARTEFACT_ID))
       }
     } catch (err) {
       // Previously any throw here vanished into `finally` and the user saw the

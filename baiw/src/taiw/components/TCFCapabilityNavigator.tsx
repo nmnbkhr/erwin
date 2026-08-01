@@ -50,62 +50,37 @@ export default function TCFCapabilityNavigator() {
   const [themeFilter, setThemeFilter] = useState<string | null>(null)
   const [criticalOnly, setCriticalOnly] = useState(false)
 
-  /* ── TC2: TACR Maturity data from localStorage ──────────────── */
-  const maturityScores = useMemo(() => {
-    try {
-      const raw = localStorage.getItem('taiw_maturity')
-      if (!raw) return null
-      const parsed: Record<string, { currentState: number; desiredState: number }> = JSON.parse(raw)
-      // Group questions by category prefix and compute averages
-      const categoryAverages: Record<string, number> = {}
-      const categorySums: Record<string, { sum: number; count: number }> = {}
-      Object.entries(parsed).forEach(([qId, answer]) => {
-        // Question IDs are like "cat-sec-N" — extract category prefix (first segment)
-        const parts = qId.split('-')
-        const catPrefix = parts[0] || qId
-        if (!categorySums[catPrefix]) categorySums[catPrefix] = { sum: 0, count: 0 }
-        categorySums[catPrefix].sum += answer.currentState
-        categorySums[catPrefix].count++
-      })
-      Object.entries(categorySums).forEach(([cat, { sum, count }]) => {
-        categoryAverages[cat] = count > 0 ? sum / count : 0
-      })
-      return categoryAverages
-    } catch {
-      return null
-    }
-  }, [])
-
-  /* TC2: Map capability theme keywords → TACR category names → category prefix */
-  const getMaturityForTheme = (themeName: string): number | null => {
-    if (!maturityScores) return null
-    const lower = themeName.toLowerCase()
-    // Map theme keywords to TACR category prefixes
-    // Category prefixes derived from TACR category names:
-    // "Outcomes & Impact" → outcomes, "Analytics & Technology" → analytics,
-    // "Processes & Automation" → processes, "Infrastructure" → infrastructure,
-    // "Data Governance" → data, "Strategy & Vision" → strategy
-    let targetPrefix: string | null = null
-    if (lower.includes('revenue') || lower.includes('outcome')) targetPrefix = 'outcomes'
-    else if (lower.includes('risk') || lower.includes('analytics') || lower.includes('compliance')) targetPrefix = 'analytics'
-    else if (lower.includes('facilitat') || lower.includes('process')) targetPrefix = 'processes'
-    else if (lower.includes('digital') || lower.includes('technol') || lower.includes('infrastructure')) targetPrefix = 'infrastructure'
-    else if (lower.includes('data') || lower.includes('governance')) targetPrefix = 'data'
-    else if (lower.includes('intelligen') || lower.includes('strateg') || lower.includes('policy')) targetPrefix = 'strategy'
-
-    if (!targetPrefix) return null
-    // Try exact match first, then partial match on keys
-    if (maturityScores[targetPrefix] !== undefined) return maturityScores[targetPrefix]
-    const matchKey = Object.keys(maturityScores).find(k => k.toLowerCase().startsWith(targetPrefix!))
-    return matchKey ? maturityScores[matchKey] : null
-  }
-
-  const maturityBadgeColor = (score: number): string => {
-    if (score >= 5) return 'bg-teal-100 text-teal-700 border-teal-300'
-    if (score >= 4) return 'bg-green-100 text-green-700 border-green-300'
-    if (score >= 3) return 'bg-yellow-100 text-yellow-700 border-yellow-300'
-    return 'bg-red-100 text-red-700 border-red-300' // 1-2
-  }
+  /* ── TC2: REMOVED. It was D-001, armed. ──────────────────────────────────
+   *
+   * A "TACR" badge on every capability row and in the detail panel, carrying a
+   * number derived like this: read the stored answers, average them by question-
+   * id prefix, then pick a prefix by KEYWORD-MATCHING the capability's theme name
+   * — `lower.includes('data') → 'data'`, `includes('strateg') → 'strategy'`.
+   *
+   * That is exactly the fabrication D-001 cost four client-facing deliverables to
+   * learn about. TACR categories and TCF capabilities are orthogonal axes:
+   * TACR's 640 questions carry no `capabilityLinks` (HACR's 720 all do, which is
+   * the entire difference), so nothing in any dataset joins a category to a theme.
+   * A reader takes a number on a capability row as that row's own no matter what
+   * the badge says. See CLAUDE.md, "A capability score needs a link, not a
+   * heading".
+   *
+   * IT NEVER RENDERED, AND THAT IS WHY IT HAD TO GO NOW RATHER THAN LATER. Two
+   * independent bugs held it inert:
+   *
+   *   1. it read the BARE `taiw_maturity` key, which nothing has written since
+   *      answers were namespaced per engagement (`usePersistedState` → `nsKey`);
+   *   2. it split ids on `-`, and TACR ids contain none — they are `str_mod_001`
+   *      — so every key was a whole question id and `startsWith('strategy')`
+   *      matched nothing.
+   *
+   * Fixing EITHER one alone starts the fabrication, in a component nobody would
+   * be reviewing for D-001 at the time. Dead code that fabricates on repair is
+   * the D-008 shape and is worse than code that is merely wrong.
+   *
+   * There is no correct version of this badge to restore. It comes back when
+   * TACR questions carry `capabilityLinks`, and not before.
+   */
 
   /* ── load data ───────────────────────────────────────────────── */
   useEffect(() => {
@@ -373,7 +348,6 @@ export default function TCFCapabilityNavigator() {
                             const ps = PRIORITY_STYLES[cap.priority]
                             const dep = dependencies[cap.id]
                             const elCount = dep?.elementCount ?? 0
-                            const matScore = getMaturityForTheme(cap.theme)
                             return (
                               <button
                                 key={cap.id}
@@ -395,12 +369,9 @@ export default function TCFCapabilityNavigator() {
                                     {elCount}
                                   </span>
                                 )}
-                                {/* TC2: Maturity badge */}
-                                {matScore !== null && (
-                                  <span className={`shrink-0 px-1 py-0 text-[11px] font-semibold rounded border ${maturityBadgeColor(matScore)}`} title={`TACR Maturity: ${matScore.toFixed(1)}`}>
-                                    {matScore.toFixed(1)}
-                                  </span>
-                                )}
+                                {/* TC2 maturity badge removed — see the note at the
+                                    top of this file. TACR cannot score a TCF
+                                    capability; nothing joins the two axes. */}
                                 {ps && (
                                   <span className={`shrink-0 px-1.5 py-0.5 text-xs rounded ${ps.bg} ${ps.text}`}>
                                     {cap.priority === 'CRITICAL' ? 'C' : cap.priority === 'HIGH' ? 'H' : 'M'}
@@ -474,16 +445,7 @@ export default function TCFCapabilityNavigator() {
                   {selectedEnrichment.investmentRange}
                 </span>
               )}
-              {/* TC2: TACR Maturity badge in detail panel */}
-              {(() => {
-                const ms = getMaturityForTheme(selectedCap.theme)
-                if (ms === null) return null
-                return (
-                  <span className={`px-2 py-1 text-xs rounded border flex items-center gap-1 ${maturityBadgeColor(ms)}`}>
-                    TACR {ms.toFixed(1)}
-                  </span>
-                )
-              })()}
+              {/* TC2 TACR badge removed here too — see the note at the top. */}
             </div>
 
             {/* ── Pakistan Context ──────────────────────────────── */}

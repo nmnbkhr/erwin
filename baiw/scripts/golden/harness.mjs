@@ -253,6 +253,40 @@ export const REGISTRY = {
         profile: 'taiw',
         call: (m, f, c) => m.generateTradeRoadmapMarkdown(f.assessment, c.meta),
       },
+      /*
+       * PARTIAL — D4. The first artefacts in this repo that exercise an
+       * unanswered category.
+       *
+       * Every fixture before these answers every question, which is precisely why
+       * the defect D4 fixed was invisible for the whole of Phase D: at 8-of-8 the
+       * ÷scored and ÷all rules coincide at the same number, so the two
+       * implementations agreed on every baseline while disagreeing by a factor of
+       * two on any half-finished assessment.
+       *
+       * `orgName` differs so the artefact gets its own filename — see metaFor —
+       * and so a reader comparing the two captures can tell which is which from
+       * the cover.
+       */
+      {
+        id: 'maturity-pdf-partial',
+        kind: 'pdf',
+        exportName: 'generateTradeMaturityPDF',
+        assertRawBytes: true,
+        artefactIdExport: 'TRADE_MATURITY_ARTEFACT_ID',
+        profile: 'taiw',
+        orgName: 'Fixture Customs Authority Partial',
+        call: (m, f, c) => m.generateTradeMaturityPDF(f.assessmentPartial, c.meta),
+      },
+      {
+        id: 'roadmap-md-partial',
+        kind: 'md',
+        exportName: 'generateTradeRoadmapMarkdown',
+        assertRawBytes: true,
+        artefactIdExport: 'TRADE_ROADMAP_ARTEFACT_ID',
+        profile: 'taiw',
+        orgName: 'Fixture Customs Authority Partial',
+        call: (m, f, c) => m.generateTradeRoadmapMarkdown(f.assessmentPartial, c.meta),
+      },
     ],
   },
   /*
@@ -308,7 +342,37 @@ export const REGISTRY = {
         assertRawBytes: true,
         artefactIdExport: 'HEALTH_ROADMAP_ARTEFACT_ID',
         profile: 'haiw',
-        call: (m, f, c) => m.generateHealthRoadmapMarkdown(f.answers, f.capabilities, c.meta),
+        // f.questions added in D4: the markdown scores categories from the
+        // question universe, as the PDF does, so an unanswered category reads
+        // NOT ASSESSED instead of 0.0.
+        call: (m, f, c) => m.generateHealthRoadmapMarkdown(f.answers, f.capabilities, f.questions, c.meta),
+      },
+      /*
+       * PARTIAL — D4. See the note on TAIW's pair above. HAIW's is the more
+       * informative of the two: its generator computes the category scores rather
+       * than being handed them, so this pair is what proves the ÷scored rule and
+       * the not-assessed / not-applicable split are live in the report itself and
+       * not just on the screen.
+       */
+      {
+        id: 'maturity-pdf-partial',
+        kind: 'pdf',
+        exportName: 'generateHealthMaturityPDF',
+        assertRawBytes: true,
+        artefactIdExport: 'HEALTH_MATURITY_ARTEFACT_ID',
+        profile: 'haiw',
+        orgName: 'Fixture Health Authority Partial',
+        call: (m, f, c) => m.generateHealthMaturityPDF(f.answersPartial, f.capabilities, f.questions, f.benchmarks ?? undefined, c.meta),
+      },
+      {
+        id: 'roadmap-md-partial',
+        kind: 'md',
+        exportName: 'generateHealthRoadmapMarkdown',
+        assertRawBytes: true,
+        artefactIdExport: 'HEALTH_ROADMAP_ARTEFACT_ID',
+        profile: 'haiw',
+        orgName: 'Fixture Health Authority Partial',
+        call: (m, f, c) => m.generateHealthRoadmapMarkdown(f.answersPartial, f.capabilities, f.questions, c.meta),
       },
     ],
   },
@@ -588,7 +652,14 @@ export async function createDriver(modules) {
       }
     }
     const base = {
-      orgName: fixture.orgName,
+      /*
+       * `spec.orgName` exists for the partial-assessment artefacts added in D4.
+       * Two artefacts sharing one artefactId, orgName, layer and date produce the
+       * same `reportFilename()`, so the second would overwrite the first in raw/.
+       * A distinct org name gives each its own file AND puts the scenario on the
+       * cover, where a reader comparing two captures can see which is which.
+       */
+      orgName: spec.orgName ?? fixture.orgName,
       engagementId: fixture.engagementId,
       generatedAt: fixture.generatedAt,
       layer: spec.layer ?? fixture.layer,
