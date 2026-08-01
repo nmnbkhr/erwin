@@ -83,7 +83,7 @@
     "wcoDomain": "Party",
     "capabilitiesUsing": 4,
     "capabilities": [
-      "trader_communication_outreach",
+      "trader_communication_and_outreach",
       "trader_360_profile"
     ],
     "description": "Contact details, communication preferences, registered addresses"
@@ -230,7 +230,7 @@
     "capabilities": [
       "port_throughput_analytics",
       "container_dwell_time",
-      "warehouse_bonded_area_utilization"
+      "warehouse_and_bonded_area_utilization"
     ],
     "description": "Package type, count, marks and numbers, dimensions"
   },
@@ -252,7 +252,7 @@
     "wcoDomain": "Goods",
     "capabilitiesUsing": 3,
     "capabilities": [
-      "sanctions_embargo_screening",
+      "sanctions_and_embargo_screening",
       "border_intelligence_analytics"
     ],
     "description": "Strategic goods classification, export control codes"
@@ -327,7 +327,7 @@
     "capabilities": [
       "electronic_payment_analytics",
       "revenue_dashboarding",
-      "refund_drawback_management"
+      "refund_and_drawback_management"
     ],
     "description": "Payment method, date, receipt, bank, e-payment transaction ID"
   },
@@ -337,7 +337,7 @@
     "wcoDomain": "Financial",
     "capabilitiesUsing": 6,
     "capabilities": [
-      "warehouse_bonded_area_utilization",
+      "warehouse_and_bonded_area_utilization",
       "aeo_benefit_measurement"
     ],
     "description": "Bond type, amount, validity, bank guarantee references"
@@ -373,7 +373,7 @@
     "wcoDomain": "Financial",
     "capabilitiesUsing": 6,
     "capabilities": [
-      "refund_drawback_management",
+      "refund_and_drawback_management",
       "duty_drawback_analytics"
     ],
     "description": "Refund claims, drawback calculations, previous duty paid references"
@@ -623,7 +623,7 @@
     "wcoDomain": "Location",
     "capabilitiesUsing": 6,
     "capabilities": [
-      "warehouse_bonded_area_utilization",
+      "warehouse_and_bonded_area_utilization",
       "free_zone_performance"
     ],
     "description": "Warehouse stock levels, entry/exit records, bond utilization"
@@ -825,7 +825,7 @@
     "wcoDomain": "Classification",
     "capabilitiesUsing": 5,
     "capabilities": [
-      "sanctions_embargo_screening",
+      "sanctions_and_embargo_screening",
       "regulatory_compliance_reporting"
     ],
     "description": "Import/export prohibitions, restrictions, strategic goods controls"
@@ -836,7 +836,7 @@
     "wcoDomain": "Warehouse",
     "capabilitiesUsing": 6,
     "capabilities": [
-      "warehouse_bonded_area_utilization",
+      "warehouse_and_bonded_area_utilization",
       "port_throughput_analytics"
     ],
     "description": "Warehouse entry/exit records, stock levels, bond utilization"
@@ -848,7 +848,7 @@
     "capabilitiesUsing": 4,
     "capabilities": [
       "duty_drawback_analytics",
-      "warehouse_bonded_area_utilization"
+      "warehouse_and_bonded_area_utilization"
     ],
     "description": "IP authorizations, input-output coefficients, re-export performance"
   },
@@ -1251,7 +1251,7 @@
     "wcoDomain": "Response",
     "capabilitiesUsing": 3,
     "capabilities": [
-      "trader_communication_outreach",
+      "trader_communication_and_outreach",
       "sla_tracking"
     ],
     "description": "Trader complaints, feedback surveys, service quality ratings"

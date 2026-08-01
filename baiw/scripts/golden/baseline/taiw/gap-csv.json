@@ -1,7 +1,7 @@
 {
   "artefact": "gap-csv",
-  "assertableSha256": "160af9a860f37e282cfb1e4b6f69b379bcc0438643ed3c3df4ffabb422b6a77e",
-  "bytes": 15244,
+  "assertableSha256": "6538c6c008ea9b1af36d81b88f58108aafe5221af94245d58a8c807f424a8903",
+  "bytes": 15315,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -21,7 +21,7 @@
     "\"advance_ruling_compliance\",\"Advance Ruling Compliance\",\"Revenue & Duty Management\",\"Customs Valuation Analytics\",\"MEDIUM\",\"6\",\"\"\r",
     "\"aeo_application_pipeline\",\"AEO Application Pipeline\",\"Trader & Stakeholder Management\",\"AEO Program\",\"CRITICAL\",\"7\",\"Party\"\r"
   ],
-  "fullTextSha256": "160af9a860f37e282cfb1e4b6f69b379bcc0438643ed3c3df4ffabb422b6a77e",
+  "fullTextSha256": "6538c6c008ea9b1af36d81b88f58108aafe5221af94245d58a8c807f424a8903",
   "generator": "generateTradeCapabilityRegisterCSV",
   "header": [
     "﻿ID",
@@ -29,19 +29,19 @@
     "TCF Theme",
     "Group",
     "Framework Priority (authored)",
-    "Data Requirements (declared)",
+    "WCO Data Elements",
     "WCO DM Domains (linked)\r"
   ],
   "kind": "csv",
   "lastThreeRows": [
-    "\"warehouse_and_bonded_area_utilization\",\"Warehouse & Bonded Area Utilization\",\"Trade Facilitation & Operations\",\"Port & Terminal Operations\",\"HIGH\",\"8\",\"\"\r",
+    "\"warehouse_and_bonded_area_utilization\",\"Warehouse & Bonded Area Utilization\",\"Trade Facilitation & Operations\",\"Port & Terminal Operations\",\"HIGH\",\"8\",\"Financial; Goods; Location; Warehouse\"\r",
     "\"wco_dm_conformity_assessment\",\"WCO DM Conformity Assessment\",\"Digital Customs & Modernization\",\"Data Quality & Governance\",\"CRITICAL\",\"8\",\"Classification; Declaration\"\r",
     "\"weboc_system_performance\",\"WeBOC System Performance\",\"Digital Customs & Modernization\",\"WeBOC & PSW Analytics\",\"CRITICAL\",\"9\",\"Declaration\""
   ],
   "module": "taiw",
   "notReproducible": {},
   "rawBytesAsserted": true,
-  "rawBytesSha256": "160af9a860f37e282cfb1e4b6f69b379bcc0438643ed3c3df4ffabb422b6a77e",
+  "rawBytesSha256": "6538c6c008ea9b1af36d81b88f58108aafe5221af94245d58a8c807f424a8903",
   "rowCount": 100,
   "sampleRowsMasked": false,
   "unassertable": [],

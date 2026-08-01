@@ -1,7 +1,7 @@
 {
   "artefact": "gap-csv",
-  "assertableSha256": "7128b32a87bd0cf4f0be0e6520f708affe047827fae7c5086945844933b09f06",
-  "bytes": 25776,
+  "assertableSha256": "6898c1f8a7f7478ca8b0723bfa7ba7e44fd24711cd648d3b78d07934c062241e",
+  "bytes": 25772,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -21,7 +21,7 @@
     "\"2\",\"Predictive Models\",\"Marketing and Customer Experience\",\"Customer Insight\",\"2\",\"30\",\"Agreement & Account; Other; Party Management\",\"Predictive Models capability within Customer Insight (Marketing and Customer Experience).\"\r",
     "\"3\",\"Event Detection\",\"Marketing and Customer Experience\",\"Customer Insight\",\"3\",\"52\",\"Agreement & Account; Other; Party Management\",\"Event Detection capability within Customer Insight (Marketing and Customer Experience).\"\r"
   ],
-  "fullTextSha256": "7128b32a87bd0cf4f0be0e6520f708affe047827fae7c5086945844933b09f06",
+  "fullTextSha256": "6898c1f8a7f7478ca8b0723bfa7ba7e44fd24711cd648d3b78d07934c062241e",
   "generator": "generateCapabilityRegisterCSV",
   "header": [
     "﻿ID",
@@ -29,7 +29,7 @@
     "Theme",
     "Group",
     "Phase",
-    "Data Requirements (declared)",
+    "FSDM Entity Dependencies",
     "FSDM Subject Areas (linked)",
     "Description\r"
   ],
@@ -42,7 +42,7 @@
   "module": "baiw",
   "notReproducible": {},
   "rawBytesAsserted": true,
-  "rawBytesSha256": "7128b32a87bd0cf4f0be0e6520f708affe047827fae7c5086945844933b09f06",
+  "rawBytesSha256": "6898c1f8a7f7478ca8b0723bfa7ba7e44fd24711cd648d3b78d07934c062241e",
   "rowCount": 112,
   "sampleRowsMasked": false,
   "unassertable": [],

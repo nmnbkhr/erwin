@@ -20,8 +20,9 @@ entry here is not a substitute for fixing it — it is a substitute for
 | D-004 | jsPDF `maxWidth` drops every line after the first | **fixed** + gated by TEXT-MAXWIDTH |
 | D-005 | spine wrapped the first list item at the wrong width | **fixed** — D2 step 2 |
 | D-006 | roadmap phase boxes 5 mm past the content column | **fixed** 2026-08-01 — all three modules |
-| D-007 | two capability↔requirement relations disagree with themselves | **open** — dataset-level, not client-visible |
+| D-007 | four dangling capability ids in TAIW's `dataRequirements.json` | **fixed** 2026-08-01 — two of the four original items **withdrawn**, one narrowed |
 | D-008 | HAIW invented 132 rows when the capability dataset failed to load | **fixed** 2026-08-01 — by removal |
+| D-009 | `aeo_compliance_monitoring_aeo` carries its suffix twice | **open** — dataset-level, not client-visible |
 
 **Three of these are one defect wearing three costumes.** D-001, D-003 and D-008
 are all *a plausible number substituted where a real one was unavailable*:
@@ -695,64 +696,152 @@ run it deliberately after any change to hand-placed boxes, grids or charts.
 
 ---
 
-## D-007 — two capability↔requirement relations disagree with themselves
+## D-007 — four dangling capability ids in TAIW's `dataRequirements.json`
 
-**Status** — open, dataset-level, **not client-visible today**. Found 2026-08-01
-while closing D-001, by building the capability registers out of the real
-relations for the first time.
+**Status** — FIXED 2026-08-01. Filed 2026-08-01 with four items; **two were
+withdrawn on investigation as my own framing error, one was narrowed, and one was
+real and is fixed.** Found while closing D-001, by building the capability
+registers out of the real relations for the first time.
 
-Neither of these moves a byte of any deliverable, because both registers report
-what is actually linked and leave the rest blank. They are recorded because the
-next person to reach for these fields will assume they reconcile, and they do not.
+The entry is kept in its corrected form rather than quietly amended, because the
+withdrawn half is the more useful record: it is an instance of *measuring two
+fields against each other without first establishing that they count the same
+thing*, and the false alarm it produced very nearly caused a destructive "fix".
 
-**BAIW — `dataReqCount` is not the number of data requirements**
+### FIXED — four referenced ids do not exist
 
-`src/data/capabilities.json` declares a `dataReqCount` per capability.
-`src/data/dataRequirements.json` holds 142 rows carrying a `capabilityId`. They
-agree for **1 of 112** capabilities:
+`src/data/taiw/dataRequirements.json` links requirement → capabilities. Four of
+the ids it named matched no row in `capabilities.json`:
 
-| Capability | `dataReqCount` says | rows actually present |
+| Referenced (wrong) | Canonical | refs |
 |---|---|---|
-| 2 Predictive Models | 30 | 27 |
-| 3 Event Detection | 52 | 22 |
-| 4 Customer Value | 26 | 7 |
-| 5 Customer, Product & Channel insight | 55 | 16 |
+| `trader_communication_outreach` | `trader_communication_and_outreach` | 2 |
+| `warehouse_bonded_area_utilization` | `warehouse_and_bonded_area_utilization` | 5 |
+| `sanctions_embargo_screening` | `sanctions_and_embargo_screening` | 2 |
+| `refund_drawback_management` | `refund_and_drawback_management` | 2 |
 
-Worse than the mismatch: the 142 rows name only **15 of the 112** capabilities,
-so 97 have no FSDM subject area at all. The register therefore prints
-`dataReqCount` under a header that says **"(declared)"** and the derived subject
-areas under one that says **"(linked)"**, so the two cannot be read as the same
-fact. Page 13 prints the 15-of-112 coverage explicitly.
+Four ids, **11 references**. The inversion in `tradeReportGenerator.ts` dropped
+them silently, so four real capabilities showed no WCO DM domain.
 
-**TAIW — four dangling capability ids, and `capabilitiesUsing` matches nothing**
+**`capabilities.json` is canonical**, on three independent grounds:
 
-`src/data/taiw/dataRequirements.json` links the other way, each requirement
-listing the capabilities that use it. Two problems:
+- TCF ids are `slug(sub)` with `&` expanded to `_and_`. That rule holds for
+  **99 of 100** capabilities. The four short forms *drop* the `&` instead of
+  expanding it, so they violate the derivation the other 99 obey.
+- The long form appears in four files — `capabilities.json`, `enrichment.json`,
+  `mappings.json`, `dependencies.json`. The short form appears in one.
+- Both forms show the same split in `src/data/taiw_backup_20260314/`, so it
+  predates March 2026. It is a transcription that dropped `&` rather than a
+  rename applied to one file and not the other, which is what the original entry
+  guessed.
 
-- **Four referenced ids do not exist** in `capabilities.json`:
-  `trader_communication_outreach`, `warehouse_bonded_area_utilization`,
-  `sanctions_embargo_screening`, `refund_drawback_management`. Each has a
-  near-twin that does exist with `_and_` in it —
-  `trader_communication_and_outreach`, `refund_and_drawback_management` — so this
-  looks like a rename that was applied to one file and not the other. The
-  inversion in `tradeReportGenerator.ts` drops them silently.
-- **`capabilitiesUsing` disagrees with `capabilities.length` in 114 of 114 rows**
-  — every single one. `req_trader_identity` says 15 and lists 6.
+**Fixed** by correcting the 11 references. TAIW WCO coverage **91 → 95 of 100**;
+zero dangling references remain. Four cells in `MR-TAIW-REGISTER` went from empty
+to populated, and page 13 of the TAIW PDF moved with them (four group rows +1
+each, caption `91 of 100` → `95 of 100`, `remaining 9` → `remaining 5`).
 
-Coverage is otherwise good: 91 of 100 capabilities have at least one requirement.
-The nine that do not are listed by `wcoDomainsByCapability`'s call site.
+### WITHDRAWN — `dataReqCount` is not stale, and must not be recomputed
 
-**Why it is not fixed here** — editing a dataset is not the change that removed
-the fabricated scores, and the four dangling ids need someone to say which side
-of the rename is correct. Fixing the `_and_` ids would also move
-`aeo_compliance_monitoring_aeo`, which looks like a suffix applied twice.
+The original entry said `dataReqCount` "is not the number of data requirements",
+declaring 52 where `dataRequirements.json` holds 22, disagreeing in 111 of 112.
+Every one of those numbers is correct and the conclusion drawn from them was
+wrong: **the two fields were never counting the same thing.**
 
-**Harness status** — invisible to it, and that is the point. `compare.mjs` now
-asserts all 23 artefacts byte-for-byte, but it compares output to output; a
-dataset that disagrees with itself produces perfectly reproducible output.
-`check-dgiw.mjs` is the tool with the right shape for this — it already validates
-DGIW's datasets — and extending it to BAIW's and TAIW's capability relations is
-the natural home for a guard.
+The design record in `archive/build-prompts/` names two different source CSVs:
+
+```
+bvf_capability_summary.csv   -> capabilities.json     (theme, group, sub, dataReqCount)
+bvf_data_requirements.csv    -> dataRequirements.json (113 data requirements)
+```
+
+And the arithmetic settles which one `dataReqCount` came from:
+
+```
+sum(dataReqCount) over 112 BAIW capabilities        = 5218
+capability_fsdm_dependencies.csv, per design record = 5218
+```
+
+Exact. `dataReqCount` counts **FSDM entity dependencies**. TAIW's field of the
+same name is the same misnomer: it tracks `elements.length` in
+`dependencies.json` exactly for **71 of 100** capabilities, summing 700 to 689.
+
+**Recompute was offered as the safe default. It is not safe.** Rebuilding the
+field from `dataRequirements.json` would give:
+
+| | now | recomputed | capabilities reading 0 |
+|---|---|---|---|
+| BAIW | 5218 | 142 | 0 → **97** |
+| TAIW | 700 | 315 | 0 → 9 |
+
+It would replace an authoritative framework figure with "how many requirement
+rows we happen to have authored so far", and two live UIs sum it for display —
+`RoadmapBuilder.tsx:122` and `TradeRoadmapBuilder.tsx:228`, both rendering a
+per-phase "Data Requirements: N". BAIW's roadmap would show near-zero. **Do not
+recompute it from `dataRequirements.json`.**
+
+### WITHDRAWN — `capabilitiesUsing` is not a mismatch either
+
+The original entry recorded that `capabilitiesUsing` disagrees with
+`capabilities.length` in **114 of 114** rows — every single one, which should
+have been the tell. The design record shows the spec for that array literally
+contained an ellipsis:
+
+```json
+"capabilitiesUsing": 15,
+"capabilities": ["trader_360_profile", "trader_segmentation", "risk_profiling_engine", ...]
+```
+
+`capabilitiesUsing` is the true count from the source CSV's `Count` column;
+`capabilities` was always an abbreviated sample. Same declared-vs-enumerated
+split as `dataReqCount`, by design. A naming problem at most.
+
+### NARROWED — a real sub-1% drift, against a different file
+
+`dataReqCount` *has* drifted from `dependencies.json`, the sibling it actually
+derives from — not from `dataRequirements.json`, which was the wrong comparand:
+
+| | exact per-capability match | totals |
+|---|---|---|
+| BAIW | 9 of 112 | 5218 vs 5259 distinct (capability, entity) pairs |
+| TAIW | 71 of 100 | 700 vs 689 elements |
+
+Sub-1% in aggregate, off-by-small per row. Recomputing **against
+`dependencies.json`** would be defensible. **Not scheduled** — nothing reads the
+two as reconciled, and the headers now say which is which.
+
+### The real defect on the reporting side — a header that invited the comparison
+
+Both registers printed the field under **"Data Requirements (declared)"**. That
+header is what produced this entire investigation: it names a different dataset
+from the one the number comes from, so the only natural check is the one that
+gives a false positive in 111 of 112 rows.
+
+Renamed to what the number counts:
+
+| Module | was | now |
+|---|---|---|
+| BAIW | `Data Requirements (declared)` | `FSDM Entity Dependencies` |
+| TAIW | `Data Requirements (declared)` | `WCO Data Elements` |
+
+The `(linked)` columns beside them are accurate and unchanged — they are derived
+from `dataRequirements.json` and are a *name list*, not a count. Different grain,
+different source, and now visibly so.
+
+**The generalisable part:** a field name is not a specification. `dataReqCount`
+sat next to `dataRequirements.json` for five months and every reader who put them
+side by side would have drawn the same wrong conclusion. Before recording that
+two fields disagree, establish that they were ever meant to agree — and prefer
+the arithmetic to the naming, because 5218 matching 5218 exactly is evidence and
+"they both say requirements" is not.
+
+**Harness status** — the id fix was visible to it and the withdrawn items were
+not, which is the honest summary. `compare.mjs` compares output to output, so a
+dataset that disagrees with itself produces perfectly reproducible output;
+`check-dgiw.mjs` is the tool with the right shape for a referential-integrity
+guard on BAIW's and TAIW's capability relations, and remains the natural home for
+one. Such a guard would have caught the four dangling ids on the day they
+appeared. It would **not** have caught either withdrawn item, because neither was
+a defect.
 
 ---
 
@@ -863,3 +952,44 @@ a **complete** fixture. There is no fixture for a failed load, so no golden
 artefact exercises either fallback. This is the same blind spot the README lists
 for the `DRAFT` watermark: the harness proves the happy path is stable and says
 nothing about the others. Finding D-008 took reading the branch, not running it.
+
+---
+
+## D-009 — `aeo_compliance_monitoring_aeo` carries its suffix twice
+
+**Status** — open, dataset-level, **not client-visible**. Split out of D-007 on
+2026-08-01, when establishing that `capabilities.json` is the canonical side of
+the TCF id rule made this the one id that still breaks it.
+
+**Where** — `src/data/taiw/capabilities.json`.
+
+TCF ids are `slug(sub)` with `&` expanded to `_and_`. Having corrected the four
+dangling references in D-007, the rule now holds for **99 of 100** capabilities.
+The exception is `aeo_compliance_monitoring_aeo`, whose `sub` does not carry a
+trailing "AEO" — the domain suffix looks to have been applied twice by whatever
+generated the ids.
+
+**Why it is not fixed with D-007, despite being one line of the same rule**
+
+D-007's fix corrected *references* in an annotating file. Nothing pointed at the
+short forms except `dataRequirements.json`, so the blast radius was 11 string
+literals in one file and the canonical side was untouched.
+
+This one is the reverse. The id is **defined** in `capabilities.json` and
+referenced from `enrichment.json`, `mappings.json`, `dependencies.json` and
+`dataRequirements.json`. Renaming it means editing the definition and four
+referencing files together, and any file missed reintroduces exactly the dangling
+reference D-007 just removed. It is a different-sized change and deserves its own
+before/after.
+
+**Cost of leaving it** — cosmetic only. The id is internally consistent: every
+file spells it the same way, so nothing dangles and no lookup fails. It is ugly,
+not wrong. The one live risk is that someone applies the slug rule mechanically
+to "fix" the definition without sweeping the four referencing files.
+
+**Harness status** — invisible, and would stay invisible after a fix, since ids
+are keys rather than rendered content. A referential-integrity check in
+`check-dgiw.mjs` — the guard D-007 argues for — would not flag this either: the
+graph is intact. What would catch it is a check that asserts `id === slug(sub)`
+across TCF, which is the same check that would have caught D-007's four before
+they were authored.

@@ -79,11 +79,15 @@ export const TRADE_CAPABILITY_COUNT = capabilities.length
  * `dataRequirements.json` records the relation the other way round, one row per
  * requirement carrying the capabilities that use it, so it is inverted once here.
  *
- * Coverage is 91 of 100 and the nine without a requirement get an EMPTY cell,
- * not an assumed domain. Four ids referenced by requirements do not exist in
- * capabilities.json and are silently dropped by this inversion — they are
- * reported in docs/known-defects.md rather than fixed here, because editing a
- * dataset is not this change.
+ * Coverage is 95 of 100 and the five without a requirement get an EMPTY cell,
+ * not an assumed domain.
+ *
+ * It was 91 until D-007. Four ids in dataRequirements.json matched no capability
+ * and this inversion dropped them silently — the short forms dropped the `&`
+ * (`sanctions_embargo_screening`) where the TCF slug rule expands it to `_and_`,
+ * which is how capabilities.json spells all 100. Corrected in the annotating
+ * file, since the derivation and four other files agree with the long form.
+ * A dangling id costs a real capability its whole cell here, and nothing warns.
  */
 const wcoDomainsByCapability = ((): Map<string, string[]> => {
   const m = new Map<string, Set<string>>()
@@ -796,7 +800,12 @@ const TRADE_REGISTER_COLUMNS: CsvColumn<TcfCapability>[] = [
   { key: 'theme', header: 'TCF Theme' },
   { key: 'group', header: 'Group' },
   { key: 'priority', header: 'Framework Priority (authored)' },
-  { key: 'dataReqCount', header: 'Data Requirements (declared)' },
+  // NOT the number of rows in dataRequirements.json. It tracks `elements.length`
+  // in dependencies.json — exactly for 71 of 100 capabilities, summing 700
+  // against 689 — so it counts WCO data elements, and the header now says so.
+  // Same misnomer as BAIW's field of the same name; see the note there and
+  // D-007. Do not recompute it from dataRequirements.json.
+  { key: 'dataReqCount', header: 'WCO Data Elements' },
   {
     key: 'id',
     header: 'WCO DM Domains (linked)',

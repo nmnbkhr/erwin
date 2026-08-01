@@ -826,12 +826,24 @@ const REGISTER_COLUMNS: CsvColumn<BvfCapability>[] = [
   { key: 'themeName', header: 'Theme' },
   { key: 'groupName', header: 'Group' },
   { key: 'phase', header: 'Phase' },
-  { key: 'dataReqCount', header: 'Data Requirements (declared)' },
+  // NOT the number of rows in dataRequirements.json, despite the field name.
+  // `sum(dataReqCount)` over the 112 capabilities is 5218, which is exactly the
+  // row count of `capability_fsdm_dependencies.csv` in the design record — a
+  // different source file from the one that produced dataRequirements.json. It
+  // counts FSDM entity dependencies, and the header now says so.
+  //
+  // D-007 opened as "declared 52, actual 22, disagreeing in 111 of 112". That
+  // was the wrong comparison: the header read "Data Requirements (declared)"
+  // and invited it. Do NOT recompute this field from dataRequirements.json —
+  // it would fall 5218 → 142, put 97 capabilities at zero, and RoadmapBuilder
+  // sums it for display.
+  { key: 'dataReqCount', header: 'FSDM Entity Dependencies' },
   // Semicolon-joined, matching the register convention in DGIW's CDE export.
   // Empty for the 97 capabilities with no recorded FSDM dependency — see
-  // `fsdmByCapability`. The header says "(linked)" because it is derived from
-  // dataRequirements.json, whereas the count beside it is the capability's own
-  // authored field; the two do NOT reconcile and must not look like they do.
+  // `fsdmByCapability`. This is the subject-area *name* list derived from
+  // dataRequirements.json; the count beside it is the capability's own authored
+  // entity-dependency total. Different grain, different source — the two do NOT
+  // reconcile and must not look like they do.
   { key: 'id', header: 'FSDM Subject Areas (linked)', format: cap => fsdmFor(cap).join('; ') },
   { key: 'description', header: 'Description' },
 ]
