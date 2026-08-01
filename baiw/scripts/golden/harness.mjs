@@ -176,9 +176,12 @@ export const REGISTRY = {
         kind: 'csv',
         exportName: 'generateGapCSV',
         call: (m, f) => m.generateGapCSV(f.assessment),
-        // Math.random at src/utils/reportGenerator.ts:756. See docs/known-defects.md.
+        // D-001. The reason string names the FUNCTION, not a line: it is copied
+        // verbatim into the committed baseline, and the two line numbers that
+        // used to be here (695, then 756) were both already wrong by the time
+        // anyone read them — the generator moved under them twice during D2.
         unassertable: ['Current Level', 'Gap', 'Priority'],
-        unassertableReason: 'nondeterministic — Math.random at reportGenerator.ts:756',
+        unassertableReason: 'nondeterministic — Math.random in generateGapCSV (reportGenerator.ts)',
       },
       {
         id: 'roadmap-md',
@@ -215,9 +218,10 @@ export const REGISTRY = {
         kind: 'csv',
         exportName: 'generateTradeGapCSV',
         call: (m, f) => m.generateTradeGapCSV(f.assessment),
-        // Math.random at src/taiw/utils/tradeReportGenerator.ts:721.
+        // D-001. Named by function rather than by line, for the same reason as
+        // BAIW's above: ":721" was stale from the moment step 2 landed.
         unassertable: ['Current Level', 'Gap', 'Priority'],
-        unassertableReason: 'nondeterministic — Math.random at tradeReportGenerator.ts:721',
+        unassertableReason: 'nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)',
       },
       {
         id: 'roadmap-md',

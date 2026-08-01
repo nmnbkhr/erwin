@@ -42,9 +42,9 @@
   ],
   "module": "taiw",
   "notReproducible": {
-    "bytes": "nondeterministic — Math.random at tradeReportGenerator.ts:721",
-    "fullTextSha256": "nondeterministic — Math.random at tradeReportGenerator.ts:721",
-    "rawBytesSha256": "nondeterministic — Math.random at tradeReportGenerator.ts:721"
+    "bytes": "nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)",
+    "fullTextSha256": "nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)",
+    "rawBytesSha256": "nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)"
   },
   "rawBytesAsserted": false,
   "rawBytesSha256": null,
@@ -60,5 +60,5 @@
     6,
     7
   ],
-  "unassertableReason": "nondeterministic — Math.random at tradeReportGenerator.ts:721"
+  "unassertableReason": "nondeterministic — Math.random in generateTradeGapCSV (tradeReportGenerator.ts)"
 }

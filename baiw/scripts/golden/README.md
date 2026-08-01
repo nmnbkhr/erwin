@@ -1,32 +1,45 @@
-# Golden-output harness — the three pre-spine report generators
+# Golden-output harness — every report the suite can produce
 
-A capture-and-compare harness over the nine artefacts produced by the three
-report generators that have **not** yet been migrated onto `src/report/`:
+Capture-and-compare over **23 artefacts** from four modules. D2 is complete: all
+three module generators are now on `src/report/spine.ts`, alongside DGIW's seven.
 
 | Module | Generator file | PDF | CSV | Markdown |
 |---|---|---|---|---|
-| BAIW | `src/utils/reportGenerator.ts` | `generateMaturityPDF` | `generateGapCSV` | `generateRoadmapMarkdown` |
-| TAIW | `src/taiw/utils/tradeReportGenerator.ts` | `generateTradeMaturityPDF` | `generateTradeGapCSV` | `generateTradeRoadmapMarkdown` |
-| HAIW | `src/haiw/utils/healthReportGenerator.ts` | `generateHealthMaturityPDF` | `generateHealthGapCSV` | `generateHealthRoadmapMarkdown` |
+| BAIW | `src/utils/reportGenerator.ts` | `generateMaturityPDF` ✅ spine | `generateGapCSV` ⛔ pre-spine | `generateRoadmapMarkdown` ✅ spine |
+| TAIW | `src/taiw/utils/tradeReportGenerator.ts` | `generateTradeMaturityPDF` ✅ | `generateTradeGapCSV` ⛔ | `generateTradeRoadmapMarkdown` ✅ |
+| HAIW | `src/haiw/utils/healthReportGenerator.ts` | `generateHealthMaturityPDF` ✅ | `generateHealthGapCSV` ⛔ | `generateHealthRoadmapMarkdown` ✅ |
+| DGIW | seven files under `src/dgiw/report/` | 12 PDFs ✅ | 2 CSVs ✅ | — |
 
-Since D2 step 0a it also covers **DGIW's seven generators**, which are already on
-the spine — fourteen artefacts under `baseline/dgiw/`. See "DGIW coverage" below;
-they are asserted far more strictly than the three above.
+The three gap CSVs are the only pre-spine code left. They are blocked on **D-001**
+and move together when it is decided.
 
-It exists for one job: **D2 migrates these three onto `src/report/`, and this is
-the only safety net in the repo.** There are zero tests. `check-dgiw.mjs` is a
-dataset gate and knows nothing about these generators.
+It exists for one job: **there are zero tests in this repo, and `check-dgiw.mjs`
+is a static dataset gate that knows nothing about rendered output.** This is the
+only thing that can tell you a report changed.
+
+## The three tools
+
+| Script | Question it answers |
+|---|---|
+| `compare.mjs` | *Did anything change?* Classified findings, exit 1 on any. |
+| `walk.mjs` | *Does every glyph that moved have a named reason?* Per-page reconciliation. |
+| `clickthrough.mjs` | *Does the button in the browser actually produce that file?* Real Chrome. |
+
+`capture.mjs` writes the baselines the first two read.
 
 ## Read this before you use it
 
 **Whether a clean diff is good depends on what you changed.**
 
 For a **generator migration**, a clean diff means the migration did nothing. D2
-is supposed to change output — pagination, `maxWidth` wrapping that stops text running off the
-page edge, real page counts replacing the hardcoded `totalPages = 18`, and new
-filenames from `reportFilename()`. If `compare.mjs` prints "no actionable
-differences" after D2, the first hypothesis is that D2 did not run, not that it
-was perfectly behaviour-preserving.
+was supposed to change output — real wrapping through `spine.ts::text()`, real
+page counts replacing the hardcoded `totalPages = 18`, and new filenames from
+`reportFilename()`. If `compare.mjs` had printed "no actionable differences"
+mid-migration, the first hypothesis would have been that the migration did not
+run, not that it was perfectly behaviour-preserving.
+
+D2 is now complete and the baselines are re-captured, so a clean diff **is** the
+expected result from here on.
 
 For a **shared-infrastructure change** — a `src/report/spine.ts` edit intended to
 be behaviour-preserving — a clean diff is the entire goal. That is what the DGIW
@@ -50,23 +63,28 @@ after D2.
 ## Usage
 
 ```sh
-node scripts/golden/capture.mjs                  # all three modules
+node scripts/golden/capture.mjs                  # all four modules
 node scripts/golden/capture.mjs --module taiw    # one module
 node scripts/golden/compare.mjs
 node scripts/golden/compare.mjs --module haiw
+node scripts/golden/walk.mjs --module baiw       # page-by-page reconciliation
+node scripts/golden/clickthrough.mjs             # needs `npm run dev` on 5174
 ```
 
-Both work from `baiw/` or from the repo root (`node baiw/scripts/golden/…`) —
+All work from `baiw/` or from the repo root (`node baiw/scripts/golden/…`) —
 paths resolve from the script, not the working directory.
 
 Workflow:
 
-1. **Before D2** — `capture.mjs`, commit `baseline/`. (Already done.)
-2. **After D2** — `compare.mjs`. Read the report. Decide, finding by finding,
-   whether each change is the intended fix.
-3. **Accept** — `capture.mjs` again, and commit the baseline churn *in its own
-   commit* so the review is a readable diff rather than noise inside the
-   migration.
+1. **Before you change anything** — `compare.mjs`, confirm exit 0. A dirty
+   starting point makes every later finding ambiguous.
+2. **After the change** — `compare.mjs`, then `walk.mjs --module <mod>` on
+   anything that moved. Decide, finding by finding, whether each change is
+   intended. For a call-site or engagement change, `clickthrough.mjs`.
+3. **Accept** — `capture.mjs`, and commit the baseline churn *in its own commit*
+   so the review is a readable diff rather than noise inside the change.
+
+D2 followed exactly this, once per module, with a written walk each time.
 
 ## Layout
 
@@ -75,7 +93,11 @@ scripts/golden/
   harness.mjs           shared core: driver, analysis, normalisation
   capture.mjs           writes baselines
   compare.mjs           recaptures and diffs
+  walk.mjs              per-page reconciliation of one module's diff
+  clickthrough.mjs      drives real Chrome through the three report components
+  cdp.mjs               ~80-line DevTools Protocol client, no npm dependency
   file-saver-sink.mjs   stands in for file-saver under SSR
+  dom-sink.mjs          the minimum DOM downloadCSV() needs
   fixtures/*.json       the frozen inputs — committed
   baseline/<mod>/*.json the golden records — committed, diffable
   raw/                  actual PDF/CSV/MD output — gitignored, for eyeballing
@@ -132,8 +154,13 @@ Seeding rules, so the fixtures can be re-derived:
   `benchmarks` is `null`, so the generator uses its own `DEFAULT_BENCHMARKS` —
   exactly what `HealthReportGenerator.tsx` passes.
 
-`generatedAt` is `null` in all three: **none of the nine generators accepts
-one.** They call `new Date()` directly. See normalisation, below.
+`engagementId`, `generatedAt` and `layer` are now set in all three fixtures. They
+were `null`/absent before D2, because none of the pre-spine generators accepted
+one — they called `new Date()` directly and the harness could only normalise the
+result to a `⟨DATE⟩` token. The six migrated artefacts take a `ReportMeta`, so a
+fixed `generatedAt` is what makes them byte-reproducible. **The three gap CSVs
+read none of the three fields**, which is checked rather than assumed: their
+baselines did not move when the fields were added.
 
 ## The environment is pinned, not documented
 
@@ -178,11 +205,18 @@ Three captures in a row must produce byte-identical baseline files, and they do.
 That requirement changed two things from the obvious design, and both are
 deviations worth knowing about:
 
-- **PDF `rawBytesSha256` is `null`.** jsPDF re-rolls the trailer `/ID` from
-  `Math.random` on every call, so a byte hash is a different number every run.
-  Storing it churned three of the nine baseline files on every capture, for a
-  value that can never be asserted. The *reason* is recorded under
-  `notReproducible` in its place.
+- **`rawBytesSha256` is `null` unless the registry sets `assertRawBytes`.** jsPDF
+  re-rolls the trailer `/ID` from `Math.random` unless it is pinned, so for a
+  pre-spine PDF a byte hash was a different number every run; storing it churned
+  three baseline files on every capture for a value that could never be asserted.
+  The *reason* goes under `notReproducible` in its place.
+
+  **This is now conservative rather than necessary for the six migrated
+  artefacts.** `ReportDoc` pins `/CreationDate` and `/ID` from `meta.generatedAt`,
+  and a two-run sweep confirms all six are byte-identical. They still carry
+  `rawBytesAsserted: false`, so 15 of 23 assert raw bytes where 21 could. Turning
+  the other six on is one `assertRawBytes: true` per registry entry — see
+  "Determinism, measured".
 - **For `baiw/gap-csv` and `taiw/gap-csv`, the sample rows are masked in the
   unassertable columns, and `bytes` / `fullTextSha256` / `rawBytesSha256` are
   `null`.** Everything downstream of an RNG column is also RNG: the row text,
@@ -241,16 +275,20 @@ output, so it keeps working across the migration.
 ## Unassertable — declared, not ignored
 
 `baiw/gap-csv` and `taiw/gap-csv` columns **`Current Level`, `Gap`, `Priority`**
-are not compared. They come from `Math.random()` at
-`src/utils/reportGenerator.ts:695` and
-`src/taiw/utils/tradeReportGenerator.ts:721`.
+are not compared. They come from `Math.random()` in `generateGapCSV` and
+`generateTradeGapCSV`.
+
+The reason string names the **function**, not a line number. It used to say
+`reportGenerator.ts:695`, which the D2 migration silently invalidated twice —
+the string is copied verbatim into the committed baseline, so a rotted line
+reference is a rotted golden file.
 
 `compare.mjs` prints them every run as
-`SKIPPED (nondeterministic — Math.random at reportGenerator.ts:695)`.
+`SKIPPED (nondeterministic — Math.random in generateGapCSV (reportGenerator.ts))`.
 
-**State it plainly: D2 could change every number in those three columns and this
-harness would not notice.** That is the honest position given the RNG, and
-fixing the RNG is a D2 decision, not a D1 one. See
+**State it plainly: a change to every number in those three columns would go
+unnoticed by this harness.** That is the honest position given the RNG, and
+fixing the RNG is D-001's job, not D2's. See
 [`docs/known-defects.md`](../../../docs/known-defects.md).
 
 The `assertableSha256` masks those columns with a token rather than dropping
@@ -269,9 +307,10 @@ harness is wrong, not the generator.** Debug the harness first.
 
 ## DGIW coverage — a stronger assertion than the other three
 
-The three pre-spine generators are baselined on *extracted text*, because jsPDF
-re-rolls the trailer `/ID` from `Math.random` on every call. DGIW's are baselined
-on **raw bytes**.
+The six module reports are baselined on *extracted text*; DGIW's fourteen on
+**raw bytes**. That difference is historical — it dates from when the module
+generators re-rolled the trailer `/ID` from `Math.random` on every call, which
+they no longer do.
 
 They can be, because `ReportDoc`'s constructor pins both sources of drift from
 `meta.generatedAt` — `setCreationDate` and a FNV-1a `setFileId` over the
@@ -320,25 +359,110 @@ described the harness's idea of a CSV. The BOM, the CRLF terminator and the
 quote-every-field rule all live inside `downloadCSV`, and those are precisely the
 bytes worth asserting.
 
+## `walk.mjs` — reconciling a diff instead of detecting one
+
+```sh
+node scripts/golden/walk.mjs --module baiw
+```
+
+`compare.mjs` tells you `glyphCount 13133 -> 13042`. That is the right shape for
+"did anything change" and the wrong shape for reviewing a migration, where the
+question is *does every glyph that moved have a named reason?* Reconciling a
+whole-document delta against eighteen pages of text arrays by eye is how a real
+regression hides inside an expected one.
+
+`walk.mjs` prints per-page glyph and run deltas **that must sum to the document
+totals** — an unreconciled remainder is the finding — plus every right-edge
+extent that moved with the widest run either side, overflow counts before and
+after, an ellipsis sweep, and a **reassembly check**: concatenate a page's
+content runs, normalise whitespace, and the result must be character-identical
+before and after unless text was genuinely added or removed.
+
+That last check is the one that matters. It is what separates "the line
+rewrapped" from "the line lost its tail" — D-004 was invisible to every geometry
+metric and showed up only there. Page chrome is stripped first, positionally,
+because the spine legitimately moves the footer runs to the end of each page.
+
+It reads baselines and writes nothing. Not a gate; it has no opinion about
+whether a named change is acceptable.
+
+## `clickthrough.mjs` — the component call site, for real
+
+```sh
+npm run dev &                          # port 5174
+node scripts/golden/clickthrough.mjs
+```
+
+Everything above drives the generator **module**, with a `ReportMeta` the harness
+builds. That leaves the one path D2 actually changed at the call site uncovered:
+`useReportMeta()` is a React hook reading `useEngagementOptional()` and
+`useOrgName()`, and handing a `metaFor(artefactId)` to a click handler. Three
+migrations shipped with an honest "I could not drive a browser" caveat against
+exactly that.
+
+No dependency was needed after all. Chrome is on the machine and Node 22 ships a
+global `WebSocket`, which is the whole surface CDP requires — `cdp.mjs` is ~80
+lines and nothing is added to `package.json`, so CLAUDE.md hard rule 4 is intact.
+
+It runs **3 modules × {PDF, markdown} × {engagement, none}** = 12 downloads, and
+per file asserts: a file downloads and completes non-empty; the filename matches
+`reportFilename()`'s pattern including the `MR-` id, org slug, layer and today's
+UTC date; the PDF parses and its **cover carries the engagement's org name**; the
+cover does **not** print the artefact id (`coverTag` is `''`); the page chrome
+carries the org name; the markdown title and long-form date line agree. The
+browser console must stay clean throughout.
+
+Both engagement states are exercised because they take different branches:
+with none, `engagementId` falls back to `''` and `orgName` to the profile's
+`orgFallback`, which changes both the filename slug and the `/ID` seed.
+
+Answers are entered through the **real controls** — 48 BAIW sliders, 108 TAIW
+radios, 540 HAIW sliders — using React's own value setter, because assigning
+`.value` directly is invisible to synthetic `onChange` and the report panel would
+never appear.
+
+Not a gate: it needs a dev server and a browser, and a check that cannot run
+everywhere must not be able to block a build.
+
+## Determinism, measured
+
+Two full captures, byte-compared, all 23:
+
+| | Result |
+|---|---|
+| **21 of 23** | byte-identical run to run |
+| `baiw/gap-csv`, `taiw/gap-csv` | **differ** — `Math.random()`, D-001 |
+
+Every artefact on the spine is reproducible. The two that are not are the two
+that are not on it.
+
+`rawBytesAsserted` is `true` on **15** of the 23 — `haiw/gap-csv` (the control)
+and all fourteen DGIW artefacts. The six migrated module reports are provably
+reproducible but still baselined on extracted text only; the gap is a leftover
+from when they could not be, not a property of them now.
+
 ## What this does not cover
 
-Worth knowing before you rely on it:
+Four things, stated so nobody has to discover them:
 
-- **The `DRAFT` path.** All fixtures answer every question, so `isDraft` is
-  `false` and the watermark is never drawn. A D2 change to the watermark would
-  go unseen.
-- **The three columns above**, per the RNG.
-- **Page count as a signal.** All three PDFs are exactly 18 pages under these
-  fixtures, so the hardcoded `totalPages = 18` is currently *correct* and every
-  `Page N of 18` footer agrees with reality. The page-count assertion will not
-  move at D2 unless a fixture provokes an `autoTable` overflow.
-- **Visual appearance.** Colour, fill, stroke and line work are not captured.
-  Text, geometry and structure are.
-- **The React components** that call these generators. The harness drives the
-  generator functions directly, matching the call sites in
-  `ReportGenerator.tsx`, `TradeReportGenerator.tsx`,
-  `HealthReportGenerator.tsx`, and for DGIW `Deliverables.tsx`, `Diagnostic.tsx`,
-  `CdeRegister.tsx`, `DqRuleLibrary.tsx` and `Frameworks.tsx`.
-- **DGIW under a draft engagement.** `isDraft` is `false` in the fixture, so the
-  spine's watermark path is uncovered for DGIW too — the same hole the three
-  pre-spine modules have.
+1. **The two RNG column sets.** `Current Level`, `Gap` and `Priority` in
+   `baiw/gap-csv` and `taiw/gap-csv` — six column-artefact pairs, unassertable
+   until D-001 is resolved. Declared, printed every run, never silently ignored.
+2. **The `DRAFT` watermark path.** Every fixture answers every question, so
+   `isDraft` is `false` everywhere — in all three module fixtures **and** in
+   DGIW's. Nothing draws the watermark, in any of the 23. A change to it would go
+   unseen. `clickthrough.mjs` does not close this either: it answers every
+   visible question too.
+3. **Visual appearance.** Colour, fill, stroke and line work are not captured —
+   text, geometry and structure are. The D2 walks caught head-fill and font-size
+   changes by *reading the diff*, not by measuring them. `walk.mjs` cannot see
+   them either.
+4. **DGIW's component call sites.** `clickthrough.mjs` covers BAIW's, TAIW's and
+   HAIW's report panels end to end. DGIW's five — `Deliverables.tsx`,
+   `Diagnostic.tsx`, `CdeRegister.tsx`, `DqRuleLibrary.tsx`, `Frameworks.tsx` —
+   are still driven module-directly, with each registry entry mirroring its call
+   site line for line rather than being clicked.
+
+Also worth knowing, though not a gap so much as a limit: **page count is a weak
+signal.** All six module PDFs are exactly 18 pages under these fixtures, so it
+only moves if a fixture provokes an `autoTable` overflow.

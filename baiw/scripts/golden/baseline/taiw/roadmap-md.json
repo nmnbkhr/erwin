@@ -1,6 +1,6 @@
 {
   "artefact": "roadmap-md",
-  "bytes": 4483,
+  "bytes": 4487,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -12,19 +12,19 @@
     "tz": "UTC"
   },
   "clockDerived": {
-    "dateLineRaw": "## Prepared by Godaitec | 7/31/2026",
+    "dateLineRaw": "## Prepared by Godaitec | July 31, 2026",
     "renderedDates": [
-      "7/31/2026"
+      "July 31, 2026"
     ]
   },
   "datasets": null,
-  "filename": "Fixture_Customs_Authority_Trade_Analytics_Roadmap.md",
-  "filenameNormalised": "Fixture_Customs_Authority_Trade_Analytics_Roadmap.md",
+  "filename": "MR-TAIW-ROADMAP_fixture-customs-authority_all_2026-07-31.md",
+  "filenameNormalised": "MR-TAIW-ROADMAP_fixture-customs-authority_all_2026-07-31.md",
   "generator": "generateTradeRoadmapMarkdown",
   "headingCount": 26,
   "headings": [
     "# Fixture Customs Authority — Trade Analytics Transformation Roadmap",
-    "## Prepared by Godaitec | 7/31/2026",
+    "## Prepared by Godaitec | July 31, 2026",
     "## Slide 1: Title",
     "### Fixture Customs Authority Trade Analytics Transformation Roadmap",
     "## Slide 2: Current State",
@@ -54,5 +54,5 @@
   "lineCount": 135,
   "module": "taiw",
   "normalisedTextSha256": "4f00fdcefc231e12db3b5265528420760ae245b66f48bdf4032fa7e5bfbe6459",
-  "rawBytesSha256": "f7e6f9a6fac5701865fe6832be239d977e759d1c1642d80912d5c24e2b875071"
+  "rawBytesSha256": "c657f993b02e516c0809e5c0fa339c8819d576cd18fd2d44404dcfb6a37693ba"
 }

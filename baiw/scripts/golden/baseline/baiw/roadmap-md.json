@@ -1,6 +1,6 @@
 {
   "artefact": "roadmap-md",
-  "bytes": 3988,
+  "bytes": 3992,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -12,19 +12,19 @@
     "tz": "UTC"
   },
   "clockDerived": {
-    "dateLineRaw": "## Prepared by Godaitec | 7/31/2026",
+    "dateLineRaw": "## Prepared by Godaitec | July 31, 2026",
     "renderedDates": [
-      "7/31/2026"
+      "July 31, 2026"
     ]
   },
   "datasets": null,
-  "filename": "Fixture_Bank_Limited_Analytics_Roadmap.md",
-  "filenameNormalised": "Fixture_Bank_Limited_Analytics_Roadmap.md",
+  "filename": "MR-BAIW-ROADMAP_fixture-bank-limited_all_2026-07-31.md",
+  "filenameNormalised": "MR-BAIW-ROADMAP_fixture-bank-limited_all_2026-07-31.md",
   "generator": "generateRoadmapMarkdown",
   "headingCount": 26,
   "headings": [
     "# Fixture Bank Limited — Analytics Transformation Roadmap",
-    "## Prepared by Godaitec | 7/31/2026",
+    "## Prepared by Godaitec | July 31, 2026",
     "## Slide 1: Title",
     "### Fixture Bank Limited Analytics Transformation Roadmap",
     "## Slide 2: Current State",
@@ -54,5 +54,5 @@
   "lineCount": 133,
   "module": "baiw",
   "normalisedTextSha256": "aec26cd6887ab40faad15f7618574656a8c7bfdf547438a44530c24753bb597d",
-  "rawBytesSha256": "2874c8704982d858ce3c0fd287283334e5cf137b6299206e802078bf8feafbde"
+  "rawBytesSha256": "1090326a2117d3adc32fd3a03cd2b00f981c1c02a653eded6955aaa1f1950245"
 }
