@@ -178,10 +178,22 @@ TAIW passed no width at all and overflowed visibly (D-002); HAIW passed
 `maxWidth` and truncated invisibly (D-004). Invisible is worse. The spine is the
 floor, not any of them.
 
-One overflow survives the migration and is not a text defect: BAIW's page-15
-roadmap boxes are laid out to 200 mm against a 195 mm content column, so the
-third title sits 0.57 pt past the margin. That is **D-006** — box geometry, open,
-and not something `text()` can fix. TAIW has the same grid with shorter titles.
+**Text is not the only thing that can overflow, and the text harness cannot see
+the rest.** The page-15 roadmap boxes were laid out to 200 mm against a 195 mm
+content column — the third *box* sat 14.17 pt past the margin before a glyph was
+drawn. That is **D-006**, box geometry, not something `text()` can fix. Fixed in
+all three modules: the grid derives from `r.contentWidth` and `phases.length`.
+
+The lesson is the measurement, not the box. All three modules carried the
+identical `boxW = 55`, but TAIW's and HAIW's titles are shorter, so **no glyph
+overflowed and every text-based check called those pages clean** — two of the
+three instances were invisible for the whole of D2, and their fixes are invisible
+too (the walk reports nothing but `bytes +7`).
+`scripts/golden/geometry.mjs` exists for this: it walks page content streams for
+drawn *paths* rather than glyph runs. It is not wired into `compare.mjs` — run it
+deliberately after any change to hand-placed boxes, grids or charts. Hand-placed
+geometry must be derived from `r.contentWidth`, never from a literal that happens
+to fit today.
 
 ## DGIW scoring
 

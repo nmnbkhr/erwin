@@ -17,15 +17,22 @@ It exists for one job: **there are zero tests in this repo, and `check-dgiw.mjs`
 is a static dataset gate that knows nothing about rendered output.** This is the
 only thing that can tell you a report changed.
 
-## The three tools
+## The four tools
 
 | Script | Question it answers |
 |---|---|
 | `compare.mjs` | *Did anything change?* Classified findings, exit 1 on any. |
 | `walk.mjs` | *Does every glyph that moved have a named reason?* Per-page reconciliation. |
+| `geometry.mjs` | *Does anything DRAWN cross the content column?* Vector paths, not glyphs. |
 | `clickthrough.mjs` | *Does the button in the browser actually produce that file?* Real Chrome. |
 
 `capture.mjs` writes the baselines the first two read.
+
+`geometry.mjs` is the newest and exists because of a specific miss: `walk.mjs`
+measures text runs, so a filled box past the margin is invisible to it unless a
+glyph inside that box overflows too. D-006 was three modules carrying the same
+over-wide grid, and only BAIW's longer phase title made it show up. See
+[D-006](../../../docs/known-defects.md).
 
 ## Read this before you use it
 
@@ -462,10 +469,14 @@ Four things, stated so nobody has to discover them:
    DGIW's. Nothing draws the watermark, in any of the 23. A change to it would go
    unseen. `clickthrough.mjs` does not close this either: it answers every
    visible question too.
-3. **Visual appearance.** Colour, fill, stroke and line work are not captured —
-   text, geometry and structure are. The D2 walks caught head-fill and font-size
+3. **Visual appearance.** Colour, fill and stroke are not captured — text,
+   text geometry and structure are. The D2 walks caught head-fill and font-size
    changes by *reading the diff*, not by measuring them. `walk.mjs` cannot see
-   them either.
+   them either. **Vector geometry is now measured, but only for extent**:
+   `geometry.mjs` reports how far a drawn path reaches, not what colour it is or
+   whether it is in the right place vertically. A box moved 50 mm down the page
+   is still invisible to every tool here. It is not in the baselines, so it is
+   not asserted by `compare.mjs` — run it deliberately.
 4. **DGIW's component call sites.** `clickthrough.mjs` covers BAIW's, TAIW's and
    HAIW's report panels end to end. DGIW's five — `Deliverables.tsx`,
    `Diagnostic.tsx`, `CdeRegister.tsx`, `DqRuleLibrary.tsx`, `Frameworks.tsx` —

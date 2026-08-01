@@ -506,32 +506,37 @@ export function generateMaturityPDF(assessment: AssessmentData, meta: ReportMeta
       { name: 'Phase 3: Advanced Analytics', months: '19–36', capabilities: 20, investment: 'PKR 100–200M', color: PURPLE },
     ]
     const boxTop = r.cursorY + 6
-    const boxW = 55
+    const boxGap = 10
+    /*
+     * D-006, fixed: the grid is DERIVED from the content column, not guessed.
+     *
+     * This was `boxW = 55`, which with two 10mm gaps spans 15..200mm against a
+     * content column that ends at 195mm — the third box broke the margin by 5mm
+     * (14.17pt) before a single glyph was drawn, and its centred title leaked
+     * 0.57pt past with it. No spine primitive could reach that: `r.text()` wraps
+     * text, and the BOX was what overflowed. Wrapping the title to the box width
+     * would still have permitted 200mm.
+     *
+     * Derived rather than restated as 53.33 so the grid stays correct if a
+     * fourth phase, a different gap or a wider sheet ever arrives — a hardcoded
+     * 53.33 is the same defect with a better number. `phases.length` rather than
+     * 3 for the same reason.
+     *
+     * Verified by scripts/golden/geometry.mjs, which measures drawn PATHS rather
+     * than glyphs; the text harness could not see this box, and in TAIW and HAIW
+     * — same grid, shorter titles — no glyph overflowed at all.
+     */
+    const boxW = (r.contentWidth - (phases.length - 1) * boxGap) / phases.length
     const boxH = 60
     phases.forEach((p, i) => {
-      const x = MARGIN + i * (boxW + 10)
+      const x = MARGIN + i * (boxW + boxGap)
       doc.setFillColor(p.color[0], p.color[1], p.color[2])
       doc.roundedRect(x, boxTop, boxW, boxH, 3, 3, 'F')
       doc.setTextColor(...WHITE)
       doc.setFontSize(10)
-      /*
-       * THE ONE OVERFLOW ON THIS PAGE, AND THE MIGRATION DOES NOT CLOSE IT.
-       *
-       * "Phase 3: Advanced Analytics" is centred in the third box and reaches
-       * 553.33 pt — 0.57 pt past the 15mm text margin, 42 pt inside the paper.
-       * That is not a wrapping defect and `r.text()` would not fix it: the BOX
-       * is what breaks the margin. Three 55mm boxes with two 10mm gaps span
-       * 15..200mm, and the content column ends at 195mm, so the third box is
-       * 5mm over before a single glyph is drawn. Wrapping the title to the box
-       * would still permit 200mm; only narrowing the boxes to 53.33mm brings the
-       * page inside the margin, and that moves all twelve baselines on it.
-       *
-       * Left verbatim so the geometry change is a separate, visible decision
-       * rather than a silent rider on a migration whose value is that nothing
-       * else moved. Recorded in docs/known-defects.md as D-006. No `maxWidth`
-       * either way: jsPDF's text option DROPS every line after the first rather
-       * than wrapping — see D-004.
-       */
+      // No `maxWidth`: jsPDF's text option DROPS every line after the first
+      // rather than wrapping — see D-004. The titles are short and fixed, and
+      // the golden walk confirms they still fit on one line at the narrower box.
       doc.text(p.name, x + boxW / 2, boxTop + 12, { align: 'center' })
       doc.setFontSize(8)
       doc.text(`Months ${p.months}`, x + boxW / 2, boxTop + 22, { align: 'center' })

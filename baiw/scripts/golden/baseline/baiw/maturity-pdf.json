@@ -1,6 +1,6 @@
 {
   "artefact": "maturity-pdf",
-  "bytes": 146433,
+  "bytes": 146440,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -856,12 +856,12 @@
       "heightPt": 841.89,
       "multiColumnBaselines": 6,
       "page": 15,
-      "pastMarginPt": 0.57,
+      "pastMarginPt": 0,
       "pastPaperPt": 0,
-      "rightEdgePt": 553.33,
+      "rightEdgePt": 552.76,
       "rightMarginPt": 552.76,
       "rotatedRuns": 0,
-      "runsPastMargin": 1,
+      "runsPastMargin": 0,
       "runsPastPaper": 0,
       "tableRows": 4,
       "text": [
@@ -884,7 +884,7 @@
         "Page 15 of 18"
       ],
       "textRuns": 17,
-      "widestText": "Phase 3: Advanced Analytics",
+      "widestText": "Powered by BAIW",
       "widthPt": 595.28
     },
     {
@@ -1042,7 +1042,7 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "95f639110b8f3a65d177518a275cf360e189bb35e663333d50b8fa9d5a08c41b",
+  "rawBytesSha256": "ee56a10d261c0235ea9a8c077fa9c21727adb13b7d31df4ccfe974eee99ccc8c",
   "tableRowsTotal": 62,
   "textRunCount": 670,
   "unknownFonts": [],

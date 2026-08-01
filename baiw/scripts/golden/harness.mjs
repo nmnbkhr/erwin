@@ -717,8 +717,17 @@ const PT_PER_MM = 72 / 25.4
 export const MARGIN_MM = 15
 export const MARGIN_PT = MARGIN_MM * PT_PER_MM
 
-/** Byte ranges of every `stream ... endstream` body, so object scanning can skip them. */
-function streamRanges(s) {
+/**
+ * Byte ranges of every `stream ... endstream` body, so object scanning can skip them.
+ *
+ * Exported alongside `indirectObjects` and `streamBodyOf` so `geometry.mjs` can
+ * walk the same content streams for VECTOR operators. `analysePdf` below reads
+ * only text runs, which is why D-006 — a filled box 5 mm past the content column
+ * — was invisible to the harness in TAIW, where the titles inside the box are
+ * short enough that no glyph overflowed. Geometry needs its own reader; it does
+ * not need a second copy of the object parser.
+ */
+export function streamRanges(s) {
   const ranges = []
   const re = /stream\r?\n/g
   let m
@@ -734,7 +743,7 @@ function streamRanges(s) {
 
 const inRanges = (ranges, off) => ranges.some(([a, b]) => off >= a && off < b)
 
-function indirectObjects(s, ranges) {
+export function indirectObjects(s, ranges) {
   const objs = new Map()
   const re = /(\d+)\s+0\s+obj\b/g
   let m
@@ -748,7 +757,7 @@ function indirectObjects(s, ranges) {
   return objs
 }
 
-function streamBodyOf(objBody) {
+export function streamBodyOf(objBody) {
   const m = /stream\r?\n([\s\S]*?)\r?\nendstream/.exec(objBody)
   return m ? m[1] : null
 }

@@ -917,10 +917,26 @@ export function generateHealthMaturityPDF(
       { name: 'Phase 3: Advanced', months: '19–36', capabilities: 25, investment: 'PKR 60–180M', color: TEAL },
     ]
     const boxTop = r.cursorY + 6
-    const boxW = 55
+    const boxGap = 10
+    /*
+     * D-006, fixed — the third instance of the same copy-pasted grid. See the
+     * longer note in src/utils/reportGenerator.ts.
+     *
+     * `boxW = 55` with two 10mm gaps spans 15..200mm against a content column
+     * that ends at 195mm, so the third box was 5mm (14.17pt) over before a glyph
+     * was drawn. HAIW's phase titles are short, so — as in TAIW — no glyph ever
+     * overflowed and every text-based check called this page clean. It was found
+     * by scripts/golden/geometry.mjs, which measures drawn PATHS rather than
+     * glyph runs, and it is the reason that script exists.
+     *
+     * Derived rather than restated as 53.33 so the grid stays correct if a fourth
+     * phase, a different gap or a wider sheet ever arrives; `phases.length`
+     * rather than 3 for the same reason.
+     */
+    const boxW = (r.contentWidth - (phases.length - 1) * boxGap) / phases.length
     const boxH = 60
     phases.forEach((p, i) => {
-      const x = MARGIN + i * (boxW + 10)
+      const x = MARGIN + i * (boxW + boxGap)
       doc.setFillColor(p.color[0], p.color[1], p.color[2])
       doc.roundedRect(x, boxTop, boxW, boxH, 3, 3, 'F')
       doc.setTextColor(...WHITE)

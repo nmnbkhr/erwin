@@ -207,7 +207,7 @@ draws only the first line, so it would have traded a visible overflow for a
 silent truncation. See D-004, which is that mistake, found two steps later.
 
 The BAIW and HAIW rows above are separate defects, not the same one: HAIW's radar
-label was fixed in step 1, and BAIW page 15 is D-006 and is still open.
+label was fixed in step 1, and BAIW page 15 is D-006, fixed 2026-08-01.
 
 **Harness status** — `scripts/golden/` records right-edge extent **per page**, so
 this shows up as a number moving from `166.64pt PAST THE PAPER EDGE` to inside
@@ -468,49 +468,108 @@ long a silent layout bug can live in shared code with no test around it.
 
 ---
 
-## D-006 — BAIW's roadmap phase boxes are laid out 5 mm past the content margin
+## D-006 — the roadmap phase boxes are laid out 5 mm past the content margin, in all three modules
 
-**Status** — open. Found during Phase D2 step 3 (BAIW's spine migration),
-2026-07-31. Deliberately not fixed there: it is a geometry change, not a
-migration, and the migration's value is that nothing else moved.
+**Status** — FIXED, all three modules, 2026-08-01. BAIW and TAIW first, HAIW
+immediately after once `geometry.mjs` proved it carried the same grid. Found
+during Phase D2 step 3 (BAIW's spine migration), 2026-07-31, and deliberately not
+fixed there: a geometry change, not a migration, and the migration's value was
+that nothing else moved.
+
+**Three modules, one defect, one visible symptom.** BAIW, TAIW and HAIW each had
+the identical `boxW = 55` grid and the identical 14.17 pt overflow. Only BAIW's
+longer title — "Phase 3: Advanced Analytics" — pushed a glyph past the margin, so
+only BAIW was ever reported. The other two were found by measurement, not by
+reading the code, and neither of their fixes is visible to any text-based check.
 
 **Where** — `baiw/src/utils/reportGenerator.ts`, page 15 ("Roadmap Summary") of
 `generateMaturityPDF`, and the same grid copied into
-`taiw/utils/tradeReportGenerator.ts`:
+`taiw/utils/tradeReportGenerator.ts` and
+`haiw/utils/healthReportGenerator.ts`:
 
 ```js
 const boxW = 55
 const x = MARGIN + i * (boxW + 10)      // 15, 80, 145 → third box ends at 200 mm
 ```
 
-**What it does**
+**What it did**
 
 Three 55 mm boxes with two 10 mm gaps span 15–200 mm. The content column ends at
-195 mm. The third box is 5 mm over the margin before a glyph is drawn:
+195 mm. The third box was **14.17 pt (5 mm) over the margin before a glyph was
+drawn**:
 
 | | width | centre | right edge | verdict |
 |---|---|---|---|---|
 | box 1 "Phase 1: Quick Wins" | 32.60 mm | 42.5 mm | 166.67 pt | inside |
 | box 2 "Phase 2: Core Build" | 31.15 mm | 107.5 mm | 348.87 pt | inside |
 | box 3 "Phase 3: Advanced Analytics" | 45.40 mm | 172.5 mm | **553.33 pt** | **0.57 pt past the 15 mm margin** |
+| **box 3, the filled rectangle itself** | 55.00 mm | 172.5 mm | **566.93 pt** | **14.17 pt past the margin** |
 
-Nothing is off the paper and nothing is truncated — the whole title renders, 42
-pt inside the sheet edge. It is the smallest overflow in the suite, and it is
-recorded because it is the only one the spine migration did **not** close.
+That last row is the defect and the first three rows are its shadow. The original
+entry recorded 0.57 pt, which is how far the *title* leaked; the **box** was 25×
+further over. Nothing was off the paper and nothing was truncated.
 
-**Why the spine does not fix it** — this is not a wrapping defect. Routing the
-title through `spine.ts::text()` would left-align it out of its box. Wrapping it
-to the box width still permits 200 mm, because the box is what breaks the margin.
-Wrapping it to the available half — the treatment the three radar charts got,
+**Why the spine could not fix it** — not a wrapping defect. Routing the title
+through `spine.ts::text()` would left-align it out of its box. Wrapping it to the
+box width still permits 200 mm, because the box is what breaks the margin.
+Wrapping to the available half — the treatment the three radar charts got,
 `min(x - MARGIN, pageWidth - MARGIN - x)` — gives 45.00 mm against a 45.40 mm
-title, so it would fold onto two lines inside a box sized for one, 10 mm above
-"Months 19–36".
+title, so it would have folded onto two lines inside a box sized for one.
 
-**What a fix looks like** — narrow the boxes to `(contentWidth - 2 * gap) / 3` =
-53.33 mm, which brings the grid to exactly 195 mm. That moves all twelve text
-baselines on the page and changes three filled rectangles, in both BAIW and TAIW.
-Worth doing on its own, with its own before/after.
+**What the fix was**
 
-**Harness status** — `scripts/golden/walk.mjs` reports it every run:
-`page 15 … 553.33 -> 553.33  pastMargin 0.57 -> 0.57  runs>margin 1 -> 1`, with
-the widest run named. It cannot be closed silently and it cannot be forgotten.
+The grid is now **derived from the content column** instead of guessed:
+
+```js
+const boxGap = 10
+const boxW = (r.contentWidth - (phases.length - 1) * boxGap) / phases.length
+const x = MARGIN + i * (boxW + boxGap)
+```
+
+53.33 mm is the value, not the code. Writing `boxW = 53.33` would have been the
+same defect with a better number — it breaks again on a fourth phase, a different
+gap or a non-A4 sheet. `phases.length` rather than `3` for the same reason.
+Measured after in **all three modules**: boxes 53.33 mm each, grid
+15.00 → **195.00 mm exactly**, and **zero paths past the content column across all
+23 golden artefacts**.
+
+Twelve text baselines and three filled rectangles moved per module. Page 15's text
+**reassembles character-identical** in every module — 17 runs before and after in
+BAIW and TAIW, 23 in HAIW (its page carries a `keyValueBlock` too), no title
+folded at the narrower width, which was the risk worth checking. HAIW's
+whole-document normalised text hash is unchanged: `f8c22550514b` before and
+after.
+
+**TAIW and HAIW are the instructive half.** Their boxes were 14.17 pt over too,
+but their titles are short ("Phase 3: Advanced"), so **no glyph ever overflowed**
+and every text-based check reported the page clean. Their right-edge extent is
+552.76 pt before the fix and 552.76 pt after; the golden walk cannot see either
+fix at all, and reports nothing but `bytes +7`. Only BAIW's longer title made the
+shared defect visible, in one of the three modules that carried it — which is the
+whole argument for measuring geometry rather than reading it.
+
+**Harness status** — this is why `scripts/golden/geometry.mjs` now exists. The
+text harness reads glyph runs; it structurally cannot see a box, so it could
+never have caught the TAIW or HAIW instances — and in fact did not, for the whole
+of D2. `geometry.mjs` walks the same page streams for **drawn paths** —
+`m`/`l`/`c`/`re` — and reports every path whose extent passes the content column,
+classifying deliberate full-bleed bands separately so they cannot mask a real one.
+It reports rather than fails, because only a human can say whether a given shape
+is meant to respect the text margin.
+
+```
+$ node scripts/golden/geometry.mjs
+  baiw page 15   f  x 145.00..200.00mm  right 566.93pt  14.17pt PAST the margin
+  taiw page 15   f  x 145.00..200.00mm  right 566.93pt  14.17pt PAST the margin
+  haiw page 15   f  x 145.00..200.00mm  right 566.93pt  14.17pt PAST the margin
+  3 path(s) past the content column, 15 full-bleed band(s) ignored     [before]
+
+  0 path(s) past the content column, 15 full-bleed band(s) ignored     [after]
+```
+
+It found all three instances on its first run, including the two nothing else
+could see. Run over all 23 artefacts it now reports **zero** paths past the
+content column. All fourteen DGIW artefacts were clean throughout.
+
+It is **not** wired into `compare.mjs` and nothing asserts it on every capture —
+run it deliberately after any change to hand-placed boxes, grids or charts.

@@ -509,10 +509,22 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
       { name: 'Phase 3: Advanced', months: '19–36', capabilities: 25, investment: 'PKR 60–130M', color: TEAL },
     ]
     const boxTop = r.cursorY + 6
-    const boxW = 55
+    const boxGap = 10
+    /*
+     * D-006, fixed — the same grid BAIW carried, copy-pasted. See the longer
+     * note in src/utils/reportGenerator.ts.
+     *
+     * TAIW is the instructive half of the pair: `boxW = 55` put this box 5mm
+     * (14.17pt) past the content column here too, but the titles are short
+     * enough that NO GLYPH overflowed, so the text harness reported this page
+     * clean for the whole of D2. The box was always wrong; only BAIW's longer
+     * "Phase 3: Advanced Analytics" made it visible. Measured by
+     * scripts/golden/geometry.mjs, which reads drawn paths rather than glyphs.
+     */
+    const boxW = (r.contentWidth - (phases.length - 1) * boxGap) / phases.length
     const boxH = 60
     phases.forEach((p, i) => {
-      const x = MARGIN + i * (boxW + 10)
+      const x = MARGIN + i * (boxW + boxGap)
       doc.setFillColor(p.color[0], p.color[1], p.color[2])
       doc.roundedRect(x, boxTop, boxW, boxH, 3, 3, 'F')
       doc.setTextColor(...WHITE)

@@ -1,6 +1,6 @@
 {
   "artefact": "maturity-pdf",
-  "bytes": 151773,
+  "bytes": 151780,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -1070,7 +1070,7 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "f63f25eeb3c426525f15a44a9e8aa5cd36a2c32eb2682d03c55fac4a02746176",
+  "rawBytesSha256": "62f1229c268668474be70d13b7c4f93764f9e4f57ad6493c9610d55d2c67ee5e",
   "tableRowsTotal": 61,
   "textRunCount": 698,
   "unknownFonts": [],
