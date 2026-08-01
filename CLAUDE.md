@@ -207,6 +207,42 @@ Note: with the current dataset every pillar has both core and banking questions,
 so `not-applicable` never occurs through the UI. The state is still computed and
 reported explicitly ("Not applicable 0"). Do not delete the branch as dead code.
 
+## HAIW scoring
+
+**Every score in `src/haiw/` goes through `aggregate()` in
+`utils/healthReportGenerator.ts`. Do not add a second path.** It returns the same
+three states as DGIW — `scored` / `not-assessed` / `not-applicable` — as a
+**discriminated union**, so `current`, `desired` and `gap` are unreachable until
+`state === 'scored'`. That is deliberate: the `current: number` shape carrying
+`0` for "unmeasured" is what produced D-003, twenty capabilities ranked at gap
+0.0 on a page headed "largest gaps". A reviewer catching that is luck; the
+compiler refusing it is not. Unscored items are excluded from a ranking, never
+sorted to the end of it, and the denominator is printed on the page.
+
+Page 13 of the PDF and `generateHealthGapCSV` both call `scoreCapabilities()`.
+Before D-003 they each computed their own numbers and **disagreed about the same
+capability on the same day**. One function, or the two deliverables drift again.
+
+**Categories are an unweighted mean; capabilities are weight-weighted. The
+difference is passed as an argument, not implemented twice** — `aggregate()`
+takes a weight per entry, and category scoring passes `1`. Do not "tidy" this
+into two functions, and do not make it uniform without deciding to:
+
+`question.weight` is declared in `types.ts` and is read **only** by capability
+scoring. Weighting the categories too moves every category's gap 1.3 → 1.4 and
+desired 4.3 → 4.4, which moves the cover score, the radar, eight deep-dive pages
+and the markdown — and puts the PDF at odds with the on-screen scorecard in
+`HealthMaturityAssessment.tsx`, which takes a plain mean. **A PDF that disagrees
+with the screen is worse than no PDF.** Making the module weighted throughout is
+a content decision deserving its own change and its own before/after, not a
+refactor done in passing.
+
+`hacrQuestions.json` is 1.18 MB and already loaded by the assessment page, so the
+report takes questions as a **parameter** typed
+`Pick<HacrQuestion, 'id' | 'weight' | 'capabilityLinks'>` rather than importing
+the dataset. Keep it that way: it is an honest contract about what is read, and
+it keeps a second copy out of the report chunk.
+
 ## Framework crosswalk
 
 `frameworks.json` and `crosswalk.json` project one assessment onto four published

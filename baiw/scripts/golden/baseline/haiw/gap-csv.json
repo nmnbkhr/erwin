@@ -1,7 +1,7 @@
 {
   "artefact": "gap-csv",
-  "assertableSha256": "fd41eb79c2193d5ea2315af8622b1b5873ef8afa4c3da8cd032fb24bf71067c3",
-  "bytes": 16687,
+  "assertableSha256": "2614c80ea31994921db22661d4482d2bd5eeb98dbb110965d1fb4f0a3810dec5",
+  "bytes": 16604,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -17,11 +17,11 @@
   "filename": "HAIW_Capability_Gap_Analysis.csv",
   "filenameNormalised": "HAIW_Capability_Gap_Analysis.csv",
   "firstThreeRows": [
-    "1,\"Patient Master Index Management\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",3.3,4.3,1.0,Low,\"Patient; Person; RelatedPerson\"",
-    "2,\"Patient Demographics Profiling\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",2.6,4.3,1.7,High,\"Patient; Group; Organization\"",
-    "3,\"Patient Identity Matching & Deduplication\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",2.7,4.3,1.6,High,\"Patient; Person; Linkage\""
+    "1,\"Patient Master Index Management\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",3.0,4.9,1.9,High,\"Patient; Person; RelatedPerson\"",
+    "2,\"Patient Demographics Profiling\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",2.9,3.8,0.9,Low,\"Patient; Group; Organization\"",
+    "3,\"Patient Identity Matching & Deduplication\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",3.1,4.4,1.3,Medium,\"Patient; Person; Linkage\""
   ],
-  "fullTextSha256": "5f0598e24e7962875da459bb2c21bcef403803dcaf6a7c971a4faa0695274cbb",
+  "fullTextSha256": "1d10d01e3087e8cd816d6fb3846f5d271a661559d0cf546654e1c07d7bd07209",
   "generator": "generateHealthGapCSV",
   "header": [
     "ID",
@@ -36,14 +36,14 @@
   ],
   "kind": "csv",
   "lastThreeRows": [
-    "106,\"Data Lineage & Provenance Tracking\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",2.9,4.3,1.4,Medium,\"Provenance; AuditEvent; Bundle\"",
-    "107,\"Terminology Standardization\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",3.0,4.3,1.3,Medium,\"CodeSystem; ValueSet; ConceptMap\"",
-    "108,\"Analytics Maturity Assessment\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",3.1,4.3,1.2,Medium,\"MeasureReport; Questionnaire; QuestionnaireResponse\""
+    "106,\"Data Lineage & Provenance Tracking\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",3.3,4.8,1.5,Medium,\"Provenance; AuditEvent; Bundle\"",
+    "107,\"Terminology Standardization\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",2.7,3.6,0.9,Low,\"CodeSystem; ValueSet; ConceptMap\"",
+    "108,\"Analytics Maturity Assessment\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",2.8,4.4,1.6,High,\"MeasureReport; Questionnaire; QuestionnaireResponse\""
   ],
   "module": "haiw",
   "notReproducible": {},
   "rawBytesAsserted": true,
-  "rawBytesSha256": "5f0598e24e7962875da459bb2c21bcef403803dcaf6a7c971a4faa0695274cbb",
+  "rawBytesSha256": "1d10d01e3087e8cd816d6fb3846f5d271a661559d0cf546654e1c07d7bd07209",
   "rowCount": 108,
   "sampleRowsMasked": false,
   "unassertable": [],

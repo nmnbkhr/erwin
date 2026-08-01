@@ -157,6 +157,15 @@ export const REGISTRY = {
    * from the generator rather than restating it, and `profile` naming the
    * REPORT_PROFILES entry the real call site passes to useReportMeta().
    *
+   * `assertRawBytes` is on for the PDF and the markdown, as it is for TAIW's and
+   * HAIW's. It could not be before D2: a pre-spine generator re-rolled the
+   * trailer /ID from Math.random on every call, so a byte hash was a different
+   * number every run and storing it would have rewritten the baseline on every
+   * capture. ReportDoc now pins /CreationDate and /ID from meta.generatedAt, and
+   * a two-run byte comparison confirms all six are reproducible — so extracted
+   * text is no longer the strongest thing that can be asserted about them, and
+   * asserting less than you can measure is how a regression gets through.
+   *
    * gap-csv is untouched and still nondeterministic. Its three fabricated
    * columns stay SKIPPED, which is the only reason a compare on it can pass.
    */
@@ -167,6 +176,7 @@ export const REGISTRY = {
         id: 'maturity-pdf',
         kind: 'pdf',
         exportName: 'generateMaturityPDF',
+        assertRawBytes: true,
         artefactIdExport: 'MATURITY_ARTEFACT_ID',
         profile: 'baiw',
         call: (m, f, c) => m.generateMaturityPDF(f.assessment, c.meta),
@@ -187,6 +197,7 @@ export const REGISTRY = {
         id: 'roadmap-md',
         kind: 'md',
         exportName: 'generateRoadmapMarkdown',
+        assertRawBytes: true,
         artefactIdExport: 'ROADMAP_ARTEFACT_ID',
         profile: 'baiw',
         call: (m, f, c) => m.generateRoadmapMarkdown(f.assessment, c.meta),
@@ -209,6 +220,7 @@ export const REGISTRY = {
         id: 'maturity-pdf',
         kind: 'pdf',
         exportName: 'generateTradeMaturityPDF',
+        assertRawBytes: true,
         artefactIdExport: 'TRADE_MATURITY_ARTEFACT_ID',
         profile: 'taiw',
         call: (m, f, c) => m.generateTradeMaturityPDF(f.assessment, c.meta),
@@ -227,6 +239,7 @@ export const REGISTRY = {
         id: 'roadmap-md',
         kind: 'md',
         exportName: 'generateTradeRoadmapMarkdown',
+        assertRawBytes: true,
         artefactIdExport: 'TRADE_ROADMAP_ARTEFACT_ID',
         profile: 'taiw',
         call: (m, f, c) => m.generateTradeRoadmapMarkdown(f.assessment, c.meta),
@@ -252,17 +265,19 @@ export const REGISTRY = {
         id: 'maturity-pdf',
         kind: 'pdf',
         exportName: 'generateHealthMaturityPDF',
+        assertRawBytes: true,
         artefactIdExport: 'HEALTH_MATURITY_ARTEFACT_ID',
         profile: 'haiw',
         // benchmarks is null in the fixture -> undefined here, which is exactly
         // what HealthReportGenerator.tsx passes, so DEFAULT_BENCHMARKS applies.
-        call: (m, f, c) => m.generateHealthMaturityPDF(f.answers, f.capabilities, f.benchmarks ?? undefined, c.meta),
+        // f.questions is the HacrQuestionLink projection — see the fixture's notes.
+        call: (m, f, c) => m.generateHealthMaturityPDF(f.answers, f.capabilities, f.questions, f.benchmarks ?? undefined, c.meta),
       },
       {
         id: 'gap-csv',
         kind: 'csv',
         exportName: 'generateHealthGapCSV',
-        call: (m, f) => m.generateHealthGapCSV(f.answers, f.capabilities),
+        call: (m, f) => m.generateHealthGapCSV(f.answers, f.capabilities, f.questions),
         // THE CONTROL. Step 1 found no clock read and no RNG in this generator,
         // and its bytes were identical across four TZ/locale environments. It is
         // therefore baselined on raw bytes as well as normalised text: if this
@@ -274,6 +289,7 @@ export const REGISTRY = {
         id: 'roadmap-md',
         kind: 'md',
         exportName: 'generateHealthRoadmapMarkdown',
+        assertRawBytes: true,
         artefactIdExport: 'HEALTH_ROADMAP_ARTEFACT_ID',
         profile: 'haiw',
         call: (m, f, c) => m.generateHealthRoadmapMarkdown(f.answers, f.capabilities, c.meta),
@@ -1065,7 +1081,7 @@ export function analyseCsv(buf, spec) {
 
 // ── Markdown reader ──────────────────────────────────────────────────────
 
-export function analyseMd(buf) {
+export function analyseMd(buf, spec = {}) {
   const text = buf.toString('utf8')
   const lines = text.split('\n')
   const headings = lines.filter(l => /^#{1,6}\s/.test(l))
@@ -1076,6 +1092,18 @@ export function analyseMd(buf) {
     headings,
     normalisedTextSha256: sha256(normaliseDates(text)),
     rawBytesSha256: sha256(buf),
+    /*
+     * This flag used to be absent here, and its absence was a silent hole.
+     *
+     * A markdown file has no /ID and no CreationDate, so `rawBytesSha256` above
+     * was always a real, reproducible hash — and compare.mjs opens its raw-byte
+     * check with `if (!base.rawBytesAsserted) return`. The hash was therefore
+     * recorded in all three markdown baselines and compared in none of them: a
+     * stored value nothing reads, which is exactly the vacuous check this harness
+     * exists to prevent. Found in D3 while flipping the flag on the six migrated
+     * artefacts and noticing only the three PDFs moved.
+     */
+    rawBytesAsserted: Boolean(spec.assertRawBytes),
     bytes: buf.length,
     clockDerived: { renderedDates: findDates(text), dateLineRaw: lines[1] ?? null },
   }
@@ -1117,7 +1145,7 @@ export function analyse(artefact, ruler) {
   const { spec, filename, bytes } = artefact
   const body = spec.kind === 'pdf' ? analysePdf(bytes, ruler, spec)
     : spec.kind === 'csv' ? analyseCsv(bytes, spec)
-      : analyseMd(bytes)
+      : analyseMd(bytes, spec)
   return {
     artefact: spec.id,
     kind: spec.kind,

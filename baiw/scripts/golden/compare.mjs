@@ -167,9 +167,12 @@ function diffCommon(findings, base, now) {
 /**
  * Raw-bytes equality, for the artefacts whose identity is pinned.
  *
- * Two populations reach this: haiw/gap-csv (no clock, no RNG) and every DGIW
- * artefact (the spine pins /CreationDate and /ID from meta.generatedAt). For
- * both, a byte difference on an untouched generator means the harness moved.
+ * Three populations reach this: haiw/gap-csv (no clock, no RNG), every DGIW
+ * artefact, and — since D3 — the six migrated module artefacts. For all of them
+ * the spine pins /CreationDate and /ID from meta.generatedAt, or there is nothing
+ * to pin, so a byte difference on an untouched generator means the harness moved.
+ *
+ * The two gap CSVs still opt out, and only they: `Math.random` in D-001.
  */
 function diffRawBytes(findings, base, now) {
   if (!base.rawBytesAsserted) return
@@ -322,6 +325,12 @@ function diffCsv(findings, base, now) {
 }
 
 function diffMd(findings, base, now) {
+  // Markdown reached D3 with a recorded rawBytesSha256 that nothing compared:
+  // analyseMd() always hashed the bytes, but this function never called
+  // diffRawBytes and analyseMd never set rawBytesAsserted, so the value sat in
+  // three baselines being read by no one. A markdown file has no /ID and no
+  // CreationDate — it was byte-assertable from the very first capture.
+  diffRawBytes(findings, base, now)
   scalar(findings, 'CHANGED', 'line count', base.lineCount, now.lineCount)
   scalar(findings, 'CHANGED', 'heading count', base.headingCount, now.headingCount)
   if (JSON.stringify(base.headings) !== JSON.stringify(now.headings)) {

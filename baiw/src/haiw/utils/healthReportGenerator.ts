@@ -8,7 +8,7 @@ import { saveAs } from 'file-saver'
 import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '../../report/spine'
 import { formatCoverDate, reportFilename } from '../../report/naming'
 import type { ReportMeta } from '../../report/types'
-import type { HaiwCapability, HaiwAssessmentAnswer } from '../types'
+import type { HaiwCapability, HaiwAssessmentAnswer, HacrQuestion } from '../types'
 
 /*
  * Artefact ids for the two deliverables on the spine.
@@ -64,16 +64,29 @@ const CODE_TO_CATEGORY: Record<string, string> = {
   OI: 'Outcomes & Impact',
 }
 
-// HCF capability themes are a different taxonomy — bridge each theme to the
-// HACR category whose score best represents it.
-const THEME_TO_CATEGORY: Record<string, string> = {
-  'Patient Intelligence & Experience': 'Patient & Community Engagement',
-  'Clinical Analytics & Quality': 'Analytics & Intelligence',
-  'Financial Analytics & Revenue': 'Outcomes & Impact',
-  'Operational Analytics': 'Infrastructure & Systems',
-  'Population Health & Public Health': 'Outcomes & Impact',
-  'Digital Health & Data Governance': 'Data Governance & Standards',
-}
+/*
+ * `THEME_TO_CATEGORY` used to live here: a six-entry bridge from HCF theme to
+ * HACR category, so a capability could borrow its category's score.
+ *
+ * It is gone because capability scores are now computed from the questions that
+ * actually assess each capability — see `scoreCapabilities` below. The bridge was
+ * only ever a stand-in, and a poor one: its six themes collapsed onto five
+ * distinct categories, so 108 capabilities could carry at most five distinct
+ * gaps, and three HACR categories (Strategy & Leadership, Workforce & Skills,
+ * Integration & Interoperability) were the target of no theme at all and could
+ * therefore never influence a capability number however the client answered them.
+ */
+
+/**
+ * The question fields the scoring reads, and only those.
+ *
+ * `Pick` rather than a hand-written interface so a rename in types.ts breaks this
+ * file rather than silently producing `undefined` weights. Narrow rather than the
+ * whole `HacrQuestion` because the caller passes 720 of them and the generator
+ * has no business seeing `levelDescriptions` — and because the golden fixture then
+ * freezes 45 kB of exactly what is read instead of 1.1 MB of mostly prose.
+ */
+export type HacrQuestionLink = Pick<HacrQuestion, 'id' | 'weight' | 'capabilityLinks'>
 
 const EMERALD = [16, 185, 129] as const    // #10B981
 const TEAL = [20, 184, 166] as const       // #14B8A6
@@ -169,30 +182,104 @@ function levelDescription(level: number): string {
   return descriptions[Math.round(level)] || ''
 }
 
+// ── The one scoring primitive ─────────────────────────────────────────────
+
+const round1 = (n: number): number => parseFloat(n.toFixed(1))
+
+/** The suite's three states. See CLAUDE.md, "DGIW scoring". */
+export type ScoreState = 'scored' | 'not-assessed' | 'not-applicable'
+
+/** One question that applies to whatever is being scored, answered or not. */
+interface Applicable {
+  weight: number
+  /** `undefined` when the client has not answered it. */
+  answer: HaiwAssessmentAnswer | undefined
+}
+
+/**
+ * A weighted aggregate, as a discriminated union so `current` cannot be read
+ * without first establishing that it exists.
+ *
+ * The union is the point. `current: number` with a 0 for "unmeasured" is the
+ * shape that produced D-003 — twenty capabilities reported at gap 0.0 under a
+ * heading reading "largest estimated gaps" — and CLAUDE.md forbids it in as many
+ * words: an unmeasured thing "may not render as 0 or enter any average, count or
+ * rollup". Making the number unreachable in the other two states is how the type
+ * system enforces that rather than a reviewer.
+ */
+type Aggregate =
+  | { state: 'scored'; current: number; desired: number; gap: number; answered: number; applicable: number }
+  | { state: 'not-assessed'; current: null; desired: null; gap: null; answered: 0; applicable: number }
+  | { state: 'not-applicable'; current: null; desired: null; gap: null; answered: 0; applicable: 0 }
+
+/**
+ * Score one group of applicable questions. Every number in this module comes
+ * from here — category scores, capability scores, the PDF and the CSV.
+ *
+ * Unanswered questions leave both the numerator and the denominator, rather than
+ * counting as zero. That is the difference between "this capability is weak" and
+ * "nobody has told us about this capability yet", and the two must not print the
+ * same digit.
+ */
+function aggregate(entries: readonly Applicable[]): Aggregate {
+  if (entries.length === 0) {
+    return { state: 'not-applicable', current: null, desired: null, gap: null, answered: 0, applicable: 0 }
+  }
+  const answered = entries.filter((e): e is { weight: number; answer: HaiwAssessmentAnswer } => e.answer !== undefined)
+  if (answered.length === 0) {
+    return { state: 'not-assessed', current: null, desired: null, gap: null, answered: 0, applicable: entries.length }
+  }
+  const totalWeight = answered.reduce((s, e) => s + e.weight, 0)
+  // A non-positive total weight divides to NaN, and "NaN" on a client deliverable
+  // is worse than an unweighted mean. The weights would be unusable; the answers
+  // still are not. Cannot happen with today's dataset (weights are 0.8–1.2) and
+  // is handled rather than assumed.
+  const usable = totalWeight > 0
+  const denom = usable ? totalWeight : answered.length
+  const w = (e: { weight: number }) => (usable ? e.weight : 1)
+  const current = round1(answered.reduce((s, e) => s + e.answer.currentState * w(e), 0) / denom)
+  const desired = round1(answered.reduce((s, e) => s + e.answer.desiredState * w(e), 0) / denom)
+  // Rounded inputs, deliberately: the gap a reader computes from the two printed
+  // numbers must equal the gap printed next to them.
+  return { state: 'scored', current, desired, gap: round1(desired - current), answered: answered.length, applicable: entries.length }
+}
+
 // ── Compute category scores from answers ──
+/**
+ * EQUAL WEIGHTS HERE, WEIGHTED FOR CAPABILITIES, AND THAT IS A DELIBERATE SPLIT.
+ *
+ * This function has always taken a plain arithmetic mean, and so does the on-screen
+ * scorecard in `HealthMaturityAssessment.tsx` — `question.weight` is declared in
+ * types.ts and, before this change, read by nothing in `src/haiw/`. Switching this
+ * to weighted moves the fixture's every category from desired 4.3 to 4.4 and every
+ * gap from 1.3 to 1.4, which would change the cover score, the radar, the
+ * scorecard, all eight deep dives, the benchmark page and the markdown — and put
+ * the PDF at odds with the screen, which CLAUDE.md calls worse than no PDF.
+ *
+ * So it stays a mean, and it says so by passing `weight: 1` through the same
+ * `aggregate()` the capability scoring uses. One primitive, one place, the
+ * weighting choice visible as an argument instead of as two code paths that could
+ * drift. Making the whole module weighted is a content decision for its own
+ * change, with its own walk.
+ *
+ * The `?? 0` below preserves this function's long-standing behaviour for a
+ * category with no answers. It is the zero-as-unknown CLAUDE.md warns about, kept
+ * because changing it moves seventeen pages; it is confined to this one call site
+ * rather than living in the primitive.
+ */
 function computeCategoryScores(answers: HaiwAssessmentAnswer[]): CategoryScore[] {
-  const catMap = new Map<string, { currents: number[]; desireds: number[] }>()
-  HACR_CATEGORIES.forEach(cat => catMap.set(cat, { currents: [], desireds: [] }))
+  const byCategory = new Map<string, Applicable[]>()
+  HACR_CATEGORIES.forEach(cat => byCategory.set(cat, []))
 
   answers.forEach(a => {
     // questionId format: "HACR-SL-001" — the letter code selects the category
-    const code = a.questionId.split('-')[1]
-    const cat = CODE_TO_CATEGORY[code]
-    if (cat && catMap.has(cat)) {
-      catMap.get(cat)!.currents.push(a.currentState)
-      catMap.get(cat)!.desireds.push(a.desiredState)
-    }
+    const cat = CODE_TO_CATEGORY[a.questionId.split('-')[1]]
+    if (cat && byCategory.has(cat)) byCategory.get(cat)!.push({ weight: 1, answer: a })
   })
 
   return HACR_CATEGORIES.map(cat => {
-    const data = catMap.get(cat)!
-    const current = data.currents.length > 0
-      ? parseFloat((data.currents.reduce((a, b) => a + b, 0) / data.currents.length).toFixed(1))
-      : 0
-    const desired = data.desireds.length > 0
-      ? parseFloat((data.desireds.reduce((a, b) => a + b, 0) / data.desireds.length).toFixed(1))
-      : 0
-    return { category: cat, current, desired, gap: parseFloat((desired - current).toFixed(1)) }
+    const agg = aggregate(byCategory.get(cat)!)
+    return { category: cat, current: agg.current ?? 0, desired: agg.desired ?? 0, gap: agg.gap ?? 0 }
   })
 }
 
@@ -335,7 +422,28 @@ function drawRadarChart(
   doc.text('Pakistan Avg', centerX + 37, ly + 1)
 }
 
-/** One row of the page-13 matrix. `id` exists for the content digest. */
+/** How many rows page 13 shows. */
+const TOP_CAPABILITY_GAPS = 20
+
+/** What page 13 and the CSV need to name a capability. */
+interface CapabilityIdentity {
+  id: string
+  name: string
+  theme: string
+  group: string
+  fhirResources: string[]
+}
+
+/**
+ * One capability, scored from the questions that assess it.
+ *
+ * An intersection with `Aggregate` rather than a flattened copy, so `current` and
+ * `gap` stay unreachable until `state === 'scored'` has been checked. A flattened
+ * `current: number | null` would compile the same and narrow nowhere.
+ */
+type CapabilityScore = CapabilityIdentity & Aggregate
+
+/** One row of the page-13 matrix. Only scored capabilities reach it. */
 interface CapabilityGap {
   id: string
   name: string
@@ -345,48 +453,120 @@ interface CapabilityGap {
   gap: number
 }
 
+/** Page 13's rows plus the census its caption has to print. */
+interface CapabilityGapReport {
+  rows: CapabilityGap[]
+  scored: number
+  notAssessed: number
+  notApplicable: number
+  total: number
+}
+
 /**
- * The twenty widest capability gaps.
+ * Score every capability from the HACR questions that link to it.
+ *
+ * THE ONE PER-CAPABILITY SCORING PATH. Page 13 and the gap CSV both consume this,
+ * so the PDF cannot disagree with the spreadsheet a client opens beside it — they
+ * did disagree before, in different ways and for different reasons.
+ *
+ * D-003, and why the first fix for it was not enough:
+ *
+ *  - Originally `scores.find(s => s.category === cap.theme)` matched a HACR
+ *    category against an HCF theme. Disjoint vocabularies, so it never matched,
+ *    every capability took the `{ current: 0, gap: 0 }` fallback, and page 13
+ *    printed twenty rows at 1.0 / 1.0 / gap 0.0 / Low under the heading "largest
+ *    estimated gaps" — whatever the client had answered.
+ *  - Bridging theme to category through a lookup made the number move with the
+ *    assessment, and was still a category number wearing a capability's name: at
+ *    most five distinct gaps across 108 capabilities, and three of the eight HACR
+ *    categories structurally unable to affect the page.
+ *
+ * Neither was necessary. The link exists in the dataset: every one of the 720
+ * HACR questions carries `capabilityLinks`, all 108 capabilities are linked, and
+ * each has six or seven questions assessing it. The score below is the
+ * weight-weighted mean of the ANSWERED ones — the honest number, not a proxy for
+ * it. There is no authoring gap to work around, which is what separates HAIW from
+ * BAIW and TAIW, where D-001 remains open precisely because no such link exists.
+ */
+function scoreCapabilities(
+  capabilities: HaiwCapability[],
+  questions: readonly HacrQuestionLink[],
+  answers: HaiwAssessmentAnswer[],
+): CapabilityScore[] {
+  const answerById = new Map(answers.map(a => [a.questionId, a]))
+  const applicable = new Map<string, Applicable[]>()
+  for (const cap of capabilities) applicable.set(cap.id, [])
+  for (const q of questions) {
+    for (const capId of q.capabilityLinks) {
+      // A link to an id outside the capability set is dropped rather than
+      // inventing a row for it: the dataset is the authority on what exists.
+      applicable.get(capId)?.push({ weight: q.weight, answer: answerById.get(q.id) })
+    }
+  }
+  return capabilities.map(cap => ({
+    id: cap.id, name: cap.name, theme: cap.theme, group: cap.group,
+    fhirResources: cap.fhirResources,
+    ...aggregate(applicable.get(cap.id)!),
+  }))
+}
+
+/**
+ * The widest capability gaps, with the census page 13's caption must state.
  *
  * Hoisted out of the page-13 block because `createReport`'s content digest needs
  * it before the first page is drawn — the /ID has to cover what the document
- * renders, and which twenty capabilities made the cut is part of that.
+ * renders, and which capabilities made the cut is part of that.
  *
- * D-003 IS PRESERVED HERE ON PURPOSE. `scores` is keyed by the eight HACR
- * categories; `cap.theme` is one of the six HCF themes. The two vocabularies are
- * disjoint, so this `find` never matches, `catScore` is always the fallback, and
- * every row comes out at level 1.0 with a gap of 0.0 regardless of what the client
- * answered. `THEME_TO_CATEGORY` at the top of this file is the bridge that fixes
- * it and is used only by the CSV. Migrating it faithfully keeps this diff readable
- * — a twenty-row semantic correction inside the one change that has to prove the
- * spine migration is sound would confound both. See docs/known-defects.md D-003.
+ * NOT-ASSESSED AND NOT-APPLICABLE CAPABILITIES ARE EXCLUDED FROM THE RANKING, not
+ * ranked at the bottom. A capability nobody has answered has no gap; giving it
+ * 0.0 and letting it sort is exactly how D-003 looked from the outside, and it
+ * would put "we have no idea about this" at the polite end of a page headed
+ * "largest gaps". They are counted and printed in the caption instead.
+ *
+ * The tiebreak is declared rather than incidental. Real gaps cluster — eleven
+ * distinct values across 108 capabilities on the golden fixture — so a sort on
+ * gap alone would leave the twentieth row to `Array.prototype.sort`'s stability
+ * over dataset order. Ascending id after descending gap makes the list a function
+ * of the answers and nothing else, which the byte-reproducibility of this report
+ * depends on.
  */
-function buildCapabilityGaps(scores: CategoryScore[], capabilities: HaiwCapability[]): CapabilityGap[] {
+function buildCapabilityGaps(
+  scores: CategoryScore[],
+  capabilities: HaiwCapability[],
+  questions: readonly HacrQuestionLink[],
+  answers: HaiwAssessmentAnswer[],
+): CapabilityGapReport {
   if (capabilities.length > 0) {
-    return capabilities
-      .map(cap => {
-        const catScore = scores.find(s => s.category === cap.theme) || { current: 0, gap: 0 }
-        const variation = (cap.id.charCodeAt(cap.id.length - 1) % 10 - 5) * 0.1
-        const current = Math.max(1, Math.min(5, catScore.current + variation))
-        const required = Math.max(current, current + catScore.gap)
-        return { id: cap.id, name: cap.name, theme: cap.theme, current, required, gap: required - current }
-      })
-      .sort((a, b) => b.gap - a.gap)
-      .slice(0, 20)
+    const scored = scoreCapabilities(capabilities, questions, answers)
+    const rows = scored
+      .flatMap(c => (c.state === 'scored'
+        ? [{ id: c.id, name: c.name, theme: c.theme, current: c.current, required: c.desired, gap: c.gap }]
+        : []))
+      .sort((a, b) => b.gap - a.gap || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
+    return {
+      rows: rows.slice(0, TOP_CAPABILITY_GAPS),
+      scored: scored.filter(c => c.state === 'scored').length,
+      notAssessed: scored.filter(c => c.state === 'not-assessed').length,
+      notApplicable: scored.filter(c => c.state === 'not-applicable').length,
+      total: capabilities.length,
+    }
   }
-  // No capability dataset: synthesise three rows per category. Ids are derived
-  // from what is rendered rather than invented, so the digest still moves when
-  // the selection does.
-  return HACR_CATEGORIES.flatMap(cat => {
+  /*
+   * DEGRADED PATH: no capability dataset, so there is nothing to link questions
+   * to and no per-capability score to compute. Three synthesised rows per category
+   * — the D-001 shape, and unavoidable here, because the input that makes the
+   * honest version possible is the input that is missing. Reached only when
+   * `loadCapabilities()` rejects; the caption says what the reader is looking at.
+   */
+  const rows = HACR_CATEGORIES.flatMap(cat => {
     const score = scores.find(s => s.category === cat) || { current: 0, gap: 0 }
     return [
       { id: `${cat}::Strategy`, name: `${cat} Strategy`, theme: cat, current: score.current, required: score.current + score.gap, gap: score.gap },
       { id: `${cat}::Analytics`, name: `${cat} Analytics`, theme: cat, current: Math.max(1, score.current - 0.3), required: score.current + score.gap, gap: score.gap + 0.3 },
       { id: `${cat}::Automation`, name: `${cat} Automation`, theme: cat, current: Math.max(1, score.current - 0.5), required: score.current + score.gap, gap: score.gap + 0.5 },
     ]
-  })
-    .sort((a, b) => b.gap - a.gap)
-    .slice(0, 20)
+  }).sort((a, b) => b.gap - a.gap || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
+  return { rows: rows.slice(0, TOP_CAPABILITY_GAPS), scored: rows.length, notAssessed: 0, notApplicable: 0, total: rows.length }
 }
 
 // ══════════════════════════════════════════════════════════
@@ -411,6 +591,20 @@ function buildCapabilityGaps(scores: CategoryScore[], capabilities: HaiwCapabili
 export function generateHealthMaturityPDF(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
+  /*
+   * The HACR question bank, for `capabilityLinks` and `weight`.
+   *
+   * Passed rather than imported. `hacrQuestions.json` is 1.18 MB and the app
+   * already loads it lazily in `HealthMaturityAssessment`, which is the component
+   * that renders the export button — a static import here would pull it into the
+   * report chunk a second time for data the caller is already holding. Narrowed
+   * to `HacrQuestionLink` so the contract is the three fields actually read.
+   *
+   * An empty array is legal and degrades honestly: every capability then has no
+   * applicable questions, comes back `not-applicable`, and page 13 says so
+   * instead of inventing scores.
+   */
+  questions: readonly HacrQuestionLink[],
   benchmarks: Partial<HealthBenchmarks> | undefined,
   meta: ReportMeta,
 ) {
@@ -428,7 +622,7 @@ export function generateHealthMaturityPDF(
   const totalCategories = HACR_CATEGORIES.length
 
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
-  const capGaps = buildCapabilityGaps(scores, capabilities)
+  const capGaps = buildCapabilityGaps(scores, capabilities, questions, answers)
 
   /*
    * Draft state stays derived HERE rather than being taken from meta.
@@ -449,7 +643,12 @@ export function generateHealthMaturityPDF(
     reportMeta,
     contentKey([
       ...answers.map(a => `ans:${a.questionId}=${a.currentState}/${a.desiredState}`),
-      ...capGaps.map(c => `cap:${c.id}`),
+      // The ranked ids AND their numbers. Ids alone were enough while every row
+      // printed 1.0/1.0/0.0; now that the figures move with the answers, two
+      // reports could select the same twenty capabilities and score them
+      // differently, and /ID is the field a DMS uses to tell them apart.
+      ...capGaps.rows.map(c => `cap:${c.id}=${c.current}/${c.required}`),
+      `capcensus:${capGaps.scored}/${capGaps.notAssessed}/${capGaps.notApplicable}/${capGaps.total}`,
     ]),
   )
   const { doc } = r
@@ -640,10 +839,32 @@ export function generateHealthMaturityPDF(
   }
 
   // ── PAGE 13: CAPABILITY GAP MATRIX ──
-  r.page('Capability Gap Matrix', 'Top 20 HCF capabilities with largest estimated gaps based on category scores')
+  /*
+   * The caption states the METHOD and the DENOMINATOR, as the DGIW diagnostic
+   * does. It used to say "based on category scores", which was true of the
+   * arithmetic and useless to a reader: it did not say which questions produced a
+   * capability's number, and it did not say how many capabilities were measurable
+   * at all. A reader who cannot see the denominator cannot tell twenty rows out of
+   * 108 scored from twenty out of 20.
+   *
+   * Not-assessed and not-applicable are printed even at zero — the same reason
+   * DGIW prints "Not applicable 0" rather than omitting the line. Zero is a
+   * measurement; a missing line is an unanswered question.
+   */
+  const capCaption =
+    `Weight-weighted mean of the answered HACR questions linked to each capability. ` +
+    `Scored ${capGaps.scored} of ${capGaps.total} capabilities · not assessed ${capGaps.notAssessed} · ` +
+    `not applicable ${capGaps.notApplicable}. ` +
+    // "Showing the top 0" is technically true and reads like a bug. An empty
+    // ranking is the correct output for an unanswered assessment and should say
+    // why, not leave a reader counting rows that are not there.
+    (capGaps.rows.length > 0
+      ? `Showing the top ${capGaps.rows.length} by gap, ties broken by capability id.`
+      : `No capability has an answered question yet, so there is nothing to rank.`)
+  r.page('Capability Gap Matrix', capCaption)
   r.table({
     head: ['#', 'Capability', 'Theme', 'Current', 'Required', 'Gap', 'Priority'],
-    rows: capGaps.map((c, i) => [
+    rows: capGaps.rows.map((c, i) => [
       i + 1,
       c.name,
       c.theme,
@@ -847,9 +1068,30 @@ export function generateHealthMaturityPDF(
 // ══════════════════════════════════════════════════════════
 // GAP CSV GENERATOR
 // ══════════════════════════════════════════════════════════
+/**
+ * One row per HCF capability, from the SAME `scoreCapabilities` page 13 uses.
+ *
+ * What this used to be, recorded because it is the second half of D-003: the
+ * bridge (`THEME_TO_CATEGORY`) plus a `charCodeAt` jitter,
+ * `(cap.id.charCodeAt(len - 1) % 10 - 5) * 0.08`. Deterministic — this file is the
+ * golden harness's reproducibility control and stays so — but the jitter was
+ * decoration on a category number, spreading 108 rows around five values so they
+ * would not look copied. The PDF used the same bridge with a different jitter
+ * constant (0.1 against 0.08), so the spreadsheet and page 13 printed different
+ * numbers for the same capability on the same day.
+ *
+ * Both are gone. One scoring path, so the two agree by construction.
+ *
+ * An unscored capability writes EMPTY numeric cells and its state in Priority,
+ * rather than 0.0 / Low. An empty cell is the CSV convention for "no value" and
+ * survives a spreadsheet import as blank; a zero would be averaged. The header is
+ * unchanged — Priority is already a text column and carries the state without a
+ * schema change for consumers.
+ */
 export function generateHealthGapCSV(
   answers: HaiwAssessmentAnswer[],
   capabilities: HaiwCapability[],
+  questions: readonly HacrQuestionLink[],
 ) {
   const scores = computeCategoryScores(answers)
 
@@ -857,16 +1099,12 @@ export function generateHealthGapCSV(
   let csv = 'ID,Name,Theme,Group,Current Score,Target Score,Gap,Priority,FHIR Resources\n'
 
   if (capabilities.length > 0) {
-    // Use real capabilities data — one row per HCF capability
-    capabilities.forEach((cap, i) => {
-      const mappedCategory = THEME_TO_CATEGORY[cap.theme] ?? cap.theme
-      const catScore = scores.find(s => s.category === mappedCategory) || { current: 0, desired: 0, gap: 0 }
-      const variation = (cap.id.charCodeAt(cap.id.length - 1) % 10 - 5) * 0.08
-      const current = Math.max(1, Math.min(5, catScore.current + variation))
-      const target = Math.max(current, catScore.desired)
-      const gap = target - current
+    scoreCapabilities(capabilities, questions, answers).forEach((cap, i) => {
       const fhirList = cap.fhirResources.join('; ')
-      csv += `${i + 1},"${cap.name}","${cap.theme}","${cap.group}",${current.toFixed(1)},${target.toFixed(1)},${gap.toFixed(1)},${priorityLabel(gap)},"${fhirList}"\n`
+      const cells = cap.state === 'scored'
+        ? `${cap.current.toFixed(1)},${cap.desired.toFixed(1)},${cap.gap.toFixed(1)},${priorityLabel(cap.gap)}`
+        : `,,,${cap.state === 'not-assessed' ? 'Not Assessed' : 'Not Applicable'}`
+      csv += `${i + 1},"${cap.name}","${cap.theme}","${cap.group}",${cells},"${fhirList}"\n`
     })
   } else {
     // Synthesize 108 rows (approximately 13–14 per category) from category scores

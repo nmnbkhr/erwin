@@ -211,12 +211,10 @@ deviations worth knowing about:
   three baseline files on every capture for a value that could never be asserted.
   The *reason* goes under `notReproducible` in its place.
 
-  **This is now conservative rather than necessary for the six migrated
-  artefacts.** `ReportDoc` pins `/CreationDate` and `/ID` from `meta.generatedAt`,
-  and a two-run sweep confirms all six are byte-identical. They still carry
-  `rawBytesAsserted: false`, so 15 of 23 assert raw bytes where 21 could. Turning
-  the other six on is one `assertRawBytes: true` per registry entry — see
-  "Determinism, measured".
+  **Only the two gap CSVs still take this path.** The six migrated artefacts had
+  it too until D3; `ReportDoc` pins `/CreationDate` and `/ID` from
+  `meta.generatedAt`, a two-run sweep confirms all six are byte-identical, and
+  they now assert raw bytes like everything else. See "Determinism, measured".
 - **For `baiw/gap-csv` and `taiw/gap-csv`, the sample rows are masked in the
   unassertable columns, and `bytes` / `fullTextSha256` / `rawBytesSha256` are
   `null`.** Everything downstream of an RNG column is also RNG: the row text,
@@ -307,10 +305,9 @@ harness is wrong, not the generator.** Debug the harness first.
 
 ## DGIW coverage — a stronger assertion than the other three
 
-The six module reports are baselined on *extracted text*; DGIW's fourteen on
-**raw bytes**. That difference is historical — it dates from when the module
-generators re-rolled the trailer `/ID` from `Math.random` on every call, which
-they no longer do.
+DGIW's fourteen are baselined on **raw bytes**, and since D3 so are the six
+migrated module reports — the earlier split was historical, dating from when the
+module generators re-rolled the trailer `/ID` from `Math.random` on every call.
 
 They can be, because `ReportDoc`'s constructor pins both sources of drift from
 `meta.generatedAt` — `setCreationDate` and a FNV-1a `setFileId` over the
@@ -436,10 +433,22 @@ Two full captures, byte-compared, all 23:
 Every artefact on the spine is reproducible. The two that are not are the two
 that are not on it.
 
-`rawBytesAsserted` is `true` on **15** of the 23 — `haiw/gap-csv` (the control)
-and all fourteen DGIW artefacts. The six migrated module reports are provably
-reproducible but still baselined on extracted text only; the gap is a leftover
-from when they could not be, not a property of them now.
+**`rawBytesAsserted` is `true` on 21 of the 23** — everything except those two.
+Byte equality is the strongest assertion available and it now covers every
+artefact that can carry it.
+
+Getting there turned up a hole worth knowing about. The six migrated module
+artefacts carried `rawBytesAsserted: false` as a leftover from when they re-rolled
+`/ID` from `Math.random`; flipping the registry flag moved only the three PDFs.
+The three **markdown** baselines did not move, because `analyseMd()` hashed the
+bytes on every capture and never set the flag, and `diffMd()` never called the
+comparator. A markdown file has no `/ID` and no `CreationDate`, so those hashes
+were assertable from the very first capture — instead they sat in three committed
+baselines being read by nobody. Both halves are fixed; the comparator was proved
+to fire by corrupting a stored hash and watching compare go `FAIL … exit 1`.
+
+A recorded value that nothing reads is indistinguishable from a passing check.
+That is the fourth time this project has hit that shape.
 
 ## What this does not cover
 

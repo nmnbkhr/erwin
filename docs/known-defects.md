@@ -217,9 +217,11 @@ the margin, rather than needing someone to open the PDF and notice.
 
 ## D-003 — HAIW's "largest estimated gaps" page reports twenty gaps of zero
 
-**Status** — open. Found 2026-07-31 during Phase D2 Step 0, while widening
-D-001. Distinct from D-001: that one is about fabricated numbers, this one is a
-plain bug that makes the page report nothing at all.
+**Status** — FIXED 2026-08-01, as its own change after D2 closed. Found
+2026-07-31 during Phase D2 Step 0 while widening D-001, and migrated verbatim
+through step 1 so the migration diff stayed readable. Distinct from D-001: that
+one is about fabricated numbers, this one was a plain bug that made the page
+report nothing at all.
 
 **Where** — `baiw/src/haiw/utils/healthReportGenerator.ts:636`, page 13 of
 `generateHealthMaturityPDF`:
@@ -232,13 +234,10 @@ const catScore = scores.find(s => s.category === cap.theme) || { current: 0, gap
 `Workforce & Skills`, `Data Governance & Standards`, … `Outcomes & Impact`.
 `cap.theme` is one of the six **HCF themes** — `Patient Intelligence &
 Experience`, `Clinical Analytics & Quality`, … `Digital Health & Data
-Governance`. The two vocabularies are disjoint. **`find` never matches**, so
-`catScore` is always the `{ current: 0, gap: 0 }` fallback.
+Governance`. The two vocabularies are disjoint. **`find` never matched**, so
+`catScore` was always the `{ current: 0, gap: 0 }` fallback.
 
-The file already contains the bridge that fixes this — `THEME_TO_CATEGORY`, at
-line 46 — and uses it in `generateHealthGapCSV` at line 951. Page 13 does not.
-
-**What it does**
+**What it did**
 
 With `catScore.current = 0` and `catScore.gap = 0`, and a variation bounded at
 ±0.5, `current` clamps to `1`, `required` equals `current`, and `gap` is `0` for
@@ -255,24 +254,84 @@ distinct Priority values: ["Low"]
 ```
 
 A page titled **"Top 20 HCF capabilities with largest estimated gaps based on
-category scores"** reports twenty capabilities with no gap, at the lowest
+category scores"** reported twenty capabilities with no gap, at the lowest
 maturity level, all Low priority — regardless of what the client answered. The
-sort is `by gap descending` over 108 equal values, so the "top 20" is simply the
+sort is `by gap descending` over 108 equal values, so the "top 20" was simply the
 first twenty rows of `capabilities.json` in file order.
 
-This is client-facing and has shipped.
+This is client-facing and shipped.
 
-**Interaction with D2** — HAIW migrates first. Migrating this page faithfully
-preserves a page that says nothing; fixing it during the migration is a
-behaviour change outside the migration's remit and would confound the golden
-diff. The intended handling is to **migrate faithfully and leave the defect
-standing**, so the diff stays readable, and to fix it as its own change with its
-own review. Flag it if that is the wrong call.
+**The bridge was considered and rejected**
 
-**Harness status** — fully baselined and asserted, exactly as described in
-D-001's inversion. The twenty zero-gap rows are covered by
-`normalisedTextSha256`, so correcting the bug will report as a `CHANGED`
-finding.
+The file already carried a bridge — `THEME_TO_CATEGORY`, mapping each HCF theme
+to one HACR category — and `generateHealthGapCSV` already used it. Routing page
+13 through it is a two-line change and was the obvious fix. It was measured
+first, and the measurement killed it:
+
+| | bridged | computed |
+|---|---|---|
+| distinct gap values across 108 capabilities | **at most 5** | **13** |
+| HACR categories able to affect the page | **5 of 8** | **8 of 8** |
+| what the ranking actually orders | theme, then file order | capability |
+
+Six themes collapse onto five categories — `Outcomes & Impact` is the target of
+two — leaving **`Strategy & Leadership`, `Workforce & Skills` and
+`Integration & Interoperability` with no route to the page at all**. A client
+could move every question in those three and page 13 would not change. And
+because `gap` came from the category and only `current` was jittered, every
+capability sharing a theme carried the identical gap, so the "top 20 by gap" was
+theme order wearing a capability's name. That is a plausible lie replacing a
+visible one, and plausible is the harder of the two to ever find again.
+
+**What the fix was**
+
+Computed from `capabilityLinks` instead — the weight-weighted mean of the
+answered HACR questions linked to each capability. The authoring supports it with
+nothing left over: **720 of 720 questions carry links, all 108 capabilities are
+covered, 6–7 questions each**. There was no gap to work around.
+
+On the fixture the page now spans **13 distinct gap values** (2.1 … 0.7) and 7
+distinct current values, its top 20 spans **6 of 6 themes** and its linked
+questions **8 of 8 HACR categories** — none unreachable. Priority across all 108
+went from `Low 108` to `High 39 · Low 36 · Medium 31 · Critical 2`.
+
+**The CSV and the PDF had been printing different numbers for the same
+capability on the same day.** The CSV used the bridge plus a `charCodeAt` jitter
+of `× 0.08`; page 13 used the failed `find` plus the same jitter at `× 0.1`. Two
+deliverables, one engagement, one capability, two answers. Both now call one
+`scoreCapabilities()`, so they agree by construction rather than by review.
+
+**Three states, enforced by the type system**
+
+`aggregate()` returns a discriminated union — `scored` | `not-assessed` |
+`not-applicable` — so `current`, `desired` and `gap` are **unreachable until
+`state === 'scored'`**. The `current: number` shape carrying `0` for "unmeasured"
+is exactly what produced this defect; the compiler now refuses to write it.
+Unscored capabilities are excluded from the ranking, not sorted to the polite end
+of it, so an unanswered assessment renders an empty table rather than twenty rows
+at gap 0.0. The caption states the denominator, as the DGIW diagnostic does:
+
+```
+Weight-weighted mean of the answered HACR questions linked to each capability.
+Scored 108 of 108 capabilities · not assessed 0 · not applicable 0.
+Showing the top 20 by gap, ties broken by capability id.
+```
+
+Zero not-applicable is asserted rather than assumed — all three branches were
+driven and render: `only one category answered → 90 / 18 / 0`, `no answers →
+0 / 108 / 0`, `no question bank → 0 / 0 / 108`.
+
+**Blast radius** — page 13 was the only page that moved: +58 glyphs, +1 run (the
+caption wrapping to a second line), 18 pages and 61 table rows held, every right
+edge unchanged. The CSV moved on values only — 108 rows × 9 columns and its
+header unchanged.
+
+**Harness status** — was fully baselined and asserted, exactly as described in
+D-001's inversion, so the fix reported as a `CHANGED` finding rather than needing
+anyone to open the PDF. Re-baselined 2026-08-01: `haiw/maturity-pdf` and
+`haiw/gap-csv` rewritten, `haiw/roadmap-md` byte-identical, BAIW ×3, TAIW ×3 and
+DGIW ×14 untouched. `haiw/gap-csv` asserts raw bytes — it never had a
+`Math.random` and is the harness's determinism control.
 
 ---
 

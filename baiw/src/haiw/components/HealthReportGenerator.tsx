@@ -1,17 +1,26 @@
 import { useState } from 'react'
 import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
-import type { HaiwAssessmentAnswer, HaiwCapability } from '../types'
+import type { HaiwAssessmentAnswer, HaiwCapability, HacrQuestion } from '../types'
 import { useOrgName } from '../../engagement/useOrgName'
 import { useReportMeta, REPORT_PROFILES } from '../../engagement/useReportMeta'
 
 interface HealthReportGeneratorProps {
   answers: HaiwAssessmentAnswer[]
   capabilities: HaiwCapability[]
+  /**
+   * The HACR question bank the parent already loaded.
+   *
+   * Threaded through rather than loaded here: the generator needs `capabilityLinks`
+   * and `weight` to score a capability from the questions that assess it, and
+   * `hacrQuestions.json` is 1.18 MB that `HealthMaturityAssessment` is already
+   * holding to render the assessment itself.
+   */
+  questions: HacrQuestion[]
   answeredCategories: number
   totalCategories: number
 }
 
-export default function HealthReportGenerator({ answers, capabilities, answeredCategories, totalCategories }: HealthReportGeneratorProps) {
+export default function HealthReportGenerator({ answers, capabilities, questions, answeredCategories, totalCategories }: HealthReportGeneratorProps) {
   const [expanded, setExpanded] = useState(false)
   // The client's name lives on the active engagement, not in this component.
   const [orgName, setOrgName] = useOrgName()
@@ -38,10 +47,11 @@ export default function HealthReportGenerator({ answers, capabilities, answeredC
       if (type === 'pdf') {
         // isDraft is not passed: the generator derives it from the answers, which
         // is where it has always been derived. See the note on reportMeta there.
-        gen.generateHealthMaturityPDF(answers, capabilities, undefined, metaFor(gen.HEALTH_MATURITY_ARTEFACT_ID))
+        gen.generateHealthMaturityPDF(answers, capabilities, questions, undefined, metaFor(gen.HEALTH_MATURITY_ARTEFACT_ID))
       } else if (type === 'csv') {
-        // Still the pre-spine generator, deliberately — see D-001.
-        gen.generateHealthGapCSV(answers, capabilities)
+        // Still the pre-spine generator, deliberately — see D-001. It shares the
+        // PDF's capability scoring, so the two cannot disagree.
+        gen.generateHealthGapCSV(answers, capabilities, questions)
       } else {
         gen.generateHealthRoadmapMarkdown(answers, capabilities, metaFor(gen.HEALTH_ROADMAP_ARTEFACT_ID))
       }

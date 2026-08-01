@@ -25,9 +25,7 @@
   "module": "baiw",
   "nonWinAnsiFonts": [],
   "normalisedTextSha256": "45b5bdaff3b4e403b5864863185a4873ce67d75d96b17b66a8fa52dca338cdff",
-  "notReproducible": {
-    "rawBytesSha256": "jsPDF fills the trailer /ID from Math.random and /CreationDate from the clock"
-  },
+  "notReproducible": {},
   "pageCount": 18,
   "pages": [
     {
@@ -1043,8 +1041,8 @@
       "widthPt": 595.28
     }
   ],
-  "rawBytesAsserted": false,
-  "rawBytesSha256": null,
+  "rawBytesAsserted": true,
+  "rawBytesSha256": "95f639110b8f3a65d177518a275cf360e189bb35e663333d50b8fa9d5a08c41b",
   "tableRowsTotal": 62,
   "textRunCount": 670,
   "unknownFonts": [],

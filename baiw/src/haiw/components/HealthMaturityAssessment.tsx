@@ -86,6 +86,16 @@ export default function HealthMaturityAssessment() {
     })
   }, [categories])
 
+  /**
+   * Every question, flat. `questionsPerCategory` above keeps them grouped for
+   * rendering; the report generator scores capabilities across category
+   * boundaries, because a capability's linked questions are not confined to one.
+   */
+  const allQuestions = useMemo(
+    () => questionsPerCategory.flatMap(({ questions: qs }) => qs),
+    [questionsPerCategory],
+  )
+
   // Category progress info
   const categoryProgress = useMemo(() => {
     return questionsPerCategory.map(({ category: cat, questions: qs }) => {
@@ -484,6 +494,7 @@ export default function HealthMaturityAssessment() {
           <HealthReportGenerator
             answers={Object.values(answers)}
             capabilities={capabilities}
+            questions={allQuestions}
             answeredCategories={touchedCategoryCount}
             totalCategories={categories.length}
           />
