@@ -42,7 +42,20 @@
     "because none of the three BAIW generators accepted one - they called",
     "new Date() directly, and the harness could only normalise the result to a",
     "<DATE> token. The gap CSV reads none of the three - its baseline is",
-    "unaffected, and that is checked rather than assumed."
+    "unaffected, and that is checked rather than assumed.",
+    "",
+    "dataSources, D5 stage E1. reportGenerator.ts imports THREE datasets and the",
+    "`data` block below freezes exactly one, so capabilities.json and",
+    "dataRequirements.json were read LIVE at capture and no fingerprint covered",
+    "them - an edit to either moved the capability register while every baseline",
+    "still read `stable`. That is D-010, and it was found by",
+    "FINGERPRINT-COVERAGE rather than by anyone noticing. Declaring them here",
+    "does NOT freeze them: only `data` keys are served to the generator, so the",
+    "bytes are unchanged and the fingerprint now moves when the live file does."
+  ],
+  "dataSources": [
+    "src/data/capabilities.json",
+    "src/data/dataRequirements.json"
   ],
   "assessment": {
     "scores": [

@@ -729,6 +729,42 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     touches: [`${HAIW}/capabilities.json`],
     apply: () => json(`${HAIW}/capabilities.json`, (c) => { c[0].fhirResources = ['NotAResource'] }),
   },
+
+  /*
+   * ── HCF-SYNTHETIC, two rows, one per branch ─────────────────────────────
+   *
+   * D5 stage E2. The class pins three positional HCF fields and asserts HAIW's
+   * generator reads none of them. Its two branches fail for OPPOSITE reasons and a
+   * single mutation cannot show both:
+   *
+   *   1. the data stopped being positional — the field was AUTHORED, which is good
+   *      news that must still fail the build, because on that day omitting it from
+   *      page 13 and MR-HAIW-REGISTER stops being the right call.
+   *   2. the generator started reading one — the withdrawal being quietly undone,
+   *      which is the D-008 shape.
+   */
+  {
+    code: 'HCF-SYNTHETIC',
+    // 4, not 0 or 9: `[2,3,3,1][0]` is 2, so 4 breaks the cycle while staying inside
+    // HCF-SHAPE's `integer 1..5`. That is the point — the range assertion passed for
+    // two phases over a counter, so a mutation that trips it too would not show that
+    // this class sees something HCF-SHAPE cannot.
+    what: 'a maturityLevelRequired that is authored rather than positional — good news, and it must still fail',
+    touches: [`${HAIW}/capabilities.json`],
+    apply: () => json(`${HAIW}/capabilities.json`, (c) => { c[0].maturityLevelRequired = 4 }),
+  },
+  {
+    code: 'HCF-SYNTHETIC',
+    what: 'the HAIW generator reading a withdrawn positional field again',
+    touches: ['src/haiw/utils/healthReportGenerator.ts'],
+    // A property ACCESS, which is what the check looks for — the field is discussed
+    // at length in that file's comments and a rule that failed on the word would make
+    // the explanation unwritable.
+    apply: () => append(
+      'src/haiw/utils/healthReportGenerator.ts',
+      '\nexport const __selftestLevel = (c: HaiwCapability) => c.maturityLevelRequired\n',
+    ),
+  },
   {
     code: 'HAIW-WEIGHT',
     // ONE assertion, one row. The old rule was `> 0` and had two conceivable
@@ -880,6 +916,55 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     what: 'a check that examines nothing and reports nothing',
     touches: ['scripts/check/modules/dgiw.mjs'],
     apply: () => sub('scripts/check/modules/dgiw.mjs', 'return { examined: coreCdes.length }', 'return { examined: 0 }'),
+  },
+
+  /*
+   * ── FINGERPRINT-COVERAGE, three rows, one per branch ────────────────────
+   *
+   * EACH ROW ISOLATES ONE BRANCH, on the HACR-INSTRUMENT precedent. The obvious
+   * mutation — point a generator at any undeclared file — trips the class but
+   * proves nothing about WHICH of its three assertions caught it, and two of the
+   * three are the ones that matter:
+   *
+   *   1. the subset assertion itself, on a direct import
+   *   2. the refusal to skip an import it cannot resolve
+   *   3. the TRANSITIVE walk — the branch a direct-imports-only check would lack
+   *      while looking identical from outside. Three of DGIW's nine dataset reads
+   *      are reachable only through a binding, so this is not a hypothetical
+   *      branch; it is most of the class's value.
+   */
+  {
+    code: 'FINGERPRINT-COVERAGE',
+    what: 'a fingerprint that stops declaring a dataset its own generator imports — D-010, made visible',
+    touches: ['scripts/golden/fixtures/taiw.json'],
+    apply: () => json('scripts/golden/fixtures/taiw.json', (f) => {
+      const drop = 'src/data/taiw/capabilities.json'
+      if (!(f.dataSources ?? []).includes(drop)) throw new Error(`taiw.json no longer declares ${drop} — this row is measuring nothing`)
+      f.dataSources = f.dataSources.filter((s) => s !== drop)
+    }),
+  },
+  {
+    code: 'FINGERPRINT-COVERAGE',
+    what: 'a generator reaching data through a template-string import — unresolvable, so unverifiable',
+    touches: ['src/taiw/utils/tradeReportGenerator.ts'],
+    // The `/* @vite-ignore */` idiom TAIW and HAIW use for their data loaders. A
+    // specifier built at runtime can name any dataset in the tree, so the check
+    // must refuse it rather than walk past it and report the module clean.
+    apply: () => append(
+      'src/taiw/utils/tradeReportGenerator.ts',
+      '\nexport const __selftestLoad = (n: string) => import(/* @vite-ignore */ `../../data/taiw/${n}.json`)\n',
+    ),
+  },
+  {
+    code: 'FINGERPRINT-COVERAGE',
+    what: 'an undeclared dataset reached only THROUGH a binding — what a direct-imports-only walk cannot see',
+    // hacr.ts is imported by healthReportGenerator.ts, so this JSON is two hops
+    // from the declared report source and zero hops from nothing. benchmarks.json
+    // is read by no generator today (HAIW's report uses its own
+    // DEFAULT_BENCHMARKS) and is declared by no fixture, so it is undeclared for
+    // the right reason rather than by coincidence.
+    touches: ['src/haiw/hacr.ts'],
+    apply: () => append('src/haiw/hacr.ts', "\nimport __selftestBenchmarks from '../data/haiw/benchmarks.json'\nexport const __selftestUse = () => __selftestBenchmarks\n"),
   },
 
   // ── the geometry audit ──────────────────────────────────────────────────

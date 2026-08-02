@@ -10,10 +10,14 @@ interface HealthReportGeneratorProps {
   /**
    * The HACR question bank the parent already loaded.
    *
-   * Threaded through rather than loaded here: the generator needs `capabilityLinks`
-   * and `weight` to score a capability from the questions that assess it, and
-   * `hacrQuestions.json` is 1.18 MB that `HealthMaturityAssessment` is already
-   * holding to render the assessment itself.
+   * Threaded through rather than loaded here: `hacrQuestions.json` is 1.18 MB that
+   * `HealthMaturityAssessment` is already holding to render the assessment itself.
+   *
+   * The generator needs it for the QUESTION UNIVERSE — category scoring buckets the
+   * questions and attaches answers to them, which is what distinguishes
+   * `not-assessed` from `not-applicable`. It no longer needs `capabilityLinks`: the
+   * per-capability score is withdrawn (D-016, D5 stage E2), and the CSV is now a
+   * register built from the capability dataset alone.
    */
   questions: HacrQuestion[]
   /**
@@ -60,14 +64,17 @@ export default function HealthReportGenerator({ answers, capabilities, capabilit
         // is where it has always been derived. See the note on reportMeta there.
         gen.generateHealthMaturityPDF(answers, capabilities, questions, undefined, metaFor(gen.HEALTH_MATURITY_ARTEFACT_ID))
       } else if (type === 'csv') {
-        // On src/report/csv.ts since 2026-08-01 — it was the last hand-rolled CSV
-        // in the suite. It shares the PDF's capability scoring, so the two cannot
-        // disagree, and it keeps the -GAP id because HAIW's gap column is real.
+        // A REGISTER since D5 stage E2, not a gap analysis — MR-HAIW-REGISTER, and
+        // `answers`/`questions` are no longer passed because a register of authored
+        // attributes cannot vary with the assessment. D-016: the per-capability score
+        // rested on `capabilityLinks`, which is a modular counter over the 720
+        // questions, so the Gap and Priority columns a client would sort by were
+        // ranking noise. Withdrawn on BAIW's and TAIW's D-001 precedent.
         //
         // D-008: returns false and writes NOTHING when the capability dataset is
         // unavailable. It used to invent 108 rows instead. A silent no-op reads as
         // a broken button, so the failure is surfaced rather than swallowed.
-        const written = gen.generateHealthGapCSV(answers, capabilities, questions, metaFor(gen.HEALTH_GAP_ARTEFACT_ID))
+        const written = gen.generateHealthCapabilityRegisterCSV(capabilities, metaFor(gen.HEALTH_REGISTER_ARTEFACT_ID))
         if (!written) {
           setFailure(
             'No file was written: the HCF capability dataset could not be loaded, so there are ' +

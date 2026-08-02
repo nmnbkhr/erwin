@@ -34,6 +34,22 @@ import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import { installDomSink, DOM_SINK } from './dom-sink.mjs'
+/*
+ * The fingerprint declaration is a SHARED module, not a local const, as of D5
+ * stage E1. `check/suite/fingerprint-coverage.mjs` asserts that what a module's
+ * generators import is a subset of what its fingerprint declares, and it cannot
+ * import this file to find out — that would pull Vite into a gate that runs in
+ * two seconds. Two copies of the rule is the shape D-010 came from, so there is
+ * one copy and both sides import it.
+ */
+import {
+  fixtureDataSources,
+  SHARED_DATASETS,
+  assertModulesMatch,
+} from './fingerprint-decl.mjs'
+
+/** Re-exported: this was defined here until D5 stage E1 and has outside callers. */
+export { fixtureDataSources }
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 
@@ -45,6 +61,13 @@ export const BASELINE_DIR = path.join(HERE, 'baseline')
 export const RAW_DIR = path.join(HERE, 'raw')
 
 export const MODULES = ['baiw', 'taiw', 'haiw', 'dgiw']
+
+/*
+ * A module present here but not in FINGERPRINTED_MODULES would record a
+ * fingerprint whose coverage nothing verifies. Asserted at import rather than
+ * documented — see fingerprint-decl.mjs::assertModulesMatch.
+ */
+assertModulesMatch(MODULES)
 
 /**
  * DGIW's accent, copied from useDeliverable.ts's DGIW_ACCENT (rose-600).
@@ -317,12 +340,26 @@ export const REGISTRY = {
         call: (m, f, c) => m.generateHealthMaturityPDF(f.answers, f.capabilities, f.questions, f.benchmarks ?? undefined, c.meta),
       },
       {
+        /*
+         * SPEC ID STAYS `gap-csv` THOUGH THE ARTEFACT IS NOW A REGISTER.
+         *
+         * D5 stage E2 withdrew HAIW's per-capability score (D-016) and renamed the
+         * export and the artefact id. The spec id is the BASELINE FILENAME, and BAIW
+         * kept `gap-csv` through exactly this change under D-001 —
+         * `baseline/baiw/gap-csv.json` records `generateCapabilityRegisterCSV` today.
+         * Renaming it here would orphan one baseline and create another, turning a
+         * reviewable content diff into a file move that hides it. Both modules are
+         * consistent, and both are consistently misnamed; the id is a harness handle,
+         * not a claim about the deliverable.
+         */
         id: 'gap-csv',
         kind: 'csv',
-        exportName: 'generateHealthGapCSV',
-        artefactIdExport: 'HEALTH_GAP_ARTEFACT_ID',
+        exportName: 'generateHealthCapabilityRegisterCSV',
+        artefactIdExport: 'HEALTH_REGISTER_ARTEFACT_ID',
         profile: 'haiw',
-        call: (m, f, c) => m.generateHealthGapCSV(f.answers, f.capabilities, f.questions, c.meta),
+        // No answers and no questions: a register of authored attributes cannot vary
+        // with the assessment, and the signature no longer accepts them.
+        call: (m, f, c) => m.generateHealthCapabilityRegisterCSV(f.capabilities, c.meta),
         // THE CONTROL. Step 1 found no clock read and no RNG in this generator,
         // and its bytes were identical across four TZ/locale environments. It is
         // therefore baselined on raw bytes as well as normalised text: if this
@@ -729,9 +766,11 @@ export async function createDriver(modules) {
    * `frameworks.json` left `src/dgiw/data/` in D5 stage B and the projection still
    * reads it; covering only the directory would have shrunk this from eleven files
    * to ten and made a DMBOK edit invisible to all fourteen DGIW baselines.
+   *
+   * SHARED_DATASETS moved to `fingerprint-decl.mjs` in D5 stage E1 so the gate can
+   * read the same list without importing Vite. It is imported at the top of this
+   * file; the reasoning above is why it is not merely a path constant.
    */
-  const SHARED_DATASETS = ['src/frameworks/data/frameworks.json']
-
   function fingerprintFor(module) {
     if (module === 'dgiw') return datasetFingerprint('src/dgiw/data', SHARED_DATASETS)
     const sources = fixtureDataSources(fixtures[module])
@@ -1364,10 +1403,13 @@ export function datasetFingerprint(dir, sharedRel = []) {
  * @returns repo-relative paths, sorted, from the `data` block's own keys plus any
  *          `dataSources` the fixture declares for content it freezes outside it
  *          (HAIW's `capabilities` and `questions` arrays).
+ *
+ * THE IMPLEMENTATION MOVED to `fingerprint-decl.mjs` in D5 stage E1 and is
+ * re-exported from the top of this file. It is imported by the suite gate's
+ * FINGERPRINT-COVERAGE class, which asserts that every JSON file a module's
+ * generators reach is in this set — the half of the D-010 story the freeze itself
+ * cannot tell. This comment stays here because this is where a reader looks.
  */
-export function fixtureDataSources(fixture) {
-  return [...new Set([...Object.keys(fixture.data ?? {}), ...(fixture.dataSources ?? [])])].sort()
-}
 
 /** sha256 over an explicit list of repo-relative files. Companion to the above. */
 export function datasetFingerprintOf(sources) {

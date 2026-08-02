@@ -1691,3 +1691,124 @@ templates over the subcategory name (`HACR-INSTRUMENT`), `weight` was a five-cyc
 scrutiny are `id`, `category`, `categoryId` and `subcategory` — the taxonomy. That
 is the honest boundary of what HACR measures, and it is why the crosswalk was
 authored against the taxonomy and against nothing else.
+
+### RESOLVED — 2026-08-02, D5 stage E2: withdrawn
+
+**Option 2 was taken.** HAIW's per-capability score is gone, and all three modules
+now hold one rule: **a capability score requires an AUTHORED link.**
+
+What shipped:
+
+| | before | after |
+|---|---|---|
+| artefact id | `MR-HAIW-GAP` | `MR-HAIW-REGISTER` |
+| PDF page 13 | Capability Gap Matrix — top 20 by gap | HCF Capability Coverage — 16 group rows |
+| CSV | 9 cols incl. Current / Target / Gap / Priority | 7 cols, authored attributes only |
+| export | `generateHealthGapCSV(answers, caps, questions, meta)` | `generateHealthCapabilityRegisterCSV(caps, meta)` |
+| `HacrQuestionLink` | `Pick<…,'id'\|'weight'\|'capabilityLinks'>` | `Pick<…,'id'\|'weight'>` |
+
+`scoreCapabilities`, `buildCapabilityGaps`, `CapabilityScore`, `CapabilityGap`,
+`CapabilityGapReport` and `TOP_CAPABILITY_GAPS` are **removed, not left
+unreachable** — an unreachable branch that renders a number is a wrong number
+waiting for its caller to change, which is what D-008 was.
+
+`aggregate()` stays. It is the category engine `scoreCategories` calls; only its
+capability caller went.
+
+**`HCF-LINK` keeps its two assertions and loses its claim.** Every link resolving
+and every capability being reached are still worth knowing — they are the first
+thing anyone authoring 720 real links will want — but they establish that the ids
+line up and nothing more. A counter satisfies a foreign-key check *better* than a
+real relation would: nothing dangles, every target is reached, the distribution is
+perfectly even. The positional measurement moved to **`HCF-SYNTHETIC`**, where it is
+**asserted** rather than reported, because the content decision this defect was
+waiting on has now been made and what needs guarding is that it is not silently
+inherited.
+
+### Authoring 720 real links is the UNLOCK, not the plan
+
+Recorded deliberately, because the gap being visible in a file is not a reason to
+close it. HAIW is the one module where the work is tractable — HACR's 80
+subcategories and HCF's 108 capabilities are both authored taxonomies over the same
+domain, so a subcategory-to-capability mapping is a reviewable authoring task rather
+than a research project, and it is the same shape as the D5 crosswalk entries that
+already exist. TAIW cannot: TACR carries no `capabilityLinks` field at all.
+
+**It should be driven by a client asking for capability-level maturity**, and it
+brings back page 13's ranking, the gap columns and `MR-HAIW-GAP` with it. Until then
+the register is the honest deliverable, and `HCF-SYNTHETIC` will fail the build on
+the first authored link so that the decision is retaken rather than assumed.
+
+---
+
+## D-017 — two more HCF capability fields are positional, and one of them reads as a client requirement
+
+**Found:** 2026-08-02, D5 stage E2, while choosing which attributes the replacement
+capability register should carry. **Status: RESOLVED same stage — both withdrawn from
+every deliverable and pinned by `HCF-SYNTHETIC`.**
+
+### What it is
+
+Two fields of `src/data/haiw/capabilities.json`, neither previously measured:
+
+```
+maturityLevelRequired === [2, 3, 3, 1][i % 4]              for 108 of 108, file order
+relatedCapabilities  === [previous, next] in file order    for 108 of 108, clamped
+```
+
+`maturityLevelRequired` is the dangerous one. Its distribution is
+
+```
+level 1: 27    level 2: 27    level 3: 54
+```
+
+which reads like an authored profile weighted toward level 3, and is 27 repetitions
+of one four-cycle. Levels 4 and 5 never occur. `relatedCapabilities` is why
+**HCF-001 and HCF-108 list themselves** — clamping at the ends of a two-wide window.
+
+### Why it was not caught
+
+`HCF-SHAPE` asserted `maturityLevelRequired` is an `integer 1..5`. True of a
+counter. **This is D-015's `weight > 0` with a range on it** — a check that
+constrains a value's range says nothing about whether the value was *decided*.
+`relatedCapabilities` was checked by `HCF-FK` for referential integrity, which a
+neighbour list satisfies perfectly.
+
+Both were about to be carried into the replacement register: the stage brief named
+`maturityLevelRequired` among the "real attributes" and its distribution as one of
+two honest candidates for page 13. It was neither.
+
+### Why a heading cannot rescue them
+
+TAIW's register does carry a fixed dataset field — `Framework Priority (authored)` —
+and that precedent looked like it covered these two. It does not. TCF's priority is
+**editorial judgement that happens to be client-independent**; these are **sequence
+position**. That is exactly the distinction D-015 turned on, and CLAUDE.md is
+explicit: *do not rename the column to make it defensible — a reader takes the
+number as the row's own no matter what the heading says.* A client sorting a
+spreadsheet by "Maturity Level Required" would be planning against `i % 4`.
+
+### The fix
+
+Neither field appears on page 13 or in `MR-HAIW-REGISTER`. Page 13 carries the
+attributes that survived measurement — 105 distinct FHIR resource triples across 108
+capabilities with only one shared between two groups, and 70 distinct HCDM
+subject-area sets, both group-coherent — as **distinct counts per group**, because
+every capability names exactly three FHIR resources so a linked/unlinked column
+would read `N/N` for all sixteen groups.
+
+`HCF-SYNTHETIC` pins all three cycles — these two and D-016's links — and **fails
+the day any of them stops being positional**, because on that day the field has been
+authored and omitting it stops being correct. `HAIW-WEIGHT`'s and
+`HACR-INSTRUMENT`'s shape exactly. Two selftest rows, one per branch.
+
+### The general rule this earns
+
+**A generated dataset should be assumed generated until a field is shown to have
+been decided** — D-016 earned that rule for `hacrQuestions.json`; this extends it to
+`capabilities.json`, which had never been examined the same way. Of its fourteen
+fields, four are now known mechanical (`maturityLevelRequired`,
+`relatedCapabilities`, and `description`/`businessQuestions` are templated on the
+capability name). The taxonomy — `id`, `name`, `theme`, `group` — and the two data
+linkages survive. **Measure the field before you ship the column**, and measure it
+even when the stage brief already calls it real.

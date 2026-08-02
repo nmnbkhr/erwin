@@ -52,6 +52,7 @@ import reportSourcesCheck from './check/suite/report-sources.mjs'
 import csvHeaderCheck from './check/suite/csv-header.mjs'
 import textMaxWidthCheck from './check/suite/text-maxwidth.mjs'
 import artefactImplCheck from './check/suite/artefact-impl.mjs'
+import fingerprintCoverageCheck from './check/suite/fingerprint-coverage.mjs'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 /** The real repo. esbuild output must land under its node_modules — see esbuild-load.mjs. */
@@ -61,7 +62,7 @@ const REPO = path.resolve(HERE, '..')
  * Declared run order for the suite classes. REPORT-SOURCES is first by
  * dependency, not by taste: the other three read the file set it resolves.
  */
-const SUITE_CHECKS = [reportSourcesCheck, csvHeaderCheck, textMaxWidthCheck, artefactImplCheck]
+const SUITE_CHECKS = [reportSourcesCheck, csvHeaderCheck, textMaxWidthCheck, artefactImplCheck, fingerprintCoverageCheck]
 
 // ── arguments ───────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2)
@@ -334,6 +335,28 @@ log(
 // reports are not catalogue entries, so folding them into that fraction would
 // make the delivery scoreboard read higher than it is.
 log(`    module reports ${moduleCovered.length} of ${moduleArtefactIds.size} declared ids claimed (${moduleCovered.join(', ') || 'none'})`)
+
+// Printed on every build for the same reason REPORT-SOURCES prints its file count:
+// this class can only ever be as wide as the generator set it walks, and the
+// per-module `read/declared` pair is the number that says whether a dataset edit
+// would be visible to that module's baselines at all. WATCH THE `read` NUMBERS —
+// one falling to 0 means the traversal stopped reaching a module's data.
+const fp = suiteCtx.results['FINGERPRINT-COVERAGE'] ?? {}
+const fpMods = fp.perModule ?? []
+log(
+  `  FINGERPRINT-COVERAGE ${fp.examined ?? 0} dataset ${plural(fp.examined ?? 0, 'import')} reached transitively from the declared generators` +
+    ` across ${fpMods.length} fingerprinted ${plural(fpMods.length, 'module')}` +
+    ` (${fpMods.map((m) => `${m.id} ${m.imported} read/${m.declared} declared`).join(', ') || 'none'})` +
+    `${fails.countOf('FINGERPRINT-COVERAGE') ? ` — ${fails.countOf('FINGERPRINT-COVERAGE')} UNDECLARED OR UNRESOLVABLE, see below` : ', every one declared'}`,
+)
+// Reported, never failed: over-declaring hashes a file nobody reads, which cannot
+// hide a change. Under-declaring is the D-010 defect. Printed so the asymmetry
+// stays a stated fact rather than an absence you would have to notice.
+const over = fpMods.filter((m) => (m.overDeclared ?? []).length > 0)
+log(
+  `    declared but read by no generator: ${over.length ? over.map((m) => `${m.id} ${m.overDeclared.length}`).join(', ') : 'none'}` +
+    ` — safe by design (parameterised content, a directory hash, a pre-emptive declaration); under-declaring is what fails`,
+)
 
 for (const mod of modules) {
   const entry = perModule.get(mod.id)

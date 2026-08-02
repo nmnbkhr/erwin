@@ -43,7 +43,24 @@
     "Answered 282 of 640 questions;",
     "overall 3 from 4 of 8 categories.",
     "Under the pre-D4 rule (divide by all 8) the same answers put",
-    "1.5 on the cover."
+    "1.5 on the cover.",
+    "",
+    "dataSources, D5 stage E1. Two directions here, and they are different facts.",
+    "capabilities.json and dataRequirements.json ARE imported by",
+    "tradeReportGenerator.ts while the `data` block freezes only benchmarks.json,",
+    "so both were read LIVE at capture with no fingerprint covering them - D-010,",
+    "found by FINGERPRINT-COVERAGE. crosswalk.json is NOT read by a generator",
+    "yet; it is declared ahead of D5 stage E3, which puts a framework scorecard",
+    "in the report. Declaring first means the fingerprint is correct on the commit",
+    "that starts reading it, instead of one stage later - which is exactly how",
+    "frameworks.json slipped out from under DGIW's fingerprint in stage B.",
+    "Declaring does NOT freeze: only `data` keys are served, so bytes are",
+    "unchanged."
+  ],
+  "dataSources": [
+    "src/data/taiw/capabilities.json",
+    "src/data/taiw/crosswalk.json",
+    "src/data/taiw/dataRequirements.json"
   ],
   "assessment": {
     "scores": [

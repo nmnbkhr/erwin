@@ -28,9 +28,15 @@ import type { ReportMeta } from '../report/types'
  * document is a capability register — the 112 real BVF capabilities and their
  * authored attributes — and it no longer reports a gap, because BAIW has no
  * per-capability gap to report. Renaming the id rather than leaving a filename
- * that says GAP over content that is not one. HAIW keeps `MR-HAIW-GAP`: since
- * D-003 its gap column is computed from real `capabilityLinks`, so there the
- * name is accurate. The asymmetry is the point.
+ * that says GAP over content that is not one.
+ *
+ * THE ASYMMETRY THIS COMMENT DEFENDED IS GONE. It said HAIW keeps `MR-HAIW-GAP`
+ * because "since D-003 its gap column is computed from real `capabilityLinks`, so
+ * there the name is accurate", and called the asymmetry the point. The links are real
+ * in the sense that they resolve, and a counter in the sense that they mean anything:
+ * `HCF-` + pad(((i + 1) % 108) + 1) over the 720 questions in file order. D5 stage E2
+ * withdrew HAIW's score too, and it now ships `MR-HAIW-REGISTER`. All three modules
+ * agree — a capability score requires an AUTHORED link. D-016.
  */
 export const MATURITY_ARTEFACT_ID = 'MR-BAIW-MATURITY'
 export const ROADMAP_ARTEFACT_ID = 'MR-BAIW-ROADMAP'

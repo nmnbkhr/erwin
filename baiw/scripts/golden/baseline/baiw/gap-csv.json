@@ -14,10 +14,12 @@
   },
   "columnCount": 8,
   "datasets": {
-    "files": 1,
-    "sha256": "6286141728d24d0dc8c4d30ec270b75df5504a5105752d4067f008e51e74644f",
+    "files": 3,
+    "sha256": "69b6ea019df32fda5face0986774a422c5be3be2863ad8c0f55b1d6739b064eb",
     "sources": [
-      "src/data/benchmarks.json"
+      "src/data/benchmarks.json",
+      "src/data/capabilities.json",
+      "src/data/dataRequirements.json"
     ]
   },
   "filename": "MR-BAIW-REGISTER_fixture-bank-limited_all_2026-07-31.csv",

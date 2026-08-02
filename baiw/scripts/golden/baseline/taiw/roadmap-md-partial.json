@@ -18,10 +18,13 @@
     ]
   },
   "datasets": {
-    "files": 1,
-    "sha256": "bd5c81ede41f2b6f0ac96b62dfbfb2c64e7adf9ea43c7457d0441e839ea91efa",
+    "files": 4,
+    "sha256": "0a22eac3b897cb283f510a22785a81c5b82820244ce4f5e76ce888d9442d4c73",
     "sources": [
-      "src/data/taiw/benchmarks.json"
+      "src/data/taiw/benchmarks.json",
+      "src/data/taiw/capabilities.json",
+      "src/data/taiw/crosswalk.json",
+      "src/data/taiw/dataRequirements.json"
     ]
   },
   "filename": "MR-TAIW-ROADMAP_fixture-customs-authority-partial_all_2026-07-31.md",

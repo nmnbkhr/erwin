@@ -1,19 +1,37 @@
 /**
  * HAIW — Healthcare Analytics. Dataset rules.
  *
- * HAIW is the only module in the suite that can honestly score a capability,
- * because it is the only one whose questions carry `capabilityLinks`. That is a
- * data fact, and HCF-LINK is what turns it from an assumption into a checked one:
- * 720 of 720 questions linked, 108 of 108 capabilities reached. Everything the
- * gap register and page 13 claim rests on it, and before D4 nothing verified it.
+ * THIS FILE OPENED, FOR TWO PHASES, WITH A CLAIM THAT WAS FALSE.
  *
- * HACR-CATEGORY-MAP is the one to read first. The assessment screen groups
+ * It said: "HAIW is the only module in the suite that can honestly score a
+ * capability, because it is the only one whose questions carry `capabilityLinks`.
+ * That is a data fact, and HCF-LINK is what turns it from an assumption into a
+ * checked one: 720 of 720 questions linked, 108 of 108 capabilities reached."
+ *
+ * Every number in that sentence was correct. The conclusion was not.
+ * `capabilityLinks[0] === 'HCF-' + pad(((i + 1) % 108) + 1)` in file order — a
+ * modular counter — and a counter passes a foreign-key check MORE cleanly than a
+ * real relation would: nothing dangles, every target is reached, the distribution is
+ * perfectly even. HCF-LINK was not weak; it was answering a different question from
+ * the one this comment used it to settle. D-016.
+ *
+ * D5 stage E2 withdrew the per-capability score, so all three modules now agree:
+ * a capability score requires an AUTHORED link, and `MR-HAIW-GAP` became
+ * `MR-HAIW-REGISTER`. Building the replacement register turned up two more positional
+ * fields in `capabilities.json` — `maturityLevelRequired` and `relatedCapabilities`
+ * — which nothing had ever measured, and which are withdrawn from the deliverables on
+ * the same grounds. D-017.
+ *
+ * HCF-SYNTHETIC is the class that exists so none of this can be quietly re-earned:
+ * it pins all three cycles and fails the day any is authored, and it asserts that
+ * HAIW's generator reads none of them.
+ *
+ * HACR-CATEGORY-MAP is still the one to read first. The assessment screen groups
  * questions by their `category` field; the report groups them by the two-letter
  * code in the id. Nothing checked that those two partitions agree, and a renamed
  * category would have split HAIW's scoring in two without a single error.
  *
- * `MR-HAIW-GAP` keeps the word the other two modules gave up. See CLAUDE.md, "A
- * capability score needs a link, not a heading".
+ * See CLAUDE.md, "A capability score needs a link, not a heading".
  */
 import { unique, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
 import { parseFile, propName, ts } from '../lib/ts-ast.mjs'
@@ -166,6 +184,15 @@ const hcfShape = {
       description: str(10),
       fhirResources: (v) => (Array.isArray(v) ? null : 'must be an array'),
       hcdmSubjectAreas: (v) => (Array.isArray(v) ? null : 'must be an array'),
+      /*
+       * RANGE ONLY. Whether the value was DECIDED is HCF-SYNTHETIC's question, and
+       * it is not: `[2, 3, 3, 1][i % 4]` for all 108 in file order (D-017).
+       *
+       * `1..5` was the `> 0` mistake exactly — true of a counter, and this one is a
+       * counter. Left here as a shape assertion because that is all it ever was;
+       * pinning the cycle belongs in a class whose name says it is about whether the
+       * field means anything.
+       */
       maturityLevelRequired: (v) => num(v) ?? (Number.isInteger(v) && v >= 1 && v <= 5 ? null : `must be an integer 1..5, got ${v}`),
       pakistanEnrichment: () => null,
       relatedCapabilities: (v) => (Array.isArray(v) ? null : 'must be an array'),
@@ -178,22 +205,38 @@ const hcfShape = {
 
 // ── HCF-LINK ────────────────────────────────────────────────────────────────
 /**
- * The relation that makes HAIW different from every other module.
+ * REFERENTIAL INTEGRITY OF `capabilityLinks`. NOT evidence that the relation is real.
  *
- * Only HACR carries `capabilityLinks`, which is why only HAIW derives a
- * per-capability score and why BAIW's and TAIW's registers report framework
- * coverage instead. Two directions, and both matter:
+ * ─── WHAT THIS CLASS CLAIMED, AND WHY THE CLAIM WAS WRONG ───────────────────
  *
- *   link -> capability   a link to a missing id is DROPPED by `scoreCapabilities`
- *                        ("the dataset is the authority on what exists"), so the
- *                        question quietly scores nothing at all.
- *   capability -> link   a capability no question reaches comes back
- *                        `not-applicable`, is excluded from the gap ranking, and
- *                        appears in the CSV as a row with no number. That is
- *                        honest output for a genuine gap and an authoring hole
- *                        wearing a not-applicable costume when it is not — the
- *                        same argument CROSSWALK-ORPHAN makes for a leaf
- *                        dimension with no mapping, so it fails the same way.
+ * It used to open "the relation that makes HAIW different from every other module",
+ * and CLAUDE.md cited it as what turned HAIW's per-capability score from an
+ * assumption into a checked fact: 720 of 720 questions linked, 108 of 108
+ * capabilities reached, nothing dangling.
+ *
+ * Every one of those assertions passed. All of them still pass. And the relation was
+ * a modular counter — `capabilityLinks[0] === 'HCF-' + pad(((i + 1) % 108) + 1)` for
+ * all 720 in file order (D-016). **A COUNTER SATISFIES A FOREIGN-KEY CHECK BETTER
+ * THAN A REAL RELATION WOULD**: it cannot dangle, it reaches every target exactly, and
+ * it distributes perfectly evenly. The check was not weak, it was answering a
+ * different question — D-015's lesson at the level of the join rather than the value.
+ *
+ * ─── SO WHAT IT ASSERTS NOW ─────────────────────────────────────────────────
+ *
+ * The same two directions, and nothing more, with the claim withdrawn. They are worth
+ * keeping: they are cheap, and they are the first thing anyone authoring 720 real
+ * links will want. What they establish is that the IDS LINE UP. Whether the links
+ * mean anything is `HCF-SYNTHETIC`'s question, and today the answer is no.
+ *
+ *   link -> capability   a link to a missing id would be dropped by any consumer, so
+ *                        the question would contribute to nothing.
+ *   capability -> link   a capability no question reaches could never be scored.
+ *
+ * NEITHER DIRECTION GATES A DELIVERABLE ANY MORE. D5 stage E2 withdrew the
+ * per-capability score, so nothing in HAIW's report set reads this field —
+ * `HCF-SYNTHETIC` asserts that too, because an unread field that a future edit could
+ * pick back up is exactly the D-008 shape. This class is dataset hygiene against the
+ * day the links are authored, not a guard on output.
  */
 const hcfLink = {
   code: 'HCF-LINK',
@@ -213,40 +256,170 @@ const hcfLink = {
       }
     for (const c of caps)
       if (!reached.has(c.id))
-        fail(`capability ${c.id} "${c.name}" is linked from no HACR question — it can never be scored, and page 13 and the gap CSV would both report it not-applicable with no way to tell that from a deliberate scope decision`)
+        fail(`capability ${c.id} "${c.name}" is linked from no HACR question — nothing could ever evidence it if the links were authored, and the register would have no way to distinguish that from a deliberate scope decision`)
+
+    // The positional measurement moved to HCF-SYNTHETIC in D5 stage E2, where it is
+    // ASSERTED rather than reported. It sat here as a comment-and-count while a
+    // deliverable still rested on the field; now that nothing does, the thing worth
+    // guarding is that it stays that way.
+    return { examined, reached: reached.size, capabilities: caps.length }
+  },
+}
+
+// ── HCF-SYNTHETIC ───────────────────────────────────────────────────────────
+/**
+ * THE THREE HCF FIELDS THAT ARE SEQUENCE POSITION, PINNED SO THEY CANNOT DRIFT
+ * EITHER WAY.
+ *
+ * D5 stage E2 withdrew HAIW's per-capability score because `capabilityLinks` is a
+ * counter (D-016). Building the replacement register turned up two more fields in
+ * `capabilities.json` with the same property, and neither had ever been measured
+ * (D-017):
+ *
+ *   capabilityLinks[0]      `HCF-` + pad(((i + 1) % 108) + 1)   720 of 720
+ *   maturityLevelRequired   [2, 3, 3, 1][i % 4]                 108 of 108
+ *   relatedCapabilities     [previous, next] in file order       108 of 108
+ *
+ * `maturityLevelRequired` is the instructive one. Its distribution is
+ * {1: 27, 2: 27, 3: 54} — which reads like an authored profile weighted toward
+ * level 3, and is 27 repetitions of one four-cycle. `HCF-SHAPE` asserted
+ * `integer 1..5`, true of a counter, which is the `> 0` mistake with a range on it.
+ * `relatedCapabilities` is why HCF-001 and HCF-108 list THEMSELVES: clamping at the
+ * ends of a [previous, next] window.
+ *
+ * ─── WHY PINNED AND NOT MERELY REPORTED ─────────────────────────────────────
+ *
+ * `HCF-LINK` measured the link cycle and printed it for a phase, on the TCF-COVERAGE
+ * precedent, because the two honest fixes led to opposite deliverables and neither
+ * was that stage's to pick. That was right then. It is not right now: the decision
+ * HAS been made — withdraw, one rule across the suite — and what needs guarding is
+ * that the decision is not silently inherited by whoever authors these fields next.
+ *
+ * So this ASSERTS, in the shape `HAIW-WEIGHT` and `HACR-INSTRUMENT` ship in: **it
+ * deliberately fails the day any of the three stops being positional.** On that day
+ * the field has been authored, and the register and page 13 have to be revisited in
+ * the same commit rather than continuing to omit a column that has become real. A
+ * fixed defect must not leave a permanent hole.
+ *
+ * ─── AND THAT NOTHING SHIPS THEM ────────────────────────────────────────────
+ *
+ * The second branch reads HAIW's declared report source and fails if it references
+ * any of the three. Removing the score was not enough on its own: an unreachable
+ * branch that renders a number is a wrong number waiting for its caller to change,
+ * which is exactly what D-008 was, and a type narrowing can be widened back in the
+ * same commit that uses it. The check is over source text because that is the layer
+ * `tsc` cannot speak to — `HacrQuestionLink` no longer carries `capabilityLinks`, but
+ * `capabilities.json`'s own fields are typed and available.
+ *
+ * NOTE: the D5 crosswalk rests on none of this. It maps framework dimensions onto the
+ * 80 HACR SUBCATEGORIES, an authored taxonomy, and reads no field named here.
+ */
+const PAD3 = (n) => `HCF-${String(n).padStart(3, '0')}`
+
+/**
+ * The three fields, their observed cycle, and the defect that recorded it.
+ *
+ * Declared as a table so the positional branch is ONE code path parameterised by
+ * field rather than three near-copies — and so adding a fourth is a data edit. Each
+ * predicate takes (record, index, all) and returns true when the value matches the
+ * cycle it is pinned to.
+ */
+const POSITIONAL_FIELDS = Object.freeze([
+  {
+    field: 'capabilityLinks',
+    dataset: 'hacr',
+    cycle: "capabilityLinks[0] === 'HCF-' + pad(((i + 1) % 108) + 1)",
+    defect: 'D-016',
+    matches: (q, i, _all, caps) => (q.capabilityLinks ?? [])[0] === PAD3(((i + 1) % (caps.length || 1)) + 1),
+  },
+  {
+    field: 'maturityLevelRequired',
+    dataset: 'caps',
+    cycle: 'maturityLevelRequired === [2, 3, 3, 1][i % 4]',
+    defect: 'D-017',
+    matches: (c, i) => c.maturityLevelRequired === [2, 3, 3, 1][i % 4],
+  },
+  {
+    field: 'relatedCapabilities',
+    dataset: 'caps',
+    cycle: 'relatedCapabilities === [previous, next] in file order, clamped at both ends',
+    defect: 'D-017',
+    matches: (c, i, all) => {
+      const at = (k) => all[Math.min(Math.max(k, 0), all.length - 1)]?.id
+      const want = [at(i - 1), at(i + 1)]
+      const got = c.relatedCapabilities ?? []
+      return got.length === want.length && got.every((v, k) => v === want[k])
+    },
+  },
+])
+
+/** Fields no HAIW deliverable may read, because none of them means anything. */
+const WITHDRAWN_FIELDS = Object.freeze(['capabilityLinks', 'maturityLevelRequired', 'relatedCapabilities'])
+
+const hcfSynthetic = {
+  code: 'HCF-SYNTHETIC',
+  run(ctx) {
+    const { fail, root, sources } = ctx
+    const caps = ctx.data.caps ?? []
+    let examined = 0
+
+    for (const spec of POSITIONAL_FIELDS) {
+      const records = ctx.data[spec.dataset] ?? []
+      if (records.length === 0) {
+        fail(`${spec.field} is pinned as positional (${spec.defect}) but its dataset "${spec.dataset}" is empty, so the pin verified nothing`)
+        continue
+      }
+      let hits = 0
+      for (const [i, rec] of records.entries()) {
+        examined++
+        if (spec.matches(rec, i, records, caps)) hits++
+      }
+      if (hits !== records.length)
+        fail(
+          `${spec.field} no longer matches ${spec.cycle} — ${hits} of ${records.length} records fit the cycle it was pinned to in ${spec.defect}. ` +
+            `THIS IS EXPECTED TO FAIL THE DAY THE FIELD IS AUTHORED, and that day it stops being right to omit it: ` +
+            `re-read docs/known-defects.md ${spec.defect}, then decide whether page 13 and MR-HAIW-REGISTER should now carry it. ` +
+            `Do not simply widen this rule — the whole point is that the omission and the data are decided together.`,
+        )
+    }
 
     /*
-     * MEASURED, REPORTED, NOT ASSERTED — D-016.
-     *
-     * `capabilityLinks[0]` is `HCF-(((i + 1) mod 108) + 1)` for all 720 questions in
-     * file order. A modular counter, the same `(i + 1) % N` idiom as the weight
-     * five-cycle D5 stage A removed, one field over. Its consequence: every
-     * capability is evidenced by questions drawn from six or seven of the eight HACR
-     * categories, because the cycle strides across category boundaries — so a
-     * capability's score is a sample of the whole assessment rather than of itself.
-     *
-     * THIS IS D-015 IN A PLACE THAT MATTERS MORE. `weight` perturbed capability
-     * scores; this IS the capability score's entire basis, and it is the relation
-     * CLAUDE.md cites as the reason HAIW alone may ship a gap register while BAIW
-     * and TAIW ship coverage registers.
-     *
-     * Not asserted, on the TCF-COVERAGE precedent: an assertion here fails the build
-     * over a defect this stage cannot honestly fix — the choices are authoring 720
-     * links or withdrawing the per-capability deliverable, both content decisions
-     * with their own walks. What this line buys is that the measurement is on stdout
-     * every build instead of in a document nobody re-reads. When it is fixed, this
-     * becomes an assertion that the links are NOT positional.
-     *
-     * NOTE: the crosswalk added in D5 stage D does NOT rest on capabilityLinks. It
-     * maps framework dimensions onto the 80 SUBCATEGORIES, an authored taxonomy, and
-     * inherits nothing from this.
+     * The declared report source set, filtered to HAIW's own generator. Reading the
+     * whole set would fail on DGIW's report code, which legitimately has fields of
+     * its own; this class is about what HAIW ships.
      */
-    const pad = (n) => `HCF-${String(n).padStart(3, '0')}`
-    let positional = 0
-    for (const [i, q] of qs.entries())
-      if ((q.capabilityLinks ?? [])[0] === pad(((i + 1) % (caps.length || 1)) + 1)) positional++
+    const haiwSources = (sources ?? []).filter((f) => f.includes('healthReportGenerator'))
+    if (haiwSources.length === 0) {
+      fail(`no HAIW report source resolved from the declared set, so whether a withdrawn field reaches a deliverable is unverified — see REPORT-SOURCES`)
+    }
+    for (const file of haiwSources) {
+      const { sf, rel } = parseFile(root, file)
+      examined++
+      for (const field of WITHDRAWN_FIELDS) {
+        /*
+         * Property ACCESS and destructuring, not any mention: every one of these
+         * fields is discussed at length in that file's comments, and a rule that
+         * failed on the word would make the explanation unwritable.
+         */
+        let used = false
+        const visit = (node) => {
+          if (ts.isPropertyAccessExpression(node) && node.name.text === field) used = true
+          else if (ts.isBindingElement(node) && propName(node.propertyName ?? node.name) === field) used = true
+          else if (ts.isPropertyAssignment(node) && propName(node.name) === field) used = true
+          else if (ts.isElementAccessExpression(node) && ts.isStringLiteralLike(node.argumentExpression) && node.argumentExpression.text === field) used = true
+          ts.forEachChild(node, visit)
+        }
+        visit(sf)
+        if (used)
+          fail(
+            `${rel} reads capability field ${JSON.stringify(field)}, which D5 stage E2 withdrew as positional — ` +
+              `a deliverable built on it would put a sequence artefact in front of a client under a heading that reads as a measurement. ` +
+              `If the field has since been authored, HCF-SYNTHETIC's pin above will be failing too, and both change together.`,
+          )
+      }
+    }
 
-    return { examined, reached: reached.size, capabilities: caps.length, positional: positional === qs.length ? positional : 0 }
+    return { examined, fields: POSITIONAL_FIELDS.length, sources: haiwSources.length }
   },
 }
 
@@ -857,7 +1030,12 @@ export default {
    */
   tsModules: { projection: 'src/haiw/projection.ts', maturity: 'src/scoring/maturity.ts' },
   reportSources: [{ rel: 'src/haiw/utils/healthReportGenerator.ts', kind: 'file' }],
-  artefactIds: ['MR-HAIW-MATURITY', 'MR-HAIW-GAP', 'MR-HAIW-ROADMAP'],
+  /*
+   * `MR-HAIW-GAP` -> `MR-HAIW-REGISTER`, D5 stage E2. The word "gap" was true of the
+   * arithmetic and false of the data: the gap was computed from `capabilityLinks`,
+   * which is a modular counter (D-016). All three modules now ship a register.
+   */
+  artefactIds: ['MR-HAIW-MATURITY', 'MR-HAIW-REGISTER', 'MR-HAIW-ROADMAP'],
 
   /** Declared run order — this is the order findings print in. */
   checks: [
@@ -868,6 +1046,7 @@ export default {
     hacrInstrument,
     hcfShape,
     hcfLink,
+    hcfSynthetic,
     hcfFk,
     haiwWeight,
     // The crosswalk seven, in dependency order: the spine must resolve before a

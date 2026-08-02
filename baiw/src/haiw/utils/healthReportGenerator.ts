@@ -9,9 +9,22 @@ import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '..
 import { formatCoverDate, reportFilename } from '../../report/naming'
 import { downloadCsv, byStringKey, type CsvColumn } from '../../report/csv'
 import type { ReportMeta } from '../../report/types'
+/*
+ * `aggregate` and `type Aggregate` LEFT THIS IMPORT IN D5 STAGE E2.
+ *
+ * They were here for the capability path: `CapabilityScore = CapabilityIdentity &
+ * Aggregate`, scored by calling `aggregate()` once per capability. Category scoring
+ * reaches the same primitive through `scoreCategories`, so removing the withdrawn
+ * score left both unreferenced.
+ *
+ * Removed rather than left imported, and NOT accounted for by moving the lint
+ * baseline: they are dead code servicing a defect that was removed, which is exactly
+ * what D-012's two cleared errors were. The baseline stays at 53 because these two
+ * never became part of it.
+ */
 import {
-  aggregate, scoreCategories, overallCurrent, coverageStatement, scoreLabel,
-  type Applicable, type Aggregate, type CategoryOutcome,
+  scoreCategories, overallCurrent, coverageStatement, scoreLabel,
+  type Applicable, type CategoryOutcome,
 } from '../../scoring/maturity'
 import type { HaiwCapability, HaiwAssessmentAnswer, HacrQuestion } from '../types'
 import { HACR_CATEGORIES, hacrCategoryOf } from '../hacr'
@@ -25,16 +38,27 @@ import { HACR_CATEGORIES, hacrCategoryOf } from '../hacr'
  * filename and the trailer /ID seed and are deliberately NOT printed on the cover
  * — `useReportMeta` sets `coverTag: ''` for exactly that reason.
  *
- * `MR-HAIW-GAP` keeps `-GAP` where BAIW's and TAIW's became `-REGISTER`. That
- * asymmetry is load-bearing, not an oversight: since D-003 this file's gap column
- * is computed from real `capabilityLinks` on all 720 HACR questions, so the word
- * is TRUE here and false there. It records which module has the relation
- * authored. Do not "fix" it. See CLAUDE.md, "A capability score needs a link, not
- * a heading".
+ * `MR-HAIW-GAP` BECAME `MR-HAIW-REGISTER` IN D5 STAGE E2, and the asymmetry this
+ * comment used to defend is gone.
+ *
+ * It said `-GAP` was load-bearing because HAIW's gap column was "computed from real
+ * `capabilityLinks` on all 720 HACR questions, so the word is TRUE here and false
+ * there". The links are present on all 720. What is false is that they are a
+ * relation: `capabilityLinks[0] === 'HCF-' + pad(((i + 1) % 108) + 1)` in file
+ * order — a modular counter (D-016). The cycle strides across every category
+ * boundary, so each capability was evidenced by questions drawn from six or seven
+ * of the eight HACR categories, which makes a capability score a sample of the
+ * whole assessment rather than of itself, and makes a RANKING of those scores
+ * noise on a page headed "largest estimated gaps".
+ *
+ * So the word was never true here either, and all three modules now agree: a
+ * capability score requires an AUTHORED link. See CLAUDE.md, "A capability score
+ * needs a link, not a heading", and D-017 for the two further HCF fields that turned
+ * out to be positional.
  */
 export const HEALTH_MATURITY_ARTEFACT_ID = 'MR-HAIW-MATURITY'
 export const HEALTH_ROADMAP_ARTEFACT_ID = 'MR-HAIW-ROADMAP'
-export const HEALTH_GAP_ARTEFACT_ID = 'MR-HAIW-GAP'
+export const HEALTH_REGISTER_ARTEFACT_ID = 'MR-HAIW-REGISTER'
 
 // ── Types ──
 interface CategoryScore {
@@ -64,13 +88,19 @@ interface HealthBenchmarks {
  * `THEME_TO_CATEGORY` used to live here: a six-entry bridge from HCF theme to
  * HACR category, so a capability could borrow its category's score.
  *
- * It is gone because capability scores are now computed from the questions that
- * actually assess each capability — see `scoreCapabilities` below. The bridge was
- * only ever a stand-in, and a poor one: its six themes collapsed onto five
- * distinct categories, so 108 capabilities could carry at most five distinct
- * gaps, and three HACR categories (Strategy & Leadership, Workforce & Skills,
- * Integration & Interoperability) were the target of no theme at all and could
- * therefore never influence a capability number however the client answered them.
+ * It went in D-003, when capability scores began to be computed from
+ * `capabilityLinks` instead. The bridge was only ever a stand-in, and a poor one:
+ * its six themes collapsed onto five distinct categories, so 108 capabilities could
+ * carry at most five distinct gaps, and three HACR categories (Strategy &
+ * Leadership, Workforce & Skills, Integration & Interoperability) were the target of
+ * no theme at all and could never influence a capability number however the client
+ * answered them.
+ *
+ * D5 STAGE E2 REMOVED ITS REPLACEMENT TOO. The links turned out to be a counter
+ * (D-016), so the honest capability score the bridge was replaced by was not one
+ * either. There is now no per-capability number in this file at all — see the block
+ * where `scoreCapabilities` used to be. Both attempts failed the same test: a
+ * capability's score has to come from evidence about that capability.
  */
 
 /**
@@ -80,9 +110,21 @@ interface HealthBenchmarks {
  * file rather than silently producing `undefined` weights. Narrow rather than the
  * whole `HacrQuestion` because the caller passes 720 of them and the generator
  * has no business seeing `levelDescriptions` — and because the golden fixture then
- * freezes 45 kB of exactly what is read instead of 1.1 MB of mostly prose.
+ * freezes exactly what is read instead of 1.1 MB of mostly prose.
+ *
+ * `capabilityLinks` LEFT THIS TYPE IN D5 STAGE E2, and the narrowing is the point
+ * rather than a tidy-up. Nothing in this file may read that field now that the
+ * per-capability score is withdrawn, and the contract is what makes that
+ * enforceable: a future edit reaching for `q.capabilityLinks` fails to compile
+ * instead of quietly reviving a number built on a counter. `HCF-SYNTHETIC` asserts
+ * the same thing from outside, over this file's source text, because a type can be
+ * widened back in the same commit that uses it.
+ *
+ * The name keeps `Link` for one release so the two call sites and the harness spec
+ * stay greppable against D-016; it describes what the type no longer carries and
+ * should be `HacrQuestionScorable` when something else touches these lines.
  */
-export type HacrQuestionLink = Pick<HacrQuestion, 'id' | 'weight' | 'capabilityLinks'>
+export type HacrQuestionLink = Pick<HacrQuestion, 'id' | 'weight'>
 
 const EMERALD = [16, 185, 129] as const    // #10B981
 const TEAL = [20, 184, 166] as const       // #14B8A6
@@ -401,161 +443,164 @@ function drawRadarChart(
   doc.text('Pakistan Avg', centerX + 37, ly + 1)
 }
 
-/** How many rows page 13 shows. */
-const TOP_CAPABILITY_GAPS = 20
+/*
+ * ── WHAT USED TO BE HERE: THE PER-CAPABILITY SCORE. D5 stage E2, D-016. ────
+ *
+ * `TOP_CAPABILITY_GAPS`, `CapabilityIdentity`, `CapabilityScore`, `CapabilityGap`,
+ * `CapabilityGapReport`, `scoreCapabilities` and `buildCapabilityGaps` are gone.
+ * Removed, not left unreachable: an unreachable branch that renders a number is a
+ * wrong number waiting for its caller to change, which is exactly what D-008 was.
+ *
+ * WHY, IN ONE LINE: the relation it rested on is a counter.
+ * `capabilityLinks[0] === 'HCF-' + pad(((i + 1) % 108) + 1)` for all 720 HACR
+ * questions in file order. Every link resolved and every capability was reached, so
+ * `HCF-LINK` passed — a counter satisfies a foreign-key check BETTER than a real
+ * relation would, which is D-015's lesson at the level of the join.
+ *
+ * The consequence was not subtle. The cycle strides across every category boundary,
+ * so each capability drew its evidence from questions in six or seven of the eight
+ * HACR categories. Every capability score was therefore approximately the overall
+ * assessment with noise, and the twenty rows page 13 ranked "by largest estimated
+ * gap" were ranking the noise. The score moved with the answers, which is what made
+ * it look real: D-003's fix made the number responsive without making it about the
+ * capability.
+ *
+ * SO ALL THREE MODULES NOW AGREE, which is the point. BAIW and TAIW withdrew their
+ * per-capability columns under D-001 because no link exists there; HAIW withdraws
+ * its because the link that exists does not mean anything. One rule across the
+ * suite: A CAPABILITY SCORE REQUIRES AN AUTHORED LINK. Keeping this one because the
+ * relation exists-but-is-synthetic would have been the harder thing to defend in
+ * the room, not the easier one.
+ *
+ * Maturity is reported where the evidence is: the eight HACR categories (radar,
+ * scorecard, eight deep dives) and the 80 subcategories the framework crosswalk
+ * projects onto. Neither reads `capabilityLinks`.
+ *
+ * The unlock is authoring 720 real links, and that is deliberately NOT scheduled —
+ * see docs/known-defects.md D-016. HAIW is the one module where it is tractable,
+ * and it should be driven by a client asking for capability-level maturity rather
+ * than by the gap being visible in a file.
+ */
 
-/** What page 13 and the CSV need to name a capability. */
-interface CapabilityIdentity {
-  id: string
-  name: string
-  theme: string
+/**
+ * One row of page 13's coverage table: an HCF group and its authored data footprint.
+ *
+ * `fhirResources` and `subjectAreas` are DISTINCT counts, not sums. Every capability
+ * names exactly three FHIR resources — min 3, max 3 across all 108 — so a
+ * "capabilities with a FHIR link" column would read 8 of 8, 6 of 6, 108 of 108 and
+ * carry no information. That is the `> 0` mistake CLAUDE.md names: a column true of
+ * this dataset and silent about anything a reader could act on. What varies, and what
+ * a reader integrating against FHIR actually needs, is HOW MANY DISTINCT resources
+ * and subject areas a group's capabilities touch.
+ */
+interface GroupCoverage {
   group: string
-  fhirResources: string[]
+  theme: string
+  count: number
+  /** Distinct FHIR R4 resource types named across this group's capabilities. */
+  fhirResources: number
+  /** Distinct HCDM subject areas named across this group's capabilities. */
+  subjectAreas: number
 }
 
 /**
- * One capability, scored from the questions that assess it.
+ * Group-level coverage of the HCF framework, in dataset order.
  *
- * An intersection with `Aggregate` rather than a flattened copy, so `current` and
- * `gap` stay unreachable until `state === 'scored'` has been checked. A flattened
- * `current: number | null` would compile the same and narrow nowhere.
+ * Group rather than theme because there are only six themes — a six-row page is not
+ * worth printing — and rather than capability because 108 rows is a register, which
+ * is what the CSV is for. Exactly BAIW's reasoning at 112 and 16.
+ *
+ * Order is the order groups first appear in `capabilities.json`, which keeps each
+ * theme's groups contiguous. NOT sorted alphabetically: that would interleave the six
+ * themes and destroy the only structure the page has.
  */
-type CapabilityScore = CapabilityIdentity & Aggregate
-
-/** One row of the page-13 matrix. Only scored capabilities reach it. */
-interface CapabilityGap {
-  id: string
-  name: string
-  theme: string
-  current: number
-  required: number
-  gap: number
+function groupCoverage(caps: readonly HaiwCapability[]): GroupCoverage[] {
+  const rows = new Map<string, { row: GroupCoverage; fhir: Set<string>; sa: Set<string> }>()
+  for (const cap of caps) {
+    let e = rows.get(cap.group)
+    if (!e) {
+      e = {
+        row: { group: cap.group, theme: cap.theme, count: 0, fhirResources: 0, subjectAreas: 0 },
+        fhir: new Set(),
+        sa: new Set(),
+      }
+      rows.set(cap.group, e)
+    }
+    e.row.count++
+    for (const r of cap.fhirResources) e.fhir.add(r)
+    for (const s of cap.hcdmSubjectAreas) e.sa.add(s)
+  }
+  return [...rows.values()].map(e => ({ ...e.row, fhirResources: e.fhir.size, subjectAreas: e.sa.size }))
 }
 
-/** Page 13's rows plus the census its caption has to print. */
-interface CapabilityGapReport {
-  rows: CapabilityGap[]
-  scored: number
-  notAssessed: number
-  notApplicable: number
+/** Page 13's rows plus the totals its last row and caption have to print. */
+interface CapabilityCoverageReport {
+  rows: GroupCoverage[]
+  themes: number
+  /** Distinct across the WHOLE set — not the sum of the per-group counts. */
+  fhirResources: number
+  subjectAreas: number
   total: number
   /**
    * False when `capabilities.json` never arrived — a load failure, not an empty
    * assessment. The two produce the same zero rows and mean opposite things, so
-   * the caption has to tell them apart. See D-008.
+   * the caption has to tell them apart. See D-008. Carried across from the
+   * withdrawn gap report unchanged: this distinction was never the defect.
    */
   datasetAvailable: boolean
 }
 
 /**
- * Score every capability from the HACR questions that link to it.
+ * The framework's structure and its authored data footprint. No score, by design.
  *
- * THE ONE PER-CAPABILITY SCORING PATH. Page 13 and the gap CSV both consume this,
- * so the PDF cannot disagree with the spreadsheet a client opens beside it — they
- * did disagree before, in different ways and for different reasons.
+ * NOTHING HERE READS AN ANSWER, and that is the whole difference from what it
+ * replaced. This page is a fact about the framework as authored, identical for every
+ * client on every date, which is why it needs neither `answers` nor `questions` —
+ * and why removing those parameters is a load-bearing signal rather than a cleanup.
+ * A future edit that wants to tint a row by maturity has to add the parameter back,
+ * and will find this comment.
  *
- * D-003, and why the first fix for it was not enough:
+ * Two HCF fields are deliberately ABSENT from this page and from the register
+ * (D-017, found while building this stage):
  *
- *  - Originally `scores.find(s => s.category === cap.theme)` matched a HACR
- *    category against an HCF theme. Disjoint vocabularies, so it never matched,
- *    every capability took the `{ current: 0, gap: 0 }` fallback, and page 13
- *    printed twenty rows at 1.0 / 1.0 / gap 0.0 / Low under the heading "largest
- *    estimated gaps" — whatever the client had answered.
- *  - Bridging theme to category through a lookup made the number move with the
- *    assessment, and was still a category number wearing a capability's name: at
- *    most five distinct gaps across 108 capabilities, and three of the eight HACR
- *    categories structurally unable to affect the page.
+ *   maturityLevelRequired   `[2, 3, 3, 1][i % 4]` for all 108 in file order. The
+ *                           distribution {1: 27, 2: 27, 3: 54} is 27 repetitions of
+ *                           one four-cycle, not a requirements profile. It reads as
+ *                           a per-capability target a client could plan against.
+ *   relatedCapabilities     `[previous, next]` in file order, exactly two each,
+ *                           which is why HCF-001 and HCF-108 list THEMSELVES.
  *
- * Neither was necessary. The link exists in the dataset: every one of the 720
- * HACR questions carries `capabilityLinks`, all 108 capabilities are linked, and
- * each has six or seven questions assessing it. The score below is the mean of
- * the ANSWERED ones — the honest number, not a proxy for it. There is no
- * authoring gap to work around, which is what separates HAIW from
- * BAIW and TAIW: no such link exists there, so D-001 was closed for those two by
- * REMOVING the per-capability columns rather than deriving them. Same defect
- * class, opposite remedies, and the data decided which — see CLAUDE.md, "A
- * capability score needs a link, not a heading".
+ * Both are the same idiom as D-015's weight five-cycle and D-016's link cycle. A
+ * heading cannot rescue either — CLAUDE.md: "do not rename the column to make it
+ * defensible, a reader takes the number as the row's own no matter what the heading
+ * says" — so they are withdrawn on the same grounds as the score above, in the same
+ * stage. `HCF-SYNTHETIC` pins all three so authoring any of them fails the build and
+ * forces this decision to be revisited rather than silently inherited.
  */
-function scoreCapabilities(
-  capabilities: HaiwCapability[],
-  questions: readonly HacrQuestionLink[],
-  answers: HaiwAssessmentAnswer[],
-): CapabilityScore[] {
-  const answerById = new Map(answers.map(a => [a.questionId, a]))
-  const applicable = new Map<string, Applicable[]>()
-  for (const cap of capabilities) applicable.set(cap.id, [])
-  for (const q of questions) {
-    for (const capId of q.capabilityLinks) {
-      // A link to an id outside the capability set is dropped rather than
-      // inventing a row for it: the dataset is the authority on what exists.
-      applicable.get(capId)?.push({ weight: q.weight, answer: answerById.get(q.id) })
-    }
-  }
-  return capabilities.map(cap => ({
-    id: cap.id, name: cap.name, theme: cap.theme, group: cap.group,
-    fhirResources: cap.fhirResources,
-    ...aggregate(applicable.get(cap.id)!),
-  }))
-}
-
-/**
- * The widest capability gaps, with the census page 13's caption must state.
- *
- * Hoisted out of the page-13 block because `createReport`'s content digest needs
- * it before the first page is drawn — the /ID has to cover what the document
- * renders, and which capabilities made the cut is part of that.
- *
- * NOT-ASSESSED AND NOT-APPLICABLE CAPABILITIES ARE EXCLUDED FROM THE RANKING, not
- * ranked at the bottom. A capability nobody has answered has no gap; giving it
- * 0.0 and letting it sort is exactly how D-003 looked from the outside, and it
- * would put "we have no idea about this" at the polite end of a page headed
- * "largest gaps". They are counted and printed in the caption instead.
- *
- * The tiebreak is declared rather than incidental. Real gaps cluster — eleven
- * distinct values across 108 capabilities on the golden fixture — so a sort on
- * gap alone would leave the twentieth row to `Array.prototype.sort`'s stability
- * over dataset order. Ascending id after descending gap makes the list a function
- * of the answers and nothing else, which the byte-reproducibility of this report
- * depends on.
- */
-function buildCapabilityGaps(
-  capabilities: HaiwCapability[],
-  questions: readonly HacrQuestionLink[],
-  answers: HaiwAssessmentAnswer[],
-): CapabilityGapReport {
+function buildCapabilityCoverage(capabilities: HaiwCapability[]): CapabilityCoverageReport {
   /*
    * D-008: NO CAPABILITY DATASET MEANS NO ROWS. It does not mean invent some.
    *
-   * This used to synthesise 24 rows — three per HACR category, named
-   * `${cat} Strategy` / `Analytics` / `Automation`, carrying the category score
-   * offset by 0, -0.3 and -0.5 — and then report them as
-   * `scored: 24, notAssessed: 0, notApplicable: 0`. Two lies in one branch: rows
-   * that are not capabilities, and a census claiming every one of them was
-   * measured.
+   * The withdrawn version of this function synthesised 24 rows — three per HACR
+   * category, named `${cat} Strategy` / `Analytics` / `Automation`, carrying the
+   * category score offset by 0, -0.3 and -0.5 — and reported them as
+   * `scored: 24, notAssessed: 0`. Two lies in one branch, reached only when
+   * `loadCapabilities()` rejected: dead code that fabricated, triggering exactly
+   * when a client is least able to tell.
    *
-   * It ran only when `loadCapabilities()` rejected, which nothing does today, so
-   * it was dead code that fabricated. That is the worst combination available:
-   * never exercised, never reviewed, and reached exactly when a client's data is
-   * missing — the moment they are least able to tell.
-   *
-   * The empty report below is the honest answer, and `datasetAvailable` carries
-   * WHY it is empty so the caption does not blame the assessment for a fetch.
+   * There is no score to fabricate here any more, which removes the motive rather
+   * than just the branch. The empty report is still the honest answer, and
+   * `datasetAvailable` still carries WHY so the caption does not blame the
+   * assessment for a fetch.
    */
   if (capabilities.length === 0) {
-    return { rows: [], scored: 0, notAssessed: 0, notApplicable: 0, total: 0, datasetAvailable: false }
+    return { rows: [], themes: 0, fhirResources: 0, subjectAreas: 0, total: 0, datasetAvailable: false }
   }
-
-  const scored = scoreCapabilities(capabilities, questions, answers)
-  const rows = scored
-    .flatMap(c => (c.state === 'scored'
-      ? [{ id: c.id, name: c.name, theme: c.theme, current: c.current, required: c.desired, gap: c.gap }]
-      : []))
-    .sort((a, b) => b.gap - a.gap || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
   return {
-    rows: rows.slice(0, TOP_CAPABILITY_GAPS),
-    scored: scored.filter(c => c.state === 'scored').length,
-    notAssessed: scored.filter(c => c.state === 'not-assessed').length,
-    notApplicable: scored.filter(c => c.state === 'not-applicable').length,
+    rows: groupCoverage(capabilities),
+    themes: new Set(capabilities.map(c => c.theme)).size,
+    fhirResources: new Set(capabilities.flatMap(c => c.fhirResources)).size,
+    subjectAreas: new Set(capabilities.flatMap(c => c.hcdmSubjectAreas)).size,
     total: capabilities.length,
     datasetAvailable: true,
   }
@@ -635,10 +680,15 @@ export function generateHealthMaturityPDF(
   const totalCategories = HACR_CATEGORIES.length
 
   const sortedByGap = [...scores].sort((a, b) => b.gap - a.gap)
-  // No `scores` argument since D-008: the only thing that read the category
-  // scores here was the synthesis, and it is gone. Capability scoring goes
-  // through capabilityLinks or it does not happen.
-  const capGaps = buildCapabilityGaps(capabilities, questions, answers)
+  /*
+   * No `answers` and no `questions`, as of D5 stage E2 — the signal, not a tidy-up.
+   *
+   * Page 13 is now a fact about the framework as authored: it is identical for every
+   * client on every date. Passing the assessment in would make it possible for it to
+   * stop being that without anyone changing the page, which is how the withdrawn
+   * version stayed plausible for two phases.
+   */
+  const capCoverage = buildCapabilityCoverage(capabilities)
 
   /*
    * Draft state stays derived HERE rather than being taken from meta.
@@ -659,12 +709,21 @@ export function generateHealthMaturityPDF(
     reportMeta,
     contentKey([
       ...answers.map(a => `ans:${a.questionId}=${a.currentState}/${a.desiredState}`),
-      // The ranked ids AND their numbers. Ids alone were enough while every row
-      // printed 1.0/1.0/0.0; now that the figures move with the answers, two
-      // reports could select the same twenty capabilities and score them
-      // differently, and /ID is the field a DMS uses to tell them apart.
-      ...capGaps.rows.map(c => `cap:${c.id}=${c.current}/${c.required}`),
-      `capcensus:${capGaps.scored}/${capGaps.notAssessed}/${capGaps.notApplicable}/${capGaps.total}`,
+      /*
+       * PAGE 13'S CONTRIBUTION IS ITS STRUCTURE, NOT A SCORE.
+       *
+       * It carried `cap:<id>=<current>/<required>` per ranked row plus a scored /
+       * not-assessed census while the page ranked capability gaps: two reports could
+       * select the same twenty capabilities and score them differently, and /ID is
+       * the field a DMS uses to tell those apart.
+       *
+       * Both are gone with the score. What page 13 renders now varies only with the
+       * capability dataset, so that is what the digest covers — per group, because a
+       * group gaining a capability or a FHIR resource changes the page and must
+       * change the /ID. The answers above still cover every page that IS scored.
+       */
+      ...capCoverage.rows.map(g => `cap:${g.group}=${g.count}/${g.fhirResources}/${g.subjectAreas}`),
+      `capcensus:${capCoverage.total}/${capCoverage.themes}/${capCoverage.fhirResources}/${capCoverage.subjectAreas}`,
     ]),
   )
   const { doc } = r
@@ -857,79 +916,117 @@ export function generateHealthMaturityPDF(
     ], { size: 8 })
   }
 
-  // ── PAGE 13: CAPABILITY GAP MATRIX ──
+  // ── PAGE 13: HCF CAPABILITY COVERAGE ──
   /*
-   * The caption states the METHOD and the DENOMINATOR, as the DGIW diagnostic
-   * does. It used to say "based on category scores", which was true of the
-   * arithmetic and useless to a reader: it did not say which questions produced a
-   * capability's number, and it did not say how many capabilities were measurable
-   * at all. A reader who cannot see the denominator cannot tell twenty rows out of
-   * 108 scored from twenty out of 20.
+   * WAS "Capability Gap Matrix — top 20 by gap, ties broken by capability id".
+   * D-016, resolved by removal in D5 stage E2, exactly as D-001 resolved BAIW's and
+   * TAIW's.
    *
-   * Not-assessed and not-applicable are printed even at zero — the same reason
-   * DGIW prints "Not applicable 0" rather than omitting the line. Zero is a
-   * measurement; a missing line is an unanswered question.
+   * Those twenty rows carried real-looking numbers that moved with the assessment,
+   * which is precisely why the page survived D-003's review: the defect was not that
+   * the score was static, it was that `capabilityLinks` is a modular counter, so each
+   * capability's evidence was drawn from six or seven of the eight HACR categories.
+   * Every score was therefore approximately the overall assessment with noise, and
+   * RANKING them ranked the noise — under a heading that told a client where to spend
+   * money first.
+   *
+   * What replaces it reports the FRAMEWORK, which is real and authored: how the 108
+   * capabilities distribute across groups and themes, and how wide a data footprint
+   * each group carries — distinct FHIR R4 resource types and distinct HCDM subject
+   * areas. A reader can act on both: they are the integration surface a capability
+   * needs before it can be delivered at all.
+   *
+   * Category maturity is NOT restated here. It is on the radar (page 3), the
+   * scorecard (page 4) and the eight deep dives, correctly, against categories — and
+   * the caption says so, because a page that removes a score should say where the
+   * score went rather than leave a reader assuming it was lost.
    */
-  /*
-   * Three outcomes, and they are different facts (D-008):
-   *   dataset missing   — we could not look. Says so, and blames nothing else.
-   *   dataset, no rows  — we looked; nothing has been answered yet.
-   *   rows              — the ranking.
-   * The first two both produce zero rows. Collapsing them would tell a client
-   * their assessment is empty when the truth is that a file failed to load.
-   */
-  const capCaption = !capGaps.datasetAvailable
-    ? `The HCF capability dataset could not be loaded, so no capability could be scored ` +
-      `for this report. This page is empty for that reason and for no other — it is not a ` +
-      `finding about the assessment. Category maturity elsewhere in this report is unaffected.`
-    // "Weight-weighted" until D5 stage A, which was true of the code and false of
-    // the data: HACR's weight was a repeating five-cycle, not a judgement, and it
-    // is now 1 throughout. A caption claiming a weighting the numbers do not have
-    // is worse than no caption — it invites a reader to ask which questions
-    // counted more, and the honest answer was "whichever the counter landed on".
-    : `Unweighted mean of the answered HACR questions linked to each capability. ` +
-      `Scored ${capGaps.scored} of ${capGaps.total} capabilities · not assessed ${capGaps.notAssessed} · ` +
-      `not applicable ${capGaps.notApplicable}. ` +
-      // "Showing the top 0" is technically true and reads like a bug. An empty
-      // ranking is the correct output for an unanswered assessment and should say
-      // why, not leave a reader counting rows that are not there.
-      (capGaps.rows.length > 0
-        ? `Showing the top ${capGaps.rows.length} by gap, ties broken by capability id.`
-        : `No capability has an answered question yet, so there is nothing to rank.`)
-  r.page('Capability Gap Matrix', capCaption)
+  const capCaption = !capCoverage.datasetAvailable
+    ? `The HCF capability dataset could not be loaded, so the framework's structure ` +
+      `cannot be reported here. This page is empty for that reason and for no other — it is ` +
+      `not a finding about the assessment. Category maturity elsewhere in this report is ` +
+      `unaffected.`
+    : `Structure of the Healthcare Capability Framework as authored: ${capCoverage.total} ` +
+      `capabilities in ${capCoverage.rows.length} groups across ${capCoverage.themes} themes, ` +
+      `touching ${capCoverage.fhirResources} distinct FHIR R4 resource types and ` +
+      `${capCoverage.subjectAreas} HCDM subject areas. Framework scope and data footprint, not ` +
+      `assessment results. CAPABILITY-LEVEL MATURITY IS NOT REPORTED: HACR assesses eight ` +
+      `categories over 80 subcategories, and no dataset joins a question to the capability it ` +
+      `would evidence, so a per-capability score would be a category number wearing a ` +
+      `capability's name. Maturity is on the radar, the scorecard and the eight deep dives.`
+  r.page('HCF Capability Coverage', capCaption)
   // A header row over nothing reads as a rendering fault. The caption above has
   // already said which of the two empty cases this is.
-  if (capGaps.rows.length > 0) {
+  if (capCoverage.rows.length > 0) {
     r.table({
-      head: ['#', 'Capability', 'Theme', 'Current', 'Required', 'Gap', 'Priority'],
-      rows: capGaps.rows.map((c, i) => [
-        i + 1,
-        c.name,
-        c.theme,
-        c.current.toFixed(1),
-        c.required.toFixed(1),
-        c.gap.toFixed(1),
-        priorityLabel(c.gap),
-      ]),
+      head: ['Group', 'Theme', 'Caps', 'FHIR', 'HCDM'],
+      rows: [
+        ...capCoverage.rows.map(g => [g.group, g.theme, g.count, g.fhirResources, g.subjectAreas]),
+        [
+          'All groups',
+          `${capCoverage.themes} themes`,
+          capCoverage.total,
+          capCoverage.fhirResources,
+          capCoverage.subjectAreas,
+        ],
+      ],
       headFontSize: 7,
       bodyFontSize: 7,
       columnStyles: {
-        0: { halign: 'center', cellWidth: 8 },
-        3: { halign: 'center' },
-        4: { halign: 'center' },
-        5: { halign: 'center' },
-        6: { halign: 'center' },
+        2: { halign: 'center', cellWidth: 12 },
+        3: { halign: 'center', cellWidth: 14 },
+        4: { halign: 'center', cellWidth: 14 },
       },
       didParseCell(data) {
-        if (data.section === 'body' && data.row.index < 5) {
-          data.cell.styles.fillColor = [236, 253, 245] // emerald-50
+        // The totals row is the last body row, identified by index rather than by
+        // matching its text — a group could legitimately be named "All groups".
+        if (data.section === 'body' && data.row.index === capCoverage.rows.length) {
+          data.cell.styles.fillColor = [241, 245, 249]
+          data.cell.styles.fontStyle = 'bold'
         }
       },
     })
+
+    /*
+     * The totals are DISTINCT counts over the whole set, so they are smaller than the
+     * column sums — 73 FHIR resource types against a per-group sum near 108, because
+     * groups share resources like `Patient` and `Observation`. Said on the page: a
+     * reader who adds the column up and gets a different number should find the reason
+     * here rather than conclude the table is wrong.
+     */
+    r.text(
+      `FHIR and HCDM count DISTINCT resource types and subject areas, so the totals row is ` +
+      `not the sum of the column above it — groups share resources such as Patient and ` +
+      `Observation. Every capability names three FHIR resources and one to three subject ` +
+      `areas, all authored per capability in capabilities.json. Two further fields in that ` +
+      `file, maturityLevelRequired and relatedCapabilities, are deliberately not reported ` +
+      `here: both are positional artefacts of the dataset's generation rather than authored ` +
+      `judgements, and neither would mean for this client what its name suggests.`,
+      { size: 7, color: SLATE, gapAfter: 3 },
+    )
   }
 
   // ── PAGE 14: FHIR READINESS ASSESSMENT ──
-  r.page('FHIR Readiness Assessment', 'FHIR R4 resource categories needed based on capability gaps')
+  /*
+   * THE SUBTITLE SAID "based on capability gaps" AND HAD TO CHANGE HERE.
+   *
+   * It was already false: `FHIR_READINESS` below is a hardcoded ten-row constant, so
+   * its Gap and Priority columns are the same strings for every client on every date
+   * and derive from no assessment. After D5 stage E2 there are no capability gaps at
+   * all, so the claim referenced something that does not exist in this document.
+   *
+   * Corrected to describe what the table IS. The table itself is NOT fixed here —
+   * that is a separate defect of the D-001 family with its own walk, and it is filed
+   * rather than folded into this stage. Withdrawing the wrong caption is in scope
+   * because this stage created the second half of its wrongness; rebuilding the page
+   * is not.
+   */
+  r.page(
+    'FHIR Readiness Assessment',
+    'FHIR R4 resource categories a healthcare analytics programme requires, with an ' +
+    'indicative implementation priority. Framework reference material, fixed for every ' +
+    'engagement — not derived from this assessment.',
+  )
   r.table({
     head: ['FHIR Category', 'Resources Needed', 'Gap', 'Priority'],
     rows: FHIR_READINESS.map(d => [d.category, d.resources, d.gap, d.priority]),
@@ -1121,154 +1218,108 @@ export function generateHealthMaturityPDF(
 }
 
 // ══════════════════════════════════════════════════════════
-// GAP CSV — MR-HAIW-GAP
+// CAPABILITY REGISTER CSV — MR-HAIW-REGISTER
 // ══════════════════════════════════════════════════════════
 /*
- * One row per HCF capability, from the SAME `scoreCapabilities` page 13 uses.
+ * One row per HCF capability: the 108 real capabilities and the attributes actually
+ * AUTHORED against them. No score, no gap, no priority.
  *
- * What this used to be, recorded because it is the second half of D-003: the
- * bridge (`THEME_TO_CATEGORY`) plus a `charCodeAt` jitter,
- * `(cap.id.charCodeAt(len - 1) % 10 - 5) * 0.08`. Deterministic — this file is the
- * golden harness's reproducibility control and stays so — but the jitter was
- * decoration on a category number, spreading 108 rows around five values so they
- * would not look copied. The PDF used the same bridge with a different jitter
- * constant (0.1 against 0.08), so the spreadsheet and page 13 printed different
- * numbers for the same capability on the same day.
+ * ── WHAT THIS WAS, AND WHY THE COLUMNS ARE GONE RATHER THAN RENAMED ────────
  *
- * Both are gone. One scoring path, so the two agree by construction.
+ * `MR-HAIW-GAP` carried Current Score, Target Score, Gap and Priority per
+ * capability, from the same `scoreCapabilities` page 13 used — one scoring path, so
+ * the spreadsheet and the PDF could not disagree. They had disagreed before: the
+ * pre-D-003 version bridged HCF theme to HACR category and added a `charCodeAt`
+ * jitter, with a different jitter constant in each of the two deliverables.
  *
- * An unscored capability writes EMPTY numeric cells and its state in Priority,
- * rather than 0.0 / Low. An empty cell is the CSV convention for "no value" and
- * survives a spreadsheet import as blank; a zero would be averaged. The header is
- * unchanged — Priority is already a text column and carries the state without a
- * schema change for consumers.
+ * D-003 made them agree. D-016 is why agreement was not enough:
+ * `capabilityLinks[0] === 'HCF-' + pad(((i + 1) % 108) + 1)` for all 720 questions in
+ * file order. The two deliverables agreed precisely because they shared one path, and
+ * that path rested on a counter. A spreadsheet is the worse of the two places for
+ * this: a client sorts by Gap, filters Priority = Critical, and builds a plan.
  *
- * ── ON THE SPINE as of 2026-08-01, the LAST hand-rolled CSV in the suite ──
+ * The columns are GONE rather than renamed. There is no heading that makes a number
+ * derived from a modular counter true, and CLAUDE.md is explicit — "do not rename the
+ * column to make it defensible, a reader takes the number as the row's own no matter
+ * what the heading says". Same resolution as BAIW's and TAIW's registers under D-001;
+ * the three modules now differ in nothing but their framework.
  *
- * Escaping is delegated to `downloadCSV` via `src/report/csv.ts`, which quotes
- * every field and doubles embedded quotes. The hand-rolled version quoted four of
- * its nine columns by hand and left `ID` and the three scores bare — safe only
- * because nothing in those cells can contain a comma today.
+ * TWO AUTHORED-LOOKING FIELDS ARE ALSO ABSENT, and this is the part that was not
+ * expected going in (D-017):
  *
- * Three things change in the bytes and NOTHING changes in the content: a UTF-8
- * BOM, CRLF line endings, and every field quoted. Those are the defaults
- * `downloadCsv` applies to every deliverable CSV in this repo, because these
- * files reach a client and get opened in Excel on Windows first.
+ *   maturityLevelRequired   `[2, 3, 3, 1][i % 4]` for all 108 in file order.
+ *   relatedCapabilities     `[previous, next]` in file order, two each, so HCF-001
+ *                           and HCF-108 list themselves.
  *
- * The filename moves from a fixed `HAIW_Capability_Gap_Analysis.csv` to
- * `reportFilename(meta, 'csv')`, so it now carries the engagement, the layer and
- * the date like the other eight module deliverables.
+ * Both are positional. TAIW's register does carry a fixed dataset field —
+ * `Framework Priority (authored)` — and the precedent looked like it covered these
+ * two, but it does not: TCF's priority is editorial judgement that happens to be
+ * client-independent, and these are sequence position. That is the distinction D-015
+ * turned on, and a "(positional)" suffix in a header would be the renaming this file
+ * has already learned not to do. `HCF-SYNTHETIC` pins both so that authoring either
+ * one fails the build rather than silently re-earning a column here.
+ *
+ * WHAT IS LEFT IS AUTHORED, and it was measured rather than assumed: 105 distinct
+ * FHIR resource triples across 108 capabilities with only one triple shared between
+ * two groups, and 70 distinct HCDM subject-area sets, both group-coherent (SA-01 on
+ * demographics, SA-12 on health information exchange).
+ *
+ * ── THE SCHEMA CHANGES, DELIBERATELY ──────────────────────────────────────
+ *
+ * `ID` is now `cap.id` — `HCF-001` — where the gap CSV wrote the ordinal `i + 1`. The
+ * ordinal was correct while this file was migrating plumbing and a schema change was
+ * out of bounds; withdrawing four columns IS a schema change, so the register carries
+ * the id a client can cite back. BAIW's and TAIW's registers both key on `cap.id` for
+ * the same reason.
+ *
+ * Still on src/report/csv.ts: BOM, CRLF, every field quoted.
  */
-/**
- * One row of the gap register, in either path below.
- *
- * The numeric cells are STRINGS, not numbers: an unscored capability writes an
- * empty cell, and `number | ''` would let a `0` through the same slot. Formatting
- * happens where the state is known, so `toFixed(1)` cannot be reached for a
- * capability that has no score. See CLAUDE.md, "HAIW scoring".
- */
-interface GapRow {
-  ordinal: number
-  name: string
-  theme: string
-  group: string
-  current: string
-  desired: string
-  gap: string
-  /** `priorityLabel(gap)` when scored; otherwise the state, spelled out. */
-  priority: string
-  fhir: string
-}
-
-/*
- * The nine columns, in order, unchanged from the hand-rolled version.
- *
- * `ID` is the ORDINAL, not `cap.id` — it was `i + 1` before this migration and
- * still is. Adding an `HCF-nnn` column would be a schema change for consumers,
- * which a plumbing migration is not allowed to be.
- */
-const GAP_COLUMNS: CsvColumn<GapRow>[] = [
-  { key: 'ordinal', header: 'ID' },
+const REGISTER_COLUMNS: CsvColumn<HaiwCapability>[] = [
+  { key: 'id', header: 'ID' },
   { key: 'name', header: 'Name' },
-  { key: 'theme', header: 'Theme' },
+  { key: 'theme', header: 'HCF Theme' },
   { key: 'group', header: 'Group' },
-  { key: 'current', header: 'Current Score' },
-  { key: 'desired', header: 'Target Score' },
-  { key: 'gap', header: 'Gap' },
-  { key: 'priority', header: 'Priority' },
-  { key: 'fhir', header: 'FHIR Resources' },
+  // Semicolon-joined, matching the register convention in BAIW's, TAIW's and DGIW's
+  // exports. Never empty: every capability names exactly three.
+  { key: 'id', header: 'FHIR Resources', format: cap => cap.fhirResources.join('; ') },
+  // One to three each — the only authored per-capability count in the file that
+  // actually varies, which is why page 13 reports its breadth per group.
+  { key: 'id', header: 'HCDM Subject Areas', format: cap => cap.hcdmSubjectAreas.join('; ') },
+  { key: 'description', header: 'Description' },
 ]
-
-function buildGapRows(
-  answers: HaiwAssessmentAnswer[],
-  capabilities: HaiwCapability[],
-  questions: readonly HacrQuestionLink[],
-): GapRow[] {
-  /*
-   * D-008: NO CAPABILITY DATASET MEANS NO ROWS.
-   *
-   * This used to synthesise 108 rows named `${cat} — ${group}` from fourteen
-   * hardcoded group names, each carrying a category score offset by
-   * `(ci % 5 - 2) * 0.15`, with a per-category FHIR resource list picked from a
-   * hardcoded map. None of it was a capability. The variation existed to stop one
-   * number reading as one number.
-   *
-   * `downloadCsv` returns false on an empty set and writes no file, so the caller
-   * can tell the user the truth instead of handing them a spreadsheet. A client
-   * receiving 108 plausible rows because a fetch failed is the worst outcome this
-   * codebase can produce: it is indistinguishable from real output.
-   */
-  if (capabilities.length === 0) return []
-
-  /*
-   * Row order is DECLARED, per src/report/csv.ts: "the alternative is the order
-   * the JSON file happens to be in, which nobody declared and a dataset edit can
-   * change without touching a line of code".
-   *
-   * `byStringKey` is right for `HCF-001`-style zero-padded ids, and this sort is
-   * a no-op today — capabilities.json is already in id order, verified — so
-   * declaring it moves no row and changes no ordinal. That is the point: the
-   * order stops being an accident without the file changing.
-   */
-  const ordered = [...capabilities].sort(byStringKey(c => c.id))
-  return scoreCapabilities(ordered, questions, answers).map((cap, i) => ({
-    ordinal: i + 1,
-    name: cap.name,
-    theme: cap.theme,
-    group: cap.group,
-    ...(cap.state === 'scored'
-      ? {
-          current: cap.current.toFixed(1),
-          desired: cap.desired.toFixed(1),
-          gap: cap.gap.toFixed(1),
-          priority: priorityLabel(cap.gap),
-        }
-      : {
-          // Empty numeric cells, state in Priority. An empty cell imports as
-          // blank; a 0.0 would be averaged into a number nobody measured.
-          current: '',
-          desired: '',
-          gap: '',
-          priority: cap.state === 'not-assessed' ? 'Not Assessed' : 'Not Applicable',
-        }),
-    fhir: cap.fhirResources.join('; '),
-  }))
-}
 
 /**
  * @returns false when no file was written, which happens only when the capability
  * dataset is unavailable. The caller MUST surface that — a button that silently
  * does nothing reads as a broken download, and the user's next move is to try
- * again rather than to report the real fault.
+ * again rather than to report the real fault. Unchanged by the withdrawal: D-008's
+ * distinction between "nothing to report" and "we could not look" is orthogonal to
+ * what the columns are.
  */
-
-export function generateHealthGapCSV(
-  answers: HaiwAssessmentAnswer[],
+export function generateHealthCapabilityRegisterCSV(
   capabilities: HaiwCapability[],
-  questions: readonly HacrQuestionLink[],
   meta: ReportMeta,
 ): boolean {
-  return downloadCsv(buildGapRows(answers, capabilities, questions), GAP_COLUMNS, reportFilename(meta, 'csv'))
+  /*
+   * NO `answers` AND NO `questions` PARAMETER, and that is the enforcement.
+   *
+   * A register of authored attributes cannot vary with the assessment, so the
+   * assessment is not in scope to be read. Re-deriving a score here would take a
+   * signature change and a call-site change, and would meet this comment on the way.
+   *
+   * Row order is DECLARED, per src/report/csv.ts: "the alternative is the order the
+   * JSON file happens to be in, which nobody declared and a dataset edit can change
+   * without touching a line of code". `byStringKey` is right for `HCF-001`-style
+   * zero-padded ids, and this sort is a no-op today — capabilities.json is already in
+   * id order, verified — which is the point: the order stops being an accident
+   * without the file changing.
+   *
+   * D-008: an empty capability set writes NO FILE rather than a plausible one. The
+   * withdrawn version synthesised 108 rows from fourteen hardcoded group names, each
+   * carrying a category score offset by `(ci % 5 - 2) * 0.15`.
+   */
+  const rows = [...capabilities].sort(byStringKey(c => c.id))
+  return downloadCsv(rows, REGISTER_COLUMNS, reportFilename(meta, 'csv'))
 }
 
 // ══════════════════════════════════════════════════════════

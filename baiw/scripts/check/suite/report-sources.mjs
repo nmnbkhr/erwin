@@ -67,6 +67,14 @@ export default {
         fail(`declared report source ${loc.rel} contributes no .ts sources — the check is looking in the wrong place (declared by modules/${loc.owner}.mjs)`)
         continue
       }
+      /*
+       * Attached per location, not just concatenated, because FINGERPRINT-COVERAGE
+       * needs to know WHICH module's generators reach a dataset — a flat file list
+       * cannot attribute a finding to the fingerprint that has to declare it.
+       * Recorded here rather than recomputed there so the two cannot disagree about
+       * what resolved: the printed count and the traversal are one walk.
+       */
+      loc.files = found
       files.push(...found)
     }
     if (declared.length > 0 && files.length === 0)
