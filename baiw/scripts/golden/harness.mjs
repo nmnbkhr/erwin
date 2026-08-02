@@ -717,7 +717,31 @@ export async function createDriver(modules) {
     }
   }
 
-  return { generate, ruler, assertFixtureDataWasServed, close: () => server.close() }
+  /**
+   * The `datasets` field every baseline records, per module.
+   *
+   * One place, so capture and compare cannot drift — they each carried their own
+   * copy of `module === 'dgiw' ? datasetFingerprint(...) : null` until D-010, and
+   * the `null` half was the bug: `diffCommon`'s dataset check is guarded on
+   * `base.datasets`, so it could never fire for the three modules that freeze.
+   *
+   * DGIW keeps its directory fingerprint EXACTLY as it was — it reads live data
+   * and its fourteen baselines must not move for this change.
+   */
+  function fingerprintFor(module) {
+    if (module === 'dgiw') return datasetFingerprint('src/dgiw/data')
+    const sources = fixtureDataSources(fixtures[module])
+    if (sources.length === 0) {
+      throw new Error(
+        `fixture ${module}.json declares neither a \`data\` block nor \`dataSources\`, so its baselines would record ` +
+          `\`datasets: null\` and a live dataset edit would be invisible to compare.mjs — which is D-010. Declare the ` +
+          `files this fixture's frozen content comes from.`,
+      )
+    }
+    return datasetFingerprintOf(sources)
+  }
+
+  return { generate, ruler, assertFixtureDataWasServed, fingerprintFor, close: () => server.close() }
 }
 
 // ── Hashing and stable serialisation ─────────────────────────────────────
@@ -1274,6 +1298,55 @@ export function datasetFingerprint(dir) {
   if (files.length === 0) return null
   const h = files.map((f) => `${f}:${sha256(readFileSync(path.join(abs, f)))}`).join('\n')
   return { dir, files: files.length, sha256: sha256(h) }
+}
+
+/**
+ * The LIVE files a frozen fixture's data came from.
+ *
+ * ─── THE FREEZE HAS TWO DIRECTIONS, AND ONLY ONE WAS COVERED ───────────────
+ *
+ * BAIW, TAIW and HAIW freeze their datasets into the fixture so a dataset edit
+ * cannot read as a generator regression while a migration is in flight. That
+ * reason is sound and the freeze stays. But it is a two-way valve and nothing
+ * said so:
+ *
+ *   dataset edit misattributed to the generator   the freeze PREVENTS this
+ *   dataset edit invisible, the baseline quietly
+ *   describing output production no longer makes  the freeze CAUSES this
+ *
+ * D-010 is the second direction, measured: `benchmarks.json`'s
+ * `regionalLeaders["Overall Assessment"]` was corrected from 3.18 to 3.3, page 16
+ * of every BAIW report moved from "0.4 levels behind regional leaders" to 0.5 —
+ * and `compare.mjs` printed `exit 0 — no actionable differences`, because it
+ * regenerated the page from the fixture's frozen 3.18. A client-facing sentence
+ * changed and the golden record could not see it.
+ *
+ * DGIW never had the problem: it reads live data and records a fingerprint per
+ * baseline, so the same edit surfaces as its own `source datasets` finding,
+ * correctly attributed. This gives the other three the same signal without giving
+ * up the freeze — the fingerprint is over the LIVE files, so when they drift away
+ * from the frozen copy the baseline says so under its own name.
+ *
+ * @returns repo-relative paths, sorted, from the `data` block's own keys plus any
+ *          `dataSources` the fixture declares for content it freezes outside it
+ *          (HAIW's `capabilities` and `questions` arrays).
+ */
+export function fixtureDataSources(fixture) {
+  return [...new Set([...Object.keys(fixture.data ?? {}), ...(fixture.dataSources ?? [])])].sort()
+}
+
+/** sha256 over an explicit list of repo-relative files. Companion to the above. */
+export function datasetFingerprintOf(sources) {
+  if (!sources.length) return null
+  const parts = []
+  for (const rel of sources) {
+    const abs = path.join(APP_ROOT, rel)
+    // A declared source that is not there is a finding, not a shrug: it means the
+    // fixture is frozen against a file that moved, so the fingerprint would
+    // silently stop covering it. Same rule as REPORT-SOURCES.
+    parts.push(`${rel}:${existsSync(abs) ? sha256(readFileSync(abs)) : 'MISSING'}`)
+  }
+  return { sources, files: sources.length, sha256: sha256(parts.join('\n')) }
 }
 
 export const baselinePath = (module, id) => path.join(BASELINE_DIR, module, `${id}.json`)

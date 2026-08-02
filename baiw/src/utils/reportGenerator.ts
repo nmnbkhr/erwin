@@ -7,6 +7,7 @@ import { saveAs } from 'file-saver'
 import benchmarks from '../data/benchmarks.json'
 import capabilities from '../data/capabilities.json'
 import dataRequirements from '../data/dataRequirements.json'
+import { BACR_CATEGORIES as CATEGORIES } from '../data/bacrCategories'
 
 import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '../report/spine'
 import { formatCoverDate, reportFilename } from '../report/naming'
@@ -151,10 +152,39 @@ function groupCoverage(caps: readonly BvfCapability[]): GroupCoverage[] {
 const phasesPresent = (caps: readonly BvfCapability[]): number[] =>
   [...new Set(caps.map(c => c.phase))].sort((a, b) => a - b)
 
-const CATEGORIES = [
-  'Business', 'Culture', 'Governance', 'Information', 'Applications',
-  'Systems', 'Agility', 'Outcomes', 'Overall Assessment'
-]
+/*
+ * CATEGORIES is imported from src/data/bacrCategories.ts — see the top of this
+ * file, and D-011.
+ *
+ * It was a local nine-entry list here, the second of three copies, and its ninth
+ * entry — 'Overall Assessment' — is a category `bacrQuestions.json` does not
+ * contain. Every hardcoded benchmark fallback in this file existed to service it:
+ * a category with no questions has no benchmark either, so `pkAvg[cat]` came back
+ * undefined and a literal stood in for it.
+ *
+ * Now that the list is the eight real categories, every lookup below is against a
+ * category BENCHMARK-ROLLUP vouches for — it asserts each one has a numeric entry
+ * in every block of benchmarks.json — so those fallbacks are gone rather than left
+ * as unreachable branches that would render a wrong number if they ever fired.
+ */
+
+/**
+ * A benchmark value for a real BACR category.
+ *
+ * One cast, in one place. `regionalLeaders` and `globalBest` carry a string
+ * `examples` alongside their numbers, so indexing them by a category name needs
+ * it — and before D-011 that cast was repeated at seven sites, each paired with
+ * a `typeof x === 'number' ? x : <literal>` fallback that existed only because
+ * the caller could pass a category with no benchmark.
+ *
+ * The caller cannot any more: every site passes a name from CATEGORIES, and
+ * `BENCHMARK-ROLLUP` in scripts/check/modules/baiw.mjs asserts each of those has a
+ * numeric entry in every block of benchmarks.json. That is what makes it safe to
+ * have no fallback rather than an unreachable one — an unreachable branch that
+ * renders a number is a wrong number waiting for its caller to change.
+ */
+const benchmarkFor = (block: object, category: string): number =>
+  (block as Record<string, number>)[category]
 
 const PURPLE = [88, 28, 135] as const   // #581C87
 const BLUE = [37, 99, 235] as const     // #2563EB
@@ -278,17 +308,22 @@ function drawRadarChart(doc: jsPDF, data: CategoryScore[], centerX: number, cent
   }
 
   // Draw Pakistan average (dotted gray)
+  //
+  // D-011: `: 1.86` stood behind both lookups. It was reachable — the caller's
+  // ninth category, 'Overall Assessment', has no questions and therefore no
+  // benchmark, so this drew a real polygon vertex from a literal. The caller now
+  // supplies only the eight categories BENCHMARK-ROLLUP vouches for.
   doc.setDrawColor(180, 180, 180)
   doc.setLineWidth(0.8)
   const pkAvg = benchmarks.pakistanBankingAverage
   for (let i = 0; i < n; i++) {
     const cat = data[i].category as keyof typeof pkAvg
-    const val = (typeof pkAvg[cat] === 'number' ? pkAvg[cat] : 1.86) as number
+    const val = benchmarkFor(pkAvg, cat)
     const angle = -Math.PI / 2 + i * angleStep
     const r = (val / 5) * radius
     const nextI = (i + 1) % n
     const nextCat = data[nextI].category as keyof typeof pkAvg
-    const nextVal = (typeof pkAvg[nextCat] === 'number' ? pkAvg[nextCat] : 1.86) as number
+    const nextVal = benchmarkFor(pkAvg, nextCat)
     const nextAngle = -Math.PI / 2 + nextI * angleStep
     const nextR = (nextVal / 5) * radius
     doc.setLineDashPattern([1, 2], 0)
@@ -409,8 +444,10 @@ export function generateMaturityPDF(assessment: AssessmentData, meta: ReportMeta
   // Numbered rather than bulleted, exactly as before — `bullets()` would have
   // rendered "• 1. …".
   sortedByGap.slice(0, 3).forEach((f, i) => {
-    const pkVal = (pkAvg as Record<string, number | string>)[f.category]
-    const pkScore = typeof pkVal === 'number' ? pkVal : 1.86
+    // D-011: `: 1.86` here too, and reachable — the phantom's gap was 0, so it
+    // only reached the top three of an assessment where three real categories
+    // scored a perfect gap. Rare is not unreachable.
+    const pkScore = benchmarkFor(pkAvg, f.category)
     r.text(
       `${i + 1}. Your ${f.category} maturity (${f.current}) is ${f.current < pkScore ? 'below' : 'at'} Pakistan average (${pkScore}). Gap to target: ${f.gap}`,
       { size: 9, indent: 5, gapAfter: 4 },
@@ -450,8 +487,9 @@ export function generateMaturityPDF(assessment: AssessmentData, meta: ReportMeta
   r.table({
     head: ['Category', 'Current', 'Target', 'Gap', 'Level', 'vs Pakistan Avg'],
     rows: sortedByGap.map(s => {
-      const pkVal = (pkAvg as Record<string, number | string>)[s.category]
-      const pkScore = typeof pkVal === 'number' ? pkVal : 1.86
+      // D-011: the most visible of the four. Every scorecard carried a ninth row
+      // whose "vs Pakistan Avg" column was computed against this literal.
+      const pkScore = benchmarkFor(pkAvg, s.category)
       const diff = s.current - pkScore
       return [
         s.category,
@@ -483,15 +521,17 @@ export function generateMaturityPDF(assessment: AssessmentData, meta: ReportMeta
   })
 
   // ── PAGES 5-12: CATEGORY DEEP DIVES ──
-  // CATEGORIES.length - 1: the ninth entry is 'Overall Assessment', a rollup with
-  // no deep dive of its own. It still appears on the radar and the scorecard.
-  for (let ci = 0; ci < CATEGORIES.length - 1; ci++) {
+  // Eight pages, one per real BACR category. This read `CATEGORIES.length - 1`
+  // and the comment explained that the ninth entry was a rollup with no deep dive
+  // of its own — an off-by-one carried deliberately to route around a category
+  // that should not have been in the list. D-011 removed the entry, so the bound
+  // is the length.
+  for (let ci = 0; ci < CATEGORIES.length; ci++) {
     r.page()
 
     const cat = CATEGORIES[ci]
     const score = scores.find(s => s.category === cat) || { category: cat, current: 0, desired: 0, gap: 0 }
-    const pkVal = (pkAvg as Record<string, number | string>)[cat]
-    const pkScore = typeof pkVal === 'number' ? pkVal : 1.86
+    const pkScore = benchmarkFor(pkAvg, cat)
 
     // Score-coloured header bar. Per-module, so it is hand-drawn between the
     // spine's header rule (y=12) and the first content baseline.
@@ -693,17 +733,17 @@ export function generateMaturityPDF(assessment: AssessmentData, meta: ReportMeta
   r.page('Benchmark Comparison')
   r.table({
     head: ['Category', 'You', 'Pakistan Avg', 'Regional Leaders', 'Global Best'],
-    rows: CATEGORIES.slice(0, 8).map(cat => {
+    // `CATEGORIES.slice(0, 8)` — the other place the ninth entry was routed
+    // around by hand, and the reason a `slice` here and a `- 1` above had to stay
+    // in step with a literal 8. D-011.
+    rows: CATEGORIES.map(cat => {
       const score = scores.find(s => s.category === cat) || { current: 0 }
-      const pk = (pkAvg as Record<string, number | string>)[cat]
-      const reg = (regional as Record<string, number | string>)[cat]
-      const gl = (global as Record<string, number | string>)[cat]
       return [
         cat,
         score.current.toFixed(1),
-        typeof pk === 'number' ? pk.toFixed(1) : '1.9',
-        typeof reg === 'number' ? reg.toFixed(1) : '3.2',
-        typeof gl === 'number' ? gl.toFixed(1) : '4.1',
+        benchmarkFor(pkAvg, cat).toFixed(1),
+        benchmarkFor(regional, cat).toFixed(1),
+        benchmarkFor(global, cat).toFixed(1),
       ]
     }),
     headFontSize: 8,
@@ -712,7 +752,18 @@ export function generateMaturityPDF(assessment: AssessmentData, meta: ReportMeta
     gapAfter: 15,
   })
 
-  const regOverall = typeof regional['Overall Assessment'] === 'number' ? regional['Overall Assessment'] : 3.18
+  /*
+   * DERIVED, not read. This was `regional['Overall Assessment']` with `: 3.18`
+   * behind it — a key named after a category that does not exist, and a literal
+   * duplicating the value D-010 had just corrected to 3.3.
+   *
+   * The rollup key is now gone from benchmarks.json entirely, which is HAIW's
+   * shape and the safe one: a number stored beside the components it summarises
+   * can drift from them, and D-010 is what that costs. This is the mean of the
+   * same eight numbers the table above prints, so it is the same 3.3 and it
+   * cannot disagree with them again.
+   */
+  const regOverall = CATEGORIES.reduce((s, c) => s + benchmarkFor(regional, c), 0) / CATEGORIES.length
   const gapToRegional = (regOverall - overallScore).toFixed(1)
   /*
    * TAIW's copy of this line is D-002 — the worst geometry defect in the suite,

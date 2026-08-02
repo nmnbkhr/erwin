@@ -993,3 +993,349 @@ are keys rather than rendered content. A referential-integrity check in
 graph is intact. What would catch it is a check that asserts `id === slug(sub)`
 across TCF, which is the same check that would have caught D-007's four before
 they were authored.
+
+---
+
+## D-010 — BAIW's benchmark rollup disagrees with its own components
+
+**Status** — **fixed in the dataset on 2026-08-02**, client-visible, and
+**invisible to the golden harness by design**. See "Harness status" below, which
+is the more interesting half of this entry.
+
+**Where** — `src/data/benchmarks.json`, the `Overall Assessment` key of
+`regionalLeaders` and `globalBest`.
+
+Each of the three benchmark blocks carries eight per-category values and an
+`Overall Assessment` rollup. Two of the three rollups did not equal the mean of
+the eight numbers sitting three lines above them:
+
+| block | stated | mean of its own 8 | |
+|---|---|---|---|
+| `pakistanBankingAverage` | 1.86 | 1.8625 | reconciles |
+| `regionalLeaders` | **3.18** | 3.3 | **−0.12** |
+| `globalBest` | **4.13** | 4.25 | **−0.12** |
+
+The identical −0.12 on two of three looked systematic, which is why this was
+investigated rather than recomputed on sight — `dataReqCount` under D-007 looked
+like a defect and turned out to be counting a different thing, and the "safe
+default" fix would have zeroed 97 capabilities.
+
+**Why it is a typed number and not an independent source**
+
+- **Git**: `baiw/src/data/benchmarks.json` has exactly one commit (`fb021e7`) and
+  has never been modified. There is no in-repo history in which the components
+  moved and the rollup did not.
+- **The design record has both drafts, and they agree on the components.**
+  `archive/build-prompts/v3-prompts-with-git.md` specifies the file verbatim with
+  today's eight values *plus* `"overall": 1.86 / 3.18 / 4.13`. The later
+  `corrected-architecture-report-generation-prompts.md` specifies **the same eight
+  values and no `overall` key at all**. The components were never revised; the
+  rollups were typed once, and two were wrong on the day they were written.
+- **No derivation reproduces either number.** Mean 3.30 / 4.25, median 3.30 /
+  4.25, geometric 3.285 / 4.242, harmonic 3.270 / 4.234, trimmed 3.30 / 4.267 —
+  every central tendency of the components lands *above* the stated value. The
+  implied divisors differ (8.30 vs 8.23), so no shared divisor explains both, and
+  no weight vector proportional to any block in the file does either. Subsets of
+  the eight that happen to average to 3.18 or 4.13 exist but share no index set
+  between the two blocks — coincidence, not a rule.
+- **The file's own convention is "rollup = mean of components"**, demonstrated by
+  the sibling block that reconciles exactly.
+- **The suite convention agrees.** `src/data/taiw/benchmarks.json` carries three
+  rollups and all three are exact 2dp means (1.5625→1.56, 3.425→3.43,
+  4.3125→4.31). HAIW's `DEFAULT_BENCHMARKS` carries no rollup key at all.
+- Nothing marks it as independently sourced: no URL, no methodology note, no
+  citation. The `examples` strings are illustrative peer names, not a source.
+
+**Why TAIW's three reconcile and BAIW's did not.** TAIW's live file was authored
+independently of the v3 prompt and after its components settled — the prompt's
+`regionalLeaders` (4.0, 3.8, 3.5, 3.9, 4.2, 4.0, 3.7, 3.5) is not what shipped
+(3.6, 3.3, 3.1, 3.5, 3.7, 3.8, 3.4, 3.0), and the prompt has neither a
+`wcoTargets` block nor a rollup. Whoever wrote TAIW's file computed all three.
+BAIW's was transcribed from v3 with the rollup carried along unchecked.
+
+**The −0.12 itself is unexplained.** `sum − 8 × stated` is exactly 0.96 for both
+blocks. That is recorded rather than explained: nothing in this repo produces it,
+and inventing a story for it would be the same move as inventing the number.
+
+**What it cost** — `reportGenerator.ts:715` reads
+`regionalLeaders['Overall Assessment']` for page 16's "You are N levels behind
+regional leaders. Closing this gap requires an estimated 18–24 months." Against a
+2.8 cover score that printed **0.4** where the components say **0.5**. One line,
+on a page whose whole purpose is a comparison against peers, understating the
+distance in the bank's favour. `globalBest['Overall Assessment']` is read
+**nowhere** and was wrong for free.
+
+**Fix** — `regionalLeaders` 3.18 → 3.3, `globalBest` 4.13 → 4.25.
+`pakistanBankingAverage` 1.86 is untouched and correct.
+
+**Left alone, deliberately** — `reportGenerator.ts:715` carries
+`: 3.18` as the fallback when the key is absent or non-numeric. It is now a stale
+duplicate of a corrected value, and it is the same class as the five hardcoded
+`1.86` fallbacks D-008 lists: unreachable while the key exists, wrong if it ever
+fires. Source is out of scope for a dataset fix; it wants the same sweep those
+five do.
+
+**Harness status — the golden record cannot see this, and that is by design.**
+`scripts/golden/fixtures/baiw.json` freezes a byte-identical copy of
+`benchmarks.json` in its `data` block, so `compare.mjs` regenerates page 16 from
+the **old 3.18** and reports `exit 0 — no actionable differences`. The freeze
+exists for a good reason — CLAUDE.md: "a dataset edit must not read as a
+generator regression" — but it cuts both ways: a dataset *correction* is equally
+invisible, and nothing anywhere says so. DGIW is the counter-example: it reads
+live data and records a `datasetFingerprint` in every baseline, so the same edit
+would have surfaced as its own `source datasets` finding. BAIW, TAIW and HAIW
+record `datasets: null` and that check never fires for them.
+
+So the baseline now describes a document production no longer generates — the
+same defect class as the fabricated ninth category, arriving from the opposite
+direction. Updating the fixture's frozen copy is a content change to four
+baselines and wants its own walk, exactly as the two ninth-category removals did.
+
+---
+
+## D-011 — a ninth BACR category that no question dataset contains
+
+**Status** — **fixed 2026-08-02**, client-visible, and **invisible to the golden
+harness for the opposite reason to D-010**. See "Harness status".
+
+**Where** — `src/pages/MaturityAssessment.tsx`, `src/utils/reportGenerator.ts`
+and `src/components/dashboard/MaturityRadarCard.tsx`, each carrying its own
+nine-entry `CATEGORIES` list. `bacrQuestions.json` holds 804 questions across
+**eight** categories and none of them is `"Overall Assessment"`.
+
+Three hand-maintained copies of one list is how they diverged, and the ninth
+entry is what they diverged into. On every live BAIW assessment it produced:
+
+- a **ninth radar axis** pinned at 0, drawn like a measurement;
+- a **ninth scorecard row** — `Overall Assessment | 0.0 | 0.0 | 0.0 | Not
+  Assessed | -1.9`, where the last column is the phantom's zero compared against
+  a benchmark it has no business having;
+- **four reachable hardcoded fallbacks** — `typeof pkVal === 'number' ? pkVal :
+  1.86` at the two radar lookups, the key-findings line and the scorecard row —
+  which existed only because a category with no questions has no benchmark;
+- and `isDraft = answeredCategories < totalCategories`, which is **8 < 9**, so
+  **every complete BAIW report was stamped DRAFT**, permanently. The ninth
+  category can never be answered, so the condition can never clear.
+
+The fixture reproduced this faithfully until the golden record was corrected
+two changes earlier; that fix corrected the record, this one corrects the thing
+being recorded.
+
+**Fix** — one declaration, `src/data/bacrCategories.ts`, imported by all three.
+
+**Why declared rather than derived, which would be better.** A BACR question is
+`{ id, category, subcategory, text, weight }`: no ordinal, no category id, no
+category table. The only derivable order is order of first appearance —
+`Business, Information, Applications, Systems, Agility, Culture, Governance,
+Outcomes` — which is **not** the shipped order of the radar, the eight deep-dive
+pages, the scorecard or the benchmark table. Deriving would silently reorder four
+rendered surfaces to match an accident of how the file was generated. A runtime
+derivation would also drag the 188 kB question bank into the dashboard card,
+which lazy-loads it today precisely to avoid that. So the ORDER is declared once
+and the SET is the gate's job — see "The check this wants" below.
+
+**Two off-by-ones that existed only to route around the phantom**, and are the
+trap for anyone who shortens the list without reading its consumers:
+`for (let ci = 0; ci < CATEGORIES.length - 1; ci++)` for the deep dives, and
+`CATEGORIES.slice(0, 8)` for the benchmark table. Cut the list to eight and leave
+the `- 1` and the report loses a deep-dive page. Both now read the length.
+
+**The seven fallbacks are gone, not left unreachable.** Four were reachable (see
+above); three — the deep-dive `pkScore` and the page-16 table's `'1.9'`/`'3.2'`/
+`'4.1'` — were already dead behind the `slice`/`- 1`. All seven are replaced by
+one `benchmarkFor()` helper with a single cast, because `BENCHMARK-ROLLUP` now
+asserts every real category has a numeric entry in every benchmark block. **An
+unreachable branch that renders a number is a wrong number waiting for its caller
+to change** — which is exactly what the four reachable ones were.
+
+**`regionalLeaders["Overall Assessment"]` is derived, and the rollup keys are
+gone.** Page 16's peer distance read that key with `: 3.18` behind it — a stale
+duplicate of the value D-010 had just corrected. It is now the mean of the same
+eight numbers the table above it prints: the same 3.3, and it cannot drift from
+its components again. All three phantom rollup keys have left
+`src/data/benchmarks.json`, which supersedes D-010's dataset edit — the two
+corrected values went with the keys that held them. BAIW now has HAIW's shape,
+and `BENCHMARK-ROLLUP` stays green because it treats an absent rollup as
+legitimate by design.
+
+**TAIW has the same constant and it is inert; HAIW is clean.**
+`tradeReportGenerator.ts` still declares nine `CATEGORIES` against eight TACR
+categories, but `TradeMaturityAssessment.tsx` derives its categories from
+`tacrQuestions.json` and passes only scored ones — so the ninth reaches no
+rendered surface. It is dead weight in a constant plus one
+`regional['Overall Assessment']` read, and it carries the same `- 1` / `slice(0, 8)`
+trap. HAIW's `HACR_CATEGORIES` is eight and correct. Left alone here; TAIW's is a
+one-file change with no output movement and wants its own.
+
+**Harness status — nothing moved, and that is the proof rather than a gap.** All
+three BAIW artefacts report `raw bytes stable`: page count, glyphs, runs, table
+rows and bytes all held, every right-edge extent held, zero runs past margin. The
+fixture supplies eight scored categories, so it was already exercising the
+post-fix caller, and every generator change here is behaviour-preserving **for an
+eight-category caller**. The three baselines moved in `datasets` only — the
+fingerprint D-010 added, doing its job.
+
+The consequence is that the **production** change is not measurable by this
+harness: no fixture supplies nine categories, and after this fix none can. The
+per-surface effect is enumerated above from the code paths. The one production
+effect with no coverage at all is the DRAFT watermark, which the README already
+lists as a blind spot — it was on for every complete BAIW report and is now off,
+and no golden artefact renders it either way.
+
+**Two things this turned up, neither fixed here**
+
+- `MaturityRadarCard.tsx` does not score by category. It slices
+  `Object.values(answers)` positionally into `CATEGORIES.length` equal blocks and
+  averages each, which aligns with the real categories only while the user
+  answered every question in presentation order and never revisited. Skip a
+  category, answer out of order or stop halfway and every axis is labelled with
+  someone else's questions. Going from nine slices to eight removes a
+  permanently-empty axis and leaves the rest exactly where it was.
+- `CapabilityNavigator.tsx::getMaturityScore` builds `relevantCategories` from a
+  `CATEGORY_THEME_MAP` and then **never uses it** — it returns the mean of *every*
+  answer, rendered per BVF theme as that theme's maturity. Every theme therefore
+  shows the same number. That is D-001's shape with the map as decoration, and it
+  is live on the capability navigator.
+
+**The check this wants** — nothing joins a module's *rendered* category set to its
+question dataset. `BENCHMARK-ROLLUP` joins the benchmark file to the questions;
+this defect lived one step away, in the list the UI and the report iterate. See
+the proposal filed with D-011 in the phase notes.
+
+---
+
+## D-012 — two BAIW surfaces scoring things they cannot score
+
+Two defects, one prompt, both **fixed 2026-08-02**, both **live on screen and
+unreachable by any fixture**. Neither is a report, so no golden artefact renders
+either; see "Harness status".
+
+### D-012a — `MaturityRadarCard` scored by position, not by category
+
+**Where** — `src/components/dashboard/MaturityRadarCard.tsx`.
+
+`radarData` sliced `Object.values(answers)` into `CATEGORIES.length` equal
+positional blocks and averaged each one. The axis labelled "Governance" showed
+the mean of whichever answers happened to land in the third slice. It also
+carried a dead `catAnswers` filter whose body was `return true`.
+`getAssessmentProgress` had the same shape: `Math.floor(answered / 8)` counts any
+eight answers as "a category assessed".
+
+That aligns with the real categories only while the user answers every question
+in presentation order and never revisits. **Driven directly** through Vite SSR
+against the real exported function:
+
+```
+Agility only, answered at 2 (8 answers)
+  OLD  Business=2  Culture=2  Governance=2  Information=2
+       Applications=2  Systems=2  Agility=2  Outcomes=2
+  NEW  Business=NOT ASSESSED  …  Agility=2.0  …  Outcomes=NOT ASSESSED
+       Scored 1 of 8 categories · not assessed 7.
+```
+
+Eight questions answered in ONE category put a score on ALL EIGHT axes. With
+`perCat = ceil(8/8) = 1` every category received a one-element slice of the
+Agility answers. A client looking at that dashboard saw seven categories they had
+never been asked about, each carrying a number.
+
+**Fix** — attribute each answer by its question id through `bacrCategoryOf`, then
+score through `src/scoring/maturity.ts` — the same primitive TAIW and HAIW use,
+not a fourth path. Three states apply: an untouched category is NOT ASSESSED and
+plots **no vertex** (`null`, which recharts leaves blank), never a zero on the
+innermost ring. The coverage statement prints under the chart, because a shape
+drawn from one of eight categories is not the claim a shape drawn from eight
+makes.
+
+**The 188 kB constraint does not block it, and that was worth checking before
+changing the loading behaviour.** Category attribution needs the question →
+category relation, and BACR ids encode it: `business_summary_001`. All 804 ids
+match `<prefix>_<rest>`, the eight prefixes map one-to-one onto the eight
+categories, and no prefix serves two. So the card still does not import
+`bacrQuestions.json` and the dashboard chunk is unchanged. That relation is now a
+load-bearing assumption, so `BACR-CATEGORY-PREFIX` asserts it on every build —
+an unchecked assumption is how the card came to score by position in the first
+place.
+
+### D-012b — `CapabilityNavigator` showed every BVF theme the same number
+
+**Where** — `src/pages/CapabilityNavigator.tsx`.
+
+`getMaturityScore(themeName)` built a `relevantCategories` list from a
+hand-written `CATEGORY_THEME_MAP` and then **never used it**. What it returned was
+`allAnswers.reduce(...) / allAnswers.length` — the mean of every answer in the
+assessment — rendered beside a capability as "Maturity: N/5" for its theme. All
+three BVF themes therefore displayed the identical number, and the map that was
+supposed to make them differ was decoration.
+
+**Removed, not repaired, and the map went with it.** BACR's 804 questions carry no
+capability link and no theme link — D-001's data fact, the same one that makes
+BAIW ship a capability REGISTER rather than a gap register. There is no honest
+per-theme maturity to compute. `CATEGORY_THEME_MAP` is a keyword bridge of exactly
+the kind TAIW's TCF navigator badge was removed for in D4, and leaving it behind
+is how this one gets armed the same way: someone notices `relevantCategories` is
+unused and "corrects" it into the average.
+
+Replaced by what the dataset authors — capabilities per theme, how many have an
+FSDM subject area, phase distribution — with a line saying plainly that maturity
+is measured against BACR categories, which no dataset joins to a BVF theme.
+
+### Harness status — the harness cannot see either, and zero movement is not evidence
+
+Neither surface is a report. `compare.mjs` exits 0 over 27 unchanged artefacts and
+that says **nothing** about these two, because no fixture reaches a React
+component. Reporting it as confirmation would be the vacuous pass this repo keeps
+finding.
+
+Verified instead by reading the call paths and by **driving the real exported
+function** under Vite SSR with a `localStorage` shim — the table above is that
+run's output, not a hand-computed illustration. D-012b has no exported entry
+point to drive; it was verified by reading, and its replacement renders only
+counted dataset facts.
+
+### TAIW and HAIW
+
+- TAIW's `TCFCapabilityNavigator` carried the same badge and it was removed in D4.
+- HAIW's `HCFCapabilityNavigator` filters on `maturityLevelRequired`, an authored
+  per-capability field that `HCF-SHAPE` validates. Not derived from an assessment.
+  Clean.
+- TAIW's dashboard gauge reads the active engagement and returns `null` when
+  nothing is answered — fixed in D4.
+- **HAIW's dashboard radar is a third costume of the same problem — see D-013.**
+
+---
+
+## D-013 — HAIW's dashboard radar is `Math.random()`
+
+**Status** — open, live, **not fixed here**. Found while checking whether TAIW and
+HAIW carried D-012's shape.
+
+**Where** — `src/haiw/components/HaiwDashboard.tsx`:
+
+```js
+const radarData = radarLabels.map(label => ({
+  category: label,
+  score: Math.floor(Math.random() * 2) + 2,
+  fullMark: 5,
+}))
+```
+
+Eight HACR category labels with scores of 2 or 3, drawn fresh **on every module
+load**. The card is titled "Maturity Preview" and subtitled "Sample HACR category
+scores (placeholder)", which is more honest than BAIW's unlabelled positional
+slicing was — a reader is told it is not their data.
+
+It is still `Math.random` on a client-facing dashboard. CLAUDE.md: "**Variation is
+the tell.** `Math.random`, fixed −0.3/−0.5 offsets, `charCodeAt` … spread with no
+source is a disguise, not data." The subtitle mitigates the reading; it does not
+make the numbers exist. Two people looking at the same screen see different
+shapes, and a screenshot is unreproducible.
+
+**Not fixed here** because the honest replacement is a decision, not a refactor:
+either wire it to the real HACR answers as D-012a wired BAIW's card — HAIW has the
+better data for it, since `computeCategoryOutcomes` already partitions the question
+universe — or remove the card and link to the assessment. Both are content changes
+with their own before/after. The `Math.random` should not survive either way.
+
+**Harness status** — invisible, for D-012's reason: not a report, no fixture. It
+would also make any future golden coverage of this component non-reproducible by
+construction, which is the property `src/report/` has rules against.

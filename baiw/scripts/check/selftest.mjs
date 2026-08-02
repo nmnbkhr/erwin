@@ -88,6 +88,8 @@ const slugOf = (s) => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g
 const DGIW = 'src/dgiw/data'
 const TAIW = 'src/data/taiw'
 const HAIW = 'src/data/haiw'
+/** BAIW's datasets sit at the top of src/data/, not in a module subdirectory. */
+const BAIW_DATA = 'src/data'
 const RAW_BAIW = 'scripts/golden/raw/baiw'
 const GEOM_PROBE = `${RAW_BAIW}/__geomprobe.pdf`
 
@@ -560,6 +562,126 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     what: 'a zero weight — aggregate() would silently fall back to an unweighted mean',
     touches: [`${HAIW}/hacrQuestions.json`],
     apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => { q[0].weight = 0 }),
+  },
+
+  // ── BENCHMARK-ROLLUP, D-010 ─────────────────────────────────────────────
+  // Five rows for one code because it has five distinct failure branches, and
+  // the two exception branches are the ones that decay silently: both maps ship
+  // EMPTY, so nothing in the live repo exercises them and they would rot
+  // unnoticed exactly as FRAMEWORK-COVERAGE's `fail()` did for a whole phase.
+  // The mismatch and stale-exception rows target TAIW, not BAIW. D-011 removed
+  // BAIW's rollup keys entirely — HAIW's shape, and the safe one — so BAIW can no
+  // longer exhibit either defect and both rows went quiet there. The first
+  // reported NOT TRIPPED; the second kept reporting TRIPPED while silently
+  // exercising the unknown-block branch instead, which is a code passing on the
+  // wrong evidence. TAIW still carries three rollups and is where the class lives.
+  {
+    code: 'BENCHMARK-ROLLUP',
+    what: 'D-010 itself — a rollup that disagrees with the components printed beside it',
+    touches: [`${TAIW}/benchmarks.json`],
+    // Move a component, leave the rollup. The exact shape of the real defect:
+    // 3.18 against eight numbers averaging 3.3, on the page that tells a client
+    // how far it is behind its peers.
+    apply: () => json(`${TAIW}/benchmarks.json`, (b) => { b.regionalLeaders['Strategy & Vision'] = 1.1 }),
+  },
+  {
+    code: 'BENCHMARK-ROLLUP',
+    what: 'a stale exception — a corrected rollup leaving a permanent hole in the check',
+    touches: ['scripts/check/modules/taiw.mjs'],
+    // Declare an exception for a block that already reconciles. Both maps are
+    // empty in the live repo, so this branch has no other way to be reached.
+    apply: () => sub(
+      'scripts/check/modules/taiw.mjs',
+      'const ROLLUP_EXCEPTIONS = Object.freeze({})',
+      "const ROLLUP_EXCEPTIONS = Object.freeze({ wcoTargets: 'selftest — a block that reconciles' })",
+    ),
+  },
+  {
+    code: 'BENCHMARK-ROLLUP',
+    what: 'an exception for a block that carries no rollup — nothing for it to excuse',
+    touches: ['scripts/check/modules/baiw.mjs'],
+    apply: () => sub(
+      'scripts/check/modules/baiw.mjs',
+      'const ROLLUP_EXCEPTIONS = Object.freeze({})',
+      "const ROLLUP_EXCEPTIONS = Object.freeze({ globalBest: 'selftest — a real block with no rollup key' })",
+    ),
+  },
+  {
+    code: 'BENCHMARK-ROLLUP',
+    what: 'an exception naming a block the file does not carry — coverage that is not',
+    touches: ['scripts/check/modules/baiw.mjs'],
+    apply: () => sub(
+      'scripts/check/modules/baiw.mjs',
+      'const ROLLUP_EXCEPTIONS = Object.freeze({})',
+      "const ROLLUP_EXCEPTIONS = Object.freeze({ noSuchBlock: 'selftest — names nothing' })",
+    ),
+  },
+  {
+    code: 'BENCHMARK-ROLLUP',
+    what: 'a BACR category with no entry in a block — what makes the five hardcoded 1.86 fallbacks reachable',
+    touches: [`${BAIW_DATA}/benchmarks.json`],
+    apply: () => json(`${BAIW_DATA}/benchmarks.json`, (b) => { delete b.globalBest.Governance }),
+  },
+  {
+    code: 'BENCHMARK-ROLLUP',
+    what: "HAIW's DEFAULT_BENCHMARKS gaining an Overall Assessment key — regAvg would average it in with its own components",
+    touches: ['src/haiw/utils/healthReportGenerator.ts'],
+    apply: () => sub(
+      'src/haiw/utils/healthReportGenerator.ts',
+      "  regionalLeaders: {\n    'Strategy & Leadership': 3.4,",
+      "  regionalLeaders: {\n    'Overall Assessment': 3.18,\n    'Strategy & Leadership': 3.4,",
+    ),
+  },
+
+  // ── CATEGORY-UNIVERSE, D-011 ────────────────────────────────────────────
+  // FIVE rows for one code, one per BRANCH. That distinction is not pedantry:
+  // BENCHMARK-ROLLUP shipped with two branches under one code and a matrix that
+  // could not tell them apart, so when D-011 removed BAIW's rollup keys the
+  // stale-exception row kept reporting TRIPPED while silently exercising the
+  // unknown-block branch instead. A code passing on the wrong evidence is a check
+  // that has stopped running, wearing a green tick.
+  {
+    code: 'CATEGORY-UNIVERSE',
+    what: 'D-011 itself — a rendered category the question dataset does not contain',
+    touches: ['src/data/bacrCategories.ts'],
+    apply: () => sub('src/data/bacrCategories.ts', "  'Outcomes',\n]", "  'Outcomes',\n  'Overall Assessment',\n]"),
+  },
+  {
+    code: 'CATEGORY-UNIVERSE',
+    what: 'a category with questions that nothing renders — D-011 inverted, and quieter',
+    touches: ['src/data/bacrCategories.ts'],
+    apply: () => sub('src/data/bacrCategories.ts', "  'Governance',\n  'Information',", "  'Information',"),
+  },
+  {
+    code: 'CATEGORY-UNIVERSE',
+    what: 'a fourth copy of the list — the shape three copies diverged from',
+    touches: ['src/pages/MaturityAssessment.tsx'],
+    apply: () => sub(
+      'src/pages/MaturityAssessment.tsx',
+      'export default function MaturityAssessment() {',
+      "const CATEGORIES_AGAIN = ['Business', 'Culture', 'Governance', 'Information', 'Applications', 'Systems', 'Agility', 'Outcomes']\nvoid CATEGORIES_AGAIN\n\nexport default function MaturityAssessment() {",
+    ),
+  },
+  {
+    code: 'CATEGORY-UNIVERSE',
+    what: 'the declared const renamed — the comparison would read nothing',
+    touches: ['src/data/bacrCategories.ts'],
+    apply: () => sub('src/data/bacrCategories.ts', 'export const BACR_CATEGORIES = [', 'export const BACR_CATEGORIES_RENAMED = ['),
+  },
+  {
+    code: 'CATEGORY-UNIVERSE',
+    what: 'the declared location gone — a scan that finds nothing looks like a scan that passed',
+    touches: ['src/data/bacrCategories.ts'],
+    apply: () => remove('src/data/bacrCategories.ts'),
+  },
+  {
+    code: 'BACR-CATEGORY-PREFIX',
+    what: 'one id prefix serving two categories — the relation MaturityRadarCard attributes by',
+    touches: [`${BAIW_DATA}/bacrQuestions.json`],
+    apply: () => json(`${BAIW_DATA}/bacrQuestions.json`, (q) => {
+      const victim = q.find((x) => x.id.startsWith('business_'))
+      victim.category = 'Outcomes'
+    }),
   },
 
   // ── the gate's own two ──────────────────────────────────────────────────

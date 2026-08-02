@@ -19,6 +19,8 @@
  * there is no per-capability gap to report. D-001, closed by removal.
  */
 import { unique, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
+import { makeBenchmarkRollup, rollupSummary } from '../lib/benchmark-rollup.mjs'
+import { makeCategoryUniverse, categoryUniverseSummary } from '../lib/category-universe.mjs'
 
 /**
  * The TCF id derivation: lowercase the `sub`, expand `&` to `and`, and collapse
@@ -347,6 +349,44 @@ const benchmarkKeys = {
   },
 }
 
+/**
+ * TAIW's rollup exceptions. EMPTY, and unlike BAIW's this file never needed one:
+ * all three of TAIW's rollups already reconcile to 2dp (1.5625->1.56,
+ * 3.425->3.43, 4.3125->4.31).
+ *
+ * D-010's investigation established why the two files differ. TAIW's was authored
+ * independently of the v3 build prompt and after its components settled — the
+ * prompt's `regionalLeaders` is not what shipped, and it has neither a
+ * `wcoTargets` block nor a rollup — so whoever wrote it computed all three. BAIW's
+ * was transcribed from that prompt with the rollup carried along unchecked.
+ *
+ * The rule is here anyway. "It happens to be right today" is what was true of
+ * BAIW's `pakistanBankingAverage`, one key away from the two that were not.
+ */
+const ROLLUP_EXCEPTIONS = Object.freeze({})
+
+const tacrCategories = (ctx) => (ctx.data.tacr?.categories ?? []).map((c) => c.name).filter((n) => typeof n === 'string')
+
+/*
+ * TAIW's rendered list lives in the generator rather than in a data module — its
+ * screen derives categories from the dataset directly, so the generator's copy is
+ * the only declared one. Same rule, different home.
+ */
+const categoryUniverse = makeCategoryUniverse({
+  label: 'TACR',
+  declaredIn: { rel: 'src/taiw/utils/tradeReportGenerator.ts', constName: 'CATEGORIES' },
+  categories: tacrCategories,
+})
+
+const benchmarkRollup = makeBenchmarkRollup({
+  dataKey: 'benchmarks',
+  fileLabel: 'benchmarks.json',
+  // THE JOIN — the authored category list, not the benchmark file's own keys,
+  // which include the phantom `Overall Assessment`.
+  categories: tacrCategories,
+  exceptions: ROLLUP_EXCEPTIONS,
+})
+
 export default {
   id: 'taiw',
   title: 'TAIW — Trade Analytics',
@@ -365,6 +405,7 @@ export default {
 
   /** Declared run order — this is the order findings print in. */
   checks: [
+    categoryUniverse,
     tacrShape,
     tacrUnique,
     tacrCategoryPrefix,
@@ -374,6 +415,11 @@ export default {
     tcfFk,
     tcfCoverage,
     benchmarkKeys,
+    // After TAIW-BENCHMARK-KEYS, which asserts the same companion condition for
+    // TACR and additionally reports non-category numeric keys. Both fire on a
+    // missing category; that duplication is stated rather than removed, per
+    // CLAUDE.md rule 9. See the note in check/lib/benchmark-rollup.mjs.
+    benchmarkRollup,
   ],
 
   summary(ctx) {
@@ -401,6 +447,8 @@ export default {
     )
     const extras = r['TAIW-BENCHMARK-KEYS']?.extras ?? []
     if (extras.length) out.push(`  benchmark keys with no TACR category: ${extras.join(', ')}`)
+    out.push(`  ${rollupSummary(r['BENCHMARK-ROLLUP'], 'TACR benchmarks')}`)
+    out.push(`  ${categoryUniverseSummary(r['CATEGORY-UNIVERSE'], 'TACR', '    ')}`)
     return out
   },
 }

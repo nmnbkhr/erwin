@@ -148,10 +148,24 @@ function groupCoverage(caps: readonly TcfCapability[]): GroupCoverage[] {
   return [...rows.values()]
 }
 
+/*
+ * D-011's shape, in TAIW. This carried a ninth entry, 'Overall Assessment',
+ * which `tacrQuestions.json` does not contain — the same phantom BAIW rendered.
+ *
+ * TAIW's was INERT where BAIW's was live: `TradeMaturityAssessment.tsx` derives
+ * its categories from the dataset and passes only scored ones, so the ninth
+ * reached no radar axis and no scorecard row. It was dead weight in a constant
+ * plus two off-by-ones written to route around it — `CATEGORIES.length - 1` for
+ * the deep dives and `CATEGORIES.slice(0, 8)` for the benchmark table. Shorten
+ * the list without reading those two and the report silently loses a page.
+ *
+ * CATEGORY-UNIVERSE now asserts this list against the dataset, which is what
+ * forced the tidy-up. No rendered surface moves.
+ */
 const CATEGORIES = [
   'Strategy & Vision', 'Organization & Skills', 'Data Governance',
   'Information & Integration', 'Analytics & Technology', 'Infrastructure',
-  'Processes & Automation', 'Outcomes & Impact', 'Overall Assessment'
+  'Processes & Automation', 'Outcomes & Impact'
 ]
 
 const TEAL = [13, 148, 136] as const     // #0d9488
@@ -492,9 +506,9 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
   })
 
   // ── PAGES 5-12: CATEGORY DEEP DIVES ──
-  // CATEGORIES.length - 1: the ninth entry is 'Overall Assessment', a rollup with
-  // no deep dive of its own. It still appears on the radar and the scorecard.
-  for (let ci = 0; ci < CATEGORIES.length - 1; ci++) {
+  // Eight pages, one per real TACR category. Was `CATEGORIES.length - 1`, an
+  // off-by-one carried to skip the phantom ninth entry. D-011.
+  for (let ci = 0; ci < CATEGORIES.length; ci++) {
     r.page()
 
     const cat = CATEGORIES[ci]
@@ -715,7 +729,7 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
   r.page('Benchmark Comparison')
   r.table({
     head: ['Category', 'You', 'Pakistan Avg', 'Regional Leaders', 'WCO Targets'],
-    rows: CATEGORIES.slice(0, 8).map(cat => {
+    rows: CATEGORIES.map(cat => {
       // `|| { current: 0 }` here too, and the same defect: a category with no
       // answers appeared in the "You" column as 0.0, ranked against the Pakistan
       // average and the WCO target as though it had been measured. The three

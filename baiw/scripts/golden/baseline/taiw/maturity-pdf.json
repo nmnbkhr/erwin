@@ -16,7 +16,13 @@
       "July 31, 2026"
     ]
   },
-  "datasets": null,
+  "datasets": {
+    "files": 1,
+    "sha256": "bd5c81ede41f2b6f0ac96b62dfbfb2c64e7adf9ea43c7457d0441e839ea91efa",
+    "sources": [
+      "src/data/taiw/benchmarks.json"
+    ]
+  },
   "filename": "MR-TAIW-MATURITY_fixture-customs-authority_all_2026-07-31.pdf",
   "filenameNormalised": "MR-TAIW-MATURITY_fixture-customs-authority_all_2026-07-31.pdf",
   "generator": "generateTradeMaturityPDF",

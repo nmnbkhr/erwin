@@ -16,7 +16,13 @@
       "July 31, 2026"
     ]
   },
-  "datasets": null,
+  "datasets": {
+    "files": 1,
+    "sha256": "6286141728d24d0dc8c4d30ec270b75df5504a5105752d4067f008e51e74644f",
+    "sources": [
+      "src/data/benchmarks.json"
+    ]
+  },
   "filename": "MR-BAIW-MATURITY_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "MR-BAIW-MATURITY_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "generateMaturityPDF",
@@ -24,7 +30,7 @@
   "kind": "pdf",
   "module": "baiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "6360f1010793f372239194c3e441b64844d58d4a2b5e84654fe1fa8c0eb459cd",
+  "normalisedTextSha256": "0a2f52495cc054bec68d02bf3888c73c71a14e705837f97d94a7f9bac6e66e1a",
   "notReproducible": {},
   "pageCount": 18,
   "pages": [
@@ -911,7 +917,7 @@
         "1.5",
         "2.8",
         "3.8",
-        "You are 0.4 levels behind regional leaders. Closing this gap requires an estimated 18–24 months.",
+        "You are 0.5 levels behind regional leaders. Closing this gap requires an estimated 18–24 months.",
         "Prepared by Godaitec | godai.tech",
         "Page 16 of 18"
       ],
@@ -1004,7 +1010,7 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "a22a7496a52d2f48d413757159053b703def566e1194fa173e1f6290928d93f0",
+  "rawBytesSha256": "fab83878fb0f142c86b0c789f088c3e612a8014e69a4db4cd87469fe35fa56dd",
   "tableRowsTotal": 54,
   "textRunCount": 632,
   "unknownFonts": [],

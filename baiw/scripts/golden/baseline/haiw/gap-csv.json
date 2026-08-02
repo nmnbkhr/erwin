@@ -13,7 +13,14 @@
     "tz": "UTC"
   },
   "columnCount": 9,
-  "datasets": null,
+  "datasets": {
+    "files": 2,
+    "sha256": "f1ccdbeaff2cc81f7d13d3312e756c1a06d36baf794fc749f3fc42e58de8b721",
+    "sources": [
+      "src/data/haiw/capabilities.json",
+      "src/data/haiw/hacrQuestions.json"
+    ]
+  },
   "filename": "MR-HAIW-GAP_fixture-health-authority_all_2026-07-31.csv",
   "filenameNormalised": "MR-HAIW-GAP_fixture-health-authority_all_2026-07-31.csv",
   "firstThreeRows": [

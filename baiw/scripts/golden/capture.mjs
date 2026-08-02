@@ -40,7 +40,7 @@ import path from 'node:path'
 import {
   pinEnvironment, environmentStamp, environmentVars, parseArgs, createDriver, analyse,
   assertNonEmpty, stableStringify, stableJson, baselinePath, BASELINE_DIR, RAW_DIR,
-  REGISTRY, MODULES, datasetFingerprint,
+  REGISTRY, MODULES,
 } from './harness.mjs'
 
 pinEnvironment()
@@ -127,9 +127,10 @@ try {
         module,
         capturedWith: env,
         capturedEnvVars: environmentVars(),
-        // DGIW reads live datasets — see datasetFingerprint's comment. null for
-        // the modules whose fixtures freeze their data.
-        datasets: module === 'dgiw' ? datasetFingerprint('src/dgiw/data') : null,
+        // Every module now records one, DGIW over its live directory and the
+        // other three over the LIVE files their fixture froze. `null` here was
+        // D-010's blind spot — see fixtureDataSources() in harness.mjs.
+        datasets: driver.fingerprintFor(module),
         ...analysis,
       }
       const target = baselinePath(module, analysis.artefact)

@@ -5,6 +5,10 @@
   "engagementId": "golden-0000-4000-8000-000000000002",
   "generatedAt": "2026-07-31T00:00:00.000Z",
   "layer": "all",
+  "dataSources": [
+    "src/data/haiw/capabilities.json",
+    "src/data/haiw/hacrQuestions.json"
+  ],
   "notes": [
     "All 720 HACR questions answered, in hacrQuestions.json order, which is the",
     "order Object.values(answers) yields in the live component.",

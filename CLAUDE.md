@@ -184,11 +184,42 @@ free-text owner strings to archetypes (`src/dgiw/roles.ts`), and source that
 carries *why*-comments explaining the defect that motivated the code. Match that
 standard. BAIW is the pattern that accreted — do not use it as a model.
 
-D4 filled two of the empty rule files: TAIW has 9 checks and HAIW 7, so the gate
-now runs 40 across three modules. **BAIW, COE and ALM still declare
-`checks: []`** — legal, and printed on the REGISTRY line every build so it stays
-a stated fact. BAIW's capability relations are the obvious next candidate;
-`docs/known-defects.md` names them.
+D4 filled two of the empty rule files. The gate now runs **35 checks across 7
+registry entries** — suite 4, TAIW 9, HAIW 7, DGIW 15 — and the REGISTRY line
+prints exactly that breakdown on every build:
+
+```
+REGISTRY 7 entries, 35 checks (suite 4, _spine 0, baiw 0, taiw 9, haiw 7, coe 0, alm 0, dgiw 15)
+```
+
+**Read that line rather than this paragraph.** It said 40 for the whole of D4 —
+a number matching neither the three modules' 31 nor the 35 with the suite class
+included. A hand-typed count in prose beside a computed one on stdout is the
+prose losing, every time.
+
+D-010 then gave BAIW its first: **`BENCHMARK-ROLLUP`**, in all three of
+`baiw.mjs`, `taiw.mjs` and `haiw.mjs`. A rollup printed beside its own components
+must equal them. Two of BAIW's three did not, one of them was read by page 16, and
+a bank was told it was 0.4 levels behind its peers when its own numbers said 0.5.
+
+The rule's whole value is *where it gets its category list*: from the module's
+**question dataset**, never from "every other numeric key in the block". The
+benchmark files carry an `Overall Assessment` key and both golden fixtures carried
+an `Overall Assessment` *category* that no dataset contains — a rule reading the
+block's own keys would have folded the rollup into its own mean and accepted the
+phantom. It ships with two companions: every real category must have an entry in
+every block (which is what makes `reportGenerator.ts`'s five hardcoded `1.86`
+fallbacks provably dead rather than assumed dead), and HAIW's `DEFAULT_BENCHMARKS`
+must keep **no** rollup key at all, because `healthReportGenerator.ts` averages
+every value in a block and would fold one in.
+
+Exception maps in both rule files, on the `SLUG_EXCEPTIONS` precedent, and both
+ship **empty** — the honest state, since neither wrong value was ever sourced. A
+stale exception fails, and so does one naming a block the file does not carry.
+
+**COE and ALM still declare `checks: []`** — legal, and printed on the same line
+so it stays a stated fact rather than an absence you would have to notice. BAIW's
+capability relations are the next candidate; `docs/known-defects.md` names them.
 
 Note what D4's rules are NOT. `TCF-COVERAGE` reports that `dataReqCount` matches
 the observed requirement count for **2 of 100** capabilities and asserts nothing
@@ -326,6 +357,47 @@ nothing, and exits 1. `raw/` is refreshed either way, so the new output is on
 disk to look at. The walk is still yours — `compare.mjs`, then `walk.mjs` on
 whatever moved — but freezing an unwalked diff now takes a deliberate flag.
 
+**`compare.mjs` classifies NEW and ORPHANED rather than throwing.** A missing
+baseline used to abort the run at the first unseen artefact, hiding every later
+diff until you captured — which pushed the operator toward `--accept` just to see
+the report, routing around the safeguard above. Both are findings now; the run
+completes and still exits non-zero, because an artefact nobody has a baseline for
+has been verified exactly as much as one nobody ran.
+
+### The fixture freeze has two directions
+
+BAIW, TAIW and HAIW freeze a copy of every dataset they read into the fixture.
+DGIW does not — it reads live data and records a `datasetFingerprint` per
+baseline. That difference is deliberate and the reasons are in `harness.mjs`, but
+until D-010 only one half of the trade was written down:
+
+| | |
+|---|---|
+| a dataset edit misattributed to the generator | the freeze **prevents** this |
+| a dataset edit invisible, the baseline describing output production no longer makes | the freeze **causes** this |
+
+The second is not hypothetical. D-010 corrected
+`benchmarks.json::regionalLeaders["Overall Assessment"]` from 3.18 to 3.3; page
+16 of every BAIW report moved from "0.4 levels behind regional leaders" to 0.5;
+and `compare.mjs` printed **`exit 0 — no actionable differences`**, because it
+regenerated the page from the fixture's frozen 3.18. A client-facing sentence
+changed and the golden record could not see it. The fabricated ninth category was
+the same direction from inside the fixture rather than outside it.
+
+**Every module now records a `datasets` fingerprint**, and the freeze stays. DGIW's
+is over its live directory, unchanged. The other three fingerprint the **live**
+files their fixture froze — declared by the `data` block's own keys, plus a
+`dataSources` array for content frozen outside it (HAIW's `capabilities` and
+`questions`). When the live file drifts from the frozen copy, `compare.mjs` says
+so under `source datasets` while raw bytes read `stable`, which is exactly the
+D-010 shape made visible. **A fixture that declares neither is a hard error**, not
+a `null`: `datasets: null` was the whole blind spot, because `diffCommon`'s check
+is guarded on the field being truthy.
+
+Read the finding per module. For DGIW it *explains* the content changes below it.
+For the other three it means the opposite — the frozen copy is stale and wants
+refreshing, then a walk.
+
 ## DGIW scoring
 
 `src/dgiw/scoring.ts` is the single source of every diagnostic figure. Both
@@ -389,12 +461,30 @@ number alone cannot tell them apart. Fixing the arithmetic without printing the
 coverage would leave a reader unable to distinguish a complete assessment from a
 half-finished one — the D-003 lesson, one level up.
 
+**`QuickAssessment.tsx` was already correct and stays as it is.** It is shared
+with BAIW, it already divided by the scored count, and it is the one of the four
+that needed nothing. Do not "unify" it onto `maturity.ts` as a tidying pass:
+it scores a different unit — a short quick-scan question set, not the deep TACR
+or HACR category tree — and moving it would change BAIW's screen in a change
+whose whole value is that BAIW did not move.
+
 **The fixtures could not see any of this.** Every golden fixture answered every
 question, and at 8-of-8 all four rules coincide. `taiw.json::assessmentPartial`
 and `haiw.json::answersPartial` are the first artefacts in the repo that exercise
 an unanswered category — four of eight, with the fourth answered only halfway so
 the within-category path is covered too. A change to category scoring that leaves
 those two baselines unmoved has not been tested.
+
+**And two of them carried a category that no dataset contains.** `baiw.json` and
+`taiw.json` each seeded a ninth row, `"Overall Assessment"` at a perfect
+5.0 / 5.0 / 0.0, against eight real BACR and eight real TACR categories. It was
+averaged in as though measured — 27/9 = 3.0 on both covers where the eight
+measured categories say 22/8 = 2.8 — so it inflated the headline and understated
+every distance derived from it. Both are removed, each with its own walk.
+**A fabricated row is invisible while every rule agrees**: at 9-of-9 the ÷scored
+and ÷all rules coincide exactly as they do at 8-of-8, and it took printing the
+denominator to make anyone count. Nothing in the gate checks a fixture against
+its module's question dataset; that is the check this would have needed.
 
 **HAIW's category buckets are built from the QUESTION UNIVERSE, not the answer
 set.** `computeCategoryOutcomes` used to bucket `answers`, so a category nobody
@@ -409,12 +499,27 @@ Page 13 of the PDF and `generateHealthGapCSV` both call `scoreCapabilities()`.
 Before D-003 they each computed their own numbers and **disagreed about the same
 capability on the same day**. One function, or the two deliverables drift again.
 
+**TACR carries none of the three fields HACR carries, and that is a data fact,
+not an oversight to be corrected in code:**
+
+| | `weight` | layer (`core`/`banking`) | `capabilityLinks` |
+|---|---|---|---|
+| HACR (720 questions) | 0.8–1.2 | — | on 720 of 720 |
+| TACR (640 questions) | absent | absent | absent |
+
+So **TAIW has no capability-level score and cannot have one** until the relation
+is authored. This is the same statement as the D-001 table below, read from the
+data side rather than the deliverable side: HAIW ships a gap register because
+`capabilityLinks` exists, TAIW ships a capability register because it does not.
+The layer row is the reason CLAUDE.md's "the core/banking layer is DGIW-only" is
+true — it was confirmed against `tacrQuestions.json` in D4, not assumed.
+
 **Categories are an unweighted mean; capabilities are weight-weighted. The
 difference is passed as an argument, not implemented twice** — `aggregate()`
-takes a weight per entry, and category scoring passes `1`. TACR questions carry
-no `weight` field at all, so for TAIW the `1` is the only thing it could be; for
-HAIW it is a choice. Do not "tidy" this into two functions, and do not make it
-uniform without deciding to:
+takes a weight per entry, and category scoring passes `1`. Because TACR carries
+no `weight` at all, for TAIW the `1` is the only thing it could be; for HAIW it
+is a choice. Do not "tidy" this into two functions, and do not make it uniform
+without deciding to:
 
 `question.weight` is declared in `types.ts` and is read **only** by capability
 scoring. Weighting the categories too moves every category's gap 1.3 → 1.4 and
@@ -487,6 +592,36 @@ baselined, and triggered exactly when the client could least tell.
 **Variation is the tell.** `Math.random`, fixed −0.3/−0.5 offsets, `charCodeAt`,
 `(ci % 5 - 2) * 0.15` — every instance added spread for no reason except to stop
 one number reading as one number. Spread with no source is a disguise, not data.
+
+**A tool that destroys the record it exists to preserve, on the invocation most
+likely to be an accident.** Three instances in this repo, one shape:
+
+| Tool | The record | What it did |
+|---|---|---|
+| `clickthrough.mjs` | its own output dir | `rmSync` before it could run |
+| `capture.mjs` | the golden baseline | overwrote it before anyone read the diff |
+| `compare.mjs` | the rest of the diff | threw on the first NEW artefact |
+
+Each destroyed exactly the thing a reviewer needed, and each did it on the most
+ordinary act available — running the tool, re-capturing, adding a fixture.
+`compare.mjs` was the instructive one: failing hardest on a normal act pushed
+the operator toward `capture --accept` just to see the report, which is the
+unwalked freeze `capture.mjs` had just been hardened against. **A tool that is
+hostile to the normal case teaches people to route around its safeguards.**
+All three now refuse, classify or continue instead. When adding a tool here, ask
+what it deletes and whether the deletion happens before or after the human has
+had a chance to look.
+
+**A check that declares one code and emits another is invisible from the exit
+code.** `TACR-UNIQUE` and `HACR-UNIQUE` both ran, both found their duplicate,
+both failed the build — and both reported under `UNIQUE`, because the shared
+`unique()` helper hardcoded it. From outside, a failing build looks the same
+either way; the finding names a code no rule file mentions and nothing notices.
+Inspection would not have caught it and did not. **Only a matrix asserting WHICH
+code trips catches this**, which is the second thing `npm run check:selftest`
+buys beyond "the check still runs": every `fail()` code must be reachable *from
+the check that declares it*. Pass the code as a parameter to any shared
+assertion helper — `unique`, `sorted`, `shapeCheck` — never hardcode one inside.
 
 Concretely, for any generator: an empty result is a legitimate output.
 `downloadCsv` returns `false` and writes no file on an empty set; propagate that

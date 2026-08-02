@@ -8,6 +8,11 @@ import { ChevronLeft, ChevronRight, Download, RotateCcw, FileText, Zap, Clipboar
 import ReportGenerator from '../components/ReportGenerator'
 import QuickAssessment from '../components/QuickAssessment'
 import quickData from '../data/quickAssessment.json'
+// D-011: was a local nine-entry list. `bacrQuestions.json` has eight categories
+// and no "Overall Assessment", so the ninth rendered a permanently-zero radar
+// axis and a zero scorecard row, and kept `answeredCategories < totalCategories`
+// true forever — stamping DRAFT on every complete report.
+import { BACR_CATEGORIES as CATEGORIES, QUESTIONS_PER_CATEGORY } from '../data/bacrCategories'
 
 const MATURITY_LABELS = ['', 'Emerging', 'Developing', 'Practicing', 'Innovating', 'Leading']
 const MATURITY_DESCRIPTIONS: Record<number, string> = {
@@ -17,12 +22,6 @@ const MATURITY_DESCRIPTIONS: Record<number, string> = {
   4: 'Advanced analytics in production, predictive models, measurable ROI.',
   5: 'AI/ML embedded in operations, real-time decisioning, continuous optimization.',
 }
-
-const CATEGORIES = [
-  'Business', 'Culture', 'Governance', 'Information', 'Applications',
-  'Systems', 'Agility', 'Outcomes', 'Overall Assessment'
-]
-const QUESTIONS_PER_CATEGORY = 8
 
 export default function MaturityAssessment() {
   const { state, dispatch } = useAssessment()

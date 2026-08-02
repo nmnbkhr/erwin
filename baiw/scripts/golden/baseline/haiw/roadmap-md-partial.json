@@ -17,7 +17,14 @@
       "July 31, 2026"
     ]
   },
-  "datasets": null,
+  "datasets": {
+    "files": 2,
+    "sha256": "f1ccdbeaff2cc81f7d13d3312e756c1a06d36baf794fc749f3fc42e58de8b721",
+    "sources": [
+      "src/data/haiw/capabilities.json",
+      "src/data/haiw/hacrQuestions.json"
+    ]
+  },
   "filename": "MR-HAIW-ROADMAP_fixture-health-authority-partial_all_2026-07-31.md",
   "filenameNormalised": "MR-HAIW-ROADMAP_fixture-health-authority-partial_all_2026-07-31.md",
   "generator": "generateHealthRoadmapMarkdown",

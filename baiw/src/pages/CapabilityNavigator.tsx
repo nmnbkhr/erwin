@@ -37,43 +37,44 @@ const PHASE_LABELS: Record<number, { label: string; color: string }> = {
   3: { label: 'Phase 3 (18-36 months)', color: 'bg-purple-100 text-purple-700' },
 }
 
-// C2: BACR category to theme mapping
-const CATEGORY_THEME_MAP: Record<string, string[]> = {
-  'Business': ['all'],
-  'Culture': ['all'],
-  'Governance': ['Finance & Peformance Management'],
-  'Information': ['Marketing and Customer Experience'],
-  'Applications': ['all'],
-  'Systems': ['all'],
-  'Agility': ['all'],
-  'Outcomes': ['all'],
-  'Overall Assessment': ['all'],
-}
+/*
+ * ── D-012: THE PER-THEME MATURITY BADGE, REMOVED ───────────────────────────
+ *
+ * What stood here was `CATEGORY_THEME_MAP` — a hand-written bridge from BACR
+ * category to BVF theme — and `getMaturityScore(themeName)`, which built a
+ * `relevantCategories` list from that map and then **never used it**. The value
+ * it returned was
+ *
+ *     allAnswers.reduce((s, a) => s + a.currentState, 0) / allAnswers.length
+ *
+ * — the mean of EVERY answer in the assessment, rendered next to a capability as
+ * "Maturity: N/5" for its theme. Every one of the three BVF themes therefore
+ * displayed the identical number, and the map that was supposed to make them
+ * differ was decoration. A reader takes the number as the row's own.
+ *
+ * REMOVED, NOT REPAIRED, and the map goes with it. BACR's 804 questions carry no
+ * capability link and no theme link — that is D-001's data fact, the same one
+ * that makes BAIW ship a capability REGISTER rather than a gap register. So there
+ * is no honest per-theme maturity to compute here, and `CATEGORY_THEME_MAP` is a
+ * keyword bridge of exactly the kind TAIW's TCF navigator badge was removed for
+ * in D4: that one never rendered, held inert by two independent bugs, and
+ * "fixing" either alone would have started the fabrication. Leaving the map
+ * behind is how this one gets armed the same way — someone notices
+ * `relevantCategories` is unused and "corrects" it into the average.
+ *
+ * The badge is replaced below by facts the dataset actually authors: how many
+ * capabilities the theme holds, how many have an FSDM subject area recorded, and
+ * how they spread across delivery phases. See docs/known-defects.md D-012.
+ *
+ * The path to a real per-capability score is authoring `capabilityLinks` on
+ * BACR's questions, which is what HAIW has. Not scheduled.
+ */
 
-function getMaturityScore(themeName: string): { score: number; label: string } | null {
-  try {
-    const saved = localStorage.getItem('baiw-assessment')
-    if (!saved) return null
-    const parsed = JSON.parse(saved)
-    if (!parsed || !parsed.answers || Object.keys(parsed.answers).length === 0) return null
-
-    const allAnswers = Object.values(parsed.answers) as { currentState: number }[]
-    if (allAnswers.length === 0) return null
-
-    // Find relevant categories for this theme
-    const relevantCategories: string[] = []
-    Object.entries(CATEGORY_THEME_MAP).forEach(([cat, themes]) => {
-      if (themes.includes('all') || themes.includes(themeName)) {
-        relevantCategories.push(cat)
-      }
-    })
-
-    // Average all answers as approximation
-    const avg = allAnswers.reduce((s, a) => s + a.currentState, 0) / allAnswers.length
-    const rounded = Math.round(avg * 10) / 10
-    const labels = ['', 'Emerging', 'Developing', 'Practicing', 'Innovating', 'Leading']
-    return { score: rounded, label: labels[Math.round(rounded)] || 'N/A' }
-  } catch { return null }
+/** What the BVF dataset authors about a theme, for the panel that replaced the badge. */
+interface ThemeFacts {
+  capabilities: number
+  fsdmLinked: number
+  byPhase: { phase: number; count: number }[]
 }
 
 export default function CapabilityNavigator() {
@@ -210,11 +211,25 @@ export default function CapabilityNavigator() {
     return enrichment.capabilities[selectedCap.name] || null
   }, [selectedCap, enrichment])
 
-  // C2: Maturity score
-  const maturityScore = useMemo(() => {
+  /*
+   * D-012. Was `getMaturityScore(selectedCap.themeName)`; see the note where that
+   * function used to be. These are authored attributes of the theme, counted —
+   * nothing here is derived from the assessment, because no dataset joins BACR's
+   * questions to a BVF theme.
+   */
+  const themeFacts: ThemeFacts | null = useMemo(() => {
     if (!selectedCap) return null
-    return getMaturityScore(selectedCap.themeName)
-  }, [selectedCap])
+    const inTheme = capabilities.filter((c) => c.themeName === selectedCap.themeName)
+    if (inTheme.length === 0) return null
+    const linked = new Set(requirements.map((r) => r.capabilityId))
+    const counts = new Map<number, number>()
+    for (const c of inTheme) counts.set(c.phase, (counts.get(c.phase) ?? 0) + 1)
+    return {
+      capabilities: inTheme.length,
+      fsdmLinked: inTheme.filter((c) => linked.has(c.id)).length,
+      byPhase: [...counts.entries()].sort((a, b) => a[0] - b[0]).map(([phase, count]) => ({ phase, count })),
+    }
+  }, [selectedCap, capabilities, requirements])
 
   if (loading) {
     return (
@@ -365,24 +380,35 @@ export default function CapabilityNavigator() {
                   <Star size={10} className="fill-amber-500 text-amber-500" /> Critical for Pakistan
                 </span>
               )}
-              {/* C2: Maturity badge */}
-              {maturityScore ? (
-                <span className={`px-2 py-1 text-xs rounded ${
-                  maturityScore.score >= 4 ? 'bg-green-100 text-green-700' :
-                  maturityScore.score >= 2.5 ? 'bg-amber-100 text-amber-700' :
-                  'bg-red-100 text-red-700'
-                }`}>
-                  Maturity: {maturityScore.score}/5 ({maturityScore.label})
-                </span>
-              ) : (
-                <button
-                  onClick={() => navigate('/maturity')}
-                  className="px-2 py-1 text-xs rounded bg-slate-100 text-slate-500 hover:bg-slate-200"
-                >
-                  Maturity: Not assessed →
-                </button>
+              {/* D-012: framework facts, where a fabricated per-theme maturity
+                  score used to sit. Counted from capabilities.json and
+                  dataRequirements.json; no assessment data reaches this row. */}
+              {themeFacts && (
+                <>
+                  <span className="px-2 py-1 text-xs rounded bg-slate-100 text-slate-600">
+                    {themeFacts.capabilities} capabilities in this theme
+                  </span>
+                  <span className="px-2 py-1 text-xs rounded bg-slate-100 text-slate-600">
+                    {themeFacts.fsdmLinked} with FSDM subject areas
+                  </span>
+                  {themeFacts.byPhase.map(({ phase, count }) => (
+                    <span key={phase} className="px-2 py-1 text-xs rounded bg-slate-100 text-slate-600">
+                      Phase {phase}: {count}
+                    </span>
+                  ))}
+                </>
               )}
             </div>
+            {/* Maturity is scored against BACR CATEGORIES, a separate axis. BACR's
+                questions carry no capability or theme link, so there is no
+                per-theme maturity to show here and none is shown — D-001, D-012. */}
+            <p className="-mt-4 mb-6 text-xs text-slate-400">
+              Framework structure, as authored — not assessment results. Maturity is measured against BACR
+              categories, which no dataset joins to a BVF theme.{' '}
+              <button onClick={() => navigate('/maturity')} className="text-blue-600 hover:text-blue-800 underline">
+                Maturity assessment →
+              </button>
+            </p>
 
             {/* Data Requirements */}
             <div className="mb-6">

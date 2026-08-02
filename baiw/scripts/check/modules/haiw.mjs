@@ -16,6 +16,8 @@
  * capability score needs a link, not a heading".
  */
 import { unique, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
+import { parseFile, propName, ts } from '../lib/ts-ast.mjs'
+import { makeCategoryUniverse, categoryUniverseSummary } from '../lib/category-universe.mjs'
 
 /**
  * The eight HACR categories and the id code that selects each, mirrored from
@@ -242,6 +244,114 @@ const haiwWeight = {
   },
 }
 
+/*
+ * ── BENCHMARK-ROLLUP, HAIW's half ───────────────────────────────────────────
+ *
+ * HAIW's benchmarks are not a dataset. They are `DEFAULT_BENCHMARKS`, a literal
+ * in `healthReportGenerator.ts`, and the fixture passes `benchmarks: null` so the
+ * generator falls back to them — exactly as `HealthReportGenerator.tsx` does.
+ *
+ * HAIW is the module that got this right: three blocks, eight categories each, and
+ * NO `Overall Assessment` key. This check asserts the absence stays, and it is not
+ * pedantry. `healthReportGenerator.ts` computes
+ *
+ *     const regAvg = Object.values(bm.regionalLeaders).reduce(...) / Object.values(...).length
+ *
+ * — the mean of EVERY value in the block. That is correct only while no rollup
+ * exists. The day someone adds one for symmetry with BAIW and TAIW, that line
+ * averages the rollup in with its own components and the number silently drifts
+ * toward it. This is the same class as D-010 read from the other end: there the
+ * rollup disagreed with its components, here it would corrupt them.
+ *
+ * The companion assertion runs too — all eight HACR categories present in every
+ * block — which is what makes `bm.regionalLeaders[cat] ?? 3.0` provably dead.
+ *
+ * Read through the DECLARED report source set, not a hardcoded path. If
+ * REPORT-SOURCES ever stops resolving this generator, this check says so under
+ * its own name rather than passing over a file it never opened.
+ */
+const HAIW_ROLLUP_KEY = 'Overall Assessment'
+const HAIW_BENCHMARKS_CONST = 'DEFAULT_BENCHMARKS'
+
+const categoryUniverse = makeCategoryUniverse({
+  label: 'HACR',
+  // HAIW's rendered list is HACR_CATEGORIES in the generator; the assessment
+  // screen and the report both partition through computeCategoryOutcomes, which
+  // reads it. HAIW is the module that never carried a phantom entry — the rule is
+  // here so that stays a checked fact rather than an observed one.
+  declaredIn: { rel: 'src/haiw/utils/healthReportGenerator.ts', constName: 'HACR_CATEGORIES' },
+  categories: (ctx) => (ctx.data.hacr ?? []).map((q) => q.category).filter((c) => typeof c === 'string'),
+})
+
+const benchmarkRollup = {
+  code: 'BENCHMARK-ROLLUP',
+  run(ctx) {
+    const { fail, root } = ctx
+    const abs = (ctx.sources ?? []).find((f) => f.endsWith('haiw/utils/healthReportGenerator.ts'))
+    if (!abs) {
+      fail(`healthReportGenerator.ts is not in the declared report source set, so ${HAIW_BENCHMARKS_CONST} was never read`)
+      return { examined: 0 }
+    }
+
+    const { sf, at } = parseFile(root, abs)
+    let literal = null
+    let decl = null
+    const visit = (node) => {
+      if (
+        literal === null &&
+        ts.isVariableDeclaration(node) &&
+        ts.isIdentifier(node.name) &&
+        node.name.text === HAIW_BENCHMARKS_CONST &&
+        node.initializer &&
+        ts.isObjectLiteralExpression(node.initializer)
+      ) {
+        literal = node.initializer
+        decl = node
+      }
+      ts.forEachChild(node, visit)
+    }
+    ts.forEachChild(sf, visit)
+
+    if (literal === null) {
+      fail(`${HAIW_BENCHMARKS_CONST} is not an object literal in healthReportGenerator.ts — it moved or was renamed, and this check is reading nothing`)
+      return { examined: 0 }
+    }
+
+    const cats = Object.values(CODE_TO_CATEGORY)
+    const blocks = []
+    for (const prop of literal.properties) {
+      if (!ts.isPropertyAssignment(prop) || !ts.isObjectLiteralExpression(prop.initializer)) continue
+      const name = propName(prop.name)
+      if (name === null) continue
+      const keys = prop.initializer.properties
+        .map((p) => (ts.isPropertyAssignment(p) ? propName(p.name) : null))
+        .filter((k) => k !== null)
+      blocks.push({ name, keys })
+
+      if (keys.includes(HAIW_ROLLUP_KEY))
+        fail(
+          `${at(prop)}: ${HAIW_BENCHMARKS_CONST}.${name} carries a "${HAIW_ROLLUP_KEY}" key. ` +
+            `healthReportGenerator.ts averages EVERY value in a benchmark block to get regAvg, so a rollup here is folded in ` +
+            `with its own components and drags the mean toward itself. HAIW is the module without this key; keep it that way, ` +
+            `or change regAvg to exclude it in the same commit. D-010.`,
+        )
+
+      for (const cat of cats)
+        if (!keys.includes(cat))
+          fail(
+            `${at(prop)}: ${HAIW_BENCHMARKS_CONST}.${name} has no entry for HACR category "${cat}" — ` +
+              `the generator falls back to a hardcoded constant, so the client is benchmarked against a number that is not about them`,
+          )
+    }
+
+    if (blocks.length === 0) {
+      fail(`${at(decl)}: ${HAIW_BENCHMARKS_CONST} carries no object-literal blocks — nothing was checked`)
+      return { examined: 0 }
+    }
+    return { examined: blocks.length, categories: cats.length, blocks: blocks.map((b) => b.name) }
+  },
+}
+
 export default {
   id: 'haiw',
   title: 'HAIW — Healthcare Analytics',
@@ -256,7 +366,7 @@ export default {
   artefactIds: ['MR-HAIW-MATURITY', 'MR-HAIW-GAP', 'MR-HAIW-ROADMAP'],
 
   /** Declared run order — this is the order findings print in. */
-  checks: [hacrShape, hacrUnique, hacrCategoryMap, hcfShape, hcfLink, hcfFk, haiwWeight],
+  checks: [categoryUniverse, hacrShape, hacrUnique, hacrCategoryMap, hcfShape, hcfLink, hcfFk, haiwWeight, benchmarkRollup],
 
   summary(ctx) {
     const r = ctx.results
@@ -274,6 +384,12 @@ export default {
         ` — the relation that lets only HAIW score a capability`,
     )
     out.push(`  HCF-FK ${(r['HCF-FK'] ?? {}).examined ?? 0} cross-file references resolved`)
+    out.push(`  ${categoryUniverseSummary(r['CATEGORY-UNIVERSE'], 'HACR', '    ')}`)
+    const br = r['BENCHMARK-ROLLUP'] ?? {}
+    out.push(
+      `  DEFAULT_BENCHMARKS ${br.examined ?? 0} blocks over ${br.categories ?? 0} categories` +
+        `${br.blocks?.length ? ` (${br.blocks.join(', ')})` : ''} — no "Overall Assessment" key, which regAvg depends on`,
+    )
     return out
   },
 }

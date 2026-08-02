@@ -49,7 +49,7 @@ import path from 'node:path'
 import {
   pinEnvironment, environmentStamp, parseArgs, createDriver, analyse, assertNonEmpty,
   baselinePath, splitCsvRow, SKIP_TOKEN, MARGIN_MM, REGISTRY, BASELINE_DIR,
-  stableJson, environmentVars, datasetFingerprint,
+  stableJson, environmentVars,
 } from './harness.mjs'
 
 pinEnvironment()
@@ -175,8 +175,12 @@ function diffCommon(findings, base, now) {
       severity: 'CHANGED',
       label: 'source datasets',
       lines: [`${stableJson(base.datasets)} -> ${stableJson(now.datasets ?? null)}`,
-        YELLOW('  this module reads live data; a dataset edit explains content changes below'),
-        DIM('  it is reported separately so a spine or generator change is not blamed for it')],
+        YELLOW('  a live dataset behind this baseline has changed since it was taken'),
+        DIM('  reported separately so a spine or generator change is not blamed for it — but'),
+        DIM('  read it differently per module. DGIW reads live data, so this EXPLAINS the'),
+        DIM('  content changes below. BAIW/TAIW/HAIW freeze a copy in the fixture, so it does'),
+        DIM('  NOT: it means the frozen copy is now stale and this baseline describes output'),
+        DIM('  production no longer makes. Refresh the fixture, then walk. That is D-010.')],
     })
   }
   const bd = stableJson(base.clockDerived ?? null)
@@ -411,7 +415,11 @@ try {
     for (const artefact of artefacts) {
       const now = analyse(artefact, driver.ruler)
       // Mirrors what capture.mjs records, so diffCommon compares like with like.
-      now.datasets = module === 'dgiw' ? datasetFingerprint('src/dgiw/data') : null
+      // Both call the SAME harness function now — this line and capture's carried
+      // separate copies of a `module === 'dgiw' ? … : null` ternary, and the null
+      // half is what made D-010 invisible: diffCommon's dataset check is guarded
+      // on `base.datasets`, so it could not fire for a module recording null.
+      now.datasets = driver.fingerprintFor(module)
       const bp = baselinePath(module, now.artefact)
       producedByModule.get(module).add(path.basename(bp))
       if (!existsSync(bp)) {
