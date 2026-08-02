@@ -725,11 +725,15 @@ export async function createDriver(modules) {
    * the `null` half was the bug: `diffCommon`'s dataset check is guarded on
    * `base.datasets`, so it could never fire for the three modules that freeze.
    *
-   * DGIW keeps its directory fingerprint EXACTLY as it was — it reads live data
-   * and its fourteen baselines must not move for this change.
+   * DGIW fingerprints its live directory PLUS the shared framework definitions.
+   * `frameworks.json` left `src/dgiw/data/` in D5 stage B and the projection still
+   * reads it; covering only the directory would have shrunk this from eleven files
+   * to ten and made a DMBOK edit invisible to all fourteen DGIW baselines.
    */
+  const SHARED_DATASETS = ['src/frameworks/data/frameworks.json']
+
   function fingerprintFor(module) {
-    if (module === 'dgiw') return datasetFingerprint('src/dgiw/data')
+    if (module === 'dgiw') return datasetFingerprint('src/dgiw/data', SHARED_DATASETS)
     const sources = fixtureDataSources(fixtures[module])
     if (sources.length === 0) {
       throw new Error(
@@ -1291,13 +1295,43 @@ export function analyse(artefact, ruler) {
  * creates. If a dataset changed between capture and compare, the report says so
  * in its own finding instead of leaving a spine edit holding the blame.
  */
-export function datasetFingerprint(dir) {
+export function datasetFingerprint(dir, sharedRel = []) {
   const abs = path.join(APP_ROOT, dir)
   if (!existsSync(abs)) return null
   const files = readdirSync(abs).filter((f) => f.endsWith('.json')).sort()
   if (files.length === 0) return null
-  const h = files.map((f) => `${f}:${sha256(readFileSync(path.join(abs, f)))}`).join('\n')
-  return { dir, files: files.length, sha256: sha256(h) }
+  const lines = files.map((f) => `${f}:${sha256(readFileSync(path.join(abs, f)))}`)
+
+  /*
+   * SHARED FILES READ FROM OUTSIDE THE DIRECTORY.
+   *
+   * D5 stage B moved `frameworks.json` to `src/frameworks/data/` because DMBOK2,
+   * DCAM and COBIT belong to the suite rather than to DGIW. The projection still
+   * reads it, so dropping it out of this hash would have quietly reduced what the
+   * fingerprint covers from eleven files to ten — reopening D-010's blind spot on
+   * the one module that never had it, as a side effect of a relocation.
+   *
+   * Named in the output, not just folded into the hash: a reader comparing two
+   * baselines has to be able to see WHICH files a fingerprint claims to cover,
+   * or the number is just a number that changed.
+   */
+  const shared = [...sharedRel].sort()
+  for (const rel of shared) {
+    const p = path.join(APP_ROOT, rel)
+    if (!existsSync(p))
+      throw new Error(
+        `datasetFingerprint: declared shared source ${rel} does not exist. A fingerprint that silently skips a file ` +
+          `the generator reads is worth less than no fingerprint, because it still prints.`,
+      )
+    lines.push(`${rel}:${sha256(readFileSync(p))}`)
+  }
+
+  return {
+    dir,
+    files: files.length + shared.length,
+    ...(shared.length ? { shared } : {}),
+    sha256: sha256(lines.join('\n')),
+  }
 }
 
 /**

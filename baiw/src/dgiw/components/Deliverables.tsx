@@ -36,7 +36,7 @@ import operatingModel from '../data/operatingModel.json'
 import cdeRegister from '../data/cdeRegister.json'
 import dqRules from '../data/dqRules.json'
 import diagnostic from '../data/diagnostic.json'
-import frameworks from '../data/frameworks.json'
+import frameworks from '../../frameworks/data/frameworks.json'
 import type {
   CriticalDataElement,
   DiagnosticData,

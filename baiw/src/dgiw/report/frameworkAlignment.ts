@@ -146,7 +146,7 @@ export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPD
       d.state === 'scored' ? LEVEL_LABEL[Math.round(d.score as number)] : '—',
       pct(d.retainedShare),
       pct(d.scoredShare),
-      d.contributions.length ? d.contributions.map((c) => c.pillarId).join(', ') : '—',
+      d.contributions.length ? d.contributions.map((c) => c.spineId).join(', ') : '—',
     ]),
     columnStyles: {
       0: { cellWidth: 20 },
@@ -172,7 +172,7 @@ export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPD
       head: ['Code', 'Dimension', 'Retained', 'What is out of scope'],
       rows: partial.map((d) => {
         const all = entriesByDim.get(d.dimensionId) ?? []
-        const shown = new Set(d.contributions.map((c) => c.pillarId))
+        const shown = new Set(d.contributions.map((c) => c.spineId))
         const missing = all.filter((e) => !shown.has(e.pillarId))
         return [
           d.code,

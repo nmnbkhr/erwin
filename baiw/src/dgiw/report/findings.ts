@@ -75,19 +75,19 @@ export interface Finding {
 const signature = (d: DimensionDecomposition): string =>
   [
     String(d.score),
-    ...d.contributions.map((c) => `${c.pillarId}:${c.weight}:${c.pillarScore}`),
+    ...d.contributions.map((c) => `${c.spineId}:${c.weight}:${c.spineScore}`),
   ].join('|')
 
 /** "all mapped wholly to P01 Governance & Operating Model", or the multi-pillar form. */
 function causeFor(d: DimensionDecomposition, count: number): string {
   if (d.contributions.length === 1) {
     const c = d.contributions[0]
-    return `all ${count} mapped wholly to ${c.pillarId} ${pillarName(c.pillarId)}`
+    return `all ${count} mapped wholly to ${c.spineId} ${pillarName(c.spineId)}`
   }
   const parts = d.contributions
     .slice()
-    .sort((a, b) => b.weight - a.weight || (a.pillarId < b.pillarId ? -1 : 1))
-    .map((c) => `${c.pillarId} ${pillarName(c.pillarId)} ${Math.round(c.weight * 100)}%`)
+    .sort((a, b) => b.weight - a.weight || (a.spineId < b.spineId ? -1 : 1))
+    .map((c) => `${c.spineId} ${pillarName(c.spineId)} ${Math.round(c.weight * 100)}%`)
   return `all ${count} mapped identically across ${parts.join(', ')}`
 }
 

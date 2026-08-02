@@ -77,7 +77,9 @@ for (let i = 0; i < argv.length; i++) {
   --root <dir>    directory containing src/ to check. Defaults to the repo.
                   Used by check/selftest.mjs to run against a mutated copy;
                   no tracked file is ever written by this script.
-  --module <id>   run only one registry entry. AN ITERATION AID, NOT A GATE:
+  --module <id>   run only one registry entry. Narrows which CHECKS run, never
+                  which datasets are read — an entry's datasets can be shared.
+                  AN ITERATION AID, NOT A GATE:
                   it narrows the declared source set too, so it checks strictly
                   less than \`npm run check\`. Unknown ids fail.`)
     process.exit(0)
@@ -138,20 +140,43 @@ if (onlyModule !== null) {
 }
 
 // ── datasets, and the two artefact id namespaces ────────────────────────────
+//
+// TWO PASSES, AND DATASETS LOAD FOR EVERY REGISTRY ENTRY — including ones
+// `--module` excluded from running.
+//
+// D5 stage B made a dataset SHARED for the first time: `frameworks.json` moved to
+// `src/frameworks/data/` and is declared by `_spine`, because DMBOK2, DCAM and
+// COBIT belong to the suite rather than to DGIW. DGIW's crosswalk classes read it
+// through `ctx.shared`. Two consequences, both handled here rather than left to
+// luck:
+//
+//   - LOADING IS UNFILTERED. `--module dgiw` narrows which CHECKS run, never
+//     which inputs are read. If it narrowed inputs, DGIW's crosswalk classes
+//     would find `_spine`'s dataset missing and throw, and a filtered run would
+//     fail for a reason that has nothing to do with the module.
+//   - PREPARE RUNS IN ITS OWN PASS. A single loop would make one entry's access
+//     to another's data depend on registry order, which is declared for the
+//     printed order of findings and was never meant to carry a load dependency.
 const perModule = new Map()
-for (const mod of modules) {
+const loadable = registry.filter((m) => m && typeof m.id === 'string' && Array.isArray(m.checks))
+for (const mod of loadable) {
   const { data, files } = loadDatasets(root, mod, rawFail)
-  let state = {}
-  if (mod.prepare) {
-    try {
-      state = mod.prepare(data) ?? {}
-    } catch (err) {
-      // Every check in this module will now throw and report under its own code,
-      // which is the outcome we want: attributable, and loud.
-      rawFail('REGISTRY', `module ${mod.id} could not derive its indexes from its datasets: ${err?.message ?? err}`)
-    }
+  perModule.set(mod.id, { mod, data, state: {}, files, results: {}, ran: [] })
+}
+
+/** Another entry's datasets, by registry id. `{}` if it declares none. */
+const sharedData = (id) => perModule.get(id)?.data ?? {}
+
+for (const mod of loadable) {
+  if (!mod.prepare) continue
+  const entry = perModule.get(mod.id)
+  try {
+    entry.state = mod.prepare(entry.data, sharedData) ?? {}
+  } catch (err) {
+    // Every check in this module will now throw and report under its own code,
+    // which is the outcome we want: attributable, and loud.
+    rawFail('REGISTRY', `module ${mod.id} could not derive its indexes from its datasets: ${err?.message ?? err}`)
   }
-  perModule.set(mod.id, { mod, data, state, files, results: {}, ran: [] })
 }
 
 /** id -> the module whose register catalogues it. */
@@ -239,6 +264,8 @@ for (const mod of modules) {
     root,
     module: mod,
     data: entry.data,
+    /** Another registry entry's datasets, by id — see the two-pass note above. */
+    shared: sharedData,
     state: entry.state,
     ts: entry.ts,
     tsLoadError: entry.tsLoadError,

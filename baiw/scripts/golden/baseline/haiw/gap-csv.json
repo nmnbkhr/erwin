@@ -1,7 +1,7 @@
 {
   "artefact": "gap-csv",
-  "assertableSha256": "6d6d605fbb5b74429dd550b2c4d64c5fdd20f4f0ef58e88c834cde63a22cf3ff",
-  "bytes": 17794,
+  "assertableSha256": "caee0bde2d59dd68e010454976db4956227967ba8b61f349b34ab0ca6c647640",
+  "bytes": 17792,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -15,7 +15,7 @@
   "columnCount": 9,
   "datasets": {
     "files": 2,
-    "sha256": "f1ccdbeaff2cc81f7d13d3312e756c1a06d36baf794fc749f3fc42e58de8b721",
+    "sha256": "83fd0bf27d2e9f8d0ad01a6cd48e6c8591364cac8c2987127c2cfb989299fe18",
     "sources": [
       "src/data/haiw/capabilities.json",
       "src/data/haiw/hacrQuestions.json"
@@ -24,11 +24,11 @@
   "filename": "MR-HAIW-GAP_fixture-health-authority_all_2026-07-31.csv",
   "filenameNormalised": "MR-HAIW-GAP_fixture-health-authority_all_2026-07-31.csv",
   "firstThreeRows": [
-    "\"1\",\"Patient Master Index Management\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",\"3.0\",\"4.9\",\"1.9\",\"High\",\"Patient; Person; RelatedPerson\"\r",
-    "\"2\",\"Patient Demographics Profiling\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",\"2.9\",\"3.8\",\"0.9\",\"Low\",\"Patient; Group; Organization\"\r",
+    "\"1\",\"Patient Master Index Management\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",\"3.0\",\"4.8\",\"1.8\",\"High\",\"Patient; Person; RelatedPerson\"\r",
+    "\"2\",\"Patient Demographics Profiling\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",\"2.9\",\"3.7\",\"0.8\",\"Low\",\"Patient; Group; Organization\"\r",
     "\"3\",\"Patient Identity Matching & Deduplication\",\"Patient Intelligence & Experience\",\"Patient Demographics & Identity\",\"3.1\",\"4.4\",\"1.3\",\"Medium\",\"Patient; Person; Linkage\"\r"
   ],
-  "fullTextSha256": "6d6d605fbb5b74429dd550b2c4d64c5fdd20f4f0ef58e88c834cde63a22cf3ff",
+  "fullTextSha256": "caee0bde2d59dd68e010454976db4956227967ba8b61f349b34ab0ca6c647640",
   "generator": "generateHealthGapCSV",
   "header": [
     "﻿ID",
@@ -44,13 +44,13 @@
   "kind": "csv",
   "lastThreeRows": [
     "\"106\",\"Data Lineage & Provenance Tracking\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",\"3.3\",\"4.8\",\"1.5\",\"Medium\",\"Provenance; AuditEvent; Bundle\"\r",
-    "\"107\",\"Terminology Standardization\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",\"2.7\",\"3.6\",\"0.9\",\"Low\",\"CodeSystem; ValueSet; ConceptMap\"\r",
-    "\"108\",\"Analytics Maturity Assessment\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",\"2.8\",\"4.4\",\"1.6\",\"High\",\"MeasureReport; Questionnaire; QuestionnaireResponse\""
+    "\"107\",\"Terminology Standardization\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",\"2.7\",\"3.5\",\"0.8\",\"Low\",\"CodeSystem; ValueSet; ConceptMap\"\r",
+    "\"108\",\"Analytics Maturity Assessment\",\"Digital Health & Data Governance\",\"Data Quality & Governance\",\"2.8\",\"4.3\",\"1.5\",\"Medium\",\"MeasureReport; Questionnaire; QuestionnaireResponse\""
   ],
   "module": "haiw",
   "notReproducible": {},
   "rawBytesAsserted": true,
-  "rawBytesSha256": "6d6d605fbb5b74429dd550b2c4d64c5fdd20f4f0ef58e88c834cde63a22cf3ff",
+  "rawBytesSha256": "caee0bde2d59dd68e010454976db4956227967ba8b61f349b34ab0ca6c647640",
   "rowCount": 108,
   "sampleRowsMasked": false,
   "unassertable": [],

@@ -10,7 +10,7 @@
  * and `structureNotes` where it can be, rather than retyped — the one thing that
  * cannot drift is a value read from the file it describes.
  */
-import frameworksData from '../data/frameworks.json'
+import frameworksData from '../../frameworks/data/frameworks.json'
 import type { Framework, FrameworksData } from '../types'
 
 const FW = frameworksData as unknown as FrameworksData

@@ -86,6 +86,10 @@ const remove = (rel) => fs.rmSync(P(rel), { recursive: true, force: true })
 const slugOf = (s) => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
 
 const DGIW = 'src/dgiw/data'
+// Suite-level as of D5 stage B: DMBOK2, DCAM, DGI and COBIT 2019 belong to the
+// suite, DGIW's crosswalk into its eleven pillars does not. Three rows below
+// mutate the framework definitions and now reach for them here.
+const FRAMEWORKS = 'src/frameworks/data'
 const TAIW = 'src/data/taiw'
 const HAIW = 'src/data/haiw'
 /** BAIW's datasets sit at the top of src/data/, not in a module subdirectory. */
@@ -340,8 +344,8 @@ function __selftestProbe(doc: jsPDF, s: string): void {
   {
     code: 'CROSSWALK-SHAPE',
     what: "a dimension weight typed as 'wieght' — reads as undefined, contributes nothing",
-    touches: [`${DGIW}/frameworks.json`],
-    apply: () => json(`${DGIW}/frameworks.json`, (fw) => {
+    touches: [`${FRAMEWORKS}/frameworks.json`],
+    apply: () => json(`${FRAMEWORKS}/frameworks.json`, (fw) => {
       const d = fw.dimensions[0]
       d.wieght = d.weight
       delete d.weight
@@ -358,7 +362,7 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     what: 'a mapping attached to a parent dimension — leaf-only projection double-counts',
     touches: [`${DGIW}/crosswalk.json`],
     apply: () => {
-      const fw = readJson(`${DGIW}/frameworks.json`)
+      const fw = readJson(`${FRAMEWORKS}/frameworks.json`)
       const parents = new Set(fw.dimensions.map((d) => d.parentId).filter(Boolean))
       const parent = [...parents].sort()[0]
       if (!parent) throw new Error('no parent dimension')
@@ -382,7 +386,7 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     what: 'a framework whose every mapping is banking-tagged — blank scorecard under core (the rule D3 added)',
     touches: [`${DGIW}/crosswalk.json`],
     apply: () => {
-      const fw = readJson(`${DGIW}/frameworks.json`)
+      const fw = readJson(`${FRAMEWORKS}/frameworks.json`)
       const target = fw.frameworks[0].id
       const dims = new Set(fw.dimensions.filter((d) => d.frameworkId === target).map((d) => d.id))
       json(`${DGIW}/crosswalk.json`, (xw) => {

@@ -19,7 +19,10 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "1a36e2aea284a5e7806a7bb858088913292ab4822cda8fba0203af438871c9f7"
+    "sha256": "f554c71be663824d6b8749da8b972439f02e070035c327b2c06f473a9f72aaba",
+    "shared": [
+      "src/frameworks/data/frameworks.json"
+    ]
   },
   "filename": "AR-27_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-27_fixture-bank-limited_all_2026-07-31.pdf",

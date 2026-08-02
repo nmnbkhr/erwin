@@ -25,6 +25,15 @@ import { unique, sorted, near, shapeCheck, str, num, idLike, oneOf } from '../li
 const LAYERS = ['core', 'banking']
 const DIMS = ['Completeness', 'Validity', 'Accuracy', 'Consistency', 'Uniqueness', 'Timeliness', 'Integrity']
 const XW_LAYERS = ['core', 'banking', 'both']
+
+/**
+ * The id shape of THIS module's spine. A parameter as of D5 stage B, because the
+ * crosswalk classes are about to be shared: DGIW's spine is eleven pillars
+ * (`P01`), TAIW's will be 35 TACR sections and HAIW's 80 HACR subcategories, and
+ * `^P\d{2}$` is true of exactly one of the three. Declared beside the layer
+ * vocabulary, which is the other thing only the owning module knows.
+ */
+const SPINE_ID = { pattern: /^P\d{2}$/, label: 'pillar' }
 const DISTINCTNESS_MIN = 0.15
 const EPS = 1e-9
 
@@ -325,7 +334,8 @@ const crosswalkShape = {
     shapeCheck(f, 'CROSSWALK-SHAPE', 'crosswalkEntry', ENTRIES, {
       id: idLike(/^CW-\d{3}$/),
       dimensionId: idLike(/^DIM-\d{3}$/),
-      pillarId: idLike(/^P\d{2}$/),
+      // The spine id, under DGIW's name for it. See SPINE_ID.
+      pillarId: idLike(SPINE_ID.pattern),
       coverageWeight: (v) => num(v) ?? (v > 0 && v <= 1 ? null : `must be in (0, 1], got ${v} — a zero-weight mapping is a mapping that does nothing`),
       rationale: str(20),
       layer: oneOf(XW_LAYERS),
@@ -608,11 +618,11 @@ const projectionInvariant = {
           if (Math.abs(wsum - 1) > EPS)
             fail(`I1 ${at}: ${dim.code} renormalised weights sum to ${wsum}, not 1 — w' must be renormalised over the SCORED pillars`)
           for (const c of dim.contributions) {
-            const truth = independent.get(c.pillarId)
+            const truth = independent.get(c.spineId)
             if (!truth || truth.state !== 'scored')
-              fail(`I1 ${at}: ${dim.code} contributes pillar ${c.pillarId}, which scoring.ts reports as ${truth?.state ?? 'absent'}`)
-            else if (Math.abs(truth.score - c.pillarScore) > EPS)
-              fail(`I1 ${at}: ${dim.code} used ${c.pillarScore} for ${c.pillarId} but scoring.ts computes ${truth.score} — a second scoring path or a cached value`)
+              fail(`I1 ${at}: ${dim.code} contributes pillar ${c.spineId}, which scoring.ts reports as ${truth?.state ?? 'absent'}`)
+            else if (Math.abs(truth.score - c.spineScore) > EPS)
+              fail(`I1 ${at}: ${dim.code} used ${c.spineScore} for ${c.spineId} but scoring.ts computes ${truth.score} — a second scoring path or a cached value`)
           }
           if (dim.scoredShare > dim.retainedShare + EPS)
             fail(`I1 ${at}: ${dim.code} scoredShare ${dim.scoredShare} exceeds retainedShare ${dim.retainedShare} — more was measured than applies`)
@@ -644,9 +654,9 @@ const projectionInvariant = {
       for (const proj of projections)
         for (const dim of proj.dimensions)
           for (const c of dim.contributions) {
-            const row = seenBy.get(c.pillarId) ?? new Map()
-            row.set(proj.code, [...(row.get(proj.code) ?? []), c.pillarScore])
-            seenBy.set(c.pillarId, row)
+            const row = seenBy.get(c.spineId) ?? new Map()
+            row.set(proj.code, [...(row.get(proj.code) ?? []), c.spineScore])
+            seenBy.set(c.spineId, row)
           }
       for (const [pillarId, byFramework] of seenBy) {
         if (byFramework.size !== projections.length) continue // not in the intersection
@@ -721,7 +731,10 @@ export default {
     prog: 'programSetup.json',
     plan: 'implementationPlan.json',
     pos: 'positioning.json',
-    fw: 'frameworks.json',
+    // `frameworks.json` is NOT here. It moved to src/frameworks/data/ in D5 stage
+    // B and is declared by `_spine`, because DMBOK2, DCAM and COBIT are shared
+    // with TAIW and HAIW. `crosswalk.json` stays: it holds all 91 pillar
+    // references and is DGIW's alone.
     xw: 'crosswalk.json',
   },
   reportSources: [{ rel: 'src/dgiw/report', kind: 'dir' }],
@@ -743,9 +756,17 @@ export default {
    */
   tsModules: { projection: 'src/dgiw/projection.ts', scoring: 'src/dgiw/scoring.ts' },
 
-  /** Derived indexes, built once. Pure — every failure path lives in a check. */
-  prepare(data) {
-    const { pillars, ladder, om, cdes, plan, fw, xw } = data
+  /**
+   * Derived indexes, built once. Pure — every failure path lives in a check.
+   *
+   * `shared` is how the framework definitions arrive now that they belong to the
+   * suite rather than to this module. Reading them through the registry rather
+   * than re-importing the file keeps ONE loader and one REGISTRY finding if the
+   * path ever breaks — the same reason `dataDir` exists.
+   */
+  prepare(data, shared) {
+    const { pillars, ladder, om, cdes, plan, xw } = data
+    const fw = shared('_spine').fw ?? {}
     const FRAMEWORKS = fw.frameworks ?? []
     const DIMENSIONS = fw.dimensions ?? []
     const ENTRIES = xw.entries ?? []

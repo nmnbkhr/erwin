@@ -261,52 +261,20 @@ export interface ImplementationPlanData {
  * against rather than being its own specification.
  */
 
-/** A published framework the diagnostic can be projected onto. */
-export interface Framework {
-  id: string
-  /** The framework's own short code — DMBOK2, DCAM, DGI, COBIT2019. */
-  code: string
-  name: string
-  publisher: string
-  versionLabel: string
-  /**
-   * The framework's own maturity scale, which is NOT DGIW's 1-5 in every case:
-   * DCAM scores 1-6 and COBIT 2019 uses capability levels 0-5. Recorded so C2
-   * rescales explicitly rather than silently presenting a 1-5 score under a
-   * 0-5 heading.
-   */
-  scaleMin: number
-  scaleMax: number
-  /** How far the authored structure can be trusted against the publication. */
-  structureConfidence: 'high' | 'medium-high' | 'medium' | 'low'
-  /** What specifically is uncertain, and what a reviewer should check first. */
-  structureNotes: string
-}
-
-/**
- * One dimension of a framework — a knowledge area, component or objective.
+/*
+ * Framework structure is SUITE-LEVEL as of D5 stage B.
  *
- * PROJECTION IS LEAF-ONLY. A dimension with children carries no crosswalk
- * entries; its score rolls up from its children inside the framework. COBIT's
- * APO14 and its sub-practices must never both count a pillar.
+ * `frameworks.json` moved to `src/frameworks/data/` and these three types with
+ * it, because DMBOK2, DCAM and COBIT 2019 are shared with TAIW and HAIW while
+ * `crosswalk.json` — which holds every pillar reference — stays DGIW's. The seam
+ * was already in the right place; the move followed it.
+ *
+ * RE-EXPORTED, NOT REDECLARED. Every `import type { Framework } from './types'`
+ * in this module keeps working, against one declaration. Two structurally
+ * identical copies would compile and would drift, which is the shape
+ * CATEGORY-UNIVERSE rejects one level up.
  */
-export interface FrameworkDimension {
-  id: string
-  frameworkId: string
-  /** null at level 1. Frameworks without hierarchy use null throughout. */
-  parentId: string | null
-  /** The framework's own code — DM01, DCAM5, APO14.02. */
-  code: string
-  name: string
-  /**
-   * Share of the parent (of the framework, at level 1). DGIW's editorial
-   * judgement — none of these four frameworks publishes dimension weights.
-   * Siblings sum to 1.0, so effective leaf weights sum to 1.0 per framework.
-   */
-  weight: number
-  /** 1 = top level, 2 = child. */
-  level: number
-}
+export type { Framework, FrameworkDimension, FrameworksData } from '../frameworks/types'
 
 /**
  * A defensible mapping from one leaf dimension to one pillar.
@@ -339,10 +307,6 @@ export interface CrosswalkEntry {
   questionIds?: string[]
 }
 
-export interface FrameworksData {
-  frameworks: Framework[]
-  dimensions: FrameworkDimension[]
-}
 
 export interface CrosswalkData {
   entries: CrosswalkEntry[]

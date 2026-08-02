@@ -383,10 +383,10 @@ export default function Frameworks() {
                               </thead>
                               <tbody>
                                 {d.contributions.map((c) => (
-                                  <tr key={c.pillarId} className="text-slate-600">
-                                    <td className="py-1 pr-3 font-mono">{c.pillarId}</td>
-                                    <td className="py-1 pr-3">{pillarShort(c.pillarId)}</td>
-                                    <td className="py-1 pr-3 text-center">{show1(c.pillarScore)}</td>
+                                  <tr key={c.spineId} className="text-slate-600">
+                                    <td className="py-1 pr-3 font-mono">{c.spineId}</td>
+                                    <td className="py-1 pr-3">{pillarShort(c.spineId)}</td>
+                                    <td className="py-1 pr-3 text-center">{show1(c.spineScore)}</td>
                                     <td className="py-1 pr-3 text-center">{pct(c.weight)}</td>
                                     <td className="py-1 pr-3 text-center">{c.contribution.toFixed(3)}</td>
                                   </tr>

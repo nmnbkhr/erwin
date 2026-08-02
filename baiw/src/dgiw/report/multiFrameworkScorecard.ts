@@ -204,8 +204,8 @@ export function buildMultiFrameworkScorecardPdf(input: MultiFrameworkInput): jsP
           shareRange(f, (x) => x.scoredShare),
           d.contributions
             .slice()
-            .sort((a, b) => b.weight - a.weight || (a.pillarId < b.pillarId ? -1 : 1))
-            .map((c) => `${c.pillarId} ${pct(c.weight)}`)
+            .sort((a, b) => b.weight - a.weight || (a.spineId < b.spineId ? -1 : 1))
+            .map((c) => `${c.spineId} ${pct(c.weight)}`)
             .join(', '),
         ]
       }),
