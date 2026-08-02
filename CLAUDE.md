@@ -95,6 +95,11 @@ uses.
    `noUnusedParameters` are deliberately off — do not turn them on.
 9. **Additive only.** Do not delete or rewrite an existing file. Extend it.
 10. **Do not add a seventh copy of the layout shell.** See below.
+11. **A stage is not complete until `npm run verify` exits 0 and its output is
+    pasted.** `npm run build` is **not** sufficient and never was: it runs
+    `check.mjs`, `tsc -b` and `vite build`, and skips lint, `check:selftest`,
+    `compare`, `geometry` and `drive:dashboards`. **A defect has surfaced in every
+    one of those.** See "Closing verification" below.
 
 ### Three finding codes did not exist before D3
 
@@ -119,6 +124,87 @@ The lesson generalises past these four. **A class that cannot fail is
 decoration**, and this document had been calling one a guard for a phase. That is
 what `npm run check:selftest` is for: it does not check that the gate is right,
 it checks that every code can still be reached.
+
+## Closing verification
+
+`npm run verify` (`scripts/verify.mjs`, ~95 s). One command, one exit code, eight
+steps in this order:
+
+```
+check → tsc -b --force → lint (asserted) → check:selftest → compare
+      → geometry --fail-on-overflow → compare again → drive:dashboards
+```
+
+**Defects here have surfaced rounds after work was declared complete, and the
+reason was always the same: the closing check was remembered rather than
+structural.** That is what this replaces. Hard rule 11 is the contract; this
+section is what the tool does that running the steps by hand does not.
+
+- **`tsc -b --force`, not `tsc -b`.** An incremental no-op off `.tsbuildinfo` is a
+  check that stopped running. A closing gate must not depend on a cache.
+- **Lint is ASSERTED, not run.** `eslint` exits 1 at the standing baseline of 53,
+  so the exit code says nothing; the **count** is the signal, and a change in
+  *either* direction fails. A baseline moving down is still a baseline moving —
+  name which problems cleared and why, then move `LINT_BASELINE` in
+  `scripts/verify.mjs` in the same commit. (D-012's two were dead code servicing
+  removed defects; that is what an accounted-for drop looks like.) The command is
+  read out of `package.json` so it cannot drift from `npm run lint`.
+- **`compare` runs TWICE and the two outputs must be byte-identical.** A second
+  run catches what one does not: `/ID` non-determinism, a baseline churning
+  against itself, a comparison reading a stale artefact. `src/report/` asserts
+  determinism internally and nothing verified it from outside until now.
+- **No baseline may be written.** Every file under `scripts/golden/baseline` is
+  hashed before the first step and after the last, and a rewrite fails the run
+  by name. Verification that quietly re-freezes its own record is worse than
+  none — three tools in this repo have shipped that shape.
+- **It is cwd-independent.** Every path resolves from the script and every child
+  runs with `cwd: baiw/`.
+
+All three of the novel gates have been **demonstrated failing**, because a gate
+that cannot fail is decoration: a moved lint baseline, a non-reproducible second
+run, and a step that writes a baseline (against a throwaway directory — the
+tracked record was not touched).
+
+### The closing checklist — every item is something that actually went wrong
+
+- **Run from `baiw/`.** `npm run build` succeeds from the repo root while
+  `compare.mjs` and `geometry.mjs` silently target the wrong path and report on
+  nothing. `npm run verify` is immune by construction and there is a root
+  passthrough, but every other command is not.
+- **Never read `scripts/golden/raw/` to verify a change.** It is scratch and
+  gitignored. It goes stale the moment a generator moves, and reading it compares
+  old against old.
+- **`compare`, then walk, then `capture --accept`.** Capturing first freezes an
+  unwalked baseline. `capture.mjs` refuses without the flag now, but the *order*
+  is still yours: read the diff, walk whatever moved, then accept.
+- **A second run catches what one does not.** Built into `verify` for `compare`;
+  keep the habit for anything else you run by hand.
+- **`git status` must be confined to the stage's declared scope.** Anything
+  outside it is **reported, not folded in** — a fix riding on an unrelated change
+  is a fix nobody reviewed.
+- **State plainly what the harness CANNOT see.** `verify` prints this itself and
+  the report must repeat it. Nothing here renders a React component or clicks
+  anything; `drive:dashboards` calls the real exported scoring functions and
+  **prints a table a human still has to read**. **Zero baseline movement is not
+  evidence for a component, a fallback branch or a dashboard** — both maturity
+  radars carried a fabrication for two phases while every harness reported green.
+  `compare` also regenerates BAIW/TAIW/HAIW from **frozen fixtures**, so a live
+  dataset drift appears under `source datasets` and never in the raw bytes.
+
+### `drive:dashboards` is in `verify`, and the reason it was not is worth recording
+
+The standing assumption was that it needs a dev server. **It does not, and never
+did.** It builds an in-process module runner —
+`createServer({ appType: 'custom', server: { middlewareMode: true } })` — binds
+**no port**, and closes it in a `finally`. Verified: nothing listens on 5174 while
+it runs. So it cannot fail the way `clickthrough.mjs` failed, which was the only
+reason to keep it out that mattered.
+
+It is the **one step in `verify` that executes application source**, which is
+exactly the surface D-012 and D-013 lived on. It reports rather than asserts, by
+design. What `verify` gates is that it **ran**: a run that drives zero category
+rows fails, because a reporter that always exits 0 is indistinguishable from
+outside from a reporter that stopped running.
 
 ## The declared report source set
 

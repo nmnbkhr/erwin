@@ -6,6 +6,7 @@
     "dev": "cd baiw && npm run dev",
     "start": "cd baiw && npm run dev",
     "build": "cd baiw && npm run build",
+    "verify": "cd baiw && npm run verify",
     "preview": "cd baiw && npm run preview",
     "lint": "cd baiw && npm run lint",
     "check": "cd baiw && npm run check",
