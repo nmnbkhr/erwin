@@ -47,6 +47,14 @@ export const loadTsModules = async (outRoot, srcRoot, specs) => {
       format: 'esm',
       platform: 'node',
       outdir: buildDir,
+      // OUTBASE IS LOAD-BEARING. Without it esbuild picks the lowest common
+      // ancestor of the entry points, so the output layout depends on WHICH
+      // entries a rule file happens to declare. DGIW's two both live in
+      // src/dgiw/ and landed flat; TAIW's are src/frameworks/projection.ts and
+      // src/scoring/maturity.ts, whose common ancestor is src/, so they landed
+      // in subdirectories and the loader looked for them at the top. Pinning
+      // outbase makes the output path a function of the DECLARED path alone.
+      outbase: srcRoot,
       // esbuild names the output after the ENTRY's extension, so without this the
       // emitted file is projection.js and Node loads it as CommonJS and throws.
       outExtension: { '.js': '.mjs' },
@@ -55,8 +63,9 @@ export const loadTsModules = async (outRoot, srcRoot, specs) => {
     })
     const modules = {}
     for (const n of names) {
-      const base = path.basename(specs[n]).replace(/\.tsx?$/, '')
-      modules[n] = await import(pathToFileURL(path.join(buildDir, `${base}.mjs`)).href)
+      // Mirrors the declared path under buildDir, per the outbase note above.
+      const rel = specs[n].replace(/\.tsx?$/, '.mjs')
+      modules[n] = await import(pathToFileURL(path.join(buildDir, rel)).href)
     }
     return { modules, error: null }
   } catch (err) {

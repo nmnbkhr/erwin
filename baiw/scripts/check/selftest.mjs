@@ -382,8 +382,14 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     }),
   },
   {
-    code: 'FRAMEWORK-COVERAGE',
-    what: 'a framework whose every mapping is banking-tagged — blank scorecard under core (the rule D3 added)',
+    // Was a FRAMEWORK-COVERAGE row. D5 stage C reclassified that class: its only
+    // failure path was this layer gap, which does not exist on a layerless module,
+    // so the assertion moved into CROSSWALK-WEIGHT — which already owned the
+    // identical rule per leaf dimension — and the class stopped existing rather
+    // than shipping inert on TAIW. The mutation is unchanged; the code it trips
+    // is not.
+    code: 'CROSSWALK-WEIGHT',
+    what: 'a framework whose every mapping is banking-tagged — blank scorecard under core (was FRAMEWORK-COVERAGE)',
     touches: [`${DGIW}/crosswalk.json`],
     apply: () => {
       const fw = readJson(`${FRAMEWORKS}/frameworks.json`)
@@ -404,6 +410,77 @@ function __selftestProbe(doc: jsPDF, s: string): void {
       // is the degenerate end of exactly what the floor exists to catch.
       for (const e of xw.entries) e.pillarId = xw.entries[0].pillarId
     }),
+  },
+  // ── D5 stage C: the crosswalk factory's new classes ─────────────────────
+  // ONE ROW PER BRANCH. SPINE-UNIVERSE has two directions, FRAMEWORK-REACH has
+  // three (undeclared gap, stale exception, unknown code) and CROSSWALK-
+  // CONCENTRATION has two (over ceiling, stale exception). Nine rows for three
+  // codes, because a code that passes on the wrong evidence is a check that has
+  // stopped running wearing a green tick — which is what D-011's stale-exception
+  // row did for a phase.
+  {
+    code: 'SPINE-UNIVERSE',
+    what: 'TAIW: a mapping pointing at a section id the dataset does not yield — the renamed-section shape',
+    touches: [`${TAIW}/crosswalk.json`],
+    apply: () => json(`${TAIW}/crosswalk.json`, (xw) => { xw.entries[0].spineId = 'dg_dqlx' }),
+  },
+  {
+    code: 'SPINE-UNIVERSE',
+    what: 'TAIW: two sections deriving the same id — mappings to it would be ambiguous',
+    touches: [`${TAIW}/tacrQuestions.json`],
+    apply: () => json(`${TAIW}/tacrQuestions.json`, (d) => {
+      // Re-prefix one section's questions onto another's id.
+      const cat = d.categories.find((c) => c.name === 'Data Governance')
+      for (const q of cat.sections[1].questions) q.id = q.id.replace(/^dg_msd/, 'dg_dql')
+    }),
+  },
+  {
+    code: 'FRAMEWORK-REACH',
+    what: 'TAIW: a leaf with no mapping and no declared exception — DM07 without its reason',
+    touches: [`${TAIW}/crosswalk.json`],
+    apply: () => json(`${TAIW}/crosswalk.json`, (xw) => {
+      // Strip every mapping off DCAM8 Analytics Management (DIM-019).
+      xw.entries = xw.entries.filter((e) => e.dimensionId !== 'DIM-019')
+    }),
+  },
+  {
+    code: 'FRAMEWORK-REACH',
+    what: 'TAIW: a STALE exception — DM07 given a mapping while its exception stands',
+    touches: [`${TAIW}/crosswalk.json`],
+    apply: () => json(`${TAIW}/crosswalk.json`, (xw) => {
+      xw.entries.push({ id: 'CW-T-900', dimensionId: 'DIM-007', spineId: 'pa_cla', coverageWeight: 1,
+        rationale: 'Forced mapping planted by the selftest to make the DM07 exception stale.' })
+    }),
+  },
+  {
+    code: 'FRAMEWORK-REACH',
+    what: 'TAIW: an exception naming a dimension code the module does not carry',
+    touches: ['scripts/check/modules/taiw.mjs'],
+    apply: () => sub('scripts/check/modules/taiw.mjs', 'const REACH_EXCEPTIONS = Object.freeze({',
+      "const REACH_EXCEPTIONS = Object.freeze({\n  DGI04: 'not a dimension TAIW crosswalks — DGI is out of scope here',"),
+  },
+  {
+    code: 'CROSSWALK-CONCENTRATION',
+    what: 'TAIW: every mapping onto one section — the scorecard becomes a restatement of it',
+    touches: [`${TAIW}/crosswalk.json`],
+    apply: () => json(`${TAIW}/crosswalk.json`, (xw) => {
+      for (const e of xw.entries) e.spineId = 'dg_dql'
+    }),
+  },
+  {
+    code: 'CROSSWALK-CONCENTRATION',
+    what: 'DGIW: a STALE exception — DGI rebalanced under the ceiling while its exception stands',
+    touches: [`${DGIW}/crosswalk.json`],
+    apply: () => {
+      const fw = readJson(`${FRAMEWORKS}/frameworks.json`)
+      const dgi = new Set(fw.dimensions.filter((d) => d.frameworkId === 'FW-03').map((d) => d.id))
+      // Spread DGI's mappings across the pillars so its peak falls under 35%.
+      const pillars = ['P01', 'P02', 'P03', 'P04', 'P05', 'P06', 'P07', 'P08', 'P09', 'P10', 'P11']
+      json(`${DGIW}/crosswalk.json`, (xw) => {
+        let i = 0
+        for (const e of xw.entries) if (dgi.has(e.dimensionId)) e.pillarId = pillars[i++ % pillars.length]
+      })
+    },
   },
   {
     code: 'PROJECTION-INVARIANT',

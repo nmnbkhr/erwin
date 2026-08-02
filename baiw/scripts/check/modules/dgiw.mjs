@@ -21,6 +21,7 @@
  *     said so; the other went silent behind `projection ? … : []`.
  */
 import { unique, sorted, near, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
+import { makeCrosswalkChecks, crosswalkSummary } from '../lib/crosswalk.mjs'
 
 const LAYERS = ['core', 'banking']
 const DIMS = ['Completeness', 'Validity', 'Accuracy', 'Consistency', 'Uniqueness', 'Timeliness', 'Integrity']
@@ -292,245 +293,100 @@ const coreChassis = {
   },
 }
 
-// ── 12. CROSSWALK-SHAPE ─────────────────────────────────────────────────────
-// One assessment, four framework scorecards. The eleven pillars stay canonical;
-// a framework is a different vocabulary and emphasis over the same evidence.
-//
-// NOTHING imports frameworks.json or crosswalk.json, so tsc never sees them and
-// lint never sees them. These five classes are the entire guard, not defence in
-// depth — which is why this one checks types and unknown keys rather than
-// assuming the file is well formed.
-const crosswalkShape = {
-  code: 'CROSSWALK-SHAPE',
-  run(ctx) {
-    const { FRAMEWORKS, DIMENSIONS, ENTRIES, frameworkById, dimById } = ctx.state
-    const { fail } = ctx
-    // The shared assertions take an explicit code: `unique` emits UNIQUE wherever
-    // it is called from, and shapeCheck/sorted emit whichever code the caller owns.
-    const f = ctx.failAs
+// ── 12-16. THE CROSSWALK CLASSES, FROM THE SHARED FACTORY ──────────────────
+/**
+ * Five inline classes became seven from `lib/crosswalk.mjs` in D5 stage C, when
+ * TAIW became the second module to project frameworks onto a spine. Unchanged in
+ * substance — the arithmetic is identical and DGIW's fourteen golden artefacts
+ * are byte-identical through the move. What changed is where it lives and what is
+ * DECLARED rather than assumed.
+ *
+ * ─── FRAMEWORK-COVERAGE IS GONE, RECLASSIFIED, NOT DELETED ─────────────────
+ *
+ * Its only failure path was the layer gap: a framework covering pillars at 'all'
+ * but zero under a layer. TAIW has no layers, so on that module the class could
+ * not fail at all — a class that cannot fail is decoration, which is exactly what
+ * FRAMEWORK-COVERAGE was for a whole phase before D3 gave it that one path.
+ * Rather than ship it twice, once armed and once inert, its two halves went where
+ * each belongs:
+ *
+ *   the layer gap        -> CROSSWALK-WEIGHT, which already owns the identical
+ *                           rule per leaf dimension and now runs it per layer
+ *                           from a declared list. On a layerless module the list
+ *                           is empty and the check REPORTS that the assertion did
+ *                           not run.
+ *   the coverage table   -> the summary lines, where it always actually lived.
+ *
+ * And the thing it never checked became `CROSSWALK-CONCENTRATION`, its own class:
+ * how much of a framework's weight lands on ONE spine node. See below.
+ *
+ * ─── WHAT DGIW DECLARES THAT TAIW DOES NOT ─────────────────────────────────
+ *
+ * `spineCoverage: assert`. A pillar mapped by no framework FAILS here and is
+ * merely reported for TAIW, and the difference is real rather than a relaxation:
+ * the eleven pillars ARE DGIW's data-governance capability model, so a pillar
+ * nothing maps is scorable evidence contributing to no scorecard. TACR's 35
+ * sections describe a customs administration and seven of them are legitimately
+ * outside DMBOK, DCAM and COBIT.
+ */
+/**
+ * CROSSWALK-CONCENTRATION exceptions, keyed by framework code.
+ *
+ * ONE ENTRY, AND IT IS A REAL FINDING RATHER THAN A CONVENIENCE. Nobody had ever
+ * measured where DGIW's four frameworks sit on this axis; the class was written
+ * for TAIW and run here on the same ceiling deliberately. DMBOK2 peaks at 15.0%,
+ * COBIT at 22.5%, DCAM at 23.0% — and DGI at 54.1% on P01 alone, with the next
+ * pillar at 16.5%.
+ *
+ * That is not an authoring error to be tuned away. DGI IS a governance framework:
+ * nine of its ten leaves are about rules, decision rights, accountabilities and
+ * the governance office, and P01 Governance & Operating Model is where all of
+ * that belongs. The honest consequence is that DGIW's DGI scorecard is more than
+ * half a restatement of one pillar's score, and a reader should be told so rather
+ * than have the ceiling raised until nothing shows.
+ *
+ * Recorded here, printed on every build, and a STALE entry fails — so if DGI's
+ * crosswalk is ever rebalanced, this exception cannot outlive the concentration
+ * it documents.
+ */
+const CONCENTRATION_EXCEPTIONS = Object.freeze({
+  DGI:
+    'DGI induces 54.1% of its weight onto P01 Governance & Operating Model (next pillar 16.5%). Not an authoring ' +
+    'error: nine of DGI\'s ten leaves are rules, decision rights, accountabilities and the governance office, and P01 ' +
+    'is where those belong. Accepted and DISCLOSED — the DGI scorecard is largely a restatement of P01 and the ' +
+    'alignment pack should say so. Measured D5 stage C; nothing had measured it before.',
+})
 
-    shapeCheck(f, 'CROSSWALK-SHAPE', 'framework', FRAMEWORKS, {
-      id: idLike(/^FW-\d{2}$/),
-      code: str(),
-      name: str(),
-      publisher: str(),
-      versionLabel: str(),
-      scaleMin: num,
-      scaleMax: num,
-      structureConfidence: oneOf(['high', 'medium-high', 'medium', 'low']),
-      structureNotes: str(20),
-    }, ['id', 'code', 'name', 'publisher', 'versionLabel', 'scaleMin', 'scaleMax', 'structureConfidence', 'structureNotes'])
+const crosswalk = makeCrosswalkChecks({
+  label: 'DGIW',
+  frameworkIds: ['FW-01', 'FW-02', 'FW-03', 'FW-04'],
+  entryIdPattern: /^CW-D-\d{3}$/,
+  spineIdPattern: SPINE_ID.pattern,
+  spineLabel: SPINE_ID.label,
+  spine: (ctx) => (ctx.data.pillars ?? []).map((p) => ({ id: p.id, name: p.name })),
+  entries: (ctx) => ctx.data.xw?.entries ?? [],
+  // DGIW's 91 entries predate the generic engine and keep their own word. The
+  // factory validates the file's own field name and normalises internally, so
+  // CROSSWALK-SHAPE inspects what an author actually wrote — the same split
+  // src/dgiw/projection.ts makes at runtime.
+  spineIdField: 'pillarId',
+  frameworkData: (ctx) => ctx.shared('_spine').fw ?? {},
+  layers: ['core', 'banking'],
+  layerValues: XW_LAYERS,
+  layerShows: xwShows,
+  // Calibrated against eleven pillars. DGI and COBIT EDM are genuinely
+  // near-identical governance frameworks and ~0.16 is expected and accepted; what
+  // this catches is a near-uniform crosswalk, where spread across all four
+  // collapses toward 0.02 and the four scorecards become one.
+  distinctnessFloor: 0.15,
+  concentrationCeiling: 0.35,
+  concentrationExceptions: CONCENTRATION_EXCEPTIONS,
+  // Empty, and measured: all 44 leaves carry at least one mapping.
+  reachExceptions: Object.freeze({}),
+  spineCoverage: { mode: 'assert' },
+  induced: (ctx, frameworkId) => ctx.ts?.projection?.inducedPillarWeights(frameworkId, 'all') ?? null,
+})
 
-    shapeCheck(f, 'CROSSWALK-SHAPE', 'dimension', DIMENSIONS, {
-      id: idLike(/^DIM-\d{3}$/),
-      frameworkId: idLike(/^FW-\d{2}$/),
-      parentId: (v) => (v === null || /^DIM-\d{3}$/.test(String(v)) ? null : `must be null or a DIM-nnn id, got ${JSON.stringify(v)}`),
-      code: str(),
-      name: str(),
-      weight: (v) => num(v) ?? (v > 0 && v <= 1 ? null : `must be in (0, 1], got ${v}`),
-      level: (v) => (v === 1 || v === 2 ? null : `must be 1 or 2, got ${JSON.stringify(v)}`),
-    }, ['id', 'frameworkId', 'parentId', 'code', 'name', 'weight', 'level'])
-
-    shapeCheck(f, 'CROSSWALK-SHAPE', 'crosswalkEntry', ENTRIES, {
-      id: idLike(/^CW-\d{3}$/),
-      dimensionId: idLike(/^DIM-\d{3}$/),
-      // The spine id, under DGIW's name for it. See SPINE_ID.
-      pillarId: idLike(SPINE_ID.pattern),
-      coverageWeight: (v) => num(v) ?? (v > 0 && v <= 1 ? null : `must be in (0, 1], got ${v} — a zero-weight mapping is a mapping that does nothing`),
-      rationale: str(20),
-      layer: oneOf(XW_LAYERS),
-      questionIds: (v) => (Array.isArray(v) ? null : 'must be an array when present'),
-    }, ['id', 'dimensionId', 'pillarId', 'coverageWeight', 'rationale', 'layer'])
-
-    unique(f, 'UNIQUE', 'framework', FRAMEWORKS.map((x) => x.id))
-    unique(f, 'UNIQUE', 'dimension', DIMENSIONS.map((d) => d.id))
-    unique(f, 'UNIQUE', 'crosswalkEntry', ENTRIES.map((e) => e.id))
-
-    for (const d of DIMENSIONS) {
-      if (!frameworkById.has(d.frameworkId)) fail(`dimension ${d.id} -> framework ${d.frameworkId} does not exist`)
-      if (d.parentId !== null) {
-        const parent = dimById.get(d.parentId)
-        if (!parent) fail(`dimension ${d.id} -> parent ${d.parentId} does not exist`)
-        else if (parent.frameworkId !== d.frameworkId) fail(`dimension ${d.id} has a parent in a different framework`)
-        else if (parent.level >= d.level) fail(`dimension ${d.id} (level ${d.level}) has parent ${d.parentId} at level ${parent.level}`)
-      } else if (d.level !== 1) {
-        fail(`dimension ${d.id} has no parent but is level ${d.level}`)
-      }
-    }
-
-    sorted(f, 'CROSSWALK-SHAPE', 'frameworks', FRAMEWORKS.map((x) => x.id))
-    sorted(f, 'CROSSWALK-SHAPE', 'dimensions', DIMENSIONS.map((d) => d.id))
-    sorted(f, 'CROSSWALK-SHAPE', 'crosswalk entries', ENTRIES.map((e) => e.id))
-
-    return { examined: FRAMEWORKS.length + DIMENSIONS.length + ENTRIES.length }
-  },
-}
-
-// ── 13. CROSSWALK-WEIGHT ────────────────────────────────────────────────────
-// coverageWeights per leaf dimension sum to 1.0 over the FULL entry set. A
-// dimension summing to 0.7 silently under-scores; one summing to 1.3 silently
-// inflates, and neither shows up as anything but a slightly odd number.
-//
-// Sibling `weight` is checked here too. It is not in the original spec, but
-// without it effective leaf weights do not sum to 1.0 per framework, the induced
-// pillar weight vector does not sum to 1.0, and CROSSWALK-DISTINCTNESS is
-// comparing vectors of different total mass — the L1 threshold would then be
-// measuring the authoring error rather than the frameworks.
-const crosswalkWeight = {
-  code: 'CROSSWALK-WEIGHT',
-  run(ctx) {
-    const { FRAMEWORKS, DIMENSIONS, leafDims, entriesByDim, hasChildren } = ctx.state
-    const { fail } = ctx
-    const retainedShare = {}
-
-    for (const d of leafDims) {
-      const es = entriesByDim.get(d.id) ?? []
-      if (es.length === 0) continue // reported by CROSSWALK-ORPHAN
-      const total = es.reduce((s, e) => s + (typeof e.coverageWeight === 'number' ? e.coverageWeight : 0), 0)
-      if (!near(total, 1))
-        fail(`leaf dimension ${d.id} (${d.code}) coverageWeights sum to ${total.toFixed(4)}, not 1.0 — the dimension would be ${total < 1 ? 'under-scored' : 'inflated'} by ${(Math.abs(1 - total) * 100).toFixed(1)}%`)
-
-      retainedShare[d.id] = {}
-      for (const layer of ['core', 'banking', 'all'])
-        retainedShare[d.id][layer] = es.filter((e) => xwShows(layer, e.layer)).reduce((s, e) => s + e.coverageWeight, 0)
-    }
-
-    // A dimension with no visible mapping under a layer where its framework is
-    // otherwise in scope is an authoring gap dressed as a legitimate not-applicable.
-    for (const d of leafDims) {
-      const share = retainedShare[d.id]
-      if (!share) continue
-      for (const layer of ['core', 'banking']) {
-        const frameworkInScope = leafDims.some((o) => o.frameworkId === d.frameworkId && (retainedShare[o.id]?.[layer] ?? 0) > 0)
-        if (share[layer] === 0 && frameworkInScope)
-          fail(`leaf dimension ${d.id} (${d.code}) retains 0 weight under the ${layer} layer while its framework is otherwise in scope — every mapping it has is tagged for the other layer, which is an authoring gap, not a not-applicable`)
-      }
-    }
-
-    // Dimension weights: siblings sum to 1.0 within each parent, and level-1
-    // dimensions sum to 1.0 within each framework.
-    for (const f of FRAMEWORKS) {
-      const tops = DIMENSIONS.filter((d) => d.frameworkId === f.id && d.parentId === null)
-      const total = tops.reduce((s, d) => s + (typeof d.weight === 'number' ? d.weight : 0), 0)
-      if (tops.length && !near(total, 1))
-        fail(`framework ${f.id} (${f.code}) level-1 dimension weights sum to ${total.toFixed(4)}, not 1.0 — its induced pillar weight vector would not sum to 1 and could not be compared with the others`)
-    }
-    for (const parentId of hasChildren) {
-      const kids = DIMENSIONS.filter((d) => d.parentId === parentId)
-      const total = kids.reduce((s, d) => s + (typeof d.weight === 'number' ? d.weight : 0), 0)
-      if (!near(total, 1)) fail(`children of ${parentId} have weights summing to ${total.toFixed(4)}, not 1.0`)
-    }
-
-    return { examined: leafDims.length + FRAMEWORKS.length + hasChildren.size }
-  },
-}
-
-// ── 14. CROSSWALK-ORPHAN ────────────────────────────────────────────────────
-const crosswalkOrphan = {
-  code: 'CROSSWALK-ORPHAN',
-  run(ctx) {
-    const { FRAMEWORKS, ENTRIES, dimById, hasChildren, leafDims, entriesByDim, pillarIds } = ctx.state
-    const { fail } = ctx
-    for (const e of ENTRIES) {
-      const d = dimById.get(e.dimensionId)
-      if (!d) fail(`entry ${e.id} -> dimension ${e.dimensionId} does not exist`)
-      else if (hasChildren.has(d.id))
-        fail(`entry ${e.id} maps ${d.id} (${d.code}), which has children — projection is leaf-only, and a parent counting a pillar its children also count double-counts the same evidence`)
-      if (!pillarIds.has(e.pillarId)) fail(`entry ${e.id} -> pillar ${e.pillarId} does not exist`)
-    }
-    for (const d of leafDims)
-      if (!(entriesByDim.get(d.id) ?? []).length)
-        fail(`leaf dimension ${d.id} (${d.code}) has no mapping — it would render as an unexplained blank on the scorecard`)
-
-    // The other direction, and until D3 it only printed. A pillar no framework maps
-    // is scorable on the diagnostic and absent from all four scorecards, so a client
-    // comparing them sees evidence that counts toward nothing. That is the same
-    // defect as a leaf dimension with no mapping, read from the pillar side, and it
-    // now fails like one. The summary line still names them.
-    const unmappedPillars = [...pillarIds].filter((p) => !ENTRIES.some((e) => e.pillarId === p)).sort()
-    for (const p of unmappedPillars)
-      fail(`pillar ${p} is mapped by no crosswalk entry in any of the ${FRAMEWORKS.length} frameworks — it is scorable on the diagnostic and contributes to none of the four scorecards, so the evidence behind it counts toward nothing a client is shown`)
-
-    return { examined: ENTRIES.length + leafDims.length + pillarIds.size, unmappedPillars }
-  },
-}
-
-// ── 15. FRAMEWORK-COVERAGE ──────────────────────────────────────────────────
-// How many pillars each framework reaches, per layer. This was informational and
-// nothing more: five lines of arithmetic, a printed table, no failure path, and a
-// line in CLAUDE.md calling it one of "five check classes" that guard the
-// crosswalk. D3 gives it the one failure it always implied.
-//
-// The rule is CROSSWALK-WEIGHT's retained-share rule one level up. A framework
-// that reaches pillars at 'all' but zero under a layer has every mapping tagged
-// for the other layer — an engagement at that layer renders its scorecard blank
-// with no stated reason, which is an authoring gap wearing a not-applicable
-// costume. A framework reaching zero pillars everywhere is not this defect; it
-// is CROSSWALK-ORPHAN's, per leaf dimension, and is left to it.
-const frameworkCoverage = {
-  code: 'FRAMEWORK-COVERAGE',
-  run(ctx) {
-    const { FRAMEWORKS, leafDims, entriesByDim, pillarIds } = ctx.state
-    const { fail } = ctx
-    const coverage = FRAMEWORKS.map((f) => {
-      const leaves = leafDims.filter((d) => d.frameworkId === f.id)
-      const per = {}
-      for (const layer of ['core', 'banking', 'all']) {
-        const ps = new Set()
-        for (const d of leaves)
-          for (const e of entriesByDim.get(d.id) ?? []) if (xwShows(layer, e.layer) && pillarIds.has(e.pillarId)) ps.add(e.pillarId)
-        per[layer] = ps.size
-      }
-      return { f, leaves: leaves.length, entries: leaves.reduce((s, d) => s + (entriesByDim.get(d.id) ?? []).length, 0), per }
-    })
-
-    for (const c of coverage)
-      for (const layer of ['core', 'banking'])
-        if (c.per[layer] === 0 && c.per.all > 0)
-          fail(`framework ${c.f.id} (${c.f.code}) covers 0 of ${pillarIds.size} pillars under the ${layer} layer while covering ${c.per.all} at 'all' — every mapping it has is tagged for the other layer, so an engagement at this layer would render its scorecard blank with no stated reason. Same authoring gap CROSSWALK-WEIGHT rejects per leaf dimension, read per framework.`)
-
-    return { examined: coverage.length * 3, coverage }
-  },
-}
-
-// ── 16. CROSSWALK-DISTINCTNESS ──────────────────────────────────────────────
-// W_p = Σ_d (effectiveLeafWeight_d × coverageWeight_d,p), computed over the full
-// entry set. Four frameworks whose induced vectors are nearly equal produce four
-// nearly identical scorecards, which is the whole proposition failing silently —
-// and it is visible from the crosswalk alone, with no answers, which is why this
-// is a check rather than a report.
-const crosswalkDistinctness = {
-  code: 'CROSSWALK-DISTINCTNESS',
-  run(ctx) {
-    const { FRAMEWORKS, pillarIds } = ctx.state
-    const { fail } = ctx
-
-    // Under its own name. This used to be `projection ? … : []`, so an esbuild
-    // failure disabled this class entirely while only PROJECTION-INVARIANT
-    // reported it — one finding for two dead checks.
-    if (!ctx.ts?.projection) {
-      fail(`could not build or load projection.ts — the induced pillar weight vectors were NOT compared and this class did not run: ${ctx.tsLoadError ?? 'projection module unavailable'}`)
-      return { examined: 0, l1Pairs: [] }
-    }
-    const { projection } = ctx.ts
-
-    const inducedW = new Map(FRAMEWORKS.map((f) => [f.id, projection.inducedPillarWeights(f.id, 'all')]))
-    const pillarOrder = [...pillarIds].sort()
-    const l1Pairs = []
-    for (let i = 0; i < FRAMEWORKS.length; i++)
-      for (let k = i + 1; k < FRAMEWORKS.length; k++) {
-        const a = FRAMEWORKS[i]
-        const b = FRAMEWORKS[k]
-        const va = inducedW.get(a.id)
-        const vb = inducedW.get(b.id)
-        const l1 = pillarOrder.reduce((s, p) => s + Math.abs(va[p] - vb[p]), 0)
-        l1Pairs.push({ a: a.code, b: b.code, l1 })
-        if (l1 < DISTINCTNESS_MIN)
-          fail(`${a.code} and ${b.code} have induced pillar weight vectors only ${l1.toFixed(3)} apart in L1, below the ${DISTINCTNESS_MIN} floor. Every framework score is a convex combination of the same 11 pillar scores, so two frameworks this close produce two scorecards a client cannot tell apart. The floor is not arbitrary: DGI and COBIT EDM are genuinely near-identical governance frameworks and a distance around 0.16 is expected and accepted — what this catches is a near-uniform crosswalk, where spread across all four collapses toward 0.02 and the four scorecards become one.`)
-      }
-    return { examined: l1Pairs.length, l1Pairs }
-  },
-}
 
 // ── 17. PROJECTION-INVARIANT ────────────────────────────────────────────────
 // Four properties that must hold for every profile. They are a BUILD GATE, not a
@@ -807,11 +663,13 @@ export default {
     waveGraph,
     layerCoherence,
     coreChassis,
-    crosswalkShape,
-    crosswalkWeight,
-    crosswalkOrphan,
-    frameworkCoverage,
-    crosswalkDistinctness,
+    crosswalk.spineUniverse,
+    crosswalk.crosswalkShape,
+    crosswalk.crosswalkWeight,
+    crosswalk.crosswalkOrphan,
+    crosswalk.frameworkReach,
+    crosswalk.crosswalkConcentration,
+    crosswalk.crosswalkDistinctness,
     projectionInvariant,
   ],
 
@@ -827,21 +685,24 @@ export default {
     out.push(`flows ${prog.flows.length}  steps ${prog.flows.flatMap((f) => f.steps).length}  checklist ${prog.checklist.length}  gates ${om.gates.length}`)
     out.push(`waves ${plan.waves.length}  artefacts ${plan.artefactRegister.length}  roles ${om.roles.length}  registry ${(om.roleRegistry ?? []).length}`)
 
-    const unmapped = r['CROSSWALK-ORPHAN']?.unmappedPillars ?? []
+    const unmapped = r['CROSSWALK-ORPHAN']?.unmapped ?? []
     out.push(
       `CROSSWALK ${FRAMEWORKS.length} frameworks  ${DIMENSIONS.length} dimensions (${leafDims.length} leaf)  ${ENTRIES.length} mappings` +
         `  ${unmapped.length === 0 ? 'every pillar mapped' : `UNMAPPED PILLARS: ${unmapped.join(', ')}`}`,
     )
-    for (const c of r['FRAMEWORK-COVERAGE']?.coverage ?? [])
+    // The structure-confidence column is DGIW's own: the dimension NAMES are
+    // published content and carry a confidence mark, the weights beside them are
+    // ours. FRAMEWORK-COVERAGE printed it; that class is gone, the line is not.
+    for (const f of FRAMEWORKS) {
+      const leaves = leafDims.filter((d) => d.frameworkId === f.id)
+      const es = leaves.reduce((n, d) => n + ENTRIES.filter((e) => e.dimensionId === d.id).length, 0)
+      const reached = new Set(ENTRIES.filter((e) => leaves.some((d) => d.id === e.dimensionId)).map((e) => e.pillarId))
       out.push(
-        `  ${c.f.code.padEnd(9)} ${String(c.leaves).padStart(2)} leaf dims, ${String(c.entries).padStart(3)} mappings` +
-          `  pillars core ${c.per.core}/${pillarIds.size}  banking ${c.per.banking}/${pillarIds.size}  all ${c.per.all}/${pillarIds.size}` +
-          `  (${Math.round((c.per.all / pillarIds.size) * 100)}% at 'all')  structure confidence: ${c.f.structureConfidence}`,
+        `  ${f.code.padEnd(9)} ${String(leaves.length).padStart(2)} leaf dims, ${String(es).padStart(3)} mappings` +
+          `  ${reached.size}/${pillarIds.size} pillars reached  structure confidence: ${f.structureConfidence}`,
       )
-    out.push(
-      `  distinctness (L1, floor ${DISTINCTNESS_MIN}): ` +
-        (r['CROSSWALK-DISTINCTNESS']?.l1Pairs ?? []).map((p) => `${p.a}/${p.b} ${p.l1.toFixed(3)}`).join('  '),
-    )
+    }
+    for (const l of crosswalkSummary(r, { label: 'DGIW', spineLabel: 'pillar', spineTotal: pillarIds.size }).slice(1)) out.push(l)
 
     const pi = r['PROJECTION-INVARIANT']
     if (pi?.examined) {

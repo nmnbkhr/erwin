@@ -1,0 +1,557 @@
+{
+  "_note": [
+    "TAIW framework crosswalk — the 35 TACR SECTIONS are the spine, not the 8 categories.",
+    "",
+    "WHY SECTIONS. At category level every one of the three frameworks piled 31-50% of",
+    "its weight onto the single 'Data Governance' category: 90 of 640 questions carrying",
+    "half of every scorecard. The pairwise L1 distances still cleared the 0.15 floor, so",
+    "CROSSWALK-DISTINCTNESS would have passed and told nobody. At section level the",
+    "heaviest single leaf falls to roughly 20% and the L1 minimum more than doubles. The",
+    "granularity decision was the SPINE LEVEL, not the framework count. D5 step 1.",
+    "",
+    "THREE FRAMEWORKS, NOT FOUR. DGI is absent by decision, not oversight: it reaches",
+    "59% of itself on TACR, losing Decision Rights, Accountabilities, the Data Governance",
+    "Office and Data Stewards -- which are the four things DGI is. TACR has 0 questions",
+    "containing 'decision right', 0 'governance office', 0 'council', 0 'roles and",
+    "responsibilities'. A scorecard built from 59% of a framework is worse than no",
+    "scorecard, because nothing on the page says which 41% is missing.",
+    "",
+    "DM07 Document & Content Management carries NO mapping and a declared FRAMEWORK-REACH",
+    "exception instead. 0 of 640 TACR questions ask about document or content management.",
+    "Customs runs on declarations and certificates, so this is a real gap in TACR rather",
+    "than an absence in the domain -- and forcing it onto 'Clearance Automation' would",
+    "have been a mapping nobody could defend in a room.",
+    "",
+    "coverageWeight is the share of THIS DIMENSION that THIS SECTION accounts for,",
+    "summing to 1.0 per leaf dimension. It is not 'how much of the section this dimension",
+    "covers' -- under that reading a dimension score is not a weighted mean.",
+    "",
+    "NO LAYER. TACR carries no core/banking tag on any of its 640 questions, verified",
+    "against the dataset, so entries carry no layer field and every mapping is always",
+    "visible. CROSSWALK-WEIGHT's retained-zero-under-a-layer assertion is structurally",
+    "unreachable here and is declared so rather than silently skipped.",
+    "",
+    "Ids are namespaced CW-T-. DGIW's are CW-D-. Per-file uniqueness would fail the",
+    "moment a suite-level alignment artefact aggregated them.",
+    "",
+    "EVERY ENTRY CARRIES A RATIONALE. A mapping you cannot defend in a room is not a",
+    "mapping. Three rationales say so about themselves -- DM10 Metadata, APO14.02",
+    "business glossary and APO14.09 archiving rest on one or two questions in 640 --",
+    "because a thin mapping that does not admit it is how a projection starts lying.",
+    "",
+    "Sorted by id, code-unit order. Ids are allocation-ordered and never renumbered."
+  ],
+  "entries": [
+    {
+      "id": "CW-T-001",
+      "dimensionId": "DIM-001",
+      "spineId": "dg_msd",
+      "coverageWeight": 0.35,
+      "rationale": "The one TACR question that names data governance mechanics directly — \"master data governance clearly define ownership, stewardship, and approval workflows\" — sits here. It is the closest TACR comes to DMBOK's decision-rights core."
+    },
+    {
+      "id": "CW-T-002",
+      "dimensionId": "DIM-001",
+      "spineId": "dg_dsh",
+      "coverageWeight": 0.35,
+      "rationale": "Data-sharing MOUs that define scope, formats and update frequencies are governance instruments: they are where TACR asks whether the administration has agreed rules with other parties about data."
+    },
+    {
+      "id": "CW-T-003",
+      "dimensionId": "DIM-001",
+      "spineId": "dg_prs",
+      "coverageWeight": 0.3,
+      "rationale": "A documented data protection and privacy policy governing all customs data is a governance artefact, and TACR measures whether one exists and is enforced."
+    },
+    {
+      "id": "CW-T-004",
+      "dimensionId": "DIM-002",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.45,
+      "rationale": "The warehouse section asks whether an analytics data platform exists and integrates WeBOC, PSW and partner sources — the enterprise data architecture question, in TACR's vocabulary."
+    },
+    {
+      "id": "CW-T-005",
+      "dimensionId": "DIM-002",
+      "spineId": "str_dig",
+      "coverageWeight": 0.3,
+      "rationale": "The digital vision section carries the only architecture-principle question in TACR: whether the technology strategy mandates API-first architecture for all customs integrations."
+    },
+    {
+      "id": "CW-T-006",
+      "dimensionId": "DIM-002",
+      "spineId": "inf_psw",
+      "coverageWeight": 0.25,
+      "rationale": "PSW is the national integration architecture; how much of the regulatory estate it covers is an architectural fact, not just an operational one."
+    },
+    {
+      "id": "CW-T-007",
+      "dimensionId": "DIM-003",
+      "spineId": "dg_wco",
+      "coverageWeight": 0.75,
+      "rationale": "The WCO Data Model IS a published data model, and this section asks whether Pakistan Customs has mapped its elements to WCO DM 3.x information packages and built message implementation profiles. That is data modelling and design, done against a standard."
+    },
+    {
+      "id": "CW-T-008",
+      "dimensionId": "DIM-003",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.25,
+      "rationale": "Warehouse design — how source systems are integrated into an analytical model — is the other place TACR asks a modelling question."
+    },
+    {
+      "id": "CW-T-009",
+      "dimensionId": "DIM-004",
+      "spineId": "is_hdw",
+      "coverageWeight": 0.6,
+      "rationale": "Data centre capacity, storage adequacy for growing customs data volumes and long-term retention are storage and operations in the DMBOK sense."
+    },
+    {
+      "id": "CW-T-010",
+      "dimensionId": "DIM-004",
+      "spineId": "is_cld",
+      "coverageWeight": 0.4,
+      "rationale": "Workload placement across public, private and hybrid environments, and data-residency compliance, is where storage decisions are actually made."
+    },
+    {
+      "id": "CW-T-011",
+      "dimensionId": "DIM-005",
+      "spineId": "dg_prs",
+      "coverageWeight": 0.55,
+      "rationale": "Role-based access control on a need-to-know basis and complete audit trails for access, modification and deletion are the data-security controls DMBOK names."
+    },
+    {
+      "id": "CW-T-012",
+      "dimensionId": "DIM-005",
+      "spineId": "is_sec",
+      "coverageWeight": 0.45,
+      "rationale": "The cybersecurity strategy, endpoint protection and intrusion detection are the infrastructure half of the same knowledge area."
+    },
+    {
+      "id": "CW-T-013",
+      "dimensionId": "DIM-006",
+      "spineId": "inf_psw",
+      "coverageWeight": 0.35,
+      "rationale": "PSW is the integration hub: how many OGAs are electronically integrated is the headline interoperability measure for Pakistan."
+    },
+    {
+      "id": "CW-T-014",
+      "dimensionId": "DIM-006",
+      "spineId": "inf_oga",
+      "coverageWeight": 0.35,
+      "rationale": "Whether OGAs return clearance decisions through standardised APIs, in real time, is interoperability measured at the interface rather than at the platform."
+    },
+    {
+      "id": "CW-T-015",
+      "dimensionId": "DIM-006",
+      "spineId": "inf_web",
+      "coverageWeight": 0.3,
+      "rationale": "WeBOC is the transactional system every integration terminates in; its coverage and data completeness bound what any integration can carry."
+    },
+    {
+      "id": "CW-T-016",
+      "dimensionId": "DIM-008",
+      "spineId": "dg_msd",
+      "coverageWeight": 1,
+      "rationale": "A one-to-one match. This section asks about authoritative master data for traders and brokers, tariff codes managed as reference data with change history, and harmonised port/country/currency codes. That is the whole of DMBOK's Reference & Master Data."
+    },
+    {
+      "id": "CW-T-017",
+      "dimensionId": "DIM-009",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.5,
+      "rationale": "The warehouse itself: whether one exists, what it integrates, and whether ETL/ELT pipelines are automated and monitored."
+    },
+    {
+      "id": "CW-T-018",
+      "dimensionId": "DIM-009",
+      "spineId": "at_bir",
+      "coverageWeight": 0.5,
+      "rationale": "The BI half: standardised dashboards for management, self-service reporting by trained officers, revenue drill-down. DMBOK treats warehousing and BI as one knowledge area and TACR splits them, so both halves are named."
+    },
+    {
+      "id": "CW-T-019",
+      "dimensionId": "DIM-010",
+      "spineId": "dg_wco",
+      "coverageWeight": 0.55,
+      "rationale": "Mapping data elements to the WCO Data Model and maintaining message implementation profiles is the nearest thing TACR has to a managed metadata registry: it is where element definitions live and are kept current."
+    },
+    {
+      "id": "CW-T-020",
+      "dimensionId": "DIM-010",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.45,
+      "rationale": "The warehouse section carries TACR's only business-glossary and catalogue questions. THIS IS A THIN MAPPING and the retained share does not say so: TACR asks two metadata questions in 640. Read the dimension score with that in mind."
+    },
+    {
+      "id": "CW-T-021",
+      "dimensionId": "DIM-011",
+      "spineId": "dg_dql",
+      "coverageWeight": 1,
+      "rationale": "A one-to-one match. Rules defined for critical data elements, automated validation at point of entry in WeBOC and PSW, and metrics monitored against thresholds — DMBOK's Data Quality, in full."
+    },
+    {
+      "id": "CW-T-022",
+      "dimensionId": "DIM-012",
+      "spineId": "str_mod",
+      "coverageWeight": 0.55,
+      "rationale": "A documented customs modernization strategy aligned with national trade policy, driving resource allocation and project prioritisation, is DCAM's data-management strategy read in a customs administration's own terms."
+    },
+    {
+      "id": "CW-T-023",
+      "dimensionId": "DIM-012",
+      "spineId": "str_dig",
+      "coverageWeight": 0.45,
+      "rationale": "The digital transformation vision with measurable objectives and milestones is the forward half of the same component."
+    },
+    {
+      "id": "CW-T-024",
+      "dimensionId": "DIM-013",
+      "spineId": "str_mod",
+      "coverageWeight": 0.4,
+      "rationale": "Whether the strategy actually drives resource allocation and project prioritisation is the funding question TACR asks."
+    },
+    {
+      "id": "CW-T-025",
+      "dimensionId": "DIM-013",
+      "spineId": "org_chm",
+      "coverageWeight": 0.35,
+      "rationale": "A formal change management framework applied to all modernization initiatives, with readiness assessments and change champions, is how a programme is run rather than merely declared."
+    },
+    {
+      "id": "CW-T-026",
+      "dimensionId": "DIM-013",
+      "spineId": "str_sth",
+      "coverageWeight": 0.25,
+      "rationale": "Formal alignment between Pakistan Customs, FBR and the Ministry of Commerce is where programme sponsorship and funding authority sit in this jurisdiction."
+    },
+    {
+      "id": "CW-T-027",
+      "dimensionId": "DIM-014",
+      "spineId": "dg_wco",
+      "coverageWeight": 0.4,
+      "rationale": "WCO Data Model message implementation profiles are built per business process, which is exactly the business-to-data architecture join DCAM3 describes."
+    },
+    {
+      "id": "CW-T-028",
+      "dimensionId": "DIM-014",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.35,
+      "rationale": "Integrating WeBOC, PSW and partner sources into one analytical platform is the data-architecture half."
+    },
+    {
+      "id": "CW-T-029",
+      "dimensionId": "DIM-014",
+      "spineId": "inf_psw",
+      "coverageWeight": 0.25,
+      "rationale": "PSW defines the business architecture of regulatory document flow across agencies."
+    },
+    {
+      "id": "CW-T-030",
+      "dimensionId": "DIM-015",
+      "spineId": "is_cld",
+      "coverageWeight": 0.4,
+      "rationale": "Cloud readiness, workload placement criteria and data-residency policy are the technology-architecture decisions DCAM4 asks about."
+    },
+    {
+      "id": "CW-T-031",
+      "dimensionId": "DIM-015",
+      "spineId": "is_net",
+      "coverageWeight": 0.3,
+      "rationale": "Connectivity between stations, data centres and partner agencies, with path redundancy, is the substrate every other architectural choice rests on."
+    },
+    {
+      "id": "CW-T-032",
+      "dimensionId": "DIM-015",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.3,
+      "rationale": "Pipeline automation and resilience are technology architecture as much as data architecture."
+    },
+    {
+      "id": "CW-T-033",
+      "dimensionId": "DIM-016",
+      "spineId": "dg_dql",
+      "coverageWeight": 1,
+      "rationale": "A one-to-one match, and deliberately the same target as DMBOK2's DM11: two frameworks naming the same practice is what a crosswalk is for. The dimension weights differ (0.15 against 0.10), so the two scorecards still weigh it differently."
+    },
+    {
+      "id": "CW-T-034",
+      "dimensionId": "DIM-017",
+      "spineId": "dg_dsh",
+      "coverageWeight": 0.4,
+      "rationale": "Formalised data-sharing agreements and bilateral customs-to-customs exchange are governance in force rather than governance on paper."
+    },
+    {
+      "id": "CW-T-035",
+      "dimensionId": "DIM-017",
+      "spineId": "dg_msd",
+      "coverageWeight": 0.3,
+      "rationale": "Ownership, stewardship and approval workflows for master data — TACR's single most governance-shaped question."
+    },
+    {
+      "id": "CW-T-036",
+      "dimensionId": "DIM-017",
+      "spineId": "dg_prs",
+      "coverageWeight": 0.3,
+      "rationale": "Policy, role-based access and audit trail are the control side of the same component."
+    },
+    {
+      "id": "CW-T-037",
+      "dimensionId": "DIM-018",
+      "spineId": "dg_prs",
+      "coverageWeight": 0.4,
+      "rationale": "Complete audit trails for access, modification and deletion are the canonical data control."
+    },
+    {
+      "id": "CW-T-038",
+      "dimensionId": "DIM-018",
+      "spineId": "pa_rka",
+      "coverageWeight": 0.35,
+      "rationale": "Risk rules maintained, versioned and updated through a formal change-management process is a control environment operating on live decision logic."
+    },
+    {
+      "id": "CW-T-039",
+      "dimensionId": "DIM-018",
+      "spineId": "pa_rpa",
+      "coverageWeight": 0.25,
+      "rationale": "Automated, scheduled reporting is how a control environment evidences itself."
+    },
+    {
+      "id": "CW-T-040",
+      "dimensionId": "DIM-019",
+      "spineId": "at_bir",
+      "coverageWeight": 0.4,
+      "rationale": "Standardised dashboards and governed self-service are managed analytics."
+    },
+    {
+      "id": "CW-T-041",
+      "dimensionId": "DIM-019",
+      "spineId": "at_mla",
+      "coverageWeight": 0.35,
+      "rationale": "Institutional readiness for AI/ML, deployed anomaly-detection models and NLP for classification are the advanced-analytics half."
+    },
+    {
+      "id": "CW-T-042",
+      "dimensionId": "DIM-019",
+      "spineId": "at_rta",
+      "coverageWeight": 0.25,
+      "rationale": "Stream processing and real-time alerting are the operational-analytics half."
+    },
+    {
+      "id": "CW-T-043",
+      "dimensionId": "DIM-033",
+      "spineId": "str_mod",
+      "coverageWeight": 0.6,
+      "rationale": "A documented strategy aligned with national trade policy objectives, actively driving decisions, is the governance framework EDM01 requires to be set and maintained."
+    },
+    {
+      "id": "CW-T-044",
+      "dimensionId": "DIM-033",
+      "spineId": "str_sth",
+      "coverageWeight": 0.4,
+      "rationale": "Formal alignment across Customs, FBR and the Ministry of Commerce, plus WCO and WTO committee participation, is the maintenance half — governance held in place by standing relationships."
+    },
+    {
+      "id": "CW-T-045",
+      "dimensionId": "DIM-034",
+      "spineId": "oi_rvi",
+      "coverageWeight": 0.5,
+      "rationale": "Revenue tracked against approved targets, leakage quantified with reduction targets, and duty recovery measurably improved by data-driven intervention: benefits, delivered and evidenced."
+    },
+    {
+      "id": "CW-T-046",
+      "dimensionId": "DIM-034",
+      "spineId": "oi_fkp",
+      "coverageWeight": 0.5,
+      "rationale": "Clearance times measured by WCO Time Release Study and shown to have decreased as a documented result of reform is the facilitation half of the same benefit case."
+    },
+    {
+      "id": "CW-T-047",
+      "dimensionId": "DIM-035",
+      "spineId": "is_sec",
+      "coverageWeight": 0.5,
+      "rationale": "EDM03 is ENTERPRISE risk governance, not customs targeting. The cybersecurity strategy aligned with national frameworks, endpoint protection and intrusion detection are TACR's enterprise-risk content."
+    },
+    {
+      "id": "CW-T-048",
+      "dimensionId": "DIM-035",
+      "spineId": "is_drb",
+      "coverageWeight": 0.5,
+      "rationale": "A documented disaster recovery plan with agreed, tested RTO/RPO and a geographically separated site is the other half of enterprise risk optimisation."
+    },
+    {
+      "id": "CW-T-049",
+      "dimensionId": "DIM-036",
+      "spineId": "org_wfa",
+      "coverageWeight": 0.4,
+      "rationale": "A comprehensive workforce capacity assessment aligned with modernization needs, and strategic workforce planning tied to the roadmap, is resource optimisation in its most direct form."
+    },
+    {
+      "id": "CW-T-050",
+      "dimensionId": "DIM-036",
+      "spineId": "org_dsc",
+      "coverageWeight": 0.35,
+      "rationale": "Whether dedicated data science posts exist and whether analysts hold modelling skills is the specific-capability half."
+    },
+    {
+      "id": "CW-T-051",
+      "dimensionId": "DIM-036",
+      "spineId": "is_hdw",
+      "coverageWeight": 0.25,
+      "rationale": "Data centre and storage capacity adequate for current and projected need is resource optimisation applied to infrastructure."
+    },
+    {
+      "id": "CW-T-052",
+      "dimensionId": "DIM-037",
+      "spineId": "str_sth",
+      "coverageWeight": 0.6,
+      "rationale": "Structured private-sector consultation in modernization planning, and active WCO/WTO cooperation, is stakeholder engagement as EDM05 defines it."
+    },
+    {
+      "id": "CW-T-053",
+      "dimensionId": "DIM-037",
+      "spineId": "oi_trs",
+      "coverageWeight": 0.4,
+      "rationale": "Trader satisfaction surveys with representative sampling, analysed into prioritised action plans, is engagement measured rather than asserted."
+    },
+    {
+      "id": "CW-T-054",
+      "dimensionId": "DIM-039",
+      "spineId": "str_dig",
+      "coverageWeight": 0.4,
+      "rationale": "The digital vision section carries the strategy-and-communication half: articulated vision, measurable objectives, published architecture principles."
+    },
+    {
+      "id": "CW-T-055",
+      "dimensionId": "DIM-039",
+      "spineId": "dg_msd",
+      "coverageWeight": 0.3,
+      "rationale": "Ownership, stewardship and approval workflows are the roles-and-responsibilities half, and TACR asks it once, here."
+    },
+    {
+      "id": "CW-T-056",
+      "dimensionId": "DIM-039",
+      "spineId": "dg_dsh",
+      "coverageWeight": 0.3,
+      "rationale": "MOUs defining scope, formats and update frequencies assign responsibilities across organisational boundaries."
+    },
+    {
+      "id": "CW-T-057",
+      "dimensionId": "DIM-040",
+      "spineId": "dg_wco",
+      "coverageWeight": 0.55,
+      "rationale": "WCO Data Model element mapping and message implementation profiles are the controlled vocabulary Pakistan Customs actually maintains; a customs administration's business glossary is its data model."
+    },
+    {
+      "id": "CW-T-058",
+      "dimensionId": "DIM-040",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.45,
+      "rationale": "TACR's single catalogue question sits in the warehouse section. THIS IS THIN — one question in 640 — and the score should be read as indicative rather than measured."
+    },
+    {
+      "id": "CW-T-059",
+      "dimensionId": "DIM-041",
+      "spineId": "dg_wco",
+      "coverageWeight": 0.55,
+      "rationale": "Maintaining WCO DM mappings and MIPs across WeBOC, PSW and partner systems is metadata management performed against a standard, whatever it is called locally."
+    },
+    {
+      "id": "CW-T-060",
+      "dimensionId": "DIM-041",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.45,
+      "rationale": "Lineage and catalogue questions in the warehouse section are the infrastructure half. Same thinness caveat as APO14.02."
+    },
+    {
+      "id": "CW-T-061",
+      "dimensionId": "DIM-042",
+      "spineId": "dg_dql",
+      "coverageWeight": 1,
+      "rationale": "Data quality rules defined and documented for all critical customs data elements is the strategy this practice asks for."
+    },
+    {
+      "id": "CW-T-062",
+      "dimensionId": "DIM-043",
+      "spineId": "dg_dql",
+      "coverageWeight": 0.7,
+      "rationale": "Automated validation at the point of entry, and metrics monitored against defined thresholds, is profiling in operation."
+    },
+    {
+      "id": "CW-T-063",
+      "dimensionId": "DIM-043",
+      "spineId": "inf_dwh",
+      "coverageWeight": 0.3,
+      "rationale": "Profiling needs a platform to run on; pipeline monitoring is where systematic profiling would be implemented."
+    },
+    {
+      "id": "CW-T-064",
+      "dimensionId": "DIM-044",
+      "spineId": "dg_dql",
+      "coverageWeight": 0.75,
+      "rationale": "Quality metrics monitored through operational dashboards against defined acceptable thresholds is an assessment approach, not just a rule set."
+    },
+    {
+      "id": "CW-T-065",
+      "dimensionId": "DIM-044",
+      "spineId": "pa_rpa",
+      "coverageWeight": 0.25,
+      "rationale": "Scheduled automated reporting is how a quality assessment reaches the people who act on it."
+    },
+    {
+      "id": "CW-T-066",
+      "dimensionId": "DIM-045",
+      "spineId": "dg_dql",
+      "coverageWeight": 0.65,
+      "rationale": "Validation at entry prevents the defects a cleansing approach would otherwise have to remove; TACR measures the preventive side."
+    },
+    {
+      "id": "CW-T-067",
+      "dimensionId": "DIM-045",
+      "spineId": "dg_msd",
+      "coverageWeight": 0.35,
+      "rationale": "Harmonising and synchronising reference codes across systems is cleansing applied to the data most worth cleaning."
+    },
+    {
+      "id": "CW-T-068",
+      "dimensionId": "DIM-046",
+      "spineId": "dg_prs",
+      "coverageWeight": 0.35,
+      "rationale": "Retention questions in the privacy section are where TACR asks about the end of the lifecycle."
+    },
+    {
+      "id": "CW-T-069",
+      "dimensionId": "DIM-046",
+      "spineId": "is_hdw",
+      "coverageWeight": 0.35,
+      "rationale": "Storage adequate for long-term retention is the infrastructure the lifecycle runs on."
+    },
+    {
+      "id": "CW-T-070",
+      "dimensionId": "DIM-046",
+      "spineId": "dg_msd",
+      "coverageWeight": 0.3,
+      "rationale": "Tariff codes managed with full change history is lifecycle management applied to reference data."
+    },
+    {
+      "id": "CW-T-071",
+      "dimensionId": "DIM-047",
+      "spineId": "is_hdw",
+      "coverageWeight": 0.55,
+      "rationale": "Storage capacity for growing volumes and long-term retention needs is the archiving question TACR asks."
+    },
+    {
+      "id": "CW-T-072",
+      "dimensionId": "DIM-047",
+      "spineId": "dg_prs",
+      "coverageWeight": 0.45,
+      "rationale": "Retention policy sits with data protection here. TACR has no question containing \"archive\"; this dimension is inferred from retention and storage, and its score should be read accordingly."
+    },
+    {
+      "id": "CW-T-073",
+      "dimensionId": "DIM-048",
+      "spineId": "is_drb",
+      "coverageWeight": 1,
+      "rationale": "A one-to-one match. Documented DR plan, agreed and tested RTO/RPO, and a geographically separated site with replicated data is backup and restore as COBIT scopes it."
+    }
+  ]
+}

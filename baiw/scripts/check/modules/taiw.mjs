@@ -21,6 +21,7 @@
 import { unique, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
 import { makeBenchmarkRollup, rollupSummary } from '../lib/benchmark-rollup.mjs'
 import { makeCategoryUniverse, categoryUniverseSummary } from '../lib/category-universe.mjs'
+import { makeCrosswalkChecks, crosswalkSummary } from '../lib/crosswalk.mjs'
 
 /**
  * The TCF id derivation: lowercase the `sub`, expand `&` to `and`, and collapse
@@ -387,6 +388,285 @@ const benchmarkRollup = makeBenchmarkRollup({
   exceptions: ROLLUP_EXCEPTIONS,
 })
 
+
+// ══════════════════════════════════════════════════════════════════════════
+// D5 STAGE C — THE FRAMEWORK CROSSWALK
+// ══════════════════════════════════════════════════════════════════════════
+/**
+ * TAIW projects DMBOK2, DCAM and COBIT 2019 onto its 35 TACR SECTIONS.
+ *
+ * NOT the 8 categories: at that granularity all three frameworks put 31-50% of
+ * their weight on the single 'Data Governance' category, and every pairwise L1
+ * still cleared 0.15 — so distinctness passed and told nobody. CROSSWALK-
+ * CONCENTRATION exists because of that measurement.
+ *
+ * NOT DGI: it reaches 59% of itself here, losing Decision Rights,
+ * Accountabilities, the Data Governance Office and Data Stewards. It is absent
+ * from `CROSSWALK_FRAMEWORKS` rather than present-and-broken, and this comment is
+ * the record of why.
+ *
+ * NOT the 100 TCF capabilities: TACR carries no `capabilityLinks` at all — the
+ * union of every key on all 640 questions is `id, levels, text` — so a capability
+ * spine would have to be invented, which is D-001.
+ */
+const CROSSWALK_FRAMEWORKS = ['FW-01', 'FW-02', 'FW-04']
+
+/** `<category>_<section>` — measured 1:1 with all 35 sections, zero ambiguous. */
+const sectionIdOf = (questionId) => String(questionId).split('_').slice(0, 2).join('_')
+
+/** The 35 sections, in dataset order, as spine nodes. */
+const tacrSpine = (ctx) => {
+  const out = []
+  for (const c of (ctx.data.tacr?.categories ?? []))
+    for (const sec of (c.sections ?? [])) {
+      const first = sec.questions?.[0]
+      if (!first) continue
+      out.push({ id: sectionIdOf(first.id), name: `${c.name} / ${sec.name}` })
+    }
+  return out
+}
+
+/**
+ * Section-grouped applicables for an answer map, through the REAL primitive.
+ *
+ * `scoreCategories` from `src/scoring/maturity.ts` — the same function the
+ * assessment screen and the report call. The engine is handed the outcomes; it
+ * never derives one. That is the D-003 rule as a function signature, and it is
+ * the whole reason the projection engine takes `outcomes` as a parameter.
+ *
+ * STAND-IN, AND SAID SO. Production has no `src/taiw/projection.ts` yet — this
+ * stage is datasets and checks only. When the UI lands and that binding is
+ * written, THIS COMPOSITION MOVES INTO IT and the rule file loads it the way
+ * dgiw.mjs loads DGIW's. Two copies of it would be exactly the drift this file
+ * spends nine other checks preventing.
+ */
+const tacrOutcomes = (ctx, answers) => {
+  const { maturity } = ctx.ts ?? {}
+  if (!maturity) return null
+  const groups = []
+  for (const c of (ctx.data.tacr?.categories ?? []))
+    for (const sec of (c.sections ?? [])) {
+      const qs = sec.questions ?? []
+      if (qs.length === 0) continue
+      groups.push({
+        name: sectionIdOf(qs[0].id),
+        entries: qs.map((q) => ({ weight: 1, answer: answers[q.id] })),
+      })
+    }
+  return maturity.scoreCategories(groups).map((o) => ({
+    spineId: o.name,
+    state: o.agg.state,
+    score: o.agg.state === 'scored' ? o.agg.currentRaw : null,
+  }))
+}
+
+/** An engine bound to this module's data, or null when the TS load failed. */
+const tacrEngine = (ctx) => {
+  const { frameworks: fwmod, maturity } = ctx.ts ?? {}
+  if (!fwmod || !maturity) return null
+  const fw = ctx.shared('_spine').fw ?? {}
+  return fwmod.createProjectionEngine({
+    frameworks: (fw.frameworks ?? []).filter((f) => CROSSWALK_FRAMEWORKS.includes(f.id)),
+    dimensions: (fw.dimensions ?? []).filter((d) => CROSSWALK_FRAMEWORKS.includes(d.frameworkId)),
+    mappings: ctx.data.xw?.entries ?? [],
+    spine: tacrSpine(ctx),
+    outcomes: (answers) => tacrOutcomes(ctx, answers) ?? [],
+  })
+}
+
+/**
+ * FRAMEWORK-REACH exceptions: a framework leaf TACR cannot evidence.
+ *
+ * Keyed by dimension code, valued with the evidence gap. A stale entry fails.
+ */
+const REACH_EXCEPTIONS = Object.freeze({
+  DM07:
+    'Document & Content Management. 0 of 640 TACR questions mention document management or content management. ' +
+    'Customs runs on declarations, manifests and certificates, so this is a real gap in the ASSESSMENT rather than ' +
+    'an absence in the domain — and forcing it onto Clearance Automation would be a mapping nobody could defend.',
+})
+
+/**
+ * CROSSWALK-CONCENTRATION exceptions. EMPTY, and that is the measured state:
+ * the three frameworks peak at 15.5%, 15.0% and 17.2% of induced weight on one
+ * section, against a 35% ceiling. Section granularity is what bought that.
+ */
+const CONCENTRATION_EXCEPTIONS = Object.freeze({})
+
+const crosswalk = makeCrosswalkChecks({
+  label: 'TAIW',
+  frameworkIds: CROSSWALK_FRAMEWORKS,
+  entryIdPattern: /^CW-T-\d{3}$/,
+  spineIdPattern: /^[a-z]+_[a-z]+$/,
+  spineLabel: 'section',
+  spine: tacrSpine,
+  entries: (ctx) => ctx.data.xw?.entries ?? [],
+  frameworkData: (ctx) => ctx.shared('_spine').fw ?? {},
+  // TACR carries no layer on any of its 640 questions — verified against the
+  // dataset, not assumed. Declaring [] is what makes CROSSWALK-WEIGHT report that
+  // its retained-zero assertion did not run, rather than passing over nothing.
+  layers: [],
+  layerValues: null,
+  // Measured 0.883 - 1.035 at 35 sections. 0.15 was calibrated for 11 pillars and
+  // here would be a floor nothing could fall through, which is decoration.
+  distinctnessFloor: 0.5,
+  concentrationCeiling: 0.35,
+  concentrationExceptions: CONCENTRATION_EXCEPTIONS,
+  reachExceptions: REACH_EXCEPTIONS,
+  spineCoverage: {
+    mode: 'report',
+    reason:
+      'TACR describes a customs administration, not a data-management capability model. Seven of its 35 sections are ' +
+      'reached by no data-management framework — WTO TFA Commitment, Training, Risk Models, Automation, Clearance ' +
+      'Automation, Revenue Automation and Compliance Rates — and every one of them is customs operations. Asserting ' +
+      "coverage here would force mappings nobody could defend. DGIW asserts it, because its eleven pillars ARE the " +
+      'capability model and a pillar nothing maps really is evidence counting toward nothing.',
+  },
+  induced: (ctx, frameworkId) => tacrEngine(ctx)?.inducedSpineWeights(frameworkId) ?? null,
+})
+
+// ── PROJECTION-INVARIANT, TAIW ────────────────────────────────────────────
+/**
+ * The same four properties DGIW asserts, over TAIW's spine.
+ *
+ * I4's SECOND PROFILE IS DIFFERENT AND HAD TO BE. DGIW runs the flat profile
+ * twice, once under `core`, because at layer 'all' every weight set already sums
+ * to 1 and a flat profile returns 3.0 under a wide class of weight bugs — only a
+ * layer that makes dimensions retain less than 1 exercises the renormalisation.
+ * TACR has no layers, so that profile degenerates. The substitute is WHOLE
+ * SECTIONS UNANSWERED: unscored sections drop out, the remaining weights
+ * renormalise, `scoredShare < retainedShare`, and a missing renormalisation shows
+ * up exactly where the layer profile used to catch it.
+ */
+const projectionInvariant = {
+  code: 'PROJECTION-INVARIANT',
+  run(ctx) {
+    const { fail } = ctx
+    const engine = tacrEngine(ctx)
+    if (!engine) {
+      fail(`could not build or load the projection engine or src/scoring/maturity.ts — the invariants were NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const spine = tacrSpine(ctx)
+    const allQ = []
+    for (const c of (ctx.data.tacr?.categories ?? []))
+      for (const sec of (c.sections ?? [])) for (const q of (sec.questions ?? [])) allQ.push(q.id)
+    allQ.sort()
+
+    const constant = (v) => Object.fromEntries(allQ.map((id) => [id, { currentState: v, desiredState: 5 }]))
+    // Deterministic, nobody-chose-it-by-hand, identical on every machine.
+    const seeded = () => {
+      let s = 12345
+      const out = {}
+      for (const id of allQ) { s = (s * 1103515245 + 12345) % 2147483648; out[id] = { currentState: 1 + (s % 5), desiredState: 5 } }
+      return out
+    }
+    const SEEDED = seeded()
+    const withoutSections = (base, skip) =>
+      Object.fromEntries(Object.entries(base).filter(([id]) => !skip.includes(sectionIdOf(id))))
+
+    const PROFILES = [
+      { name: 'flat 3.0', answers: constant(3), flat: true },
+      { name: 'all 1', answers: constant(1) },
+      { name: 'all 5', answers: constant(5) },
+      { name: 'seeded', answers: SEEDED },
+      // The substitute for DGIW's `flat 3.0, core only`. Three sections carrying
+      // real crosswalk weight, so retained stays 1 while scored falls below it.
+      { name: 'flat 3.0, dg_dql/inf_dwh/is_drb unanswered', answers: withoutSections(constant(3), ['dg_dql', 'inf_dwh', 'is_drb']), flat: true },
+      { name: 'seeded, dg_dql/inf_dwh/is_drb unanswered', answers: withoutSections(SEEDED, ['dg_dql', 'inf_dwh', 'is_drb']) },
+    ]
+
+    let invariantsRun = 0
+    let renormalisationExercised = 0
+    for (const profile of PROFILES) {
+      const { answers } = profile
+      const projections = engine.projectAll(answers)
+      // Independently computed, not read back out of the projection. This is what
+      // makes I1 and I3 mean anything.
+      const independent = new Map((tacrOutcomes(ctx, answers) ?? []).map((o) => [o.spineId, o]))
+
+      for (const proj of projections) {
+        const at = `${profile.name} / ${proj.code}`
+
+        // I1 — DECOMPOSITION
+        for (const dim of proj.dimensions) {
+          if (!dim.isLeaf && dim.contributions.length > 0)
+            fail(`I1 ${at}: parent ${dim.code} carries ${dim.contributions.length} section contributions — projection is leaf-only`)
+          if (dim.state !== 'scored') {
+            if (dim.score !== null) fail(`I1 ${at}: ${dim.code} is ${dim.state} but carries score ${dim.score} — an unmeasured dimension must be null, never a number`)
+            continue
+          }
+          if (!dim.isLeaf) continue
+          const total = dim.contributions.reduce((s, c) => s + c.contribution, 0)
+          if (Math.abs(total - dim.score) > EPS_T) fail(`I1 ${at}: ${dim.code} contributions sum to ${total} but score is ${dim.score}`)
+          const wsum = dim.contributions.reduce((s, c) => s + c.weight, 0)
+          if (Math.abs(wsum - 1) > EPS_T) fail(`I1 ${at}: ${dim.code} renormalised weights sum to ${wsum}, not 1`)
+          for (const c of dim.contributions) {
+            const truth = independent.get(c.spineId)
+            if (!truth || truth.state !== 'scored') fail(`I1 ${at}: ${dim.code} contributes section ${c.spineId}, which maturity.ts reports as ${truth?.state ?? 'absent'}`)
+            else if (Math.abs(truth.score - c.spineScore) > EPS_T) fail(`I1 ${at}: ${dim.code} used ${c.spineScore} for ${c.spineId} but maturity.ts computes ${truth.score} — a second scoring path or a cached value`)
+          }
+          if (dim.scoredShare > dim.retainedShare + EPS_T) fail(`I1 ${at}: ${dim.code} scoredShare ${dim.scoredShare} exceeds retainedShare ${dim.retainedShare}`)
+          if (dim.scoredShare < dim.retainedShare - EPS_T) renormalisationExercised++
+        }
+
+        // I2 — RECONCILIATION
+        if (proj.state === 'scored') {
+          const wsum = Object.values(proj.effectiveWeights).reduce((s, w) => s + w, 0)
+          if (Math.abs(wsum - 1) > EPS_T) fail(`I2 ${at}: induced section weights sum to ${wsum}, not 1 — the overall is not a weighted mean of anything`)
+          let recon = 0
+          for (const [spineId, w] of Object.entries(proj.effectiveWeights)) {
+            if (w === 0) continue
+            const truth = independent.get(spineId)
+            if (!truth || truth.state !== 'scored') { fail(`I2 ${at}: section ${spineId} carries weight ${w} but is ${truth?.state ?? 'absent'}`); continue }
+            recon += w * truth.score
+          }
+          if (Math.abs(recon - proj.overall) > EPS_T) fail(`I2 ${at}: overall is ${proj.overall} but Σ W·score is ${recon} — the roll-up and the crosswalk disagree`)
+        }
+        invariantsRun++
+      }
+
+      // I3 — INTERSECTION AGREEMENT
+      const seenBy = new Map()
+      for (const proj of projections)
+        for (const dim of proj.dimensions)
+          for (const c of dim.contributions) {
+            const row = seenBy.get(c.spineId) ?? new Map()
+            row.set(proj.code, [...(row.get(proj.code) ?? []), c.spineScore])
+            seenBy.set(c.spineId, row)
+          }
+      for (const [spineId, byFramework] of seenBy) {
+        if (byFramework.size !== projections.length) continue
+        const values = [...byFramework.values()].flat()
+        const spread = Math.max(...values) - Math.min(...values)
+        if (spread > EPS_T) fail(`I3 ${profile.name}: section ${spineId} is used with ${values.length} different values across the frameworks, spread ${spread}`)
+      }
+
+      // I4 — FLAT PROFILE
+      if (profile.flat) {
+        const overalls = projections.map((p) => p.overall)
+        for (const [i, o] of overalls.entries())
+          if (o === null || Math.abs(o - 3) > EPS_T)
+            fail(`I4 ${profile.name}: ${projections[i].code} overall is ${o}, not 3.0 — with every scored section at exactly 3.0 any convex combination is 3.0, so a deviation is a maths error and almost always an unnormalised weight basis`)
+        const spread = Math.max(...overalls) - Math.min(...overalls)
+        if (spread > EPS_T) fail(`I4 ${profile.name}: the overalls spread by ${spread}, which must be 0 when every section scores identically`)
+      }
+    }
+
+    // The substitute profile has to actually exercise what the layer profile did.
+    // A profile that renormalises nothing is a profile that proves nothing.
+    if (renormalisationExercised === 0)
+      fail(
+        `no profile produced scoredShare < retainedShare, so the renormalisation path was never exercised. DGIW gets this ` +
+          `from its core-layer profile; TACR has no layers and relies on whole sections being unanswered instead. If the ` +
+          `unanswered sections stopped carrying crosswalk weight, this check quietly became weaker than DGIW's.`,
+      )
+
+    return { examined: invariantsRun, profiles: PROFILES.length, renormalisationExercised }
+  },
+}
+const EPS_T = 1e-9
+
 export default {
   id: 'taiw',
   title: 'TAIW — Trade Analytics',
@@ -399,7 +679,17 @@ export default {
     enrichment: 'enrichment.json',
     mappings: 'mappings.json',
     benchmarks: 'benchmarks.json',
+    xw: 'crosswalk.json',
   },
+
+  /**
+   * The shared engine and the shared category-scoring primitive, compiled and
+   * imported so the checks run the REAL code rather than a copy. `maturity.ts` is
+   * a separate entry point on purpose: I1 compares the section scores the
+   * projection USED against section scores computed from maturity.ts directly, and
+   * sharing one bundle would make that comparison circular.
+   */
+  tsModules: { frameworks: 'src/frameworks/projection.ts', maturity: 'src/scoring/maturity.ts' },
   reportSources: [{ rel: 'src/taiw/utils/tradeReportGenerator.ts', kind: 'file' }],
   artefactIds: ['MR-TAIW-MATURITY', 'MR-TAIW-REGISTER', 'MR-TAIW-ROADMAP'],
 
@@ -415,6 +705,16 @@ export default {
     tcfFk,
     tcfCoverage,
     benchmarkKeys,
+    // The crosswalk seven, in dependency order: the spine must resolve before a
+    // mapping into it means anything, and the two vector classes need the engine.
+    crosswalk.spineUniverse,
+    crosswalk.crosswalkShape,
+    crosswalk.crosswalkWeight,
+    crosswalk.crosswalkOrphan,
+    crosswalk.frameworkReach,
+    crosswalk.crosswalkConcentration,
+    crosswalk.crosswalkDistinctness,
+    projectionInvariant,
     // After TAIW-BENCHMARK-KEYS, which asserts the same companion condition for
     // TACR and additionally reports non-category numeric keys. Both fire on a
     // missing category; that duplication is stated rather than removed, per
@@ -449,6 +749,9 @@ export default {
     if (extras.length) out.push(`  benchmark keys with no TACR category: ${extras.join(', ')}`)
     out.push(`  ${rollupSummary(r['BENCHMARK-ROLLUP'], 'TACR benchmarks')}`)
     out.push(`  ${categoryUniverseSummary(r['CATEGORY-UNIVERSE'], 'TACR', '    ')}`)
+    for (const l of crosswalkSummary(r, { label: 'TAIW', spineLabel: 'section', spineTotal: (r['SPINE-UNIVERSE'] ?? {}).examined })) out.push(`  ${l}`)
+    const pi = r['PROJECTION-INVARIANT'] ?? {}
+    out.push(`  PROJECTION-INVARIANT ${pi.examined ?? 0} framework projections over ${pi.profiles ?? 0} deterministic profiles (I1 decomposition, I2 reconciliation, I3 intersection, I4 flat) — renormalisation exercised ${pi.renormalisationExercised ?? 0} times`)
     return out
   },
 }
