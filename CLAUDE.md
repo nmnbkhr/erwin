@@ -537,6 +537,21 @@ report takes questions as a **parameter** typed
 the dataset. Keep it that way: it is an honest contract about what is read, and
 it keeps a second copy out of the report chunk.
 
+**`src/haiw/hacr.ts` is HACR's single declaration** — the eight categories, the
+answers storage key, `HACR_QUESTIONS_PER_CATEGORY`, and `hacrCategoryOf()`. It is
+what `src/data/bacrCategories.ts` is for BACR, and it exists for the same reason:
+three surfaces need those facts and only one of them can afford to import a report
+generator. `CATEGORY-UNIVERSE` names it as the declared location.
+
+**A consumer that has the answers but not the questions can still attribute
+them**, because the id carries the category: `HACR-SL-001` → `SL`.
+`HACR-CATEGORY-MAP` asserts for all 720 that the id code and the `category` field
+select the same category, which is what makes the dashboard's partition, the
+screen's and the report's the same partition. It also asserts the **90 per
+category** that a question-less consumer pads with to tell `not-assessed` from
+`not-applicable` — the build prints `HACR 720 questions across 8 categories, 90
+each`. Two branches, two selftest rows.
+
 ## A capability score needs a link, not a heading
 
 Every module has two vocabularies: an **assessment** axis (BACR / TACR / HACR
@@ -592,6 +607,29 @@ baselined, and triggered exactly when the client could least tell.
 **Variation is the tell.** `Math.random`, fixed −0.3/−0.5 offsets, `charCodeAt`,
 `(ci % 5 - 2) * 0.15` — every instance added spread for no reason except to stop
 one number reading as one number. Spread with no source is a disguise, not data.
+
+**A "(placeholder)" caption is not a fix, and the caption is worth reading too.**
+HAIW's dashboard radar drew `Math.floor(Math.random() * 2) + 2` under the subtitle
+"Sample HACR category scores (placeholder)" — the most honest label any of these
+five instances carried, and it changed nothing. The card was the same size, in the
+same palette, with the same axis furniture as the three real charts beside it, and
+a radar polygon reads as a measurement whatever the small print says. **The label
+was also false**: not one of its eight axis names was an HACR category — exact
+overlap with `hacrQuestions.json` was zero, four of the eight named nothing in the
+module at all. `CATEGORY-UNIVERSE` could not see it, because its duplicate scan
+looks for a set that *equals* a module's categories and a near-miss list is not a
+copy. D-013 is fixed by wiring, not captioning: real answers, three states, the
+coverage denominator on the card.
+
+**The dashboards are the surface nothing verified.** `scripts/golden/` renders
+PDFs; `scripts/check/` reads datasets and source text. Neither instantiates a
+React component, so both maturity radars carried a fabrication for two phases and
+every harness in the repo reported green. `npm run drive:dashboards`
+(`scripts/dashboard-drive.mjs`) exists for that gap: it seeds answers, calls the
+real exported scoring function and prints what each axis would draw. It asserts
+nothing — a human reads the table, the same contract `geometry.mjs` ships under.
+**Seed ONE category of eight.** At 8-of-8 the broken and the fixed code agree
+exactly, which is why every golden fixture missed this class twice.
 
 **A tool that destroys the record it exists to preserve, on the invocation most
 likely to be an accident.** Three instances in this repo, one shape:
@@ -696,9 +734,14 @@ over retyping it.
   individual decision. `archive/build-prompts/` is the closer design record.
 - Never `pkill -f vite` or `pkill -f node`. Those patterns kill every project
   on the machine. Kill by port: `lsof -ti:5174 | xargs -r kill`.
-- `npm run lint` has a standing baseline of 55 problems (46 errors, 9
+- `npm run lint` has a standing baseline of **53** problems (44 errors, 9
   warnings), all pre-existing. Lint is not part of `npm run build`. Report the
-  count; do not fix them as a side quest.
+  count; do not fix them as a side quest. It was 55 until D-012: the two errors
+  that cleared were **dead code servicing defects that were removed** — a
+  `.filter()` whose body was `return true` and an unused `relevantCategories`
+  built for the fabricated per-theme score. Neither was fixed as lint; both went
+  with the defect. A baseline moving *down* is still a baseline moving, and
+  saying which two and why is the difference between an improvement and drift.
 - Five components reassign an accumulator inside `.map()` during render
   (CustomerProfitability, CustomerValue, CorporateValue, PortfolioRollup,
   FtpDecomposition — all profitability waterfalls). Known, deferred. Fix with

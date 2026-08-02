@@ -98,13 +98,25 @@ const hacrUnique = {
  * every category is reachable from some code. A category with no code is
  * unreachable from the report; a code with no category silently drops its
  * questions out of the report's buckets while the screen still shows them.
+ *
+ * AND, since D-013, UNIFORMITY. HACR is 90 questions per category, 720 in all.
+ * `HaiwDashboard.tsx` holds the client's answers but not the questions — it must
+ * not pull 1.18 MB onto a landing page — so it pads each category to
+ * `HACR_QUESTIONS_PER_CATEGORY` to say how many questions that category HAS. That
+ * count is the only thing separating `not-assessed` from `not-applicable`. It
+ * moves no mean, since `aggregate()` divides by the answered count; it is the
+ * applicable figure the card reports, and a constant nothing checks is how a
+ * dashboard came to score by position for two phases.
  */
+const HACR_QUESTIONS_PER_CATEGORY = 90
+
 const hacrCategoryMap = {
   code: 'HACR-CATEGORY-MAP',
   run(ctx) {
     const qs = ctx.data.hacr ?? []
     const { fail } = ctx
     const seenCodes = new Set()
+    const perCategory = new Map()
     for (const q of qs) {
       const code = String(q.id ?? '').split('-')[1]
       const fromCode = CODE_TO_CATEGORY[code]
@@ -113,13 +125,24 @@ const hacrCategoryMap = {
         continue
       }
       seenCodes.add(code)
+      perCategory.set(fromCode, (perCategory.get(fromCode) ?? 0) + 1)
       if (fromCode !== q.category)
         fail(`question ${q.id} has category "${q.category}" but its id code "${code}" selects "${fromCode}" — the assessment screen groups by the field and the report groups by the code, so this question is scored into two different categories`)
     }
     for (const [code, cat] of Object.entries(CODE_TO_CATEGORY))
       if (!seenCodes.has(code))
         fail(`no question carries the code "${code}" for category "${cat}" — the report would score it not-applicable while the category exists`)
-    return { examined: qs.length, categories: seenCodes.size }
+
+    for (const [cat, n] of [...perCategory].sort())
+      if (n !== HACR_QUESTIONS_PER_CATEGORY)
+        fail(
+          `category "${cat}" holds ${n} questions, not ${HACR_QUESTIONS_PER_CATEGORY}. ` +
+            `src/haiw/hacr.ts::HACR_QUESTIONS_PER_CATEGORY is what HaiwDashboard.tsx pads with to state how many ` +
+            `questions a category has, having the answers but not the question bank — so it would report the wrong ` +
+            `applicable count for this category. Derive the count or update the constant, in the same commit. D-013.`,
+        )
+
+    return { examined: qs.length, categories: seenCodes.size, perCategory: HACR_QUESTIONS_PER_CATEGORY }
   },
 }
 
@@ -275,11 +298,13 @@ const HAIW_BENCHMARKS_CONST = 'DEFAULT_BENCHMARKS'
 
 const categoryUniverse = makeCategoryUniverse({
   label: 'HACR',
-  // HAIW's rendered list is HACR_CATEGORIES in the generator; the assessment
-  // screen and the report both partition through computeCategoryOutcomes, which
-  // reads it. HAIW is the module that never carried a phantom entry — the rule is
-  // here so that stays a checked fact rather than an observed one.
-  declaredIn: { rel: 'src/haiw/utils/healthReportGenerator.ts', constName: 'HACR_CATEGORIES' },
+  // HAIW's rendered list. It was declared inside healthReportGenerator.ts until
+  // D-013 gave the dashboard a real radar: the dashboard cannot import a 1,400-line
+  // jsPDF module for eight strings, and retyping them would have been the fourth
+  // copy this rule exists to reject. Now one file, three importers.
+  // HAIW is the module that never carried a phantom entry — the rule is here so
+  // that stays a checked fact rather than an observed one.
+  declaredIn: { rel: 'src/haiw/hacr.ts', constName: 'HACR_CATEGORIES' },
   categories: (ctx) => (ctx.data.hacr ?? []).map((q) => q.category).filter((c) => typeof c === 'string'),
 })
 
@@ -375,6 +400,7 @@ export default {
     const w = r['HAIW-WEIGHT'] ?? {}
     out.push(
       `HACR ${map.examined ?? 0} questions across ${map.categories ?? 0} categories` +
+        (map.perCategory ? `, ${map.perCategory} each` : '') +
         (w.min !== null && w.min !== undefined ? `  weights ${w.min}–${w.max}` : ''),
     )
     const link = r['HCF-LINK'] ?? {}

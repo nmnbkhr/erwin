@@ -14,6 +14,7 @@ import {
   type Applicable, type Aggregate, type CategoryOutcome,
 } from '../../scoring/maturity'
 import type { HaiwCapability, HaiwAssessmentAnswer, HacrQuestion } from '../types'
+import { HACR_CATEGORIES, hacrCategoryOf } from '../hacr'
 
 /*
  * Artefact ids for all three deliverables.
@@ -49,28 +50,15 @@ interface HealthBenchmarks {
   whoTargets: Record<string, number>
 }
 
-const HACR_CATEGORIES = [
-  'Strategy & Leadership',
-  'Workforce & Skills',
-  'Data Governance & Standards',
-  'Infrastructure & Systems',
-  'Analytics & Intelligence',
-  'Integration & Interoperability',
-  'Patient & Community Engagement',
-  'Outcomes & Impact',
-]
+/*
+ * `HACR_CATEGORIES` and the id-code table used to be declared here, un-exported.
+ * They moved to `../hacrCategories` in D-013, when the dashboard came to need the
+ * same eight names and the same attribution rule: importing this module to get
+ * them would have pulled jsPDF and the spine into the dashboard chunk, and
+ * retyping them there would have been the fourth-copy shape `CATEGORY-UNIVERSE`
+ * rejects. One declaration, two importers. Nothing about the report moved.
+ */
 
-// Question ids look like "HACR-SL-001" — the middle code selects the category.
-const CODE_TO_CATEGORY: Record<string, string> = {
-  SL: 'Strategy & Leadership',
-  WS: 'Workforce & Skills',
-  DG: 'Data Governance & Standards',
-  IS: 'Infrastructure & Systems',
-  AI: 'Analytics & Intelligence',
-  II: 'Integration & Interoperability',
-  PC: 'Patient & Community Engagement',
-  OI: 'Outcomes & Impact',
-}
 
 /*
  * `THEME_TO_CATEGORY` used to live here: a six-entry bridge from HCF theme to
@@ -243,7 +231,7 @@ function computeCategoryOutcomes(
     // HACR-CATEGORY-MAP asserts this agrees with the question's own `category`
     // field for all 720, which is what makes this partition and the assessment
     // screen's produce the same buckets.
-    const cat = CODE_TO_CATEGORY[q.id.split('-')[1]]
+    const cat = hacrCategoryOf(q.id)
     if (cat && byCategory.has(cat)) byCategory.get(cat)!.push({ weight: 1, answer: answerById.get(q.id) })
   })
 

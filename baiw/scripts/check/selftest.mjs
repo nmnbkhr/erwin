@@ -531,6 +531,18 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => { q[0].category = 'Outcomes & Impact' }),
   },
   {
+    // A SECOND ROW FOR THE SAME CODE, because it is a second BRANCH. D-011's
+    // stale-exception row reported TRIPPED for a phase while silently exercising
+    // a different branch; one row per code cannot tell those apart.
+    code: 'HACR-CATEGORY-MAP',
+    what: 'a category no longer holding 90 questions — the count HaiwDashboard pads with, having answers but not the question bank',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => {
+      const i = q.findIndex((x) => x.id.startsWith('HACR-WS-'))
+      q.splice(i, 1)
+    }),
+  },
+  {
     code: 'HCF-SHAPE',
     what: 'a capability id outside the HCF-nnn shape',
     touches: [`${HAIW}/capabilities.json`],

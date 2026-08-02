@@ -11,6 +11,7 @@ import { loadHacrQuestions, loadCapabilities } from '../data'
 import type { HacrData, HacrQuestion, HaiwAssessmentAnswer, HaiwCapability } from '../types'
 import HealthReportGenerator from './HealthReportGenerator'
 import { usePersistedState } from '../../engagement/usePersistedState'
+import { HACR_ANSWERS_KEY } from '../hacr'
 import {
   scoreCategories, coverageStatement,
   overallCurrent as overallCurrentOf, overallDesired as overallDesiredOf,
@@ -18,8 +19,14 @@ import {
 
 // ── Constants ──────────────────────────────────────────────────────────
 
-/** Base key only — the value is filed under the active engagement. */
-const STORAGE_KEY = 'haiw_maturity_answers'
+/**
+ * Base key only — the value is filed under the active engagement.
+ *
+ * Imported rather than typed, since D-013: the dashboard reads the same answers,
+ * and a reader whose spelling of the key can drift from the writer's is D4's
+ * site 3.
+ */
+const STORAGE_KEY = HACR_ANSWERS_KEY
 
 const MATURITY_LABELS: Record<number, string> = {
   1: 'Initial',

@@ -1300,18 +1300,26 @@ counted dataset facts.
   Clean.
 - TAIW's dashboard gauge reads the active engagement and returns `null` when
   nothing is answered — fixed in D4.
-- **HAIW's dashboard radar is a third costume of the same problem — see D-013.**
+- **HAIW's dashboard radar was a third costume of the same problem — see D-013,
+  fixed.** It was worse than first logged: the scores were random *and* not one of
+  the eight labels was an HACR category.
 
 ---
 
-## D-013 — HAIW's dashboard radar is `Math.random()`
+## D-013 — HAIW's dashboard radar is `Math.random()` over labels that are not HACR categories
 
-**Status** — open, live, **not fixed here**. Found while checking whether TAIW and
-HAIW carried D-012's shape.
+**Status** — **FIXED**. Wired to the real answers. Found while checking whether
+TAIW and HAIW carried D-012's shape.
 
 **Where** — `src/haiw/components/HaiwDashboard.tsx`:
 
 ```js
+const radarLabels = [
+  'Data Governance', 'Clinical Analytics', 'Population Health',
+  'Financial Analytics', 'Operational Analytics', 'Research & Innovation',
+  'Infrastructure', 'Interoperability',
+]
+
 const radarData = radarLabels.map(label => ({
   category: label,
   score: Math.floor(Math.random() * 2) + 2,
@@ -1319,23 +1327,158 @@ const radarData = radarLabels.map(label => ({
 }))
 ```
 
-Eight HACR category labels with scores of 2 or 3, drawn fresh **on every module
-load**. The card is titled "Maturity Preview" and subtitled "Sample HACR category
-scores (placeholder)", which is more honest than BAIW's unlabelled positional
-slicing was — a reader is told it is not their data.
+### Two defects, not one
 
-It is still `Math.random` on a client-facing dashboard. CLAUDE.md: "**Variation is
-the tell.** `Math.random`, fixed −0.3/−0.5 offsets, `charCodeAt` … spread with no
-source is a disguise, not data." The subtitle mitigates the reading; it does not
-make the numbers exist. Two people looking at the same screen see different
-shapes, and a screenshot is unreproducible.
+**1. The scores were random.** Fresh 2s and 3s on every module load, drawn at the
+same size, in the same palette, with the same axis furniture as the three real
+charts beside it. CLAUDE.md: "**Variation is the tell.** `Math.random`, fixed
+−0.3/−0.5 offsets, `charCodeAt` … spread with no source is a disguise, not data."
+Two people looking at the same screen saw different shapes and a screenshot was
+unreproducible.
 
-**Not fixed here** because the honest replacement is a decision, not a refactor:
-either wire it to the real HACR answers as D-012a wired BAIW's card — HAIW has the
-better data for it, since `computeCategoryOutcomes` already partitions the question
-universe — or remove the card and link to the assessment. Both are content changes
-with their own before/after. The `Math.random` should not survive either way.
+**2. NOT ONE OF THE EIGHT LABELS WAS AN HACR CATEGORY.** This was missed when the
+defect was first logged — the entry above said "eight HACR category labels", and
+it was wrong. Exact overlap with the eight distinct `category` values in
+`hacrQuestions.json` is **zero**:
 
-**Harness status** — invisible, for D-012's reason: not a report, no fixture. It
-would also make any future golden coverage of this component non-reproducible by
-construction, which is the property `src/report/` has rules against.
+| on the card | in HACR |
+|---|---|
+| Data Governance | Data Governance **& Standards** |
+| Infrastructure | Infrastructure **& Systems** |
+| Interoperability | **Integration &** Interoperability |
+| Operational Analytics | — |
+| Clinical Analytics | — |
+| Population Health | — |
+| Financial Analytics | — |
+| Research & Innovation | — |
+| — | Strategy & Leadership |
+| — | Workforce & Skills |
+| — | Analytics & Intelligence |
+| — | Patient & Community Engagement |
+| — | Outcomes & Impact |
+
+Four of the eight name nothing in the module at all. A reader comparing the card
+to the assessment screen would have found eight different axis names with no way
+to reconcile them, under a caption asserting they were HACR categories.
+
+`CATEGORY-UNIVERSE` did not catch this and could not: its duplicate scan looks for
+an array literal whose set **equals** the module's category set, and this one
+overlapped it by nothing. A near-miss list is not a copy.
+
+### The subtitle was not a fix
+
+"Sample HACR category scores (placeholder)" is more honest than BAIW's unlabelled
+positional slicing, and it is still not enough. A radar polygon drawn with the
+authority of the measurements next to it reads as a measurement whatever the small
+print says — and the small print was itself false, since these were not HACR
+categories.
+
+### The fix — wired, not removed
+
+HAIW is the module where the honest version is cheap, and both preconditions hold:
+
+- **Answers are reachable.** `HealthMaturityAssessment.tsx` files them under
+  `haiw_maturity_answers` through `usePersistedState`, which namespaces per active
+  engagement via `writeNsRaw`; `EngagementProvider` wraps every route in
+  `App.tsx:45`, `/haiw/*` included. The card reads the same key through the same
+  `engagement/storage` primitive. It is **not** D4's site 3 — that read a bare
+  `taiw_maturity` key nothing had written since namespacing. The key is now one
+  exported constant, `HACR_ANSWERS_KEY`, so reader and writer cannot drift.
+- **The 1.18 MB question bank is not needed.** Attribution comes from the answer
+  id — `HACR-SL-001` — and `HACR-CATEGORY-MAP` asserts for all 720 questions that
+  the id code and the `category` field select the same category. The built
+  `HaiwDashboard` chunk references neither `hacrQuestions` nor jsPDF.
+
+Scored through `src/scoring/maturity.ts::scoreCategories`, the same primitive as
+the assessment screen, the PDF, TAIW and BAIW. Three states: an untouched category
+is `not-assessed`, plots `null` rather than a vertex on the innermost ring, and the
+coverage statement prints under the chart.
+
+### One declaration moved
+
+`HACR_CATEGORIES` and the id-code table lived un-exported inside
+`healthReportGenerator.ts`. The dashboard cannot import that module — 1,400 lines,
+jsPDF and the whole spine — and retyping the eight names would have been the
+fourth-copy shape `CATEGORY-UNIVERSE` exists to reject. They moved to
+`src/haiw/hacr.ts`; the generator imports them; `haiw.mjs`'s `declaredIn` follows.
+Verified live at the new location by planting a duplicate and watching
+`CATEGORY-UNIVERSE` name it.
+
+### One assumption became a checked fact
+
+`HACR_QUESTIONS_PER_CATEGORY = 90`. The card holds the answers but not the
+questions, so it pads each category to that count to state how many questions the
+category **has** — the only thing separating `not-assessed` from `not-applicable`.
+It moves no mean, since `aggregate()` divides by the answered count. A constant
+nothing checks is how a dashboard came to score by position for two phases, so
+`HACR-CATEGORY-MAP` now fails if any category stops holding 90, with its own
+selftest row. The build prints `HACR 720 questions across 8 categories, 90 each`.
+
+### Harness status — no fixture reaches this, and zero baseline movement is not evidence
+
+`compare.mjs` reports 27 artefacts unchanged. That confirms the generator did not
+move when its constants were re-homed. It says **nothing** about the card: the
+golden harness renders PDFs, and no fixture instantiates a React component.
+
+`scripts/dashboard-drive.mjs` (`npm run drive:dashboards`) is the evidence, and it
+now exists precisely because this class of defect has been invisible twice. It
+seeds answers, calls the real exported `hacrRadarState`, and prints what each axis
+would draw. The seeded case is **one category of eight** — at 8-of-8 the broken and
+the fixed code agree exactly, which is why every fixture missed this twice:
+
+```
+  engagement "drive-engagement" → answered 10
+
+    Strategy & Leadership              NOT ASSESSED
+    Workforce & Skills                 2.0
+    Data Governance & Standards        NOT ASSESSED
+    Infrastructure & Systems           NOT ASSESSED
+    Analytics & Intelligence           NOT ASSESSED
+    Integration & Interoperability     NOT ASSESSED
+    Patient & Community Engagement     NOT ASSESSED
+    Outcomes & Impact                  NOT ASSESSED
+
+  coverage line under the chart: Scored 1 of 8 categories · not assessed 7.
+  axes plotted: 1 of 8 — the other 7 plot null, not 0
+```
+
+---
+
+## D-014 — TAIW's trade-balance sparkline is hand-typed and does not reconcile with the figure above it
+
+**Status** — open, **not fixed**. Found sweeping the other five dashboards for
+D-013's shape.
+
+**Where** — `src/taiw/components/TaiwDashboard.tsx:36`, `MONTHLY_TRADE`: twelve
+months of `{ exports, imports }`, hand-typed, commented in source as
+`/* TD1: Static monthly trade data for sparkline */` — a note the reader never
+sees. It feeds the "Trade Balance Trend" card.
+
+The card's headline reads **$26.27B Current Deficit**, which is real: it comes from
+`pakistanContext.json::statistics.tradeDeficit`. The twelve months plotted beneath
+it sum to **$58.20B imports − $32.10B exports = $26.10B**. Two numbers on one card,
+17 basis points apart, one sourced and one invented to look like it.
+
+**Why this is a different, smaller defect than D-013.** It is macro country
+context, not a client measurement; the axis labels are months, so nothing is being
+attributed to a category or a capability that does not carry it; and it is stable
+rather than random, so two viewers see the same chart. What it shares is the
+shape: **hand-authored numbers rendered with the authority of derived ones, with
+the disclaimer in a source comment.**
+
+**The fix is a content decision**, which is why it is logged rather than done:
+either author a monthly series into `pakistanContext.json` beside the deficit it
+must reconcile with, or drop the chart. Deriving twelve months from one annual
+figure would be fabrication with extra steps.
+
+**Swept and clean:** BAIW's `Dashboard.tsx` (every tile from `loadDomains` /
+`loadCapabilities` / `loadReuseScores`, plus the radar fixed in D-012), COE's
+`CoeDashboard` (`revenueModel.leverBreakdown`, `cashMetrics`), ALM's `AlmDashboard`
+(`balanceSheet`, `repricingGap`, `liquidity` — every KPI summed from positions),
+DGIW's `PracticeOverview` (six datasets). No `Math.random` remains anywhere in
+`src/` outside `engagement/storage.ts`'s id generator, where it is correct.
+
+BAIW's profitability pages carry customer names suffixed `(illustrative)` and a
+`POP` population map labelled "Illustrative representative segment populations".
+Those are **authored dataset content, disclosed on screen** where the reader sees
+it — the opposite of this defect, and not a finding.
