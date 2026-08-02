@@ -1339,18 +1339,30 @@ unreproducible.
 **2. NOT ONE OF THE EIGHT LABELS WAS AN HACR CATEGORY.** This was missed when the
 defect was first logged — the entry above said "eight HACR category labels", and
 it was wrong. Exact overlap with the eight distinct `category` values in
-`hacrQuestions.json` is **zero**:
+`hacrQuestions.json` is **zero**.
+
+> **Correction, D5 stage A.** The table below originally said four of the eight
+> labels "correspond to nothing in the module at all". That is false, and the
+> truth is more interesting. `Clinical Analytics`, `Financial Analytics`,
+> `Operational Analytics` and `Research & Innovation` are **exact HACR
+> subcategory names**, and `Population Health` is one word off
+> `Population Health Analytics`. HACR is 8 categories × 10 subcategories; the
+> card mixed the subcategory level with truncated category names — **one level
+> down, not invented**. Everything else in this entry stands: the labels are
+> still not the category set, the scores were still random, and the fix is
+> unchanged. What changes is the diagnosis of how it got written: someone reached
+> into the taxonomy at the wrong depth, rather than making names up.
 
 | on the card | in HACR |
 |---|---|
 | Data Governance | Data Governance **& Standards** |
 | Infrastructure | Infrastructure **& Systems** |
 | Interoperability | **Integration &** Interoperability |
-| Operational Analytics | — |
-| Clinical Analytics | — |
-| Population Health | — |
-| Financial Analytics | — |
-| Research & Innovation | — |
+| Operational Analytics | *(a subcategory of Analytics & Intelligence, not a category)* |
+| Clinical Analytics | *(a subcategory of Analytics & Intelligence)* |
+| Financial Analytics | *(a subcategory of Analytics & Intelligence)* |
+| Population Health | *(near-miss for the subcategory Population Health Analytics)* |
+| Research & Innovation | *(a subcategory of Outcomes & Impact)* |
 | — | Strategy & Leadership |
 | — | Workforce & Skills |
 | — | Analytics & Intelligence |
@@ -1482,3 +1494,91 @@ BAIW's profitability pages carry customer names suffixed `(illustrative)` and a
 `POP` population map labelled "Illustrative representative segment populations".
 Those are **authored dataset content, disclosed on screen** where the reader sees
 it — the opposite of this defect, and not a finding.
+
+---
+
+## D-015 — HACR's question `weight` was a counter, and it reached the client
+
+**Status** — **FIXED**. Flattened to 1; `HAIW-WEIGHT` now asserts it. D5 stage A.
+Found while reading the datasets for the D5 design report, not by any check.
+
+**Where** — `src/data/haiw/hacrQuestions.json`, all 720 questions:
+
+```
+weight === W[(i + 1) % 5]   for ALL 720 questions in file order,
+W = [0.8, 0.9, 1.0, 1.1, 1.2]
+```
+
+Exactly 144 questions at each of the five values. It is a repeating five-cycle
+over the file — a sequence position, not a judgement about which questions matter
+more. The whole dataset is generated the same way: 720 questions are **nine
+aspect stems × eighty subcategory labels**, `levelDescriptions` and
+`pakistanContext` are one template each with the label substituted in. The weight
+is the same kind of artefact.
+
+### What it was believed to be
+
+Three places asserted it was a decision:
+
+| | said |
+|---|---|
+| `CLAUDE.md` | "Categories are an unweighted mean; capabilities are weight-weighted … for HAIW it is a choice" |
+| `src/scoring/maturity.ts` | "HACR questions carry `weight` 0.8–1.2 and TACR questions carry none" |
+| `healthReportGenerator.ts` | "EQUAL WEIGHTS HERE, WEIGHTED FOR CAPABILITIES, AND THAT IS A DELIBERATE SPLIT" |
+
+And page 13 told the client so in as many words: **"Weight-weighted mean of the
+answered HACR questions linked to each capability."**
+
+### Why the check did not catch it
+
+`HAIW-WEIGHT` asserted `weight > 0`, so that `aggregate()`'s unweighted fallback —
+the NaN guard — stayed provably dead. That assertion was **true of a counter**. A
+check that constrains a value's *range* says nothing about whether the value was
+*decided*, and `> 0` is the widest possible constraint short of none.
+
+### What it did to the numbers
+
+Not academic. The design report estimated the effect at 0.033, which was the
+deviation of each capability's **mean weight** from 1.0 — the wrong quantity. The
+score deviation is larger, because the answered subset's weights do not average
+to 1 when only part of an assessment is filled in:
+
+| | full fixture (720/720 answered) | partial fixture (315/720) |
+|---|---|---|
+| unrounded means moved | **108 of 108** | **108 of 108** |
+| printed 1dp values moved | **46 of 108** | **108 of 108** |
+| max abs delta on a mean | 0.0885 | **0.2143** |
+| priority bands moved | 5 | 9 |
+| page 13 top-20: entered / left | HCF-028, HCF-037 / HCF-079, HCF-094 | HCF-012, HCF-027 / HCF-031, HCF-043 |
+
+**The partial profile is the worse one, and that is the pattern.** A half-finished
+assessment is exactly where a spurious weighting bites hardest, and it is exactly
+the profile no fixture exercised before D4 added `answersPartial`.
+
+### The fix
+
+- All 720 weights → `1`. Value-only edit, verified: every record identical apart
+  from `weight`, 1296 insertions / 1296 deletions across the live file and the
+  frozen fixture copy.
+- `HAIW-WEIGHT` asserts **`=== 1`**, strictly stronger than `> 0`. It will fail
+  the day someone authors real weights — which is correct, because that moves
+  every capability score and needs its own walk.
+- The build prints `unweighted (every weight 1)` rather than `weights 0.8–1.2`.
+  A range on stdout is what a five-cycle looked like for two phases.
+- Page 13's caption now reads **"Unweighted mean"**. A caption claiming a
+  weighting the numbers do not have invites a reader to ask which questions
+  counted more, and the honest answer was "whichever the counter landed on".
+
+### Also found, not fixed — two `priorityLabel` functions disagree
+
+| | Critical | High | Medium |
+|---|---|---|---|
+| `healthReportGenerator.ts:151` | `gap > 2` | `> 1.5` | `> 1` |
+| `HealthMaturityAssessment.tsx:59` | `gap >= 2.5` | `>= 1.5` | `>= 0.5` |
+
+Two functions of the same name, over the same 1–5 gap scale, with different
+thresholds. They label different units today — the screen labels the overall
+category gap, the report labels a capability — but a client reading both sees one
+word for two rules: a gap of 2.2 is "Critical" in the PDF and "High" on screen; a
+gap of 0.8 is "Low" in the PDF and "Medium" on screen. Out of scope for stage A,
+which was the weight counter. Logged so it is not rediscovered.

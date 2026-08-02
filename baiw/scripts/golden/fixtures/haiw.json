@@ -7434,7 +7434,7 @@
   "questions": [
     {
       "id": "HACR-SL-001",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-002"
       ]
@@ -7448,28 +7448,28 @@
     },
     {
       "id": "HACR-SL-003",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-004"
       ]
     },
     {
       "id": "HACR-SL-004",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-005"
       ]
     },
     {
       "id": "HACR-SL-005",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-006"
       ]
     },
     {
       "id": "HACR-SL-006",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-007"
       ]
@@ -7483,28 +7483,28 @@
     },
     {
       "id": "HACR-SL-008",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-009"
       ]
     },
     {
       "id": "HACR-SL-009",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-010"
       ]
     },
     {
       "id": "HACR-SL-010",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-011"
       ]
     },
     {
       "id": "HACR-SL-011",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-012"
       ]
@@ -7518,28 +7518,28 @@
     },
     {
       "id": "HACR-SL-013",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-014"
       ]
     },
     {
       "id": "HACR-SL-014",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-015"
       ]
     },
     {
       "id": "HACR-SL-015",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-016"
       ]
     },
     {
       "id": "HACR-SL-016",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-017"
       ]
@@ -7553,28 +7553,28 @@
     },
     {
       "id": "HACR-SL-018",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-019"
       ]
     },
     {
       "id": "HACR-SL-019",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-020"
       ]
     },
     {
       "id": "HACR-SL-020",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-021"
       ]
     },
     {
       "id": "HACR-SL-021",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-022"
       ]
@@ -7588,28 +7588,28 @@
     },
     {
       "id": "HACR-SL-023",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-024"
       ]
     },
     {
       "id": "HACR-SL-024",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-025"
       ]
     },
     {
       "id": "HACR-SL-025",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-026"
       ]
     },
     {
       "id": "HACR-SL-026",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-027"
       ]
@@ -7623,28 +7623,28 @@
     },
     {
       "id": "HACR-SL-028",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-029"
       ]
     },
     {
       "id": "HACR-SL-029",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-030"
       ]
     },
     {
       "id": "HACR-SL-030",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-031"
       ]
     },
     {
       "id": "HACR-SL-031",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-032"
       ]
@@ -7658,28 +7658,28 @@
     },
     {
       "id": "HACR-SL-033",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-034"
       ]
     },
     {
       "id": "HACR-SL-034",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-035"
       ]
     },
     {
       "id": "HACR-SL-035",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-036"
       ]
     },
     {
       "id": "HACR-SL-036",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-037"
       ]
@@ -7693,28 +7693,28 @@
     },
     {
       "id": "HACR-SL-038",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-039"
       ]
     },
     {
       "id": "HACR-SL-039",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-040"
       ]
     },
     {
       "id": "HACR-SL-040",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-041"
       ]
     },
     {
       "id": "HACR-SL-041",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-042"
       ]
@@ -7728,28 +7728,28 @@
     },
     {
       "id": "HACR-SL-043",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-044"
       ]
     },
     {
       "id": "HACR-SL-044",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-045"
       ]
     },
     {
       "id": "HACR-SL-045",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-046"
       ]
     },
     {
       "id": "HACR-SL-046",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-047"
       ]
@@ -7763,28 +7763,28 @@
     },
     {
       "id": "HACR-SL-048",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-049"
       ]
     },
     {
       "id": "HACR-SL-049",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-050"
       ]
     },
     {
       "id": "HACR-SL-050",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-051"
       ]
     },
     {
       "id": "HACR-SL-051",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-052"
       ]
@@ -7798,28 +7798,28 @@
     },
     {
       "id": "HACR-SL-053",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-054"
       ]
     },
     {
       "id": "HACR-SL-054",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-055"
       ]
     },
     {
       "id": "HACR-SL-055",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-056"
       ]
     },
     {
       "id": "HACR-SL-056",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-057"
       ]
@@ -7833,28 +7833,28 @@
     },
     {
       "id": "HACR-SL-058",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-059"
       ]
     },
     {
       "id": "HACR-SL-059",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-060"
       ]
     },
     {
       "id": "HACR-SL-060",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-061"
       ]
     },
     {
       "id": "HACR-SL-061",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-062"
       ]
@@ -7868,28 +7868,28 @@
     },
     {
       "id": "HACR-SL-063",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-064"
       ]
     },
     {
       "id": "HACR-SL-064",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-065"
       ]
     },
     {
       "id": "HACR-SL-065",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-066"
       ]
     },
     {
       "id": "HACR-SL-066",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-067"
       ]
@@ -7903,28 +7903,28 @@
     },
     {
       "id": "HACR-SL-068",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-069"
       ]
     },
     {
       "id": "HACR-SL-069",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-070"
       ]
     },
     {
       "id": "HACR-SL-070",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-071"
       ]
     },
     {
       "id": "HACR-SL-071",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-072"
       ]
@@ -7938,28 +7938,28 @@
     },
     {
       "id": "HACR-SL-073",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-074"
       ]
     },
     {
       "id": "HACR-SL-074",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-075"
       ]
     },
     {
       "id": "HACR-SL-075",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-076"
       ]
     },
     {
       "id": "HACR-SL-076",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-077"
       ]
@@ -7973,28 +7973,28 @@
     },
     {
       "id": "HACR-SL-078",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-079"
       ]
     },
     {
       "id": "HACR-SL-079",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-080"
       ]
     },
     {
       "id": "HACR-SL-080",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-081"
       ]
     },
     {
       "id": "HACR-SL-081",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-082"
       ]
@@ -8008,28 +8008,28 @@
     },
     {
       "id": "HACR-SL-083",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-084"
       ]
     },
     {
       "id": "HACR-SL-084",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-085"
       ]
     },
     {
       "id": "HACR-SL-085",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-086"
       ]
     },
     {
       "id": "HACR-SL-086",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-087"
       ]
@@ -8043,28 +8043,28 @@
     },
     {
       "id": "HACR-SL-088",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-089"
       ]
     },
     {
       "id": "HACR-SL-089",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-090"
       ]
     },
     {
       "id": "HACR-SL-090",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-091"
       ]
     },
     {
       "id": "HACR-WS-091",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-092"
       ]
@@ -8078,28 +8078,28 @@
     },
     {
       "id": "HACR-WS-093",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-094"
       ]
     },
     {
       "id": "HACR-WS-094",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-095"
       ]
     },
     {
       "id": "HACR-WS-095",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-096"
       ]
     },
     {
       "id": "HACR-WS-096",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-097"
       ]
@@ -8113,28 +8113,28 @@
     },
     {
       "id": "HACR-WS-098",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-099"
       ]
     },
     {
       "id": "HACR-WS-099",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-100"
       ]
     },
     {
       "id": "HACR-WS-100",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-101"
       ]
     },
     {
       "id": "HACR-WS-101",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-102"
       ]
@@ -8148,28 +8148,28 @@
     },
     {
       "id": "HACR-WS-103",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-104"
       ]
     },
     {
       "id": "HACR-WS-104",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-105"
       ]
     },
     {
       "id": "HACR-WS-105",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-106"
       ]
     },
     {
       "id": "HACR-WS-106",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-107"
       ]
@@ -8183,28 +8183,28 @@
     },
     {
       "id": "HACR-WS-108",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-001"
       ]
     },
     {
       "id": "HACR-WS-109",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-002"
       ]
     },
     {
       "id": "HACR-WS-110",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-003"
       ]
     },
     {
       "id": "HACR-WS-111",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-004"
       ]
@@ -8218,28 +8218,28 @@
     },
     {
       "id": "HACR-WS-113",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-006"
       ]
     },
     {
       "id": "HACR-WS-114",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-007"
       ]
     },
     {
       "id": "HACR-WS-115",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-008"
       ]
     },
     {
       "id": "HACR-WS-116",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-009"
       ]
@@ -8253,28 +8253,28 @@
     },
     {
       "id": "HACR-WS-118",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-011"
       ]
     },
     {
       "id": "HACR-WS-119",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-012"
       ]
     },
     {
       "id": "HACR-WS-120",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-013"
       ]
     },
     {
       "id": "HACR-WS-121",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-014"
       ]
@@ -8288,28 +8288,28 @@
     },
     {
       "id": "HACR-WS-123",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-016"
       ]
     },
     {
       "id": "HACR-WS-124",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-017"
       ]
     },
     {
       "id": "HACR-WS-125",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-018"
       ]
     },
     {
       "id": "HACR-WS-126",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-019"
       ]
@@ -8323,28 +8323,28 @@
     },
     {
       "id": "HACR-WS-128",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-021"
       ]
     },
     {
       "id": "HACR-WS-129",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-022"
       ]
     },
     {
       "id": "HACR-WS-130",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-023"
       ]
     },
     {
       "id": "HACR-WS-131",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-024"
       ]
@@ -8358,28 +8358,28 @@
     },
     {
       "id": "HACR-WS-133",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-026"
       ]
     },
     {
       "id": "HACR-WS-134",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-027"
       ]
     },
     {
       "id": "HACR-WS-135",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-028"
       ]
     },
     {
       "id": "HACR-WS-136",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-029"
       ]
@@ -8393,28 +8393,28 @@
     },
     {
       "id": "HACR-WS-138",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-031"
       ]
     },
     {
       "id": "HACR-WS-139",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-032"
       ]
     },
     {
       "id": "HACR-WS-140",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-033"
       ]
     },
     {
       "id": "HACR-WS-141",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-034"
       ]
@@ -8428,28 +8428,28 @@
     },
     {
       "id": "HACR-WS-143",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-036"
       ]
     },
     {
       "id": "HACR-WS-144",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-037"
       ]
     },
     {
       "id": "HACR-WS-145",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-038"
       ]
     },
     {
       "id": "HACR-WS-146",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-039"
       ]
@@ -8463,28 +8463,28 @@
     },
     {
       "id": "HACR-WS-148",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-041"
       ]
     },
     {
       "id": "HACR-WS-149",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-042"
       ]
     },
     {
       "id": "HACR-WS-150",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-043"
       ]
     },
     {
       "id": "HACR-WS-151",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-044"
       ]
@@ -8498,28 +8498,28 @@
     },
     {
       "id": "HACR-WS-153",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-046"
       ]
     },
     {
       "id": "HACR-WS-154",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-047"
       ]
     },
     {
       "id": "HACR-WS-155",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-048"
       ]
     },
     {
       "id": "HACR-WS-156",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-049"
       ]
@@ -8533,28 +8533,28 @@
     },
     {
       "id": "HACR-WS-158",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-051"
       ]
     },
     {
       "id": "HACR-WS-159",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-052"
       ]
     },
     {
       "id": "HACR-WS-160",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-053"
       ]
     },
     {
       "id": "HACR-WS-161",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-054"
       ]
@@ -8568,28 +8568,28 @@
     },
     {
       "id": "HACR-WS-163",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-056"
       ]
     },
     {
       "id": "HACR-WS-164",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-057"
       ]
     },
     {
       "id": "HACR-WS-165",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-058"
       ]
     },
     {
       "id": "HACR-WS-166",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-059"
       ]
@@ -8603,28 +8603,28 @@
     },
     {
       "id": "HACR-WS-168",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-061"
       ]
     },
     {
       "id": "HACR-WS-169",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-062"
       ]
     },
     {
       "id": "HACR-WS-170",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-063"
       ]
     },
     {
       "id": "HACR-WS-171",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-064"
       ]
@@ -8638,28 +8638,28 @@
     },
     {
       "id": "HACR-WS-173",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-066"
       ]
     },
     {
       "id": "HACR-WS-174",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-067"
       ]
     },
     {
       "id": "HACR-WS-175",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-068"
       ]
     },
     {
       "id": "HACR-WS-176",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-069"
       ]
@@ -8673,28 +8673,28 @@
     },
     {
       "id": "HACR-WS-178",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-071"
       ]
     },
     {
       "id": "HACR-WS-179",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-072"
       ]
     },
     {
       "id": "HACR-WS-180",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-073"
       ]
     },
     {
       "id": "HACR-DG-181",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-074"
       ]
@@ -8708,28 +8708,28 @@
     },
     {
       "id": "HACR-DG-183",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-076"
       ]
     },
     {
       "id": "HACR-DG-184",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-077"
       ]
     },
     {
       "id": "HACR-DG-185",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-078"
       ]
     },
     {
       "id": "HACR-DG-186",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-079"
       ]
@@ -8743,28 +8743,28 @@
     },
     {
       "id": "HACR-DG-188",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-081"
       ]
     },
     {
       "id": "HACR-DG-189",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-082"
       ]
     },
     {
       "id": "HACR-DG-190",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-083"
       ]
     },
     {
       "id": "HACR-DG-191",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-084"
       ]
@@ -8778,28 +8778,28 @@
     },
     {
       "id": "HACR-DG-193",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-086"
       ]
     },
     {
       "id": "HACR-DG-194",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-087"
       ]
     },
     {
       "id": "HACR-DG-195",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-088"
       ]
     },
     {
       "id": "HACR-DG-196",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-089"
       ]
@@ -8813,28 +8813,28 @@
     },
     {
       "id": "HACR-DG-198",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-091"
       ]
     },
     {
       "id": "HACR-DG-199",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-092"
       ]
     },
     {
       "id": "HACR-DG-200",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-093"
       ]
     },
     {
       "id": "HACR-DG-201",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-094"
       ]
@@ -8848,28 +8848,28 @@
     },
     {
       "id": "HACR-DG-203",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-096"
       ]
     },
     {
       "id": "HACR-DG-204",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-097"
       ]
     },
     {
       "id": "HACR-DG-205",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-098"
       ]
     },
     {
       "id": "HACR-DG-206",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-099"
       ]
@@ -8883,28 +8883,28 @@
     },
     {
       "id": "HACR-DG-208",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-101"
       ]
     },
     {
       "id": "HACR-DG-209",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-102"
       ]
     },
     {
       "id": "HACR-DG-210",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-103"
       ]
     },
     {
       "id": "HACR-DG-211",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-104"
       ]
@@ -8918,28 +8918,28 @@
     },
     {
       "id": "HACR-DG-213",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-106"
       ]
     },
     {
       "id": "HACR-DG-214",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-107"
       ]
     },
     {
       "id": "HACR-DG-215",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-108"
       ]
     },
     {
       "id": "HACR-DG-216",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-001"
       ]
@@ -8953,28 +8953,28 @@
     },
     {
       "id": "HACR-DG-218",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-003"
       ]
     },
     {
       "id": "HACR-DG-219",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-004"
       ]
     },
     {
       "id": "HACR-DG-220",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-005"
       ]
     },
     {
       "id": "HACR-DG-221",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-006"
       ]
@@ -8988,28 +8988,28 @@
     },
     {
       "id": "HACR-DG-223",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-008"
       ]
     },
     {
       "id": "HACR-DG-224",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-009"
       ]
     },
     {
       "id": "HACR-DG-225",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-010"
       ]
     },
     {
       "id": "HACR-DG-226",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-011"
       ]
@@ -9023,28 +9023,28 @@
     },
     {
       "id": "HACR-DG-228",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-013"
       ]
     },
     {
       "id": "HACR-DG-229",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-014"
       ]
     },
     {
       "id": "HACR-DG-230",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-015"
       ]
     },
     {
       "id": "HACR-DG-231",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-016"
       ]
@@ -9058,28 +9058,28 @@
     },
     {
       "id": "HACR-DG-233",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-018"
       ]
     },
     {
       "id": "HACR-DG-234",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-019"
       ]
     },
     {
       "id": "HACR-DG-235",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-020"
       ]
     },
     {
       "id": "HACR-DG-236",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-021"
       ]
@@ -9093,28 +9093,28 @@
     },
     {
       "id": "HACR-DG-238",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-023"
       ]
     },
     {
       "id": "HACR-DG-239",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-024"
       ]
     },
     {
       "id": "HACR-DG-240",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-025"
       ]
     },
     {
       "id": "HACR-DG-241",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-026"
       ]
@@ -9128,28 +9128,28 @@
     },
     {
       "id": "HACR-DG-243",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-028"
       ]
     },
     {
       "id": "HACR-DG-244",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-029"
       ]
     },
     {
       "id": "HACR-DG-245",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-030"
       ]
     },
     {
       "id": "HACR-DG-246",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-031"
       ]
@@ -9163,28 +9163,28 @@
     },
     {
       "id": "HACR-DG-248",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-033"
       ]
     },
     {
       "id": "HACR-DG-249",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-034"
       ]
     },
     {
       "id": "HACR-DG-250",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-035"
       ]
     },
     {
       "id": "HACR-DG-251",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-036"
       ]
@@ -9198,28 +9198,28 @@
     },
     {
       "id": "HACR-DG-253",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-038"
       ]
     },
     {
       "id": "HACR-DG-254",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-039"
       ]
     },
     {
       "id": "HACR-DG-255",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-040"
       ]
     },
     {
       "id": "HACR-DG-256",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-041"
       ]
@@ -9233,28 +9233,28 @@
     },
     {
       "id": "HACR-DG-258",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-043"
       ]
     },
     {
       "id": "HACR-DG-259",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-044"
       ]
     },
     {
       "id": "HACR-DG-260",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-045"
       ]
     },
     {
       "id": "HACR-DG-261",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-046"
       ]
@@ -9268,28 +9268,28 @@
     },
     {
       "id": "HACR-DG-263",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-048"
       ]
     },
     {
       "id": "HACR-DG-264",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-049"
       ]
     },
     {
       "id": "HACR-DG-265",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-050"
       ]
     },
     {
       "id": "HACR-DG-266",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-051"
       ]
@@ -9303,28 +9303,28 @@
     },
     {
       "id": "HACR-DG-268",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-053"
       ]
     },
     {
       "id": "HACR-DG-269",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-054"
       ]
     },
     {
       "id": "HACR-DG-270",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-055"
       ]
     },
     {
       "id": "HACR-IS-271",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-056"
       ]
@@ -9338,28 +9338,28 @@
     },
     {
       "id": "HACR-IS-273",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-058"
       ]
     },
     {
       "id": "HACR-IS-274",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-059"
       ]
     },
     {
       "id": "HACR-IS-275",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-060"
       ]
     },
     {
       "id": "HACR-IS-276",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-061"
       ]
@@ -9373,28 +9373,28 @@
     },
     {
       "id": "HACR-IS-278",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-063"
       ]
     },
     {
       "id": "HACR-IS-279",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-064"
       ]
     },
     {
       "id": "HACR-IS-280",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-065"
       ]
     },
     {
       "id": "HACR-IS-281",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-066"
       ]
@@ -9408,28 +9408,28 @@
     },
     {
       "id": "HACR-IS-283",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-068"
       ]
     },
     {
       "id": "HACR-IS-284",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-069"
       ]
     },
     {
       "id": "HACR-IS-285",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-070"
       ]
     },
     {
       "id": "HACR-IS-286",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-071"
       ]
@@ -9443,28 +9443,28 @@
     },
     {
       "id": "HACR-IS-288",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-073"
       ]
     },
     {
       "id": "HACR-IS-289",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-074"
       ]
     },
     {
       "id": "HACR-IS-290",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-075"
       ]
     },
     {
       "id": "HACR-IS-291",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-076"
       ]
@@ -9478,28 +9478,28 @@
     },
     {
       "id": "HACR-IS-293",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-078"
       ]
     },
     {
       "id": "HACR-IS-294",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-079"
       ]
     },
     {
       "id": "HACR-IS-295",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-080"
       ]
     },
     {
       "id": "HACR-IS-296",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-081"
       ]
@@ -9513,28 +9513,28 @@
     },
     {
       "id": "HACR-IS-298",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-083"
       ]
     },
     {
       "id": "HACR-IS-299",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-084"
       ]
     },
     {
       "id": "HACR-IS-300",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-085"
       ]
     },
     {
       "id": "HACR-IS-301",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-086"
       ]
@@ -9548,28 +9548,28 @@
     },
     {
       "id": "HACR-IS-303",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-088"
       ]
     },
     {
       "id": "HACR-IS-304",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-089"
       ]
     },
     {
       "id": "HACR-IS-305",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-090"
       ]
     },
     {
       "id": "HACR-IS-306",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-091"
       ]
@@ -9583,28 +9583,28 @@
     },
     {
       "id": "HACR-IS-308",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-093"
       ]
     },
     {
       "id": "HACR-IS-309",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-094"
       ]
     },
     {
       "id": "HACR-IS-310",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-095"
       ]
     },
     {
       "id": "HACR-IS-311",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-096"
       ]
@@ -9618,28 +9618,28 @@
     },
     {
       "id": "HACR-IS-313",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-098"
       ]
     },
     {
       "id": "HACR-IS-314",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-099"
       ]
     },
     {
       "id": "HACR-IS-315",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-100"
       ]
     },
     {
       "id": "HACR-IS-316",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-101"
       ]
@@ -9653,28 +9653,28 @@
     },
     {
       "id": "HACR-IS-318",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-103"
       ]
     },
     {
       "id": "HACR-IS-319",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-104"
       ]
     },
     {
       "id": "HACR-IS-320",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-105"
       ]
     },
     {
       "id": "HACR-IS-321",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-106"
       ]
@@ -9688,28 +9688,28 @@
     },
     {
       "id": "HACR-IS-323",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-108"
       ]
     },
     {
       "id": "HACR-IS-324",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-001"
       ]
     },
     {
       "id": "HACR-IS-325",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-002"
       ]
     },
     {
       "id": "HACR-IS-326",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-003"
       ]
@@ -9723,28 +9723,28 @@
     },
     {
       "id": "HACR-IS-328",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-005"
       ]
     },
     {
       "id": "HACR-IS-329",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-006"
       ]
     },
     {
       "id": "HACR-IS-330",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-007"
       ]
     },
     {
       "id": "HACR-IS-331",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-008"
       ]
@@ -9758,28 +9758,28 @@
     },
     {
       "id": "HACR-IS-333",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-010"
       ]
     },
     {
       "id": "HACR-IS-334",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-011"
       ]
     },
     {
       "id": "HACR-IS-335",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-012"
       ]
     },
     {
       "id": "HACR-IS-336",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-013"
       ]
@@ -9793,28 +9793,28 @@
     },
     {
       "id": "HACR-IS-338",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-015"
       ]
     },
     {
       "id": "HACR-IS-339",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-016"
       ]
     },
     {
       "id": "HACR-IS-340",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-017"
       ]
     },
     {
       "id": "HACR-IS-341",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-018"
       ]
@@ -9828,28 +9828,28 @@
     },
     {
       "id": "HACR-IS-343",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-020"
       ]
     },
     {
       "id": "HACR-IS-344",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-021"
       ]
     },
     {
       "id": "HACR-IS-345",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-022"
       ]
     },
     {
       "id": "HACR-IS-346",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-023"
       ]
@@ -9863,28 +9863,28 @@
     },
     {
       "id": "HACR-IS-348",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-025"
       ]
     },
     {
       "id": "HACR-IS-349",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-026"
       ]
     },
     {
       "id": "HACR-IS-350",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-027"
       ]
     },
     {
       "id": "HACR-IS-351",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-028"
       ]
@@ -9898,28 +9898,28 @@
     },
     {
       "id": "HACR-IS-353",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-030"
       ]
     },
     {
       "id": "HACR-IS-354",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-031"
       ]
     },
     {
       "id": "HACR-IS-355",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-032"
       ]
     },
     {
       "id": "HACR-IS-356",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-033"
       ]
@@ -9933,28 +9933,28 @@
     },
     {
       "id": "HACR-IS-358",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-035"
       ]
     },
     {
       "id": "HACR-IS-359",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-036"
       ]
     },
     {
       "id": "HACR-IS-360",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-037"
       ]
     },
     {
       "id": "HACR-AI-361",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-038"
       ]
@@ -9968,28 +9968,28 @@
     },
     {
       "id": "HACR-AI-363",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-040"
       ]
     },
     {
       "id": "HACR-AI-364",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-041"
       ]
     },
     {
       "id": "HACR-AI-365",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-042"
       ]
     },
     {
       "id": "HACR-AI-366",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-043"
       ]
@@ -10003,28 +10003,28 @@
     },
     {
       "id": "HACR-AI-368",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-045"
       ]
     },
     {
       "id": "HACR-AI-369",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-046"
       ]
     },
     {
       "id": "HACR-AI-370",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-047"
       ]
     },
     {
       "id": "HACR-AI-371",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-048"
       ]
@@ -10038,28 +10038,28 @@
     },
     {
       "id": "HACR-AI-373",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-050"
       ]
     },
     {
       "id": "HACR-AI-374",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-051"
       ]
     },
     {
       "id": "HACR-AI-375",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-052"
       ]
     },
     {
       "id": "HACR-AI-376",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-053"
       ]
@@ -10073,28 +10073,28 @@
     },
     {
       "id": "HACR-AI-378",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-055"
       ]
     },
     {
       "id": "HACR-AI-379",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-056"
       ]
     },
     {
       "id": "HACR-AI-380",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-057"
       ]
     },
     {
       "id": "HACR-AI-381",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-058"
       ]
@@ -10108,28 +10108,28 @@
     },
     {
       "id": "HACR-AI-383",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-060"
       ]
     },
     {
       "id": "HACR-AI-384",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-061"
       ]
     },
     {
       "id": "HACR-AI-385",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-062"
       ]
     },
     {
       "id": "HACR-AI-386",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-063"
       ]
@@ -10143,28 +10143,28 @@
     },
     {
       "id": "HACR-AI-388",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-065"
       ]
     },
     {
       "id": "HACR-AI-389",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-066"
       ]
     },
     {
       "id": "HACR-AI-390",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-067"
       ]
     },
     {
       "id": "HACR-AI-391",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-068"
       ]
@@ -10178,28 +10178,28 @@
     },
     {
       "id": "HACR-AI-393",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-070"
       ]
     },
     {
       "id": "HACR-AI-394",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-071"
       ]
     },
     {
       "id": "HACR-AI-395",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-072"
       ]
     },
     {
       "id": "HACR-AI-396",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-073"
       ]
@@ -10213,28 +10213,28 @@
     },
     {
       "id": "HACR-AI-398",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-075"
       ]
     },
     {
       "id": "HACR-AI-399",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-076"
       ]
     },
     {
       "id": "HACR-AI-400",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-077"
       ]
     },
     {
       "id": "HACR-AI-401",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-078"
       ]
@@ -10248,28 +10248,28 @@
     },
     {
       "id": "HACR-AI-403",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-080"
       ]
     },
     {
       "id": "HACR-AI-404",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-081"
       ]
     },
     {
       "id": "HACR-AI-405",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-082"
       ]
     },
     {
       "id": "HACR-AI-406",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-083"
       ]
@@ -10283,28 +10283,28 @@
     },
     {
       "id": "HACR-AI-408",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-085"
       ]
     },
     {
       "id": "HACR-AI-409",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-086"
       ]
     },
     {
       "id": "HACR-AI-410",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-087"
       ]
     },
     {
       "id": "HACR-AI-411",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-088"
       ]
@@ -10318,28 +10318,28 @@
     },
     {
       "id": "HACR-AI-413",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-090"
       ]
     },
     {
       "id": "HACR-AI-414",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-091"
       ]
     },
     {
       "id": "HACR-AI-415",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-092"
       ]
     },
     {
       "id": "HACR-AI-416",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-093"
       ]
@@ -10353,28 +10353,28 @@
     },
     {
       "id": "HACR-AI-418",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-095"
       ]
     },
     {
       "id": "HACR-AI-419",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-096"
       ]
     },
     {
       "id": "HACR-AI-420",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-097"
       ]
     },
     {
       "id": "HACR-AI-421",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-098"
       ]
@@ -10388,28 +10388,28 @@
     },
     {
       "id": "HACR-AI-423",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-100"
       ]
     },
     {
       "id": "HACR-AI-424",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-101"
       ]
     },
     {
       "id": "HACR-AI-425",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-102"
       ]
     },
     {
       "id": "HACR-AI-426",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-103"
       ]
@@ -10423,28 +10423,28 @@
     },
     {
       "id": "HACR-AI-428",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-105"
       ]
     },
     {
       "id": "HACR-AI-429",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-106"
       ]
     },
     {
       "id": "HACR-AI-430",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-107"
       ]
     },
     {
       "id": "HACR-AI-431",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-108"
       ]
@@ -10458,28 +10458,28 @@
     },
     {
       "id": "HACR-AI-433",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-002"
       ]
     },
     {
       "id": "HACR-AI-434",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-003"
       ]
     },
     {
       "id": "HACR-AI-435",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-004"
       ]
     },
     {
       "id": "HACR-AI-436",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-005"
       ]
@@ -10493,28 +10493,28 @@
     },
     {
       "id": "HACR-AI-438",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-007"
       ]
     },
     {
       "id": "HACR-AI-439",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-008"
       ]
     },
     {
       "id": "HACR-AI-440",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-009"
       ]
     },
     {
       "id": "HACR-AI-441",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-010"
       ]
@@ -10528,28 +10528,28 @@
     },
     {
       "id": "HACR-AI-443",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-012"
       ]
     },
     {
       "id": "HACR-AI-444",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-013"
       ]
     },
     {
       "id": "HACR-AI-445",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-014"
       ]
     },
     {
       "id": "HACR-AI-446",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-015"
       ]
@@ -10563,28 +10563,28 @@
     },
     {
       "id": "HACR-AI-448",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-017"
       ]
     },
     {
       "id": "HACR-AI-449",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-018"
       ]
     },
     {
       "id": "HACR-AI-450",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-019"
       ]
     },
     {
       "id": "HACR-II-451",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-020"
       ]
@@ -10598,28 +10598,28 @@
     },
     {
       "id": "HACR-II-453",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-022"
       ]
     },
     {
       "id": "HACR-II-454",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-023"
       ]
     },
     {
       "id": "HACR-II-455",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-024"
       ]
     },
     {
       "id": "HACR-II-456",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-025"
       ]
@@ -10633,28 +10633,28 @@
     },
     {
       "id": "HACR-II-458",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-027"
       ]
     },
     {
       "id": "HACR-II-459",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-028"
       ]
     },
     {
       "id": "HACR-II-460",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-029"
       ]
     },
     {
       "id": "HACR-II-461",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-030"
       ]
@@ -10668,28 +10668,28 @@
     },
     {
       "id": "HACR-II-463",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-032"
       ]
     },
     {
       "id": "HACR-II-464",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-033"
       ]
     },
     {
       "id": "HACR-II-465",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-034"
       ]
     },
     {
       "id": "HACR-II-466",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-035"
       ]
@@ -10703,28 +10703,28 @@
     },
     {
       "id": "HACR-II-468",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-037"
       ]
     },
     {
       "id": "HACR-II-469",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-038"
       ]
     },
     {
       "id": "HACR-II-470",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-039"
       ]
     },
     {
       "id": "HACR-II-471",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-040"
       ]
@@ -10738,28 +10738,28 @@
     },
     {
       "id": "HACR-II-473",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-042"
       ]
     },
     {
       "id": "HACR-II-474",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-043"
       ]
     },
     {
       "id": "HACR-II-475",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-044"
       ]
     },
     {
       "id": "HACR-II-476",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-045"
       ]
@@ -10773,28 +10773,28 @@
     },
     {
       "id": "HACR-II-478",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-047"
       ]
     },
     {
       "id": "HACR-II-479",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-048"
       ]
     },
     {
       "id": "HACR-II-480",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-049"
       ]
     },
     {
       "id": "HACR-II-481",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-050"
       ]
@@ -10808,28 +10808,28 @@
     },
     {
       "id": "HACR-II-483",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-052"
       ]
     },
     {
       "id": "HACR-II-484",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-053"
       ]
     },
     {
       "id": "HACR-II-485",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-054"
       ]
     },
     {
       "id": "HACR-II-486",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-055"
       ]
@@ -10843,28 +10843,28 @@
     },
     {
       "id": "HACR-II-488",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-057"
       ]
     },
     {
       "id": "HACR-II-489",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-058"
       ]
     },
     {
       "id": "HACR-II-490",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-059"
       ]
     },
     {
       "id": "HACR-II-491",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-060"
       ]
@@ -10878,28 +10878,28 @@
     },
     {
       "id": "HACR-II-493",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-062"
       ]
     },
     {
       "id": "HACR-II-494",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-063"
       ]
     },
     {
       "id": "HACR-II-495",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-064"
       ]
     },
     {
       "id": "HACR-II-496",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-065"
       ]
@@ -10913,28 +10913,28 @@
     },
     {
       "id": "HACR-II-498",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-067"
       ]
     },
     {
       "id": "HACR-II-499",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-068"
       ]
     },
     {
       "id": "HACR-II-500",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-069"
       ]
     },
     {
       "id": "HACR-II-501",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-070"
       ]
@@ -10948,28 +10948,28 @@
     },
     {
       "id": "HACR-II-503",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-072"
       ]
     },
     {
       "id": "HACR-II-504",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-073"
       ]
     },
     {
       "id": "HACR-II-505",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-074"
       ]
     },
     {
       "id": "HACR-II-506",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-075"
       ]
@@ -10983,28 +10983,28 @@
     },
     {
       "id": "HACR-II-508",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-077"
       ]
     },
     {
       "id": "HACR-II-509",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-078"
       ]
     },
     {
       "id": "HACR-II-510",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-079"
       ]
     },
     {
       "id": "HACR-II-511",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-080"
       ]
@@ -11018,28 +11018,28 @@
     },
     {
       "id": "HACR-II-513",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-082"
       ]
     },
     {
       "id": "HACR-II-514",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-083"
       ]
     },
     {
       "id": "HACR-II-515",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-084"
       ]
     },
     {
       "id": "HACR-II-516",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-085"
       ]
@@ -11053,28 +11053,28 @@
     },
     {
       "id": "HACR-II-518",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-087"
       ]
     },
     {
       "id": "HACR-II-519",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-088"
       ]
     },
     {
       "id": "HACR-II-520",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-089"
       ]
     },
     {
       "id": "HACR-II-521",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-090"
       ]
@@ -11088,28 +11088,28 @@
     },
     {
       "id": "HACR-II-523",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-092"
       ]
     },
     {
       "id": "HACR-II-524",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-093"
       ]
     },
     {
       "id": "HACR-II-525",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-094"
       ]
     },
     {
       "id": "HACR-II-526",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-095"
       ]
@@ -11123,28 +11123,28 @@
     },
     {
       "id": "HACR-II-528",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-097"
       ]
     },
     {
       "id": "HACR-II-529",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-098"
       ]
     },
     {
       "id": "HACR-II-530",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-099"
       ]
     },
     {
       "id": "HACR-II-531",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-100"
       ]
@@ -11158,28 +11158,28 @@
     },
     {
       "id": "HACR-II-533",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-102"
       ]
     },
     {
       "id": "HACR-II-534",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-103"
       ]
     },
     {
       "id": "HACR-II-535",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-104"
       ]
     },
     {
       "id": "HACR-II-536",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-105"
       ]
@@ -11193,28 +11193,28 @@
     },
     {
       "id": "HACR-II-538",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-107"
       ]
     },
     {
       "id": "HACR-II-539",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-108"
       ]
     },
     {
       "id": "HACR-II-540",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-001"
       ]
     },
     {
       "id": "HACR-PC-541",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-002"
       ]
@@ -11228,28 +11228,28 @@
     },
     {
       "id": "HACR-PC-543",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-004"
       ]
     },
     {
       "id": "HACR-PC-544",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-005"
       ]
     },
     {
       "id": "HACR-PC-545",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-006"
       ]
     },
     {
       "id": "HACR-PC-546",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-007"
       ]
@@ -11263,28 +11263,28 @@
     },
     {
       "id": "HACR-PC-548",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-009"
       ]
     },
     {
       "id": "HACR-PC-549",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-010"
       ]
     },
     {
       "id": "HACR-PC-550",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-011"
       ]
     },
     {
       "id": "HACR-PC-551",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-012"
       ]
@@ -11298,28 +11298,28 @@
     },
     {
       "id": "HACR-PC-553",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-014"
       ]
     },
     {
       "id": "HACR-PC-554",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-015"
       ]
     },
     {
       "id": "HACR-PC-555",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-016"
       ]
     },
     {
       "id": "HACR-PC-556",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-017"
       ]
@@ -11333,28 +11333,28 @@
     },
     {
       "id": "HACR-PC-558",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-019"
       ]
     },
     {
       "id": "HACR-PC-559",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-020"
       ]
     },
     {
       "id": "HACR-PC-560",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-021"
       ]
     },
     {
       "id": "HACR-PC-561",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-022"
       ]
@@ -11368,28 +11368,28 @@
     },
     {
       "id": "HACR-PC-563",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-024"
       ]
     },
     {
       "id": "HACR-PC-564",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-025"
       ]
     },
     {
       "id": "HACR-PC-565",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-026"
       ]
     },
     {
       "id": "HACR-PC-566",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-027"
       ]
@@ -11403,28 +11403,28 @@
     },
     {
       "id": "HACR-PC-568",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-029"
       ]
     },
     {
       "id": "HACR-PC-569",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-030"
       ]
     },
     {
       "id": "HACR-PC-570",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-031"
       ]
     },
     {
       "id": "HACR-PC-571",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-032"
       ]
@@ -11438,28 +11438,28 @@
     },
     {
       "id": "HACR-PC-573",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-034"
       ]
     },
     {
       "id": "HACR-PC-574",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-035"
       ]
     },
     {
       "id": "HACR-PC-575",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-036"
       ]
     },
     {
       "id": "HACR-PC-576",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-037"
       ]
@@ -11473,28 +11473,28 @@
     },
     {
       "id": "HACR-PC-578",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-039"
       ]
     },
     {
       "id": "HACR-PC-579",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-040"
       ]
     },
     {
       "id": "HACR-PC-580",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-041"
       ]
     },
     {
       "id": "HACR-PC-581",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-042"
       ]
@@ -11508,28 +11508,28 @@
     },
     {
       "id": "HACR-PC-583",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-044"
       ]
     },
     {
       "id": "HACR-PC-584",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-045"
       ]
     },
     {
       "id": "HACR-PC-585",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-046"
       ]
     },
     {
       "id": "HACR-PC-586",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-047"
       ]
@@ -11543,28 +11543,28 @@
     },
     {
       "id": "HACR-PC-588",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-049"
       ]
     },
     {
       "id": "HACR-PC-589",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-050"
       ]
     },
     {
       "id": "HACR-PC-590",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-051"
       ]
     },
     {
       "id": "HACR-PC-591",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-052"
       ]
@@ -11578,28 +11578,28 @@
     },
     {
       "id": "HACR-PC-593",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-054"
       ]
     },
     {
       "id": "HACR-PC-594",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-055"
       ]
     },
     {
       "id": "HACR-PC-595",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-056"
       ]
     },
     {
       "id": "HACR-PC-596",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-057"
       ]
@@ -11613,28 +11613,28 @@
     },
     {
       "id": "HACR-PC-598",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-059"
       ]
     },
     {
       "id": "HACR-PC-599",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-060"
       ]
     },
     {
       "id": "HACR-PC-600",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-061"
       ]
     },
     {
       "id": "HACR-PC-601",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-062"
       ]
@@ -11648,28 +11648,28 @@
     },
     {
       "id": "HACR-PC-603",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-064"
       ]
     },
     {
       "id": "HACR-PC-604",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-065"
       ]
     },
     {
       "id": "HACR-PC-605",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-066"
       ]
     },
     {
       "id": "HACR-PC-606",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-067"
       ]
@@ -11683,28 +11683,28 @@
     },
     {
       "id": "HACR-PC-608",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-069"
       ]
     },
     {
       "id": "HACR-PC-609",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-070"
       ]
     },
     {
       "id": "HACR-PC-610",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-071"
       ]
     },
     {
       "id": "HACR-PC-611",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-072"
       ]
@@ -11718,28 +11718,28 @@
     },
     {
       "id": "HACR-PC-613",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-074"
       ]
     },
     {
       "id": "HACR-PC-614",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-075"
       ]
     },
     {
       "id": "HACR-PC-615",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-076"
       ]
     },
     {
       "id": "HACR-PC-616",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-077"
       ]
@@ -11753,28 +11753,28 @@
     },
     {
       "id": "HACR-PC-618",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-079"
       ]
     },
     {
       "id": "HACR-PC-619",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-080"
       ]
     },
     {
       "id": "HACR-PC-620",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-081"
       ]
     },
     {
       "id": "HACR-PC-621",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-082"
       ]
@@ -11788,28 +11788,28 @@
     },
     {
       "id": "HACR-PC-623",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-084"
       ]
     },
     {
       "id": "HACR-PC-624",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-085"
       ]
     },
     {
       "id": "HACR-PC-625",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-086"
       ]
     },
     {
       "id": "HACR-PC-626",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-087"
       ]
@@ -11823,28 +11823,28 @@
     },
     {
       "id": "HACR-PC-628",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-089"
       ]
     },
     {
       "id": "HACR-PC-629",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-090"
       ]
     },
     {
       "id": "HACR-PC-630",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-091"
       ]
     },
     {
       "id": "HACR-OI-631",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-092"
       ]
@@ -11858,28 +11858,28 @@
     },
     {
       "id": "HACR-OI-633",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-094"
       ]
     },
     {
       "id": "HACR-OI-634",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-095"
       ]
     },
     {
       "id": "HACR-OI-635",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-096"
       ]
     },
     {
       "id": "HACR-OI-636",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-097"
       ]
@@ -11893,28 +11893,28 @@
     },
     {
       "id": "HACR-OI-638",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-099"
       ]
     },
     {
       "id": "HACR-OI-639",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-100"
       ]
     },
     {
       "id": "HACR-OI-640",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-101"
       ]
     },
     {
       "id": "HACR-OI-641",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-102"
       ]
@@ -11928,28 +11928,28 @@
     },
     {
       "id": "HACR-OI-643",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-104"
       ]
     },
     {
       "id": "HACR-OI-644",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-105"
       ]
     },
     {
       "id": "HACR-OI-645",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-106"
       ]
     },
     {
       "id": "HACR-OI-646",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-107"
       ]
@@ -11963,28 +11963,28 @@
     },
     {
       "id": "HACR-OI-648",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-001"
       ]
     },
     {
       "id": "HACR-OI-649",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-002"
       ]
     },
     {
       "id": "HACR-OI-650",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-003"
       ]
     },
     {
       "id": "HACR-OI-651",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-004"
       ]
@@ -11998,28 +11998,28 @@
     },
     {
       "id": "HACR-OI-653",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-006"
       ]
     },
     {
       "id": "HACR-OI-654",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-007"
       ]
     },
     {
       "id": "HACR-OI-655",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-008"
       ]
     },
     {
       "id": "HACR-OI-656",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-009"
       ]
@@ -12033,28 +12033,28 @@
     },
     {
       "id": "HACR-OI-658",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-011"
       ]
     },
     {
       "id": "HACR-OI-659",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-012"
       ]
     },
     {
       "id": "HACR-OI-660",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-013"
       ]
     },
     {
       "id": "HACR-OI-661",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-014"
       ]
@@ -12068,28 +12068,28 @@
     },
     {
       "id": "HACR-OI-663",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-016"
       ]
     },
     {
       "id": "HACR-OI-664",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-017"
       ]
     },
     {
       "id": "HACR-OI-665",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-018"
       ]
     },
     {
       "id": "HACR-OI-666",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-019"
       ]
@@ -12103,28 +12103,28 @@
     },
     {
       "id": "HACR-OI-668",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-021"
       ]
     },
     {
       "id": "HACR-OI-669",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-022"
       ]
     },
     {
       "id": "HACR-OI-670",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-023"
       ]
     },
     {
       "id": "HACR-OI-671",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-024"
       ]
@@ -12138,28 +12138,28 @@
     },
     {
       "id": "HACR-OI-673",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-026"
       ]
     },
     {
       "id": "HACR-OI-674",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-027"
       ]
     },
     {
       "id": "HACR-OI-675",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-028"
       ]
     },
     {
       "id": "HACR-OI-676",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-029"
       ]
@@ -12173,28 +12173,28 @@
     },
     {
       "id": "HACR-OI-678",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-031"
       ]
     },
     {
       "id": "HACR-OI-679",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-032"
       ]
     },
     {
       "id": "HACR-OI-680",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-033"
       ]
     },
     {
       "id": "HACR-OI-681",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-034"
       ]
@@ -12208,28 +12208,28 @@
     },
     {
       "id": "HACR-OI-683",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-036"
       ]
     },
     {
       "id": "HACR-OI-684",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-037"
       ]
     },
     {
       "id": "HACR-OI-685",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-038"
       ]
     },
     {
       "id": "HACR-OI-686",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-039"
       ]
@@ -12243,28 +12243,28 @@
     },
     {
       "id": "HACR-OI-688",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-041"
       ]
     },
     {
       "id": "HACR-OI-689",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-042"
       ]
     },
     {
       "id": "HACR-OI-690",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-043"
       ]
     },
     {
       "id": "HACR-OI-691",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-044"
       ]
@@ -12278,28 +12278,28 @@
     },
     {
       "id": "HACR-OI-693",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-046"
       ]
     },
     {
       "id": "HACR-OI-694",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-047"
       ]
     },
     {
       "id": "HACR-OI-695",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-048"
       ]
     },
     {
       "id": "HACR-OI-696",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-049"
       ]
@@ -12313,28 +12313,28 @@
     },
     {
       "id": "HACR-OI-698",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-051"
       ]
     },
     {
       "id": "HACR-OI-699",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-052"
       ]
     },
     {
       "id": "HACR-OI-700",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-053"
       ]
     },
     {
       "id": "HACR-OI-701",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-054"
       ]
@@ -12348,28 +12348,28 @@
     },
     {
       "id": "HACR-OI-703",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-056"
       ]
     },
     {
       "id": "HACR-OI-704",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-057"
       ]
     },
     {
       "id": "HACR-OI-705",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-058"
       ]
     },
     {
       "id": "HACR-OI-706",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-059"
       ]
@@ -12383,28 +12383,28 @@
     },
     {
       "id": "HACR-OI-708",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-061"
       ]
     },
     {
       "id": "HACR-OI-709",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-062"
       ]
     },
     {
       "id": "HACR-OI-710",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-063"
       ]
     },
     {
       "id": "HACR-OI-711",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-064"
       ]
@@ -12418,28 +12418,28 @@
     },
     {
       "id": "HACR-OI-713",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-066"
       ]
     },
     {
       "id": "HACR-OI-714",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-067"
       ]
     },
     {
       "id": "HACR-OI-715",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-068"
       ]
     },
     {
       "id": "HACR-OI-716",
-      "weight": 0.9,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-069"
       ]
@@ -12453,21 +12453,21 @@
     },
     {
       "id": "HACR-OI-718",
-      "weight": 1.1,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-071"
       ]
     },
     {
       "id": "HACR-OI-719",
-      "weight": 1.2,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-072"
       ]
     },
     {
       "id": "HACR-OI-720",
-      "weight": 0.8,
+      "weight": 1,
       "capabilityLinks": [
         "HCF-073"
       ]

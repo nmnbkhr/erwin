@@ -514,22 +514,47 @@ data side rather than the deliverable side: HAIW ships a gap register because
 The layer row is the reason CLAUDE.md's "the core/banking layer is DGIW-only" is
 true — it was confirmed against `tacrQuestions.json` in D4, not assumed.
 
-**Categories are an unweighted mean; capabilities are weight-weighted. The
-difference is passed as an argument, not implemented twice** — `aggregate()`
-takes a weight per entry, and category scoring passes `1`. Because TACR carries
-no `weight` at all, for TAIW the `1` is the only thing it could be; for HAIW it
-is a choice. Do not "tidy" this into two functions, and do not make it uniform
-without deciding to:
+**EVERYTHING IN THE SUITE IS UNWEIGHTED, AND THAT IS NOW A CHECKED FACT.**
+`aggregate()` takes a weight per entry and every caller passes 1.
 
-`question.weight` is declared in `types.ts` and is read **only** by capability
-scoring. Weighting the categories too moves every category's gap 1.3 → 1.4 and
-desired 4.3 → 4.4, which moves the cover score, the radar, eight deep-dive pages
-and the markdown. The screen would move with it, since D4 put both on the same
-function — that is the point of one implementation — but **a PDF that disagrees
-with the screen is worse than no PDF**, and the way to keep them agreeing is one
-primitive, not two careful copies. Making the module weighted throughout is a
-content decision deserving its own change and its own before/after, not a
-refactor done in passing.
+This paragraph used to say "categories are an unweighted mean; capabilities are
+weight-weighted", and defended the asymmetry as HAIW's editorial judgement. The
+asymmetry was real. **The judgement was not.** HACR's `weight` was
+
+```
+weight === W[(i + 1) % 5]   for all 720 questions in file order,
+W = [0.8, 0.9, 1.0, 1.1, 1.2]
+```
+
+a repeating five-cycle over the file — a counter. `HAIW-WEIGHT` asserted
+`weight > 0`, which is true of a counter, so nothing said anything for two
+phases while every capability score was weighted by a sequence position. It was
+not theoretical: flattening it moved **46 of 108 printed capability scores and
+five priority bands** on the golden fixture, and **all 108 scores and nine
+bands** on the partial one, with two capabilities entering page 13's top-20
+ranking and two leaving. Page 13's caption said "Weight-weighted mean" and now
+says "Unweighted mean", because the first was true of the code and false of the
+data. D5 stage A; `docs/known-defects.md` D-015.
+
+`HAIW-WEIGHT` now asserts **`=== 1`** — strictly stronger than `> 0`, so
+`aggregate()`'s NaN fallback stays provably dead by a wider margin, and the
+field cannot drift back without someone editing the rule file. TACR carries no
+`weight` field at all, so the two modules now agree.
+
+**The parameter stays and so does the rule about using it.** Weighting a module
+genuinely moves every category's gap 1.3 → 1.4 and desired 4.3 → 4.4, which
+moves the cover score, the radar, eight deep-dive pages and the markdown. The
+screen moves with it, since D4 put both on the same function — that is the point
+of one implementation — but **a PDF that disagrees with the screen is worse than
+no PDF**, and the way to keep them agreeing is one primitive, not two careful
+copies. It is a content decision deserving its own change and its own
+before/after, not a refactor done in passing, and `HAIW-WEIGHT` now makes
+starting it impossible to do quietly.
+
+**The general lesson is about the assertion, not the weights.** `> 0` was a true
+statement about a field whose values were meaningless. A check that constrains a
+value's *range* says nothing about whether the value was *decided*. When a
+number reaches a client, the check should pin what it is, not what it is not.
 
 `hacrQuestions.json` is 1.18 MB and already loaded by the assessment page, so the
 report takes questions as a **parameter** typed
@@ -685,6 +710,37 @@ applies per leaf dimension, read one level up.
 **The 11 pillars are the canonical capability model.** Frameworks map *into*
 them. Never add a second canonical layer — a bank with two maturity numbers to
 reconcile has been given a problem, not an answer.
+
+**CHECK A FRAMEWORK'S OWN AGGREGATION OPERATOR BEFORE AUTHORING A CROSSWALK.**
+`projection.ts` computes a **convex combination** — a weighted mean of spine
+scores. A framework whose own instrument is a weighted mean projects onto that
+engine faithfully. One that is **gated, ordinal or cumulative does not, and no
+amount of careful mapping fixes it**, because the disagreement is in the
+operator rather than in the mapping.
+
+HIMSS **EMRAM** is the worked example. It is cumulative stage gating, 0–7: an
+organisation is at the highest stage for which *every* criterion of that stage
+and all stages below it is satisfied. That is a `min` over gates. Run it through
+a weighted mean and it yields **"stage 4.3" — a value EMRAM does not define**,
+and a hospital reading it has been given a number its own accreditor will not
+recognise. Same for **INFRAM**. The honest presentation is a different
+instrument: a criteria checklist returning the highest fully-satisfied stage and
+naming the first unmet criterion.
+
+This is the D-001 rule at the level of the operator rather than the join. There
+the question was whether the *relation* exists; here it is whether the
+*arithmetic* means the same thing. Both fail the same way — a plausible number
+under a heading that makes it look defensible.
+
+Two more shapes that fail this test and are not crosswalk candidates:
+
+- **A framework already authored inside the assessment.** TACR's
+  `Strategy & Vision / WTO TFA Commitment` is 18 questions, one per TFA Article.
+  The framework's vocabulary *is* the assessment, so a projection would restate
+  the section against itself. It wants a direct report over that section.
+- **A framework with no evidence behind it.** WCO SAFE and the Revised Kyoto
+  Convention have exactly **one** TACR question each. You cannot score a
+  framework from one question, however good the crosswalk is.
 
 **PROJECTION IS LEAF-ONLY.** A dimension with children carries no crosswalk
 entries; its score rolls up from its children *inside the framework*, never

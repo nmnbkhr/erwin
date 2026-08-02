@@ -34,11 +34,21 @@
  * two states is how the compiler refuses it rather than a reviewer catching it.
  *
  * WEIGHTING IS AN ARGUMENT, NOT A SECOND FUNCTION. `aggregate()` takes a weight
- * per entry. HACR questions carry `weight` 0.8–1.2 and TACR questions carry none,
- * and category scoring in both modules passes 1 — an unweighted mean, stated as
- * an argument instead of as two code paths that could drift. See CLAUDE.md,
- * "HAIW scoring": making a module weighted throughout is a content decision with
- * its own before/after, not a refactor done in passing.
+ * per entry, and every caller in the suite now passes 1: TACR carries no `weight`
+ * field at all, and HACR's was flattened to 1 in D5 stage A.
+ *
+ * The parameter stays. It is what lets a module become weighted without a second
+ * implementation of the mean, and CLAUDE.md's rule holds — that is a content
+ * decision with its own before/after, not a refactor done in passing.
+ *
+ * WHAT HACR'S WEIGHT ACTUALLY WAS. This file used to say "HACR questions carry
+ * `weight` 0.8–1.2", which read as domain judgement. It was
+ * `W[(i + 1) % 5]` over the file, W = [0.8, 0.9, 1.0, 1.1, 1.2] — a counter, for
+ * all 720. Flattening it moved 46 of 108 printed capability scores and five
+ * priority bands on the golden fixture (all 108 scores and nine bands on the
+ * partial one, one of them off the top of page 13's ranking).
+ * `HAIW-WEIGHT` now asserts `=== 1` so the field cannot drift back without someone
+ * changing the rule file. docs/known-defects.md D-015.
  *
  * ROUNDING. `current` and `desired` are rounded to one decimal because the gap a
  * reader computes from the two printed numbers must equal the gap printed next to

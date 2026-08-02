@@ -571,9 +571,15 @@ function __selftestProbe(doc: jsPDF, s: string): void {
   },
   {
     code: 'HAIW-WEIGHT',
-    what: 'a zero weight — aggregate() would silently fall back to an unweighted mean',
+    // ONE assertion, one row. The old rule was `> 0` and had two conceivable
+    // branches; `=== 1` subsumes both, so a second row would exercise the same
+    // comparison twice and report a branch coverage the check does not have.
+    // 0.9 rather than 0 on purpose: 0 is the shape the old rule already caught,
+    // and 0.9 is the shape it passed for two phases — a plausible weight, which
+    // is what a counter looks like from outside.
+    what: 'a weight of 0.9 — the five-cycle reinstated, or real weighting begun without the walk',
     touches: [`${HAIW}/hacrQuestions.json`],
-    apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => { q[0].weight = 0 }),
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (q) => { q[0].weight = 0.9 }),
   },
 
   // ── BENCHMARK-ROLLUP, D-010 ─────────────────────────────────────────────

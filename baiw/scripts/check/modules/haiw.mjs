@@ -56,9 +56,11 @@ const hacrShape = {
       subcategory: str(),
       question: str(10),
       levelDescriptions: (v) => (v && typeof v === 'object' ? null : 'must be an object'),
-      // The only field capability scoring weights by. Out of range and the
-      // weighted mean stops meaning anything; zero or negative and `aggregate`
-      // falls back to an unweighted mean, which HAIW-WEIGHT forbids outright.
+      // Shape only: a number in a sane range. HAIW-WEIGHT owns the semantics and
+      // asserts `=== 1` — HACR is unweighted. Two codes on purpose: this one says
+      // "the field is a usable number", that one says "and it is the value the
+      // module decided on". Loosening either without the other is the gap the
+      // five-cycle lived in.
       weight: (v) => num(v) ?? (v > 0 && v <= 2 ? null : `must be in (0, 2], got ${v}`),
       capabilityLinks: (v) => (Array.isArray(v) && v.length > 0 ? null : 'must be a non-empty array — a question linking to nothing cannot score any capability'),
       pakistanContext: (v) => (typeof v === 'string' || v === null || v === undefined ? null : 'must be a string when present'),
@@ -242,22 +244,55 @@ const hcfFk = {
 
 // ── HAIW-WEIGHT ─────────────────────────────────────────────────────────────
 /**
- * Every weight is strictly positive, so `aggregate`'s NaN guard stays unreachable.
+ * HACR IS UNWEIGHTED. Every question weighs exactly 1.
  *
- * `aggregate()` falls back to an unweighted mean when the total weight is not
- * positive, because NaN on a client deliverable is worse than the wrong kind of
- * mean. That fallback is a last resort and must never be the thing that runs: a
- * silently unweighted capability score would disagree with the screen and nothing
- * would say so. The guard stays in the code; this asserts it is dead.
+ * ─── WHAT THIS ASSERTED BEFORE, AND WHY IT WAS NOT ENOUGH ──────────────────
+ *
+ * It asserted `weight > 0`, so that `aggregate()`'s unweighted fallback — the one
+ * guarding against NaN on a client deliverable — stayed provably dead. That was
+ * true and it was not the interesting property. It passed happily on:
+ *
+ *     weight === W[(i + 1) % 5]   for ALL 720 questions in file order,
+ *     W = [0.8, 0.9, 1.0, 1.1, 1.2]
+ *
+ * A repeating five-cycle over the file. Not editorial judgement, not domain
+ * weighting — a counter, and `> 0` cannot tell the two apart. It reached the
+ * client: on the golden fixture it moved 46 of 108 printed capability scores and
+ * five priority bands; on the partial fixture, all 108 scores and nine bands. Two
+ * capabilities entered page 13's top-20 ranking and two left it, on both profiles.
+ * See docs/known-defects.md D-015.
+ *
+ * ─── WHAT IT ASSERTS NOW ───────────────────────────────────────────────────
+ *
+ * `weight === 1`, which is STRICTLY STRONGER than `> 0` — so the NaN guard is
+ * still provably unreachable, by a wider margin than before — and which additional-
+ * ly makes "HACR is unweighted" a checked fact rather than a state of the file.
+ *
+ * This deliberately fails the day someone authors real weights. That is the point:
+ * weighting HACR moves every capability score and every priority band, so it is a
+ * content decision with its own walk, and the rule file has to be edited in the
+ * same commit that starts it. A check that quietly accepted the change would let
+ * the numbers move with nothing said — which is exactly how the counter survived.
+ *
+ * TACR carries no `weight` field at all, so the two modules now agree: category
+ * scoring passes 1 in both, and for HAIW that is now true of capability scoring
+ * too. See CLAUDE.md, "Category scoring — TAIW and HAIW".
  */
+const HACR_WEIGHT = 1
+
 const haiwWeight = {
   code: 'HAIW-WEIGHT',
   run(ctx) {
     const qs = ctx.data.hacr ?? []
     const { fail } = ctx
     for (const q of qs)
-      if (!(typeof q.weight === 'number' && q.weight > 0))
-        fail(`question ${q.id} has weight ${JSON.stringify(q.weight)} — a non-positive weight sends aggregate() down its unweighted fallback, and a silently unweighted capability score is one that disagrees with the screen for no visible reason`)
+      if (q.weight !== HACR_WEIGHT)
+        fail(
+          `question ${q.id} has weight ${JSON.stringify(q.weight)}, not ${HACR_WEIGHT}. HACR is unweighted by decision — ` +
+            `the field was a repeating 5-cycle (D-015) and flattening it moved 46 of 108 printed capability scores. ` +
+            `A weight that is not 1 is either that counter reinstated or real weighting begun, and the second needs ` +
+            `authoring, a walk and this rule changed in the same commit.`,
+        )
     const weights = qs.map((q) => q.weight).filter((w) => typeof w === 'number')
     return {
       examined: qs.length,
@@ -401,7 +436,14 @@ export default {
     out.push(
       `HACR ${map.examined ?? 0} questions across ${map.categories ?? 0} categories` +
         (map.perCategory ? `, ${map.perCategory} each` : '') +
-        (w.min !== null && w.min !== undefined ? `  weights ${w.min}–${w.max}` : ''),
+        // Printed as a range on purpose. "unweighted (1–1)" reads as a fact;
+        // "0.8–1.2" is what a five-cycle looked like on stdout for two phases
+        // while everybody read it as editorial judgement.
+        (w.min !== null && w.min !== undefined
+          ? w.min === w.max && w.min === 1
+            ? '  unweighted (every weight 1)'
+            : `  weights ${w.min}–${w.max}`
+          : ''),
     )
     const link = r['HCF-LINK'] ?? {}
     out.push(

@@ -193,18 +193,25 @@ export type { ScoreState } from '../../scoring/maturity'
 
 // ── Compute category scores from answers ──
 /**
- * EQUAL WEIGHTS HERE, WEIGHTED FOR CAPABILITIES, AND THAT IS A DELIBERATE SPLIT.
+ * EQUAL WEIGHTS, HERE AND IN CAPABILITY SCORING. THE SPLIT IS GONE.
  *
  * This function has always taken a plain arithmetic mean, and so does the on-screen
  * scorecard in `HealthMaturityAssessment.tsx` — which now calls this same code
- * rather than its own copy of it. Switching to weighted moves the fixture's every
- * category from desired 4.3 to 4.4 and every gap from 1.3 to 1.4, which would
- * change the cover score, the radar, the scorecard, all eight deep dives, the
- * benchmark page and the markdown. Making the whole module weighted is a content
- * decision for its own change, with its own walk.
+ * rather than its own copy of it.
  *
- * So it stays a mean, and it says so by passing `weight: 1` through the same
- * `aggregate()` the capability scoring uses. One primitive, one place, the
+ * This comment used to describe a "deliberate split": unweighted categories,
+ * weighted capabilities, with the asymmetry defended as an editorial choice. The
+ * asymmetry was real; the choice was not. HACR's `weight` was
+ * `W[(i + 1) % 5]` over the file — a counter — so capability scores were weighted
+ * by a repeating sequence and nothing else. D5 stage A flattened it to 1, and
+ * `HAIW-WEIGHT` now asserts that. Both halves of the module are unweighted, which
+ * is also what TACR is, since TACR carries no `weight` field at all.
+ *
+ * The `weight` parameter on `aggregate()` stays, and so does CLAUDE.md's rule:
+ * making a module genuinely weighted moves every category from desired 4.3 to 4.4
+ * and every gap from 1.3 to 1.4 — the cover score, the radar, the scorecard, all
+ * eight deep dives, the benchmark page and the markdown — and is a content
+ * decision for its own change, with its own walk. One primitive, one place, the
  * weighting choice visible as an argument instead of as two code paths that could
  * drift.
  *
@@ -461,9 +468,9 @@ interface CapabilityGapReport {
  *
  * Neither was necessary. The link exists in the dataset: every one of the 720
  * HACR questions carries `capabilityLinks`, all 108 capabilities are linked, and
- * each has six or seven questions assessing it. The score below is the
- * weight-weighted mean of the ANSWERED ones — the honest number, not a proxy for
- * it. There is no authoring gap to work around, which is what separates HAIW from
+ * each has six or seven questions assessing it. The score below is the mean of
+ * the ANSWERED ones — the honest number, not a proxy for it. There is no
+ * authoring gap to work around, which is what separates HAIW from
  * BAIW and TAIW: no such link exists there, so D-001 was closed for those two by
  * REMOVING the per-capability columns rather than deriving them. Same defect
  * class, opposite remedies, and the data decided which — see CLAUDE.md, "A
@@ -875,7 +882,12 @@ export function generateHealthMaturityPDF(
     ? `The HCF capability dataset could not be loaded, so no capability could be scored ` +
       `for this report. This page is empty for that reason and for no other — it is not a ` +
       `finding about the assessment. Category maturity elsewhere in this report is unaffected.`
-    : `Weight-weighted mean of the answered HACR questions linked to each capability. ` +
+    // "Weight-weighted" until D5 stage A, which was true of the code and false of
+    // the data: HACR's weight was a repeating five-cycle, not a judgement, and it
+    // is now 1 throughout. A caption claiming a weighting the numbers do not have
+    // is worse than no caption — it invites a reader to ask which questions
+    // counted more, and the honest answer was "whichever the counter landed on".
+    : `Unweighted mean of the answered HACR questions linked to each capability. ` +
       `Scored ${capGaps.scored} of ${capGaps.total} capabilities · not assessed ${capGaps.notAssessed} · ` +
       `not applicable ${capGaps.notApplicable}. ` +
       // "Showing the top 0" is technically true and reads like a bug. An empty
