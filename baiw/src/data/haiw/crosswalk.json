@@ -1,0 +1,1264 @@
+{
+  "_note": [
+    "HAIW framework crosswalk — the 80 HACR SUBCATEGORIES are the spine, not the 8",
+    "categories. Four frameworks, unlike TAIW's three: DGI reaches 100% of itself here.",
+    "",
+    "READ THIS FIRST — THE INSTRUMENT. All 720 HACR questions are NINE TEMPLATE STEMS",
+    "instantiated once per subcategory: strategic planning / resource allocation /",
+    "implementation maturity / staff competency / technology support / process",
+    "documentation / performance measurement / continuous improvement / stakeholder",
+    "engagement, each with the subcategory name substituted in. levelDescriptions and",
+    "pakistanContext are templated the same way -- 9 distinct forms across all 720.",
+    "TACR, by contrast, has 640 individually authored question texts, all distinct.",
+    "",
+    "So THE SUBCATEGORY LABEL IS THE QUESTION. Every mapping below rests on the label",
+    "and on the nine generic aspects behind it, and none rests on question wording,",
+    "because there is no question wording to rest on. That is why all four frameworks",
+    "reach 100% of themselves: uniform 9-question coverage of an 80-topic taxonomy",
+    "leaves no leaf without a plausible home. 100% REACH HERE IS A PROPERTY OF HOW THE",
+    "QUESTION BANK WAS GENERATED, NOT EVIDENCE OF DEPTH, and retainedShare cannot say",
+    "so -- a dimension can retain 1.0 on nine repetitions of one stem. HACR-INSTRUMENT",
+    "measures it and the build prints it; any deliverable using this crosswalk must",
+    "state it beside the scorecard.",
+    "",
+    "WHY SUBCATEGORIES. At 8 categories, 'Data Governance & Standards' would carry",
+    "31-50% of every framework's induced weight, exactly as TACR's did -- and pairwise",
+    "L1 would still clear any floor, so distinctness would pass and tell nobody. At 80",
+    "the heaviest single leaf is 18.7%. The granularity decision is the SPINE LEVEL.",
+    "",
+    "DGI IS IN, AND ITS CONCENTRATION IS THE FINDING. On DGIW's 11 pillars DGI puts",
+    "54.1% of its weight on P01 alone, because nine of its ten leaves are rules,",
+    "decision rights, accountabilities and the governance office and DGIW has one",
+    "pillar for all of it. Here the same ten leaves spread across",
+    "dg_data_governance_framework (18.7%), dg_data_stewardship (13.9%),",
+    "sl_performance_accountability (6.8%) and sl_executive_sponsorship_and_governance",
+    "(6.3%). The framework did not change; the spine did.",
+    "",
+    "NO FRAMEWORK-REACH EXCEPTIONS. All 44 leaves of all four frameworks are mapped.",
+    "DM07 Document & Content Management -- which TAIW had to except, 0 of 640 questions",
+    "-- lands on ii_document_exchange here, because health runs on clinical documents.",
+    "",
+    "FOURTEEN SUBCATEGORIES ARE UNMAPPED and CROSSWALK-ORPHAN reports rather than",
+    "asserts, for a DIFFERENT reason than TAIW's. TACR's seven were customs operations.",
+    "HACR's fourteen are patient engagement (6 of 10), care outcomes (5 of 10) and",
+    "workforce culture (3): patient portals, mobile health, telehealth, shared decision",
+    "making, social determinants, digital health equity, patient experience, population",
+    "health outcomes, research, health equity metrics, sustainability, innovation",
+    "culture, digital literacy, continuous learning. HACR IS NOT A DATA TAXONOMY",
+    "THROUGHOUT -- three of its eight categories are health service delivery, and no",
+    "data-management framework speaks to them. Measured, not assumed.",
+    "",
+    "MAPPINGS CONSIDERED AND REJECTED, each a label that resembles a join:",
+    "  oi_quality_improvement    -> APO14.06 data quality assessment. In health,",
+    "                               'quality improvement' means CLINICAL quality.",
+    "  ai_descriptive_analytics  -> APO14.05 data profiling. Profiling describes the",
+    "                               DATA; descriptive analytics describes the BUSINESS.",
+    "  pc_shared_decision_making -> DGI04 Decision Rights. Shared decision making is a",
+    "                               clinician-and-patient practice, not data authority.",
+    "  oi_sustainability_and_    -> DM04 / DCAM4. Programme sustainability, not",
+    "    scalability                technical scalability. is_scalability_and_",
+    "                               performance is the one that means the machine.",
+    "  pc_telehealth_analytics   -> DCAM8 Analytics Management. DCAM8 is scoped to the",
+    "                               ai_* capability set; admitting a service line",
+    "                               because its name ends in 'analytics' would make",
+    "                               DCAM8 a bucket for the word.",
+    "This is Stage C's EDM03 lesson -- enterprise risk mapped onto customs targeting",
+    "because both were called risk -- and HACR makes it sharper, not softer, because",
+    "the label is all there is.",
+    "",
+    "coverageWeight is the share of THIS DIMENSION that THIS SUBCATEGORY accounts for,",
+    "summing to 1.0 per leaf dimension. It is not 'how much of the subcategory this",
+    "dimension covers' -- under that reading a dimension score is not a weighted mean.",
+    "",
+    "NO LAYER. HACR carries no core/banking tag on any of its 720 questions, so entries",
+    "carry no layer field and every mapping is always visible. CROSSWALK-WEIGHT's",
+    "retained-zero assertions are structurally unreachable here and are DECLARED so",
+    "rather than silently skipped.",
+    "",
+    "Ids are namespaced CW-H-. TAIW's are CW-T-, DGIW's CW-D-. Sorted by id, code-unit",
+    "order; allocation-ordered within dimension order and never renumbered.",
+    "",
+    "EVERY ENTRY CARRIES A RATIONALE. A mapping you cannot defend in a room is not a",
+    "mapping. Where a rationale says it rests on a label or on a domain equivalence",
+    "rather than on the framework's own text, that is the honest state of that mapping",
+    "and is written down rather than smoothed over."
+  ],
+  "entries": [
+    {
+      "id": "CW-H-001",
+      "dimensionId": "DIM-001",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.4,
+      "rationale": "DMBOK's Data Governance area is policy, structure, oversight and issue management. This subcategory is that, under its own name: the nine stems ask whether the framework is planned, resourced, documented, measured and improved."
+    },
+    {
+      "id": "CW-H-002",
+      "dimensionId": "DIM-001",
+      "spineId": "dg_data_stewardship",
+      "coverageWeight": 0.25,
+      "rationale": "DMBOK names stewardship as a component of Data Governance rather than a separate area, so the stewardship subcategory belongs inside DM01 and not beside it."
+    },
+    {
+      "id": "CW-H-003",
+      "dimensionId": "DIM-001",
+      "spineId": "sl_executive_sponsorship_and_governance",
+      "coverageWeight": 0.2,
+      "rationale": "The governing body and its executive sponsor are DM01 content, and HACR files them under Strategy rather than under Data Governance. Mapping across the category boundary is the point of a crosswalk."
+    },
+    {
+      "id": "CW-H-004",
+      "dimensionId": "DIM-001",
+      "spineId": "dg_data_ethics",
+      "coverageWeight": 0.15,
+      "rationale": "DMBOK2 gives data handling ethics its own chapter, outside the eleven wheel areas this framework set carries. Its oversight half is exercised through the governance body, so it lands here at the smallest share. RESTS ON A JUDGEMENT about where an out-of-wheel chapter belongs, not on a label match."
+    },
+    {
+      "id": "CW-H-005",
+      "dimensionId": "DIM-002",
+      "spineId": "is_integration_architecture",
+      "coverageWeight": 0.45,
+      "rationale": "Data Architecture in DMBOK is the enterprise data flow and its alignment to the application landscape. Integration architecture is the closest thing HACR asks about, and in a health enterprise it is where the data flow is actually designed."
+    },
+    {
+      "id": "CW-H-006",
+      "dimensionId": "DIM-002",
+      "spineId": "is_health_information_systems",
+      "coverageWeight": 0.3,
+      "rationale": "The EMR/LIS/RIS/PACS estate IS the health organisation's data architecture in practice — the systems of record define the enterprise data model whether or not one is drawn."
+    },
+    {
+      "id": "CW-H-007",
+      "dimensionId": "DIM-002",
+      "spineId": "is_data_warehouse_and_analytics_platform",
+      "coverageWeight": 0.25,
+      "rationale": "The analytical layer of the architecture. Separated from DM09, which asks about the warehouse as a BI capability rather than as an architectural component."
+    },
+    {
+      "id": "CW-H-008",
+      "dimensionId": "DIM-003",
+      "spineId": "dg_data_standards_adoption",
+      "coverageWeight": 0.45,
+      "rationale": "HACR HAS NO SUBCATEGORY ABOUT DATA MODELLING. In health the enterprise logical model is largely the adopted standard: an organisation that has profiled FHIR resources and bound HL7 segments has done its logical modelling. This mapping rests on that domain equivalence, NOT on a label match, and it is the weakest of DMBOK's eleven here."
+    },
+    {
+      "id": "CW-H-009",
+      "dimensionId": "DIM-003",
+      "spineId": "ii_terminology_services",
+      "coverageWeight": 0.35,
+      "rationale": "Terminology bindings — SNOMED, LOINC, ICD value sets — are the health form of the naming standards and domain definitions DM03 asks about."
+    },
+    {
+      "id": "CW-H-010",
+      "dimensionId": "DIM-003",
+      "spineId": "ii_fhir_adoption",
+      "coverageWeight": 0.2,
+      "rationale": "FHIR resource profiling is physical model design against a published logical model. Small share because adopting a standard is not the same act as designing one."
+    },
+    {
+      "id": "CW-H-011",
+      "dimensionId": "DIM-004",
+      "spineId": "is_cloud_infrastructure",
+      "coverageWeight": 0.3,
+      "rationale": "Where the data physically lives and how it is provisioned — DM04's storage and operations half."
+    },
+    {
+      "id": "CW-H-012",
+      "dimensionId": "DIM-004",
+      "spineId": "is_scalability_and_performance",
+      "coverageWeight": 0.25,
+      "rationale": "Database and platform performance management is named DM04 content."
+    },
+    {
+      "id": "CW-H-013",
+      "dimensionId": "DIM-004",
+      "spineId": "is_disaster_recovery",
+      "coverageWeight": 0.25,
+      "rationale": "Availability, backup and recovery are DM04 operations, not a separate area, in DMBOK's wheel."
+    },
+    {
+      "id": "CW-H-014",
+      "dimensionId": "DIM-004",
+      "spineId": "dg_data_lifecycle_management",
+      "coverageWeight": 0.2,
+      "rationale": "The operational half of the lifecycle — provisioning, retention, purge — is DM04. Its governance half is DM07."
+    },
+    {
+      "id": "CW-H-015",
+      "dimensionId": "DIM-005",
+      "spineId": "dg_data_privacy_and_security",
+      "coverageWeight": 0.45,
+      "rationale": "Directly named: classification, access control, privacy obligations."
+    },
+    {
+      "id": "CW-H-016",
+      "dimensionId": "DIM-005",
+      "spineId": "is_cybersecurity",
+      "coverageWeight": 0.35,
+      "rationale": "The technical controls DM05 depends on. Separated because HACR asks about the security programme and the data-security policy in two different subcategories."
+    },
+    {
+      "id": "CW-H-017",
+      "dimensionId": "DIM-005",
+      "spineId": "pc_patient_data_access",
+      "coverageWeight": 0.2,
+      "rationale": "Who may see a patient record is the dominant data-security question in healthcare, and HACR files it under Patient Engagement. Both the access-right and the access-control halves are DM05 content."
+    },
+    {
+      "id": "CW-H-018",
+      "dimensionId": "DIM-006",
+      "spineId": "ii_health_information_exchange",
+      "coverageWeight": 0.2,
+      "rationale": "Cross-organisation data exchange is DM06's interoperability half at its most literal."
+    },
+    {
+      "id": "CW-H-019",
+      "dimensionId": "DIM-006",
+      "spineId": "ii_api_management",
+      "coverageWeight": 0.2,
+      "rationale": "The modern integration interface. DM06 covers integration services, patterns and their management."
+    },
+    {
+      "id": "CW-H-020",
+      "dimensionId": "DIM-006",
+      "spineId": "ii_hl7_messaging",
+      "coverageWeight": 0.15,
+      "rationale": "Interface engines and message routing — the classic integration layer in health, and still where most volume sits."
+    },
+    {
+      "id": "CW-H-021",
+      "dimensionId": "DIM-006",
+      "spineId": "ii_cross_system_integration",
+      "coverageWeight": 0.15,
+      "rationale": "Intra-enterprise integration, as distinct from exchange with other organisations."
+    },
+    {
+      "id": "CW-H-022",
+      "dimensionId": "DIM-006",
+      "spineId": "ii_data_federation",
+      "coverageWeight": 0.1,
+      "rationale": "Virtualisation and federation are named DM06 integration patterns."
+    },
+    {
+      "id": "CW-H-023",
+      "dimensionId": "DIM-006",
+      "spineId": "ii_real_time_event_streaming",
+      "coverageWeight": 0.1,
+      "rationale": "Event-driven integration — DM06's latency dimension."
+    },
+    {
+      "id": "CW-H-024",
+      "dimensionId": "DIM-006",
+      "spineId": "ii_legacy_system_integration",
+      "coverageWeight": 0.1,
+      "rationale": "Integration with systems that cannot be changed is a DM06 concern and, in health, usually the binding one."
+    },
+    {
+      "id": "CW-H-025",
+      "dimensionId": "DIM-007",
+      "spineId": "ii_document_exchange",
+      "coverageWeight": 0.65,
+      "rationale": "CDA/CCD clinical documents, discharge summaries and referral letters are unstructured and semi-structured content, which is exactly DM07. TAIW NEEDED A FRAMEWORK-REACH EXCEPTION HERE; HAIW does not, because health runs on clinical documents and TACR asks about none."
+    },
+    {
+      "id": "CW-H-026",
+      "dimensionId": "DIM-007",
+      "spineId": "dg_data_lifecycle_management",
+      "coverageWeight": 0.35,
+      "rationale": "DM07's records-management half: retention schedules and disposition for the medical record."
+    },
+    {
+      "id": "CW-H-027",
+      "dimensionId": "DIM-008",
+      "spineId": "dg_master_data_management",
+      "coverageWeight": 0.55,
+      "rationale": "Directly named. In health this is the patient index, the provider directory and the facility register."
+    },
+    {
+      "id": "CW-H-028",
+      "dimensionId": "DIM-008",
+      "spineId": "ii_terminology_services",
+      "coverageWeight": 0.3,
+      "rationale": "Code systems and value sets ARE reference data. DMBOK puts reference and master data in one area and health separates them in practice, so both belong here."
+    },
+    {
+      "id": "CW-H-029",
+      "dimensionId": "DIM-008",
+      "spineId": "dg_data_standards_adoption",
+      "coverageWeight": 0.15,
+      "rationale": "Adopting a standard code set is a reference-data decision before it is an interoperability one."
+    },
+    {
+      "id": "CW-H-030",
+      "dimensionId": "DIM-009",
+      "spineId": "is_data_warehouse_and_analytics_platform",
+      "coverageWeight": 0.4,
+      "rationale": "The warehouse itself — the platform DM09 is named for, and the only subcategory that asks about it as a capability rather than as an architecture component."
+    },
+    {
+      "id": "CW-H-031",
+      "dimensionId": "DIM-009",
+      "spineId": "is_business_intelligence_tools",
+      "coverageWeight": 0.3,
+      "rationale": "The BI half of DM09, which DMBOK carries in the same area rather than separately."
+    },
+    {
+      "id": "CW-H-032",
+      "dimensionId": "DIM-009",
+      "spineId": "ai_descriptive_analytics",
+      "coverageWeight": 0.2,
+      "rationale": "Reporting and dashboarding is what a warehouse is built to serve, and HACR files it under Analytics rather than under Infrastructure."
+    },
+    {
+      "id": "CW-H-033",
+      "dimensionId": "DIM-009",
+      "spineId": "ai_diagnostic_analytics",
+      "coverageWeight": 0.1,
+      "rationale": "Drill-down and root-cause analysis over the warehouse. Small share — DM09 stops short of the analytic techniques DCAM8 owns."
+    },
+    {
+      "id": "CW-H-034",
+      "dimensionId": "DIM-010",
+      "spineId": "dg_metadata_management",
+      "coverageWeight": 0.7,
+      "rationale": "Directly named, and unlike TAIW — where DM10 rested on one question in 640 — HACR carries a whole subcategory for it."
+    },
+    {
+      "id": "CW-H-035",
+      "dimensionId": "DIM-010",
+      "spineId": "ii_terminology_services",
+      "coverageWeight": 0.15,
+      "rationale": "Terminology servers hold the definitional metadata for coded fields."
+    },
+    {
+      "id": "CW-H-036",
+      "dimensionId": "DIM-010",
+      "spineId": "dg_data_standards_adoption",
+      "coverageWeight": 0.15,
+      "rationale": "Conformance to a published standard is metadata about the data's structure and meaning."
+    },
+    {
+      "id": "CW-H-037",
+      "dimensionId": "DIM-011",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 1,
+      "rationale": "THE ONLY SUBCATEGORY IN THE BANK ABOUT DATA QUALITY. Profiling, measurement and remediation are all inside this one label, so a single-node mapping is the honest shape here rather than a spread invented to make the vector look broader than the evidence is."
+    },
+    {
+      "id": "CW-H-038",
+      "dimensionId": "DIM-012",
+      "spineId": "sl_health_analytics_vision_and_strategy",
+      "coverageWeight": 0.4,
+      "rationale": "DCAM1 is the data management strategy and its business case. This subcategory is that statement of intent."
+    },
+    {
+      "id": "CW-H-039",
+      "dimensionId": "DIM-012",
+      "spineId": "sl_analytics_roadmap_and_investment",
+      "coverageWeight": 0.25,
+      "rationale": "The business case half — what is being funded and against what sequence."
+    },
+    {
+      "id": "CW-H-040",
+      "dimensionId": "DIM-012",
+      "spineId": "sl_national_health_strategy_alignment",
+      "coverageWeight": 0.2,
+      "rationale": "DCAM1 asks whether the data strategy is aligned to the enterprise strategy; for a public health system the enterprise strategy is the national one."
+    },
+    {
+      "id": "CW-H-041",
+      "dimensionId": "DIM-012",
+      "spineId": "sl_data_driven_decision_making",
+      "coverageWeight": 0.15,
+      "rationale": "The business case is only made if decisions actually consume the output. DCAM1 asks for the linkage, not just the document."
+    },
+    {
+      "id": "CW-H-042",
+      "dimensionId": "DIM-013",
+      "spineId": "sl_analytics_roadmap_and_investment",
+      "coverageWeight": 0.35,
+      "rationale": "Programme funding, directly: DCAM2 asks whether the data management programme has a funded, multi-year plan, and this is the only subcategory about investment."
+    },
+    {
+      "id": "CW-H-043",
+      "dimensionId": "DIM-013",
+      "spineId": "sl_executive_sponsorship_and_governance",
+      "coverageWeight": 0.25,
+      "rationale": "DCAM2 asks who owns the programme and whether it has standing. That is the sponsor."
+    },
+    {
+      "id": "CW-H-044",
+      "dimensionId": "DIM-013",
+      "spineId": "sl_change_management_and_adoption",
+      "coverageWeight": 0.2,
+      "rationale": "DCAM2 covers programme rollout and the engagement that makes it stick."
+    },
+    {
+      "id": "CW-H-045",
+      "dimensionId": "DIM-013",
+      "spineId": "sl_performance_accountability",
+      "coverageWeight": 0.2,
+      "rationale": "Programme accountability — whether anyone is answerable for the programme's stated outcomes."
+    },
+    {
+      "id": "CW-H-046",
+      "dimensionId": "DIM-014",
+      "spineId": "is_health_information_systems",
+      "coverageWeight": 0.3,
+      "rationale": "The business architecture side: which system holds which business data, and for which process."
+    },
+    {
+      "id": "CW-H-047",
+      "dimensionId": "DIM-014",
+      "spineId": "is_integration_architecture",
+      "coverageWeight": 0.25,
+      "rationale": "How the business data model is realised as flows between those systems."
+    },
+    {
+      "id": "CW-H-048",
+      "dimensionId": "DIM-014",
+      "spineId": "dg_master_data_management",
+      "coverageWeight": 0.2,
+      "rationale": "DCAM3 explicitly includes the identification and definition of critical data elements, which in health is the patient, provider and encounter master."
+    },
+    {
+      "id": "CW-H-049",
+      "dimensionId": "DIM-014",
+      "spineId": "ii_terminology_services",
+      "coverageWeight": 0.15,
+      "rationale": "The shared vocabulary the business architecture is expressed in."
+    },
+    {
+      "id": "CW-H-050",
+      "dimensionId": "DIM-014",
+      "spineId": "dg_data_standards_adoption",
+      "coverageWeight": 0.1,
+      "rationale": "Adopted structures constrain the data architecture; small share because DCAM3 is about the organisation's own model first."
+    },
+    {
+      "id": "CW-H-051",
+      "dimensionId": "DIM-015",
+      "spineId": "is_data_warehouse_and_analytics_platform",
+      "coverageWeight": 0.3,
+      "rationale": "The analytical platform is DCAM4's central technology component."
+    },
+    {
+      "id": "CW-H-052",
+      "dimensionId": "DIM-015",
+      "spineId": "is_cloud_infrastructure",
+      "coverageWeight": 0.25,
+      "rationale": "Hosting and provisioning model."
+    },
+    {
+      "id": "CW-H-053",
+      "dimensionId": "DIM-015",
+      "spineId": "is_real_time_processing",
+      "coverageWeight": 0.15,
+      "rationale": "Streaming and near-real-time capability is a technology architecture property, not an analytics one."
+    },
+    {
+      "id": "CW-H-054",
+      "dimensionId": "DIM-015",
+      "spineId": "is_scalability_and_performance",
+      "coverageWeight": 0.15,
+      "rationale": "Non-functional characteristics of the technology architecture."
+    },
+    {
+      "id": "CW-H-055",
+      "dimensionId": "DIM-015",
+      "spineId": "is_mobile_and_edge_computing",
+      "coverageWeight": 0.15,
+      "rationale": "Edge and mobile deployment is a distinct architecture tier and in health it is the one that reaches the point of care."
+    },
+    {
+      "id": "CW-H-056",
+      "dimensionId": "DIM-016",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 1,
+      "rationale": "Single-node for the same reason as DM11: HACR asks about data quality in exactly one place. Two frameworks resting their whole quality component on one subcategory is a fact about the assessment's depth, and it is why the instrument disclosure has to be on the page."
+    },
+    {
+      "id": "CW-H-057",
+      "dimensionId": "DIM-017",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.4,
+      "rationale": "DCAM6 is the governance operating model — directly named."
+    },
+    {
+      "id": "CW-H-058",
+      "dimensionId": "DIM-017",
+      "spineId": "dg_data_stewardship",
+      "coverageWeight": 0.3,
+      "rationale": "DCAM treats stewardship as a governance role rather than a separate component."
+    },
+    {
+      "id": "CW-H-059",
+      "dimensionId": "DIM-017",
+      "spineId": "sl_executive_sponsorship_and_governance",
+      "coverageWeight": 0.15,
+      "rationale": "The governance body's authority and its executive mandate."
+    },
+    {
+      "id": "CW-H-060",
+      "dimensionId": "DIM-017",
+      "spineId": "dg_data_ethics",
+      "coverageWeight": 0.15,
+      "rationale": "DCAM6 includes the ethical use policy under governance rather than under control."
+    },
+    {
+      "id": "CW-H-061",
+      "dimensionId": "DIM-018",
+      "spineId": "dg_regulatory_compliance",
+      "coverageWeight": 0.3,
+      "rationale": "The control environment is where regulatory obligation becomes a tested control."
+    },
+    {
+      "id": "CW-H-062",
+      "dimensionId": "DIM-018",
+      "spineId": "dg_data_privacy_and_security",
+      "coverageWeight": 0.25,
+      "rationale": "Privacy and security controls are DCAM7's largest named group."
+    },
+    {
+      "id": "CW-H-063",
+      "dimensionId": "DIM-018",
+      "spineId": "is_cybersecurity",
+      "coverageWeight": 0.15,
+      "rationale": "The technical control layer beneath the policy."
+    },
+    {
+      "id": "CW-H-064",
+      "dimensionId": "DIM-018",
+      "spineId": "sl_regulatory_alignment",
+      "coverageWeight": 0.15,
+      "rationale": "Whether the organisation tracks the obligations it must control for. HACR files this under Strategy; DCAM7 needs it."
+    },
+    {
+      "id": "CW-H-065",
+      "dimensionId": "DIM-018",
+      "spineId": "pc_patient_data_access",
+      "coverageWeight": 0.1,
+      "rationale": "Consent and access rights are a controlled process in health, with an audit trail DCAM7 would expect to see."
+    },
+    {
+      "id": "CW-H-066",
+      "dimensionId": "DIM-018",
+      "spineId": "dg_data_lifecycle_management",
+      "coverageWeight": 0.05,
+      "rationale": "Retention and disposition controls. Smallest share of the six: APO14.09 and DM07 carry most of this ground, and DCAM7 wants the control rather than the schedule."
+    },
+    {
+      "id": "CW-H-067",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_ai_and_machine_learning",
+      "coverageWeight": 0.14,
+      "rationale": "DCAM8 Analytics Management covers the analytics estate, its methods and its governance. Model development and management is its centre of gravity today."
+    },
+    {
+      "id": "CW-H-068",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_predictive_analytics",
+      "coverageWeight": 0.12,
+      "rationale": "A named analytic capability under management."
+    },
+    {
+      "id": "CW-H-069",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_clinical_analytics",
+      "coverageWeight": 0.11,
+      "rationale": "The dominant analytics domain in a health organisation, so it carries more than the other domain-specific ones."
+    },
+    {
+      "id": "CW-H-070",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_population_health_analytics",
+      "coverageWeight": 0.1,
+      "rationale": "The second domain, and the one that reaches beyond the organisation's own encounters."
+    },
+    {
+      "id": "CW-H-071",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_prescriptive_analytics",
+      "coverageWeight": 0.1,
+      "rationale": "Optimisation and recommendation, as a managed capability."
+    },
+    {
+      "id": "CW-H-072",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_operational_analytics",
+      "coverageWeight": 0.09,
+      "rationale": "Throughput, capacity and flow analytics."
+    },
+    {
+      "id": "CW-H-073",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_natural_language_processing",
+      "coverageWeight": 0.09,
+      "rationale": "Text analytics over clinical notes — a distinct managed capability in health, not a variant of ML."
+    },
+    {
+      "id": "CW-H-074",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_financial_analytics",
+      "coverageWeight": 0.08,
+      "rationale": "Costing, claims and revenue-cycle analytics."
+    },
+    {
+      "id": "CW-H-075",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_diagnostic_analytics",
+      "coverageWeight": 0.07,
+      "rationale": "Included at a small share because DM09 already carries most of it as BI; DCAM8 wants the method, not the tool."
+    },
+    {
+      "id": "CW-H-076",
+      "dimensionId": "DIM-019",
+      "spineId": "ai_descriptive_analytics",
+      "coverageWeight": 0.06,
+      "rationale": "Same split as diagnostic — the reporting layer is mostly DM09's and only its management is DCAM8's."
+    },
+    {
+      "id": "CW-H-077",
+      "dimensionId": "DIM-019",
+      "spineId": "ws_data_science_and_analytics_talent",
+      "coverageWeight": 0.04,
+      "rationale": "DCAM8 asks whether the analytics function is staffed to do what it claims. Small share: it is one clause of the component, not its subject."
+    },
+    {
+      "id": "CW-H-078",
+      "dimensionId": "DIM-023",
+      "spineId": "sl_health_analytics_vision_and_strategy",
+      "coverageWeight": 0.55,
+      "rationale": "DGI's Mission and Vision is the statement of what the governance programme is for. HACR asks it about analytics rather than about governance, which is the closest the bank comes."
+    },
+    {
+      "id": "CW-H-079",
+      "dimensionId": "DIM-023",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.25,
+      "rationale": "A documented framework is where the mission is normally written down."
+    },
+    {
+      "id": "CW-H-080",
+      "dimensionId": "DIM-023",
+      "spineId": "sl_national_health_strategy_alignment",
+      "coverageWeight": 0.2,
+      "rationale": "What the mission is aligned to."
+    },
+    {
+      "id": "CW-H-081",
+      "dimensionId": "DIM-024",
+      "spineId": "sl_analytics_roadmap_and_investment",
+      "coverageWeight": 0.4,
+      "rationale": "DGI02 names funding strategies in its own title, and this is the only subcategory about investment."
+    },
+    {
+      "id": "CW-H-082",
+      "dimensionId": "DIM-024",
+      "spineId": "sl_performance_accountability",
+      "coverageWeight": 0.35,
+      "rationale": "Success measures and who answers for them."
+    },
+    {
+      "id": "CW-H-083",
+      "dimensionId": "DIM-024",
+      "spineId": "sl_data_driven_decision_making",
+      "coverageWeight": 0.25,
+      "rationale": "Whether the governance metrics reach a decision. DGI02 is about measures that are used, not measures that exist."
+    },
+    {
+      "id": "CW-H-084",
+      "dimensionId": "DIM-025",
+      "spineId": "dg_data_standards_adoption",
+      "coverageWeight": 0.3,
+      "rationale": "Data rules, in the form the health domain publishes them."
+    },
+    {
+      "id": "CW-H-085",
+      "dimensionId": "DIM-025",
+      "spineId": "dg_metadata_management",
+      "coverageWeight": 0.25,
+      "rationale": "Definitions — the second half of DGI03's title — live in the metadata layer."
+    },
+    {
+      "id": "CW-H-086",
+      "dimensionId": "DIM-025",
+      "spineId": "ii_terminology_services",
+      "coverageWeight": 0.2,
+      "rationale": "A bound value set IS a data rule with an enforcement point."
+    },
+    {
+      "id": "CW-H-087",
+      "dimensionId": "DIM-025",
+      "spineId": "dg_master_data_management",
+      "coverageWeight": 0.15,
+      "rationale": "Matching and survivorship rules for the patient and provider masters."
+    },
+    {
+      "id": "CW-H-088",
+      "dimensionId": "DIM-025",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 0.1,
+      "rationale": "Quality rules are the executable form of a data rule."
+    },
+    {
+      "id": "CW-H-089",
+      "dimensionId": "DIM-026",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.45,
+      "rationale": "Decision rights are what a governance framework allocates; HACR asks about the framework and not about the allocation directly."
+    },
+    {
+      "id": "CW-H-090",
+      "dimensionId": "DIM-026",
+      "spineId": "sl_executive_sponsorship_and_governance",
+      "coverageWeight": 0.3,
+      "rationale": "Where escalated decisions land."
+    },
+    {
+      "id": "CW-H-091",
+      "dimensionId": "DIM-026",
+      "spineId": "dg_data_stewardship",
+      "coverageWeight": 0.25,
+      "rationale": "Stewards hold the delegated day-to-day decision rights."
+    },
+    {
+      "id": "CW-H-092",
+      "dimensionId": "DIM-027",
+      "spineId": "sl_performance_accountability",
+      "coverageWeight": 0.4,
+      "rationale": "Accountability, under its own name — although HACR asks about organisational accountability rather than data accountability specifically. RESTS PARTLY ON THE LABEL."
+    },
+    {
+      "id": "CW-H-093",
+      "dimensionId": "DIM-027",
+      "spineId": "dg_data_stewardship",
+      "coverageWeight": 0.35,
+      "rationale": "The named accountable role for a data domain."
+    },
+    {
+      "id": "CW-H-094",
+      "dimensionId": "DIM-027",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.25,
+      "rationale": "Where accountabilities are documented."
+    },
+    {
+      "id": "CW-H-095",
+      "dimensionId": "DIM-028",
+      "spineId": "dg_data_privacy_and_security",
+      "coverageWeight": 0.3,
+      "rationale": "DGI's Controls covers the preventive and detective controls over data, of which privacy and security are the largest group."
+    },
+    {
+      "id": "CW-H-096",
+      "dimensionId": "DIM-028",
+      "spineId": "dg_regulatory_compliance",
+      "coverageWeight": 0.3,
+      "rationale": "Compliance controls and their testing."
+    },
+    {
+      "id": "CW-H-097",
+      "dimensionId": "DIM-028",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 0.2,
+      "rationale": "Quality controls at the point of capture are DGI06 controls, not DGI03 rules."
+    },
+    {
+      "id": "CW-H-098",
+      "dimensionId": "DIM-028",
+      "spineId": "is_cybersecurity",
+      "coverageWeight": 0.2,
+      "rationale": "The technical control layer beneath DGI06's policy controls — detection, monitoring and response, which the framework counts as controls rather than as infrastructure."
+    },
+    {
+      "id": "CW-H-099",
+      "dimensionId": "DIM-029",
+      "spineId": "ws_interdisciplinary_collaboration",
+      "coverageWeight": 0.3,
+      "rationale": "DGI's Data Stakeholders is the set of groups with a stake in the data and the forums that bring them together. Clinical/IT/analytics collaboration is that forum."
+    },
+    {
+      "id": "CW-H-100",
+      "dimensionId": "DIM-029",
+      "spineId": "sl_strategic_partnerships",
+      "coverageWeight": 0.25,
+      "rationale": "External stakeholders — payers, ministries, research partners."
+    },
+    {
+      "id": "CW-H-101",
+      "dimensionId": "DIM-029",
+      "spineId": "ws_knowledge_management",
+      "coverageWeight": 0.15,
+      "rationale": "How stakeholder knowledge is captured and circulated."
+    },
+    {
+      "id": "CW-H-102",
+      "dimensionId": "DIM-029",
+      "spineId": "pc_patient_feedback_systems",
+      "coverageWeight": 0.15,
+      "rationale": "Patients are data subjects and therefore stakeholders in health data governance; patient advisory input on data use is a named practice. RESTS ON THE HEALTH DOMAIN rather than on DGI's own text, which was written for a corporate setting."
+    },
+    {
+      "id": "CW-H-103",
+      "dimensionId": "DIM-029",
+      "spineId": "pc_community_health_programs",
+      "coverageWeight": 0.15,
+      "rationale": "Community organisations as data stakeholders, on the same reasoning as the line above."
+    },
+    {
+      "id": "CW-H-104",
+      "dimensionId": "DIM-030",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.5,
+      "rationale": "The DGO is the framework's standing organisational form. HACR asks about the framework rather than the office; the office is the largest thing inside it."
+    },
+    {
+      "id": "CW-H-105",
+      "dimensionId": "DIM-030",
+      "spineId": "dg_data_stewardship",
+      "coverageWeight": 0.25,
+      "rationale": "The stewardship function the office coordinates."
+    },
+    {
+      "id": "CW-H-106",
+      "dimensionId": "DIM-030",
+      "spineId": "sl_executive_sponsorship_and_governance",
+      "coverageWeight": 0.25,
+      "rationale": "The office's mandate and reporting line."
+    },
+    {
+      "id": "CW-H-107",
+      "dimensionId": "DIM-031",
+      "spineId": "dg_data_stewardship",
+      "coverageWeight": 0.55,
+      "rationale": "DGI's Data Stewards and HACR's Data Stewardship are the same role under two spellings — the one mapping in this crosswalk where the framework leaf and the subcategory mean each other exactly."
+    },
+    {
+      "id": "CW-H-108",
+      "dimensionId": "DIM-031",
+      "spineId": "ws_clinical_informatics_skills",
+      "coverageWeight": 0.25,
+      "rationale": "In health the data steward for a clinical domain IS a clinical informatician. This is a domain-specific staffing fact, not a label match."
+    },
+    {
+      "id": "CW-H-109",
+      "dimensionId": "DIM-031",
+      "spineId": "ws_health_it_competencies",
+      "coverageWeight": 0.2,
+      "rationale": "The technical half of the steward's competency profile."
+    },
+    {
+      "id": "CW-H-110",
+      "dimensionId": "DIM-032",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.2,
+      "rationale": "DGI10 is the ongoing operation of governance — the processes rather than the structure. The framework subcategory carries its documented form."
+    },
+    {
+      "id": "CW-H-111",
+      "dimensionId": "DIM-032",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 0.2,
+      "rationale": "Issue detection and remediation is DGI10's reactive process."
+    },
+    {
+      "id": "CW-H-112",
+      "dimensionId": "DIM-032",
+      "spineId": "dg_data_lifecycle_management",
+      "coverageWeight": 0.2,
+      "rationale": "Provisioning, change and disposition are its ongoing processes."
+    },
+    {
+      "id": "CW-H-113",
+      "dimensionId": "DIM-032",
+      "spineId": "dg_regulatory_compliance",
+      "coverageWeight": 0.15,
+      "rationale": "Compliance monitoring is a recurring governance process, not a one-off control."
+    },
+    {
+      "id": "CW-H-114",
+      "dimensionId": "DIM-032",
+      "spineId": "dg_metadata_management",
+      "coverageWeight": 0.15,
+      "rationale": "Definition change control — the recurring process by which a data definition is proposed, reviewed and published, which is DGI10 rather than DGI03."
+    },
+    {
+      "id": "CW-H-115",
+      "dimensionId": "DIM-032",
+      "spineId": "dg_master_data_management",
+      "coverageWeight": 0.1,
+      "rationale": "Match review and merge adjudication — the most operational of the recurring processes."
+    },
+    {
+      "id": "CW-H-116",
+      "dimensionId": "DIM-033",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.4,
+      "rationale": "EDM01 is the governance framework itself — setting it, and maintaining it."
+    },
+    {
+      "id": "CW-H-117",
+      "dimensionId": "DIM-033",
+      "spineId": "sl_executive_sponsorship_and_governance",
+      "coverageWeight": 0.3,
+      "rationale": "The governing body EDM01 addresses is the board; HACR's nearest is executive sponsorship."
+    },
+    {
+      "id": "CW-H-118",
+      "dimensionId": "DIM-033",
+      "spineId": "sl_regulatory_alignment",
+      "coverageWeight": 0.15,
+      "rationale": "EDM01 requires the framework to reflect the regulatory environment it operates in."
+    },
+    {
+      "id": "CW-H-119",
+      "dimensionId": "DIM-033",
+      "spineId": "dg_data_ethics",
+      "coverageWeight": 0.15,
+      "rationale": "COBIT 2019 places ethical conduct and organisational values inside EDM01 rather than in a control objective."
+    },
+    {
+      "id": "CW-H-120",
+      "dimensionId": "DIM-034",
+      "spineId": "oi_financial_impact_assessment",
+      "coverageWeight": 0.25,
+      "rationale": "Benefits realisation, in the form COBIT was written for."
+    },
+    {
+      "id": "CW-H-121",
+      "dimensionId": "DIM-034",
+      "spineId": "oi_operational_efficiency_gains",
+      "coverageWeight": 0.2,
+      "rationale": "The second realised-benefit category, and in health usually the more measurable one."
+    },
+    {
+      "id": "CW-H-122",
+      "dimensionId": "DIM-034",
+      "spineId": "sl_analytics_roadmap_and_investment",
+      "coverageWeight": 0.15,
+      "rationale": "The investment side of the value equation EDM02 balances."
+    },
+    {
+      "id": "CW-H-123",
+      "dimensionId": "DIM-034",
+      "spineId": "oi_clinical_outcome_measurement",
+      "coverageWeight": 0.15,
+      "rationale": "IN A HEALTH ORGANISATION THE BENEFIT IS CLINICAL. EDM02 asks whether value is defined, tracked and realised; defining it only financially would be the wrong instrument for the sector."
+    },
+    {
+      "id": "CW-H-124",
+      "dimensionId": "DIM-034",
+      "spineId": "oi_benchmarking_and_comparison",
+      "coverageWeight": 0.15,
+      "rationale": "EDM02 expects value to be assessed against a comparator, not in isolation."
+    },
+    {
+      "id": "CW-H-125",
+      "dimensionId": "DIM-034",
+      "spineId": "oi_quality_improvement",
+      "coverageWeight": 0.1,
+      "rationale": "Where a measured benefit is fed back into a change. Small share — QI here is clinical, and only its measurement half is EDM02's."
+    },
+    {
+      "id": "CW-H-126",
+      "dimensionId": "DIM-035",
+      "spineId": "is_cybersecurity",
+      "coverageWeight": 0.3,
+      "rationale": "EDM03 IS ENTERPRISE IT RISK GOVERNANCE. Stage C put it on customs targeting because both were called risk; the same trap exists here and HACR has no risk subcategory at all, so it maps to the actual risk domains instead."
+    },
+    {
+      "id": "CW-H-127",
+      "dimensionId": "DIM-035",
+      "spineId": "dg_data_privacy_and_security",
+      "coverageWeight": 0.25,
+      "rationale": "Data risk appetite and its treatment."
+    },
+    {
+      "id": "CW-H-128",
+      "dimensionId": "DIM-035",
+      "spineId": "is_disaster_recovery",
+      "coverageWeight": 0.25,
+      "rationale": "Continuity risk, which EDM03 requires to be governed rather than merely planned."
+    },
+    {
+      "id": "CW-H-129",
+      "dimensionId": "DIM-035",
+      "spineId": "dg_regulatory_compliance",
+      "coverageWeight": 0.2,
+      "rationale": "Compliance risk, which EDM03 treats as one of the risk categories the board must set an appetite for rather than as a control outcome."
+    },
+    {
+      "id": "CW-H-130",
+      "dimensionId": "DIM-036",
+      "spineId": "ws_workforce_planning",
+      "coverageWeight": 0.25,
+      "rationale": "EDM04 is resource optimisation across people, process and technology. Workforce planning is its people half at the strategic level."
+    },
+    {
+      "id": "CW-H-131",
+      "dimensionId": "DIM-036",
+      "spineId": "ws_data_science_and_analytics_talent",
+      "coverageWeight": 0.2,
+      "rationale": "The specific capability whose scarcity constrains everything else in this module."
+    },
+    {
+      "id": "CW-H-132",
+      "dimensionId": "DIM-036",
+      "spineId": "ws_training_and_development_programs",
+      "coverageWeight": 0.2,
+      "rationale": "EDM04 explicitly requires skills and competencies to be developed, not just acquired."
+    },
+    {
+      "id": "CW-H-133",
+      "dimensionId": "DIM-036",
+      "spineId": "ws_recruitment_and_retention",
+      "coverageWeight": 0.15,
+      "rationale": "Acquisition and retention of the resource."
+    },
+    {
+      "id": "CW-H-134",
+      "dimensionId": "DIM-036",
+      "spineId": "is_cloud_infrastructure",
+      "coverageWeight": 0.1,
+      "rationale": "Technology resource optimisation — elasticity as a cost lever."
+    },
+    {
+      "id": "CW-H-135",
+      "dimensionId": "DIM-036",
+      "spineId": "is_scalability_and_performance",
+      "coverageWeight": 0.1,
+      "rationale": "Capacity management, the other technology-resource half."
+    },
+    {
+      "id": "CW-H-136",
+      "dimensionId": "DIM-037",
+      "spineId": "sl_strategic_partnerships",
+      "coverageWeight": 0.25,
+      "rationale": "EDM05 is stakeholder engagement, transparency and reporting. Partnerships are its external face."
+    },
+    {
+      "id": "CW-H-137",
+      "dimensionId": "DIM-037",
+      "spineId": "ws_interdisciplinary_collaboration",
+      "coverageWeight": 0.2,
+      "rationale": "Internal stakeholder engagement."
+    },
+    {
+      "id": "CW-H-138",
+      "dimensionId": "DIM-037",
+      "spineId": "pc_patient_feedback_systems",
+      "coverageWeight": 0.2,
+      "rationale": "Health's primary stakeholder is the patient, and this is the only subcategory asking whether their view is collected and acted on."
+    },
+    {
+      "id": "CW-H-139",
+      "dimensionId": "DIM-037",
+      "spineId": "sl_change_management_and_adoption",
+      "coverageWeight": 0.2,
+      "rationale": "EDM05's communication and engagement requirement in operational form."
+    },
+    {
+      "id": "CW-H-140",
+      "dimensionId": "DIM-037",
+      "spineId": "pc_health_education_and_literacy",
+      "coverageWeight": 0.15,
+      "rationale": "Transparency toward the stakeholder — EDM05 asks whether reporting is understood, not just issued."
+    },
+    {
+      "id": "CW-H-141",
+      "dimensionId": "DIM-039",
+      "spineId": "sl_health_analytics_vision_and_strategy",
+      "coverageWeight": 0.35,
+      "rationale": "The data management strategy APO14.01 asks to be defined and communicated."
+    },
+    {
+      "id": "CW-H-142",
+      "dimensionId": "DIM-039",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.25,
+      "rationale": "Where the strategy is operationalised as structure."
+    },
+    {
+      "id": "CW-H-143",
+      "dimensionId": "DIM-039",
+      "spineId": "dg_data_stewardship",
+      "coverageWeight": 0.25,
+      "rationale": "The roles and responsibilities half of APO14.01, which names it explicitly."
+    },
+    {
+      "id": "CW-H-144",
+      "dimensionId": "DIM-039",
+      "spineId": "sl_national_health_strategy_alignment",
+      "coverageWeight": 0.15,
+      "rationale": "The external anchor the strategy is communicated against."
+    },
+    {
+      "id": "CW-H-145",
+      "dimensionId": "DIM-040",
+      "spineId": "ii_terminology_services",
+      "coverageWeight": 0.45,
+      "rationale": "THE BUSINESS GLOSSARY OF A HEALTH ORGANISATION IS ITS TERMINOLOGY SERVICE — SNOMED, LOINC, ICD and the local value sets bound to them. In TAIW this dimension rested on one question in 640; here it rests on a subcategory built for it."
+    },
+    {
+      "id": "CW-H-146",
+      "dimensionId": "DIM-040",
+      "spineId": "dg_metadata_management",
+      "coverageWeight": 0.3,
+      "rationale": "The glossary is a metadata artefact and is maintained with the rest of it."
+    },
+    {
+      "id": "CW-H-147",
+      "dimensionId": "DIM-040",
+      "spineId": "dg_data_standards_adoption",
+      "coverageWeight": 0.25,
+      "rationale": "Consistency across the glossary is achieved by adopting a published standard rather than by negotiating each term."
+    },
+    {
+      "id": "CW-H-148",
+      "dimensionId": "DIM-041",
+      "spineId": "dg_metadata_management",
+      "coverageWeight": 0.7,
+      "rationale": "Directly named, processes and infrastructure both."
+    },
+    {
+      "id": "CW-H-149",
+      "dimensionId": "DIM-041",
+      "spineId": "dg_data_standards_adoption",
+      "coverageWeight": 0.15,
+      "rationale": "Standards supply the metadata schema."
+    },
+    {
+      "id": "CW-H-150",
+      "dimensionId": "DIM-041",
+      "spineId": "is_data_warehouse_and_analytics_platform",
+      "coverageWeight": 0.15,
+      "rationale": "The catalogue and lineage infrastructure normally sits with the platform."
+    },
+    {
+      "id": "CW-H-151",
+      "dimensionId": "DIM-042",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 0.7,
+      "rationale": "The data quality strategy, directly."
+    },
+    {
+      "id": "CW-H-152",
+      "dimensionId": "DIM-042",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.2,
+      "rationale": "A quality strategy without a governance framework has no route to enforcement, which APO14.04 requires."
+    },
+    {
+      "id": "CW-H-153",
+      "dimensionId": "DIM-042",
+      "spineId": "sl_data_driven_decision_making",
+      "coverageWeight": 0.1,
+      "rationale": "The strategy is scoped by what decisions the data must support. Small share; it is one input, not the subject."
+    },
+    {
+      "id": "CW-H-154",
+      "dimensionId": "DIM-043",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 0.75,
+      "rationale": "Profiling is a data quality practice and HACR asks about it nowhere else."
+    },
+    {
+      "id": "CW-H-155",
+      "dimensionId": "DIM-043",
+      "spineId": "dg_metadata_management",
+      "coverageWeight": 0.25,
+      "rationale": "Profiling output — distributions, patterns, nullability — is metadata, and APO14.05 expects it to be retained as such. NOTE: `ai_descriptive_analytics` was considered and REJECTED. Profiling describes the data; descriptive analytics describes the business. That is a label adjacency, not a join."
+    },
+    {
+      "id": "CW-H-156",
+      "dimensionId": "DIM-044",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 0.8,
+      "rationale": "The assessment approach, directly."
+    },
+    {
+      "id": "CW-H-157",
+      "dimensionId": "DIM-044",
+      "spineId": "dg_data_governance_framework",
+      "coverageWeight": 0.2,
+      "rationale": "Who commissions an assessment and who receives it. NOTE: `oi_quality_improvement` was considered and REJECTED — in a health assessment \"quality improvement\" means CLINICAL quality, and mapping it here would have been the EDM03/customs-risk mistake in a new costume."
+    },
+    {
+      "id": "CW-H-158",
+      "dimensionId": "DIM-045",
+      "spineId": "dg_data_quality_management",
+      "coverageWeight": 0.65,
+      "rationale": "Cleansing is the remediation half of quality management."
+    },
+    {
+      "id": "CW-H-159",
+      "dimensionId": "DIM-045",
+      "spineId": "dg_master_data_management",
+      "coverageWeight": 0.35,
+      "rationale": "In health, cleansing IS the patient index: duplicate detection, merge and unmerge. That is where the volume of remediation actually happens, and it is a genuine domain fact rather than a broadening of the mapping."
+    },
+    {
+      "id": "CW-H-160",
+      "dimensionId": "DIM-046",
+      "spineId": "dg_data_lifecycle_management",
+      "coverageWeight": 0.7,
+      "rationale": "The lifecycle of data assets, under its own name."
+    },
+    {
+      "id": "CW-H-161",
+      "dimensionId": "DIM-046",
+      "spineId": "dg_metadata_management",
+      "coverageWeight": 0.15,
+      "rationale": "Lifecycle state is metadata and is what makes the stage of an asset knowable."
+    },
+    {
+      "id": "CW-H-162",
+      "dimensionId": "DIM-046",
+      "spineId": "dg_master_data_management",
+      "coverageWeight": 0.15,
+      "rationale": "Master records have a lifecycle of their own — activation, merge, retirement — distinct from transactional data."
+    },
+    {
+      "id": "CW-H-163",
+      "dimensionId": "DIM-047",
+      "spineId": "dg_data_lifecycle_management",
+      "coverageWeight": 0.55,
+      "rationale": "Archiving and retention as a lifecycle stage."
+    },
+    {
+      "id": "CW-H-164",
+      "dimensionId": "DIM-047",
+      "spineId": "dg_regulatory_compliance",
+      "coverageWeight": 0.25,
+      "rationale": "Medical-record retention periods are set by regulation, so the requirement is compliance-driven rather than operational."
+    },
+    {
+      "id": "CW-H-165",
+      "dimensionId": "DIM-047",
+      "spineId": "ii_document_exchange",
+      "coverageWeight": 0.2,
+      "rationale": "Clinical document repositories are where most archived health content sits."
+    },
+    {
+      "id": "CW-H-166",
+      "dimensionId": "DIM-048",
+      "spineId": "is_disaster_recovery",
+      "coverageWeight": 0.6,
+      "rationale": "Backup and restore arrangements, directly."
+    },
+    {
+      "id": "CW-H-167",
+      "dimensionId": "DIM-048",
+      "spineId": "is_cloud_infrastructure",
+      "coverageWeight": 0.25,
+      "rationale": "Where the backup target and its restore path live."
+    },
+    {
+      "id": "CW-H-168",
+      "dimensionId": "DIM-048",
+      "spineId": "dg_data_lifecycle_management",
+      "coverageWeight": 0.15,
+      "rationale": "Backup retention is a lifecycle policy, and APO14.10 asks for it to be defined rather than defaulted."
+    }
+  ]
+}

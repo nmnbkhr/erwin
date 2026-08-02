@@ -18,6 +18,7 @@
 import { unique, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
 import { parseFile, propName, ts } from '../lib/ts-ast.mjs'
 import { makeCategoryUniverse, categoryUniverseSummary } from '../lib/category-universe.mjs'
+import { makeCrosswalkChecks, crosswalkSummary } from '../lib/crosswalk.mjs'
 
 /**
  * The eight HACR categories and the id code that selects each, mirrored from
@@ -213,7 +214,39 @@ const hcfLink = {
     for (const c of caps)
       if (!reached.has(c.id))
         fail(`capability ${c.id} "${c.name}" is linked from no HACR question — it can never be scored, and page 13 and the gap CSV would both report it not-applicable with no way to tell that from a deliberate scope decision`)
-    return { examined, reached: reached.size, capabilities: caps.length }
+
+    /*
+     * MEASURED, REPORTED, NOT ASSERTED — D-016.
+     *
+     * `capabilityLinks[0]` is `HCF-(((i + 1) mod 108) + 1)` for all 720 questions in
+     * file order. A modular counter, the same `(i + 1) % N` idiom as the weight
+     * five-cycle D5 stage A removed, one field over. Its consequence: every
+     * capability is evidenced by questions drawn from six or seven of the eight HACR
+     * categories, because the cycle strides across category boundaries — so a
+     * capability's score is a sample of the whole assessment rather than of itself.
+     *
+     * THIS IS D-015 IN A PLACE THAT MATTERS MORE. `weight` perturbed capability
+     * scores; this IS the capability score's entire basis, and it is the relation
+     * CLAUDE.md cites as the reason HAIW alone may ship a gap register while BAIW
+     * and TAIW ship coverage registers.
+     *
+     * Not asserted, on the TCF-COVERAGE precedent: an assertion here fails the build
+     * over a defect this stage cannot honestly fix — the choices are authoring 720
+     * links or withdrawing the per-capability deliverable, both content decisions
+     * with their own walks. What this line buys is that the measurement is on stdout
+     * every build instead of in a document nobody re-reads. When it is fixed, this
+     * becomes an assertion that the links are NOT positional.
+     *
+     * NOTE: the crosswalk added in D5 stage D does NOT rest on capabilityLinks. It
+     * maps framework dimensions onto the 80 SUBCATEGORIES, an authored taxonomy, and
+     * inherits nothing from this.
+     */
+    const pad = (n) => `HCF-${String(n).padStart(3, '0')}`
+    let positional = 0
+    for (const [i, q] of qs.entries())
+      if ((q.capabilityLinks ?? [])[0] === pad(((i + 1) % (caps.length || 1)) + 1)) positional++
+
+    return { examined, reached: reached.size, capabilities: caps.length, positional: positional === qs.length ? positional : 0 }
   },
 }
 
@@ -412,6 +445,394 @@ const benchmarkRollup = {
   },
 }
 
+// ── HACR-INSTRUMENT ─────────────────────────────────────────────────────────
+/**
+ * HACR'S 720 QUESTIONS ARE NINE TEMPLATE STEMS INSTANTIATED EIGHTY TIMES.
+ *
+ * Strip the subcategory name out of every `question` string and exactly NINE
+ * distinct forms remain, each appearing 80 times. `levelDescriptions` and
+ * `pakistanContext` are templated the same way. TACR, for comparison, has 640
+ * individually authored question texts, all distinct.
+ *
+ * ─── WHY A CHECK, AND WHY IT ASSERTS RATHER THAN REPORTS ───────────────────
+ *
+ * The crosswalk projects four frameworks onto the 80 subcategories, and all four
+ * reach 100% of themselves — where on TACR, DMBOK reached 94% and DGI 59%. THAT IS
+ * NOT EVIDENCE OF DEPTH. It follows from the generation: uniform nine-question
+ * coverage of an eighty-topic taxonomy leaves no framework leaf without a
+ * plausible home. `retainedShare` cannot express it — a dimension can retain 1.0
+ * on nine repetitions of one stem — and neither can FRAMEWORK-REACH, which counts
+ * leaves rather than evidence.
+ *
+ * So the disclosure has to be a printed number, and the number has to be pinned.
+ * This is `HAIW-WEIGHT`'s shape: the check states what the instrument IS, not what
+ * it is not, and DELIBERATELY FAILS the day someone authors real questions —
+ * because on that day the sentence beside every HAIW scorecard stops being true
+ * and has to be rewritten in the same commit. A check that quietly accepted the
+ * change would leave a disclosure on the page describing a bank that no longer
+ * exists, which is the same failure as a caption reading "Weight-weighted mean"
+ * over an unweighted number.
+ *
+ * The nine are declared in full rather than counted. `=== 9` is the `> 0` mistake:
+ * true of the bank as it is, and true of nine completely different stems.
+ */
+const HACR_STEM_TOKEN = '<subcategory>'
+const HACR_STEMS = Object.freeze([
+  `how would you rate your organization's continuous improvement in ${HACR_STEM_TOKEN}?`,
+  `how would you rate your organization's implementation maturity of ${HACR_STEM_TOKEN}?`,
+  `how would you rate your organization's performance measurement of ${HACR_STEM_TOKEN}?`,
+  `how would you rate your organization's process documentation for ${HACR_STEM_TOKEN}?`,
+  `how would you rate your organization's resource allocation for ${HACR_STEM_TOKEN}?`,
+  `how would you rate your organization's staff competency in ${HACR_STEM_TOKEN}?`,
+  `how would you rate your organization's stakeholder engagement for ${HACR_STEM_TOKEN}?`,
+  `how would you rate your organization's strategic planning for ${HACR_STEM_TOKEN}?`,
+  `how would you rate your organization's technology support for ${HACR_STEM_TOKEN}?`,
+])
+const HACR_SUBCATEGORIES_PER_CATEGORY = 10
+
+/** Mirrors `src/haiw/hacr.ts::hacrSlug`. See HACR-SUBCATEGORY-ID on why it is restated. */
+const hacrSlug = (s) => String(s).toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
+const subIdOf = (q) => `${String(q.id ?? '').split('-')[1]?.toLowerCase()}_${hacrSlug(q.subcategory)}`
+
+/** The question with its own subcategory name blanked out. What is left is the stem. */
+const stemOf = (q) =>
+  String(q.question ?? '')
+    .toLowerCase()
+    .split(String(q.subcategory ?? ' ').toLowerCase())
+    .join(HACR_STEM_TOKEN)
+
+const hacrInstrument = {
+  code: 'HACR-INSTRUMENT',
+  run(ctx) {
+    const qs = ctx.data.hacr ?? []
+    const { fail } = ctx
+    const declared = new Set(HACR_STEMS)
+
+    // A — THE STEM UNIVERSE. Exactly these nine forms and no others.
+    const observed = new Map()
+    for (const q of qs) {
+      const s = stemOf(q)
+      observed.set(s, (observed.get(s) ?? 0) + 1)
+    }
+    for (const s of [...observed.keys()].sort())
+      if (!declared.has(s))
+        fail(
+          `HACR-INSTRUMENT: question stem ${JSON.stringify(s.slice(0, 70))} is not one of the ${HACR_STEMS.length} declared. ` +
+            `The instrument disclosure printed beside every HAIW framework scorecard says the bank is nine templates over ` +
+            `eighty subcategories, which is what makes 100% framework reach honest to report. Update HACR_STEMS and the ` +
+            `disclosure in the same commit, or the page describes a question bank that no longer exists.`,
+        )
+    for (const s of HACR_STEMS)
+      if (!observed.has(s))
+        fail(`HACR-INSTRUMENT: declared stem ${JSON.stringify(s.slice(0, 70))} appears in no question — the declaration is stale`)
+
+    // B — PER-SUBCATEGORY COVERAGE. Each of the nine, exactly once, in every one.
+    const bySub = new Map()
+    for (const q of qs) {
+      const id = subIdOf(q)
+      if (!bySub.has(id)) bySub.set(id, [])
+      bySub.get(id).push(q)
+    }
+    for (const [id, group] of [...bySub].sort()) {
+      const counts = new Map()
+      for (const q of group) counts.set(stemOf(q), (counts.get(stemOf(q)) ?? 0) + 1)
+      const missing = HACR_STEMS.filter((s) => !counts.has(s))
+      const repeated = [...counts].filter(([, n]) => n > 1).map(([s, n]) => `${s.slice(0, 40)}…×${n}`)
+      if (missing.length || repeated.length || group.length !== HACR_STEMS.length)
+        fail(
+          `HACR-INSTRUMENT: subcategory ${id} carries ${group.length} questions covering ${counts.size} of the ` +
+            `${HACR_STEMS.length} stems` +
+            (missing.length ? `, missing ${missing.length}` : '') +
+            (repeated.length ? `, repeating ${repeated.join(', ')}` : '') +
+            `. Every spine node must carry the same nine aspects: a projection weighting one subcategory's evidence the ` +
+            `same as another's is only defensible while the two are measured identically.`,
+        )
+    }
+
+    // C — TEN SUBCATEGORIES PER CATEGORY. What makes the spine 80 rather than 79.
+    const perCategory = new Map()
+    for (const [id] of bySub) {
+      const code = id.split('_')[0]
+      perCategory.set(code, (perCategory.get(code) ?? 0) + 1)
+    }
+    for (const [code, n] of [...perCategory].sort())
+      if (n !== HACR_SUBCATEGORIES_PER_CATEGORY)
+        fail(
+          `HACR-INSTRUMENT: category code "${code.toUpperCase()}" holds ${n} subcategories, not ${HACR_SUBCATEGORIES_PER_CATEGORY}. ` +
+            `The spine is 8 × ${HACR_SUBCATEGORIES_PER_CATEGORY}; an uneven category means one category's topics carry more ` +
+            `crosswalk surface than another's for no reason a reader could see.`,
+        )
+
+    return {
+      examined: qs.length,
+      stems: observed.size,
+      declaredStems: HACR_STEMS.length,
+      subcategories: bySub.size,
+      perSubcategory: HACR_STEMS.length,
+      perCategory: HACR_SUBCATEGORIES_PER_CATEGORY,
+    }
+  },
+}
+
+// ── The framework crosswalk ─────────────────────────────────────────────────
+/**
+ * HAIW projects all FOUR frameworks onto its 80 HACR SUBCATEGORIES.
+ *
+ * FOUR, NOT TAIW'S THREE. DGI reaches 59% of itself on TACR — losing Decision
+ * Rights, Accountabilities, the Data Governance Office and Data Stewards, which are
+ * the four things DGI is — and 100% here, because HACR carries subcategories for
+ * governance framework, stewardship, executive sponsorship and accountability.
+ *
+ * NOT the 8 categories: at that granularity "Data Governance & Standards" takes
+ * 31–50% of every framework's weight, exactly as TACR's did, and every pairwise L1
+ * still clears any floor. NOT the 108 HCF capabilities: see D-016 below, and
+ * regardless, a capability spine would need the crosswalk authored against a
+ * relation rather than against a topic taxonomy.
+ *
+ * The engine composition is NOT here. It is `src/haiw/projection.ts`, which the
+ * report and any future scorecard will import, and this file drives that module
+ * through `tsModules` rather than rebuilding it. TAIW's is still a rule-file
+ * stand-in and moves in its own change; two copies is the drift these checks exist
+ * to prevent.
+ */
+const HAIW_CROSSWALK_FRAMEWORKS = ['FW-01', 'FW-02', 'FW-03', 'FW-04']
+
+const haiwSpine = (ctx) => ctx.ts?.projection?.hacrSpine(ctx.data.hacr ?? []) ?? []
+const haiwOutcomes = (ctx, answers) => ctx.ts?.projection?.hacrSubcategoryOutcomes(ctx.data.hacr ?? [], answers) ?? null
+const haiwEngine = (ctx) => (ctx.ts?.projection ? ctx.ts.projection.createHaiwProjection(ctx.data.hacr ?? []) : null)
+
+/**
+ * FRAMEWORK-REACH exceptions. EMPTY, and that is the MEASURED state: all 44 leaves
+ * of all four frameworks carry at least one mapping.
+ *
+ * DM07 Document & Content Management — the one TAIW had to except, 0 of 640 TACR
+ * questions — lands on `ii_document_exchange` here, because health runs on clinical
+ * documents and HACR asks about them. The contrast is the point: an unmapped leaf
+ * is a fact about the ASSESSMENT, not about the framework, and the two modules
+ * disagree about DM07 for a reason a reader can check.
+ *
+ * See the note in `src/data/haiw/crosswalk.json` on why 100% reach across all four
+ * is a property of the question bank's generation rather than evidence of depth,
+ * and `HACR-INSTRUMENT` for the measurement behind that sentence.
+ */
+const HAIW_REACH_EXCEPTIONS = Object.freeze({})
+
+/**
+ * CROSSWALK-CONCENTRATION exceptions. EMPTY, and measured: DMBOK2 10.0%, DCAM 15.0%,
+ * DGI 18.7%, COBIT2019 16.0% against a 25% ceiling.
+ *
+ * DGI'S 18.7% IS THE FINDING THIS MODULE EXISTS TO PRODUCE. On DGIW's eleven
+ * pillars the same ten DGI leaves put 54.1% on P01 alone — a declared, stale-fails
+ * exception over there. Here they spread across four subcategories. The framework
+ * did not change and neither did its crosswalk's careful­ness; the SPINE did.
+ */
+const HAIW_CONCENTRATION_EXCEPTIONS = Object.freeze({})
+
+const crosswalk = makeCrosswalkChecks({
+  label: 'HAIW',
+  frameworkIds: HAIW_CROSSWALK_FRAMEWORKS,
+  entryIdPattern: /^CW-H-\d{3}$/,
+  spineIdPattern: /^[a-z]{2}_[a-z0-9_]+$/,
+  spineLabel: 'subcategory',
+  spine: haiwSpine,
+  entries: (ctx) => ctx.data.xw?.entries ?? [],
+  frameworkData: (ctx) => ctx.shared('_spine').fw ?? {},
+  // HACR carries no layer on any of its 720 questions — verified against the
+  // dataset, not assumed. Declaring [] is what makes CROSSWALK-WEIGHT report that
+  // its two retained-zero assertions did not run, rather than passing over nothing.
+  layers: [],
+  layerValues: null,
+  /*
+   * MEASURED, NOT COPIED FROM TAIW. Observed pairwise L1 at 80 subcategories is
+   * 0.918–1.238; TAIW's at 35 sections was 0.883–1.035 against a 0.5 floor. 0.6
+   * keeps the same protective ratio: roughly a third of the observed minimum could
+   * be lost before this trips, which is a real authoring collapse rather than a
+   * rounding drift. 0.15 — DGIW's, calibrated for 11 pillars — would be a floor
+   * nothing here could fall through, and a floor that cannot fail is decoration.
+   */
+  distinctnessFloor: 0.6,
+  /*
+   * 25%, NOT TAIW'S 35%, AND THE FACTORY'S READABILITY ARGUMENT IS ONLY HALF OF IT.
+   *
+   * Above roughly a third a reader cannot tell the framework's view from one leaf's
+   * score, and that is true at any spine size. But a ceiling also has to be
+   * REACHABLE by a plausible authoring error, and at 80 nodes 35% is not: DMBOK2's
+   * heaviest leaf carries 14% of the framework, DCAM's 15%, COBIT's APO14
+   * sub-practices at most 7.7%, so three of the four frameworks would have to pile
+   * several leaves onto one subcategory to get near it. Only DGI could — its G1
+   * group is half the framework — which is exactly the shape that produced 54.1% on
+   * DGIW's P01. 25% sits 1.34× above the observed maximum: protective for all four,
+   * and it trips if governance is ever collapsed onto one node again.
+   */
+  concentrationCeiling: 0.25,
+  concentrationExceptions: HAIW_CONCENTRATION_EXCEPTIONS,
+  reachExceptions: HAIW_REACH_EXCEPTIONS,
+  spineCoverage: {
+    mode: 'report',
+    /*
+     * MEASURED, AND THE MEASUREMENT CONTRADICTED THE EXPECTATION. The premise going
+     * in was that HACR is a data taxonomy throughout, so an unmapped subcategory
+     * would be a real authoring gap rather than a domain mismatch. It is not.
+     */
+    reason:
+      'Fourteen of HACR\'s 80 subcategories are reached by no data-management framework, and they are not an authoring ' +
+      'gap: six of the ten Patient & Community Engagement subcategories (patient portals, mobile health, telehealth, ' +
+      'shared decision making, social determinants, digital health equity), five of the ten Outcomes & Impact ones ' +
+      '(patient experience, population health outcomes, research, health equity metrics, sustainability) and three ' +
+      'workforce-culture ones (innovation culture, digital literacy, continuous learning). HACR IS NOT A DATA TAXONOMY ' +
+      'THROUGHOUT — three of its eight categories describe health service delivery, which DMBOK, DCAM, DGI and COBIT do ' +
+      'not speak to. TAIW reports for the same structural reason and a different domain one (customs operations); DGIW ' +
+      'asserts, because its eleven pillars ARE the capability model and a pillar nothing maps really is evidence ' +
+      'counting toward nothing.',
+  },
+  induced: (ctx, frameworkId) => haiwEngine(ctx)?.inducedSpineWeights(frameworkId) ?? null,
+})
+
+// ── PROJECTION-INVARIANT, HAIW ──────────────────────────────────────────────
+/**
+ * The same four properties DGIW and TAIW assert, over HACR's 80 subcategories and
+ * through the REAL binding — `src/haiw/projection.ts`, not a reconstruction.
+ *
+ * That is the one structural difference from TAIW's version. TAIW's rule file
+ * builds its own engine because no `src/taiw/projection.ts` exists yet, so its I1
+ * comparison is against a composition the check itself wrote. Here the engine and
+ * the independent outcomes both come out of the module a UI would import, so I1
+ * compares what the projection USED against what production's own scoring function
+ * computes — which is the comparison that means something.
+ *
+ * I4's second profile is the whole-subcategories-unanswered substitute, for the
+ * reason TAIW needed one: HACR has no layers, so DGIW's `flat 3.0, core only`
+ * profile degenerates and the renormalisation path would never be exercised.
+ */
+const EPS_H = 1e-9
+
+const haiwProjectionInvariant = {
+  code: 'PROJECTION-INVARIANT',
+  run(ctx) {
+    const { fail } = ctx
+    const engine = haiwEngine(ctx)
+    if (!engine) {
+      fail(`could not build or load src/haiw/projection.ts — the invariants were NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const spine = engine ? haiwSpine(ctx) : []
+    const allQ = (ctx.data.hacr ?? []).map((q) => q.id).sort()
+
+    const constant = (v) => Object.fromEntries(allQ.map((id) => [id, { currentState: v, desiredState: 5 }]))
+    // Deterministic, nobody-chose-it-by-hand, identical on every machine.
+    const seeded = () => {
+      let s = 20260802
+      const out = {}
+      for (const id of allQ) { s = (s * 1103515245 + 12345) % 2147483648; out[id] = { currentState: 1 + (s % 5), desiredState: 5 } }
+      return out
+    }
+    const SEEDED = seeded()
+    const byId = new Map((ctx.data.hacr ?? []).map((q) => [q.id, q]))
+    const withoutSubcategories = (base, skip) =>
+      Object.fromEntries(Object.entries(base).filter(([id]) => !skip.includes(subIdOf(byId.get(id) ?? { id, subcategory: '' }))))
+
+    // Three subcategories carrying real crosswalk weight in all four frameworks,
+    // so retained stays 1 while scored falls below it.
+    const DROP = ['dg_data_quality_management', 'dg_data_governance_framework', 'dg_data_stewardship']
+
+    const PROFILES = [
+      { name: 'flat 3.0', answers: constant(3), flat: true },
+      { name: 'all 1', answers: constant(1) },
+      { name: 'all 5', answers: constant(5) },
+      { name: 'seeded', answers: SEEDED },
+      { name: `flat 3.0, ${DROP.join('/')} unanswered`, answers: withoutSubcategories(constant(3), DROP), flat: true },
+      { name: `seeded, ${DROP.join('/')} unanswered`, answers: withoutSubcategories(SEEDED, DROP) },
+    ]
+
+    let invariantsRun = 0
+    let renormalisationExercised = 0
+    for (const profile of PROFILES) {
+      const { answers } = profile
+      const projections = engine.projectAll(answers)
+      // Independently computed through production's own scoring, not read back out
+      // of the projection. This is what makes I1 and I3 mean anything.
+      const independent = new Map((haiwOutcomes(ctx, answers) ?? []).map((o) => [o.spineId, o]))
+
+      for (const proj of projections) {
+        const at = `${profile.name} / ${proj.code}`
+
+        // I1 — DECOMPOSITION
+        for (const dim of proj.dimensions) {
+          if (!dim.isLeaf && dim.contributions.length > 0)
+            fail(`I1 ${at}: parent ${dim.code} carries ${dim.contributions.length} subcategory contributions — projection is leaf-only`)
+          if (dim.state !== 'scored') {
+            if (dim.score !== null) fail(`I1 ${at}: ${dim.code} is ${dim.state} but carries score ${dim.score} — an unmeasured dimension must be null, never a number`)
+            continue
+          }
+          if (!dim.isLeaf) continue
+          const total = dim.contributions.reduce((s, c) => s + c.contribution, 0)
+          if (Math.abs(total - dim.score) > EPS_H) fail(`I1 ${at}: ${dim.code} contributions sum to ${total} but score is ${dim.score}`)
+          const wsum = dim.contributions.reduce((s, c) => s + c.weight, 0)
+          if (Math.abs(wsum - 1) > EPS_H) fail(`I1 ${at}: ${dim.code} renormalised weights sum to ${wsum}, not 1`)
+          for (const c of dim.contributions) {
+            const truth = independent.get(c.spineId)
+            if (!truth || truth.state !== 'scored') fail(`I1 ${at}: ${dim.code} contributes subcategory ${c.spineId}, which maturity.ts reports as ${truth?.state ?? 'absent'}`)
+            else if (Math.abs(truth.score - c.spineScore) > EPS_H) fail(`I1 ${at}: ${dim.code} used ${c.spineScore} for ${c.spineId} but maturity.ts computes ${truth.score} — a second scoring path or a cached value`)
+          }
+          if (dim.scoredShare > dim.retainedShare + EPS_H) fail(`I1 ${at}: ${dim.code} scoredShare ${dim.scoredShare} exceeds retainedShare ${dim.retainedShare}`)
+          if (dim.scoredShare < dim.retainedShare - EPS_H) renormalisationExercised++
+        }
+
+        // I2 — RECONCILIATION
+        if (proj.state === 'scored') {
+          const wsum = Object.values(proj.effectiveWeights).reduce((s, w) => s + w, 0)
+          if (Math.abs(wsum - 1) > EPS_H) fail(`I2 ${at}: induced subcategory weights sum to ${wsum}, not 1 — the overall is not a weighted mean of anything`)
+          let recon = 0
+          for (const [spineId, w] of Object.entries(proj.effectiveWeights)) {
+            if (w === 0) continue
+            const truth = independent.get(spineId)
+            if (!truth || truth.state !== 'scored') { fail(`I2 ${at}: subcategory ${spineId} carries weight ${w} but is ${truth?.state ?? 'absent'}`); continue }
+            recon += w * truth.score
+          }
+          if (Math.abs(recon - proj.overall) > EPS_H) fail(`I2 ${at}: overall is ${proj.overall} but Σ W·score is ${recon} — the roll-up and the crosswalk disagree`)
+        }
+        invariantsRun++
+      }
+
+      // I3 — INTERSECTION AGREEMENT
+      const seenBy = new Map()
+      for (const proj of projections)
+        for (const dim of proj.dimensions)
+          for (const c of dim.contributions) {
+            const row = seenBy.get(c.spineId) ?? new Map()
+            row.set(proj.code, [...(row.get(proj.code) ?? []), c.spineScore])
+            seenBy.set(c.spineId, row)
+          }
+      for (const [spineId, byFramework] of seenBy) {
+        if (byFramework.size !== projections.length) continue
+        const values = [...byFramework.values()].flat()
+        const spread = Math.max(...values) - Math.min(...values)
+        if (spread > EPS_H) fail(`I3 ${profile.name}: subcategory ${spineId} is used with ${values.length} different values across the frameworks, spread ${spread}`)
+      }
+
+      // I4 — FLAT PROFILE
+      if (profile.flat) {
+        const overalls = projections.map((p) => p.overall)
+        for (const [i, o] of overalls.entries())
+          if (o === null || Math.abs(o - 3) > EPS_H)
+            fail(`I4 ${profile.name}: ${projections[i].code} overall is ${o}, not 3.0 — with every scored subcategory at exactly 3.0 any convex combination is 3.0, so a deviation is a maths error and almost always an unnormalised weight basis`)
+        const spread = Math.max(...overalls) - Math.min(...overalls)
+        if (spread > EPS_H) fail(`I4 ${profile.name}: the overalls spread by ${spread}, which must be 0 when every subcategory scores identically`)
+      }
+    }
+
+    // The substitute profile has to actually exercise what the layer profile did.
+    if (renormalisationExercised === 0)
+      fail(
+        `no profile produced scoredShare < retainedShare, so the renormalisation path was never exercised. DGIW gets this ` +
+          `from its core-layer profile; HACR has no layers and relies on whole subcategories being unanswered instead. If ` +
+          `the dropped subcategories stopped carrying crosswalk weight, this check quietly became weaker than DGIW's.`,
+      )
+
+    return { examined: invariantsRun, profiles: PROFILES.length, renormalisationExercised, spine: spine.length }
+  },
+}
+
 export default {
   id: 'haiw',
   title: 'HAIW — Healthcare Analytics',
@@ -421,12 +842,46 @@ export default {
     caps: 'capabilities.json',
     fhir: 'fhirResources.json',
     subjectAreas: 'hcdmSubjectAreas.json',
+    xw: 'crosswalk.json',
   },
+
+  /**
+   * HAIW's own projection binding, and the shared category-scoring primitive.
+   *
+   * `projection.ts` is what the crosswalk classes and the invariants RUN — not a
+   * reconstruction of it, which is what TAIW's rule file still has to do. It pulls
+   * `frameworks/projection.ts`, `crosswalk.json` and `frameworks.json` in with it.
+   * `maturity.ts` is a separate entry point on purpose: I1 compares the subcategory
+   * scores the projection USED against scores computed from maturity.ts directly,
+   * and sharing one bundle would make that comparison circular.
+   */
+  tsModules: { projection: 'src/haiw/projection.ts', maturity: 'src/scoring/maturity.ts' },
   reportSources: [{ rel: 'src/haiw/utils/healthReportGenerator.ts', kind: 'file' }],
   artefactIds: ['MR-HAIW-MATURITY', 'MR-HAIW-GAP', 'MR-HAIW-ROADMAP'],
 
   /** Declared run order — this is the order findings print in. */
-  checks: [categoryUniverse, hacrShape, hacrUnique, hacrCategoryMap, hcfShape, hcfLink, hcfFk, haiwWeight, benchmarkRollup],
+  checks: [
+    categoryUniverse,
+    hacrShape,
+    hacrUnique,
+    hacrCategoryMap,
+    hacrInstrument,
+    hcfShape,
+    hcfLink,
+    hcfFk,
+    haiwWeight,
+    // The crosswalk seven, in dependency order: the spine must resolve before a
+    // mapping into it means anything, and the two vector classes need the engine.
+    crosswalk.spineUniverse,
+    crosswalk.crosswalkShape,
+    crosswalk.crosswalkWeight,
+    crosswalk.crosswalkOrphan,
+    crosswalk.frameworkReach,
+    crosswalk.crosswalkConcentration,
+    crosswalk.crosswalkDistinctness,
+    haiwProjectionInvariant,
+    benchmarkRollup,
+  ],
 
   summary(ctx) {
     const r = ctx.results
@@ -445,18 +900,43 @@ export default {
             : `  weights ${w.min}–${w.max}`
           : ''),
     )
+    const inst = r['HACR-INSTRUMENT'] ?? {}
+    // THE INSTRUMENT DISCLOSURE, ON EVERY BUILD. All four frameworks reach 100% of
+    // themselves on this spine; this line is why that is not evidence of depth.
+    out.push(
+      `  HACR-INSTRUMENT ${inst.subcategories ?? 0} subcategories × ${inst.perSubcategory ?? 0} questions` +
+        `, built from ${inst.stems ?? 0} template stems over the whole bank` +
+        ` — every subcategory measured identically, none more deeply than any other`,
+    )
     const link = r['HCF-LINK'] ?? {}
     out.push(
       `HCF ${link.capabilities ?? 0} capabilities  ${link.examined ?? 0} capabilityLinks` +
         `  ${link.reached ?? 0} of ${link.capabilities ?? 0} reached by at least one question` +
         ` — the relation that lets only HAIW score a capability`,
     )
+    // Printed, never asserted — the TCF-COVERAGE precedent. Fixing this changes
+    // page 13, the gap CSV and five baselines, and the honest fix may be to stop
+    // emitting a per-capability score at all. That is a content decision with its
+    // own walk, not something to slip into a crosswalk stage; what belongs here is
+    // that nobody can look at a HAIW build again without seeing it.
+    if (link.positional)
+      out.push(
+        `  capabilityLinks is POSITIONAL: link[0] === HCF-(((i+1) mod ${link.capabilities}) + 1) for ` +
+          `${link.positional} of ${link.examined} — a counter over file order, not an authored relation. D-016.`,
+      )
     out.push(`  HCF-FK ${(r['HCF-FK'] ?? {}).examined ?? 0} cross-file references resolved`)
     out.push(`  ${categoryUniverseSummary(r['CATEGORY-UNIVERSE'], 'HACR', '    ')}`)
     const br = r['BENCHMARK-ROLLUP'] ?? {}
     out.push(
       `  DEFAULT_BENCHMARKS ${br.examined ?? 0} blocks over ${br.categories ?? 0} categories` +
         `${br.blocks?.length ? ` (${br.blocks.join(', ')})` : ''} — no "Overall Assessment" key, which regAvg depends on`,
+    )
+    for (const l of crosswalkSummary(r, { label: 'HAIW', spineLabel: 'subcategory', spineTotal: (r['SPINE-UNIVERSE'] ?? {}).examined })) out.push(`  ${l}`)
+    const pi = r['PROJECTION-INVARIANT'] ?? {}
+    out.push(
+      `  PROJECTION-INVARIANT ${pi.examined ?? 0} framework projections over ${pi.profiles ?? 0} deterministic profiles ` +
+        `(I1 decomposition, I2 reconciliation, I3 intersection, I4 flat) through src/haiw/projection.ts` +
+        ` — renormalisation exercised ${pi.renormalisationExercised ?? 0} times`,
     )
     return out
   },

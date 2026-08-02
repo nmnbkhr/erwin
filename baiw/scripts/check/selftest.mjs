@@ -482,6 +482,85 @@ function __selftestProbe(doc: jsPDF, s: string): void {
       })
     },
   },
+  // ── D5 stage D: HAIW's crosswalk and the instrument disclosure ───────────
+  /*
+   * HACR-INSTRUMENT HAS THREE BRANCHES AND EACH ROW ISOLATES ONE.
+   *
+   * That took effort and it is the point. The obvious mutation — rewrite one
+   * question — trips all three at once, which proves the check runs and proves
+   * nothing about which assertion caught it. Each row below moves the bank in a way
+   * the other two assertions still accept, so a branch that silently stopped
+   * asserting shows up as one NOT TRIPPED row rather than hiding behind its
+   * neighbours. That is the `unique()`/`UNIQUE` lesson applied inside one class.
+   */
+  {
+    code: 'HACR-INSTRUMENT',
+    what: 'HAIW: one of the nine stems reworded across all 80 subcategories — the bank stays uniform, the disclosure goes stale',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (qs) => {
+      // All 80 instances, so every subcategory still carries nine distinct stems
+      // and every category still holds ten subcategories. ONLY the stem universe
+      // moves — which is exactly the change that would make the printed
+      // "nine template stems" disclosure false while the bank stayed uniform.
+      for (const q of qs) q.question = q.question.replace("strategic planning for", 'strategy for')
+    }),
+  },
+  {
+    code: 'HACR-INSTRUMENT',
+    what: 'HAIW: one question moved to a sibling subcategory — 8 and 10 where every node must carry 9',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (qs) => {
+      const victim = qs.find((q) => q.subcategory === 'Data Quality Management')
+      const to = qs.find((q) => q.subcategory === 'Master Data Management').subcategory
+      // The text is rewritten too, so the stem still resolves to one of the nine
+      // and branch A stays silent. Only the per-node coverage moves.
+      victim.question = victim.question.replace(victim.subcategory.toLowerCase(), to.toLowerCase())
+      victim.subcategory = to
+    }),
+  },
+  {
+    code: 'HACR-INSTRUMENT',
+    what: 'HAIW: a whole subcategory moved between categories — 9 and 11 where the spine is 8 × 10',
+    touches: [`${HAIW}/hacrQuestions.json`],
+    apply: () => json(`${HAIW}/hacrQuestions.json`, (qs) => {
+      // Category, categoryId and the id code all move together, so the subcategory
+      // keeps its nine questions and its nine stems — branches A and B stay silent
+      // and only the 10-per-category count is wrong.
+      for (const q of qs)
+        if (q.subcategory === 'Data Ethics') {
+          q.category = 'Strategy & Leadership'
+          q.categoryId = 'CAT-SL'
+          q.id = q.id.replace('-DG-', '-SL-')
+        }
+    }),
+  },
+  {
+    code: 'CROSSWALK-CONCENTRATION',
+    what: "HAIW: DGI's G1 group collapsed onto one subcategory — proving the 25% ceiling is reachable, not decoration",
+    touches: [`${HAIW}/crosswalk.json`],
+    apply: () => {
+      const fw = readJson(`${FRAMEWORKS}/frameworks.json`)
+      // G1 Rules & Rules of Engagement is half of DGI. Its six leaves landing on one
+      // subcategory is the PLAUSIBLE authoring error the ceiling exists for, and it
+      // is the shape that produced DGI's 54.1% on DGIW's P01. If this row ever reads
+      // NOT TRIPPED, 25% has stopped being a ceiling anything could cross.
+      const g1 = new Set(fw.dimensions.filter((d) => d.parentId === 'DIM-020').map((d) => d.id))
+      json(`${HAIW}/crosswalk.json`, (xw) => {
+        for (const e of xw.entries) if (g1.has(e.dimensionId)) e.spineId = 'dg_data_governance_framework'
+      })
+    },
+  },
+  {
+    code: 'PROJECTION-INVARIANT',
+    what: "HAIW: src/haiw/projection.ts unbuildable — three classes lose their engine and all three must say so",
+    touches: ['src/haiw/projection.ts'],
+    // CLAUDE.md records the version of this that shipped: an esbuild failure loading
+    // projection.ts disabled TWO classes while only PROJECTION-INVARIANT said so,
+    // because CROSSWALK-DISTINCTNESS went quiet behind a `projection ? … : []`.
+    // HAIW binds three classes to one module, so the row is worth having per module
+    // rather than once for the code.
+    apply: () => sub('src/haiw/projection.ts', 'export', 'this is not valid typescript export'),
+  },
   {
     code: 'PROJECTION-INVARIANT',
     what: 'projection.ts unbuildable — the invariants cannot run',

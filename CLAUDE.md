@@ -78,8 +78,8 @@ uses.
    runs over nothing declares `mayBeEmpty: '<reason>'` — the reason is mandatory,
    because if a check can run over nothing then someone should have to write down
    why. Nothing declares it today.
-5. **`npm run check:selftest` demonstrates every finding code.** 54 mutations,
-   48 codes, ~20 s. It copies `src/` and `scripts/` to a scratch root under
+5. **`npm run check:selftest` demonstrates every finding code.** 79 mutations,
+   54 codes, ~30 s. It copies `src/` and `scripts/` to a scratch root under
    `node_modules`, applies one mutation per code, asserts the code is reported
    *and* the tool exits non-zero, then restores and re-runs the control. **No
    tracked file is ever written.** Run it after touching the gate: a refactor
@@ -134,6 +134,14 @@ locations from five rule files, resolving to 18 `.ts` files:
 | `src/haiw/utils/healthReportGenerator.ts` | `check/modules/haiw.mjs` |
 | `src/dgiw/report` | `check/modules/dgiw.mjs` |
 
+`tsModules` is the separate mechanism for source a check must *run* rather than
+read: `src/dgiw/projection.ts` + `scoring.ts`, `src/haiw/projection.ts` +
+`src/scoring/maturity.ts`, and TAIW's two. An entry point that fails to build
+disables every class bound to it, so each of those classes reports under **its own
+name** — CLAUDE.md records the version that shipped, where an esbuild failure
+silenced CROSSWALK-DISTINCTNESS behind a `projection ? … : []` while only
+PROJECTION-INVARIANT said so.
+
 **Declared, never globbed.** A glob over `src/` would sweep in every file that
 happens to mention `header:` and turn CSV-HEADER into a repo-wide style rule it
 was never designed to be. And a glob cannot tell "no generator here" from "the
@@ -184,12 +192,11 @@ free-text owner strings to archetypes (`src/dgiw/roles.ts`), and source that
 carries *why*-comments explaining the defect that motivated the code. Match that
 standard. BAIW is the pattern that accreted — do not use it as a model.
 
-D4 filled two of the empty rule files. The gate now runs **35 checks across 7
-registry entries** — suite 4, TAIW 9, HAIW 7, DGIW 15 — and the REGISTRY line
-prints exactly that breakdown on every build:
+D4 filled two of the empty rule files; D5 added the crosswalk factory to TAIW and
+HAIW. The REGISTRY line prints the breakdown on every build:
 
 ```
-REGISTRY 7 entries, 35 checks (suite 4, _spine 0, baiw 0, taiw 9, haiw 7, coe 0, alm 0, dgiw 15)
+REGISTRY 7 entries, 61 checks (suite 4, _spine 0, baiw 3, taiw 19, haiw 18, coe 0, alm 0, dgiw 17)
 ```
 
 **Read that line rather than this paragraph.** It said 40 for the whole of D4 —
@@ -577,6 +584,53 @@ category** that a question-less consumer pads with to tell `not-assessed` from
 `not-applicable` — the build prints `HACR 720 questions across 8 categories, 90
 each`. Two branches, two selftest rows.
 
+**A subcategory id is DERIVED, never authored and never positional.**
+`hacrSubcategoryIdOf('HACR-DG-190', 'Data Quality Management')` →
+`dg_data_quality_management`. A hand-authored registry would be a second copy of a
+list the dataset already holds — `CATEGORY-UNIVERSE`'s shape one level down — and
+slicing every nine questions in file order would be D-012's shape, right until
+someone inserts a question and every subsequent mapping silently moves onto the
+wrong topic. `SPINE-UNIVERSE` asserts the derived set against the crosswalk on
+every build.
+
+### HACR is nine template stems, and that has to be on the page
+
+Strip the subcategory name out of every `question` and **exactly nine distinct
+forms remain**, each appearing 80 times: strategic planning · resource allocation ·
+implementation maturity · staff competency · technology support · process
+documentation · performance measurement · continuous improvement · stakeholder
+engagement. `levelDescriptions` and `pakistanContext` are templated identically —
+nine forms across all 720. TACR, for contrast, has **640 individually authored
+question texts, all distinct**.
+
+That is why **all four frameworks reach 100% of themselves on HACR** where DMBOK
+reached 94% and DGI 59% on TACR. **It is a property of how the bank was generated,
+not evidence of depth.** `retainedShare` cannot say so — a dimension can retain 1.0
+on nine repetitions of one stem — and neither can FRAMEWORK-REACH, which counts
+leaves rather than evidence. So `HACR-INSTRUMENT` measures it and the build prints
+it:
+
+```
+HACR-INSTRUMENT 80 subcategories × 9 questions, built from 9 template stems over the whole bank
+  — every subcategory measured identically, none more deeply than any other
+```
+
+**Any HAIW deliverable that renders a framework scorecard must carry that
+sentence beside it.** The nine are declared in full in the rule file rather than
+counted, because `=== 9` is the `> 0` mistake: true of this bank and equally true
+of nine completely different stems. The check **deliberately fails the day someone
+authors real questions**, because on that day the disclosure stops being true and
+has to be rewritten in the same commit — `HAIW-WEIGHT`'s shape exactly.
+
+Three branches, three selftest rows, **and each row isolates one branch**. The
+obvious mutation — reword one question — trips all three and proves nothing about
+which assertion caught it. Rewording *all eighty* instances of one stem leaves the
+bank uniform and moves only the stem universe; moving one question to a sibling
+subcategory (rewriting its text so the stem still resolves) moves only per-node
+coverage; moving a whole subcategory between categories moves only the
+ten-per-category count. That is the `unique()`/`UNIQUE` lesson applied inside a
+single class.
+
 ## A capability score needs a link, not a heading
 
 Every module has two vocabularies: an **assessment** axis (BACR / TACR / HACR
@@ -585,15 +639,35 @@ TCF 100, HCF 108 — framework-specific business functions). They are
 **orthogonal**. A capability's theme is not a narrower version of a category, and
 projecting one onto the other is not a rounding error — it is a fabrication.
 
-**Only HAIW can score a capability**, because only HACR's 720 questions carry
-`capabilityLinks`. BACR's 804 and TACR's 640 do not. That is the whole
-difference, and it is a data fact, not a wiring gap:
+**HAIW alone EMITS a capability score, and D-016 says its relation is a counter.**
+Read both rows of this table; the second one is new and it undercuts the first:
 
-| Module | Link authored | Per-capability score |
+| Module | Link present | Per-capability score |
 |---|---|---|
-| HAIW | `capabilityLinks` on 720 of 720 | **derived** — see D-003 |
+| HAIW | `capabilityLinks` on 720 of 720 — **but positional, D-016** | **derived** — see D-003 |
 | BAIW | none | **not emitted** — D-001, removed |
 | TAIW | none | **not emitted** — D-001, removed |
+
+This file said, for two phases, that the difference was *authoring*. The field is
+present; what is absent is that it means anything.
+`capabilityLinks[0] === 'HCF-' + pad(((i + 1) % 108) + 1)` for **720 of 720** in
+file order — the same `(i + 1) % N` idiom as D-015's weight five-cycle, one field
+over, and the cycle strides across every category boundary so each capability is
+evidenced by questions from six or seven of the eight HACR categories. A
+capability score is therefore a sample of the whole assessment rather than of
+itself.
+
+`HCF-LINK` could not see it: it asserts that every link resolves and every
+capability is reached, and **a counter satisfies both better than a real relation
+would**. A check that a foreign key resolves is not a check that the relation is
+real — D-015's lesson at the level of the join rather than the value.
+
+It is **measured and printed on every build, not asserted**, because the two
+honest fixes lead to opposite deliverables — author 720 links, or withdraw the
+per-capability score as D-001 did for BAIW and TAIW — and both move page 13, the
+gap CSV and five baselines. `docs/known-defects.md` D-016. **The D5 framework
+crosswalks rest on none of this**: they map onto HACR's 80 subcategories, an
+authored taxonomy, and read `capabilityLinks` nowhere.
 
 BAIW and TAIW therefore ship a capability **register** (`MR-*-REGISTER`) —
 authored attributes only — and their page 13 reports framework *coverage*. HAIW
@@ -696,20 +770,67 @@ to report the real fault.
 
 ## Framework crosswalk
 
-`frameworks.json` and `crosswalk.json` project one assessment onto four published
-frameworks (DMBOK2, DCAM, DGI, COBIT 2019). Five check classes guard them —
-CROSSWALK-SHAPE, -WEIGHT, -ORPHAN, -DISTINCTNESS and FRAMEWORK-COVERAGE — though
-FRAMEWORK-COVERAGE only became one of them in D3; before that it could not fail,
-and this sentence claimed otherwise for a phase. See "Three finding codes did not
-exist before D3" above. It now fails when a framework covers pillars at `'all'`
-but zero under a layer: every mapping it has is tagged for the other layer, so an
-engagement at that layer renders its scorecard blank with no stated reason. That
-is the same authoring-gap-in-a-not-applicable-costume rule CROSSWALK-WEIGHT
-applies per leaf dimension, read one level up.
+**`src/frameworks/` is suite-level. Each module owns its own crosswalk and its own
+spine.** `frameworks.json` holds the published structure of DMBOK2, DCAM, DGI and
+COBIT 2019 — 48 dimensions, 44 leaf — and no module reference at all. Three
+modules project onto it:
 
-**The 11 pillars are the canonical capability model.** Frameworks map *into*
-them. Never add a second canonical layer — a bank with two maturity numbers to
-reconcile has been given a problem, not an answer.
+| Module | Spine | Frameworks | Entries | `spineCoverage` |
+|---|---|---|---|---|
+| DGIW | 11 curated pillars | all four | 91 `CW-D-` | **assert** |
+| TAIW | 35 TACR sections | DMBOK2, DCAM, COBIT (**not DGI** — 59% reach) | 73 `CW-T-` | report |
+| HAIW | 80 HACR subcategories | all four (DGI reaches 100%) | 168 `CW-H-` | report |
+
+Entry ids are namespaced per module because per-file uniqueness fails the moment a
+suite-level alignment artefact aggregates them. Framework and dimension ids
+(`FW-01`, `DIM-001`) are global and are never renumbered.
+
+**Seven check classes guard them, from one factory** — `scripts/check/lib/
+crosswalk.mjs`. SPINE-UNIVERSE, CROSSWALK-SHAPE, -WEIGHT, -ORPHAN, FRAMEWORK-REACH,
+-CONCENTRATION and -DISTINCTNESS, plus PROJECTION-INVARIANT per module.
+**FRAMEWORK-COVERAGE no longer exists.** It could not fail at all before D3, and
+its one D3 failure path — a framework retaining nothing under a layer — does not
+exist on a layerless module, so D5 stage C reclassified it rather than shipping it
+inert on TAIW: the layer assertion moved into CROSSWALK-WEIGHT, its coverage table
+into the summary lines, and the thing it never checked became
+CROSSWALK-CONCENTRATION. The selftest caught the first attempt dropping a real
+assertion in the move — see CROSSWALK-WEIGHT's two layer rules below.
+
+**Three parameters are per module and every one of them was MEASURED, not copied.**
+Copying a neighbour's number is how a guard becomes decoration:
+
+| | DGIW (11) | TAIW (35) | HAIW (80) |
+|---|---|---|---|
+| `distinctnessFloor` | 0.15 | 0.5 | 0.6 |
+| observed min L1 | 0.514 | 0.883 | 0.918 |
+| `concentrationCeiling` | 0.35 | 0.35 | **0.25** |
+| observed max | **0.541 (DGI, declared)** | 0.172 | 0.187 |
+
+Readability fixes an upper bound that does not scale — above roughly a third a
+reader cannot tell a framework's view from one leaf's score. But a ceiling must
+also be *reachable by a plausible authoring error*, and at 80 nodes 35% is not:
+three of the four frameworks would have to pile several leaves onto one
+subcategory to approach it. Hence HAIW's 25%.
+
+**The 11 pillars are DGIW's canonical capability model.** Frameworks map *into*
+them. Never add a second canonical layer within a module — a bank with two
+maturity numbers to reconcile has been given a problem, not an answer.
+
+**CONCENTRATION IS A PROPERTY OF THE SPINE, NOT OF THE FRAMEWORK, AND THERE IS NOW
+A CONTROL FOR THAT.** DGI puts **54.1%** of its induced weight on DGIW's P01 — a
+declared, stale-fails exception, and the only one in the suite. The same ten DGI
+leaves on HACR's 80 subcategories peak at **18.7%**. Same framework, same dimension
+weights, same authoring standard. DGI's leaves want four distinct homes; DGIW
+offers one pillar for all four and HACR offers four, so they pile up in one place
+and not the other. `docs/dgi-p01-concentration.md` argued the 54% was a true
+property of DGI; it is a true property of the *pair*.
+
+**CROSSWALK-DISTINCTNESS AND -CONCENTRATION ANSWER DIFFERENT QUESTIONS.**
+Distinctness measures how far apart two induced vectors are; concentration
+measures whether either of them is really about one thing. At TACR's 8 categories
+all three frameworks put 31–50% of their weight on the single 'Data Governance'
+category and **every pairwise L1 still cleared the floor**, because the remaining
+half spread differently. That measurement is why concentration is its own class.
 
 **CHECK A FRAMEWORK'S OWN AGGREGATION OPERATOR BEFORE AUTHORING A CROSSWALK.**
 `projection.ts` computes a **convex combination** — a weighted mean of spine
@@ -746,9 +867,32 @@ Two more shapes that fail this test and are not crosswalk candidates:
 entries; its score rolls up from its children *inside the framework*, never
 across the pillar side. COBIT's `APO14` and its ten sub-practices must never both
 count a pillar — that double-counts the same evidence and inflates the component
-it appears in. Same for the three DGI groups. CROSSWALK-ORPHAN fails a mapping
-attached to a parent, a leaf dimension with no mapping, and — since D3 — a pillar
-no framework maps at all.
+it appears in. Same for the three DGI groups.
+
+**THE TWO ORPHAN DIRECTIONS ARE NOT THE SAME RULE, and D5 split them.** A mapping
+attached to a parent, and a mapping pointing at a spine node that does not exist,
+are always defects — CROSSWALK-ORPHAN. The other two are per module:
+
+- **A leaf dimension with no mapping** moved to **FRAMEWORK-REACH**. It is a
+  failure by default, and a declared exception with a *named evidence gap* is the
+  only way to say otherwise; a stale one fails, and one naming a code the module
+  does not carry fails. TAIW has exactly one (DM07 Document & Content Management —
+  0 of 640 TACR questions). **HAIW has none: DM07 lands on `ii_document_exchange`,
+  because health runs on clinical documents.** Whether a leaf is reachable is a
+  fact about the *assessment*, not about the framework, and two modules disagreeing
+  about DM07 for a checkable reason is the class working.
+- **A spine node no framework maps** is `spineCoverage`. DGIW asserts — its eleven
+  pillars ARE the capability model, so a pillar nothing maps is scorable evidence
+  counting toward nothing. TAIW and HAIW report, and **`report` requires a written
+  reason** on the `mayBeEmpty` precedent. TACR's 7 of 35 are customs operations;
+  HACR's 14 of 80 are patient engagement, care outcomes and workforce culture.
+
+**HACR IS NOT A DATA TAXONOMY THROUGHOUT — that was expected going into D5 stage D
+and the measurement said otherwise.** Three of its eight categories describe health
+service delivery. Six of the ten Patient & Community Engagement subcategories and
+five of the ten Outcomes & Impact ones are reached by no data-management framework,
+and that is the domain, not an authoring gap. Do not carry one module's
+`spineCoverage` setting to the next on the strength of the taxonomy's *name*.
 
 **`coverageWeight` is the share of the DIMENSION that the PILLAR accounts for**,
 summing to 1.0 per leaf dimension over the full entry set. It is *not* "how much

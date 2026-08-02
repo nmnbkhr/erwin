@@ -230,3 +230,68 @@ client will actually see, and leaves the model describing DGI as DGI is.
 If you take only one thing: **DGI08 is the entry to look at.** It is the one
 where the current mapping is hard to defend on the component's own content,
 independent of any chart.
+
+---
+
+## Postscript — D5 stage D, 2026-08-02
+
+Two things this brief did not know, both measured rather than argued.
+
+### 1. Two of its numbers have moved, and one of its facts is stale
+
+The brief says DGI's induced weight on P01 is **0.589** and that DGI04, DGI05 and
+DGI08 "each map 100% to P01 and to nothing else". Computed against the crosswalk
+as it stands today, through the real engine:
+
+```
+DGI02  eff 0.090  P01 share 0.40      DGI07  eff 0.090  P01 share 0.70
+DGI04  eff 0.110  P01 share 1.00      DGI08  eff 0.120  P01 share 0.60
+DGI05  eff 0.090  P01 share 1.00      DGI09  eff 0.090  P01 share 0.75
+DGI06  eff 0.050  P01 share 0.25      DGI10  eff 0.200  P01 share 0.45
+                                      ────────────────────────────────
+                                      DGI induced on P01 = 0.5410
+```
+
+**DGI08 is 0.60, not 1.00** — the split this brief recommended has been applied.
+DGI04's has not. 0.541 sits exactly between the brief's 0.589 and the 0.525 it
+predicted for both splits, which is what half a recommendation looks like.
+
+The recommendation for DGI04 (0.85 P01 / 0.15 P04) still stands and is still
+unmade. **Read `CROSSWALK-CONCENTRATION`'s line on stdout, not the 0.589 above** —
+this is the hand-typed-count-beside-a-computed-one shape `CLAUDE.md` warns about,
+and this document is the losing half of it.
+
+`CROSSWALK-CONCENTRATION` now carries the figure as a declared exception in
+`scripts/check/modules/dgiw.mjs` with its reason, against a 35% ceiling. A stale
+exception fails, so if DGI04 is ever split the check will say so rather than
+leaving a permanent hole.
+
+### 2. The concentration is a property of the SPINE, not of DGI
+
+HAIW's crosswalk projects the same ten DGI leaves onto HACR's 80 subcategories.
+Same framework, same dimension weights, same authoring standard, new spine:
+
+| | DGIW — 11 pillars | HAIW — 80 subcategories |
+|---|---|---|
+| DGI's heaviest node | **P01, 54.1%** | `dg_data_governance_framework`, **18.7%** |
+| second | P02, 16.5% | `dg_data_stewardship`, 13.9% |
+| third | — | `sl_performance_accountability`, 6.8% |
+| fourth | — | `sl_executive_sponsorship_and_governance`, 6.3% |
+
+The brief's own answer to "is 0.589 wrong?" — *"mostly no, DGI IS an
+operating-model framework"* — was right about DGI and wrong about the cause. DGI's
+ten leaves want four distinct homes. DGIW offers one pillar for all four, so they
+pile up; HACR offers four subcategories, so they do not. **Nothing about the
+framework produced the 54%; the granularity of what it was mapped onto did.**
+
+That reframes the decision. Splitting DGI04 across P01 and P04 treats the symptom
+inside a spine that cannot express the distinction — P01's own description is
+"decision rights, accountability and the forum structure", which is DGI04, DGI05
+and DGI08 in one sentence. The alternative worth weighing is whether DGIW's
+eleven pillars should separate the governance *office* from the governance
+*mandate*, which is a change to the canonical capability model and a much larger
+conversation than a crosswalk edit.
+
+**Still your call, and still nothing changed.** What is new is that "DGI is
+concentrated" now has a control: the same framework, measured at a different
+granularity, three times over.

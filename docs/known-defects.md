@@ -1582,3 +1582,112 @@ category gap, the report labels a capability — but a client reading both sees 
 word for two rules: a gap of 2.2 is "Critical" in the PDF and "High" on screen; a
 gap of 0.8 is "Low" in the PDF and "Medium" on screen. Out of scope for stage A,
 which was the weight counter. Logged so it is not rediscovered.
+
+---
+
+## D-016 — HACR's `capabilityLinks` is a counter, and it is the only thing HAIW's capability register rests on
+
+**Found:** 2026-08-02, D5 stage D, while measuring HACR's question bank for the
+framework crosswalk. **Status: OPEN — measured, reported on every build, not
+fixed.** The fix is a content decision and is set out at the bottom.
+
+### What it is
+
+```
+capabilityLinks[0] === 'HCF-' + pad(((i + 1) mod 108) + 1)   for 720 of 720
+                                                              questions in file order
+```
+
+Verified exhaustively, zero exceptions. Every question carries exactly one link.
+It is the same `(i + 1) % N` idiom as D-015's weight five-cycle — same generator,
+same author, one field over.
+
+### Why it is worse than D-015
+
+D-015's counter *perturbed* capability scores. This one **is** the capability
+score. It is also the relation `CLAUDE.md` cites, in as many words, as the reason
+HAIW alone may ship a gap register while BAIW and TAIW ship coverage registers:
+
+> **Only HAIW can score a capability**, because only HACR's 720 questions carry
+> `capabilityLinks`.
+
+The field is present. What is absent is that it means anything.
+
+### What it does to the numbers
+
+The cycle has period 108 over 720 questions in category order, so it strides
+across every category boundary:
+
+| | |
+|---|---|
+| capabilities reached | 108 of 108 |
+| questions per capability | 6 or 7 |
+| **HACR categories each capability draws from** | **6 or 7 of the 8** |
+
+So a capability score is a stratified sample of the **whole assessment**, not of
+that capability. `HCF-041 Clinical Decision Support` is scored from questions
+about strategy, workforce, governance, infrastructure, analytics, interoperability
+and outcomes in roughly equal measure — which is a description of the
+organisation, not of clinical decision support. Every capability converges toward
+the same number for the same reason, and the spread between them is the phase of
+the counter.
+
+This is the D-001 family: **a plausible number under a heading that makes it look
+defensible.** It differs from D-001, D-003 and D-008 in one way only — the
+fabrication is in the *dataset* rather than in the code, so every code review of
+`scoreCapabilities()` was reviewing correct arithmetic over invented evidence.
+
+### Why the check did not catch it
+
+`HCF-LINK` asserts both directions of referential integrity: every link resolves
+to a capability, and every capability is reached. **A counter satisfies both
+perfectly** — better than a real relation would, since a real one would leave some
+capabilities thinly evidenced and some questions linking to two.
+
+That is D-015's lesson restated: `HCF-LINK` constrains the link's *shape* and says
+nothing about whether the link was *decided*. A check that a foreign key resolves
+is not a check that the relation is real.
+
+### What is reported now, and why not asserted
+
+`HCF-LINK` measures the counter and the build prints it on every run:
+
+```
+capabilityLinks is POSITIONAL: link[0] === HCF-(((i+1) mod 108) + 1) for 720 of 720
+  — a counter over file order, not an authored relation. D-016.
+```
+
+Reported, not asserted — the `TCF-COVERAGE` precedent. An assertion here fails the
+build over a defect the current stage cannot honestly fix, and "fix" has two
+candidate meanings that lead to opposite deliverables:
+
+1. **Author the links.** 720 question→capability decisions against HCF's 108. Real
+   work, and the only route that keeps `MR-HAIW-GAP` meaning what its name says.
+2. **Withdraw the per-capability score.** HAIW joins BAIW and TAIW: a capability
+   **register** of authored attributes, page 13 reporting framework *coverage*, and
+   `CLAUDE.md`'s three-module table collapses to "no module can score a
+   capability". This is the D-001 remedy applied consistently, and it is what
+   D-001 chose for BAIW and TAIW when *their* relation turned out not to exist.
+
+Either moves page 13's twenty rows, the gap CSV and five golden baselines. Both
+are content decisions with their own walk.
+
+**When it is fixed, the reported line becomes an assertion that the links are NOT
+positional** — the same upgrade `HAIW-WEIGHT` got from `> 0` to `=== 1`.
+
+### What does NOT rest on it
+
+The D5 stage D framework crosswalk. It maps framework dimensions onto HACR's **80
+subcategories** — an authored topic taxonomy — and reads `capabilityLinks`
+nowhere. The four framework scorecards inherit nothing from this.
+
+### The general rule this earns
+
+**A generated dataset should be assumed generated until a field is shown to have
+been decided.** Three fields of `hacrQuestions.json` are now known to be
+mechanical: `question`, `levelDescriptions` and `pakistanContext` are nine
+templates over the subcategory name (`HACR-INSTRUMENT`), `weight` was a five-cycle
+(D-015), and `capabilityLinks` is a 108-cycle (this). The fields that survive
+scrutiny are `id`, `category`, `categoryId` and `subcategory` — the taxonomy. That
+is the honest boundary of what HACR measures, and it is why the crosswalk was
+authored against the taxonomy and against nothing else.

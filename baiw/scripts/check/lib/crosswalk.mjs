@@ -402,10 +402,19 @@ export function makeCrosswalkChecks(cfg) {
    * REMAINING half spread differently. Distinctness measures how far apart two
    * vectors are; this measures whether either of them is really about one thing.
    *
-   * The ceiling is about READABILITY, not spine size. Above roughly a third, a
+   * THE CEILING IS PER MODULE, AND SETTING IT NEEDS BOTH HALVES OF THE ARGUMENT.
+   *
+   * Readability fixes an upper bound that does not scale: above roughly a third a
    * reader cannot distinguish the framework's view from one leaf's score, whether
-   * the spine has 11 nodes or 35 — which is why the same number is defensible for
-   * both modules rather than scaling with granularity.
+   * the spine has 11 nodes or 80. That is why DGIW and TAIW share 35%.
+   *
+   * But a ceiling must also be REACHABLE by a plausible authoring error, or it is
+   * decoration — the FRAMEWORK-COVERAGE lesson, and the same argument the
+   * distinctness floor gets. At HAIW's 80 subcategories, three of the four
+   * frameworks could not hit 35% without piling several leaves onto one node
+   * (DMBOK2's heaviest leaf is 14% of the framework, DCAM's 15%, COBIT's APO14
+   * sub-practices at most 7.7%), so HAIW declares 25% — 1.34× its observed maximum.
+   * Read the module's own comment for the measurement behind its number.
    *
    * Exceptions are declared per framework code with a reason, and a stale one
    * fails. That is how a measured, accepted concentration stays visible instead of
@@ -504,7 +513,9 @@ export function makeCrosswalkChecks(cfg) {
 }
 
 /** Summary lines a rule file can splice into its own block. */
-export function crosswalkSummary(results, { label, spineLabel, spineTotal }) {
+export function crosswalkSummary(results, { label, spineLabel, spineTotal, spineLabelPlural }) {
+  // 'section' -> 'sections', but 'subcategory' -> 'subcategories', not 'subcategorys'.
+  const plural = spineLabelPlural ?? (spineLabel.endsWith('y') ? `${spineLabel.slice(0, -1)}ies` : `${spineLabel}s`)
   const su = results['SPINE-UNIVERSE'] ?? {}
   const or = results['CROSSWALK-ORPHAN'] ?? {}
   const fr = results['FRAMEWORK-REACH'] ?? {}
@@ -512,7 +523,7 @@ export function crosswalkSummary(results, { label, spineLabel, spineTotal }) {
   const cd = results['CROSSWALK-DISTINCTNESS'] ?? {}
   const out = []
   out.push(
-    `CROSSWALK ${(fr.reach ?? []).length} frameworks over ${spineTotal ?? su.examined ?? 0} ${spineLabel}s` +
+    `CROSSWALK ${(fr.reach ?? []).length} frameworks over ${spineTotal ?? su.examined ?? 0} ${plural}` +
       ` — ${su.mapped ?? 0} mapped, ${(or.unmapped ?? []).length} unmapped (${or.coverageMode ?? '?'})`,
   )
   // Per-framework reach prints only where a framework does NOT reach all of
@@ -526,7 +537,7 @@ export function crosswalkSummary(results, { label, spineLabel, spineTotal }) {
       `  ${r.code.padEnd(10)} REACHES ${(r.mass * 100).toFixed(1)}% OF ITSELF — ${r.homed}/${r.leaves} leaves mapped` +
         (r.gaps.length ? `, declared gaps: ${r.gaps.join(', ')}` : ''),
     )
-  if ((or.unmapped ?? []).length) out.push(`  unmapped ${spineLabel}s: ${or.unmapped.join(', ')}`)
+  if ((or.unmapped ?? []).length) out.push(`  unmapped ${plural}: ${or.unmapped.join(', ')}`)
   if (cc.rows?.length)
     out.push(`  concentration (ceiling ${(cc.ceiling * 100).toFixed(0)}%): ` + cc.rows.map((r) => `${r.code} ${(r.share * 100).toFixed(1)}% on ${r.node}`).join('  '))
   if (cd.l1Pairs?.length)

@@ -94,6 +94,61 @@ export const hacrCategoryOf = (questionId: string): HacrCategoryName | null =>
 /** The code → category table itself, for callers that hold codes rather than ids. */
 export const HACR_CATEGORY_BY_CODE = CATEGORY_BY_CODE
 
+// ── The 80 subcategories ────────────────────────────────────────────────────
+/*
+ * DERIVED, NOT AUTHORED, AND THAT IS THE WHOLE DESIGN.
+ *
+ * The framework crosswalk projects onto HACR's 80 subcategories, so every mapping
+ * needs a stable id for one. TACR got its section ids for free — its question ids
+ * literally carry them (`dg_dql_004`). HACR's do not: `HACR-DG-190` names the
+ * CATEGORY and nothing below it, and the only place a subcategory appears is the
+ * free-text `subcategory` field.
+ *
+ * Two ways to close that, and only one of them is safe:
+ *
+ *   a hand-authored registry of 80 ids   — a second copy of a list the dataset
+ *                                          already holds, which is the shape
+ *                                          `CATEGORY-UNIVERSE` exists to reject,
+ *                                          one level down.
+ *   a derivation from the data           — this. There is nothing to drift from.
+ *
+ * NOT POSITIONAL. `HACR_QUESTIONS_PER_CATEGORY / 10` would give the same 80 groups
+ * today, by slicing every 9 questions in file order. That is D-012's shape exactly
+ * — a partition that is right until someone inserts a question — and it would fail
+ * silently, moving every subsequent mapping onto the wrong topic. The id comes from
+ * the id and the field, never from an offset.
+ *
+ * `SPINE-UNIVERSE` asserts the derived set against the crosswalk on every build, so
+ * a renamed subcategory fails loudly instead of orphaning its mappings.
+ */
+
+/** Lowercase, `&`→`and`, non-alphanumerics collapsed. Matches TAIW's `slug`. */
+export const hacrSlug = (s: string): string =>
+  s
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_|_$/g, '')
+
+/**
+ * The spine id for one question's subcategory: `dg_data_quality_management`.
+ *
+ * `null` when the id names no category, for the same reason `hacrCategoryOf` does:
+ * an unattributable question is dropped by every caller, and guessing it into a
+ * subcategory would put one topic's evidence under another's heading.
+ */
+export const hacrSubcategoryIdOf = (questionId: string, subcategory: string): string | null => {
+  const code = questionId.split('-')[1]
+  if (!CATEGORY_BY_CODE[code]) return null
+  return `${code.toLowerCase()}_${hacrSlug(subcategory)}`
+}
+
+/** Ten per category, 80 in all. Asserted by `HACR-SUBCATEGORY-MAP`, not assumed. */
+export const HACR_SUBCATEGORIES_PER_CATEGORY = 10
+
+/** Nine questions per subcategory — see `HACR-INSTRUMENT` for what those nine are. */
+export const HACR_QUESTIONS_PER_SUBCATEGORY = 9
+
 // ── The dashboard radar's data ──────────────────────────────────────────────
 /*
  * Lives here rather than in `components/HaiwDashboard.tsx` for two reasons, and
