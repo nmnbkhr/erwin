@@ -51,8 +51,44 @@
  * ZERO BASELINE MOVEMENT IS NOT EVIDENCE for a component, a fallback branch or a
  * dashboard.
  *
- *   npm run verify              # every step
- *   npm run verify --           # same; extra args are ignored
+ * ─── TWO TARGETS, AND WHY THE SECOND ONE REFUSES ───────────────────────────
+ *
+ * `verify:quick` is the same sequence minus ONE step: `check:selftest`, which is
+ * 64 s of the 82 s — 78% of the run, in a single step. Everything else together
+ * is 18 s, and the three cheap golden steps are 2.8 s of it, so there is nothing
+ * else worth cutting: dropping `compare`/`geometry`/`drive` would save 3% and
+ * lose the only steps that read generated output.
+ *
+ * THE OBJECTION IS REAL AND SO IS THE ANSWER. A second target invites routing
+ * around the first. But the target people already route to is `npm run build`,
+ * which skips FIVE steps — lint, selftest, compare, geometry, drive — and a
+ * defect has surfaced in every one. `verify:quick` skips one, under a refusal.
+ * The choice is not quick-versus-full; it is quick-versus-build, and quick
+ * strictly dominates for about seven more seconds:
+ *
+ *     npm run build     3 steps   skips lint, selftest, compare x2, geometry, drive
+ *     verify:quick      7 steps   skips selftest, and REFUSES when that matters
+ *     npm run verify    8 steps   the stage-closing run — CLAUDE.md hard rule 11
+ *
+ * THE REFUSAL IS THE WHOLE SAFETY PROPERTY, so it is structural rather than
+ * remembered — which is the thing this file was written to fix in the first
+ * place. `check:selftest` is the only step that answers "is every finding code
+ * still reachable FROM THE CHECK THAT DECLARES IT", and both of its real catches
+ * were edits under `scripts/`: the shared `unique()` helper hardcoding the
+ * `UNIQUE` code so `TACR-UNIQUE` and `HACR-UNIQUE` failed builds under a code no
+ * rule file declares, and D5 stage C's first attempt at moving
+ * FRAMEWORK-COVERAGE's layer assertion into CROSSWALK-WEIGHT, which dropped a
+ * real assertion in the move. Inspection missed the first and would have missed
+ * the second.
+ *
+ * So `verify:quick` exits 2 — not a warning, a refusal — when `git status
+ * --porcelain` reports any change under `scripts/`. It also refuses when it
+ * CANNOT establish that, because a safety condition that silently degrades to
+ * "probably fine" is the VACUOUS shape one level up.
+ *
+ *   npm run verify              # every step — the stage-closing run
+ *   npm run verify:quick        # minus check:selftest; refuses if scripts/ moved
+ *   npm run verify --           # same as verify; extra args are ignored
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -73,6 +109,58 @@ const LINT_BASELINE = 53
 
 const P = (...xs) => path.join(ROOT, ...xs)
 const rule = (c = '─') => console.log(c.repeat(78))
+
+/** `--quick` skips exactly the steps carrying a `skippedByQuick` reason. */
+const QUICK = process.argv.slice(2).includes('--quick')
+const TARGET = QUICK ? 'npm run verify:quick' : 'npm run verify'
+
+/**
+ * The tree `--quick` may not be used on, and the exact question asked of git.
+ *
+ * `scripts/` whole, not `scripts/check/` alone. Both of selftest's real catches
+ * were in `scripts/check/`, but the selftest COPIES `scripts` wholesale and its
+ * geometry row drives `scripts/golden/geometry.mjs` — so narrowing the condition
+ * to the directory where the two known catches happened would be fitting the rule
+ * to the sample. The broad condition is also the one nobody has to think about,
+ * which is the point of making it structural.
+ *
+ * Editing this file therefore makes `--quick` refuse. That is correct, and it is
+ * the cheapest possible demonstration that the refusal works.
+ */
+function scriptsChanged() {
+  const gitRoot = spawnSync('git', ['rev-parse', '--show-toplevel'], { cwd: ROOT, encoding: 'utf8' })
+  if (gitRoot.status !== 0) return { known: false, why: 'git rev-parse --show-toplevel failed — this is not a git worktree' }
+  const top = gitRoot.stdout.trim()
+
+  /*
+   * `-z`: NUL-separated and NEVER quoted. Porcelain v1 quotes and backslash-escapes
+   * any path with a space or a non-ASCII byte, and this repo already contains one
+   * (`e/CANON_PHASE_PLAN (1).md`) — a parser that unquoted wrongly would silently
+   * stop matching, which is a refusal that quietly stops refusing.
+   */
+  const st = spawnSync('git', ['status', '--porcelain', '-z'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
+  if (st.status !== 0) return { known: false, why: `git status --porcelain -z exited ${st.status}` }
+
+  // Repo-relative, so `baiw/scripts` from the repo root, `scripts` from inside it.
+  const rel = path.relative(top, P('scripts')).split(path.sep).join('/')
+  const under = (p) => p === rel || p.startsWith(`${rel}/`)
+
+  const fields = st.stdout.split('\0').filter((f) => f !== '')
+  const hits = []
+  for (let i = 0; i < fields.length; i++) {
+    const xy = fields[i].slice(0, 2)
+    const p = fields[i].slice(3)
+    // R and C carry the ORIGINAL path as the next field. Both sides are a change.
+    if (/[RC]/.test(xy)) {
+      const from = fields[++i] ?? ''
+      if (under(from)) hits.push(`${xy} ${from} -> ${p}`)
+      else if (under(p)) hits.push(`${xy} ${from} -> ${p}`)
+      continue
+    }
+    if (under(p)) hits.push(`${xy} ${p}`)
+  }
+  return { known: true, hits }
+}
 
 /** Every file under baseline/, hashed by relative path. Sorted, code-unit order. */
 function baselineDigest() {
@@ -166,6 +254,22 @@ const STEPS = [
     name: 'check:selftest',
     what: 'every finding code tripped on a copy — no tracked file is written',
     argv: [process.execPath, P('scripts', 'check', 'selftest.mjs')],
+    /*
+     * THE ONLY STEP `--quick` SKIPS, and the reason is mandatory in source rather
+     * than in a doc — the `mayBeEmpty` / `SLUG_EXCEPTIONS` precedent. A step that
+     * can be skipped should require someone to write down what is lost.
+     *
+     * What is lost is specific: this is the only step that proves a finding code
+     * is reachable FROM THE CHECK THAT DECLARES IT, rather than merely that the
+     * check ran. Nothing else here can see a shared assertion helper hardcoding
+     * one code, or a refactor dropping a real assertion while moving it between
+     * classes. Both have happened, both under `scripts/`, which is why the
+     * refusal is keyed to that directory.
+     */
+    skippedByQuick:
+      'the only step that proves a finding code is reachable from the check that DECLARES it — ' +
+      'not merely that the check ran. Its two real catches were a shared helper hardcoding one code, ' +
+      'and a refactor dropping an assertion while moving it between classes; both were edits under scripts/.',
     gate: (r) => (r.code === 0 ? null : `exited ${r.code}`),
     summarise: (r) => (/(\d+) of (\d+) mutations tripped their target/.exec(r.out)?.[0] ?? '') +
       ' · ' + (/(\d+) of (\d+) distinct codes demonstrated/.exec(r.out)?.[0] ?? ''),
@@ -231,9 +335,50 @@ const STEPS = [
 ]
 
 // ── run ─────────────────────────────────────────────────────────────────────
-console.log('erwin closing verification — npm run verify')
+console.log(`erwin closing verification — ${TARGET}`)
 console.log(`  root: ${ROOT}`)
 console.log('  every child runs with cwd=baiw/, so this is safe to invoke from anywhere')
+
+const skipped = QUICK ? STEPS.filter((s) => s.skippedByQuick) : []
+const selected = STEPS.filter((s) => !(QUICK && s.skippedByQuick))
+
+/*
+ * THE REFUSAL, BEFORE ANY WORK. Exit 2, distinct from 1 (a step failed), so a
+ * caller can tell "you used the wrong target" from "the tree is broken".
+ *
+ * It runs first because refusing should be instant — a refusal that costs 18 s is
+ * one people learn to skip past. And it refuses on `known: false` as loudly as on
+ * a hit: a safety condition that degrades to "probably fine" when it cannot be
+ * evaluated is the VACUOUS shape one level up, and this repo has shipped that
+ * thirteen times.
+ */
+if (QUICK) {
+  const st = scriptsChanged()
+  if (!st.known || st.hits.length > 0) {
+    console.log('')
+    rule('━')
+    console.log('REFUSED — verify:quick is the wrong target for this change')
+    rule('━')
+    if (!st.known) {
+      console.log(`  Could not establish whether scripts/ has changed: ${st.why}`)
+      console.log('  The refusal condition IS the safety property of this target, so a condition that')
+      console.log('  cannot be evaluated is a refusal, not a pass.')
+    } else {
+      console.log(`  ${st.hits.length} change(s) under scripts/:`)
+      for (const h of st.hits) console.log(`    ${h}`)
+      console.log('')
+      for (const s of skipped) console.log(`  verify:quick skips ${s.name} — ${s.skippedByQuick}`)
+      console.log('')
+      console.log('  Choosing verify:quick is a claim that the change did not touch the gate.')
+      console.log('  git says otherwise, so the claim is false and the skipped step is exactly the')
+      console.log('  one that would have covered it.')
+    }
+    console.log('')
+    console.log('  Run:  npm run verify')
+    process.exit(2)
+  }
+  console.log('  scripts/ is clean — verify:quick is a legitimate target for this change')
+}
 
 const before = baselineDigest()
 console.log(`  golden baseline: ${before.count} files, ${before.digest.slice(0, 12)} — must be untouched at the end`)
@@ -242,7 +387,7 @@ const results = []
 const outputs = new Map()
 let failed = 0
 
-for (const step of STEPS) {
+for (const step of selected) {
   console.log('')
   rule('━')
   console.log(`▶ ${step.name}`)
@@ -287,6 +432,19 @@ console.log(
 )
 for (const m of baselineMoved) console.log(`           ${m}`)
 
+/*
+ * The skipped step is printed IN THE SUMMARY MATRIX, not above it and not in a
+ * footnote. A reader scanning a column of PASS has to meet the one thing that did
+ * not run in the same column, or the matrix reads as eight-for-eight.
+ */
+for (const s of skipped) {
+  console.log(`  ${'SKIP'.padEnd(6)} ${s.name.padEnd(W)} not run by verify:quick`)
+  console.log(`           ${s.skippedByQuick}`)
+  console.log('           REFUSAL: this target exits 2 if `git status --porcelain` reports any change')
+  console.log('           under scripts/, or if that cannot be established — so it cannot be the wrong')
+  console.log('           tool for the change class the skipped step covers. scripts/ was clean.')
+}
+
 console.log('')
 console.log('  WHAT THIS DOES NOT COVER — state it in the report, do not let a green matrix imply it:')
 console.log('    · no React component is rendered and nothing is clicked; drive:dashboards calls exported')
@@ -301,7 +459,22 @@ const bad = failed + (baselineMoved.length ? 1 : 0)
 console.log('')
 if (bad === 0) {
   console.log(`  OK — ${results.length} steps passed, golden baseline untouched.`)
-  console.log('  Paste this output. A stage is not complete without it (CLAUDE.md, hard rule 11).')
+  if (QUICK) {
+    /*
+     * Said plainly, at the end, where the reader stops. Hard rule 11 is
+     * conditional — quick is sufficient for routes, components, navItems and docs
+     * — but "sufficient for this change" and "the stage-closing run" are different
+     * claims, and only the second one is what `npm run verify` makes.
+     */
+    console.log(`  ${STEPS.length - selected.length} step skipped: ${skipped.map((s) => s.name).join(', ')}.`)
+    console.log('')
+    console.log('  THIS IS NOT A STAGE-CLOSING RUN.')
+    console.log('  Sufficient for routes, components, navItems and docs (CLAUDE.md, hard rule 11).')
+    console.log('  If the change moves a baseline or touches a generator, a dataset or a rule file,')
+    console.log('  `npm run verify` is required and this output does not substitute for it.')
+  } else {
+    console.log('  Paste this output. A stage is not complete without it (CLAUDE.md, hard rule 11).')
+  }
 } else {
   console.log(`  ${bad} step(s) failed. The stage is not complete.`)
 }

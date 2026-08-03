@@ -46,8 +46,32 @@ uses.
 
 ## Hard rules
 
+Eleven rules, two kinds. Six apply to every change, wherever it lands. Four
+apply only when the change touches the gate itself — skip that block if yours
+doesn't. The eleventh, closing a stage, is conditional the same way and is
+below both.
+
+### Always
+
 1. **`archive/` is never read by the app.** Verified by grep, recorded in
    `archive/README.md`. Do not import from it. Do not treat it as live.
+6. **`npm run build` and `./dev.sh build` are not equivalent.** Only the npm
+   script runs the gate. Always verify with `npm run build`.
+8. **`tsc -b` must pass.** `strict: true`. `noUnusedLocals` and
+   `noUnusedParameters` are deliberately off — do not turn them on.
+9. **Additive only.** Do not delete or rewrite an existing file. Extend it.
+10. **Do not add a seventh copy of the layout shell.** See below.
+7. **There is no test framework.** No vitest, jest or playwright. The gate,
+   `check:selftest` and `scripts/golden/` are harnesses, not tests, and none of
+   them asserts application behaviour. If a task needs tests, propose the
+   framework and wait for approval — do not install one unasked.
+
+### When you touch the gate
+
+"Touching the gate" means editing `scripts/check.mjs`, anything under
+`scripts/check/`, or a rule file it declares. Changing a route, a component,
+`navItems`, or a doc is not this — skip to "Closing a stage" below.
+
 2. **`scripts/check.mjs` is the suite's quality gate.** Extend it, never bypass
    it. `npm run check` runs it; `npm run build` runs it before `tsc -b`.
    `npm run check:dgiw` is the *same full run* under the old name, and
@@ -85,21 +109,75 @@ uses.
    tracked file is ever written.** Run it after touching the gate: a refactor
    that leaves a check passing because it stopped running is the failure mode it
    exists for, and inspection has missed that twelve times.
-6. **`npm run build` and `./dev.sh build` are not equivalent.** Only the npm
-   script runs the gate. Always verify with `npm run build`.
-7. **There is no test framework.** No vitest, jest or playwright. The gate,
-   `check:selftest` and `scripts/golden/` are harnesses, not tests, and none of
-   them asserts application behaviour. If a task needs tests, propose the
-   framework and wait for approval — do not install one unasked.
-8. **`tsc -b` must pass.** `strict: true`. `noUnusedLocals` and
-   `noUnusedParameters` are deliberately off — do not turn them on.
-9. **Additive only.** Do not delete or rewrite an existing file. Extend it.
-10. **Do not add a seventh copy of the layout shell.** See below.
-11. **A stage is not complete until `npm run verify` exits 0 and its output is
-    pasted.** `npm run build` is **not** sufficient and never was: it runs
-    `check.mjs`, `tsc -b` and `vite build`, and skips lint, `check:selftest`,
-    `compare`, `geometry` and `drive:dashboards`. **A defect has surfaced in every
-    one of those.** See "Closing verification" below.
+
+### Closing a stage
+
+11. **A stage is not complete until the right verify command exits 0 and its
+    output is pasted.** `npm run build` is **not** sufficient and never was: it
+    runs `check.mjs`, `tsc -b` and `vite build`, and skips lint,
+    `check:selftest`, `compare`, `geometry` and `drive:dashboards`. **A defect
+    has surfaced in every one of those.** Which command is required is
+    conditional:
+
+    ```
+    npm run verify         required — the change moves a baseline, touches a
+                            generator, a dataset, or a rule file
+    npm run verify:quick   sufficient otherwise — routes, components, navItems,
+                            docs
+    ```
+
+    **`verify:quick` ships.** `npm run verify:quick` from `baiw/`, or from the
+    repo root through the passthrough. It is `scripts/verify.mjs --quick`: one
+    file, one sequence, one summary format, so the two targets cannot drift into
+    two tools. **17.7 s against 81.8 s, and 176 lines against 3,842.**
+
+    The design is measured, and it is not "check, tsc, lint, one compare": of
+    `npm run verify`'s run, `check:selftest` alone is **64 s of ~82 s — 78%**;
+    everything else together is 18 s, and the three golden steps (`compare` ×2,
+    `geometry`, `drive:dashboards`) are 2.8 s of that. Cutting geometry, drive
+    and a `compare` run to build "quick" would save ~3% of the runtime and lose
+    the only steps that read generated output — for almost nothing, since the
+    entire saving is in one step. So `verify:quick` is `npm run verify` **minus
+    `check:selftest` alone** (7 of 8 steps, both `compare` runs kept), and it
+    must **refuse — exit non-zero, not warn** — when `git status --porcelain`
+    reports any change under `scripts/`, or when that cannot be established.
+
+    **State the risk: a gate people route around is worse than a slower one
+    they run.** `check:selftest` is the only step that proves a finding code is
+    reachable *from the check that declares it*, not merely that the check
+    runs. Both of its real catches in this repo's history were edits under
+    `scripts/`: a shared `unique()` helper hardcoding one code so two different
+    rules failed under a name neither declared, and a refactor that dropped a
+    real assertion while moving it between check classes. `verify:quick` cannot
+    see either shape — that is exactly the step it skips. Choosing it is a
+    claim that the change did not touch the gate, and the refusal condition
+    checks that claim structurally instead of trusting memory. If `scripts/` is
+    dirty, `verify:quick` was the wrong choice and `npm run verify` is
+    required. See "Closing verification" below.
+
+    **The realistic comparison is not quick-versus-full.** It is
+    quick-versus-`build`, because `npm run build` is what a hurry already reaches
+    for, and quick strictly dominates it for about seven more seconds:
+
+    | | steps | skips | wall |
+    |---|---:|---|---:|
+    | `npm run build` | 3 | lint, selftest, compare ×2, geometry, drive — **a defect has surfaced in every one** | ~11 s |
+    | **`npm run verify:quick`** | **7** | selftest only, **under a refusal** | **17.7 s** |
+    | `npm run verify` | 8 | — | 81.8 s |
+
+    Refusing costs nothing and happens before any step runs: the git query is the
+    first thing the target does, so a wrong choice is rejected instantly rather
+    than 18 s in. It exits **2**, distinct from 1 (a step failed), so "you used
+    the wrong target" and "the tree is broken" are not the same signal. It
+    refuses just as hard when the condition **cannot be evaluated** — not a git
+    worktree, `git status` failed — because a safety condition that degrades to
+    "probably fine" is the VACUOUS shape one level up.
+
+    Quick's summary prints the skipped step **inside the matrix** as `SKIP`, not
+    above it and not as a footnote, so a column of `PASS` cannot read as
+    eight-for-eight; it prints what that step alone proves, the refusal condition
+    it ran under, the full WHAT THIS DOES NOT COVER block, and closes on **THIS
+    IS NOT A STAGE-CLOSING RUN**.
 
 ### Three finding codes did not exist before D3
 
@@ -127,8 +205,9 @@ it checks that every code can still be reached.
 
 ## Closing verification
 
-`npm run verify` (`scripts/verify.mjs`, ~95 s). One command, one exit code, eight
-steps in this order:
+`npm run verify` (`scripts/verify.mjs`, **81.8 s measured**). One command, one exit
+code, eight steps in this order — `npm run verify:quick` is the same file and the
+same sequence minus step four, under the refusal in hard rule 11:
 
 ```
 check → tsc -b --force → lint (asserted) → check:selftest → compare
@@ -205,6 +284,23 @@ exactly the surface D-012 and D-013 lived on. It reports rather than asserts, by
 design. What `verify` gates is that it **ran**: a run that drives zero category
 rows fails, because a reporter that always exits 0 is indistinguishable from
 outside from a reporter that stopped running.
+
+**It also printed 3,736 lines of nothing — 49% of everything `verify` emitted.**
+Vite's dep scanner starts in the background, `finally { vite.close() }` closes the
+server before it finishes, and every module it was mid-resolve on throws
+"The server is being restarted or closed" as a full esbuild-formatted error block
+naming a file the script never asked for. It named `src/alm/` and
+`QuickAssessment.tsx` while driving two radars, and it was identical at HEAD, so
+it predated everything that appeared in it.
+
+The fix is `optimizeDeps: { noDiscovery: true, include: [] }` — **the option
+`scripts/golden/harness.mjs` has always carried, for the reason its comment already
+gave**: SSR never touches the pre-bundle, so discovery crawls the whole app for
+nothing and then complains when the server closes. **Nothing is filtered.** The
+crawl is not started, so the output is not suppressed — it is not produced. A
+stderr filter would have been wrong twice: it would hide a real vite error the day
+one appears, and it would leave the race in place for the next tool that closes
+this server. `verify` now prints 3,842 lines where it printed 7,606.
 
 ## The declared report source set
 

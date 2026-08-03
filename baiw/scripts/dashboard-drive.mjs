@@ -59,7 +59,32 @@ const label = (agg) =>
 
 async function main() {
   const storage = installStorage()
-  const vite = await createServer({ root: ROOT, appType: 'custom', server: { middlewareMode: true }, logLevel: 'error' })
+  /*
+   * `optimizeDeps: { noDiscovery: true }` — the same option, for the same reason,
+   * as `scripts/golden/harness.mjs`, whose comment states it plainly: SSR never
+   * touches the pre-bundle, so discovery would crawl the whole app for nothing and
+   * then complain when the server is closed.
+   *
+   * That complaint was 3,736 lines — 49% of everything `npm run verify` printed.
+   * The dep scanner starts in the background, `finally { vite.close() }` closes the
+   * server before it finishes, and every module it was mid-resolve on throws
+   * "The server is being restarted or closed. Request is outdated" as a full
+   * esbuild-formatted error block naming a file this script never asked for. It was
+   * identical at HEAD, so it predates the pages that appear in it; it named
+   * `src/alm/...` and `src/components/QuickAssessment.tsx` while driving two radars.
+   *
+   * NOTHING IS FILTERED. The crawl is not started, so the output is not suppressed —
+   * it is not produced. A stderr filter would have been the wrong fix twice over:
+   * it would hide a real vite error the day one appears, and it would leave the
+   * race in place for the next tool that closes this server.
+   */
+  const vite = await createServer({
+    root: ROOT,
+    appType: 'custom',
+    server: { middlewareMode: true },
+    logLevel: 'error',
+    optimizeDeps: { noDiscovery: true, include: [] },
+  })
 
   try {
     // ── HAIW ────────────────────────────────────────────────────────────────
