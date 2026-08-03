@@ -129,7 +129,12 @@ below both.
     **`verify:quick` ships.** `npm run verify:quick` from `baiw/`, or from the
     repo root through the passthrough. It is `scripts/verify.mjs --quick`: one
     file, one sequence, one summary format, so the two targets cannot drift into
-    two tools. **17.7 s against 81.8 s, and 176 lines against 3,842.**
+    two tools. **18.5 s against 82.5 s.**
+
+    It buys **time, not brevity** — 914 lines against 1,113, because
+    `check:selftest` is 78% of the runtime and under 18% of the output. The
+    output problem was a separate defect with a separate fix (the dep-scan race,
+    below); do not credit it to this target.
 
     The design is measured, and it is not "check, tsc, lint, one compare": of
     `npm run verify`'s run, `check:selftest` alone is **64 s of ~82 s — 78%**;
@@ -162,8 +167,8 @@ below both.
     | | steps | skips | wall |
     |---|---:|---|---:|
     | `npm run build` | 3 | lint, selftest, compare ×2, geometry, drive — **a defect has surfaced in every one** | ~11 s |
-    | **`npm run verify:quick`** | **7** | selftest only, **under a refusal** | **17.7 s** |
-    | `npm run verify` | 8 | — | 81.8 s |
+    | **`npm run verify:quick`** | **7** | selftest only, **under a refusal** | **18.5 s** |
+    | `npm run verify` | 8 | — | 82.5 s |
 
     Refusing costs nothing and happens before any step runs: the git query is the
     first thing the target does, so a wrong choice is rejected instantly rather
@@ -178,6 +183,22 @@ below both.
     eight-for-eight; it prints what that step alone proves, the refusal condition
     it ran under, the full WHAT THIS DOES NOT COVER block, and closes on **THIS
     IS NOT A STAGE-CLOSING RUN**.
+
+    **Two things the refusal does not catch, measured rather than assumed:**
+
+    - `touch scripts/golden/geometry.mjs` alone does **not** refuse — exit 0. git
+      reports content, not mtime, and that is the right signal. Recorded because
+      touching a file is the obvious way to test this and it does not work; edit
+      the bytes.
+    - **A COMMITTED change under `scripts/` does not refuse**, because the working
+      tree is clean again. Edit a rule file, commit, run `verify:quick`, and it
+      passes without `check:selftest` ever seeing it. This hole is left open on
+      purpose: closing it needs a baseline to compare commits against — a
+      merge-base, a tag, a recorded last-full-verify SHA — and each is a new
+      mechanism carrying a judgement that can be silently wrong, which is this
+      repo's worst failure class. The crude condition cannot be subtly wrong.
+      **If you commit a gate change, run `npm run verify`; the refusal will not
+      remind you.**
 
 ### Three finding codes did not exist before D3
 
@@ -205,7 +226,7 @@ it checks that every code can still be reached.
 
 ## Closing verification
 
-`npm run verify` (`scripts/verify.mjs`, **81.8 s measured**). One command, one exit
+`npm run verify` (`scripts/verify.mjs`, **82.5 s measured**). One command, one exit
 code, eight steps in this order — `npm run verify:quick` is the same file and the
 same sequence minus step four, under the refusal in hard rule 11:
 
@@ -285,7 +306,11 @@ design. What `verify` gates is that it **ran**: a run that drives zero category
 rows fails, because a reporter that always exits 0 is indistinguishable from
 outside from a reporter that stopped running.
 
-**It also printed 3,736 lines of nothing — 49% of everything `verify` emitted.**
+**It also printed 6,493 lines of nothing — 85% of everything `verify` emitted.**
+(The first estimate was 3,736. It was made with a grep that matched the message
+lines and missed the box-drawing and colour-escape lines around them, and the
+measured difference is what corrected it — which is the same lesson as every
+other hand-typed count in this file.)
 Vite's dep scanner starts in the background, `finally { vite.close() }` closes the
 server before it finishes, and every module it was mid-resolve on throws
 "The server is being restarted or closed" as a full esbuild-formatted error block
@@ -300,7 +325,8 @@ nothing and then complains when the server closes. **Nothing is filtered.** The
 crawl is not started, so the output is not suppressed — it is not produced. A
 stderr filter would have been wrong twice: it would hide a real vite error the day
 one appears, and it would leave the race in place for the next tool that closes
-this server. `verify` now prints 3,842 lines where it printed 7,606.
+this server. **`verify` now prints 1,113 lines where it printed 7,606**, and this
+is the fix that made the output readable — not `verify:quick`, which removes 199.
 
 ## The declared report source set
 

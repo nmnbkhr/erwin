@@ -126,6 +126,25 @@ const TARGET = QUICK ? 'npm run verify:quick' : 'npm run verify'
  *
  * Editing this file therefore makes `--quick` refuse. That is correct, and it is
  * the cheapest possible demonstration that the refusal works.
+ *
+ * ─── TWO THINGS IT DOES NOT CATCH, MEASURED, NOT ASSUMED ───────────────────
+ *
+ * 1. `touch scripts/golden/geometry.mjs` alone does NOT refuse — exit 0. git
+ *    reports CONTENT, not mtime, and that is the right signal: a file whose
+ *    timestamp moved and whose bytes did not has not changed the gate. Written
+ *    down because "touch a file and watch it refuse" is the obvious way to test
+ *    this and it does not work.
+ *
+ * 2. A COMMITTED change under `scripts/` does not refuse, because the working
+ *    tree is clean again. Someone can edit a rule file, commit, and then run
+ *    `--quick` legitimately without `check:selftest` ever having seen it.
+ *
+ * The second is a real hole and it is left open deliberately. Closing it needs a
+ * baseline to compare commits against — a merge-base, a tag, a recorded
+ * last-full-verify SHA — and every one of those is a new mechanism carrying a
+ * judgement that can be silently wrong, which is this repo's worst failure class.
+ * The condition as specified is crude and cannot be subtly wrong. **If you commit
+ * a gate change, run `npm run verify` — the refusal will not remind you.**
  */
 function scriptsChanged() {
   const gitRoot = spawnSync('git', ['rev-parse', '--show-toplevel'], { cwd: ROOT, encoding: 'utf8' })
