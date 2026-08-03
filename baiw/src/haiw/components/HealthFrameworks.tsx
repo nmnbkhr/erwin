@@ -96,7 +96,7 @@ export default function HealthFrameworks() {
           import('../../report/naming'),
         ])
       const meta = metaFor(HAIW_SCORECARD_ARTEFACT_ID)
-      saveReport(buildHaiwScorecardPdf({ meta, answers, questions }), reportFilename(meta, 'pdf'))
+      saveReport(buildHaiwScorecardPdf({ meta, answers, questions }), reportFilename(meta, 'pdf'), meta)
     })
   }, [run, metaFor, answers, questions])
 
@@ -111,7 +111,7 @@ export default function HealthFrameworks() {
           ])
         const meta = metaFor(HAIW_ALIGNMENT_ARTEFACT_ID)
         const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, `_${code.toLowerCase()}.pdf`)
-        saveReport(buildHaiwFrameworkAlignmentPdf({ meta, answers, questions, frameworkId }), name)
+        saveReport(buildHaiwFrameworkAlignmentPdf({ meta, answers, questions, frameworkId }), name, meta)
       })
     },
     [run, metaFor, answers, questions],

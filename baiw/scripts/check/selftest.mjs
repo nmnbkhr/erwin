@@ -967,6 +967,51 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     apply: () => append('src/haiw/hacr.ts', "\nimport __selftestBenchmarks from '../data/haiw/benchmarks.json'\nexport const __selftestUse = () => __selftestBenchmarks\n"),
   },
 
+  // ── PROVENANCE-COVERAGE, D5 stage F1 — one row per branch ───────────────
+  // A generator bypassing the recorder is the branch that matters: each of the
+  // first three drops the (already-wired) provenance argument from one real
+  // call site, which is exactly what a future edit dropping it by accident
+  // would look like — the call still compiles, the file still downloads.
+  {
+    code: 'PROVENANCE-COVERAGE',
+    what: 'a saveReport call with no provenance meta — the recorder is never invoked',
+    touches: ['src/utils/reportGenerator.ts'],
+    apply: () => sub(
+      'src/utils/reportGenerator.ts',
+      `saveReport(r.build(), reportFilename(reportMeta, 'pdf'), reportMeta)`,
+      `saveReport(r.build(), reportFilename(reportMeta, 'pdf'))`,
+    ),
+  },
+  {
+    code: 'PROVENANCE-COVERAGE',
+    what: 'a downloadCsv call with no provenance meta',
+    touches: ['src/haiw/utils/healthReportGenerator.ts'],
+    apply: () => sub(
+      'src/haiw/utils/healthReportGenerator.ts',
+      `return downloadCsv(rows, REGISTER_COLUMNS, reportFilename(meta, 'csv'), meta)`,
+      `return downloadCsv(rows, REGISTER_COLUMNS, reportFilename(meta, 'csv'))`,
+    ),
+  },
+  {
+    code: 'PROVENANCE-COVERAGE',
+    what: 'a saveMarkdown call with no provenance meta',
+    touches: ['src/taiw/utils/tradeReportGenerator.ts'],
+    apply: () => sub(
+      'src/taiw/utils/tradeReportGenerator.ts',
+      `saveMarkdown(md, reportFilename(meta, 'md'), meta)`,
+      `saveMarkdown(md, reportFilename(meta, 'md'))`,
+    ),
+  },
+  {
+    code: 'PROVENANCE-COVERAGE',
+    what: 'a reference to one of the three recorder exits reached through neither a named import nor a destructured binding — unresolvable, so unverifiable',
+    // useDeliverable.ts is inside the declared dgiw report-source set and
+    // imports none of the three names, so a bare property access here cannot
+    // be resolved to any known local binding.
+    touches: ['src/dgiw/report/useDeliverable.ts'],
+    apply: () => append('src/dgiw/report/useDeliverable.ts', '\nexport const __selftestUse = (ns: any) => ns.saveReport\n'),
+  },
+
   // ── the geometry audit ──────────────────────────────────────────────────
   // A different tool, and the reason it is here: geometry.mjs measures drawn
   // PATHS, which is the one thing no text-based check in this repo can see. Two

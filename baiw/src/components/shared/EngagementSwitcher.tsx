@@ -12,7 +12,7 @@
  */
 import { useCallback, useEffect, useRef, useState } from 'react'
 import {
-  Briefcase, Check, ChevronDown, Copy, Download, Pencil, Plus, Trash2, Upload, X,
+  Briefcase, Check, ChevronDown, Copy, Download, History, Pencil, Plus, Trash2, Upload, X,
 } from 'lucide-react'
 import { useEngagement } from '../../engagement/context'
 import { engagementLabel } from '../../engagement/migrate'
@@ -59,7 +59,9 @@ type Mode =
   | { kind: 'delete'; id: string }
 
 export default function EngagementSwitcher({ accent = 'purple' }: { accent?: Accent }) {
-  const { engagements, active, create, rename, remove, setActive, duplicate, exportOne, importOne } = useEngagement()
+  const {
+    engagements, active, create, rename, remove, setActive, duplicate, exportOne, importOne, exportProvenanceLog,
+  } = useEngagement()
   const c = ACCENTS[accent]
 
   const [open, setOpen] = useState(false)
@@ -116,6 +118,18 @@ export default function EngagementSwitcher({ accent = 'purple' }: { accent?: Acc
     } catch (err) {
       console.error('[engagement] export failed', err)
       setError(err instanceof Error ? err.message : 'Export failed.')
+    }
+  }
+
+  // Same shape as handleExport, over the narrower provenance log rather than
+  // the full state bundle — see EngagementContextValue.exportProvenanceLog.
+  const handleExportProvenance = async (id: string) => {
+    setError(null)
+    try {
+      await exportProvenanceLog(id)
+    } catch (err) {
+      console.error('[engagement] provenance export failed', err)
+      setError(err instanceof Error ? err.message : 'Provenance export failed.')
     }
   }
 
@@ -274,6 +288,13 @@ export default function EngagementSwitcher({ accent = 'purple' }: { accent?: Acc
                             className="p-1.5 text-slate-400 hover:text-slate-700 rounded hover:bg-white"
                           >
                             <Download size={13} />
+                          </button>
+                          <button
+                            title="Export provenance log"
+                            onClick={() => void handleExportProvenance(e.id)}
+                            className="p-1.5 text-slate-400 hover:text-slate-700 rounded hover:bg-white"
+                          >
+                            <History size={13} />
                           </button>
                           <button
                             title="Delete"

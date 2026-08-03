@@ -3,11 +3,11 @@
 // all five tables now go through ReportDoc.table(), which is where the
 // `lastAutoTable.finalY` cast and the 15mm margin live.
 import type jsPDF from 'jspdf'
-import { saveAs } from 'file-saver'
 
 import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '../../report/spine'
 import { formatCoverDate, reportFilename } from '../../report/naming'
 import { downloadCsv, byStringKey, type CsvColumn } from '../../report/csv'
+import { saveMarkdown } from '../../report/markdown'
 import type { ReportMeta } from '../../report/types'
 /*
  * `aggregate` and `type Aggregate` LEFT THIS IMPORT IN D5 STAGE E2.
@@ -1214,7 +1214,7 @@ export function generateHealthMaturityPDF(
     color: SLATE,
   })
 
-  saveReport(r.build(), reportFilename(reportMeta, 'pdf'))
+  saveReport(r.build(), reportFilename(reportMeta, 'pdf'), reportMeta)
 }
 
 // ══════════════════════════════════════════════════════════
@@ -1319,7 +1319,7 @@ export function generateHealthCapabilityRegisterCSV(
    * carrying a category score offset by `(ci % 5 - 2) * 0.15`.
    */
   const rows = [...capabilities].sort(byStringKey(c => c.id))
-  return downloadCsv(rows, REGISTER_COLUMNS, reportFilename(meta, 'csv'))
+  return downloadCsv(rows, REGISTER_COLUMNS, reportFilename(meta, 'csv'), meta)
 }
 
 // ══════════════════════════════════════════════════════════
@@ -1475,6 +1475,5 @@ Email: info@godai.tech
 *This roadmap was generated using HAIW — Healthcare Analytics Intelligence Workbench*
 `
 
-  const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' })
-  saveAs(blob, reportFilename(meta, 'md'))
+  saveMarkdown(md, reportFilename(meta, 'md'), meta)
 }

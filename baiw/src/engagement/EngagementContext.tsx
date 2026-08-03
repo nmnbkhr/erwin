@@ -23,6 +23,7 @@ import {
   writeActiveId,
   writeEngagements,
 } from './storage'
+import { buildProvenanceExport, clearProvenanceLog } from '../report/provenance'
 
 /** Filename-safe slug of an engagement's display name. */
 function slug(name: string): string {
@@ -84,6 +85,11 @@ export function EngagementProvider({ children }: { children: ReactNode }) {
       // Namespaced state first: if the registry write succeeded and this did not,
       // the orphaned keys would be unreachable and undeletable through the UI.
       removeAllNs(id)
+      // The provenance log is NOT one of PERSISTED_BASES — see provenance.ts's
+      // clearProvenanceLog() docstring for why duplicate() must not carry it —
+      // so it is not touched by removeAllNs() above and is cleared explicitly
+      // here instead, or it would outlive the engagement it describes.
+      clearProvenanceLog(id)
       const next = readEngagements().filter((e) => e.id !== id)
       commit(next)
       if (activeId === id) {
@@ -136,6 +142,20 @@ export function EngagementProvider({ children }: { children: ReactNode }) {
     }
     const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json;charset=utf-8' })
     saveAs(blob, `engagement-${slug(engagementLabel(source))}-${bundle.exportedAt.slice(0, 10)}.json`)
+  }, [])
+
+  // Same shape as exportOne: file-saver on demand, rejections propagate rather
+  // than vanishing into a fire-and-forget void. An empty log still downloads —
+  // "no artefacts generated yet" is itself the honest answer to the audit
+  // question this file exists to answer, not a reason to withhold it.
+  const exportProvenanceLog = useCallback(async (id: string) => {
+    const source = readEngagements().find((e) => e.id === id)
+    if (!source) return
+    const { saveAs } = await import('file-saver')
+    const exportedAt = nowIso()
+    const bundle = buildProvenanceExport(source.id, source.orgName, exportedAt)
+    const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json;charset=utf-8' })
+    saveAs(blob, `provenance-${slug(engagementLabel(source))}-${exportedAt.slice(0, 10)}.json`)
   }, [])
 
   const importOne = useCallback(
@@ -192,8 +212,9 @@ export function EngagementProvider({ children }: { children: ReactNode }) {
       duplicate,
       exportOne,
       importOne,
+      exportProvenanceLog,
     }),
-    [engagements, active, create, rename, update, remove, setActive, duplicate, exportOne, importOne],
+    [engagements, active, create, rename, update, remove, setActive, duplicate, exportOne, importOne, exportProvenanceLog],
   )
 
   return <EngagementCtx.Provider value={value}>{children}</EngagementCtx.Provider>

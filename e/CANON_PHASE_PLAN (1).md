@@ -212,6 +212,7 @@ E1  fingerprint coverage        do first — E3 reopens D-010 without it
 E2  withdraw D-016              before E3 ships new HAIW deliverables
 E3  projection UI + artefacts   D5 closes
 ────────────────────────────────────────────────────────────────────
+V   verification weight         before F1 adds another check class
 F1  artefact_run                unconditional, days not sessions
 ────────────────────────────────────────────────────────────────────
 F2  Workbench core              WAITS for a client requirement
@@ -220,6 +221,15 @@ F4  multi-user                  after F3 proves the sync model
 ```
 
 E1 through F1 are all unconditional and none is large.
+
+**V is a read-only assessment, not a change.** The discipline was built defect by
+defect and nothing has ever been removed, while the suite has roughly doubled —
+84 mutations, 56 codes, 8 verify steps, 40 artefacts. The question is scope and
+frequency, not whether the rules are right. Two data points already: 
+`FINGERPRINT-COVERAGE` caught four real D-010 instances in two stages;
+`drive:dashboards` prints one line and has caught nothing since it was written.
+Those should not carry the same weight, and only the measurement says which
+others belong in which group.
 
 F2 through F4 are **triggered by a client requirement, not by finishing F1 and
 looking for the next thing.** The failure mode is designing against imagined

@@ -1039,6 +1039,12 @@ export default {
     { rel: 'src/haiw/report', kind: 'dir' },
   ],
   /*
+   * PROVENANCE-COVERAGE, D5 stage F1 — see modules/dgiw.mjs for the full note.
+   * HealthFrameworks.tsx and HealthReportGenerator.tsx are where `saveReport`
+   * is actually called with the documents `src/haiw/report/*.ts` builds.
+   */
+  provenanceSources: [{ rel: 'src/haiw/components', kind: 'dir' }],
+  /*
    * `MR-HAIW-GAP` -> `MR-HAIW-REGISTER`, D5 stage E2. The word "gap" was true of the
    * arithmetic and false of the data: the gap was computed from `capabilityLinks`,
    * which is a modular counter (D-016). All three modules now ship a register.

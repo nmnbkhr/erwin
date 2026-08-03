@@ -74,7 +74,7 @@ export default function DqRuleLibrary() {
         ])
       const meta = metaFor(DQ_RULE_SPEC_ARTEFACT_ID)
       const { rows, columns } = buildDqRuleSpecRows({ meta })
-      const wrote = downloadCsv(rows, columns, reportFilename(meta, 'csv'))
+      const wrote = downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
       return wrote ? null : 'No DQ rules are in scope under the current layer, so no file was written.'
     })
 
@@ -87,7 +87,7 @@ export default function DqRuleLibrary() {
           import('../../report/naming'),
         ])
       const meta = metaFor(DQ_RULE_SPEC_ARTEFACT_ID)
-      saveReport(buildDqRuleSpecPdf({ meta }), reportFilename(meta, 'pdf'))
+      saveReport(buildDqRuleSpecPdf({ meta }), reportFilename(meta, 'pdf'), meta)
       return null
     })
 

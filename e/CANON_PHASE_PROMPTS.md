@@ -199,6 +199,63 @@ Then STOP. D5 is complete at that point.
 
 ---
 
+## V — verification weight assessment
+
+Run after D5 closes, before F1. F1 adds a new check class; better to know
+whether the pile is already too heavy before adding to it.
+
+```
+Read CLAUDE.md first. Read-only assessment. Change nothing.
+
+The verification discipline was built defect by defect and nothing has ever been
+removed. The suite has roughly doubled since it was set — 84 mutations, 56 codes,
+8 verify steps, 40 artefacts. Assess whether it now costs more than it catches on
+some kinds of change.
+
+Report:
+
+a) Wall-clock per step of npm run verify, and the total.
+
+b) Per check class, whether it has ever fired on REAL work — not in the selftest.
+   The selftest proves a class CAN fail; this asks which have actually caught
+   something during a stage. Use git log, the register, and the class's own
+   history if it is recorded. Say "never fired on real work" plainly where true;
+   that is not an argument for removal on its own, but it is the number I want.
+
+c) Which verify steps can possibly detect a change that touches only routes,
+   components or navItems — and which structurally cannot. E3b added two pages
+   and moved no baseline; walking a diff there produces a paragraph saying
+   nothing moved, which trains a reader to skim the output that matters when
+   something does.
+
+d) Which CLAUDE.md rules are prescriptive process versus which encode a defect
+   that actually happened. Quote the rule and name the defect where there is one.
+   Rules with no defect behind them are the candidates.
+
+e) Propose a lighter target — verify:quick — for changes that move no baseline
+   and touch no rule file. State exactly what it skips and what that risks. A
+   gate people route around is worse than a slower one they run, so say honestly
+   whether a second target invites routing around the first.
+
+Do not propose removing anything that has caught a real defect. The question is
+scope and frequency, not whether the rules are right.
+
+Then STOP.
+```
+
+**Known before running it, from D5's evidence:**
+
+`FINGERPRINT-COVERAGE` caught four real D-010 instances in two stages — two on
+its first run, one in E3, one that E1's pre-emptive declaration had missed. It
+runs on everything.
+
+`drive:dashboards` prints one line and has caught nothing since it was written.
+
+Those two should not get the same treatment, and only the data says which others
+belong in which group.
+
+---
+
 ## F1.1 — design report
 
 ```

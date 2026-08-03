@@ -350,6 +350,7 @@ export const REGISTRY = {
               frameworkId,
             }),
             c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, `_${frameworkId.toLowerCase()}.pdf`),
+            c.meta,
           ),
       })),
       {
@@ -365,6 +366,7 @@ export const REGISTRY = {
           c.saveReport(
             m.buildTaiwScorecardPdf({ meta: c.meta, answers: f.tacrAnswers, categories: f.tacrSpine }),
             c.reportFilename(c.meta, 'pdf'),
+            c.meta,
           ),
       },
       /*
@@ -398,6 +400,7 @@ export const REGISTRY = {
               frameworkId: 'FW-01',
             }),
             c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, '_fw-01.pdf'),
+            c.meta,
           ),
       },
       {
@@ -414,6 +417,7 @@ export const REGISTRY = {
           c.saveReport(
             m.buildTaiwScorecardPdf({ meta: c.meta, answers: f.tacrAnswersPartial, categories: f.tacrSpine }),
             c.reportFilename(c.meta, 'pdf'),
+            c.meta,
           ),
       },
     ],
@@ -555,6 +559,7 @@ export const REGISTRY = {
                 frameworkId,
               }),
               c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, `_${frameworkId.toLowerCase()}.pdf`),
+              c.meta,
             ),
         }))
         return [
@@ -572,6 +577,7 @@ export const REGISTRY = {
               c.saveReport(
                 m.buildHaiwScorecardPdf({ meta: c.meta, answers: byId(f.answers), questions: f.questions }),
                 c.reportFilename(c.meta, 'pdf'),
+                c.meta,
               ),
           },
           {
@@ -593,6 +599,7 @@ export const REGISTRY = {
                   frameworkId: 'FW-01',
                 }),
                 c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, '_fw-01.pdf'),
+                c.meta,
               ),
           },
           {
@@ -609,6 +616,7 @@ export const REGISTRY = {
               c.saveReport(
                 m.buildHaiwScorecardPdf({ meta: c.meta, answers: byId(f.answersPartial), questions: f.questions }),
                 c.reportFilename(c.meta, 'pdf'),
+                c.meta,
               ),
           },
         ]
@@ -643,7 +651,7 @@ export const REGISTRY = {
         id: 'diagnostic-pdf', entry: DGIW_REPORT('diagnosticReport'), kind: 'pdf',
         exportName: 'buildDiagnosticReport', artefactIdExport: 'DIAGNOSTIC_ARTEFACT_ID',
         assertRawBytes: true,
-        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf')),
+        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
       // The same report under the other two layers. Not label coverage: layer
       // filters applicableQuestions(), so these are materially different
@@ -653,19 +661,19 @@ export const REGISTRY = {
         id: 'diagnostic-pdf-core', entry: DGIW_REPORT('diagnosticReport'), kind: 'pdf',
         exportName: 'buildDiagnosticReport', artefactIdExport: 'DIAGNOSTIC_ARTEFACT_ID',
         assertRawBytes: true, layer: 'core',
-        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf')),
+        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
       {
         id: 'diagnostic-pdf-banking', entry: DGIW_REPORT('diagnosticReport'), kind: 'pdf',
         exportName: 'buildDiagnosticReport', artefactIdExport: 'DIAGNOSTIC_ARTEFACT_ID',
         assertRawBytes: true, layer: 'banking',
-        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf')),
+        call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
       {
         id: 'cde-register-pdf', entry: DGIW_REPORT('cdeRegister'), kind: 'pdf',
         exportName: 'buildCdeRegisterPdf', artefactIdExport: 'CDE_REGISTER_ARTEFACT_ID',
         assertRawBytes: true,
-        call: (m, f, c) => c.saveReport(m.buildCdeRegisterPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf')),
+        call: (m, f, c) => c.saveReport(m.buildCdeRegisterPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
       {
         id: 'cde-register-csv', entry: DGIW_REPORT('cdeRegister'), kind: 'csv',
@@ -673,14 +681,14 @@ export const REGISTRY = {
         assertRawBytes: true,
         call: (m, f, c) => {
           const { rows, columns } = m.buildCdeRegisterRows({ meta: c.meta })
-          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'))
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'), c.meta)
         },
       },
       {
         id: 'dq-rule-spec-pdf', entry: DGIW_REPORT('dqRuleSpec'), kind: 'pdf',
         exportName: 'buildDqRuleSpecPdf', artefactIdExport: 'DQ_RULE_SPEC_ARTEFACT_ID',
         assertRawBytes: true,
-        call: (m, f, c) => c.saveReport(m.buildDqRuleSpecPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf')),
+        call: (m, f, c) => c.saveReport(m.buildDqRuleSpecPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
       {
         id: 'dq-rule-spec-csv', entry: DGIW_REPORT('dqRuleSpec'), kind: 'csv',
@@ -688,26 +696,26 @@ export const REGISTRY = {
         assertRawBytes: true,
         call: (m, f, c) => {
           const { rows, columns } = m.buildDqRuleSpecRows({ meta: c.meta })
-          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'))
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'), c.meta)
         },
       },
       {
         id: 'roadmap-pdf', entry: DGIW_REPORT('roadmap'), kind: 'pdf',
         exportName: 'buildRoadmapPdf', artefactIdExport: 'ROADMAP_ARTEFACT_ID',
         assertRawBytes: true,
-        call: (m, f, c) => c.saveReport(m.buildRoadmapPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf')),
+        call: (m, f, c) => c.saveReport(m.buildRoadmapPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
       {
         id: 'operating-model-pdf', entry: DGIW_REPORT('operatingModel'), kind: 'pdf',
         exportName: 'buildOperatingModelPdf', artefactIdExport: 'OPERATING_MODEL_ARTEFACT_ID',
         assertRawBytes: true,
-        call: (m, f, c) => c.saveReport(m.buildOperatingModelPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf')),
+        call: (m, f, c) => c.saveReport(m.buildOperatingModelPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
       {
         id: 'multi-framework-pdf', entry: DGIW_REPORT('multiFrameworkScorecard'), kind: 'pdf',
         exportName: 'buildMultiFrameworkScorecardPdf', artefactIdExport: 'MULTI_FRAMEWORK_ARTEFACT_ID',
         assertRawBytes: true,
-        call: (m, f, c) => c.saveReport(m.buildMultiFrameworkScorecardPdf({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf')),
+        call: (m, f, c) => c.saveReport(m.buildMultiFrameworkScorecardPdf({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
       // AR-47 is one artefact id producing four documents, one per framework.
       // All four are captured: the crosswalk work is recent, and a projection
@@ -720,6 +728,7 @@ export const REGISTRY = {
         call: (m, f, c) => c.saveReport(
           m.buildFrameworkAlignmentPdf({ meta: c.meta, answers: f.answers, frameworkId }),
           c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, `_${frameworkId.toLowerCase()}.pdf`),
+          c.meta,
         ),
       })),
     ],
@@ -793,8 +802,18 @@ function fixtureDataPlugin(dataByAbsPath, served) {
 /**
  * Boot one Vite SSR server that can generate every requested module's artefacts.
  * Returns `{ generate, close }`.
+ *
+ * @param {{ plugins?: object[], define?: Record<string, string> }} [opts] Additive
+ *   and optional — every existing caller (capture.mjs, compare.mjs, walk.mjs)
+ *   passes none of it and sees no change. Added for
+ *   `scripts/provenance-drive.mjs`, which needs `vite.config.ts`'s
+ *   `provenanceFingerprintPlugin` (this bare server sets `configFile: false`
+ *   and loads none of that file's plugins on its own) so `__PROVENANCE_
+ *   FINGERPRINT__` is defined when it drives a real generator — without it,
+ *   every recorded provenance record would show a fingerprint of `null` for a
+ *   reason that has nothing to do with the recorder actually working.
  */
-export async function createDriver(modules) {
+export async function createDriver(modules, opts = {}) {
   const fixtures = Object.fromEntries(modules.map(m => [m, loadFixture(m)]))
 
   // Sorted so the plugin's match order never depends on object insertion order.
@@ -812,7 +831,8 @@ export async function createDriver(modules) {
     appType: 'custom',
     logLevel: 'silent',
     server: { middlewareMode: true, hmr: false, watch: null, fs: { allow: [APP_ROOT], strict: false } },
-    plugins: [fixtureDataPlugin(dataByAbsPath, served)],
+    plugins: [fixtureDataPlugin(dataByAbsPath, served), ...(opts.plugins ?? [])],
+    define: opts.define,
     resolve: {
       alias: [{ find: /^file-saver$/, replacement: path.join(HERE, 'file-saver-sink.mjs') }],
       conditions: ['browser', 'import', 'module', 'default'],
@@ -994,7 +1014,11 @@ export async function createDriver(modules) {
     return datasetFingerprintOf(sources)
   }
 
-  return { generate, ruler, assertFixtureDataWasServed, fingerprintFor, close: () => server.close() }
+  // `server` itself is exposed alongside the higher-level helpers — additive,
+  // for scripts/provenance-drive.mjs, which needs to ssrLoadModule
+  // src/report/provenance.ts directly to read back what a generate() call just
+  // wrote to localStorage. capture.mjs/compare.mjs/walk.mjs use none of it.
+  return { generate, ruler, assertFixtureDataWasServed, fingerprintFor, server, close: () => server.close() }
 }
 
 // ── Hashing and stable serialisation ─────────────────────────────────────

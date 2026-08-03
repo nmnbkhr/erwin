@@ -53,6 +53,7 @@ import csvHeaderCheck from './check/suite/csv-header.mjs'
 import textMaxWidthCheck from './check/suite/text-maxwidth.mjs'
 import artefactImplCheck from './check/suite/artefact-impl.mjs'
 import fingerprintCoverageCheck from './check/suite/fingerprint-coverage.mjs'
+import provenanceCoverageCheck from './check/suite/provenance-coverage.mjs'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 /** The real repo. esbuild output must land under its node_modules — see esbuild-load.mjs. */
@@ -62,7 +63,7 @@ const REPO = path.resolve(HERE, '..')
  * Declared run order for the suite classes. REPORT-SOURCES is first by
  * dependency, not by taste: the other three read the file set it resolves.
  */
-const SUITE_CHECKS = [reportSourcesCheck, csvHeaderCheck, textMaxWidthCheck, artefactImplCheck, fingerprintCoverageCheck]
+const SUITE_CHECKS = [reportSourcesCheck, csvHeaderCheck, textMaxWidthCheck, artefactImplCheck, fingerprintCoverageCheck, provenanceCoverageCheck]
 
 // ── arguments ───────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2)
@@ -356,6 +357,20 @@ const over = fpMods.filter((m) => (m.overDeclared ?? []).length > 0)
 log(
   `    declared but read by no generator: ${over.length ? over.map((m) => `${m.id} ${m.overDeclared.length}`).join(', ') : 'none'}` +
     ` — safe by design (parameterised content, a directory hash, a pre-emptive declaration); under-declaring is what fails`,
+)
+
+// D5 stage F1: every saveReport/downloadCsv/saveMarkdown call in the declared
+// report source set must supply a provenance meta argument. byKind breaks down
+// which of the three exits the calls examined belong to, the same reason
+// FINGERPRINT-COVERAGE prints its per-module read/declared pair — a count that
+// drops to 0 for one exit is the signal that a generator moved out from under it.
+const pc = suiteCtx.results['PROVENANCE-COVERAGE'] ?? {}
+const pcByKind = pc.byKind ?? {}
+log(
+  `  PROVENANCE-COVERAGE ${pc.examined ?? 0} saveReport/downloadCsv/saveMarkdown ${plural(pc.examined ?? 0, 'call')} checked` +
+    ` across ${pc.files ?? 0} report + provenance ${plural(pc.files ?? 0, 'source')}` +
+    ` (saveReport ${pcByKind.saveReport ?? 0}, downloadCsv ${pcByKind.downloadCsv ?? 0}, saveMarkdown ${pcByKind.saveMarkdown ?? 0})` +
+    `${fails.countOf('PROVENANCE-COVERAGE') ? ` — ${fails.countOf('PROVENANCE-COVERAGE')} REJECTED, see below` : ', every call recorded'}`,
 )
 
 for (const mod of modules) {

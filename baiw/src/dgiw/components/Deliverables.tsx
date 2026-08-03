@@ -185,13 +185,13 @@ export default function Deliverables() {
       if (artefactId === 'AR-13') {
         const { buildCdeRegisterRows } = await import('../report/cdeRegister')
         const { rows, columns } = buildCdeRegisterRows({ meta })
-        return downloadCsv(rows, columns, reportFilename(meta, 'csv'))
+        return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
           ? null
           : 'No critical data elements are in scope under the current layer, so no file was written.'
       }
       const { buildDqRuleSpecRows } = await import('../report/dqRuleSpec')
       const { rows, columns } = buildDqRuleSpecRows({ meta })
-      return downloadCsv(rows, columns, reportFilename(meta, 'csv'))
+      return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
         ? null
         : 'No DQ rules are in scope under the current layer, so no file was written.'
     })
@@ -206,38 +206,38 @@ export default function Deliverables() {
       switch (artefactId) {
         case 'AR-01': {
           const { buildDiagnosticReport } = await import('../report/diagnosticReport')
-          saveReport(buildDiagnosticReport({ meta, answers }), reportFilename(meta, 'pdf'))
+          saveReport(buildDiagnosticReport({ meta, answers }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-13': {
           const { buildCdeRegisterPdf } = await import('../report/cdeRegister')
-          saveReport(buildCdeRegisterPdf({ meta }), reportFilename(meta, 'pdf'))
+          saveReport(buildCdeRegisterPdf({ meta }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-27': {
           const { buildDqRuleSpecPdf } = await import('../report/dqRuleSpec')
-          saveReport(buildDqRuleSpecPdf({ meta }), reportFilename(meta, 'pdf'))
+          saveReport(buildDqRuleSpecPdf({ meta }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-04': {
           const { buildRoadmapPdf } = await import('../report/roadmap')
-          saveReport(buildRoadmapPdf({ meta }), reportFilename(meta, 'pdf'))
+          saveReport(buildRoadmapPdf({ meta }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-09': {
           const { buildOperatingModelPdf } = await import('../report/operatingModel')
-          saveReport(buildOperatingModelPdf({ meta }), reportFilename(meta, 'pdf'))
+          saveReport(buildOperatingModelPdf({ meta }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-48': {
           const { buildMultiFrameworkScorecardPdf } = await import('../report/multiFrameworkScorecard')
-          saveReport(buildMultiFrameworkScorecardPdf({ meta, answers }), reportFilename(meta, 'pdf'))
+          saveReport(buildMultiFrameworkScorecardPdf({ meta, answers }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-47': {
           const { buildFrameworkAlignmentPdf } = await import('../report/frameworkAlignment')
           const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, '_dmbok2.pdf')
-          saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId: 'FW-01' }), name)
+          saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId: 'FW-01' }), name, meta)
           return null
         }
         default:

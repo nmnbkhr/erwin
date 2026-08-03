@@ -93,7 +93,7 @@ export default function TradeFrameworks() {
           import('../../report/naming'),
         ])
       const meta = metaFor(TAIW_SCORECARD_ARTEFACT_ID)
-      saveReport(buildTaiwScorecardPdf({ meta, answers, categories }), reportFilename(meta, 'pdf'))
+      saveReport(buildTaiwScorecardPdf({ meta, answers, categories }), reportFilename(meta, 'pdf'), meta)
     })
   }, [run, metaFor, answers, categories])
 
@@ -110,7 +110,7 @@ export default function TradeFrameworks() {
         // One artefact id, one document per framework — the filename is what separates
         // them, exactly as DGIW's AR-47 does.
         const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, `_${code.toLowerCase()}.pdf`)
-        saveReport(buildTaiwFrameworkAlignmentPdf({ meta, answers, categories, frameworkId }), name)
+        saveReport(buildTaiwFrameworkAlignmentPdf({ meta, answers, categories, frameworkId }), name, meta)
       })
     },
     [run, metaFor, answers, categories],

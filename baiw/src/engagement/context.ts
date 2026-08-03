@@ -30,6 +30,15 @@ export interface EngagementContextValue {
    */
   exportOne: (id: string) => Promise<void>
   importOne: (file: File) => Promise<Engagement>
+  /**
+   * Downloads this engagement's provenance log (src/report/provenance.ts) as its
+   * own JSON file — separate from exportOne's full state bundle, because "which
+   * artefacts have we sent this client and when" is a narrower, audit-facing
+   * question a consultant may want to hand over on its own. Same async-for-a-
+   * reason as exportOne: file-saver loads on demand, so a rejection must not be
+   * swallowed by a fire-and-forget void return.
+   */
+  exportProvenanceLog: (id: string) => Promise<void>
 }
 
 export const EngagementCtx = createContext<EngagementContextValue | null>(null)

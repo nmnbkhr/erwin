@@ -38,6 +38,7 @@ import jsPDF from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import type { RGB, ReportMeta, SectionSpec, TableSpec, TextOptions } from './types'
 import { formatCoverDate } from './naming'
+import { recordProvenance } from './provenance'
 
 /* ------------------------------------------------------------------ */
 /*  Geometry and palette                                               */
@@ -177,8 +178,15 @@ function fitOneLine(doc: jsPDF, value: string, width: number): string {
  * required to be: this is a document identifier, not a security control. It is
  * not a change-detection guarantee either — a collision is possible in principle
  * and simply means two documents share an id, which is where this started.
+ *
+ * Exported (D5 stage F1) so a verifier can recompute it from a provenance
+ * record's own fields and confirm it against the PDF's real doc.getFileId()
+ * -- the "check a plaintext manifest entry against the document itself"
+ * property src/report/provenance.ts describes in place of a signature. See
+ * scripts/provenance-drive.mjs. Nothing about the function changes, only its
+ * visibility.
  */
-function stableFileId(seed: string): string {
+export function stableFileId(seed: string): string {
   let out = ''
   for (let salt = 0; salt < 4; salt++) {
     let h = 0x811c9dc5
@@ -595,7 +603,20 @@ export function createReport(meta: ReportMeta, contentDigest = ''): ReportDoc {
  * The only place a PDF hits the disk. Separate from build() on purpose: the
  * existing generators all save internally and return void, which is why none of
  * them can be asserted against.
+ *
+ * `meta` is additive and optional, so this signature is source-compatible with
+ * every pre-existing call. When supplied, the download happens FIRST and the
+ * provenance record is appended after — `recordProvenance` never throws, but
+ * the ordering is defence in depth on top of that: a defect in the recorder
+ * must never delay or block the document the user clicked for. The recorder
+ * reads `doc.getFileId()` — the exact /ID stableFileId() already computed in
+ * the ReportDoc constructor — so no content digest is re-derived or plumbed
+ * back here. See `provenance.ts` and `PROVENANCE-COVERAGE`
+ * (scripts/check/suite/), which asserts every call in the declared report
+ * source set supplies this argument.
  */
-export function saveReport(doc: jsPDF, filename: string): void {
-  doc.save(filename.endsWith('.pdf') ? filename : `${filename}.pdf`)
+export function saveReport(doc: jsPDF, filename: string, meta?: ReportMeta): void {
+  const name = filename.endsWith('.pdf') ? filename : `${filename}.pdf`
+  doc.save(name)
+  if (meta) recordProvenance('pdf', meta, name, doc.getFileId())
 }

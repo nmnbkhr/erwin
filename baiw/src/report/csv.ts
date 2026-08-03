@@ -16,6 +16,8 @@
  * engine into its chunk.
  */
 import { downloadCSV } from '../utils/export'
+import type { ReportMeta } from './types'
+import { recordProvenance } from './provenance'
 
 export interface CsvColumn<T> {
   /** Property read from the row when `format` is absent. */
@@ -84,12 +86,19 @@ export function byStringKey<T>(pick: (row: T) => string): (a: T, b: T) => number
  * excludes every row is a real case (a core-only engagement asking for a
  * banking-only register). The caller is expected to tell the user rather than
  * leave a button that silently does nothing.
+ *
+ * `meta` is additive and optional. Nothing here can produce a content-addressed
+ * handle the way a PDF's trailer /ID does — there is no CSV equivalent — so a
+ * recorded CSV carries `fileId: null` rather than implying one. See
+ * `provenance.ts` and spine.ts::saveReport for the same pattern on the PDF side,
+ * and `PROVENANCE-COVERAGE` for what asserts this argument is supplied.
  */
-export function downloadCsv<T>(rows: T[], columns: CsvColumn<T>[], filename: string): boolean {
+export function downloadCsv<T>(rows: T[], columns: CsvColumn<T>[], filename: string, meta?: ReportMeta): boolean {
   if (rows.length === 0) return false
   // BOM + CRLF for every deliverable CSV. These files go to a bank and get
   // opened in Excel on Windows first; the defaults exist to leave BAIW, TAIW and
   // HAIW output unchanged, not because LF and no-BOM are better here.
   downloadCSV(buildCsvRows(rows, columns), filename, { bom: true, eol: 'crlf' })
+  if (meta) recordProvenance('csv', meta, filename.endsWith('.csv') ? filename : `${filename}.csv`, null)
   return true
 }

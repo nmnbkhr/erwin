@@ -139,6 +139,7 @@ export default function HealthReportGenerator({ answers, capabilities, capabilit
         saveReport(
           gen.buildHaiwScorecardPdf({ meta, answers: answerMap, questions: spineQuestions }),
           reportFilename(meta, 'pdf'),
+          meta,
         )
       } else {
         const gen = await import('../report/frameworkAlignment')
@@ -154,6 +155,7 @@ export default function HealthReportGenerator({ answers, capabilities, capabilit
             frameworkId: 'FW-01',
           }),
           name,
+          meta,
         )
       }
     } catch (err) {

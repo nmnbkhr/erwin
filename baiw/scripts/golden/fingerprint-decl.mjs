@@ -47,6 +47,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { createHash } from 'node:crypto'
 
 /**
  * The modules that record a `datasets` fingerprint per baseline.
@@ -156,4 +157,71 @@ export function assertModulesMatch(harnessModules) {
         `FINGERPRINT-COVERAGE checks the modules named here, so a module present only in the harness would record a ` +
         `fingerprint nothing verifies the coverage of.`,
     )
+}
+
+/**
+ * ─── THE SAME HASH, FOR A SECOND READER ─────────────────────────────────────
+ *
+ * `harness.mjs::datasetFingerprint` / `datasetFingerprintOf` compute the exact
+ * shape below — sha256 of each declared file, joined `path:hash` lines, sha256
+ * of the joined text — for `capture.mjs`/`compare.mjs`'s golden baselines. D5
+ * stage F1 needs the SAME algorithm, computed at BUILD TIME instead of at
+ * capture time, and baked into the client bundle by
+ * `scripts/vite-plugin-provenance-fingerprint.mjs` — so an artefact's provenance
+ * record can name the dataset state it was generated from (`src/report/
+ * provenance.ts`'s whole reason for existing).
+ *
+ * This is a second, small implementation of that hash rather than a shared
+ * call into `harness.mjs`, on purpose: that file imports `{ createServer } from
+ * 'vite'` and pulls in `dom-sink.mjs`, `spawnSync`-based locale pinning and the
+ * whole golden artefact REGISTRY, none of which a Vite plugin computing one
+ * hash at config time has any business loading. The five lines that actually do
+ * the hashing are not the part D-010 was about — the DECLARED FILE SET is, and
+ * that is not duplicated: both readers call `declaredFingerprintSources` /
+ * `DGIW_DATA_DIR` / `SHARED_DATASETS` above, the one place that list is written
+ * down. `scripts/provenance-drive.mjs` asserts this produces what a golden
+ * capture would compute for the same declared list, so the two hashes cannot
+ * silently diverge unnoticed either.
+ */
+function sha256Hex(buf) {
+  return createHash('sha256').update(buf).digest('hex')
+}
+
+/** sha256 over an explicit, ordered list of repo-relative files. */
+export function fingerprintOfSources(appRoot, sources) {
+  const lines = sources.map((rel) => {
+    const abs = path.join(appRoot, rel)
+    return `${rel}:${fs.existsSync(abs) ? sha256Hex(fs.readFileSync(abs)) : 'MISSING'}`
+  })
+  return { sources, files: sources.length, sha256: sha256Hex(lines.join('\n')) }
+}
+
+/** sha256 over every `.json` in one directory (non-recursive) plus an explicit shared list — DGIW's shape. */
+export function fingerprintOfDirectory(appRoot, dir, sharedRel = []) {
+  const files = jsonFilesIn(appRoot, dir)
+  const lines = files.map((rel) => `${rel}:${sha256Hex(fs.readFileSync(path.join(appRoot, rel)))}`)
+  const shared = [...sharedRel].sort()
+  for (const rel of shared) {
+    const abs = path.join(appRoot, rel)
+    if (!fs.existsSync(abs))
+      throw new Error(`fingerprintOfDirectory: declared shared source ${rel} does not exist`)
+    lines.push(`${rel}:${sha256Hex(fs.readFileSync(abs))}`)
+  }
+  return { dir, files: files.length + shared.length, ...(shared.length ? { shared } : {}), sha256: sha256Hex(lines.join('\n')) }
+}
+
+/**
+ * One module's fingerprint, computed fresh from whatever is on disk right now —
+ * the build-time value. THROWS on a module whose declaration cannot be
+ * established (missing fixture, empty directory), same discipline as
+ * `declaredFingerprintSources`: an un-established fingerprint must not be
+ * silently reported as `null` and mistaken for "no dataset dependency".
+ */
+export function computeModuleFingerprint(module, appRoot) {
+  if (module === 'dgiw') return fingerprintOfDirectory(appRoot, DGIW_DATA_DIR, SHARED_DATASETS)
+  const fp = fixturePath(appRoot, module)
+  if (!fs.existsSync(fp)) throw new Error(`scripts/golden/fixtures/${module}.json does not exist`)
+  const fixture = JSON.parse(fs.readFileSync(fp, 'utf8'))
+  const sources = declaredFingerprintSources(module, appRoot, fixture)
+  return fingerprintOfSources(appRoot, sources)
 }

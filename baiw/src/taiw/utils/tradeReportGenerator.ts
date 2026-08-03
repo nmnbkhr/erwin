@@ -3,7 +3,6 @@
 // all six tables now go through ReportDoc.table(), which is where the
 // `lastAutoTable.finalY` cast and the 15mm margin live.
 import type jsPDF from 'jspdf'
-import { saveAs } from 'file-saver'
 import benchmarks from '../../data/taiw/benchmarks.json'
 import capabilities from '../../data/taiw/capabilities.json'
 import dataRequirements from '../../data/taiw/dataRequirements.json'
@@ -11,6 +10,7 @@ import dataRequirements from '../../data/taiw/dataRequirements.json'
 import { createReport, contentKey, saveReport, MARGIN, FOOTER_RESERVE } from '../../report/spine'
 import { formatCoverDate, reportFilename } from '../../report/naming'
 import { downloadCsv, byStringKey, type CsvColumn } from '../../report/csv'
+import { saveMarkdown } from '../../report/markdown'
 import type { ReportMeta } from '../../report/types'
 
 /*
@@ -820,7 +820,7 @@ export function generateTradeMaturityPDF(assessment: AssessmentData, meta: Repor
     color: SLATE,
   })
 
-  saveReport(r.build(), reportFilename(reportMeta, 'pdf'))
+  saveReport(r.build(), reportFilename(reportMeta, 'pdf'), reportMeta)
 }
 
 // ══════════════════════════════════════════════════════════
@@ -875,7 +875,7 @@ const TRADE_REGISTER_COLUMNS: CsvColumn<TcfCapability>[] = [
 export function generateTradeCapabilityRegisterCSV(meta: ReportMeta) {
   // byStringKey is correct here: TCF ids are slugs, not numbers.
   const rows = [...capabilities].sort(byStringKey(c => c.id))
-  downloadCsv(rows, TRADE_REGISTER_COLUMNS, reportFilename(meta, 'csv'))
+  downloadCsv(rows, TRADE_REGISTER_COLUMNS, reportFilename(meta, 'csv'), meta)
 }
 
 // ══════════════════════════════════════════════════════════
@@ -1012,6 +1012,5 @@ Email: info@godai.tech
 *This roadmap was generated using TAIW — Trade Analytics Intelligence Workbench*
 `
 
-  const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' })
-  saveAs(blob, reportFilename(meta, 'md'))
+  saveMarkdown(md, reportFilename(meta, 'md'), meta)
 }

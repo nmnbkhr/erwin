@@ -594,6 +594,19 @@ export default {
     xw: 'crosswalk.json',
   },
   reportSources: [{ rel: 'src/dgiw/report', kind: 'dir' }],
+  /*
+   * PROVENANCE-COVERAGE, D5 stage F1. `src/dgiw/report/*.ts` BUILDS a document
+   * and returns it; every `saveReport`/`downloadCsv` CALL that actually hands
+   * one to the user lives in the component that imports the builder —
+   * CdeRegister.tsx, Deliverables.tsx, Diagnostic.tsx, DqRuleLibrary.tsx,
+   * Frameworks.tsx — which `reportSources` above does not cover and was never
+   * meant to: CSV-HEADER, TEXT-MAXWIDTH and ARTEFACT-IMPL have no business
+   * reading component JSX. A second, narrower declared set, read only by
+   * PROVENANCE-COVERAGE, is deliberately not folded into `reportSources` —
+   * doing that would widen every other class's scope by the same directory for
+   * a concern only one of them has.
+   */
+  provenanceSources: [{ rel: 'src/dgiw/components', kind: 'dir' }],
 
   /**
    * The catalogued artefact register ARTEFACT-IMPL validates ids against. DGIW is

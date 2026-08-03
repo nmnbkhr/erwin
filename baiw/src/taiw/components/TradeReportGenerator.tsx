@@ -101,7 +101,7 @@ export default function TradeReportGenerator({ scores, overallScore, answeredCat
       if (which === 'scorecard') {
         const gen = await import('../report/multiFrameworkScorecard')
         const meta = metaFor(gen.TAIW_SCORECARD_ARTEFACT_ID)
-        saveReport(gen.buildTaiwScorecardPdf({ meta, answers, categories }), reportFilename(meta, 'pdf'))
+        saveReport(gen.buildTaiwScorecardPdf({ meta, answers, categories }), reportFilename(meta, 'pdf'), meta)
       } else {
         const gen = await import('../report/frameworkAlignment')
         const meta = metaFor(gen.TAIW_ALIGNMENT_ARTEFACT_ID)
@@ -112,6 +112,7 @@ export default function TradeReportGenerator({ scores, overallScore, answeredCat
         saveReport(
           gen.buildTaiwFrameworkAlignmentPdf({ meta, answers, categories, frameworkId: 'FW-01' }),
           name,
+          meta,
         )
       }
     } finally {

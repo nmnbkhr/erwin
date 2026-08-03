@@ -1,9 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import { provenanceFingerprintPlugin } from './scripts/vite-plugin-provenance-fingerprint.mjs'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  // provenanceFingerprintPlugin bakes each module's build-time dataset
+  // fingerprint into the bundle for src/report/provenance.ts — see that
+  // plugin's header and provenance.ts's own for why this must be build-time
+  // rather than a runtime Web Crypto hash.
+  plugins: [react(), tailwindcss(), provenanceFingerprintPlugin()],
   server: {
     port: 5174,
   },

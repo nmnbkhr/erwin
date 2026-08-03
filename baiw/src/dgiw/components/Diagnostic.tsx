@@ -184,7 +184,7 @@ export default function Diagnostic() {
         isDraft: progress < 100,
         artefactId: DIAGNOSTIC_ARTEFACT_ID,
       }
-      saveReport(buildDiagnosticReport({ meta, answers }), reportFilename(meta, 'pdf'))
+      saveReport(buildDiagnosticReport({ meta, answers }), reportFilename(meta, 'pdf'), meta)
     } catch (err) {
       console.error('[dgiw] diagnostic report failed', err)
       setPdfError(err instanceof Error ? err.message : 'Report generation failed.')

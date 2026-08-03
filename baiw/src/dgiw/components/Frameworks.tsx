@@ -96,7 +96,7 @@ export default function Frameworks() {
           import('../../report/naming'),
         ])
       const meta = metaFor(MULTI_FRAMEWORK_ARTEFACT_ID)
-      saveReport(buildMultiFrameworkScorecardPdf({ meta, answers }), reportFilename(meta, 'pdf'))
+      saveReport(buildMultiFrameworkScorecardPdf({ meta, answers }), reportFilename(meta, 'pdf'), meta)
       return null
     })
 
@@ -110,7 +110,7 @@ export default function Frameworks() {
         ])
       const meta = metaFor(FRAMEWORK_ALIGNMENT_ARTEFACT_ID)
       const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, `_${code.toLowerCase()}.pdf`)
-      saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId }), name)
+      saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId }), name, meta)
       return null
     })
 

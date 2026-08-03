@@ -85,7 +85,7 @@ export default function CdeRegister() {
         ])
       const meta = metaFor(CDE_REGISTER_ARTEFACT_ID)
       const { rows, columns } = buildCdeRegisterRows({ meta })
-      const wrote = downloadCsv(rows, columns, reportFilename(meta, 'csv'))
+      const wrote = downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
       return wrote ? null : 'No critical data elements are in scope under the current layer, so no file was written.'
     })
 
@@ -98,7 +98,7 @@ export default function CdeRegister() {
           import('../../report/naming'),
         ])
       const meta = metaFor(CDE_REGISTER_ARTEFACT_ID)
-      saveReport(buildCdeRegisterPdf({ meta }), reportFilename(meta, 'pdf'))
+      saveReport(buildCdeRegisterPdf({ meta }), reportFilename(meta, 'pdf'), meta)
       return null
     })
 

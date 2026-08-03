@@ -15,7 +15,8 @@
     "check": "node scripts/check.mjs",
     "check:dgiw": "node scripts/check.mjs",
     "check:selftest": "node scripts/check/selftest.mjs",
-    "drive:dashboards": "node scripts/dashboard-drive.mjs"
+    "drive:dashboards": "node scripts/dashboard-drive.mjs",
+    "drive:provenance": "node scripts/provenance-drive.mjs"
   },
   "dependencies": {
     "d3": "^7.9.0",

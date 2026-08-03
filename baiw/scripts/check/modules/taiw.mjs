@@ -702,6 +702,14 @@ export default {
     { rel: 'src/taiw/report', kind: 'dir' },
   ],
   /*
+   * PROVENANCE-COVERAGE, D5 stage F1 — see modules/dgiw.mjs for the full note.
+   * `src/taiw/report/*.ts` builds the framework documents; TradeFrameworks.tsx
+   * and TradeReportGenerator.tsx are where `saveReport` is actually called with
+   * the built document, so they are what this check needs and `reportSources`
+   * does not cover.
+   */
+  provenanceSources: [{ rel: 'src/taiw/components', kind: 'dir' }],
+  /*
    * `MR-TAIW-ALIGNMENT` and `MR-TAIW-SCORECARD` added in D5 stage E3.
    *
    * `MR-`, not `AR-`: the `AR-*` register is DGIW's forty-eight-item delivery catalogue

@@ -102,8 +102,8 @@ below both.
    runs over nothing declares `mayBeEmpty: '<reason>'` — the reason is mandatory,
    because if a check can run over nothing then someone should have to write down
    why. Nothing declares it today.
-5. **`npm run check:selftest` demonstrates every finding code.** 79 mutations,
-   54 codes, ~30 s. It copies `src/` and `scripts/` to a scratch root under
+5. **`npm run check:selftest` demonstrates every finding code.** 88 mutations,
+   57 codes, ~30 s. It copies `src/` and `scripts/` to a scratch root under
    `node_modules`, applies one mutation per code, asserts the code is reported
    *and* the tool exits non-zero, then restores and re-runs the control. **No
    tracked file is ever written.** Run it after touching the gate: a refactor
@@ -390,8 +390,12 @@ The dominant structural fact of this repo is copy-paste:
   radar chart, score disc and coloured boxes; those own their overflow and must
   call `moveTo()` afterwards. **No hand-rolled CSV remains either**: all three
   module CSVs are on `src/report/csv.ts` as of 2026-08-01 — BAIW's and TAIW's
-  when D-001 was closed, HAIW's straight after. Every deliverable in the suite
-  now goes through `spine.ts` or `csv.ts`.
+  when D-001 was closed, HAIW's straight after. **Nor does hand-rolled
+  markdown**: the three `new Blob([md], { type: 'text/markdown' })` + `saveAs`
+  copies moved onto `src/report/markdown.ts::saveMarkdown` in D5 stage F1 —
+  one recorder call site, not three, for the provenance argument below. Every
+  deliverable in the suite now goes through `spine.ts`, `csv.ts` or
+  `markdown.ts`.
 - **Two generations of workbench components** — `components/workbench/` is the
   shared data-driven one; `components/profitability/` is BAIW's unmigrated
   predecessor. Build against `components/workbench/`.
@@ -514,6 +518,100 @@ No `Math.random`, `Date.now` or bare `new Date()` anywhere under `src/report/`
 or `src/dgiw/report/`. Dates are formatted from UTC parts, never
 `toLocaleDateString` — the locale form is neither machine- nor timezone-stable,
 and near midnight it disagrees with the filename.
+
+## Artefact provenance
+
+Every report already produces a content digest — this file, one section up.
+Nothing recorded it. A client asking "is this the report you sent us in
+March?" could not be answered, because a `/ID` a reader can check against is
+not the same thing as a RECORD saying which artefact carried it, for which
+engagement, built from what data. Phase F1 closes that: `src/report/
+provenance.ts` appends one `ProvenanceRecord` — `kind`, `artefactId`, `module`
+(derived from the id's own shape, `MR-<MODULE>-*` or `AR-nn`), `engagementId`
+(`null`, never fabricated, when none is active), `orgName`, `layer`,
+`generatedAt`, `filename`, `fileId`, `datasetFingerprint` — every time
+`saveReport`, `downloadCsv` or `saveMarkdown` is called with a `meta` argument.
+
+**Not signed.** A client-side signature is not evidence against the party who
+controls the client, and the consultant is the party an audit question is
+about. The architecture already has a better answer: `/ID` is a one-way
+function of all six seed fields (previous section), so a plaintext manifest
+entry can be checked against a PDF's own trailer by anyone holding both, and an
+edited entry stops matching. `fileId` is read from `doc.getFileId()` — the
+exact value `stableFileId()` already computed — never re-derived, so the
+digest is not plumbed back through 33 call sites. CSV and Markdown records
+carry `fileId: null`: neither has a trailer to point at, and the record says so
+rather than implying one.
+
+**The dataset fingerprint is the first build-time-computed value under
+`src/`.** Everything else in this directory is authored data or a runtime
+derivation of it. The browser cannot hash the source bytes `scripts/golden/
+harness.mjs::datasetFingerprint` hashes for a golden baseline — by the time a
+JSON dataset reaches client code it has been parsed and possibly reordered by
+the bundler, so a `crypto.subtle.digest()` over it could never equal the
+Node-side value and the two could never be compared. `scripts/vite-plugin-
+provenance-fingerprint.mjs` computes it once, in Node, at dev-server-start or
+`vite build` time — reusing `scripts/golden/fingerprint-decl.mjs`'s declared
+file set, never a second copy of it — and bakes it into the bundle via
+`define`. `npm run build`'s `check.mjs` step already guarantees every fixture
+resolves before this plugin runs; `vite dev` degrades a broken module's
+fingerprint to `null` rather than refusing to start, because no gate stands in
+front of `npm run dev` the way one stands in front of `npm run build`.
+
+**One appended log per engagement, not one manifest per export.** Closer to
+`artefact_run` (F2.1's schema) than a file-per-PDF would be, and read-modify-
+write under one storage key is what `usePersistedState` already does on every
+keystroke elsewhere in this suite. Artefacts generated with no active
+engagement go to a separate, unnamespaced bucket rather than being dropped or
+filed under an invented id — `engagementId` on the record still reads `null`.
+The base is deliberately **not** one of `PERSISTED_BASES`: `duplicate()` copies
+every one of those to a new engagement id, and a copied log's records would
+still name the SOURCE engagement inside their own fields while sitting under
+the copy's — confusing to leave lying around for the sake of reusing one code
+path. `EngagementContext.tsx::remove()` clears it explicitly instead.
+`EngagementSwitcher`'s per-engagement row carries a fifth action, "Export
+provenance log" (`History` icon), alongside the existing state-bundle export —
+a log that lives only in `localStorage` is one cache clear from gone.
+
+**PROVENANCE-COVERAGE**, the 57th finding code, asserts every call to the three
+recorder exits — in the declared report source set — supplies the argument.
+Same static approach as ARTEFACT-IMPL's content-digest check: an unresolvable
+reference (something other than a named import or a destructured binding)
+fails rather than being silently skipped, and — because these components use
+the lazy-load-the-PDF-engine-at-click-time idiom
+(`const [{ saveReport }, ...] = await Promise.all([import(...), ...])`) rather
+than a static import — resolution walks the WHOLE tree for a destructured
+binding, not just top-level `import` statements the way ARTEFACT-IMPL's
+resolution does. It reads a SECOND declared source set, `provenanceSources`
+— each module's `components/` directory — because for DGIW, and for TAIW's
+and HAIW's framework documents, the file that BUILDS a document is not the
+file that CALLS `saveReport` with it; `reportSources` covers the first and was
+never meant to cover the second, and widening it would widen CSV-HEADER's and
+TEXT-MAXWIDTH's scope for a concern only this class has.
+
+**What it does not cover.** `downloadPDF` (screenshot-to-PDF), `generateQuickPDF`
+and `downloadJSON` carry no `ReportMeta`, no artefact id, no content digest —
+there is nothing for the recorder to attach a record to, so none of the three
+routes through it. That is 35 call sites, all of them pre-existing, none of
+them a catalogued or module-report artefact.
+
+**The harness cannot see this.** No golden fixture writes a provenance record
+and no baseline can describe one — `localStorage` does not exist in
+`scripts/golden/harness.mjs`'s bare SSR server, and `recordProvenance` degrades
+to a silent no-op there by the same `safeGet`/`safeSet` contract every other
+engagement-scoped read already keeps (never throw, degrade to empty). `scripts/
+provenance-drive.mjs` is the committed driver, in `dashboard-drive.mjs`'s
+style: it drives every real generator over the real fixtures (reusing `scripts/
+golden/harness.mjs::createDriver`, which gained one additive `{ plugins,
+define }` option for this), and demonstrates three things a fixture cannot —
+a record produced for all 40 registry artefacts across the four modules, two
+back-to-back generations producing byte-identical records, and one recorded
+`fileId` recomputed from `stableFileId()` (now exported) against the real PDF
+it came from. `npm run drive:provenance`.
+
+`npm run check:selftest` now runs 88 mutations over 57 codes — four new rows,
+one per branch (`saveReport`/`downloadCsv`/`saveMarkdown` missing the argument,
+and one unresolvable reference), and the one new code they demonstrate.
 
 ## Text in a report must go through the spine
 
