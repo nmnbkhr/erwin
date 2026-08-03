@@ -299,6 +299,73 @@ const MUTATIONS = [
     }),
   },
 
+  /*
+   * ── ARTEFACT-EVIDENCE, five rows, EACH ISOLATING ONE BRANCH ─────────────
+   *
+   * The obvious mutation — corrupt one builtFrom block — trips three of these at
+   * once and proves nothing about which assertion caught it. That is the
+   * `unique()`/UNIQUE lesson applied inside a single class, and the same
+   * discipline HACR-INSTRUMENT's three rows follow: each mutation below leaves
+   * every other branch satisfied.
+   *
+   * The last one is the branch that matters. The other four are shape.
+   */
+  {
+    code: 'ARTEFACT-EVIDENCE',
+    what: 'a catalogued artefact with no builtFrom — a shape with nothing recording what it rests on',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => { delete pl.artefactRegister[0].builtFrom }),
+  },
+  {
+    code: 'ARTEFACT-EVIDENCE',
+    what: 'a derived artefact naming a dataset that does not resolve — the REGISTRY rule one level down',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => {
+      const a = pl.artefactRegister.find((x) => x.builtFrom?.evidence === 'derived')
+      if (!a) throw new Error('no derived artefact to point at a missing file')
+      a.builtFrom.datasets = ['dgiw/data/doesNotExist.json']
+    }),
+  },
+  {
+    code: 'ARTEFACT-EVIDENCE',
+    what: 'an artefact blocked on a withdrawn one — a dead end wearing a roadmap costume',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => {
+      const gone = pl.artefactRegister.find((x) => x.builtFrom?.evidence === 'withdrawn')
+      const blocked = pl.artefactRegister.find((x) => x.builtFrom?.evidence === 'blocked')
+      if (!gone || !blocked) throw new Error('need one withdrawn and one blocked artefact')
+      // Replaces rather than appends: a second blocker would still resolve, and
+      // the row would pass for a reason that has nothing to do with the branch.
+      blocked.builtFrom.blockedOn = [gone.id]
+    }),
+  },
+  {
+    code: 'ARTEFACT-EVIDENCE',
+    what: 'an observed artefact naming datasets — the invitation this class removes',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => {
+      const a = pl.artefactRegister.find((x) => x.builtFrom?.evidence === 'observed')
+      if (!a) throw new Error('no observed artefact')
+      // A path that RESOLVES, so the unresolvable-dataset branch above stays
+      // untripped and this row can only be reporting the scope rule.
+      a.builtFrom.datasets = ['dgiw/data/cdeRegister.json']
+    }),
+  },
+  {
+    code: 'ARTEFACT-EVIDENCE',
+    what: 'a generator for an artefact the register does not mark derived — the branch that matters',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => {
+      // AR-13 has a generator (report/cdeRegister.ts). Marking it observed AND
+      // dropping its datasets isolates this branch: leaving them would also trip
+      // the scope rule above and the row would prove nothing about which caught it.
+      const a = pl.artefactRegister.find((x) => x.id === 'AR-13')
+      if (!a) throw new Error('AR-13 is not in the register')
+      a.builtFrom.evidence = 'observed'
+      delete a.builtFrom.datasets
+    }),
+  },
+
   // ── the four suite classes ──────────────────────────────────────────────
   {
     code: 'REPORT-SOURCES',

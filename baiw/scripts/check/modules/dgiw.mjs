@@ -20,8 +20,11 @@
  *     name. One esbuild failure disabled two classes and only PROJECTION-INVARIANT
  *     said so; the other went silent behind `projection ? … : []`.
  */
+import fs from 'node:fs'
+import path from 'node:path'
 import { unique, sorted, near, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
 import { makeCrosswalkChecks, crosswalkSummary } from '../lib/crosswalk.mjs'
+import { ts, parseFile } from '../lib/ts-ast.mjs'
 
 const LAYERS = ['core', 'banking']
 const DIMS = ['Completeness', 'Validity', 'Accuracy', 'Consistency', 'Uniqueness', 'Timeliness', 'Integrity']
@@ -290,6 +293,153 @@ const coreChassis = {
       if (!rules.some((r) => r.cdeRef === c.id && r.layer === 'core'))
         fail(`core CDE ${c.id} "${c.element}" has no core DQ rule — it cannot be measured`)
     return { examined: coreCdes.length }
+  },
+}
+
+// ── 10. a catalogued artefact must say what it would be built from ─────────
+/**
+ * ARTEFACT-EVIDENCE — the register catalogues a shape; this is what stands behind it.
+ *
+ * ─── THE DEFECT ────────────────────────────────────────────────────────────
+ *
+ * ARTEFACT-IMPL validates that a generator's id is IN the register. It says
+ * nothing about whether the register entry describes a document the data can
+ * actually produce. So an id in `artefactRegister` is a standing invitation:
+ * forty-eight named shapes with an owner and a format, seven of them built, and
+ * nothing recording which of the other forty-one are reachable.
+ *
+ * That is not hypothetical here. `report/frameworkAlignment.ts` records that the
+ * framework alignment pack shipped against AR-46 "Examination and audit evidence
+ * pack" because it "matched the SHAPE and nothing else", and had to be moved to a
+ * new AR-47. D5 stage G then measured all forty-one and found EIGHT that could be
+ * built only by synthesising a relation no dataset carries — a system-of-record
+ * designation inferred from an absence of competing rows, a column binding
+ * regexed out of DQ rule expressions, an end-to-end lineage graph with two
+ * authored endpoints and invented hops. Every one of them would have passed
+ * ARTEFACT-IMPL, CSV-HEADER, TEXT-MAXWIDTH and the golden baselines, because each
+ * of those checks a property of the OUTPUT and none of them checks the input.
+ *
+ * ─── WHAT THIS CLASS ASSERTS, AND THE ONE THAT MATTERS ─────────────────────
+ *
+ * Four of the five branches are shape: an evidence value from the closed set, a
+ * mandatory `note`, `datasets` that resolve, `blockedOn` ids that are catalogued.
+ * They are worth having and they are not the point.
+ *
+ * The fifth is: A GENERATOR MAY ONLY EXIST FOR A `derived` ENTRY. Writing one for
+ * an entry marked authored, observed, blocked or withdrawn fails the build, by
+ * name, at the point the generator declares its id. That is what turns the
+ * disposition from a comment into a refusal — someone reversing it has to edit
+ * the register and say why in the note, in the same commit, which is the
+ * `HAIW-WEIGHT` and `SLUG_EXCEPTIONS` shape.
+ *
+ * The reverse does NOT fail. Seventeen entries are `derived` and seven have a
+ * generator; the other ten are the roadmap, and failing on them would be
+ * demanding the whole register be automated at once. The pair is printed instead.
+ *
+ * ─── WHAT IT CANNOT SEE ────────────────────────────────────────────────────
+ *
+ * `datasets` is a DECLARATION, not a derivation. For the ten derived entries with
+ * no generator there is nothing to compare it against, which is exactly why it is
+ * written down. For the seven that are built, this class checks that the declared
+ * paths exist — it does NOT check them against what the generator imports;
+ * FINGERPRINT-COVERAGE owns the import graph and a mismatch between the two would
+ * be reported by neither today.
+ *
+ * And it cannot judge a note. `contentKey(['constant'])` passes ARTEFACT-IMPL for
+ * the same reason: a static check verifies that a claim was SUPPLIED, never that
+ * it is true. Read the note when reviewing a new entry.
+ */
+const ARTEFACT_EVIDENCE = ['derived', 'authored', 'observed', 'blocked', 'withdrawn']
+
+const artefactEvidence = {
+  code: 'ARTEFACT-EVIDENCE',
+  run(ctx) {
+    const { plan } = ctx.data
+    const { fail, root, sources } = ctx
+    const reg = plan.artefactRegister ?? []
+    const byId = new Map(reg.map((a) => [a.id, a]))
+
+    /*
+     * The catalogued ids a generator claims. This reads the same declaration
+     * ARTEFACT-IMPL reads — `export const X_ARTEFACT_ID = 'AR-nn'` — and reads it
+     * again rather than sharing a helper, because the two classes ask different
+     * questions of it and a shared assertion helper that hardcoded one code is
+     * precisely the defect `unique()` shipped. A non-literal initialiser is
+     * ARTEFACT-IMPL's finding to make, not this one's; it is skipped here rather
+     * than reported twice under two codes.
+     */
+    const implemented = new Map()
+    for (const file of sources) {
+      const { sf, rel } = parseFile(root, file)
+      const visit = (node) => {
+        if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && /ARTEFACT_ID$/.test(node.name.text)) {
+          const init = node.initializer
+          if (init && ts.isStringLiteralLike(init) && byId.has(init.text)) implemented.set(init.text, rel)
+        }
+        ts.forEachChild(node, visit)
+      }
+      visit(sf)
+    }
+
+    const counts = Object.fromEntries(ARTEFACT_EVIDENCE.map((e) => [e, 0]))
+    const blockedOn = new Map()
+
+    for (const a of reg) {
+      const bf = a.builtFrom
+      if (!bf || typeof bf !== 'object') {
+        fail(`artefact ${a.id} "${a.artefact}" declares no builtFrom — the register would catalogue a shape with nothing recording what the document rests on, which is how AR-46 acquired a generator for a different artefact`)
+        continue
+      }
+      if (!ARTEFACT_EVIDENCE.includes(bf.evidence)) {
+        fail(`artefact ${a.id} builtFrom.evidence = ${JSON.stringify(bf.evidence)} — expected one of ${ARTEFACT_EVIDENCE.join(', ')}`)
+        continue
+      }
+      counts[bf.evidence]++
+      if (typeof bf.note !== 'string' || bf.note.trim() === '')
+        fail(`artefact ${a.id} (${bf.evidence}) has no builtFrom.note — the note carries the relation, or the apparent path that does not hold, and an entry nobody had to explain is the state this field was added to end`)
+
+      const datasets = bf.datasets ?? []
+      const blocks = bf.blockedOn ?? []
+
+      if (bf.evidence === 'derived') {
+        if (datasets.length === 0)
+          fail(`artefact ${a.id} is marked derived and names no dataset — "a generator can build it" with nothing to build it from is the claim this field exists to stop`)
+        for (const rel of datasets)
+          if (!fs.existsSync(path.join(root, 'src', rel)))
+            fail(`artefact ${a.id} declares dataset src/${rel}, which does not resolve — a declared input that went missing is a finding, not a silently narrower claim`)
+      } else if (datasets.length > 0) {
+        fail(`artefact ${a.id} is marked ${bf.evidence} but declares datasets — naming inputs on an entry no generator may be written for is the invitation this class removes`)
+      }
+
+      if (bf.evidence === 'blocked') {
+        if (blocks.length === 0)
+          fail(`artefact ${a.id} is marked blocked and names nothing it is blocked on — "blocked" with no blocker cannot be cleared, or checked`)
+        for (const id of blocks) {
+          if (id === a.id) fail(`artefact ${a.id} is blocked on itself`)
+          else if (!byId.has(id)) fail(`artefact ${a.id} is blocked on ${id}, which is not in this register`)
+          else if (byId.get(id).builtFrom?.evidence === 'withdrawn')
+            fail(`artefact ${a.id} is blocked on ${id}, which is withdrawn — a dead end wearing a roadmap's costume`)
+          blockedOn.set(id, [...(blockedOn.get(id) ?? []), a.id])
+        }
+      } else if (blocks.length > 0) {
+        fail(`artefact ${a.id} is marked ${bf.evidence} but declares blockedOn — only a blocked entry has a blocker`)
+      }
+    }
+
+    // THE ONE THAT MATTERS. Direction is deliberate: derived-without-a-generator
+    // is the roadmap and is printed, generator-without-derived is a refusal.
+    for (const [id, rel] of implemented) {
+      const ev = byId.get(id).builtFrom?.evidence
+      if (ev && ev !== 'derived')
+        fail(`${rel} declares a generator for artefact ${id}, which the register marks ${ev} — ${ev === 'withdrawn' ? 'the register withdrew this shape because the data cannot support it' : 'the register says this document cannot be built from the datasets yet'}. Building it anyway is the D-001 shape: a plausible document under a catalogued heading. Change the register entry and say why in its note, or do not write the generator`)
+    }
+
+    return {
+      examined: reg.length,
+      counts,
+      implemented: [...implemented.keys()].sort(),
+      blockedOn: [...blockedOn.entries()].sort((x, y) => (x[0] < y[0] ? -1 : 1)),
+    }
   },
 }
 
@@ -676,6 +826,7 @@ export default {
     waveGraph,
     layerCoherence,
     coreChassis,
+    artefactEvidence,
     crosswalk.spineUniverse,
     crosswalk.crosswalkShape,
     crosswalk.crosswalkWeight,
@@ -697,6 +848,26 @@ export default {
     out.push(`CDEs ${cdes.length} (core ${n(cdes, 'core')} / banking ${n(cdes, 'banking')})  DQ rules ${rules.length} (core ${n(rules, 'core')} / banking ${n(rules, 'banking')})`)
     out.push(`flows ${prog.flows.length}  steps ${prog.flows.flatMap((f) => f.steps).length}  checklist ${prog.checklist.length}  gates ${om.gates.length}`)
     out.push(`waves ${plan.waves.length}  artefacts ${plan.artefactRegister.length}  roles ${om.roles.length}  registry ${(om.roleRegistry ?? []).length}`)
+
+    // The delivery scoreboard, honestly denominated. ARTEFACT-IMPL prints "N of
+    // 48 catalogued artefacts have a generator" and 48 is the catalogue size, not
+    // the buildable set — three of those are withdrawn shapes the data cannot
+    // support and eighteen more wait on content nobody has written. Printed here
+    // so that fraction is readable rather than flattering.
+    const ae = r['ARTEFACT-EVIDENCE']
+    if (ae?.counts) {
+      const c = ae.counts
+      const live = plan.artefactRegister.length - c.withdrawn
+      out.push(
+        `ARTEFACT-EVIDENCE ${plan.artefactRegister.length} catalogued, ${live} live` +
+          `  derived ${c.derived} (${ae.implemented.length} with a generator: ${ae.implemented.join(', ')})` +
+          `  authored ${c.authored}  observed ${c.observed}  blocked ${c.blocked}  withdrawn ${c.withdrawn}`,
+      )
+      out.push(
+        `  blocked on: ${ae.blockedOn.map(([id, on]) => `${id} <- ${on.join(', ')}`).join('  ') || 'nothing'}` +
+          ` — a generator may only be written for a derived entry, and that is asserted rather than asked for`,
+      )
+    }
 
     const unmapped = r['CROSSWALK-ORPHAN']?.unmapped ?? []
     out.push(

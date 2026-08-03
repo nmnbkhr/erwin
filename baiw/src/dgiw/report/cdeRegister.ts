@@ -12,6 +12,22 @@
  * because that is what the RACI is answered in. Where resolution fails the
  * archetype column reads UNRESOLVED — never blank, because a blank cell in a
  * spreadsheet reads as "no owner" when the truth is "owner not in the registry".
+ *
+ * THERE IS NO "SUPPORT ROLES" COLUMN, AND THAT IS THE SAME ARGUMENT.
+ *
+ * `support` is a real field in this module's vocabulary — flow steps F4-S3 and
+ * F7-S1 carry one, `ui.tsx::Owner` renders it, and the gate resolves every entry
+ * through the role registry. It is authored on 0 of 76 CDEs. A column emitting an
+ * empty cell on every row does not read as "not authored"; it reads as "this
+ * element has no supporting parties", which is a claim about the bank's
+ * accountability model that nobody made. The column shipped that claim 76 times
+ * per export and the reason it survived is that an empty column looks like data
+ * you happen not to have.
+ *
+ * So it is gone rather than blanked, and the `support` field stays on
+ * `CriticalDataElement` because absent is not the same as forbidden. Author one
+ * and the column comes back — deliberately, with a header that then means
+ * something, not by a `?? []` quietly starting to produce values.
  */
 import type jsPDF from 'jspdf'
 import { contentKey, createReport, SLATE } from '../../report/spine'
@@ -48,7 +64,6 @@ export interface CdeRow {
   layer: string
   ownerRaw: string
   ownerArchetype: string
-  support: string
   dqDimensions: string
   dqRuleCount: number
   sourceSystem: string
@@ -65,7 +80,6 @@ const COLUMNS: CsvColumn<CdeRow>[] = [
   { key: 'layer', header: 'Layer' },
   { key: 'ownerRaw', header: 'Owner (as stated)' },
   { key: 'ownerArchetype', header: 'Owner archetype (resolved)' },
-  { key: 'support', header: 'Support roles' },
   { key: 'dqDimensions', header: 'DQ dimensions' },
   { key: 'dqRuleCount', header: 'DQ rules in scope' },
   { key: 'sourceSystem', header: 'Source system' },
@@ -109,8 +123,6 @@ export function buildCdeRegisterRows(input: CdeRegisterInput): {
       layer: c.layer,
       ownerRaw: c.ownerRole,
       ownerArchetype: archetype || UNRESOLVED_OWNER,
-      // Optional in the dataset. Accountability stays singular; contribution does not.
-      support: (c.support ?? []).join('; '),
       dqDimensions: c.dqDimensions.join('; '),
       dqRuleCount: ruleCountByCde.get(c.id) ?? 0,
       sourceSystem: c.sourceSystem,

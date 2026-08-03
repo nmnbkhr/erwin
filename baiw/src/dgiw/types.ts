@@ -234,19 +234,58 @@ export interface Day90Row {
   exitArtefact: string
 }
 
+/**
+ * WHAT EVIDENCE STANDS BEHIND A CATALOGUED ARTEFACT.
+ *
+ * The register catalogued a SHAPE — id, rung, owner, format — and recorded
+ * nothing about what the document would be built from. That is how AR-46 got a
+ * framework alignment pack: the shape matched and nothing else did, and it took a
+ * reader noticing to move it to a new AR-47. Eight further entries were found in
+ * D5 stage G to be buildable only by synthesising a relation no dataset carries.
+ *
+ * An id in this register is a standing invitation to build against it, and
+ * ARTEFACT-IMPL validates the id, not the claim. This field is the claim, and
+ * ARTEFACT-EVIDENCE in check/modules/dgiw.mjs is what makes it binding: a
+ * generator may only exist for a `derived` entry, and a `derived` entry must name
+ * datasets that resolve.
+ *
+ *   derived    a generator can build it from the named datasets
+ *   authored   library content nobody has written yet; a generator follows it
+ *   observed   measured at the client, or the artefact IS the running thing
+ *   blocked    buildable once a named catalogued artefact lands
+ *   withdrawn  the register named a shape the data cannot support
+ *
+ * `note` is mandatory and carries the relation — or, for the other four, the
+ * apparent path that does not hold. It is prose on purpose: the reason a mapping
+ * is not real is not a value that can be enumerated.
+ */
+export type ArtefactEvidence = 'derived' | 'authored' | 'observed' | 'blocked' | 'withdrawn'
+
+export interface ArtefactProvenance {
+  evidence: ArtefactEvidence
+  /** Paths under `src/`. Declared only by `derived`; every one must resolve. */
+  datasets?: string[]
+  /** Register ids. Declared only by `blocked`; every one must be catalogued. */
+  blockedOn?: string[]
+  note: string
+}
+
+export interface ArtefactRegisterEntry {
+  id: string
+  artefact: string
+  pillarId: string
+  rung: number
+  owner: string
+  support?: string[]
+  format: string
+  layer: Layer
+  builtFrom: ArtefactProvenance
+}
+
 export interface ImplementationPlanData {
   first90Days: Day90Row[]
   waves: PlanWave[]
-  artefactRegister: {
-    id: string
-    artefact: string
-    pillarId: string
-    rung: number
-    owner: string
-    support?: string[]
-    format: string
-    layer: Layer
-  }[]
+  artefactRegister: ArtefactRegisterEntry[]
 }
 
 /* ── Framework crosswalk (Phase C) ──────────────────────────────────────

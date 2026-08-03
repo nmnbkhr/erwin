@@ -347,7 +347,15 @@
       "rung": 1,
       "owner": "Engagement Lead",
       "format": "Report + interactive scorecard",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/diagnostic.json",
+          "dgiw/data/pillars.json"
+        ],
+        "note": "The 55 weighted diagnostic questions, five per pillar, scored through scoring.ts with its three states. 55 of 55 question texts and 55 of 55 levelDescription blocks are distinct and the weight sequence carries no cycle at any period — the instrument is authored, not generated, which is the test HACR's nine template stems and five-cycle weight fail."
+      }
     },
     {
       "id": "AR-02",
@@ -356,7 +364,14 @@
       "rung": 1,
       "owner": "Data Architect",
       "format": "Diagram + register",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/cdeRegister.json"
+        ],
+        "note": "sourceSystem, domain, ownerRole and consumers, per element: 32 systems, 16 domains, 234 consumption points. 11 of the 53 reference-model entities are sourced by more than one system, and that irregularity is what a positional assignment could not produce. SYSTEM-TO-SYSTEM FLOWS ARE IN NO DATASET — the map is system to domain to consumption, one hop each. The ownership section is legitimately empty (0 of 76 owners unresolved) and must print the zero with its reason."
+      }
     },
     {
       "id": "AR-03",
@@ -365,7 +380,11 @@
       "rung": 1,
       "owner": "Engagement Lead",
       "format": "Register",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "The client's own rework hours, findings and headcount, measured during the diagnostic. positioning holds pain as prose and no baseline exists anywhere. DGIW persists exactly one thing today — dgiw_diagnostic_answers — so there is no surface to record this in."
+      }
     },
     {
       "id": "AR-04",
@@ -374,7 +393,17 @@
       "rung": 1,
       "owner": "Engagement Lead",
       "format": "Report",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/implementationPlan.json",
+          "dgiw/data/programSetup.json",
+          "dgiw/data/operatingModel.json",
+          "dgiw/data/pillars.json"
+        ],
+        "note": "The seven waves with dependsOn, and the eleven gates through flow.gateIds. The wave-to-gate relation is prose inside wave.exitCriteria, parsed and labelled prose-derived on the page; it is not a foreign key and is not presented as one."
+      }
     },
     {
       "id": "AR-05",
@@ -383,7 +412,14 @@
       "rung": 1,
       "owner": "DG Office / Data Governance Lead",
       "format": "Lineage exhibit",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/cdeRegister.json"
+        ],
+        "note": "consumers, inverted. 3 to 5 entries per element over 234 distinct values, distribution 40x4 / 32x3 / 4x5 — non-periodic, and domain-coherent throughout (customer elements to eCIB and KYC, loan elements to ECL and repricing). This is the field where an HCF-LINK counter would live and it is not one. TWO AUTHORED HOPS ONLY: consumption point to element to source system. No transformation logic and no column-level detail exists anywhere — see AR-25, which is this same data with the boundary removed."
+      }
     },
     {
       "id": "AR-06",
@@ -392,7 +428,16 @@
       "rung": 1,
       "owner": "Engagement Lead",
       "format": "Assessment note",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/diagnostic.json",
+          "dgiw/data/pillars.json",
+          "dgiw/data/crosswalk.json"
+        ],
+        "note": "The five P11 questions with their level descriptions, the P11 pillar score and its three states, and the three P11 crosswalk entries. PILLAR LEVEL ONLY — no candidate use case exists in any dataset, so the ladder's 'per candidate use case' phrasing cannot be met. Where P11's focus names classification, traceability and quality as dependencies, P08, P07 and P05 print as separate scores; averaging them would be a rollup the data does not define."
+      }
     },
     {
       "id": "AR-07",
@@ -401,7 +446,14 @@
       "rung": 1,
       "owner": "Head of Regulatory Reporting",
       "format": "Assessment note",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "blocked",
+        "blockedOn": [
+          "AR-21"
+        ],
+        "note": "BLOCKED, D5 stage G, previously buildable-looking. The 234 free-text consumers strings include SBP prudential returns, eCIB submission and capital adequacy, and keyword-classifying them into regulatory obligations yields a confident document with no join behind it — the TCF capability badge in a new module. No return, regulator, deadline or obligation register exists. AR-21 supplies the relation."
+      }
     },
     {
       "id": "AR-08",
@@ -410,7 +462,14 @@
       "rung": 2,
       "owner": "Executive Sponsor",
       "format": "Document",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/operatingModel.json"
+        ],
+        "note": "council.charterPurpose, chair, cadence, quorum, members, decisionRights and escalationPath, the seven principles, the ten role archetypes with what each is accountable for, and gates G1 to G3. Term, amendment procedure and review cycle are not in the dataset and are authored per engagement — the only authoring gap inside a derived entry."
+      }
     },
     {
       "id": "AR-09",
@@ -419,7 +478,16 @@
       "rung": 2,
       "owner": "Engagement Lead",
       "format": "Document + RACI",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/operatingModel.json",
+          "dgiw/data/programSetup.json",
+          "dgiw/data/implementationPlan.json"
+        ],
+        "note": "The declared 15-activity by 5-role RACI, the 32-entry role registry that resolves free-text owners to archetypes, the seven delivery flows with their steps, and the 52-item checklist. checklist.phase and flow.name are NOT joined — they resemble each other and are not equal, and the report states that rather than inventing the mapping."
+      }
     },
     {
       "id": "AR-10",
@@ -428,7 +496,14 @@
       "rung": 2,
       "owner": "DG Office / Data Governance Lead",
       "format": "Governance document",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/operatingModel.json"
+        ],
+        "note": "The council object rendered as a terms of reference. SAME SOURCE AS AR-08 and already a page inside AR-09: three documents over one authored object, kept because they carry different signatures, but this is deliberate duplication and not new evidence."
+      }
     },
     {
       "id": "AR-11",
@@ -437,7 +512,11 @@
       "rung": 2,
       "owner": "DG Office / Data Governance Lead",
       "format": "Document set",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "authored",
+        "note": "NO POLICY SET EXISTS IN ANY DATASET. positioning.accelerators advertises a library of 'templated charter, policy set, RACI, issue workflow, council terms of reference and phase-gate checklist' — the charter, RACI, terms of reference and checklist are in operatingModel.json and programSetup.json; the policy set and the issue workflow are not. Eight to twelve policies: the largest single authoring gap in this register."
+      }
     },
     {
       "id": "AR-12",
@@ -446,7 +525,14 @@
       "rung": 2,
       "owner": "DG Office / Data Governance Lead",
       "format": "Mapping",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "blocked",
+        "blockedOn": [
+          "AR-11"
+        ],
+        "note": "The mapping needs the policies. Gate G7 and step F4-S3 both name this exact output and there is no policy set to map to an enforcement point."
+      }
     },
     {
       "id": "AR-13",
@@ -455,16 +541,31 @@
       "rung": 2,
       "owner": "DG Office / Data Governance Lead",
       "format": "Register",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/cdeRegister.json",
+          "dgiw/data/dqRules.json"
+        ],
+        "note": "76 elements with the owner string resolved to an archetype through roles.ts, joined to the rules in scope under the active layer. 0 of 76 owner strings are unresolved; the column still prints UNRESOLVED rather than a blank if one ever is."
+      }
     },
     {
       "id": "AR-14",
-      "artefact": "System-of-record map",
+      "artefact": "System-of-record designation gap register",
       "pillarId": "P03",
       "rung": 2,
       "owner": "Data Architect",
-      "format": "Map",
-      "layer": "core"
+      "format": "Register",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/cdeRegister.json"
+        ],
+        "note": "RENAMED from 'System-of-record map', D5 stage G. fsdmEntity groups the 76 elements into 53 entities: 11 are sourced by more than one system, 42 by exactly one. NEITHER IS A DESIGNATION. No designation field exists, and one system appearing without a competitor is the absence of a second row, not a decision — that is the difference between a foreign key resolving and a relation being real. The register reports the three states as a work list for the Data Architect and must never name a system of record."
+      }
     },
     {
       "id": "AR-15",
@@ -473,7 +574,11 @@
       "rung": 2,
       "owner": "Chief Information Security Officer",
       "format": "Standard",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "authored",
+        "note": "Labels and handling rules, authored once. criticality is CRITICAL or HIGH — business impact, not confidentiality — and labelling elements from it would be the two-vocabularies error at the level of the value rather than the join."
+      }
     },
     {
       "id": "AR-16",
@@ -482,7 +587,11 @@
       "rung": 2,
       "owner": "DG Office / Data Governance Lead",
       "format": "Process definition",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "authored",
+        "note": "States, transitions and an SLA per severity. Gate G9 and the RACI both reference a triage SLA that is specified nowhere in the repo. council.escalationPath supplies the escalation half."
+      }
     },
     {
       "id": "AR-17",
@@ -491,7 +600,16 @@
       "rung": 2,
       "owner": "Data Architect",
       "format": "Document + diagram",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/positioning.json",
+          "dgiw/data/pillars.json",
+          "dgiw/data/cdeRegister.json"
+        ],
+        "note": "positioning.toolingTiers — two tiers, eight components with product and selection note — P10's constraints, deliverables and overlay artefacts, and the 32 source systems from the CDE register as the connector scope. NO INTEGRATION EDGES AND NO DEPLOYMENT TOPOLOGY EXIST: P10 names an on-premise topology as an artefact without containing one, so the diagram is capability layers, not a wired architecture. First generator to read positioning.json, which is screen-only today."
+      }
     },
     {
       "id": "AR-18",
@@ -500,7 +618,11 @@
       "rung": 2,
       "owner": "Engagement Lead",
       "format": "Document + plan",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Costs, benefits and payback measured at the client. The phased-plan half is AR-04 and is already generated; the case half has no source, and a plausible ROI assembled beside a real roadmap is the most inviting fabrication in this register."
+      }
     },
     {
       "id": "AR-19",
@@ -509,7 +631,11 @@
       "rung": 2,
       "owner": "Head of Legal",
       "format": "Schedule",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "authored",
+        "note": "Statutory periods per record category with legal basis. One element carries fsdmEntity 'Retention Rule', which records that retention rules are data — not what any of them say."
+      }
     },
     {
       "id": "AR-20",
@@ -518,7 +644,14 @@
       "rung": 2,
       "owner": "Data Architect",
       "format": "Mapping pack",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/cdeRegister.json"
+        ],
+        "note": "fsdmEntity: 53 reference-model entities over 76 elements, semantically matched to their element names and irregularly distributed. REVERSE COVERAGE IS NOT COMPUTABLE — the reference model's own catalogue is not in this repo, so which of its entities nothing maps cannot be stated and must not be implied by a coverage percentage."
+      }
     },
     {
       "id": "AR-21",
@@ -527,7 +660,11 @@
       "rung": 2,
       "owner": "Head of Regulatory Reporting",
       "format": "Mapping pack",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "authored",
+        "note": "Return line items traced to source fields, per submission. Named as an accelerator, carried by no dataset. It is the missing input for AR-07, AR-38 and AR-45 as well as for itself, which makes it the highest-leverage authoring item in the banking overlay."
+      }
     },
     {
       "id": "AR-22",
@@ -536,7 +673,11 @@
       "rung": 3,
       "owner": "Data Engineering",
       "format": "Working platform",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "The artefact is a running platform. The 32 source systems in the CDE register scope the connectors; the harvest, the coverage and the schedule are client runtime."
+      }
     },
     {
       "id": "AR-23",
@@ -545,7 +686,14 @@
       "rung": 3,
       "owner": "Data Steward",
       "format": "Glossary",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/cdeRegister.json"
+        ],
+        "note": "element, definition, domain and resolved owner: 76 authored definitions averaging some 200 characters and bound to their element. No synonyms, no approval status and no physical binding exist — the glossary is unapproved and says so on the page. Same rows as AR-13 under a business-term cut, not a second body of evidence."
+      }
     },
     {
       "id": "AR-24",
@@ -554,7 +702,14 @@
       "rung": 3,
       "owner": "Data Steward",
       "format": "Binding set",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "blocked",
+        "blockedOn": [
+          "AR-22"
+        ],
+        "note": "BLOCKED, D5 stage G, previously buildable-looking. The apparent path is parsing physical identifiers out of dqRules.expression — cif_no, gl_account, cost_centre. Expressions reference several columns, joins and subqueries, and one element carries rules naming different columns, so selecting THE column is a guess. The binding is an output of the catalogue's harvest."
+      }
     },
     {
       "id": "AR-25",
@@ -563,7 +718,14 @@
       "rung": 3,
       "owner": "DG Office / Data Governance Lead",
       "format": "Lineage graph",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "blocked",
+        "blockedOn": [
+          "AR-22"
+        ],
+        "note": "BLOCKED, D5 stage G, previously buildable-looking. sourceSystem and consumers are two authored endpoints with nothing between them; a lineage graph built from them means inventing the hops. AR-05 is the honest rung-1 version of this same data, and the difference between the two entries is one boundary sentence. Middle hops come from the lineage collector, never from inference."
+      }
     },
     {
       "id": "AR-26",
@@ -572,7 +734,11 @@
       "rung": 3,
       "owner": "Data Engineering",
       "format": "Baseline report",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Profiling results per source system. The rules and their thresholds exist; the defect counts do not, and inventing them is how a baseline stops being a baseline."
+      }
     },
     {
       "id": "AR-27",
@@ -581,7 +747,15 @@
       "rung": 3,
       "owner": "Data Steward",
       "format": "Rule set in engine",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/dqRules.json",
+          "dgiw/data/cdeRegister.json"
+        ],
+        "note": "115 rules with expression, threshold, severity and remediation, joined to the element each protects. A rule whose element is out of scope under the active layer is flagged, never dropped."
+      }
     },
     {
       "id": "AR-28",
@@ -590,7 +764,11 @@
       "rung": 3,
       "owner": "DG Office / Data Governance Lead",
       "format": "Dashboard",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Rule execution results. 115 rules with thresholds, severities and owners are in the dataset and only the pass rates are missing — which is precisely what makes filling them in easy and wrong."
+      }
     },
     {
       "id": "AR-29",
@@ -599,7 +777,11 @@
       "rung": 3,
       "owner": "Data Steward",
       "format": "Register",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Issues raised, triaged and closed against the SLA that AR-16 has to define first."
+      }
     },
     {
       "id": "AR-30",
@@ -608,7 +790,11 @@
       "rung": 3,
       "owner": "Data Engineering",
       "format": "Pipeline control",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "The artefact is an enforced pipeline gate, not a document. Gate G7 requires one enforcement point per policy; the enforcement itself runs in the client's pipeline."
+      }
     },
     {
       "id": "AR-31",
@@ -617,7 +803,11 @@
       "rung": 3,
       "owner": "DG Office / Data Governance Lead",
       "format": "Register",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Spreadsheets and hand adjustments found during the engagement. Nothing in this repo describes a manual touchpoint, and a risk-rated register of them is discovery output."
+      }
     },
     {
       "id": "AR-32",
@@ -626,7 +816,11 @@
       "rung": 3,
       "owner": "Data Owner",
       "format": "Definition + rule set",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "withdrawn",
+        "note": "WITHDRAWN, D5 stage G. The apparent path is the party-domain elements plus the seven Uniqueness rules read as match keys. Survivorship precedence, match attributes and thresholds have no source in any dataset, and match rules invented under this heading would run against a customer master. Re-catalogue it when survivorship is authored, not before."
+      }
     },
     {
       "id": "AR-33",
@@ -635,7 +829,14 @@
       "rung": 3,
       "owner": "DG Office / Data Governance Lead",
       "format": "Register",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "blocked",
+        "blockedOn": [
+          "AR-22"
+        ],
+        "note": "BLOCKED, D5 stage G, previously buildable-looking. The apparent path is a regex over dqRules.expression, which yields nine ref_* table names and five inline enums and looks like a code-set register. It carries no code values, no owner, no versioning and no change process — which is the entire content of the artefact. The sets live in the client's reference data service and the catalogue harvest is what surfaces them."
+      }
     },
     {
       "id": "AR-34",
@@ -644,7 +845,11 @@
       "rung": 3,
       "owner": "DG Office / Data Governance Lead",
       "format": "Register",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "withdrawn",
+        "note": "WITHDRAWN, D5 stage G. Two halves and neither survives. The derivable half — the consumption-point inventory — is already AR-02's third section, and cataloguing it twice is how a register grows a duplicate. The other half is certification, a council decision recorded nowhere: consumption is not certification, and the consumers strings are unnormalised besides (eCIB and eCIB submission are one return). DG-P11-01 asks the client whether they hold such a register; it does not produce one."
+      }
     },
     {
       "id": "AR-35",
@@ -653,7 +858,11 @@
       "rung": 3,
       "owner": "DG Council",
       "format": "Process control",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "authored",
+        "note": "Gate criteria for the AI intake process. The decision right exists — the RACI makes the council accountable for the data-risk gate — and the criteria it would apply do not."
+      }
     },
     {
       "id": "AR-36",
@@ -662,7 +871,15 @@
       "rung": 3,
       "owner": "Data Engineering",
       "format": "Rule set",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/dqRules.json",
+          "dgiw/data/cdeRegister.json"
+        ],
+        "note": "AR-27's generator under layer=banking: 75 of 115 rules across CIF & Party, Deposits & Accounts, Loans & Advances, Cards, Collateral, GL & Finance and Treasury. ONE GENERATOR, TWO CATALOGUE ENTRIES — wire this id to the existing builder; do not write a second."
+      }
     },
     {
       "id": "AR-37",
@@ -671,7 +888,11 @@
       "rung": 3,
       "owner": "Chief Financial Officer",
       "format": "Control set",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "withdrawn",
+        "note": "WITHDRAWN, D5 stage G. The apparent path is families 'GL & Finance' and 'Ledger' — eight rules, all read: chart-of-accounts validity, regulatory and statutory line mapping, mapping-change control, trial-balance identity, cost-centre completeness. NOT ONE reconciles a subledger balance to a GL control account. Those eight are already delivered by AR-27, and the control pairs, tolerances and frequencies exist nowhere."
+      }
     },
     {
       "id": "AR-38",
@@ -680,7 +901,14 @@
       "rung": 3,
       "owner": "Head of Regulatory Reporting",
       "format": "Evidence pack",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "blocked",
+        "blockedOn": [
+          "AR-21"
+        ],
+        "note": "The derivation evidence is the return line item traced back to source. Same missing input as AR-07 and AR-45."
+      }
     },
     {
       "id": "AR-39",
@@ -689,7 +917,11 @@
       "rung": 3,
       "owner": "Chief Risk Officer",
       "format": "Register",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "The actual group and related-party links. The element that would carry them is catalogued; the linkages themselves are client data."
+      }
     },
     {
       "id": "AR-40",
@@ -698,7 +930,11 @@
       "rung": 4,
       "owner": "DG Office / Data Governance Lead",
       "format": "Report + dashboard",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Rule results over time. Same missing input as AR-28 plus a trend, which is a second thing to invent rather than a harder version of the first."
+      }
     },
     {
       "id": "AR-41",
@@ -707,7 +943,11 @@
       "rung": 4,
       "owner": "DG Office / Data Governance Lead",
       "format": "Governance pack",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Decisions taken and actions tracked at the council. The standing agenda is derivable from council.decisionRights, but a pack of empty tables is not the deliverable — the decisions are."
+      }
     },
     {
       "id": "AR-42",
@@ -716,7 +956,11 @@
       "rung": 4,
       "owner": "DG Office / Data Governance Lead",
       "format": "Report",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Current metrics against the AR-03 baseline. Both ends are measured at the client, and gate G6 rejects a retro-fitted baseline for the same reason."
+      }
     },
     {
       "id": "AR-43",
@@ -725,7 +969,11 @@
       "rung": 4,
       "owner": "Data Owner",
       "format": "Evidence set",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Entitlement review results. Two Access-family rules exist; the recertification evidence is IAM output."
+      }
     },
     {
       "id": "AR-44",
@@ -734,7 +982,11 @@
       "rung": 4,
       "owner": "DG Office / Data Governance Lead",
       "format": "Delivery increment",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "The artefact is the delivery increment. The next domain's scope is derivable from the register's 16 domains; the increment is the work of onboarding it."
+      }
     },
     {
       "id": "AR-45",
@@ -743,7 +995,14 @@
       "rung": 4,
       "owner": "Head of Regulatory Reporting",
       "format": "Assessment",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "blocked",
+        "blockedOn": [
+          "AR-21"
+        ],
+        "note": "Impact on governed elements needs the return line-item to element map. Keyword-matching the consumers strings against a circular's subject is the same bridge AR-07 was blocked for."
+      }
     },
     {
       "id": "AR-46",
@@ -752,7 +1011,11 @@
       "rung": 4,
       "owner": "Head of Regulatory Reporting",
       "format": "Evidence pack",
-      "layer": "banking"
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "Examination evidence, maintained current. THE PRECEDENT THIS FIELD EXISTS FOR: report/frameworkAlignment.ts records that the framework alignment pack originally shipped against this id and was moved to a new AR-47 because AR-46 'matched the SHAPE and nothing else'. The id described a shape and nothing recorded the evidence."
+      }
     },
     {
       "id": "AR-47",
@@ -761,7 +1024,17 @@
       "rung": 1,
       "owner": "Engagement Lead",
       "format": "Report",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "frameworks/data/frameworks.json",
+          "dgiw/data/crosswalk.json",
+          "dgiw/data/diagnostic.json",
+          "dgiw/data/pillars.json"
+        ],
+        "note": "The four published frameworks, the 91 crosswalk entries with their authored rationale, and the pillar scores the projection consumes. Leaf dimensions only: a dimension with children carries no entries and rolls up inside its framework, never across the pillar side."
+      }
     },
     {
       "id": "AR-48",
@@ -770,7 +1043,17 @@
       "rung": 1,
       "owner": "Engagement Lead",
       "format": "Report + interactive scorecard",
-      "layer": "core"
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "frameworks/data/frameworks.json",
+          "dgiw/data/crosswalk.json",
+          "dgiw/data/diagnostic.json",
+          "dgiw/data/pillars.json"
+        ],
+        "note": "The same projection as AR-47 across all four frameworks side by side, with each framework's weakest three dimensions and the pillars it maps nothing to. Scales differ per framework and are rescaled explicitly rather than printed under one another's heading."
+      }
     }
   ]
 }

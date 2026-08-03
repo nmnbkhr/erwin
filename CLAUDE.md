@@ -102,8 +102,8 @@ below both.
    runs over nothing declares `mayBeEmpty: '<reason>'` — the reason is mandatory,
    because if a check can run over nothing then someone should have to write down
    why. Nothing declares it today.
-5. **`npm run check:selftest` demonstrates every finding code.** 88 mutations,
-   57 codes, ~30 s. It copies `src/` and `scripts/` to a scratch root under
+5. **`npm run check:selftest` demonstrates every finding code.** 93 mutations,
+   58 codes. It copies `src/` and `scripts/` to a scratch root under
    `node_modules`, applies one mutation per code, asserts the code is reported
    *and* the tool exits non-zero, then restores and re-runs the control. **No
    tracked file is ever written.** Run it after touching the gate: a refactor
@@ -332,7 +332,7 @@ is the fix that made the output readable — not `verify:quick`, which removes 1
 
 Three classes — CSV-HEADER, TEXT-MAXWIDTH and ARTEFACT-IMPL — read source code
 rather than data, and they read exactly what the registry declares. **Eight
-locations from five rule files, resolving to 27 `.ts` files** as of D5 stage E3:
+locations from five rule files, resolving to 30 `.ts` files** as of D5 stage G:
 
 | Location | Declared by |
 |---|---|
@@ -418,7 +418,7 @@ D4 filled two of the empty rule files; D5 added the crosswalk factory to TAIW an
 HAIW. The REGISTRY line prints the breakdown on every build:
 
 ```
-REGISTRY 7 entries, 61 checks (suite 4, _spine 0, baiw 3, taiw 19, haiw 18, coe 0, alm 0, dgiw 17)
+REGISTRY 7 entries, 65 checks (suite 6, _spine 0, baiw 3, taiw 19, haiw 19, coe 0, alm 0, dgiw 18)
 ```
 
 **Read that line rather than this paragraph.** It said 40 for the whole of D4 —
@@ -609,9 +609,73 @@ back-to-back generations producing byte-identical records, and one recorded
 `fileId` recomputed from `stableFileId()` (now exported) against the real PDF
 it came from. `npm run drive:provenance`.
 
-`npm run check:selftest` now runs 88 mutations over 57 codes — four new rows,
+`npm run check:selftest` ran 88 mutations over 57 codes at F1 — four new rows,
 one per branch (`saveReport`/`downloadCsv`/`saveMarkdown` missing the argument,
 and one unresolvable reference), and the one new code they demonstrate.
+
+## A catalogued artefact must say what it is built from
+
+**Not the section above.** `provenance.ts` records what an export *was* built
+from, at runtime, per file. This is what a catalogued artefact *would* be built
+from, at design time, per register entry. The two answer questions a phase apart
+and only one of them can stop a document being written.
+
+`implementationPlan.json`'s `artefactRegister` catalogues **48 artefacts a
+consultant produces during an engagement**, each with a pillar, a rung, an owner
+and a format. Seven have generators. It recorded a SHAPE and nothing about the
+evidence, and **an id in that register is a standing invitation** — ARTEFACT-IMPL
+validates that a generator's id is in the register and says nothing about whether
+the entry describes a document the data can produce.
+
+That is not hypothetical. `report/frameworkAlignment.ts` records that the
+framework alignment pack shipped against **AR-46** "Examination and audit
+evidence pack" because it *"matched the SHAPE and nothing else"*, and had to be
+moved to a new AR-47. D5 stage G measured all forty-one unbuilt entries and found
+**eight more of the same kind** — buildable only by synthesising a relation no
+dataset carries. Every one would have passed ARTEFACT-IMPL, CSV-HEADER,
+TEXT-MAXWIDTH and the golden baselines, **because those check a property of the
+output and none of them checks the input.**
+
+Every entry now carries `builtFrom` — `evidence`, optional `datasets` or
+`blockedOn`, and a mandatory `note`:
+
+| | |
+|---|---|
+| `derived` | a generator can build it from the named datasets — **17**, 7 built |
+| `authored` | library content nobody has written; a generator follows it — **6** |
+| `observed` | measured at the client, or the artefact IS the running thing — **15** |
+| `blocked` | buildable once a named catalogued artefact lands — **7** |
+| `withdrawn` | the register named a shape the data cannot support — **3** |
+
+**`ARTEFACT-EVIDENCE` is what makes it binding, and one of its five branches is
+the point.** Four are shape: a value from the closed set, a non-empty `note`,
+`datasets` that resolve, `blockedOn` ids that are catalogued and not withdrawn.
+The fifth is **a generator may only exist for a `derived` entry** — writing one
+against an entry marked authored, observed, blocked or withdrawn fails the build
+by name, at the line the generator declares its id. Reversing a disposition means
+editing the register and saying why in the note, in the same commit; that is
+`HAIW-WEIGHT`'s shape. The reverse does **not** fail: ten `derived` entries have
+no generator and that is the roadmap, so the pair is printed instead.
+
+**Withdrawn entries are kept, not deleted.** An id that vanishes gets
+re-catalogued by the next person who reads the ladder, with the reason gone.
+AR-32, AR-34 and AR-37 stay in the array with the apparent path that does not
+hold written into the note — AR-37's, for instance, records that all eight
+`GL & Finance`/`Ledger` rules were read and **not one reconciles a subledger
+balance to a GL control account**.
+
+**Two things it cannot see.** `datasets` is a declaration, not a derivation: for
+the ten derived-but-unbuilt entries there is nothing to compare it against, which
+is why it is written down, and for the seven built ones this class checks the
+paths exist but not that the generator imports them — FINGERPRINT-COVERAGE owns
+the import graph and a mismatch between the two is reported by neither. And it
+cannot judge a note, for the same reason ARTEFACT-IMPL accepts
+`contentKey(['constant'])`: a static check verifies a claim was **supplied**,
+never that it is true. **Read the note when reviewing a new entry.**
+
+The five selftest rows each isolate ONE branch. Corrupting a `builtFrom` block
+trips three at once and proves nothing about which caught it — the `unique()`
+lesson inside a single class, as `HACR-INSTRUMENT` already ships it.
 
 ## Text in a report must go through the spine
 

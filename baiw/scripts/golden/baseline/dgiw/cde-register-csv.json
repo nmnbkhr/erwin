@@ -1,7 +1,7 @@
 {
   "artefact": "cde-register-csv",
-  "assertableSha256": "3ae25c156e497d01b6c0336a30d1d9c77c7e68e140c9c76caa49afcd1405e9f3",
-  "bytes": 33079,
+  "assertableSha256": "f6edbacd536800e63816252d52272b6ced0beb7783157e12df883b60b609dd01",
+  "bytes": 32837,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -12,11 +12,11 @@
     "icuTimeZone": "UTC",
     "tz": "UTC"
   },
-  "columnCount": 14,
+  "columnCount": 13,
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "1577819280a384203f5049d7a79726330be797094d09481fdebf29a12b5a9a9d",
+    "sha256": "0705c8f6de893920d1b4516cbfeacd676a1b103eccd3383754d1fd3e5265b4ad",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -24,11 +24,11 @@
   "filename": "AR-13_fixture-bank-limited_all_2026-07-31.csv",
   "filenameNormalised": "AR-13_fixture-bank-limited_all_2026-07-31.csv",
   "firstThreeRows": [
-    "\"CDE-001\",\"Customer Unique Identifier (CIF No.)\",\"Customer & Party\",\"CRITICAL\",\"banking\",\"Head of Retail Operations\",\"Data Owner\",\"\",\"Uniqueness; Completeness; Integrity\",\"2\",\"Core Banking — CIF\",\"Party\",\"Single customer view; eCIB submission; Group exposure aggregation; AML customer risk rating; Board KPI — customer count\",\"The bank-assigned identifier that uniquely identifies a customer relationship across all products and systems. The anchor key for every aggregation performed on a customer.\"\r",
-    "\"CDE-002\",\"National Identity Number (CNIC)\",\"Customer & Party\",\"CRITICAL\",\"banking\",\"Head of Compliance\",\"Data Owner\",\"\",\"Validity; Completeness; Accuracy\",\"4\",\"Core Banking — CIF\",\"Party Identifier\",\"KYC/CDD completeness; eCIB submission; De-duplication and single customer view; AML screening; Tax reporting\",\"The 13-digit national identity number of an individual customer, used as the primary external matching key and the basis of identity verification.\"\r",
-    "\"CDE-003\",\"National Tax Number (NTN)\",\"Customer & Party\",\"HIGH\",\"banking\",\"Head of Corporate Banking\",\"Data Owner\",\"\",\"Validity; Completeness\",\"1\",\"Core Banking — CIF\",\"Party Identifier\",\"Corporate customer matching; Withholding tax reporting; Corporate exposure aggregation\",\"The tax registration number of a corporate or business customer, used for tax reporting and corporate entity matching.\"\r"
+    "\"CDE-001\",\"Customer Unique Identifier (CIF No.)\",\"Customer & Party\",\"CRITICAL\",\"banking\",\"Head of Retail Operations\",\"Data Owner\",\"Uniqueness; Completeness; Integrity\",\"2\",\"Core Banking — CIF\",\"Party\",\"Single customer view; eCIB submission; Group exposure aggregation; AML customer risk rating; Board KPI — customer count\",\"The bank-assigned identifier that uniquely identifies a customer relationship across all products and systems. The anchor key for every aggregation performed on a customer.\"\r",
+    "\"CDE-002\",\"National Identity Number (CNIC)\",\"Customer & Party\",\"CRITICAL\",\"banking\",\"Head of Compliance\",\"Data Owner\",\"Validity; Completeness; Accuracy\",\"4\",\"Core Banking — CIF\",\"Party Identifier\",\"KYC/CDD completeness; eCIB submission; De-duplication and single customer view; AML screening; Tax reporting\",\"The 13-digit national identity number of an individual customer, used as the primary external matching key and the basis of identity verification.\"\r",
+    "\"CDE-003\",\"National Tax Number (NTN)\",\"Customer & Party\",\"HIGH\",\"banking\",\"Head of Corporate Banking\",\"Data Owner\",\"Validity; Completeness\",\"1\",\"Core Banking — CIF\",\"Party Identifier\",\"Corporate customer matching; Withholding tax reporting; Corporate exposure aggregation\",\"The tax registration number of a corporate or business customer, used for tax reporting and corporate entity matching.\"\r"
   ],
-  "fullTextSha256": "3ae25c156e497d01b6c0336a30d1d9c77c7e68e140c9c76caa49afcd1405e9f3",
+  "fullTextSha256": "f6edbacd536800e63816252d52272b6ced0beb7783157e12df883b60b609dd01",
   "generator": "buildCdeRegisterRows",
   "header": [
     "﻿CDE ID",
@@ -38,7 +38,6 @@
     "Layer",
     "Owner (as stated)",
     "Owner archetype (resolved)",
-    "Support roles",
     "DQ dimensions",
     "DQ rules in scope",
     "Source system",
@@ -48,14 +47,14 @@
   ],
   "kind": "csv",
   "lastThreeRows": [
-    "\"CDE-074\",\"Transaction Amount and Currency\",\"Transaction & Event\",\"CRITICAL\",\"core\",\"Chief Financial Officer\",\"Data Owner\",\"\",\"Accuracy; Completeness; Consistency\",\"2\",\"Transaction Processing\",\"Transaction\",\"Financial statements; Revenue recognition; Consolidated group reporting; Threshold-based regulatory triggers\",\"The monetary value of an event with its currency and, where converted, the rate and rate date. An amount without an explicit currency is the most common silent corruption in consolidated reporting.\"\r",
-    "\"CDE-075\",\"Reference Code Set Value\",\"Reference & Code Sets\",\"HIGH\",\"core\",\"Data Architect\",\"Data Custodian\",\"\",\"Validity; Consistency; Timeliness\",\"2\",\"Reference Data Service\",\"Reference Value\",\"Cross-system joins; Regulatory code mapping; Report grouping and filtering; Data validation rules\",\"A permitted value in a controlled list — country, currency, status, category — together with its version. Uncontrolled code sets are how the same concept acquires four spellings.\"\r",
-    "\"CDE-076\",\"Organisational Hierarchy Node\",\"Reference & Code Sets\",\"HIGH\",\"core\",\"Head of Operations\",\"Data Owner\",\"\",\"Integrity; Timeliness; Consistency\",\"2\",\"HR Information System\",\"Org Unit\",\"Management reporting roll-ups; Cost allocation; Access provisioning by unit; Point-in-time organisational restatement\",\"A unit in the management hierarchy with its parent, effective dates and manager. Reorganisations silently break every historical roll-up that assumed the hierarchy was static.\""
+    "\"CDE-074\",\"Transaction Amount and Currency\",\"Transaction & Event\",\"CRITICAL\",\"core\",\"Chief Financial Officer\",\"Data Owner\",\"Accuracy; Completeness; Consistency\",\"2\",\"Transaction Processing\",\"Transaction\",\"Financial statements; Revenue recognition; Consolidated group reporting; Threshold-based regulatory triggers\",\"The monetary value of an event with its currency and, where converted, the rate and rate date. An amount without an explicit currency is the most common silent corruption in consolidated reporting.\"\r",
+    "\"CDE-075\",\"Reference Code Set Value\",\"Reference & Code Sets\",\"HIGH\",\"core\",\"Data Architect\",\"Data Custodian\",\"Validity; Consistency; Timeliness\",\"2\",\"Reference Data Service\",\"Reference Value\",\"Cross-system joins; Regulatory code mapping; Report grouping and filtering; Data validation rules\",\"A permitted value in a controlled list — country, currency, status, category — together with its version. Uncontrolled code sets are how the same concept acquires four spellings.\"\r",
+    "\"CDE-076\",\"Organisational Hierarchy Node\",\"Reference & Code Sets\",\"HIGH\",\"core\",\"Head of Operations\",\"Data Owner\",\"Integrity; Timeliness; Consistency\",\"2\",\"HR Information System\",\"Org Unit\",\"Management reporting roll-ups; Cost allocation; Access provisioning by unit; Point-in-time organisational restatement\",\"A unit in the management hierarchy with its parent, effective dates and manager. Reorganisations silently break every historical roll-up that assumed the hierarchy was static.\""
   ],
   "module": "dgiw",
   "notReproducible": {},
   "rawBytesAsserted": true,
-  "rawBytesSha256": "3ae25c156e497d01b6c0336a30d1d9c77c7e68e140c9c76caa49afcd1405e9f3",
+  "rawBytesSha256": "f6edbacd536800e63816252d52272b6ced0beb7783157e12df883b60b609dd01",
   "rowCount": 76,
   "sampleRowsMasked": false,
   "unassertable": [],

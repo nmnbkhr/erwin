@@ -3,9 +3,9 @@
  *
  * TWO DIFFERENT FACTS ABOUT "LAYER", AND THEY ARE NOT THE SAME
  *
- * Each artefact in the register carries its own `layer` tag, and all five
- * implemented artefacts are tagged `core` — they are part of the sector-neutral
- * chassis. Applying `layerShows` to that tag would mark all five unavailable the
+ * Each artefact in the register carries its own `layer` tag, and every
+ * implemented artefact is tagged `core` — they are part of the sector-neutral
+ * chassis. Applying `layerShows` to that tag would mark them all unavailable the
  * moment a consultant switches to the banking overlay, which is nonsense: the CDE
  * register under the banking layer is 52 elements and generates perfectly well.
  *
@@ -23,6 +23,20 @@
  * The counts are derived from the datasets, never typed in — SuiteLanding.tsx is
  * the standing example in this repo of hardcoded dataset counts drifting away
  * from the data they describe.
+ *
+ * IT DRIFTED HERE TOO, WHICH IS THE POINT. The header comment above and the
+ * coverage card below both said "five" while SPECS held seven, and the card said
+ * "46 artefacts across the five rungs" against a register of 48 across four. Two
+ * generators had landed since; nobody reads a prose sentence for arithmetic. Both
+ * counts are now computed from the same arrays the page renders, and the paragraph
+ * is phrased so there is no number left in it to go stale.
+ *
+ * The scoreboard denominator is DERIVED, not catalogued. Three register entries
+ * are `withdrawn` — shapes the datasets cannot support, kept with their reason
+ * rather than deleted — and eighteen more are authored/observed/blocked content
+ * nobody has written. "7 of 48" would read as 15% of a plan; the honest fraction
+ * is against the entries a generator may legally be written for, which is what
+ * `builtFrom.evidence === 'derived'` marks and ARTEFACT-EVIDENCE enforces.
  */
 import { useMemo } from 'react'
 import { FileSpreadsheet, FileText, Package } from 'lucide-react'
@@ -55,6 +69,15 @@ const DIAG = diagnostic as DiagnosticData
 const FW = frameworks as unknown as FrameworksData
 
 const ARTEFACTS = new Map(PLAN.artefactRegister.map((a) => [a.id, a]))
+
+/** Every count on this page, computed once from the register itself. */
+const CATALOGUE = {
+  total: PLAN.artefactRegister.length,
+  rungs: new Set(PLAN.artefactRegister.map((a) => a.rung)).size,
+  derived: PLAN.artefactRegister.filter((a) => a.builtFrom.evidence === 'derived').length,
+  withdrawn: PLAN.artefactRegister.filter((a) => a.builtFrom.evidence === 'withdrawn').length,
+  blocked: PLAN.artefactRegister.filter((a) => a.builtFrom.evidence === 'blocked').length,
+}
 
 /** Which output a consultant actually hands over. */
 type Primary = 'csv' | 'pdf'
@@ -257,10 +280,10 @@ export default function Deliverables() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Stat value={SPECS.length} label="Artefacts implemented" tone="rose" />
         <Stat value={available} label="Available under the current layer" />
-        <Stat value={PLAN.artefactRegister.length} label="Artefacts in the register" />
+        <Stat value={CATALOGUE.total} label="Artefacts in the register" />
         <Stat
-          value={`${Math.round((SPECS.length / PLAN.artefactRegister.length) * 100)}%`}
-          label="Register coverage"
+          value={`${SPECS.length}/${CATALOGUE.derived}`}
+          label="Of the artefacts a generator can be written for"
         />
       </div>
 
@@ -385,14 +408,25 @@ export default function Deliverables() {
       </div>
 
       <Card className="p-5">
-        <SectionTitle hint="The register catalogues 46 artefacts across the five rungs. These five are the ones the workbench generates today; the rest are produced by hand during delivery.">
+        <SectionTitle
+          hint={`The register catalogues ${CATALOGUE.total} artefacts across ${CATALOGUE.rungs} rungs. The ones above are what the workbench generates today; the rest are produced by hand during delivery.`}
+        >
           Coverage
         </SectionTitle>
         <p className="text-sm text-slate-600 leading-relaxed">
           The same generators are reachable from the pages where the content lives —{' '}
-          {SPECS.filter((s) => s.shortcut).length} of the five have a shortcut on their own page. This
-          page is the pack view: it exists so a consultant assembling a handover does not have to
-          remember which screen produces which artefact.
+          {SPECS.filter((s) => s.shortcut).length} of the {SPECS.length} have a shortcut on their own
+          page. This page is the pack view: it exists so a consultant assembling a handover does not
+          have to remember which screen produces which artefact.
+        </p>
+        <p className="text-sm text-slate-600 leading-relaxed mt-3">
+          The fraction above is against {CATALOGUE.derived}, not {CATALOGUE.total}. Every register
+          entry records what it would be <em>built from</em>, and only a{' '}
+          <span className="font-mono text-xs">derived</span> one names datasets a generator can read.
+          Of the rest, {CATALOGUE.blocked} are blocked on another artefact landing first and{' '}
+          {CATALOGUE.withdrawn} are withdrawn — shapes the datasets cannot support, kept in the
+          register with the reason rather than deleted, so nobody re-catalogues them. An id here is
+          otherwise a standing invitation to build against it.
         </p>
       </Card>
     </div>
