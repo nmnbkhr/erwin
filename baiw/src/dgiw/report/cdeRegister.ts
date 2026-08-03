@@ -48,8 +48,14 @@ const RULES = dqRules as DqRule[]
  */
 export const CDE_REGISTER_ARTEFACT_ID = 'AR-13'
 
-/** Emitted instead of a blank when a free-text owner is not in the role registry. */
-export const UNRESOLVED_OWNER = 'UNRESOLVED'
+/**
+ * Emitted instead of a blank when a free-text owner is not in the role registry.
+ * Re-exported rather than redeclared as of Wave A: `cdeJoins.ts` is where the
+ * four newer pivots over this dataset get it, and two string constants with one
+ * meaning is how a vocabulary drifts. The public name here is unchanged.
+ */
+export { UNRESOLVED_OWNER } from './cdeJoins'
+import { UNRESOLVED_OWNER } from './cdeJoins'
 
 export interface CdeRegisterInput {
   meta: ReportMeta

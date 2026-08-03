@@ -93,6 +93,21 @@ interface Spec {
   countLabel: string
   /** Where the same buttons live inside the workbench. */
   shortcut: string
+  /**
+   * The boundary statement, rendered in amber rather than folded into `blurb`.
+   *
+   * Wave A's four artefacts each carry one, and each is the same sentence that
+   * appears on the document's cover and in every row of its CSV. Three surfaces,
+   * one string, because a caveat that lives only on the PDF is absent from the
+   * spreadsheet a client actually works in, and one that lives only in prose on
+   * this card is absent from both.
+   *
+   * Optional: the seven older artefacts predate it. That is the honest state
+   * rather than seven caveats invented in a hurry to fill a required field — the
+   * durable record is `builtFrom.note` in the register, which ARTEFACT-EVIDENCE
+   * requires of all 48.
+   */
+  caveat?: string
 }
 
 const SPECS: Spec[] = [
@@ -178,6 +193,87 @@ const SPECS: Spec[] = [
     countLabel: 'DMBOK2 dimensions — other frameworks from the crosswalk page',
     shortcut: '/dg/frameworks',
   },
+
+  /*
+   * ── WAVE A: four register pivots over the CDE spine ────────────────────
+   *
+   * One dataset, four grains — element, reference-model entity, source system,
+   * consumption point. They share `report/cdeJoins.ts`, which is the point:
+   * three relations verified once against the counter hypothesis buy all four,
+   * where HCF-LINK verified 720/720 completeness and never verified the relation.
+   *
+   * Every one carries a `caveat`. Each is the sentence on its own cover and in
+   * every row of its CSV, and for AR-05 it is the entire difference between the
+   * artefact and AR-25, which the register marks blocked.
+   *
+   * No shortcut on any of the four: their content lives on /dg/cde, but no
+   * buttons have been added there, and claiming a shortcut that does not exist
+   * would make the count below false.
+   */
+  {
+    artefactId: 'AR-23',
+    title: 'Business Glossary',
+    blurb:
+      'Every governed element as a business term: the authored definition, the owning role and its ' +
+      'resolved archetype, the domain and the system it is anchored in. Grouped by domain.',
+    caveat:
+      'Unapproved. No synonyms, no approval status, no contested-term history, no physical ' +
+      'binding — none of the four exists in any dataset. Same 76 elements as the CDE register: a ' +
+      'second view, not a second body of evidence.',
+    primary: 'csv',
+    count: (f) => CDES.filter((c) => layerShows(f, c.layer)).length,
+    countLabel: 'terms',
+    shortcut: '',
+  },
+  {
+    artefactId: 'AR-20',
+    title: 'Banking Reference Model Mapping',
+    blurb:
+      'Elements grouped by the reference-model entity they realise, with domain, source system, ' +
+      'criticality and in-scope rule count per entity. Entities realised by several systems are ' +
+      'called out as the work list they are.',
+    caveat:
+      'Element-to-entity only. The reference model’s own catalogue is not held here, so which of ' +
+      'its entities we map nothing to is not computable and no coverage percentage is given. ' +
+      'Several systems on one entity is not a system-of-record designation — none exists.',
+    primary: 'csv',
+    count: (f) => new Set(CDES.filter((c) => layerShows(f, c.layer)).map((c) => c.fsdmEntity)).size,
+    countLabel: 'reference-model entities',
+    shortcut: '',
+  },
+  {
+    artefactId: 'AR-02',
+    title: 'Data Landscape Map',
+    blurb:
+      'The estate by source system: elements and criticality per system, a system × domain ' +
+      'adjacency grid, the consumption points each system feeds, and the ownership section.',
+    caveat:
+      'No system-to-system relation exists in any dataset. Every adjacency is joined through an ' +
+      'element — system to domain, system to consumption point, one hop each. This is an ' +
+      'inventory with a grid, not a topology; no arrow between two systems follows from it.',
+    primary: 'csv',
+    count: (f) => new Set(CDES.filter((c) => layerShows(f, c.layer)).map((c) => c.sourceSystem)).size,
+    countLabel: 'source systems',
+    shortcut: '',
+  },
+  {
+    artefactId: 'AR-05',
+    title: 'Illustrative Backward-Lineage Trace',
+    blurb:
+      'The derivation method on real elements: for the three most-evidenced consumption points, ' +
+      'the elements that feed them and the systems those come from. Points are ranked by feeder ' +
+      'count, then in-scope rule count, then name — and the whole ranking is printed, not just ' +
+      'the three traced.',
+    caveat:
+      'THIS IS NOT LINEAGE. Two authored hops — consumption point to element to source system — ' +
+      'and nothing between them. No transformation logic, no column-level detail. End-to-end ' +
+      'lineage is AR-25 and the register marks it blocked.',
+    primary: 'csv',
+    count: (f) =>
+      new Set(CDES.filter((c) => layerShows(f, c.layer)).flatMap((c) => c.consumers)).size,
+    countLabel: 'consumption points reachable',
+    shortcut: '',
+  },
 ]
 
 export default function Deliverables() {
@@ -205,18 +301,53 @@ export default function Deliverables() {
         import('../../report/naming'),
       ])
       const meta = metaFor(artefactId)
-      if (artefactId === 'AR-13') {
-        const { buildCdeRegisterRows } = await import('../report/cdeRegister')
-        const { rows, columns } = buildCdeRegisterRows({ meta })
-        return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
-          ? null
-          : 'No critical data elements are in scope under the current layer, so no file was written.'
+      // One shape per artefact: build rows, hand them to downloadCsv, and let
+      // its `false` become a sentence. An empty result is a legitimate output
+      // and a silent no-op reads as a broken button.
+      switch (artefactId) {
+        case 'AR-13': {
+          const { buildCdeRegisterRows } = await import('../report/cdeRegister')
+          const { rows, columns } = buildCdeRegisterRows({ meta })
+          return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
+            ? null
+            : 'No critical data elements are in scope under the current layer, so no file was written.'
+        }
+        case 'AR-23': {
+          const { buildBusinessGlossaryRows } = await import('../report/businessGlossary')
+          const { rows, columns } = buildBusinessGlossaryRows({ meta })
+          return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
+            ? null
+            : 'No governed terms are in scope under the current layer, so no file was written.'
+        }
+        case 'AR-20': {
+          const { buildReferenceModelRows } = await import('../report/referenceModelMapping')
+          const { rows, columns } = buildReferenceModelRows({ meta })
+          return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
+            ? null
+            : 'No elements are in scope under the current layer, so nothing maps to the reference model and no file was written.'
+        }
+        case 'AR-02': {
+          const { buildDataLandscapeRows } = await import('../report/dataLandscape')
+          const { rows, columns } = buildDataLandscapeRows({ meta })
+          return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
+            ? null
+            : 'No source systems are in scope under the current layer, so no file was written.'
+        }
+        case 'AR-05': {
+          const { buildLineageTraceRows } = await import('../report/lineageTrace')
+          const { rows, columns } = buildLineageTraceRows({ meta })
+          return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
+            ? null
+            : 'No consumption points are reachable under the current layer, so there is nothing to trace back from and no file was written.'
+        }
+        default: {
+          const { buildDqRuleSpecRows } = await import('../report/dqRuleSpec')
+          const { rows, columns } = buildDqRuleSpecRows({ meta })
+          return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
+            ? null
+            : 'No DQ rules are in scope under the current layer, so no file was written.'
+        }
       }
-      const { buildDqRuleSpecRows } = await import('../report/dqRuleSpec')
-      const { rows, columns } = buildDqRuleSpecRows({ meta })
-      return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
-        ? null
-        : 'No DQ rules are in scope under the current layer, so no file was written.'
     })
 
   const pdfFor = (artefactId: string) =>
@@ -261,6 +392,26 @@ export default function Deliverables() {
           const { buildFrameworkAlignmentPdf } = await import('../report/frameworkAlignment')
           const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, '_dmbok2.pdf')
           saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId: 'FW-01' }), name, meta)
+          return null
+        }
+        case 'AR-23': {
+          const { buildBusinessGlossaryPdf } = await import('../report/businessGlossary')
+          saveReport(buildBusinessGlossaryPdf({ meta }), reportFilename(meta, 'pdf'), meta)
+          return null
+        }
+        case 'AR-20': {
+          const { buildReferenceModelPdf } = await import('../report/referenceModelMapping')
+          saveReport(buildReferenceModelPdf({ meta }), reportFilename(meta, 'pdf'), meta)
+          return null
+        }
+        case 'AR-02': {
+          const { buildDataLandscapePdf } = await import('../report/dataLandscape')
+          saveReport(buildDataLandscapePdf({ meta }), reportFilename(meta, 'pdf'), meta)
+          return null
+        }
+        case 'AR-05': {
+          const { buildLineageTracePdf } = await import('../report/lineageTrace')
+          saveReport(buildLineageTracePdf({ meta }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         default:
@@ -339,6 +490,12 @@ export default function Deliverables() {
                 </div>
 
                 <p className="text-sm text-slate-600 leading-relaxed">{spec.blurb}</p>
+
+                {spec.caveat && (
+                  <p className="text-xs text-amber-800 bg-amber-50 ring-1 ring-amber-200 rounded-lg px-3 py-2 leading-relaxed">
+                    {spec.caveat}
+                  </p>
+                )}
 
                 <dl className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs border-t border-slate-100 pt-3">
                   <div>

@@ -717,6 +717,88 @@ export const REGISTRY = {
         assertRawBytes: true,
         call: (m, f, c) => c.saveReport(m.buildMultiFrameworkScorecardPdf({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
+      /*
+       * WAVE A — four register pivots over the CDE spine, CSV and PDF each.
+       *
+       * All four read `report/cdeJoins.ts` and therefore the same three joins,
+       * which is why they are captured together: a change to the shared filter,
+       * the rule index or the owner resolution moves eight baselines at once and
+       * a change that moves only one is a change to that document alone.
+       *
+       * `assertRawBytes` on all eight, like every other DGIW artefact — the
+       * spine pins /CreationDate and /ID from caller-supplied meta, so these are
+       * byte-reproducible and "nothing changed" is provable rather than asserted.
+       */
+      {
+        id: 'business-glossary-csv', entry: DGIW_REPORT('businessGlossary'), kind: 'csv',
+        exportName: 'buildBusinessGlossaryRows', artefactIdExport: 'BUSINESS_GLOSSARY_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => {
+          const { rows, columns } = m.buildBusinessGlossaryRows({ meta: c.meta })
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'), c.meta)
+        },
+      },
+      {
+        id: 'business-glossary-pdf', entry: DGIW_REPORT('businessGlossary'), kind: 'pdf',
+        exportName: 'buildBusinessGlossaryPdf', artefactIdExport: 'BUSINESS_GLOSSARY_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildBusinessGlossaryPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      {
+        id: 'reference-model-csv', entry: DGIW_REPORT('referenceModelMapping'), kind: 'csv',
+        exportName: 'buildReferenceModelRows', artefactIdExport: 'REFERENCE_MODEL_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => {
+          const { rows, columns } = m.buildReferenceModelRows({ meta: c.meta })
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'), c.meta)
+        },
+      },
+      {
+        id: 'reference-model-pdf', entry: DGIW_REPORT('referenceModelMapping'), kind: 'pdf',
+        exportName: 'buildReferenceModelPdf', artefactIdExport: 'REFERENCE_MODEL_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildReferenceModelPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      {
+        id: 'data-landscape-csv', entry: DGIW_REPORT('dataLandscape'), kind: 'csv',
+        exportName: 'buildDataLandscapeRows', artefactIdExport: 'DATA_LANDSCAPE_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => {
+          const { rows, columns } = m.buildDataLandscapeRows({ meta: c.meta })
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'), c.meta)
+        },
+      },
+      {
+        id: 'data-landscape-pdf', entry: DGIW_REPORT('dataLandscape'), kind: 'pdf',
+        exportName: 'buildDataLandscapePdf', artefactIdExport: 'DATA_LANDSCAPE_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildDataLandscapePdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      {
+        id: 'lineage-trace-csv', entry: DGIW_REPORT('lineageTrace'), kind: 'csv',
+        exportName: 'buildLineageTraceRows', artefactIdExport: 'LINEAGE_TRACE_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => {
+          const { rows, columns } = m.buildLineageTraceRows({ meta: c.meta })
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'), c.meta)
+        },
+      },
+      {
+        id: 'lineage-trace-pdf', entry: DGIW_REPORT('lineageTrace'), kind: 'pdf',
+        exportName: 'buildLineageTracePdf', artefactIdExport: 'LINEAGE_TRACE_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildLineageTracePdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      // The trace under the core layer. Not label coverage: the ranking is
+      // computed per layer, so a core-only engagement selects DIFFERENT
+      // consumption points, and that claim is only checkable if it is captured.
+      {
+        id: 'lineage-trace-pdf-core', entry: DGIW_REPORT('lineageTrace'), kind: 'pdf',
+        exportName: 'buildLineageTracePdf', artefactIdExport: 'LINEAGE_TRACE_ARTEFACT_ID',
+        assertRawBytes: true, layer: 'core',
+        call: (m, f, c) => c.saveReport(m.buildLineageTracePdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+
       // AR-47 is one artefact id producing four documents, one per framework.
       // All four are captured: the crosswalk work is recent, and a projection
       // that silently changed under a spine edit is exactly what 0a is for.

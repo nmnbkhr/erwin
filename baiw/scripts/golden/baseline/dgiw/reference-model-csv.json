@@ -1,0 +1,59 @@
+{
+  "artefact": "reference-model-csv",
+  "assertableSha256": "3aa7fa3f0386553460ca3b16267d520148c904a6e804a6cf8e4558b3ca6dfd7b",
+  "bytes": 14143,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": null,
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "columnCount": 9,
+  "datasets": {
+    "dir": "src/dgiw/data",
+    "files": 11,
+    "sha256": "0705c8f6de893920d1b4516cbfeacd676a1b103eccd3383754d1fd3e5265b4ad",
+    "shared": [
+      "src/frameworks/data/frameworks.json"
+    ]
+  },
+  "filename": "AR-20_fixture-bank-limited_all_2026-07-31.csv",
+  "filenameNormalised": "AR-20_fixture-bank-limited_all_2026-07-31.csv",
+  "firstThreeRows": [
+    "\"Agreement\",\"CDE-011\",\"Account Number\",\"Deposits & Accounts\",\"Core Banking — Accounts\",\"CRITICAL\",\"1\",\"banking\",\"Element to entity only — reverse coverage not computable\"\r",
+    "\"Agreement\",\"CDE-021\",\"Loan Account / Facility Identifier\",\"Loans & Advances\",\"Core Banking — Loans\",\"CRITICAL\",\"0\",\"banking\",\"Element to entity only — reverse coverage not computable\"\r",
+    "\"Agreement Balance\",\"CDE-013\",\"Account Balance (Ledger)\",\"Deposits & Accounts\",\"Core Banking — Accounts\",\"CRITICAL\",\"2\",\"banking\",\"Element to entity only — reverse coverage not computable\"\r"
+  ],
+  "fullTextSha256": "3aa7fa3f0386553460ca3b16267d520148c904a6e804a6cf8e4558b3ca6dfd7b",
+  "generator": "buildReferenceModelRows",
+  "header": [
+    "﻿Reference-model entity",
+    "CDE ID",
+    "Element",
+    "Domain",
+    "Source system",
+    "Criticality",
+    "DQ rules in scope",
+    "Layer",
+    "Mapping direction\r"
+  ],
+  "kind": "csv",
+  "lastThreeRows": [
+    "\"Supplier\",\"CDE-067\",\"Supplier Identifier\",\"Supplier & Contract\",\"Procurement\",\"HIGH\",\"1\",\"core\",\"Element to entity only — reverse coverage not computable\"\r",
+    "\"Transaction\",\"CDE-073\",\"Transaction Identifier\",\"Transaction & Event\",\"Transaction Processing\",\"CRITICAL\",\"2\",\"core\",\"Element to entity only — reverse coverage not computable\"\r",
+    "\"Transaction\",\"CDE-074\",\"Transaction Amount and Currency\",\"Transaction & Event\",\"Transaction Processing\",\"CRITICAL\",\"2\",\"core\",\"Element to entity only — reverse coverage not computable\""
+  ],
+  "module": "dgiw",
+  "notReproducible": {},
+  "rawBytesAsserted": true,
+  "rawBytesSha256": "3aa7fa3f0386553460ca3b16267d520148c904a6e804a6cf8e4558b3ca6dfd7b",
+  "rowCount": 76,
+  "sampleRowsMasked": false,
+  "unassertable": [],
+  "unassertableColumnIndexes": [],
+  "unassertableReason": null
+}

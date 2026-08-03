@@ -93,11 +93,28 @@ const slug = (s) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/
 const orgSlug = spec.orgName ? slug(spec.orgName) : null
 // AR-47's shape: one artefact id, one document per framework, separated in the filename.
 const suffix = /framework-alignment-(fw-\d+)/.exec(id)?.[1]
+/*
+ * The OTHER shape that puts one artefact id in several files: a layer variant.
+ * `reportFilename` writes the layer into the name, so `AR-01` is three documents
+ * — `_all_`, `_core_`, `_banking_` — and matching on the id alone found all
+ * three and gave up.
+ *
+ * That was true of `dgiw/diagnostic-pdf`, `-core` and `-banking` since they were
+ * captured: this tool could not open any of the three, which nobody noticed
+ * because the tool is reached for only when a baseline moves. Wave A's
+ * `lineage-trace-pdf-core` is the fourth and is what surfaced it — the trace
+ * ranks consumption points under the active layer, so its two variants are
+ * genuinely different documents and walking them is the point of capturing both.
+ *
+ * The spec already declares the layer. Read it rather than adding a flag.
+ */
+const layer = spec.layer ?? 'all'
 const candidates = readdirSync(dir).filter((f) => {
   if (!f.startsWith(`${artefactId}_`)) return false
   if (spec.kind && !f.endsWith(`.${spec.kind}`)) return false
   if (orgSlug && !f.includes(`_${orgSlug}_`)) return false
   if (!orgSlug && /-partial_/.test(f)) return false
+  if (!f.includes(`_${layer}_`)) return false
   if (suffix) return f.includes(`_${suffix}.`)
   return !/_fw-\d+\./.test(f)
 })

@@ -1,0 +1,60 @@
+{
+  "artefact": "business-glossary-csv",
+  "assertableSha256": "513579f35dcdf90796bb0cc06c3d6e7e326e717ddafa7748db636a8f3e2f4cea",
+  "bytes": 25747,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": null,
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "columnCount": 10,
+  "datasets": {
+    "dir": "src/dgiw/data",
+    "files": 11,
+    "sha256": "0705c8f6de893920d1b4516cbfeacd676a1b103eccd3383754d1fd3e5265b4ad",
+    "shared": [
+      "src/frameworks/data/frameworks.json"
+    ]
+  },
+  "filename": "AR-23_fixture-bank-limited_all_2026-07-31.csv",
+  "filenameNormalised": "AR-23_fixture-bank-limited_all_2026-07-31.csv",
+  "firstThreeRows": [
+    "\"CDE-001\",\"Customer Unique Identifier (CIF No.)\",\"The bank-assigned identifier that uniquely identifies a customer relationship across all products and systems. The anchor key for every aggregation performed on a customer.\",\"Customer & Party\",\"Head of Retail Operations\",\"Data Owner\",\"Core Banking — CIF\",\"Party\",\"banking\",\"UNAPPROVED — no approval workflow in source\"\r",
+    "\"CDE-002\",\"National Identity Number (CNIC)\",\"The 13-digit national identity number of an individual customer, used as the primary external matching key and the basis of identity verification.\",\"Customer & Party\",\"Head of Compliance\",\"Data Owner\",\"Core Banking — CIF\",\"Party Identifier\",\"banking\",\"UNAPPROVED — no approval workflow in source\"\r",
+    "\"CDE-003\",\"National Tax Number (NTN)\",\"The tax registration number of a corporate or business customer, used for tax reporting and corporate entity matching.\",\"Customer & Party\",\"Head of Corporate Banking\",\"Data Owner\",\"Core Banking — CIF\",\"Party Identifier\",\"banking\",\"UNAPPROVED — no approval workflow in source\"\r"
+  ],
+  "fullTextSha256": "513579f35dcdf90796bb0cc06c3d6e7e326e717ddafa7748db636a8f3e2f4cea",
+  "generator": "buildBusinessGlossaryRows",
+  "header": [
+    "﻿Term ID",
+    "Term",
+    "Definition",
+    "Domain",
+    "Owner (as stated)",
+    "Owner archetype (resolved)",
+    "Anchored in",
+    "Reference-model entity",
+    "Layer",
+    "Approval status\r"
+  ],
+  "kind": "csv",
+  "lastThreeRows": [
+    "\"CDE-074\",\"Transaction Amount and Currency\",\"The monetary value of an event with its currency and, where converted, the rate and rate date. An amount without an explicit currency is the most common silent corruption in consolidated reporting.\",\"Transaction & Event\",\"Chief Financial Officer\",\"Data Owner\",\"Transaction Processing\",\"Transaction\",\"core\",\"UNAPPROVED — no approval workflow in source\"\r",
+    "\"CDE-075\",\"Reference Code Set Value\",\"A permitted value in a controlled list — country, currency, status, category — together with its version. Uncontrolled code sets are how the same concept acquires four spellings.\",\"Reference & Code Sets\",\"Data Architect\",\"Data Custodian\",\"Reference Data Service\",\"Reference Value\",\"core\",\"UNAPPROVED — no approval workflow in source\"\r",
+    "\"CDE-076\",\"Organisational Hierarchy Node\",\"A unit in the management hierarchy with its parent, effective dates and manager. Reorganisations silently break every historical roll-up that assumed the hierarchy was static.\",\"Reference & Code Sets\",\"Head of Operations\",\"Data Owner\",\"HR Information System\",\"Org Unit\",\"core\",\"UNAPPROVED — no approval workflow in source\""
+  ],
+  "module": "dgiw",
+  "notReproducible": {},
+  "rawBytesAsserted": true,
+  "rawBytesSha256": "513579f35dcdf90796bb0cc06c3d6e7e326e717ddafa7748db636a8f3e2f4cea",
+  "rowCount": 76,
+  "sampleRowsMasked": false,
+  "unassertable": [],
+  "unassertableColumnIndexes": [],
+  "unassertableReason": null
+}

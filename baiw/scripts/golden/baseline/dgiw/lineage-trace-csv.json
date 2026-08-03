@@ -1,0 +1,62 @@
+{
+  "artefact": "lineage-trace-csv",
+  "assertableSha256": "db6029e2d3b4aeb233a5470e72033df87a81f772987375c4a00d0d308717fa4b",
+  "bytes": 3192,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": null,
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "columnCount": 12,
+  "datasets": {
+    "dir": "src/dgiw/data",
+    "files": 11,
+    "sha256": "0705c8f6de893920d1b4516cbfeacd676a1b103eccd3383754d1fd3e5265b4ad",
+    "shared": [
+      "src/frameworks/data/frameworks.json"
+    ]
+  },
+  "filename": "AR-05_fixture-bank-limited_all_2026-07-31.csv",
+  "filenameNormalised": "AR-05_fixture-bank-limited_all_2026-07-31.csv",
+  "firstThreeRows": [
+    "\"ECL computation\",\"1\",\"CDE-021\",\"Loan Account / Facility Identifier\",\"Loans & Advances\",\"CRITICAL\",\"Core Banking — Loans\",\"Agreement\",\"0\",\"Data Owner\",\"banking\",\"2 authored hops — not lineage, no transformation logic\"\r",
+    "\"ECL computation\",\"1\",\"CDE-022\",\"Outstanding Principal Balance\",\"Loans & Advances\",\"CRITICAL\",\"Core Banking — Loans\",\"Agreement Balance\",\"2\",\"Data Owner\",\"banking\",\"2 authored hops — not lineage, no transformation logic\"\r",
+    "\"ECL computation\",\"1\",\"CDE-026\",\"IFRS 9 Stage\",\"Loans & Advances\",\"CRITICAL\",\"IFRS 9 Engine\",\"Agreement Classification\",\"2\",\"Data Owner\",\"banking\",\"2 authored hops — not lineage, no transformation logic\"\r"
+  ],
+  "fullTextSha256": "db6029e2d3b4aeb233a5470e72033df87a81f772987375c4a00d0d308717fa4b",
+  "generator": "buildLineageTraceRows",
+  "header": [
+    "﻿Consumption point",
+    "Rank",
+    "CDE ID",
+    "Element",
+    "Domain",
+    "Criticality",
+    "Source system",
+    "Reference-model entity",
+    "DQ rules in scope",
+    "Owner archetype (resolved)",
+    "Layer",
+    "Trace depth\r"
+  ],
+  "kind": "csv",
+  "lastThreeRows": [
+    "\"Financial statements\",\"3\",\"CDE-047\",\"GL Balance by Account & Period\",\"Finance & GL\",\"CRITICAL\",\"General Ledger\",\"Financial Account Balance\",\"1\",\"Data Owner\",\"banking\",\"2 authored hops — not lineage, no transformation logic\"\r",
+    "\"Financial statements\",\"3\",\"CDE-049\",\"Foreign Exchange Revaluation Rate\",\"Treasury & Investments\",\"CRITICAL\",\"Treasury System\",\"Market Rate\",\"2\",\"Data Owner\",\"banking\",\"2 authored hops — not lineage, no transformation logic\"\r",
+    "\"Financial statements\",\"3\",\"CDE-074\",\"Transaction Amount and Currency\",\"Transaction & Event\",\"CRITICAL\",\"Transaction Processing\",\"Transaction\",\"2\",\"Data Owner\",\"core\",\"2 authored hops — not lineage, no transformation logic\""
+  ],
+  "module": "dgiw",
+  "notReproducible": {},
+  "rawBytesAsserted": true,
+  "rawBytesSha256": "db6029e2d3b4aeb233a5470e72033df87a81f772987375c4a00d0d308717fa4b",
+  "rowCount": 14,
+  "sampleRowsMasked": false,
+  "unassertable": [],
+  "unassertableColumnIndexes": [],
+  "unassertableReason": null
+}
