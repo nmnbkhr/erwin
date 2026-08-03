@@ -310,6 +310,112 @@ export const REGISTRY = {
         orgName: 'Fixture Customs Authority Partial',
         call: (m, f, c) => m.generateTradeRoadmapMarkdown(f.assessmentPartial, c.meta),
       },
+      /*
+       * ── THE FRAMEWORK ARTEFACTS, D5 STAGE E3 ───────────────────────────
+       *
+       * Three things differ from the five above and each is deliberate:
+       *
+       *  - Their own `entry`, per artefact. These generators are in
+       *    `src/taiw/report/`, not in `tradeReportGenerator.ts`, which is the
+       *    module-level entry. DGIW's block established the per-artefact form.
+       *  - `needsSpine`, so `c.saveReport` and `c.reportFilename` are loaded.
+       *    They RETURN a jsPDF doc rather than saving one, matching every DGIW
+       *    generator and the component call sites.
+       *  - `f.tacrSpine` and `f.tacrAnswers`, not `f.assessment`. A projection
+       *    buckets by TACR SECTION, which the category means in `assessment`
+       *    have already aggregated away.
+       *
+       * ALIGNMENT IS ONE ARTEFACT ID PRODUCING THREE DOCUMENTS, one per offered
+       * framework — DGIW's AR-47 is the precedent and all four of its are
+       * captured for the same reason: the crosswalk work is recent, and a
+       * projection that changed silently under a spine edit is what this exists
+       * to catch. DGI is absent because TAIW does not offer it (59% reach), and
+       * a fourth baseline appearing here would be the first sign that changed.
+       */
+      ...['FW-01', 'FW-02', 'FW-04'].map((frameworkId) => ({
+        id: `framework-alignment-${frameworkId.toLowerCase()}-pdf`,
+        entry: '/src/taiw/report/frameworkAlignment.ts',
+        kind: 'pdf',
+        exportName: 'buildTaiwFrameworkAlignmentPdf',
+        artefactIdExport: 'TAIW_ALIGNMENT_ARTEFACT_ID',
+        assertRawBytes: true,
+        profile: 'taiw',
+        needsSpine: true,
+        call: (m, f, c) =>
+          c.saveReport(
+            m.buildTaiwFrameworkAlignmentPdf({
+              meta: c.meta,
+              answers: f.tacrAnswers,
+              categories: f.tacrSpine,
+              frameworkId,
+            }),
+            c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, `_${frameworkId.toLowerCase()}.pdf`),
+          ),
+      })),
+      {
+        id: 'multi-framework-pdf',
+        entry: '/src/taiw/report/multiFrameworkScorecard.ts',
+        kind: 'pdf',
+        exportName: 'buildTaiwScorecardPdf',
+        artefactIdExport: 'TAIW_SCORECARD_ARTEFACT_ID',
+        assertRawBytes: true,
+        profile: 'taiw',
+        needsSpine: true,
+        call: (m, f, c) =>
+          c.saveReport(
+            m.buildTaiwScorecardPdf({ meta: c.meta, answers: f.tacrAnswers, categories: f.tacrSpine }),
+            c.reportFilename(c.meta, 'pdf'),
+          ),
+      },
+      /*
+       * PARTIAL, and these two are the ONLY inputs that reach three sections of
+       * the alignment pack: not-assessed leaf dimensions, dimensions scored from
+       * part of their evidence, and a scoredShare below retainedShare. On the
+       * full 640-of-640 set every mapped dimension is 100% scored and all three
+       * render their empty case — which is the 8-of-8 shape CLAUDE.md warns
+       * about, one level up from category scoring.
+       *
+       * DMBOK2 only for the alignment: three partial packs would triple the
+       * baselines to exercise one code path each. The scorecard covers all three
+       * frameworks' partial states in one document.
+       */
+      {
+        id: 'framework-alignment-fw-01-pdf-partial',
+        entry: '/src/taiw/report/frameworkAlignment.ts',
+        kind: 'pdf',
+        exportName: 'buildTaiwFrameworkAlignmentPdf',
+        artefactIdExport: 'TAIW_ALIGNMENT_ARTEFACT_ID',
+        assertRawBytes: true,
+        profile: 'taiw',
+        needsSpine: true,
+        orgName: 'Fixture Customs Authority Partial',
+        call: (m, f, c) =>
+          c.saveReport(
+            m.buildTaiwFrameworkAlignmentPdf({
+              meta: c.meta,
+              answers: f.tacrAnswersPartial,
+              categories: f.tacrSpine,
+              frameworkId: 'FW-01',
+            }),
+            c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, '_fw-01.pdf'),
+          ),
+      },
+      {
+        id: 'multi-framework-pdf-partial',
+        entry: '/src/taiw/report/multiFrameworkScorecard.ts',
+        kind: 'pdf',
+        exportName: 'buildTaiwScorecardPdf',
+        artefactIdExport: 'TAIW_SCORECARD_ARTEFACT_ID',
+        assertRawBytes: true,
+        profile: 'taiw',
+        needsSpine: true,
+        orgName: 'Fixture Customs Authority Partial',
+        call: (m, f, c) =>
+          c.saveReport(
+            m.buildTaiwScorecardPdf({ meta: c.meta, answers: f.tacrAnswersPartial, categories: f.tacrSpine }),
+            c.reportFilename(c.meta, 'pdf'),
+          ),
+      },
     ],
   },
   /*
@@ -411,6 +517,102 @@ export const REGISTRY = {
         orgName: 'Fixture Health Authority Partial',
         call: (m, f, c) => m.generateHealthRoadmapMarkdown(f.answersPartial, f.capabilities, f.questions, c.meta),
       },
+      /*
+       * ── THE FRAMEWORK ARTEFACTS, D5 STAGE E3 ───────────────────────────
+       *
+       * TAIW's block carries the full note on `entry`, `needsSpine` and why the
+       * partial pair exists. Two things are HAIW-specific:
+       *
+       *  - FOUR alignment documents, not three. DGI reaches 100% of itself on
+       *    HACR and 59% on TACR, so HAIW offers it and TAIW does not. The
+       *    baseline count is where that difference is visible from outside.
+       *  - The answers are mapped from the fixture's ARRAY to the id-keyed
+       *    record the projection takes, which is exactly what
+       *    `HealthReportGenerator.tsx` does at the call site. `f.questions` now
+       *    carries `category` and `subcategory`, added in E3, so the spine is
+       *    derived here from the same 720 records the maturity PDF reads.
+       */
+      ...(() => {
+        const byId = (answers) =>
+          Object.fromEntries(
+            answers.map((a) => [a.questionId, { currentState: a.currentState, desiredState: a.desiredState }]),
+          )
+        const alignment = ['FW-01', 'FW-02', 'FW-03', 'FW-04'].map((frameworkId) => ({
+          id: `framework-alignment-${frameworkId.toLowerCase()}-pdf`,
+          entry: '/src/haiw/report/frameworkAlignment.ts',
+          kind: 'pdf',
+          exportName: 'buildHaiwFrameworkAlignmentPdf',
+          artefactIdExport: 'HAIW_ALIGNMENT_ARTEFACT_ID',
+          assertRawBytes: true,
+          profile: 'haiw',
+          needsSpine: true,
+          call: (m, f, c) =>
+            c.saveReport(
+              m.buildHaiwFrameworkAlignmentPdf({
+                meta: c.meta,
+                answers: byId(f.answers),
+                questions: f.questions,
+                frameworkId,
+              }),
+              c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, `_${frameworkId.toLowerCase()}.pdf`),
+            ),
+        }))
+        return [
+          ...alignment,
+          {
+            id: 'multi-framework-pdf',
+            entry: '/src/haiw/report/multiFrameworkScorecard.ts',
+            kind: 'pdf',
+            exportName: 'buildHaiwScorecardPdf',
+            artefactIdExport: 'HAIW_SCORECARD_ARTEFACT_ID',
+            assertRawBytes: true,
+            profile: 'haiw',
+            needsSpine: true,
+            call: (m, f, c) =>
+              c.saveReport(
+                m.buildHaiwScorecardPdf({ meta: c.meta, answers: byId(f.answers), questions: f.questions }),
+                c.reportFilename(c.meta, 'pdf'),
+              ),
+          },
+          {
+            id: 'framework-alignment-fw-01-pdf-partial',
+            entry: '/src/haiw/report/frameworkAlignment.ts',
+            kind: 'pdf',
+            exportName: 'buildHaiwFrameworkAlignmentPdf',
+            artefactIdExport: 'HAIW_ALIGNMENT_ARTEFACT_ID',
+            assertRawBytes: true,
+            profile: 'haiw',
+            needsSpine: true,
+            orgName: 'Fixture Health Authority Partial',
+            call: (m, f, c) =>
+              c.saveReport(
+                m.buildHaiwFrameworkAlignmentPdf({
+                  meta: c.meta,
+                  answers: byId(f.answersPartial),
+                  questions: f.questions,
+                  frameworkId: 'FW-01',
+                }),
+                c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, '_fw-01.pdf'),
+              ),
+          },
+          {
+            id: 'multi-framework-pdf-partial',
+            entry: '/src/haiw/report/multiFrameworkScorecard.ts',
+            kind: 'pdf',
+            exportName: 'buildHaiwScorecardPdf',
+            artefactIdExport: 'HAIW_SCORECARD_ARTEFACT_ID',
+            assertRawBytes: true,
+            profile: 'haiw',
+            needsSpine: true,
+            orgName: 'Fixture Health Authority Partial',
+            call: (m, f, c) =>
+              c.saveReport(
+                m.buildHaiwScorecardPdf({ meta: c.meta, answers: byId(f.answersPartial), questions: f.questions }),
+                c.reportFilename(c.meta, 'pdf'),
+              ),
+          },
+        ]
+      })(),
     ],
   },
 
@@ -644,7 +846,15 @@ export async function createDriver(modules) {
 
   // The spine's own save/CSV/filename helpers, so a DGIW registry entry can
   // mirror its component call site line for line instead of paraphrasing it.
-  const spine = modules.includes('dgiw')
+  /*
+   * D5 stage E3: no longer DGIW-only. TAIW's and HAIW's framework artefacts RETURN a
+   * jsPDF doc rather than saving it, exactly as DGIW's do, so their specs call
+   * `c.saveReport` too. Derived from the specs rather than from a module name — a
+   * hardcoded `includes('dgiw')` is how the next module's specs would have got an
+   * empty `c` and thrown on `c.saveReport is not a function` with nothing saying why.
+   */
+  const needsSpine = modules.some((m) => m === 'dgiw' || REGISTRY[m].artefacts.some((a) => a.needsSpine))
+  const spine = needsSpine
     ? {
         saveReport: (await server.ssrLoadModule('/src/report/spine.ts')).saveReport,
         downloadCsv: (await server.ssrLoadModule('/src/report/csv.ts')).downloadCsv,

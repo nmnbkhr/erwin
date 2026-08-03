@@ -9,6 +9,9 @@ const FHIRResourceExplorer = lazy(() => import('./components/FHIRResourceExplore
 const HCFCapabilityNavigator = lazy(() => import('./components/HCFCapabilityNavigator'))
 const HealthDependencyGraph = lazy(() => import('./components/HealthDependencyGraph'))
 const HealthMaturityAssessment = lazy(() => import('./components/HealthMaturityAssessment'))
+// Lazy like every other route: this page's deliverable buttons reach jsPDF, and a
+// static import here would pull the PDF engine into the module's entry chunk.
+const HealthFrameworks = lazy(() => import('./components/HealthFrameworks'))
 const HealthAnalyticsEngine = lazy(() => import('./components/HealthAnalyticsEngine'))
 const HealthRoadmapBuilder = lazy(() => import('./components/HealthRoadmapBuilder'))
 const PakistanHealthReference = lazy(() => import('./components/PakistanHealthReference'))
@@ -25,6 +28,7 @@ export default function HaiwRoutes() {
           <Route path="/capabilities" element={<HCFCapabilityNavigator />} />
           <Route path="/graph" element={<HealthDependencyGraph />} />
           <Route path="/maturity" element={<HealthMaturityAssessment />} />
+          <Route path="/frameworks" element={<HealthFrameworks />} />
           <Route path="/analytics" element={<HealthAnalyticsEngine />} />
           <Route path="/roadmap" element={<HealthRoadmapBuilder />} />
           <Route path="/pakistan" element={<PakistanHealthReference />} />

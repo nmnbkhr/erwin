@@ -3,6 +3,16 @@ import { FileText, BarChart3, Presentation, ChevronDown, ChevronUp, AlertTriangl
 import type { HaiwAssessmentAnswer, HaiwCapability, HacrQuestion } from '../types'
 import { useOrgName } from '../../engagement/useOrgName'
 import { useReportMeta, REPORT_PROFILES } from '../../engagement/useReportMeta'
+import FrameworkDeliverables from '../../frameworks/FrameworkDeliverables'
+import { HAIW_CROSSWALK_FRAMEWORKS } from '../projection'
+import { HACR_INSTRUMENT_DISCLOSURE } from '../report/frameworkNotes'
+
+/** emerald-600, matching REPORT_PROFILES.haiw and the workbench chrome. */
+const HAIW_ACCENT = {
+  button: 'bg-emerald-600 hover:bg-emerald-700',
+  text: 'text-emerald-600',
+  link: 'text-emerald-600 hover:text-emerald-700',
+}
 
 interface HealthReportGeneratorProps {
   answers: HaiwAssessmentAnswer[]
@@ -92,6 +102,62 @@ export default function HealthReportGenerator({ answers, capabilities, capabilit
       // Previously any throw here vanished into `finally` and the user saw the
       // spinner stop with no file and no explanation.
       console.error('[haiw] report generation failed', err)
+      setFailure(err instanceof Error ? `Report generation failed: ${err.message}` : 'Report generation failed.')
+    } finally {
+      setGenerating(null)
+    }
+  }
+
+  /*
+   * Separate handler and separate busy keys — see the same note in TAIW's panel. The
+   * answers arrive here as an ARRAY (the parent passes `Object.values(answers)`), and
+   * the projection wants the id-keyed map, so it is rebuilt rather than the parent's
+   * prop changed: this panel is the only consumer that needs the other shape.
+   */
+  const handleFramework = async (which: 'scorecard' | 'alignment') => {
+    setGenerating(which)
+    setFailure(null)
+    try {
+      const answerMap = Object.fromEntries(
+        answers.map((a) => [a.questionId, { currentState: a.currentState, desiredState: a.desiredState }]),
+      )
+      // Narrowed to the three fields the projection reads — the spine is derived from
+      // `id` and `subcategory`. Same contract the maturity PDF keeps for its own
+      // questions parameter, and it keeps the 1.18 MB bank out of the report chunk.
+      const spineQuestions = questions.map((q) => ({
+        id: q.id,
+        category: q.category,
+        subcategory: q.subcategory,
+      }))
+      const [{ saveReport }, { reportFilename }] = await Promise.all([
+        import('../../report/spine'),
+        import('../../report/naming'),
+      ])
+      if (which === 'scorecard') {
+        const gen = await import('../report/multiFrameworkScorecard')
+        const meta = metaFor(gen.HAIW_SCORECARD_ARTEFACT_ID)
+        saveReport(
+          gen.buildHaiwScorecardPdf({ meta, answers: answerMap, questions: spineQuestions }),
+          reportFilename(meta, 'pdf'),
+        )
+      } else {
+        const gen = await import('../report/frameworkAlignment')
+        const meta = metaFor(gen.HAIW_ALIGNMENT_ARTEFACT_ID)
+        // DMBOK2, the one framework at HIGH structure confidence. The other three come
+        // from the crosswalk page where the qualification is shown first.
+        const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, '_dmbok2.pdf')
+        saveReport(
+          gen.buildHaiwFrameworkAlignmentPdf({
+            meta,
+            answers: answerMap,
+            questions: spineQuestions,
+            frameworkId: 'FW-01',
+          }),
+          name,
+        )
+      }
+    } catch (err) {
+      console.error('[haiw] framework document generation failed', err)
       setFailure(err instanceof Error ? `Report generation failed: ${err.message}` : 'Report generation failed.')
     } finally {
       setGenerating(null)
@@ -199,6 +265,20 @@ export default function HealthReportGenerator({ answers, capabilities, capabilit
               </div>
             </button>
           </div>
+
+          <FrameworkDeliverables
+            moduleLabel="HAIW"
+            frameworkCount={HAIW_CROSSWALK_FRAMEWORKS.length}
+            primaryFrameworkCode="DMBOK2"
+            crosswalkHref="/haiw/frameworks"
+            /* The instrument disclosure travels with the button, not only with the
+               page. This panel is reachable without ever visiting /haiw/frameworks. */
+            headlineDisclosure={HACR_INSTRUMENT_DISCLOSURE}
+            accent={HAIW_ACCENT}
+            busy={generating}
+            onGenerateScorecard={() => void handleFramework('scorecard')}
+            onGeneratePrimaryAlignment={() => void handleFramework('alignment')}
+          />
 
           {/* A download that produced no file, explained. See D-008. */}
           {failure && (

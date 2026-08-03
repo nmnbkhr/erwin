@@ -7,6 +7,9 @@ import {
 } from '../utils/tradeReportGenerator'
 import { useOrgName } from '../../engagement/useOrgName'
 import { useReportMeta, REPORT_PROFILES } from '../../engagement/useReportMeta'
+import FrameworkDeliverables from '../../frameworks/FrameworkDeliverables'
+import { TAIW_CROSSWALK_FRAMEWORKS, type TacrSpineCategory } from '../projection'
+import type { MaturityAnswer } from '../../scoring/maturity'
 
 interface CategoryScore {
   category: string
@@ -15,14 +18,32 @@ interface CategoryScore {
   gap: number
 }
 
+/** teal-600, matching REPORT_PROFILES.taiw and the workbench chrome. */
+const TAIW_ACCENT = {
+  button: 'bg-teal-600 hover:bg-teal-700',
+  text: 'text-teal-600',
+  link: 'text-teal-600 hover:text-teal-700',
+}
+
 interface TradeReportGeneratorProps {
   scores: CategoryScore[]
   overallScore: number
   answeredCategories: number
   totalCategories: number
+  /**
+   * The raw answers and the category tree, for the two framework deliverables.
+   *
+   * The three original artefacts read `scores` — category means, already aggregated.
+   * A framework projection cannot: it buckets by TACR SECTION, which is a finer unit
+   * than a category, so it needs the question-level answers and the tree that says
+   * which section each question belongs to. Threaded from the parent rather than
+   * re-read here, so this panel and the assessment screen are looking at one object.
+   */
+  answers: Readonly<Record<string, MaturityAnswer>>
+  categories: readonly TacrSpineCategory[]
 }
 
-export default function TradeReportGenerator({ scores, overallScore, answeredCategories, totalCategories }: TradeReportGeneratorProps) {
+export default function TradeReportGenerator({ scores, overallScore, answeredCategories, totalCategories, answers, categories }: TradeReportGeneratorProps) {
   const [expanded, setExpanded] = useState(false)
   // The client's name lives on the active engagement, not in this component.
   const [orgName, setOrgName] = useOrgName()
@@ -59,6 +80,39 @@ export default function TradeReportGenerator({ scores, overallScore, answeredCat
         generateTradeCapabilityRegisterCSV(metaFor(TRADE_REGISTER_ARTEFACT_ID))
       } else {
         generateTradeRoadmapMarkdown(assessmentData, metaFor(TRADE_ROADMAP_ARTEFACT_ID))
+      }
+    } finally {
+      setGenerating(null)
+    }
+  }
+
+  /*
+   * Separate handler, separate busy key. The three original artefacts are keyed by
+   * format ('pdf' / 'csv' / 'markdown'); these two are keyed by what they are, because
+   * there are two PDFs here and a shared 'pdf' key would light both spinners.
+   */
+  const handleFramework = async (which: 'scorecard' | 'alignment') => {
+    setGenerating(which)
+    try {
+      const [{ saveReport }, { reportFilename }] = await Promise.all([
+        import('../../report/spine'),
+        import('../../report/naming'),
+      ])
+      if (which === 'scorecard') {
+        const gen = await import('../report/multiFrameworkScorecard')
+        const meta = metaFor(gen.TAIW_SCORECARD_ARTEFACT_ID)
+        saveReport(gen.buildTaiwScorecardPdf({ meta, answers, categories }), reportFilename(meta, 'pdf'))
+      } else {
+        const gen = await import('../report/frameworkAlignment')
+        const meta = metaFor(gen.TAIW_ALIGNMENT_ARTEFACT_ID)
+        // DMBOK2 — the one TAIW framework at HIGH structure confidence, matching
+        // DGIW's Deliverables.tsx. The other two are generated from the crosswalk
+        // page, where the medium-confidence qualification is shown first.
+        const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, '_dmbok2.pdf')
+        saveReport(
+          gen.buildTaiwFrameworkAlignmentPdf({ meta, answers, categories, frameworkId: 'FW-01' }),
+          name,
+        )
       }
     } finally {
       setGenerating(null)
@@ -171,6 +225,17 @@ export default function TradeReportGenerator({ scores, overallScore, answeredCat
               </div>
             </div>
           </div>
+
+          <FrameworkDeliverables
+            moduleLabel="TAIW"
+            frameworkCount={TAIW_CROSSWALK_FRAMEWORKS.length}
+            primaryFrameworkCode="DMBOK2"
+            crosswalkHref="/taiw/frameworks"
+            accent={TAIW_ACCENT}
+            busy={generating}
+            onGenerateScorecard={() => void handleFramework('scorecard')}
+            onGeneratePrimaryAlignment={() => void handleFramework('alignment')}
+          />
 
           {/* Warning for incomplete assessment */}
           {!isComplete && (

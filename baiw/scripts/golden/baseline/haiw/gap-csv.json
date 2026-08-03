@@ -14,12 +14,13 @@
   },
   "columnCount": 7,
   "datasets": {
-    "files": 3,
-    "sha256": "224d75ca3e6b4e1d0d73014c3b349cd1cc83624ef9453b9fd02f9c16070afdff",
+    "files": 4,
+    "sha256": "21280381699c82e6130b91ef5064eee1e0cbf01924ad9777cdc9d95afbacdf1e",
     "sources": [
       "src/data/haiw/capabilities.json",
       "src/data/haiw/crosswalk.json",
-      "src/data/haiw/hacrQuestions.json"
+      "src/data/haiw/hacrQuestions.json",
+      "src/frameworks/data/frameworks.json"
     ]
   },
   "filename": "MR-HAIW-REGISTER_fixture-health-authority_all_2026-07-31.csv",

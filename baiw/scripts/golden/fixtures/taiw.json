@@ -49,18 +49,55 @@
     "capabilities.json and dataRequirements.json ARE imported by",
     "tradeReportGenerator.ts while the `data` block freezes only benchmarks.json,",
     "so both were read LIVE at capture with no fingerprint covering them - D-010,",
-    "found by FINGERPRINT-COVERAGE. crosswalk.json is NOT read by a generator",
-    "yet; it is declared ahead of D5 stage E3, which puts a framework scorecard",
-    "in the report. Declaring first means the fingerprint is correct on the commit",
-    "that starts reading it, instead of one stage later - which is exactly how",
-    "frameworks.json slipped out from under DGIW's fingerprint in stage B.",
-    "Declaring does NOT freeze: only `data` keys are served, so bytes are",
-    "unchanged."
+    "found by FINGERPRINT-COVERAGE. crosswalk.json was NOT read by a generator",
+    "when E1 declared it; it was declared ahead of D5 stage E3, which puts a",
+    "framework scorecard in the report. Declaring first means the fingerprint is",
+    "correct on the commit that starts reading it, instead of one stage later -",
+    "which is exactly how frameworks.json slipped out from under DGIW's",
+    "fingerprint in stage B. Declaring does NOT freeze: only `data` keys are",
+    "served, so bytes are unchanged.",
+    "E3 CONFIRMED THE DECLARATION WORKS RATHER THAN ASSUMING IT. Removing this",
+    "line once E3's generators existed made FINGERPRINT-COVERAGE fail by name,",
+    "naming the file, the import chain and this fixture. A pre-emptive",
+    "declaration nobody has watched fail is a declaration nobody has proven.",
+    "",
+    "tacrSpine / tacrAnswers / tacrAnswersPartial, D5 stage E3. The framework",
+    "projection buckets by TACR SECTION, which is finer than the category means",
+    "`assessment` above already aggregates - so it needs the question-level",
+    "answers and the tree that says which section each question belongs to.",
+    "tacrSpine carries ids and the two names ONLY: the projection derives a",
+    "section id from a question id and renders `category / section`, and never",
+    "reads question text, levels or guidance. Freezing those would be freezing",
+    "500 kB of what nothing reads.",
+    "tacrQuestions.json is therefore in dataSources - the frozen tree came from",
+    "it, so a question inserted upstream must show as `source datasets` drift",
+    "rather than silently leaving the spine one section short.",
+    "SEED: currentState = 1 + (k % 5), desiredState = min(5, currentState + 1 +",
+    "(k % 3)), k the question's index in file order. Identical to haiw.json's.",
+    "tacrAnswersPartial answers four of the eight categories with the fourth",
+    "(\"Information & Integration\") only halfway - 282 of 640, the same coverage",
+    "assessmentPartial describes. It is the ONLY input that reaches three of the",
+    "alignment pack's sections: not-assessed leaf dimensions, dimensions scored",
+    "from part of their evidence, and a scoredShare below retainedShare. On the",
+    "full set every mapped dimension is 100% scored and those three render empty,",
+    "which is the shape CLAUDE.md warns about - at 8-of-8 every rule coincides.",
+    "",
+    "frameworks.json, D5 stage E3 - the THIRD instance of the D-010 shape this",
+    "check has caught, and the one the pre-emptive declaration above did not",
+    "anticipate. SHARED_DATASETS in fingerprint-decl.mjs covers frameworks.json",
+    "for DGIW only, because until E3 only DGIW's generators read it. TAIW's new",
+    "framework alignment pack and scorecard reach it through",
+    "src/taiw/projection.ts, so a DMBOK2 or COBIT dimension-weight edit would",
+    "have moved every figure on both documents while `source datasets` printed",
+    "stable. Declared per fixture rather than promoted into SHARED_DATASETS: that",
+    "constant is DGIW's directory-hash supplement and means something different."
   ],
   "dataSources": [
     "src/data/taiw/capabilities.json",
     "src/data/taiw/crosswalk.json",
-    "src/data/taiw/dataRequirements.json"
+    "src/data/taiw/dataRequirements.json",
+    "src/data/taiw/tacrQuestions.json",
+    "src/frameworks/data/frameworks.json"
   ],
   "assessment": {
     "scores": [
@@ -208,5 +245,5834 @@
     "overallScore": 3,
     "answeredCategories": 4,
     "totalCategories": 8
+  },
+  "tacrSpine": [
+    {
+      "name": "Strategy & Vision",
+      "sections": [
+        {
+          "name": "Trade Modernization Strategy",
+          "questions": [
+            {
+              "id": "str_mod_001"
+            },
+            {
+              "id": "str_mod_002"
+            },
+            {
+              "id": "str_mod_003"
+            },
+            {
+              "id": "str_mod_004"
+            },
+            {
+              "id": "str_mod_005"
+            },
+            {
+              "id": "str_mod_006"
+            },
+            {
+              "id": "str_mod_007"
+            },
+            {
+              "id": "str_mod_008"
+            },
+            {
+              "id": "str_mod_009"
+            },
+            {
+              "id": "str_mod_010"
+            },
+            {
+              "id": "str_mod_011"
+            },
+            {
+              "id": "str_mod_012"
+            },
+            {
+              "id": "str_mod_013"
+            },
+            {
+              "id": "str_mod_014"
+            },
+            {
+              "id": "str_mod_015"
+            },
+            {
+              "id": "str_mod_016"
+            },
+            {
+              "id": "str_mod_017"
+            },
+            {
+              "id": "str_mod_018"
+            }
+          ]
+        },
+        {
+          "name": "WTO TFA Commitment",
+          "questions": [
+            {
+              "id": "str_tfa_001"
+            },
+            {
+              "id": "str_tfa_002"
+            },
+            {
+              "id": "str_tfa_003"
+            },
+            {
+              "id": "str_tfa_004"
+            },
+            {
+              "id": "str_tfa_005"
+            },
+            {
+              "id": "str_tfa_006"
+            },
+            {
+              "id": "str_tfa_007"
+            },
+            {
+              "id": "str_tfa_008"
+            },
+            {
+              "id": "str_tfa_009"
+            },
+            {
+              "id": "str_tfa_010"
+            },
+            {
+              "id": "str_tfa_011"
+            },
+            {
+              "id": "str_tfa_012"
+            },
+            {
+              "id": "str_tfa_013"
+            },
+            {
+              "id": "str_tfa_014"
+            },
+            {
+              "id": "str_tfa_015"
+            },
+            {
+              "id": "str_tfa_016"
+            },
+            {
+              "id": "str_tfa_017"
+            },
+            {
+              "id": "str_tfa_018"
+            }
+          ]
+        },
+        {
+          "name": "Digital Vision",
+          "questions": [
+            {
+              "id": "str_dig_001"
+            },
+            {
+              "id": "str_dig_002"
+            },
+            {
+              "id": "str_dig_003"
+            },
+            {
+              "id": "str_dig_004"
+            },
+            {
+              "id": "str_dig_005"
+            },
+            {
+              "id": "str_dig_006"
+            },
+            {
+              "id": "str_dig_007"
+            },
+            {
+              "id": "str_dig_008"
+            },
+            {
+              "id": "str_dig_009"
+            },
+            {
+              "id": "str_dig_010"
+            },
+            {
+              "id": "str_dig_011"
+            },
+            {
+              "id": "str_dig_012"
+            },
+            {
+              "id": "str_dig_013"
+            },
+            {
+              "id": "str_dig_014"
+            },
+            {
+              "id": "str_dig_015"
+            },
+            {
+              "id": "str_dig_016"
+            },
+            {
+              "id": "str_dig_017"
+            }
+          ]
+        },
+        {
+          "name": "Stakeholder Alignment",
+          "questions": [
+            {
+              "id": "str_sth_001"
+            },
+            {
+              "id": "str_sth_002"
+            },
+            {
+              "id": "str_sth_003"
+            },
+            {
+              "id": "str_sth_004"
+            },
+            {
+              "id": "str_sth_005"
+            },
+            {
+              "id": "str_sth_006"
+            },
+            {
+              "id": "str_sth_007"
+            },
+            {
+              "id": "str_sth_008"
+            },
+            {
+              "id": "str_sth_009"
+            },
+            {
+              "id": "str_sth_010"
+            },
+            {
+              "id": "str_sth_011"
+            },
+            {
+              "id": "str_sth_012"
+            },
+            {
+              "id": "str_sth_013"
+            },
+            {
+              "id": "str_sth_014"
+            },
+            {
+              "id": "str_sth_015"
+            },
+            {
+              "id": "str_sth_016"
+            },
+            {
+              "id": "str_sth_017"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Organization & Skills",
+      "sections": [
+        {
+          "name": "Workforce Analytics",
+          "questions": [
+            {
+              "id": "org_wfa_001"
+            },
+            {
+              "id": "org_wfa_002"
+            },
+            {
+              "id": "org_wfa_003"
+            },
+            {
+              "id": "org_wfa_004"
+            },
+            {
+              "id": "org_wfa_005"
+            },
+            {
+              "id": "org_wfa_006"
+            },
+            {
+              "id": "org_wfa_007"
+            },
+            {
+              "id": "org_wfa_008"
+            },
+            {
+              "id": "org_wfa_009"
+            },
+            {
+              "id": "org_wfa_010"
+            },
+            {
+              "id": "org_wfa_011"
+            },
+            {
+              "id": "org_wfa_012"
+            },
+            {
+              "id": "org_wfa_013"
+            },
+            {
+              "id": "org_wfa_014"
+            },
+            {
+              "id": "org_wfa_015"
+            },
+            {
+              "id": "org_wfa_016"
+            },
+            {
+              "id": "org_wfa_017"
+            },
+            {
+              "id": "org_wfa_018"
+            },
+            {
+              "id": "org_wfa_019"
+            },
+            {
+              "id": "org_wfa_020"
+            }
+          ]
+        },
+        {
+          "name": "Data Science Capacity",
+          "questions": [
+            {
+              "id": "org_dsc_001"
+            },
+            {
+              "id": "org_dsc_002"
+            },
+            {
+              "id": "org_dsc_003"
+            },
+            {
+              "id": "org_dsc_004"
+            },
+            {
+              "id": "org_dsc_005"
+            },
+            {
+              "id": "org_dsc_006"
+            },
+            {
+              "id": "org_dsc_007"
+            },
+            {
+              "id": "org_dsc_008"
+            },
+            {
+              "id": "org_dsc_009"
+            },
+            {
+              "id": "org_dsc_010"
+            },
+            {
+              "id": "org_dsc_011"
+            },
+            {
+              "id": "org_dsc_012"
+            },
+            {
+              "id": "org_dsc_013"
+            },
+            {
+              "id": "org_dsc_014"
+            },
+            {
+              "id": "org_dsc_015"
+            },
+            {
+              "id": "org_dsc_016"
+            },
+            {
+              "id": "org_dsc_017"
+            },
+            {
+              "id": "org_dsc_018"
+            },
+            {
+              "id": "org_dsc_019"
+            },
+            {
+              "id": "org_dsc_020"
+            }
+          ]
+        },
+        {
+          "name": "Training",
+          "questions": [
+            {
+              "id": "org_trn_001"
+            },
+            {
+              "id": "org_trn_002"
+            },
+            {
+              "id": "org_trn_003"
+            },
+            {
+              "id": "org_trn_004"
+            },
+            {
+              "id": "org_trn_005"
+            },
+            {
+              "id": "org_trn_006"
+            },
+            {
+              "id": "org_trn_007"
+            },
+            {
+              "id": "org_trn_008"
+            },
+            {
+              "id": "org_trn_009"
+            },
+            {
+              "id": "org_trn_010"
+            },
+            {
+              "id": "org_trn_011"
+            },
+            {
+              "id": "org_trn_012"
+            },
+            {
+              "id": "org_trn_013"
+            },
+            {
+              "id": "org_trn_014"
+            },
+            {
+              "id": "org_trn_015"
+            },
+            {
+              "id": "org_trn_016"
+            },
+            {
+              "id": "org_trn_017"
+            },
+            {
+              "id": "org_trn_018"
+            },
+            {
+              "id": "org_trn_019"
+            },
+            {
+              "id": "org_trn_020"
+            }
+          ]
+        },
+        {
+          "name": "Change Management",
+          "questions": [
+            {
+              "id": "org_chm_001"
+            },
+            {
+              "id": "org_chm_002"
+            },
+            {
+              "id": "org_chm_003"
+            },
+            {
+              "id": "org_chm_004"
+            },
+            {
+              "id": "org_chm_005"
+            },
+            {
+              "id": "org_chm_006"
+            },
+            {
+              "id": "org_chm_007"
+            },
+            {
+              "id": "org_chm_008"
+            },
+            {
+              "id": "org_chm_009"
+            },
+            {
+              "id": "org_chm_010"
+            },
+            {
+              "id": "org_chm_011"
+            },
+            {
+              "id": "org_chm_012"
+            },
+            {
+              "id": "org_chm_013"
+            },
+            {
+              "id": "org_chm_014"
+            },
+            {
+              "id": "org_chm_015"
+            },
+            {
+              "id": "org_chm_016"
+            },
+            {
+              "id": "org_chm_017"
+            },
+            {
+              "id": "org_chm_018"
+            },
+            {
+              "id": "org_chm_019"
+            },
+            {
+              "id": "org_chm_020"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Data Governance",
+      "sections": [
+        {
+          "name": "WCO DM Alignment",
+          "questions": [
+            {
+              "id": "dg_wco_001"
+            },
+            {
+              "id": "dg_wco_002"
+            },
+            {
+              "id": "dg_wco_003"
+            },
+            {
+              "id": "dg_wco_004"
+            },
+            {
+              "id": "dg_wco_005"
+            },
+            {
+              "id": "dg_wco_006"
+            },
+            {
+              "id": "dg_wco_007"
+            },
+            {
+              "id": "dg_wco_008"
+            },
+            {
+              "id": "dg_wco_009"
+            },
+            {
+              "id": "dg_wco_010"
+            },
+            {
+              "id": "dg_wco_011"
+            },
+            {
+              "id": "dg_wco_012"
+            },
+            {
+              "id": "dg_wco_013"
+            },
+            {
+              "id": "dg_wco_014"
+            },
+            {
+              "id": "dg_wco_015"
+            },
+            {
+              "id": "dg_wco_016"
+            },
+            {
+              "id": "dg_wco_017"
+            },
+            {
+              "id": "dg_wco_018"
+            }
+          ]
+        },
+        {
+          "name": "Master Data",
+          "questions": [
+            {
+              "id": "dg_msd_001"
+            },
+            {
+              "id": "dg_msd_002"
+            },
+            {
+              "id": "dg_msd_003"
+            },
+            {
+              "id": "dg_msd_004"
+            },
+            {
+              "id": "dg_msd_005"
+            },
+            {
+              "id": "dg_msd_006"
+            },
+            {
+              "id": "dg_msd_007"
+            },
+            {
+              "id": "dg_msd_008"
+            },
+            {
+              "id": "dg_msd_009"
+            },
+            {
+              "id": "dg_msd_010"
+            },
+            {
+              "id": "dg_msd_011"
+            },
+            {
+              "id": "dg_msd_012"
+            },
+            {
+              "id": "dg_msd_013"
+            },
+            {
+              "id": "dg_msd_014"
+            },
+            {
+              "id": "dg_msd_015"
+            },
+            {
+              "id": "dg_msd_016"
+            },
+            {
+              "id": "dg_msd_017"
+            },
+            {
+              "id": "dg_msd_018"
+            }
+          ]
+        },
+        {
+          "name": "Data Quality",
+          "questions": [
+            {
+              "id": "dg_dql_001"
+            },
+            {
+              "id": "dg_dql_002"
+            },
+            {
+              "id": "dg_dql_003"
+            },
+            {
+              "id": "dg_dql_004"
+            },
+            {
+              "id": "dg_dql_005"
+            },
+            {
+              "id": "dg_dql_006"
+            },
+            {
+              "id": "dg_dql_007"
+            },
+            {
+              "id": "dg_dql_008"
+            },
+            {
+              "id": "dg_dql_009"
+            },
+            {
+              "id": "dg_dql_010"
+            },
+            {
+              "id": "dg_dql_011"
+            },
+            {
+              "id": "dg_dql_012"
+            },
+            {
+              "id": "dg_dql_013"
+            },
+            {
+              "id": "dg_dql_014"
+            },
+            {
+              "id": "dg_dql_015"
+            },
+            {
+              "id": "dg_dql_016"
+            },
+            {
+              "id": "dg_dql_017"
+            },
+            {
+              "id": "dg_dql_018"
+            }
+          ]
+        },
+        {
+          "name": "Data Sharing",
+          "questions": [
+            {
+              "id": "dg_dsh_001"
+            },
+            {
+              "id": "dg_dsh_002"
+            },
+            {
+              "id": "dg_dsh_003"
+            },
+            {
+              "id": "dg_dsh_004"
+            },
+            {
+              "id": "dg_dsh_005"
+            },
+            {
+              "id": "dg_dsh_006"
+            },
+            {
+              "id": "dg_dsh_007"
+            },
+            {
+              "id": "dg_dsh_008"
+            },
+            {
+              "id": "dg_dsh_009"
+            },
+            {
+              "id": "dg_dsh_010"
+            },
+            {
+              "id": "dg_dsh_011"
+            },
+            {
+              "id": "dg_dsh_012"
+            },
+            {
+              "id": "dg_dsh_013"
+            },
+            {
+              "id": "dg_dsh_014"
+            },
+            {
+              "id": "dg_dsh_015"
+            },
+            {
+              "id": "dg_dsh_016"
+            },
+            {
+              "id": "dg_dsh_017"
+            },
+            {
+              "id": "dg_dsh_018"
+            }
+          ]
+        },
+        {
+          "name": "Privacy & Security",
+          "questions": [
+            {
+              "id": "dg_prs_001"
+            },
+            {
+              "id": "dg_prs_002"
+            },
+            {
+              "id": "dg_prs_003"
+            },
+            {
+              "id": "dg_prs_004"
+            },
+            {
+              "id": "dg_prs_005"
+            },
+            {
+              "id": "dg_prs_006"
+            },
+            {
+              "id": "dg_prs_007"
+            },
+            {
+              "id": "dg_prs_008"
+            },
+            {
+              "id": "dg_prs_009"
+            },
+            {
+              "id": "dg_prs_010"
+            },
+            {
+              "id": "dg_prs_011"
+            },
+            {
+              "id": "dg_prs_012"
+            },
+            {
+              "id": "dg_prs_013"
+            },
+            {
+              "id": "dg_prs_014"
+            },
+            {
+              "id": "dg_prs_015"
+            },
+            {
+              "id": "dg_prs_016"
+            },
+            {
+              "id": "dg_prs_017"
+            },
+            {
+              "id": "dg_prs_018"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Information & Integration",
+      "sections": [
+        {
+          "name": "WeBOC Integration",
+          "questions": [
+            {
+              "id": "inf_web_001"
+            },
+            {
+              "id": "inf_web_002"
+            },
+            {
+              "id": "inf_web_003"
+            },
+            {
+              "id": "inf_web_004"
+            },
+            {
+              "id": "inf_web_005"
+            },
+            {
+              "id": "inf_web_006"
+            },
+            {
+              "id": "inf_web_007"
+            },
+            {
+              "id": "inf_web_008"
+            },
+            {
+              "id": "inf_web_009"
+            },
+            {
+              "id": "inf_web_010"
+            },
+            {
+              "id": "inf_web_011"
+            },
+            {
+              "id": "inf_web_012"
+            },
+            {
+              "id": "inf_web_013"
+            },
+            {
+              "id": "inf_web_014"
+            },
+            {
+              "id": "inf_web_015"
+            },
+            {
+              "id": "inf_web_016"
+            },
+            {
+              "id": "inf_web_017"
+            },
+            {
+              "id": "inf_web_018"
+            },
+            {
+              "id": "inf_web_019"
+            },
+            {
+              "id": "inf_web_020"
+            },
+            {
+              "id": "inf_web_021"
+            },
+            {
+              "id": "inf_web_022"
+            }
+          ]
+        },
+        {
+          "name": "PSW Connectivity",
+          "questions": [
+            {
+              "id": "inf_psw_001"
+            },
+            {
+              "id": "inf_psw_002"
+            },
+            {
+              "id": "inf_psw_003"
+            },
+            {
+              "id": "inf_psw_004"
+            },
+            {
+              "id": "inf_psw_005"
+            },
+            {
+              "id": "inf_psw_006"
+            },
+            {
+              "id": "inf_psw_007"
+            },
+            {
+              "id": "inf_psw_008"
+            },
+            {
+              "id": "inf_psw_009"
+            },
+            {
+              "id": "inf_psw_010"
+            },
+            {
+              "id": "inf_psw_011"
+            },
+            {
+              "id": "inf_psw_012"
+            },
+            {
+              "id": "inf_psw_013"
+            },
+            {
+              "id": "inf_psw_014"
+            },
+            {
+              "id": "inf_psw_015"
+            },
+            {
+              "id": "inf_psw_016"
+            },
+            {
+              "id": "inf_psw_017"
+            },
+            {
+              "id": "inf_psw_018"
+            },
+            {
+              "id": "inf_psw_019"
+            },
+            {
+              "id": "inf_psw_020"
+            },
+            {
+              "id": "inf_psw_021"
+            }
+          ]
+        },
+        {
+          "name": "OGA Integration",
+          "questions": [
+            {
+              "id": "inf_oga_001"
+            },
+            {
+              "id": "inf_oga_002"
+            },
+            {
+              "id": "inf_oga_003"
+            },
+            {
+              "id": "inf_oga_004"
+            },
+            {
+              "id": "inf_oga_005"
+            },
+            {
+              "id": "inf_oga_006"
+            },
+            {
+              "id": "inf_oga_007"
+            },
+            {
+              "id": "inf_oga_008"
+            },
+            {
+              "id": "inf_oga_009"
+            },
+            {
+              "id": "inf_oga_010"
+            },
+            {
+              "id": "inf_oga_011"
+            },
+            {
+              "id": "inf_oga_012"
+            },
+            {
+              "id": "inf_oga_013"
+            },
+            {
+              "id": "inf_oga_014"
+            },
+            {
+              "id": "inf_oga_015"
+            },
+            {
+              "id": "inf_oga_016"
+            },
+            {
+              "id": "inf_oga_017"
+            },
+            {
+              "id": "inf_oga_018"
+            },
+            {
+              "id": "inf_oga_019"
+            },
+            {
+              "id": "inf_oga_020"
+            },
+            {
+              "id": "inf_oga_021"
+            }
+          ]
+        },
+        {
+          "name": "Data Warehouse",
+          "questions": [
+            {
+              "id": "inf_dwh_001"
+            },
+            {
+              "id": "inf_dwh_002"
+            },
+            {
+              "id": "inf_dwh_003"
+            },
+            {
+              "id": "inf_dwh_004"
+            },
+            {
+              "id": "inf_dwh_005"
+            },
+            {
+              "id": "inf_dwh_006"
+            },
+            {
+              "id": "inf_dwh_007"
+            },
+            {
+              "id": "inf_dwh_008"
+            },
+            {
+              "id": "inf_dwh_009"
+            },
+            {
+              "id": "inf_dwh_010"
+            },
+            {
+              "id": "inf_dwh_011"
+            },
+            {
+              "id": "inf_dwh_012"
+            },
+            {
+              "id": "inf_dwh_013"
+            },
+            {
+              "id": "inf_dwh_014"
+            },
+            {
+              "id": "inf_dwh_015"
+            },
+            {
+              "id": "inf_dwh_016"
+            },
+            {
+              "id": "inf_dwh_017"
+            },
+            {
+              "id": "inf_dwh_018"
+            },
+            {
+              "id": "inf_dwh_019"
+            },
+            {
+              "id": "inf_dwh_020"
+            },
+            {
+              "id": "inf_dwh_021"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Analytics & Technology",
+      "sections": [
+        {
+          "name": "BI & Reporting",
+          "questions": [
+            {
+              "id": "at_bir_001"
+            },
+            {
+              "id": "at_bir_002"
+            },
+            {
+              "id": "at_bir_003"
+            },
+            {
+              "id": "at_bir_004"
+            },
+            {
+              "id": "at_bir_005"
+            },
+            {
+              "id": "at_bir_006"
+            },
+            {
+              "id": "at_bir_007"
+            },
+            {
+              "id": "at_bir_008"
+            },
+            {
+              "id": "at_bir_009"
+            },
+            {
+              "id": "at_bir_010"
+            },
+            {
+              "id": "at_bir_011"
+            },
+            {
+              "id": "at_bir_012"
+            },
+            {
+              "id": "at_bir_013"
+            },
+            {
+              "id": "at_bir_014"
+            },
+            {
+              "id": "at_bir_015"
+            },
+            {
+              "id": "at_bir_016"
+            }
+          ]
+        },
+        {
+          "name": "Risk Models",
+          "questions": [
+            {
+              "id": "at_rsk_001"
+            },
+            {
+              "id": "at_rsk_002"
+            },
+            {
+              "id": "at_rsk_003"
+            },
+            {
+              "id": "at_rsk_004"
+            },
+            {
+              "id": "at_rsk_005"
+            },
+            {
+              "id": "at_rsk_006"
+            },
+            {
+              "id": "at_rsk_007"
+            },
+            {
+              "id": "at_rsk_008"
+            },
+            {
+              "id": "at_rsk_009"
+            },
+            {
+              "id": "at_rsk_010"
+            },
+            {
+              "id": "at_rsk_011"
+            },
+            {
+              "id": "at_rsk_012"
+            },
+            {
+              "id": "at_rsk_013"
+            },
+            {
+              "id": "at_rsk_014"
+            },
+            {
+              "id": "at_rsk_015"
+            },
+            {
+              "id": "at_rsk_016"
+            }
+          ]
+        },
+        {
+          "name": "ML/AI",
+          "questions": [
+            {
+              "id": "at_mla_001"
+            },
+            {
+              "id": "at_mla_002"
+            },
+            {
+              "id": "at_mla_003"
+            },
+            {
+              "id": "at_mla_004"
+            },
+            {
+              "id": "at_mla_005"
+            },
+            {
+              "id": "at_mla_006"
+            },
+            {
+              "id": "at_mla_007"
+            },
+            {
+              "id": "at_mla_008"
+            },
+            {
+              "id": "at_mla_009"
+            },
+            {
+              "id": "at_mla_010"
+            },
+            {
+              "id": "at_mla_011"
+            },
+            {
+              "id": "at_mla_012"
+            },
+            {
+              "id": "at_mla_013"
+            },
+            {
+              "id": "at_mla_014"
+            },
+            {
+              "id": "at_mla_015"
+            },
+            {
+              "id": "at_mla_016"
+            }
+          ]
+        },
+        {
+          "name": "Automation",
+          "questions": [
+            {
+              "id": "at_aut_001"
+            },
+            {
+              "id": "at_aut_002"
+            },
+            {
+              "id": "at_aut_003"
+            },
+            {
+              "id": "at_aut_004"
+            },
+            {
+              "id": "at_aut_005"
+            },
+            {
+              "id": "at_aut_006"
+            },
+            {
+              "id": "at_aut_007"
+            },
+            {
+              "id": "at_aut_008"
+            },
+            {
+              "id": "at_aut_009"
+            },
+            {
+              "id": "at_aut_010"
+            },
+            {
+              "id": "at_aut_011"
+            },
+            {
+              "id": "at_aut_012"
+            },
+            {
+              "id": "at_aut_013"
+            },
+            {
+              "id": "at_aut_014"
+            },
+            {
+              "id": "at_aut_015"
+            },
+            {
+              "id": "at_aut_016"
+            }
+          ]
+        },
+        {
+          "name": "Real-time Analytics",
+          "questions": [
+            {
+              "id": "at_rta_001"
+            },
+            {
+              "id": "at_rta_002"
+            },
+            {
+              "id": "at_rta_003"
+            },
+            {
+              "id": "at_rta_004"
+            },
+            {
+              "id": "at_rta_005"
+            },
+            {
+              "id": "at_rta_006"
+            },
+            {
+              "id": "at_rta_007"
+            },
+            {
+              "id": "at_rta_008"
+            },
+            {
+              "id": "at_rta_009"
+            },
+            {
+              "id": "at_rta_010"
+            },
+            {
+              "id": "at_rta_011"
+            },
+            {
+              "id": "at_rta_012"
+            },
+            {
+              "id": "at_rta_013"
+            },
+            {
+              "id": "at_rta_014"
+            },
+            {
+              "id": "at_rta_015"
+            },
+            {
+              "id": "at_rta_016"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure",
+      "sections": [
+        {
+          "name": "Hardware",
+          "questions": [
+            {
+              "id": "is_hdw_001"
+            },
+            {
+              "id": "is_hdw_002"
+            },
+            {
+              "id": "is_hdw_003"
+            },
+            {
+              "id": "is_hdw_004"
+            },
+            {
+              "id": "is_hdw_005"
+            },
+            {
+              "id": "is_hdw_006"
+            },
+            {
+              "id": "is_hdw_007"
+            },
+            {
+              "id": "is_hdw_008"
+            },
+            {
+              "id": "is_hdw_009"
+            },
+            {
+              "id": "is_hdw_010"
+            },
+            {
+              "id": "is_hdw_011"
+            },
+            {
+              "id": "is_hdw_012"
+            },
+            {
+              "id": "is_hdw_013"
+            },
+            {
+              "id": "is_hdw_014"
+            },
+            {
+              "id": "is_hdw_015"
+            }
+          ]
+        },
+        {
+          "name": "Cloud",
+          "questions": [
+            {
+              "id": "is_cld_001"
+            },
+            {
+              "id": "is_cld_002"
+            },
+            {
+              "id": "is_cld_003"
+            },
+            {
+              "id": "is_cld_004"
+            },
+            {
+              "id": "is_cld_005"
+            },
+            {
+              "id": "is_cld_006"
+            },
+            {
+              "id": "is_cld_007"
+            },
+            {
+              "id": "is_cld_008"
+            },
+            {
+              "id": "is_cld_009"
+            },
+            {
+              "id": "is_cld_010"
+            },
+            {
+              "id": "is_cld_011"
+            },
+            {
+              "id": "is_cld_012"
+            },
+            {
+              "id": "is_cld_013"
+            },
+            {
+              "id": "is_cld_014"
+            },
+            {
+              "id": "is_cld_015"
+            }
+          ]
+        },
+        {
+          "name": "Network",
+          "questions": [
+            {
+              "id": "is_net_001"
+            },
+            {
+              "id": "is_net_002"
+            },
+            {
+              "id": "is_net_003"
+            },
+            {
+              "id": "is_net_004"
+            },
+            {
+              "id": "is_net_005"
+            },
+            {
+              "id": "is_net_006"
+            },
+            {
+              "id": "is_net_007"
+            },
+            {
+              "id": "is_net_008"
+            },
+            {
+              "id": "is_net_009"
+            },
+            {
+              "id": "is_net_010"
+            },
+            {
+              "id": "is_net_011"
+            },
+            {
+              "id": "is_net_012"
+            },
+            {
+              "id": "is_net_013"
+            },
+            {
+              "id": "is_net_014"
+            },
+            {
+              "id": "is_net_015"
+            }
+          ]
+        },
+        {
+          "name": "DR/BC",
+          "questions": [
+            {
+              "id": "is_drb_001"
+            },
+            {
+              "id": "is_drb_002"
+            },
+            {
+              "id": "is_drb_003"
+            },
+            {
+              "id": "is_drb_004"
+            },
+            {
+              "id": "is_drb_005"
+            },
+            {
+              "id": "is_drb_006"
+            },
+            {
+              "id": "is_drb_007"
+            },
+            {
+              "id": "is_drb_008"
+            },
+            {
+              "id": "is_drb_009"
+            },
+            {
+              "id": "is_drb_010"
+            },
+            {
+              "id": "is_drb_011"
+            },
+            {
+              "id": "is_drb_012"
+            },
+            {
+              "id": "is_drb_013"
+            },
+            {
+              "id": "is_drb_014"
+            },
+            {
+              "id": "is_drb_015"
+            }
+          ]
+        },
+        {
+          "name": "Security",
+          "questions": [
+            {
+              "id": "is_sec_001"
+            },
+            {
+              "id": "is_sec_002"
+            },
+            {
+              "id": "is_sec_003"
+            },
+            {
+              "id": "is_sec_004"
+            },
+            {
+              "id": "is_sec_005"
+            },
+            {
+              "id": "is_sec_006"
+            },
+            {
+              "id": "is_sec_007"
+            },
+            {
+              "id": "is_sec_008"
+            },
+            {
+              "id": "is_sec_009"
+            },
+            {
+              "id": "is_sec_010"
+            },
+            {
+              "id": "is_sec_011"
+            },
+            {
+              "id": "is_sec_012"
+            },
+            {
+              "id": "is_sec_013"
+            },
+            {
+              "id": "is_sec_014"
+            },
+            {
+              "id": "is_sec_015"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Processes & Automation",
+      "sections": [
+        {
+          "name": "Clearance Automation",
+          "questions": [
+            {
+              "id": "pa_cla_001"
+            },
+            {
+              "id": "pa_cla_002"
+            },
+            {
+              "id": "pa_cla_003"
+            },
+            {
+              "id": "pa_cla_004"
+            },
+            {
+              "id": "pa_cla_005"
+            },
+            {
+              "id": "pa_cla_006"
+            },
+            {
+              "id": "pa_cla_007"
+            },
+            {
+              "id": "pa_cla_008"
+            },
+            {
+              "id": "pa_cla_009"
+            },
+            {
+              "id": "pa_cla_010"
+            },
+            {
+              "id": "pa_cla_011"
+            },
+            {
+              "id": "pa_cla_012"
+            },
+            {
+              "id": "pa_cla_013"
+            },
+            {
+              "id": "pa_cla_014"
+            },
+            {
+              "id": "pa_cla_015"
+            },
+            {
+              "id": "pa_cla_016"
+            },
+            {
+              "id": "pa_cla_017"
+            },
+            {
+              "id": "pa_cla_018"
+            },
+            {
+              "id": "pa_cla_019"
+            },
+            {
+              "id": "pa_cla_020"
+            },
+            {
+              "id": "pa_cla_021"
+            },
+            {
+              "id": "pa_cla_022"
+            }
+          ]
+        },
+        {
+          "name": "Risk Automation",
+          "questions": [
+            {
+              "id": "pa_rka_001"
+            },
+            {
+              "id": "pa_rka_002"
+            },
+            {
+              "id": "pa_rka_003"
+            },
+            {
+              "id": "pa_rka_004"
+            },
+            {
+              "id": "pa_rka_005"
+            },
+            {
+              "id": "pa_rka_006"
+            },
+            {
+              "id": "pa_rka_007"
+            },
+            {
+              "id": "pa_rka_008"
+            },
+            {
+              "id": "pa_rka_009"
+            },
+            {
+              "id": "pa_rka_010"
+            },
+            {
+              "id": "pa_rka_011"
+            },
+            {
+              "id": "pa_rka_012"
+            },
+            {
+              "id": "pa_rka_013"
+            },
+            {
+              "id": "pa_rka_014"
+            },
+            {
+              "id": "pa_rka_015"
+            },
+            {
+              "id": "pa_rka_016"
+            },
+            {
+              "id": "pa_rka_017"
+            },
+            {
+              "id": "pa_rka_018"
+            },
+            {
+              "id": "pa_rka_019"
+            },
+            {
+              "id": "pa_rka_020"
+            },
+            {
+              "id": "pa_rka_021"
+            }
+          ]
+        },
+        {
+          "name": "Revenue Automation",
+          "questions": [
+            {
+              "id": "pa_rva_001"
+            },
+            {
+              "id": "pa_rva_002"
+            },
+            {
+              "id": "pa_rva_003"
+            },
+            {
+              "id": "pa_rva_004"
+            },
+            {
+              "id": "pa_rva_005"
+            },
+            {
+              "id": "pa_rva_006"
+            },
+            {
+              "id": "pa_rva_007"
+            },
+            {
+              "id": "pa_rva_008"
+            },
+            {
+              "id": "pa_rva_009"
+            },
+            {
+              "id": "pa_rva_010"
+            },
+            {
+              "id": "pa_rva_011"
+            },
+            {
+              "id": "pa_rva_012"
+            },
+            {
+              "id": "pa_rva_013"
+            },
+            {
+              "id": "pa_rva_014"
+            },
+            {
+              "id": "pa_rva_015"
+            },
+            {
+              "id": "pa_rva_016"
+            },
+            {
+              "id": "pa_rva_017"
+            },
+            {
+              "id": "pa_rva_018"
+            },
+            {
+              "id": "pa_rva_019"
+            },
+            {
+              "id": "pa_rva_020"
+            },
+            {
+              "id": "pa_rva_021"
+            }
+          ]
+        },
+        {
+          "name": "Reporting Automation",
+          "questions": [
+            {
+              "id": "pa_rpa_001"
+            },
+            {
+              "id": "pa_rpa_002"
+            },
+            {
+              "id": "pa_rpa_003"
+            },
+            {
+              "id": "pa_rpa_004"
+            },
+            {
+              "id": "pa_rpa_005"
+            },
+            {
+              "id": "pa_rpa_006"
+            },
+            {
+              "id": "pa_rpa_007"
+            },
+            {
+              "id": "pa_rpa_008"
+            },
+            {
+              "id": "pa_rpa_009"
+            },
+            {
+              "id": "pa_rpa_010"
+            },
+            {
+              "id": "pa_rpa_011"
+            },
+            {
+              "id": "pa_rpa_012"
+            },
+            {
+              "id": "pa_rpa_013"
+            },
+            {
+              "id": "pa_rpa_014"
+            },
+            {
+              "id": "pa_rpa_015"
+            },
+            {
+              "id": "pa_rpa_016"
+            },
+            {
+              "id": "pa_rpa_017"
+            },
+            {
+              "id": "pa_rpa_018"
+            },
+            {
+              "id": "pa_rpa_019"
+            },
+            {
+              "id": "pa_rpa_020"
+            },
+            {
+              "id": "pa_rpa_021"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Outcomes & Impact",
+      "sections": [
+        {
+          "name": "Revenue Impact",
+          "questions": [
+            {
+              "id": "oi_rvi_001"
+            },
+            {
+              "id": "oi_rvi_002"
+            },
+            {
+              "id": "oi_rvi_003"
+            },
+            {
+              "id": "oi_rvi_004"
+            },
+            {
+              "id": "oi_rvi_005"
+            },
+            {
+              "id": "oi_rvi_006"
+            },
+            {
+              "id": "oi_rvi_007"
+            },
+            {
+              "id": "oi_rvi_008"
+            },
+            {
+              "id": "oi_rvi_009"
+            },
+            {
+              "id": "oi_rvi_010"
+            },
+            {
+              "id": "oi_rvi_011"
+            },
+            {
+              "id": "oi_rvi_012"
+            },
+            {
+              "id": "oi_rvi_013"
+            },
+            {
+              "id": "oi_rvi_014"
+            },
+            {
+              "id": "oi_rvi_015"
+            },
+            {
+              "id": "oi_rvi_016"
+            },
+            {
+              "id": "oi_rvi_017"
+            },
+            {
+              "id": "oi_rvi_018"
+            },
+            {
+              "id": "oi_rvi_019"
+            }
+          ]
+        },
+        {
+          "name": "Facilitation KPIs",
+          "questions": [
+            {
+              "id": "oi_fkp_001"
+            },
+            {
+              "id": "oi_fkp_002"
+            },
+            {
+              "id": "oi_fkp_003"
+            },
+            {
+              "id": "oi_fkp_004"
+            },
+            {
+              "id": "oi_fkp_005"
+            },
+            {
+              "id": "oi_fkp_006"
+            },
+            {
+              "id": "oi_fkp_007"
+            },
+            {
+              "id": "oi_fkp_008"
+            },
+            {
+              "id": "oi_fkp_009"
+            },
+            {
+              "id": "oi_fkp_010"
+            },
+            {
+              "id": "oi_fkp_011"
+            },
+            {
+              "id": "oi_fkp_012"
+            },
+            {
+              "id": "oi_fkp_013"
+            },
+            {
+              "id": "oi_fkp_014"
+            },
+            {
+              "id": "oi_fkp_015"
+            },
+            {
+              "id": "oi_fkp_016"
+            },
+            {
+              "id": "oi_fkp_017"
+            },
+            {
+              "id": "oi_fkp_018"
+            },
+            {
+              "id": "oi_fkp_019"
+            }
+          ]
+        },
+        {
+          "name": "Compliance Rates",
+          "questions": [
+            {
+              "id": "oi_cmr_001"
+            },
+            {
+              "id": "oi_cmr_002"
+            },
+            {
+              "id": "oi_cmr_003"
+            },
+            {
+              "id": "oi_cmr_004"
+            },
+            {
+              "id": "oi_cmr_005"
+            },
+            {
+              "id": "oi_cmr_006"
+            },
+            {
+              "id": "oi_cmr_007"
+            },
+            {
+              "id": "oi_cmr_008"
+            },
+            {
+              "id": "oi_cmr_009"
+            },
+            {
+              "id": "oi_cmr_010"
+            },
+            {
+              "id": "oi_cmr_011"
+            },
+            {
+              "id": "oi_cmr_012"
+            },
+            {
+              "id": "oi_cmr_013"
+            },
+            {
+              "id": "oi_cmr_014"
+            },
+            {
+              "id": "oi_cmr_015"
+            },
+            {
+              "id": "oi_cmr_016"
+            },
+            {
+              "id": "oi_cmr_017"
+            },
+            {
+              "id": "oi_cmr_018"
+            },
+            {
+              "id": "oi_cmr_019"
+            }
+          ]
+        },
+        {
+          "name": "Trader Satisfaction",
+          "questions": [
+            {
+              "id": "oi_trs_001"
+            },
+            {
+              "id": "oi_trs_002"
+            },
+            {
+              "id": "oi_trs_003"
+            },
+            {
+              "id": "oi_trs_004"
+            },
+            {
+              "id": "oi_trs_005"
+            },
+            {
+              "id": "oi_trs_006"
+            },
+            {
+              "id": "oi_trs_007"
+            },
+            {
+              "id": "oi_trs_008"
+            },
+            {
+              "id": "oi_trs_009"
+            },
+            {
+              "id": "oi_trs_010"
+            },
+            {
+              "id": "oi_trs_011"
+            },
+            {
+              "id": "oi_trs_012"
+            },
+            {
+              "id": "oi_trs_013"
+            },
+            {
+              "id": "oi_trs_014"
+            },
+            {
+              "id": "oi_trs_015"
+            },
+            {
+              "id": "oi_trs_016"
+            },
+            {
+              "id": "oi_trs_017"
+            },
+            {
+              "id": "oi_trs_018"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tacrAnswers": {
+    "str_mod_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_mod_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_mod_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_mod_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_mod_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_mod_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_mod_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_mod_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_mod_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_mod_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_mod_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "str_mod_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "str_mod_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "str_mod_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_mod_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_mod_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_mod_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_mod_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_tfa_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_tfa_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_tfa_003": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_tfa_004": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_tfa_005": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_tfa_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_tfa_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_tfa_008": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "str_tfa_009": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "str_tfa_010": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "str_tfa_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_tfa_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_tfa_013": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_tfa_014": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_tfa_015": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_tfa_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_tfa_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_tfa_018": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_dig_001": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_dig_002": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_dig_003": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_dig_004": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_dig_005": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "str_dig_006": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "str_dig_007": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "str_dig_008": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_dig_009": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_dig_010": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_dig_011": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_dig_012": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_dig_013": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_dig_014": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_dig_015": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_dig_016": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_dig_017": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_sth_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_sth_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_sth_003": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "str_sth_004": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "str_sth_005": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "str_sth_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_sth_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_sth_008": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_sth_009": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_sth_010": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_sth_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_sth_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_sth_013": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_sth_014": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_sth_015": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_sth_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_sth_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_wfa_001": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_wfa_002": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_wfa_003": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_wfa_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_wfa_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_wfa_006": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_wfa_007": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_wfa_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_wfa_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_wfa_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_wfa_011": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_wfa_012": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_wfa_013": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_wfa_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_wfa_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_wfa_016": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_wfa_017": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_wfa_018": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_wfa_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_wfa_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_dsc_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_dsc_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_dsc_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_dsc_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_dsc_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_dsc_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_dsc_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_dsc_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_dsc_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_dsc_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_dsc_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_dsc_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_dsc_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_dsc_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_dsc_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_dsc_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_dsc_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_dsc_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_dsc_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_dsc_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_trn_001": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_trn_002": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_trn_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_trn_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_trn_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_trn_006": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_trn_007": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_trn_008": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_trn_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_trn_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_trn_011": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_trn_012": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_trn_013": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_trn_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_trn_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_trn_016": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_trn_017": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_trn_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_trn_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_trn_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_chm_001": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_chm_002": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_chm_003": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_chm_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_chm_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_chm_006": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_chm_007": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_chm_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_chm_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_chm_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_chm_011": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_chm_012": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_chm_013": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_chm_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_chm_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_chm_016": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_chm_017": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_chm_018": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_chm_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_chm_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_wco_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_wco_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_wco_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_wco_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_wco_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_wco_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_wco_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_wco_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_wco_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_wco_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_wco_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_wco_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_wco_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_wco_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_wco_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_wco_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_wco_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_wco_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_msd_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_msd_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_msd_003": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_msd_004": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_msd_005": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_msd_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_msd_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_msd_008": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_msd_009": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_msd_010": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_msd_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_msd_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_msd_013": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_msd_014": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_msd_015": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_msd_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_msd_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_msd_018": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_dql_001": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_dql_002": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dql_003": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dql_004": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dql_005": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_dql_006": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_dql_007": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_dql_008": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dql_009": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dql_010": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_dql_011": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_dql_012": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dql_013": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dql_014": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dql_015": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_dql_016": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_dql_017": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dql_018": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dsh_001": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dsh_002": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_dsh_003": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_dsh_004": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_dsh_005": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dsh_006": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dsh_007": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_dsh_008": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_dsh_009": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dsh_010": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dsh_011": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dsh_012": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_dsh_013": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_dsh_014": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dsh_015": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dsh_016": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dsh_017": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_dsh_018": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_prs_001": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_prs_002": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_prs_003": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_prs_004": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_prs_005": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_prs_006": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_prs_007": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_prs_008": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_prs_009": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_prs_010": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_prs_011": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_prs_012": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_prs_013": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_prs_014": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_prs_015": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_prs_016": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_prs_017": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_prs_018": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_web_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_web_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_web_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_web_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_web_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_web_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_web_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_web_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "inf_web_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "inf_web_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "inf_web_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_web_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_web_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_web_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_web_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_web_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_021": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_web_022": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_psw_001": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_psw_002": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_psw_003": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_psw_004": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "inf_psw_005": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "inf_psw_006": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "inf_psw_007": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_psw_008": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_psw_009": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_psw_010": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_psw_011": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_psw_012": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_psw_013": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_psw_014": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_psw_015": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_psw_016": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_psw_017": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_psw_018": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_psw_019": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "inf_psw_020": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "inf_psw_021": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "inf_oga_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_oga_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_oga_003": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_oga_004": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_oga_005": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_oga_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_oga_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_oga_008": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_oga_009": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_oga_010": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_oga_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_oga_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_oga_013": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "inf_oga_014": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "inf_oga_015": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "inf_oga_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_oga_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_oga_018": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_oga_019": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_oga_020": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_oga_021": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_dwh_001": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_dwh_002": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_dwh_003": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_dwh_004": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_dwh_005": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_dwh_006": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_dwh_007": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "inf_dwh_008": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "inf_dwh_009": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "inf_dwh_010": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_dwh_011": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_dwh_012": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_dwh_013": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_dwh_014": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_dwh_015": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_dwh_016": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_dwh_017": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_dwh_018": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_dwh_019": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_dwh_020": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_dwh_021": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_bir_001": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "at_bir_002": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "at_bir_003": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "at_bir_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_bir_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_bir_006": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "at_bir_007": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "at_bir_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_bir_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_bir_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_bir_011": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "at_bir_012": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "at_bir_013": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_bir_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_bir_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_bir_016": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "at_rsk_001": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "at_rsk_002": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "at_rsk_003": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_rsk_004": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_rsk_005": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "at_rsk_006": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "at_rsk_007": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_rsk_008": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_rsk_009": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_rsk_010": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "at_rsk_011": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "at_rsk_012": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_rsk_013": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_rsk_014": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_rsk_015": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "at_rsk_016": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "at_mla_001": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "at_mla_002": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_mla_003": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_mla_004": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "at_mla_005": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "at_mla_006": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_mla_007": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_mla_008": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_mla_009": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "at_mla_010": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "at_mla_011": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_mla_012": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_mla_013": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_mla_014": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "at_mla_015": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "at_mla_016": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "at_aut_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_aut_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_aut_003": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "at_aut_004": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "at_aut_005": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_aut_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_aut_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_aut_008": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "at_aut_009": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "at_aut_010": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_aut_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_aut_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_aut_013": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "at_aut_014": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "at_aut_015": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "at_aut_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_rta_001": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_rta_002": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "at_rta_003": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "at_rta_004": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_rta_005": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_rta_006": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_rta_007": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "at_rta_008": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "at_rta_009": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "at_rta_010": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_rta_011": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "at_rta_012": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "at_rta_013": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "at_rta_014": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "at_rta_015": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "at_rta_016": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_hdw_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "is_hdw_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "is_hdw_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_hdw_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_hdw_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_hdw_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "is_hdw_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "is_hdw_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_hdw_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_hdw_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_hdw_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "is_hdw_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "is_hdw_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "is_hdw_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_hdw_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_cld_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "is_cld_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "is_cld_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_cld_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_cld_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_cld_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "is_cld_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "is_cld_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_cld_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_cld_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_cld_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "is_cld_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "is_cld_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "is_cld_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_cld_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_net_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "is_net_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "is_net_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_net_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_net_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_net_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "is_net_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "is_net_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_net_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_net_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_net_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "is_net_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "is_net_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "is_net_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_net_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_drb_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "is_drb_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "is_drb_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_drb_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_drb_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_drb_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "is_drb_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "is_drb_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_drb_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_drb_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_drb_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "is_drb_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "is_drb_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "is_drb_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_drb_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_sec_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "is_sec_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "is_sec_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_sec_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_sec_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_sec_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "is_sec_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "is_sec_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "is_sec_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_sec_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "is_sec_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "is_sec_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "is_sec_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "is_sec_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "is_sec_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_cla_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "pa_cla_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "pa_cla_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_cla_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_cla_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_cla_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "pa_cla_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "pa_cla_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_cla_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_cla_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_cla_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "pa_cla_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "pa_cla_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "pa_cla_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_cla_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_cla_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "pa_cla_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "pa_cla_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_cla_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_cla_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_cla_021": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "pa_cla_022": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "pa_rka_001": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rka_002": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rka_003": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rka_004": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "pa_rka_005": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "pa_rka_006": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "pa_rka_007": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rka_008": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rka_009": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "pa_rka_010": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "pa_rka_011": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rka_012": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rka_013": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rka_014": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "pa_rka_015": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "pa_rka_016": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rka_017": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rka_018": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rka_019": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "pa_rka_020": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "pa_rka_021": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "pa_rva_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rva_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rva_003": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "pa_rva_004": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "pa_rva_005": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rva_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rva_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rva_008": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "pa_rva_009": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "pa_rva_010": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rva_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rva_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rva_013": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "pa_rva_014": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "pa_rva_015": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "pa_rva_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rva_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rva_018": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "pa_rva_019": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "pa_rva_020": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rva_021": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rpa_001": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rpa_002": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "pa_rpa_003": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "pa_rpa_004": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rpa_005": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rpa_006": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rpa_007": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "pa_rpa_008": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "pa_rpa_009": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "pa_rpa_010": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rpa_011": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rpa_012": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "pa_rpa_013": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "pa_rpa_014": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rpa_015": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rpa_016": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "pa_rpa_017": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "pa_rpa_018": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "pa_rpa_019": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "pa_rpa_020": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "pa_rpa_021": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_rvi_001": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "oi_rvi_002": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "oi_rvi_003": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "oi_rvi_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_rvi_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_rvi_006": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "oi_rvi_007": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "oi_rvi_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_rvi_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_rvi_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_rvi_011": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "oi_rvi_012": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "oi_rvi_013": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_rvi_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_rvi_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_rvi_016": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "oi_rvi_017": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "oi_rvi_018": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "oi_rvi_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_fkp_001": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_fkp_002": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "oi_fkp_003": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "oi_fkp_004": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_fkp_005": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_fkp_006": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_fkp_007": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "oi_fkp_008": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "oi_fkp_009": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_fkp_010": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_fkp_011": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_fkp_012": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "oi_fkp_013": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "oi_fkp_014": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "oi_fkp_015": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_fkp_016": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_fkp_017": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "oi_fkp_018": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "oi_fkp_019": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_cmr_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_cmr_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_cmr_003": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "oi_cmr_004": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "oi_cmr_005": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_cmr_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_cmr_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_cmr_008": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "oi_cmr_009": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "oi_cmr_010": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "oi_cmr_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_cmr_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_cmr_013": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "oi_cmr_014": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "oi_cmr_015": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_cmr_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_cmr_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_cmr_018": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "oi_cmr_019": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "oi_trs_001": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_trs_002": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_trs_003": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_trs_004": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "oi_trs_005": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "oi_trs_006": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "oi_trs_007": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_trs_008": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_trs_009": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "oi_trs_010": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "oi_trs_011": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_trs_012": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_trs_013": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "oi_trs_014": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "oi_trs_015": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "oi_trs_016": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "oi_trs_017": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "oi_trs_018": {
+      "currentState": 5,
+      "desiredState": 5
+    }
+  },
+  "tacrAnswersPartial": {
+    "str_mod_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_mod_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_mod_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_mod_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_mod_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_mod_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_mod_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_mod_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_mod_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_mod_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_mod_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "str_mod_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "str_mod_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "str_mod_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_mod_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_mod_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_mod_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_mod_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_tfa_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_tfa_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_tfa_003": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_tfa_004": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_tfa_005": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_tfa_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_tfa_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_tfa_008": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "str_tfa_009": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "str_tfa_010": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "str_tfa_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_tfa_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_tfa_013": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_tfa_014": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_tfa_015": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_tfa_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_tfa_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_tfa_018": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_dig_001": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_dig_002": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_dig_003": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_dig_004": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_dig_005": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "str_dig_006": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "str_dig_007": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "str_dig_008": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_dig_009": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_dig_010": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_dig_011": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_dig_012": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_dig_013": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_dig_014": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_dig_015": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_dig_016": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_dig_017": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_sth_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_sth_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_sth_003": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "str_sth_004": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "str_sth_005": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "str_sth_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_sth_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_sth_008": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "str_sth_009": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "str_sth_010": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_sth_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_sth_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "str_sth_013": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "str_sth_014": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "str_sth_015": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "str_sth_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "str_sth_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_wfa_001": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_wfa_002": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_wfa_003": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_wfa_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_wfa_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_wfa_006": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_wfa_007": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_wfa_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_wfa_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_wfa_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_wfa_011": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_wfa_012": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_wfa_013": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_wfa_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_wfa_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_wfa_016": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_wfa_017": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_wfa_018": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_wfa_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_wfa_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_dsc_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_dsc_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_dsc_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_dsc_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_dsc_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_dsc_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_dsc_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_dsc_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_dsc_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_dsc_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_dsc_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_dsc_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_dsc_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_dsc_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_dsc_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_dsc_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_dsc_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_dsc_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_dsc_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_dsc_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_trn_001": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_trn_002": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_trn_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_trn_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_trn_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_trn_006": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_trn_007": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_trn_008": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_trn_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_trn_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_trn_011": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_trn_012": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_trn_013": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_trn_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_trn_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_trn_016": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_trn_017": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_trn_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_trn_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_trn_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_chm_001": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_chm_002": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_chm_003": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_chm_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_chm_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_chm_006": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "org_chm_007": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "org_chm_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_chm_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_chm_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_chm_011": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "org_chm_012": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "org_chm_013": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "org_chm_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_chm_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "org_chm_016": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "org_chm_017": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "org_chm_018": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "org_chm_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "org_chm_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_wco_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_wco_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_wco_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_wco_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_wco_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_wco_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_wco_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_wco_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_wco_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_wco_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_wco_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_wco_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_wco_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_wco_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_wco_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_wco_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_wco_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_wco_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_msd_001": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_msd_002": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_msd_003": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_msd_004": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_msd_005": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_msd_006": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_msd_007": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_msd_008": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_msd_009": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_msd_010": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_msd_011": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_msd_012": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_msd_013": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_msd_014": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_msd_015": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_msd_016": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_msd_017": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_msd_018": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_dql_001": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_dql_002": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dql_003": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dql_004": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dql_005": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_dql_006": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_dql_007": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_dql_008": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dql_009": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dql_010": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_dql_011": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_dql_012": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dql_013": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dql_014": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dql_015": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_dql_016": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_dql_017": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dql_018": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dsh_001": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dsh_002": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_dsh_003": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_dsh_004": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_dsh_005": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dsh_006": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dsh_007": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_dsh_008": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_dsh_009": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dsh_010": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dsh_011": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dsh_012": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_dsh_013": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_dsh_014": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_dsh_015": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_dsh_016": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_dsh_017": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_dsh_018": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_prs_001": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_prs_002": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_prs_003": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_prs_004": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "dg_prs_005": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "dg_prs_006": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_prs_007": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_prs_008": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_prs_009": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "dg_prs_010": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "dg_prs_011": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "dg_prs_012": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_prs_013": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "dg_prs_014": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "dg_prs_015": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "dg_prs_016": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "dg_prs_017": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "dg_prs_018": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_001": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_web_002": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_web_003": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_web_004": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_web_005": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_006": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_web_007": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_web_008": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_web_009": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_web_010": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_011": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "inf_web_012": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "inf_web_013": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "inf_web_014": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_web_015": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_016": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_web_017": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_web_018": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_web_019": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_web_020": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_web_021": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_web_022": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_psw_001": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_psw_002": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_psw_003": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_psw_004": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "inf_psw_005": {
+      "currentState": 2,
+      "desiredState": 5
+    },
+    "inf_psw_006": {
+      "currentState": 3,
+      "desiredState": 4
+    },
+    "inf_psw_007": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_psw_008": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_psw_009": {
+      "currentState": 1,
+      "desiredState": 2
+    },
+    "inf_psw_010": {
+      "currentState": 2,
+      "desiredState": 4
+    },
+    "inf_psw_011": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_psw_012": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_psw_013": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_psw_014": {
+      "currentState": 1,
+      "desiredState": 4
+    },
+    "inf_psw_015": {
+      "currentState": 2,
+      "desiredState": 3
+    },
+    "inf_psw_016": {
+      "currentState": 3,
+      "desiredState": 5
+    },
+    "inf_psw_017": {
+      "currentState": 4,
+      "desiredState": 5
+    },
+    "inf_psw_018": {
+      "currentState": 5,
+      "desiredState": 5
+    },
+    "inf_psw_019": {
+      "currentState": 1,
+      "desiredState": 3
+    },
+    "inf_psw_020": {
+      "currentState": 2,
+      "desiredState": 5
+    }
   }
 }

@@ -2,7 +2,7 @@ import { type ReactNode, useState, useEffect, useCallback } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import {
   LayoutDashboard, Globe, Target, Share2,
-  BarChart3, TrendingUp, Map, Flag, Briefcase,
+  BarChart3, TrendingUp, Map, Flag, Briefcase, Library,
   ChevronLeft, ChevronRight, Search, ArrowLeft, Home,
 } from 'lucide-react'
 import TaiwCommandPalette from './TaiwCommandPalette'
@@ -15,6 +15,9 @@ const navItems = [
   { path: '/taiw/capabilities', label: 'Capabilities', icon: Target },
   { path: '/taiw/graph', label: 'Dependencies', icon: Share2 },
   { path: '/taiw/maturity', label: 'Maturity', icon: BarChart3 },
+  // Straight after Maturity: the crosswalk is that assessment in three other
+  // vocabularies, and it is unreadable before a reader knows what was assessed.
+  { path: '/taiw/frameworks', label: 'Frameworks', icon: Library },
   { path: '/taiw/analytics', label: 'Analytics', icon: TrendingUp },
   { path: '/taiw/roadmap', label: 'Roadmap', icon: Map },
   { path: '/taiw/pakistan', label: 'Pakistan Trade', icon: Flag },

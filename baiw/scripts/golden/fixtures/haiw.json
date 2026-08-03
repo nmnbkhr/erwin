@@ -8,9 +8,19 @@
   "dataSources": [
     "src/data/haiw/capabilities.json",
     "src/data/haiw/crosswalk.json",
-    "src/data/haiw/hacrQuestions.json"
+    "src/data/haiw/hacrQuestions.json",
+    "src/frameworks/data/frameworks.json"
   ],
   "notes": [
+    "frameworks.json joined dataSources in D5 stage E3. SHARED_DATASETS in",
+    "fingerprint-decl.mjs covers it for DGIW only - that constant is DGIW's",
+    "directory-hash supplement - and until E3 no other module's generators read",
+    "it. HAIW's new alignment pack and scorecard reach it through",
+    "src/haiw/projection.ts, so a DMBOK2, DCAM, DGI or COBIT dimension-weight",
+    "edit would have moved every figure on both documents while `source datasets`",
+    "printed stable. FINGERPRINT-COVERAGE found it on the commit that started",
+    "reading it, which is the whole point of E1 preceding E3.",
+    "",
     "All 720 HACR questions answered, in hacrQuestions.json order, which is the",
     "order Object.values(answers) yields in the live component.",
     "currentState = 1 + (k % 5); desiredState = min(5, currentState + 1 + (k % 3)).",
@@ -24,6 +34,18 @@
     "next, which is the one property the spine exists to give them. The gap CSV",
     "reads none of these three - its raw-bytes baseline is unaffected, and that",
     "is checked, not assumed.",
+    "questions[] GAINED category + subcategory IN D5 STAGE E3, and it is now the",
+    "input to two generators reading two different Picks of it. The maturity PDF",
+    "reads id + weight; the framework projection derives the 80-subcategory spine",
+    "from id + subcategory and renders `category / subcategory`. Two fields, 720",
+    "rows, no second array - duplicating the ids would be a second copy of a list",
+    "the first one already holds. The maturity baselines must NOT move: neither",
+    "field is read by that generator, and compare.mjs is what proves it rather",
+    "than this sentence.",
+    "answersPartial is what reaches the alignment pack's not-assessed and",
+    "partly-scored sections. At 720-of-720 every mapped dimension is 100% scored",
+    "and all three of those sections render empty.",
+    "",
     "questions[] was added in D3 to score each capability from the HACR questions",
     "linked to it. It holds exactly the fields the generator reads, which is complete",
     "for what is read rather than a sample. The real call site passes full",
@@ -7447,2883 +7469,4323 @@
   "questions": [
     {
       "id": "HACR-SL-001",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-002",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-003",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-004",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-005",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-006",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-007",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-008",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-009",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Health Analytics Vision & Strategy"
     },
     {
       "id": "HACR-SL-010",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-011",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-012",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-013",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-014",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-015",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-016",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-017",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-018",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Executive Sponsorship & Governance"
     },
     {
       "id": "HACR-SL-019",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-020",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-021",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-022",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-023",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-024",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-025",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-026",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-027",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Analytics Roadmap & Investment"
     },
     {
       "id": "HACR-SL-028",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-029",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-030",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-031",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-032",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-033",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-034",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-035",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-036",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Change Management & Adoption"
     },
     {
       "id": "HACR-SL-037",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-038",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-039",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-040",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-041",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-042",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-043",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-044",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-045",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Regulatory Alignment"
     },
     {
       "id": "HACR-SL-046",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-047",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-048",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-049",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-050",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-051",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-052",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-053",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-054",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Strategic Partnerships"
     },
     {
       "id": "HACR-SL-055",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-056",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-057",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-058",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-059",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-060",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-061",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-062",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-063",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Innovation Culture"
     },
     {
       "id": "HACR-SL-064",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-065",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-066",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-067",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-068",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-069",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-070",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-071",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-072",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Performance Accountability"
     },
     {
       "id": "HACR-SL-073",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-074",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-075",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-076",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-077",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-078",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-079",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-080",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-081",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "Data-Driven Decision Making"
     },
     {
       "id": "HACR-SL-082",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-SL-083",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-SL-084",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-SL-085",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-SL-086",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-SL-087",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-SL-088",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-SL-089",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-SL-090",
-      "weight": 1
+      "weight": 1,
+      "category": "Strategy & Leadership",
+      "subcategory": "National Health Strategy Alignment"
     },
     {
       "id": "HACR-WS-091",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-092",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-093",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-094",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-095",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-096",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-097",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-098",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-099",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Data Science & Analytics Talent"
     },
     {
       "id": "HACR-WS-100",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-101",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-102",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-103",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-104",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-105",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-106",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-107",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-108",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Clinical Informatics Skills"
     },
     {
       "id": "HACR-WS-109",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-110",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-111",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-112",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-113",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-114",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-115",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-116",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-117",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Health IT Competencies"
     },
     {
       "id": "HACR-WS-118",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-119",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-120",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-121",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-122",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-123",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-124",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-125",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-126",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Training & Development Programs"
     },
     {
       "id": "HACR-WS-127",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-128",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-129",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-130",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-131",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-132",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-133",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-134",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-135",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Workforce Planning"
     },
     {
       "id": "HACR-WS-136",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-137",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-138",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-139",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-140",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-141",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-142",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-143",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-144",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Knowledge Management"
     },
     {
       "id": "HACR-WS-145",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-146",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-147",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-148",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-149",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-150",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-151",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-152",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-153",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Interdisciplinary Collaboration"
     },
     {
       "id": "HACR-WS-154",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-155",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-156",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-157",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-158",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-159",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-160",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-161",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-162",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Digital Literacy"
     },
     {
       "id": "HACR-WS-163",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-164",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-165",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-166",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-167",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-168",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-169",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-170",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-171",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Continuous Learning Culture"
     },
     {
       "id": "HACR-WS-172",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-WS-173",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-WS-174",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-WS-175",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-WS-176",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-WS-177",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-WS-178",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-WS-179",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-WS-180",
-      "weight": 1
+      "weight": 1,
+      "category": "Workforce & Skills",
+      "subcategory": "Recruitment & Retention"
     },
     {
       "id": "HACR-DG-181",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-182",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-183",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-184",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-185",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-186",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-187",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-188",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-189",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Governance Framework"
     },
     {
       "id": "HACR-DG-190",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-191",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-192",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-193",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-194",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-195",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-196",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-197",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-198",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Quality Management"
     },
     {
       "id": "HACR-DG-199",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-200",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-201",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-202",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-203",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-204",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-205",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-206",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-207",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Master Data Management"
     },
     {
       "id": "HACR-DG-208",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-209",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-210",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-211",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-212",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-213",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-214",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-215",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-216",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Metadata Management"
     },
     {
       "id": "HACR-DG-217",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-218",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-219",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-220",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-221",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-222",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-223",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-224",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-225",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Privacy & Security"
     },
     {
       "id": "HACR-DG-226",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-227",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-228",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-229",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-230",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-231",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-232",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-233",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-234",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Standards Adoption"
     },
     {
       "id": "HACR-DG-235",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-236",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-237",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-238",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-239",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-240",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-241",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-242",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-243",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Stewardship"
     },
     {
       "id": "HACR-DG-244",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-245",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-246",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-247",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-248",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-249",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-250",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-251",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-252",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Lifecycle Management"
     },
     {
       "id": "HACR-DG-253",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-254",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-255",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-256",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-257",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-258",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-259",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-260",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-261",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Regulatory Compliance"
     },
     {
       "id": "HACR-DG-262",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-DG-263",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-DG-264",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-DG-265",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-DG-266",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-DG-267",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-DG-268",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-DG-269",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-DG-270",
-      "weight": 1
+      "weight": 1,
+      "category": "Data Governance & Standards",
+      "subcategory": "Data Ethics"
     },
     {
       "id": "HACR-IS-271",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-272",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-273",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-274",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-275",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-276",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-277",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-278",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-279",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Health Information Systems"
     },
     {
       "id": "HACR-IS-280",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-281",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-282",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-283",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-284",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-285",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-286",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-287",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-288",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Data Warehouse & Analytics Platform"
     },
     {
       "id": "HACR-IS-289",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-290",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-291",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-292",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-293",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-294",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-295",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-296",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-297",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cloud Infrastructure"
     },
     {
       "id": "HACR-IS-298",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-299",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-300",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-301",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-302",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-303",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-304",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-305",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-306",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Integration Architecture"
     },
     {
       "id": "HACR-IS-307",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-308",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-309",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-310",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-311",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-312",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-313",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-314",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-315",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Business Intelligence Tools"
     },
     {
       "id": "HACR-IS-316",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-317",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-318",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-319",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-320",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-321",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-322",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-323",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-324",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Real-time Processing"
     },
     {
       "id": "HACR-IS-325",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-326",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-327",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-328",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-329",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-330",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-331",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-332",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-333",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Disaster Recovery"
     },
     {
       "id": "HACR-IS-334",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-335",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-336",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-337",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-338",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-339",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-340",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-341",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-342",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Scalability & Performance"
     },
     {
       "id": "HACR-IS-343",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-344",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-345",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-346",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-347",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-348",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-349",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-350",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-351",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Mobile & Edge Computing"
     },
     {
       "id": "HACR-IS-352",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-IS-353",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-IS-354",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-IS-355",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-IS-356",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-IS-357",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-IS-358",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-IS-359",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-IS-360",
-      "weight": 1
+      "weight": 1,
+      "category": "Infrastructure & Systems",
+      "subcategory": "Cybersecurity"
     },
     {
       "id": "HACR-AI-361",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-362",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-363",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-364",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-365",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-366",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-367",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-368",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-369",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Descriptive Analytics"
     },
     {
       "id": "HACR-AI-370",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-371",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-372",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-373",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-374",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-375",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-376",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-377",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-378",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Diagnostic Analytics"
     },
     {
       "id": "HACR-AI-379",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-380",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-381",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-382",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-383",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-384",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-385",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-386",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-387",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Predictive Analytics"
     },
     {
       "id": "HACR-AI-388",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-389",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-390",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-391",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-392",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-393",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-394",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-395",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-396",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Prescriptive Analytics"
     },
     {
       "id": "HACR-AI-397",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-398",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-399",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-400",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-401",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-402",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-403",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-404",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-405",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Clinical Analytics"
     },
     {
       "id": "HACR-AI-406",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-407",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-408",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-409",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-410",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-411",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-412",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-413",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-414",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Operational Analytics"
     },
     {
       "id": "HACR-AI-415",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-416",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-417",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-418",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-419",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-420",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-421",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-422",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-423",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Financial Analytics"
     },
     {
       "id": "HACR-AI-424",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-425",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-426",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-427",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-428",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-429",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-430",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-431",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-432",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Population Health Analytics"
     },
     {
       "id": "HACR-AI-433",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-434",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-435",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-436",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-437",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-438",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-439",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-440",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-441",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "AI & Machine Learning"
     },
     {
       "id": "HACR-AI-442",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-AI-443",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-AI-444",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-AI-445",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-AI-446",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-AI-447",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-AI-448",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-AI-449",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-AI-450",
-      "weight": 1
+      "weight": 1,
+      "category": "Analytics & Intelligence",
+      "subcategory": "Natural Language Processing"
     },
     {
       "id": "HACR-II-451",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-452",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-453",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-454",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-455",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-456",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-457",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-458",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-459",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "FHIR Adoption"
     },
     {
       "id": "HACR-II-460",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-461",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-462",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-463",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-464",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-465",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-466",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-467",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-468",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "HL7 Messaging"
     },
     {
       "id": "HACR-II-469",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-470",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-471",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-472",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-473",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-474",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-475",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-476",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-477",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "API Management"
     },
     {
       "id": "HACR-II-478",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-479",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-480",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-481",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-482",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-483",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-484",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-485",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-486",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Health Information Exchange"
     },
     {
       "id": "HACR-II-487",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-488",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-489",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-490",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-491",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-492",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-493",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-494",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-495",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Cross-System Integration"
     },
     {
       "id": "HACR-II-496",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-497",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-498",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-499",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-500",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-501",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-502",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-503",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-504",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Data Federation"
     },
     {
       "id": "HACR-II-505",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-506",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-507",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-508",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-509",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-510",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-511",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-512",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-513",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Terminology Services"
     },
     {
       "id": "HACR-II-514",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-515",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-516",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-517",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-518",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-519",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-520",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-521",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-522",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Document Exchange"
     },
     {
       "id": "HACR-II-523",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-524",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-525",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-526",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-527",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-528",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-529",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-530",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-531",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Real-time Event Streaming"
     },
     {
       "id": "HACR-II-532",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-II-533",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-II-534",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-II-535",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-II-536",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-II-537",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-II-538",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-II-539",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-II-540",
-      "weight": 1
+      "weight": 1,
+      "category": "Integration & Interoperability",
+      "subcategory": "Legacy System Integration"
     },
     {
       "id": "HACR-PC-541",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-542",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-543",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-544",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-545",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-546",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-547",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-548",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-549",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Portal Capabilities"
     },
     {
       "id": "HACR-PC-550",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-551",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-552",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-553",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-554",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-555",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-556",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-557",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-558",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Mobile Health Applications"
     },
     {
       "id": "HACR-PC-559",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-560",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-561",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-562",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-563",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-564",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-565",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-566",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-567",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Data Access"
     },
     {
       "id": "HACR-PC-568",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-569",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-570",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-571",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-572",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-573",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-574",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-575",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-576",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Health Education & Literacy"
     },
     {
       "id": "HACR-PC-577",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-578",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-579",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-580",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-581",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-582",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-583",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-584",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-585",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Community Health Programs"
     },
     {
       "id": "HACR-PC-586",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-587",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-588",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-589",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-590",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-591",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-592",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-593",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-594",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Telehealth Analytics"
     },
     {
       "id": "HACR-PC-595",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-596",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-597",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-598",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-599",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-600",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-601",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-602",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-603",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Patient Feedback Systems"
     },
     {
       "id": "HACR-PC-604",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-605",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-606",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-607",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-608",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-609",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-610",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-611",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-612",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Shared Decision Making"
     },
     {
       "id": "HACR-PC-613",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-614",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-615",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-616",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-617",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-618",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-619",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-620",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-621",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Social Determinants Integration"
     },
     {
       "id": "HACR-PC-622",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-PC-623",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-PC-624",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-PC-625",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-PC-626",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-PC-627",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-PC-628",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-PC-629",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-PC-630",
-      "weight": 1
+      "weight": 1,
+      "category": "Patient & Community Engagement",
+      "subcategory": "Digital Health Equity"
     },
     {
       "id": "HACR-OI-631",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-632",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-633",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-634",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-635",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-636",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-637",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-638",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-639",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Clinical Outcome Measurement"
     },
     {
       "id": "HACR-OI-640",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-641",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-642",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-643",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-644",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-645",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-646",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-647",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-648",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Patient Experience Metrics"
     },
     {
       "id": "HACR-OI-649",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-650",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-651",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-652",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-653",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-654",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-655",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-656",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-657",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Financial Impact Assessment"
     },
     {
       "id": "HACR-OI-658",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-659",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-660",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-661",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-662",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-663",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-664",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-665",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-666",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Operational Efficiency Gains"
     },
     {
       "id": "HACR-OI-667",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-668",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-669",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-670",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-671",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-672",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-673",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-674",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-675",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Population Health Outcomes"
     },
     {
       "id": "HACR-OI-676",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-677",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-678",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-679",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-680",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-681",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-682",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-683",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-684",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Quality Improvement"
     },
     {
       "id": "HACR-OI-685",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-686",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-687",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-688",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-689",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-690",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-691",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-692",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-693",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Research & Innovation"
     },
     {
       "id": "HACR-OI-694",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-695",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-696",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-697",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-698",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-699",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-700",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-701",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-702",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Health Equity Metrics"
     },
     {
       "id": "HACR-OI-703",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-704",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-705",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-706",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-707",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-708",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-709",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-710",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-711",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Sustainability & Scalability"
     },
     {
       "id": "HACR-OI-712",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     },
     {
       "id": "HACR-OI-713",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     },
     {
       "id": "HACR-OI-714",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     },
     {
       "id": "HACR-OI-715",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     },
     {
       "id": "HACR-OI-716",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     },
     {
       "id": "HACR-OI-717",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     },
     {
       "id": "HACR-OI-718",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     },
     {
       "id": "HACR-OI-719",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     },
     {
       "id": "HACR-OI-720",
-      "weight": 1
+      "weight": 1,
+      "category": "Outcomes & Impact",
+      "subcategory": "Benchmarking & Comparison"
     }
   ],
   "answersPartial": [

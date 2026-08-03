@@ -1029,13 +1029,32 @@ export default {
    * and sharing one bundle would make that comparison circular.
    */
   tsModules: { projection: 'src/haiw/projection.ts', maturity: 'src/scoring/maturity.ts' },
-  reportSources: [{ rel: 'src/haiw/utils/healthReportGenerator.ts', kind: 'file' }],
+  /*
+   * `src/haiw/report` joins the set in D5 stage E3 — see modules/taiw.mjs for the full
+   * note on why declaring the directory is what makes the stage visible to the gate at
+   * all. The generators are shared and declared by `_spine`; these are the bindings.
+   */
+  reportSources: [
+    { rel: 'src/haiw/utils/healthReportGenerator.ts', kind: 'file' },
+    { rel: 'src/haiw/report', kind: 'dir' },
+  ],
   /*
    * `MR-HAIW-GAP` -> `MR-HAIW-REGISTER`, D5 stage E2. The word "gap" was true of the
    * arithmetic and false of the data: the gap was computed from `capabilityLinks`,
    * which is a modular counter (D-016). All three modules now ship a register.
+   *
+   * `MR-HAIW-ALIGNMENT` and `MR-HAIW-SCORECARD` added in D5 stage E3 — `MR-` for the
+   * reason modules/taiw.mjs records. ALIGNMENT produces FOUR documents where TAIW's
+   * produces three, because DGI reaches 100% of itself on HACR and 59% on TACR; the
+   * contrast is a finding and `HAIW_CAVEATS` states it on both deliverables.
    */
-  artefactIds: ['MR-HAIW-MATURITY', 'MR-HAIW-REGISTER', 'MR-HAIW-ROADMAP'],
+  artefactIds: [
+    'MR-HAIW-MATURITY',
+    'MR-HAIW-REGISTER',
+    'MR-HAIW-ROADMAP',
+    'MR-HAIW-ALIGNMENT',
+    'MR-HAIW-SCORECARD',
+  ],
 
   /** Declared run order — this is the order findings print in. */
   checks: [

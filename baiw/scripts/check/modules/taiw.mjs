@@ -411,67 +411,49 @@ const benchmarkRollup = makeBenchmarkRollup({
  */
 const CROSSWALK_FRAMEWORKS = ['FW-01', 'FW-02', 'FW-04']
 
-/** `<category>_<section>` — measured 1:1 with all 35 sections, zero ambiguous. */
-const sectionIdOf = (questionId) => String(questionId).split('_').slice(0, 2).join('_')
-
-/** The 35 sections, in dataset order, as spine nodes. */
-const tacrSpine = (ctx) => {
-  const out = []
-  for (const c of (ctx.data.tacr?.categories ?? []))
-    for (const sec of (c.sections ?? [])) {
-      const first = sec.questions?.[0]
-      if (!first) continue
-      out.push({ id: sectionIdOf(first.id), name: `${c.name} / ${sec.name}` })
-    }
-  return out
-}
+/*
+ * `sectionIdOf` moved to `src/taiw/projection.ts::tacrSectionIdOf` in D5 stage E3,
+ * with the composition. It is reached through `ctx.ts.projection` at the one place
+ * this file still needs it — building a profile that leaves three sections unanswered
+ * — so the derivation a test input is constructed from is the derivation the spine is
+ * built from, rather than a copy that agrees.
+ */
 
 /**
- * Section-grouped applicables for an answer map, through the REAL primitive.
+ * The 35 sections as spine nodes — FROM `src/taiw/projection.ts`, not derived here.
  *
- * `scoreCategories` from `src/scoring/maturity.ts` — the same function the
- * assessment screen and the report call. The engine is handed the outcomes; it
- * never derives one. That is the D-003 rule as a function signature, and it is
- * the whole reason the projection engine takes `outcomes` as a parameter.
+ * D5 stage E3. This file used to build the spine itself; that composition now lives
+ * in the module the page and both PDFs run, and is loaded through `tsModules`. The
+ * whole value is that PROJECTION-INVARIANT below verifies THAT code rather than a
+ * second implementation which agrees with it today.
  *
- * STAND-IN, AND SAID SO. Production has no `src/taiw/projection.ts` yet — this
- * stage is datasets and checks only. When the UI lands and that binding is
- * written, THIS COMPOSITION MOVES INTO IT and the rule file loads it the way
- * dgiw.mjs loads DGIW's. Two copies of it would be exactly the drift this file
- * spends nine other checks preventing.
+ * Returns [] when the TS load failed. Every class bound to it reports under its own
+ * name in that case — the esbuild failure that silenced CROSSWALK-DISTINCTNESS behind
+ * a `projection ? … : []` is the shape this repo records as a silent defect.
  */
-const tacrOutcomes = (ctx, answers) => {
-  const { maturity } = ctx.ts ?? {}
-  if (!maturity) return null
-  const groups = []
-  for (const c of (ctx.data.tacr?.categories ?? []))
-    for (const sec of (c.sections ?? [])) {
-      const qs = sec.questions ?? []
-      if (qs.length === 0) continue
-      groups.push({
-        name: sectionIdOf(qs[0].id),
-        entries: qs.map((q) => ({ weight: 1, answer: answers[q.id] })),
-      })
-    }
-  return maturity.scoreCategories(groups).map((o) => ({
-    spineId: o.name,
-    state: o.agg.state,
-    score: o.agg.state === 'scored' ? o.agg.currentRaw : null,
-  }))
-}
+const tacrSpine = (ctx) => ctx.ts?.projection?.tacrSpine(ctx.data.tacr?.categories ?? []) ?? []
+
+/*
+ * `tacrOutcomes` IS GONE, and its absence is the deliverable of D5 stage E3.
+ *
+ * It was a STAND-IN and said so: production had no `src/taiw/projection.ts`, because
+ * D5 stage C shipped datasets and checks with no UI. Its comment set the condition
+ * for its own removal — "when the UI lands and that binding is written, THIS
+ * COMPOSITION MOVES INTO IT ... two copies of it would be exactly the drift this file
+ * spends nine other checks preventing."
+ *
+ * The binding is written. `src/taiw/projection.ts::tacrSectionOutcomes` is the one
+ * copy, reached below through `tsModules`, and the engine the checks exercise is now
+ * the engine the page and both PDFs build.
+ */
 
 /** An engine bound to this module's data, or null when the TS load failed. */
 const tacrEngine = (ctx) => {
-  const { frameworks: fwmod, maturity } = ctx.ts ?? {}
-  if (!fwmod || !maturity) return null
-  const fw = ctx.shared('_spine').fw ?? {}
-  return fwmod.createProjectionEngine({
-    frameworks: (fw.frameworks ?? []).filter((f) => CROSSWALK_FRAMEWORKS.includes(f.id)),
-    dimensions: (fw.dimensions ?? []).filter((d) => CROSSWALK_FRAMEWORKS.includes(d.frameworkId)),
-    mappings: ctx.data.xw?.entries ?? [],
-    spine: tacrSpine(ctx),
-    outcomes: (answers) => tacrOutcomes(ctx, answers) ?? [],
-  })
+  const { projection } = ctx.ts ?? {}
+  if (!projection) return null
+  // The module's own factory, over the module's own data. Nothing about the
+  // composition is restated here — that was the stand-in, and it is gone.
+  return projection.createTaiwProjection(ctx.data.tacr?.categories ?? [])
 }
 
 /**
@@ -563,7 +545,7 @@ const projectionInvariant = {
     }
     const SEEDED = seeded()
     const withoutSections = (base, skip) =>
-      Object.fromEntries(Object.entries(base).filter(([id]) => !skip.includes(sectionIdOf(id))))
+      Object.fromEntries(Object.entries(base).filter(([id]) => !skip.includes(ctx.ts.projection.tacrSectionIdOf(id))))
 
     const PROFILES = [
       { name: 'flat 3.0', answers: constant(3), flat: true },
@@ -583,7 +565,14 @@ const projectionInvariant = {
       const projections = engine.projectAll(answers)
       // Independently computed, not read back out of the projection. This is what
       // makes I1 and I3 mean anything.
-      const independent = new Map((tacrOutcomes(ctx, answers) ?? []).map((o) => [o.spineId, o]))
+      // `tacrSectionOutcomes` calls `maturity.ts::scoreCategories` directly and never
+      // touches the engine, so this is still an INDEPENDENT computation in the sense
+      // that matters: it verifies the engine's contributions against what the scoring
+      // primitive says, not against the engine's own view of itself. Same shape as
+      // dgiw.mjs, which reads its independent side out of `scoring.scorePillars`.
+      const independent = new Map(
+        ctx.ts.projection.tacrSectionOutcomes(ctx.data.tacr?.categories ?? [], answers).map((o) => [o.spineId, o]),
+      )
 
       for (const proj of projections) {
         const at = `${profile.name} / ${proj.code}`
@@ -689,9 +678,49 @@ export default {
    * projection USED against section scores computed from maturity.ts directly, and
    * sharing one bundle would make that comparison circular.
    */
-  tsModules: { frameworks: 'src/frameworks/projection.ts', maturity: 'src/scoring/maturity.ts' },
-  reportSources: [{ rel: 'src/taiw/utils/tradeReportGenerator.ts', kind: 'file' }],
-  artefactIds: ['MR-TAIW-MATURITY', 'MR-TAIW-REGISTER', 'MR-TAIW-ROADMAP'],
+  /*
+   * `projection` replaces the `frameworks` + `maturity` pair, D5 stage E3.
+   *
+   * The rule file used to import the engine and the scoring primitive and compose
+   * them itself. It now loads the module that already does — the same way dgiw.mjs
+   * loads DGIW's — so there is one composition rather than two that agree.
+   */
+  tsModules: { projection: 'src/taiw/projection.ts', maturity: 'src/scoring/maturity.ts' },
+  /*
+   * `src/taiw/report` joins the set in D5 stage E3 — the framework alignment pack and
+   * the multi-framework scorecard. The generators themselves are shared and declared by
+   * `_spine`; these are the bindings that own the artefact ids and call them.
+   *
+   * DECLARING THE DIRECTORY IS WHAT MAKES THE STAGE VISIBLE TO THE GATE. Until it
+   * landed, REPORT-SOURCES resolved 18 files from 5 locations and none of the new code
+   * was among them, so CSV-HEADER, TEXT-MAXWIDTH and ARTEFACT-IMPL each ran over a set
+   * that excluded the two newest generators in the suite. A gate is only ever as wide as
+   * this list, which is why the file count prints on every build.
+   */
+  reportSources: [
+    { rel: 'src/taiw/utils/tradeReportGenerator.ts', kind: 'file' },
+    { rel: 'src/taiw/report', kind: 'dir' },
+  ],
+  /*
+   * `MR-TAIW-ALIGNMENT` and `MR-TAIW-SCORECARD` added in D5 stage E3.
+   *
+   * `MR-`, not `AR-`: the `AR-*` register is DGIW's forty-eight-item delivery catalogue
+   * and DGIW's own alignment pack is AR-47 because that register catalogues it. TACR has
+   * no register, so an `AR-` id on a TAIW cover would cite an entry that does not exist.
+   * The accepted prefix set is DERIVED from the modules declaring artefactIds, so adding
+   * the ids here is the whole of what ARTEFACT-IMPL has to be told.
+   *
+   * ALIGNMENT is one id producing THREE documents, one per offered framework — the same
+   * shape as AR-47's four. They are one deliverable in three vocabularies; the caller
+   * separates them in the filename.
+   */
+  artefactIds: [
+    'MR-TAIW-MATURITY',
+    'MR-TAIW-REGISTER',
+    'MR-TAIW-ROADMAP',
+    'MR-TAIW-ALIGNMENT',
+    'MR-TAIW-SCORECARD',
+  ],
 
   /** Declared run order — this is the order findings print in. */
   checks: [

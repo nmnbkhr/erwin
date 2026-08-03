@@ -38,7 +38,26 @@ export default {
   title: 'shared report spine',
   dataDir: 'src/frameworks/data',
   datasets: { fw: 'frameworks.json' },
-  reportSources: [{ rel: 'src/report', kind: 'dir' }],
+  /*
+   * TWO LOCATIONS AS OF D5 STAGE E3.
+   *
+   * `src/frameworks/report` holds `projectionReports.ts` — the framework alignment
+   * pack and the multi-framework scorecard, parameterised, shared by TAIW and HAIW
+   * rather than copied into each. It belongs to this entry for the same reason
+   * `frameworks.json` does: it is suite-level code owned by no module, and leaving
+   * it undeclared would mean the two generators MOST likely to forget a content
+   * digest were the two ARTEFACT-IMPL could not see. They call `createReport`
+   * twice; before E3 declared this, the digest rule applied to neither.
+   *
+   * The precedent is D2's, and it is exactly this shape: adding `src/report` to the
+   * set found THREE live TEXT-MAXWIDTH instances inside `spine.ts` against zero in
+   * DGIW's generators. Shared code that every caller runs through is where the worst
+   * instances sit, and it is the last place a per-module scope would look.
+   */
+  reportSources: [
+    { rel: 'src/report', kind: 'dir' },
+    { rel: 'src/frameworks/report', kind: 'dir' },
+  ],
   checks: [],
 
   summary(ctx) {

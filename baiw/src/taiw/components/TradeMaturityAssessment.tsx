@@ -474,6 +474,11 @@ export default function TradeMaturityAssessment() {
           overallScore={overallScore ?? 0}
           answeredCategories={answeredCategoryCount}
           totalCategories={categories.length}
+          /* Raw answers and the tree, for the two framework deliverables. A
+             projection buckets by TACR SECTION, which `scores` has already
+             aggregated away — see the prop's note in TradeReportGenerator. */
+          answers={answers}
+          categories={categories}
         />
       </div>
     )

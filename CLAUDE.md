@@ -209,16 +209,26 @@ outside from a reporter that stopped running.
 ## The declared report source set
 
 Three classes — CSV-HEADER, TEXT-MAXWIDTH and ARTEFACT-IMPL — read source code
-rather than data, and they read exactly what the registry declares. Five
-locations from five rule files, resolving to 18 `.ts` files:
+rather than data, and they read exactly what the registry declares. **Eight
+locations from five rule files, resolving to 27 `.ts` files** as of D5 stage E3:
 
 | Location | Declared by |
 |---|---|
 | `src/report` | `check/modules/_spine.mjs` |
+| `src/frameworks/report` | `check/modules/_spine.mjs` |
 | `src/utils/reportGenerator.ts` | `check/modules/baiw.mjs` |
 | `src/taiw/utils/tradeReportGenerator.ts` | `check/modules/taiw.mjs` |
+| `src/taiw/report` | `check/modules/taiw.mjs` |
 | `src/haiw/utils/healthReportGenerator.ts` | `check/modules/haiw.mjs` |
+| `src/haiw/report` | `check/modules/haiw.mjs` |
 | `src/dgiw/report` | `check/modules/dgiw.mjs` |
+
+The three new ones arrived with the projection deliverables, and declaring them
+was the FIRST step of that stage rather than the last. Until they landed the
+gate read 18 files from 5 locations and the two newest generators in the suite —
+the two most likely to forget a content digest, being written from scratch — had
+no digest rule applied to them at all. Everything else in E3 was invisible to
+`check.mjs` until this list moved.
 
 `tsModules` is the separate mechanism for source a check must *run* rather than
 read: `src/dgiw/projection.ts` + `scoring.ts`, `src/haiw/projection.ts` +
@@ -861,11 +871,33 @@ spine.** `frameworks.json` holds the published structure of DMBOK2, DCAM, DGI an
 COBIT 2019 — 48 dimensions, 44 leaf — and no module reference at all. Three
 modules project onto it:
 
-| Module | Spine | Frameworks | Entries | `spineCoverage` |
-|---|---|---|---|---|
-| DGIW | 11 curated pillars | all four | 91 `CW-D-` | **assert** |
-| TAIW | 35 TACR sections | DMBOK2, DCAM, COBIT (**not DGI** — 59% reach) | 73 `CW-T-` | report |
-| HAIW | 80 HACR subcategories | all four (DGI reaches 100%) | 168 `CW-H-` | report |
+| Module | Spine | Frameworks | Entries | `spineCoverage` | Page | Artefacts |
+|---|---|---|---|---|---|---|
+| DGIW | 11 curated pillars | all four | 91 `CW-D-` | **assert** | `/dg/frameworks` | AR-47, AR-48 |
+| TAIW | 35 TACR sections | DMBOK2, DCAM, COBIT (**not DGI** — 59% reach) | 73 `CW-T-` | report | `/taiw/frameworks` | `MR-TAIW-ALIGNMENT`, `-SCORECARD` |
+| HAIW | 80 HACR subcategories | all four (DGI reaches 100%) | 168 `CW-H-` | report | `/haiw/frameworks` | `MR-HAIW-ALIGNMENT`, `-SCORECARD` |
+
+**The two documents and the page are ONE implementation each, parameterised.**
+`src/frameworks/report/projectionReports.ts` is the alignment pack and the
+scorecard; `src/frameworks/FrameworkScorecardPage.tsx` is the page; both take the
+same `ProjectionReportModule` descriptor, so a module cannot show three
+frameworks on screen and four on paper. `src/frameworks/notes.ts` holds the
+statements that are true of every module and each module's
+`report/frameworkNotes.ts` holds its own findings.
+
+**DGIW's three are deliberately NOT migrated onto them.** Its entries carry a
+`layer` and a `pillarId` neither other module has, and moving it would put
+fourteen DGIW baseline diffs inside a TAIW/HAIW feature. It is the one remaining
+duplicate and it is recorded in `notes.ts` rather than left to be discovered.
+
+**`retainedShare` behaves differently without a layer, and both surfaces say so.**
+On TACR and HACR a leaf retains 1.0 or 0.0 and nothing between — measured, not
+assumed: `partly-RETAINED` is 0 for every framework on both modules, full and
+partial. A FRAMEWORK's retained share still varies (DMBOK2 retains 94% on TACR
+because DM07 is unreachable), and the share that moves per leaf is `scoredShare`.
+`RETAINED_IS_STRUCTURAL` in `notes.ts` is that paragraph, and the "only partly in
+scope" table renders its empty case with the reason rather than being omitted —
+a section that vanishes reads as a check that was not run.
 
 Entry ids are namespaced per module because per-file uniqueness fails the moment a
 suite-level alignment artefact aggregates them. Framework and dimension ids
