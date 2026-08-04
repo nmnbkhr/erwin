@@ -36,6 +36,7 @@
  */
 import type jsPDF from 'jspdf'
 import { contentKey, createReport, SLATE } from '../../report/spine'
+import { Refusal } from './refusal'
 import type { ReportMeta } from '../../report/types'
 import {
   CRITICAL_MIN,
@@ -141,8 +142,11 @@ export function buildGapStatementsPdf(input: GapStatementsInput): jsPDF {
   const entries = gapRegister(answers, targets, tier, meta.layer, intake)
   const exclusions = gapExclusions(answers, targets, tier, meta.layer)
 
+  // G5: a typed Refusal, not a bare Error — D-020. The message is still the
+  // predicate's own; what changed is the CHANNEL, so useDeliverable can tell
+  // a designed refusal from a real failure without reading the text.
   const refusal = gapStatementsRefusal(intake, entries)
-  if (refusal) throw new Error(refusal)
+  if (refusal) throw new Refusal(refusal)
 
   const questions = applicableQuestions(DIAG.questions, meta.layer, tier)
   const evidence = answerEvidence(normaliseAnswers(answers))

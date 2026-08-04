@@ -516,7 +516,10 @@ export function buildRoadmapPdf(input: RoadmapInput): jsPDF {
     r.sectionHeading('Deliverables')
     r.bullets(w.wave.deliverables)
     r.sectionHeading('KPIs')
-    r.bullets(w.wave.kpis)
+    // G5 gave every KPI an id (capture entries key on it); this document
+    // renders the text alone, exactly as before the ids existed — the id is a
+    // tracking key, not roadmap content, and the reference bytes stay stable.
+    r.bullets(w.wave.kpis.map((k) => k.text))
     r.sectionHeading('External dependencies')
     r.bullets(
       w.wave.externalDependencies.length

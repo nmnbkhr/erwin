@@ -278,6 +278,80 @@ const waveGraph = {
   },
 }
 
+/*
+ * ── G5: THE PLACEMENT GATE ──────────────────────────────────────────────────
+ *
+ * Artefact-to-wave placement is AUTHORED, complete and single. G4 measured
+ * the only relation that existed — exact name identity between a register
+ * row's `artefact` and a wave's free-text deliverable string, 1 of 35 — and
+ * G5 replaced it with `wave.artefactIds`, authored per wave from the wave's
+ * own deliverables/objectives prose, plus a top-level `unplacedArtefactIds`
+ * carrying a written reason for everything no wave delivers (diagnostic-rung
+ * artefacts that precede W0, recurring run-phase outputs, withdrawn shapes).
+ *
+ * The invariant is EXACTLY ONE: every register id appears in one wave's
+ * artefactIds or in the unplaced list — never neither (a silently
+ * unscheduled artefact), never both, never twice (a plan that delivers one
+ * document in two waves is two claims). Dangling ids fail in both
+ * directions, and an unplaced entry with no reason fails because unplaced is
+ * a decision, and a decision has to be written down — the mayBeEmpty rule
+ * applied to a scheduling judgement.
+ */
+const placement = {
+  code: 'PLACEMENT',
+  run(ctx) {
+    const { plan } = ctx.data
+    const { fail } = ctx
+    let examined = 0
+    const registerIds = new Set(plan.artefactRegister.map((a) => a.id))
+    const seen = new Map()
+
+    for (const w of plan.waves ?? []) {
+      if (!Array.isArray(w.artefactIds)) {
+        fail(`wave ${w.id} declares no artefactIds — placement is authored per wave, and a wave without the key is a wave whose deliverables are attached to nothing`)
+        continue
+      }
+      for (const id of w.artefactIds) {
+        examined++
+        if (!registerIds.has(id))
+          fail(`wave ${w.id} places ${id}, which the register does not catalogue — a dangling placement schedules a document that does not exist`)
+        if (seen.has(id))
+          fail(`${id} is placed twice (${seen.get(id)} and wave ${w.id}) — one artefact delivered by two waves is two claims about one document`)
+        seen.set(id, `wave ${w.id}`)
+      }
+    }
+
+    if (!Array.isArray(plan.unplacedArtefactIds)) {
+      fail(`unplacedArtefactIds is not declared — "no wave delivers this" is a decision per artefact, and without the list an id missing from every wave is indistinguishable from an id nobody thought about`)
+    } else {
+      for (const u of plan.unplacedArtefactIds) {
+        examined++
+        if (!u || typeof u.id !== 'string' || typeof u.reason !== 'string' || u.reason.trim() === '') {
+          fail(`unplaced entry ${JSON.stringify(u).slice(0, 60)} carries no reason — unplaced is a decision, and the reason is the decision written down`)
+          continue
+        }
+        if (!registerIds.has(u.id))
+          fail(`unplacedArtefactIds names ${u.id}, which the register does not catalogue — a reasoned exclusion of nothing`)
+        if (seen.has(u.id))
+          fail(`${u.id} is both ${seen.get(u.id)} and unplaced — exactly one of the two, or the plan holds two contradictory claims about where it is delivered`)
+        seen.set(u.id, 'unplaced')
+      }
+    }
+
+    for (const id of registerIds) {
+      examined++
+      if (!seen.has(id))
+        fail(`${id} appears in no wave's artefactIds and not in unplacedArtefactIds — every register id is placed exactly once or unplaced with a written reason; silence is the one state the key exists to forbid`)
+    }
+
+    return {
+      examined,
+      placed: [...seen.values()].filter((v) => v !== 'unplaced').length,
+      unplaced: [...seen.values()].filter((v) => v === 'unplaced').length,
+    }
+  },
+}
+
 // ── 8. layer coherence — nothing may dangle when the filter is applied ──────
 const layerCoherence = {
   code: 'LAYER-COHERENCE',
@@ -733,6 +807,8 @@ const TIER_DIGEST_GENERATORS = [
   // unconditional — listing it would either fail a correct generator or force
   // a tier part into reference documents that apply no tier.
   'src/dgiw/report/pillarPlans.ts',
+  // G5: the steering pack's maturity line is tier-scoped by definition.
+  'src/dgiw/report/councilPack.ts',
 ]
 
 const tierDigest = {
@@ -1460,6 +1536,276 @@ const planRefusal = {
 }
 
 /*
+ * ── G5: THE TRACKING GATES ──────────────────────────────────────────────────
+ *
+ * Delivery tracking is engagement state: an append-only status log, captured
+ * KPI entries, and a period-scoped steering pack (AR-57) composed only from
+ * what was recorded. Four promises, each with a class because each decays
+ * silently:
+ *
+ *   KPI-ID          every wave KPI id is unique across the plan and every
+ *                   stored capture references an id that exists — a capture
+ *                   against a renamed id is a measurement filed under
+ *                   nothing. The one stored capture log the gate can read is
+ *                   the golden fixture's (INTAKE-SCOPE's precedent).
+ *
+ *   STATUS-LOG      the compiled tracking module keeps history: an append
+ *                   leaves every prior entry byte-identical and the input
+ *                   object untouched, no exported function names an edit
+ *                   path, malformed stored shapes are rejected, and an
+ *                   untracked artefact reads null — never a defaulted state.
+ *
+ *   PACK-PERIOD     the real AR-57 output contains its period and nothing
+ *                   outside it: the fixture seeds entries on BOTH sides of
+ *                   the boundary, the pack is built and its text extracted,
+ *                   and every out-of-period value must be absent while every
+ *                   in-period one is present. A fixture that stops seeding
+ *                   both sides fails too — a filter demonstrated against
+ *                   nothing is the VACUOUS shape.
+ *
+ *   REFUSAL-CHANNEL D-020's fix, held: all three engagement-only builders
+ *                   throw the typed Refusal (name + discriminant, checked
+ *                   across the bundle boundary), and useDeliverable's
+ *                   refusal branch carries no console.error while the
+ *                   real-failure branch keeps its one.
+ */
+const kpiId = {
+  code: 'KPI-ID',
+  run(ctx) {
+    const { fail, root } = ctx
+    const { plan } = ctx.data
+    let examined = 0
+    const ids = new Map()
+    for (const w of plan.waves ?? []) {
+      for (const k of w.kpis ?? []) {
+        examined++
+        if (!k || typeof k.id !== 'string' || !/^K-W\d+-\d{2}$/.test(k.id))
+          fail(`wave ${w.id} carries a KPI without a well-formed id (${JSON.stringify(k?.id)}) — capture entries key on these`)
+        else if (ids.has(k.id))
+          fail(`KPI id ${k.id} appears in both ${ids.get(k.id)} and ${w.id} — a capture against it is a measurement of two different things`)
+        else ids.set(k.id, w.id)
+        if (!k || typeof k.text !== 'string' || k.text.trim() === '')
+          fail(`wave ${w.id} KPI ${k?.id ?? '?'} has no coverage phrase — an id with no meaning attached`)
+      }
+    }
+    const abs = path.join(root, INTAKE_FIXTURE_REL)
+    if (!fs.existsSync(abs)) {
+      fail(`${INTAKE_FIXTURE_REL} does not resolve — the stored capture log is the one this gate can read, and without it the capture-references-an-id promise is unchecked`)
+      return { examined, ids: ids.size }
+    }
+    const fixture = JSON.parse(fs.readFileSync(abs, 'utf8'))
+    if (!Array.isArray(fixture.kpi) || fixture.kpi.length === 0) {
+      fail(`${INTAKE_FIXTURE_REL} stores no KPI captures — the council-pack baseline would freeze a document whose KPI section was never exercised`)
+      return { examined, ids: ids.size }
+    }
+    for (const c of fixture.kpi) {
+      examined++
+      if (!ids.has(c.kpiId))
+        fail(`fixture capture references KPI ${c.kpiId}, which no wave declares — a renamed id stranded a recorded measurement, or the fixture went stale`)
+    }
+    return { examined, ids: ids.size, captures: fixture.kpi.length }
+  },
+}
+
+const statusLogGuard = {
+  code: 'STATUS-LOG',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.tracking) {
+      fail(`could not build or load tracking/log.ts — the append-only contract was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const m = ctx.ts.tracking
+    let examined = 0
+
+    // Branch 1 — an append keeps history: the regression is a second entry,
+    // the first survives verbatim, and the INPUT log is untouched.
+    examined++
+    const t1 = { to: 'delivered', at: '2026-01-01T00:00:00.000Z' }
+    const log1 = m.appendTransition({}, 'AR-13', t1)
+    const log2 = m.appendTransition(log1, 'AR-13', { to: 'in-progress', at: '2026-01-02T00:00:00.000Z', note: 'x' })
+    if (!(log2['AR-13']?.length === 2 && log2['AR-13'][0].to === 'delivered' && log2['AR-13'][0].at === t1.at))
+      fail(`appendTransition rewrote history — a regression must be a SECOND entry beside a verbatim first, and this log is the audit trail the backend trigger names`)
+    if (log1['AR-13']?.length !== 1)
+      fail(`appendTransition mutated its INPUT log — a caller holding the old value no longer holds the old record`)
+
+    // Branch 2 — the module surface offers no rewrite. An edit path that
+    // exists will eventually be called; the contract is its ABSENCE.
+    examined++
+    const editPaths = Object.keys(m).filter(
+      (k) => typeof m[k] === 'function' && /edit|remove|delete|update|rewrite|clear/i.test(k),
+    )
+    if (editPaths.length > 0)
+      fail(`tracking/log.ts exports ${editPaths.join(', ')} — an append-only log with an edit path is append-only in name, and the name is what an auditor is told`)
+
+    // Branch 3 — malformed stored shapes are rejected, not crashed on or
+    // half-loaded; and the fixture's own stored log passes the guard.
+    examined++
+    if (m.isStatusLog({ 'AR-13': [{ to: 'done', at: 'x' }] }) || m.isStatusLog({ 'AR-13': { to: 'planned', at: 'x' } }) || m.isStatusLog(null))
+      fail(`isStatusLog accepts a malformed log — a corrupt stored value would flow into the council pack as delivery fact`)
+    if (!m.isStatusLog(log2))
+      fail(`isStatusLog rejects a log its own appendTransition built — every legitimately stored value would be silently discarded`)
+    const abs = path.join(root, INTAKE_FIXTURE_REL)
+    if (fs.existsSync(abs)) {
+      const fixture = JSON.parse(fs.readFileSync(abs, 'utf8'))
+      examined++
+      if (!fixture.status || !m.isStatusLog(fixture.status))
+        fail(`the golden fixture stores no valid status log — the council-pack baseline would freeze a document whose status section was never exercised`)
+    }
+
+    // Branch 4 — no history is null, never a defaulted state.
+    examined++
+    if (m.currentState({}, 'AR-01') !== null)
+      fail(`currentState invents a state for an untracked artefact — "not tracked" is a fact, and a defaulted 'planned' is a record nobody made`)
+
+    return { examined }
+  },
+}
+
+const packPeriod = {
+  code: 'PACK-PERIOD',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.councilPack || !ctx.ts?.tracking) {
+      fail(`could not build or load report/councilPack.ts — the period-scope rule was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const f = gapFixtureState(root)
+    const fixture = fs.existsSync(path.join(root, INTAKE_FIXTURE_REL))
+      ? JSON.parse(fs.readFileSync(path.join(root, INTAKE_FIXTURE_REL), 'utf8'))
+      : null
+    if (!f || !fixture?.status || !fixture?.kpi || !fixture?.period)
+      return { examined: 0, mayBeEmpty: GAP_FIXTURE_UNAVAILABLE }
+    const { buildCouncilPackPdf } = ctx.ts.councilPack
+    const { transitionsInPeriod, capturesInPeriod } = ctx.ts.tracking
+    let examined = 0
+
+    // The fixture must seed BOTH sides of the boundary, or the filter is
+    // demonstrated against nothing.
+    examined++
+    const allTransitions = Object.entries(fixture.status).flatMap(([artefactId, ts_]) => ts_.map((t) => ({ artefactId, transition: t })))
+    const inT = transitionsInPeriod(fixture.status, fixture.period)
+    const outT = allTransitions.filter((x) => !inT.some((y) => y.artefactId === x.artefactId && y.transition.at === x.transition.at))
+    const inC = capturesInPeriod(fixture.kpi, fixture.period)
+    const outC = fixture.kpi.filter((c) => !inC.includes(c))
+    if (inT.length === 0 || outT.length === 0 || inC.length === 0 || outC.length === 0)
+      fail(`the fixture no longer seeds both sides of the period boundary (transitions in/out ${inT.length}/${outT.length}, captures in/out ${inC.length}/${outC.length}) — the period filter would be demonstrated against nothing, the VACUOUS shape`)
+
+    const meta = {
+      orgName: 'gate-probe', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z',
+      layer: f.layer, accent: [0, 0, 0], isDraft: false, artefactId: 'AR-57', mode: 'engagement',
+    }
+    let doc
+    try {
+      doc = buildCouncilPackPdf({
+        meta, answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake,
+        statusLog: fixture.status, kpiLog: fixture.kpi, period: fixture.period,
+      })
+    } catch (err) {
+      fail(`buildCouncilPackPdf threw on the fixture state (${String(err?.message ?? err).slice(0, 80)}) — the output could not be scanned, so the period rule was NOT checked`)
+      return { examined }
+    }
+    const norm = (x) => x.replace(/[^\x20-\x7e]+/g, ' ').replace(/\s+/g, ' ')
+    const text = norm(pdfTextOf(doc))
+
+    // Branch 2 — every in-period record is present.
+    examined++
+    for (const c of inC)
+      if (!text.includes(norm(c.value)))
+        fail(`in-period capture ${c.kpiId} = ${JSON.stringify(c.value)} is absent from the rendered pack — the period's record is the document's whole claim`)
+    for (const x of inT)
+      if (x.transition.note && !text.includes(norm(x.transition.note)))
+        fail(`in-period transition note ${JSON.stringify(x.transition.note)} is absent — a regression's note is the part a council needs`)
+
+    // Branch 3 — no out-of-period record leaks in.
+    examined++
+    for (const c of outC)
+      if (text.includes(norm(c.value)))
+        fail(`OUT-of-period capture ${c.kpiId} = ${JSON.stringify(c.value)} appears in the pack — the document claims a period and rendered outside it`)
+    for (const x of outT)
+      if (text.includes(x.transition.at.slice(0, 10)))
+        fail(`OUT-of-period transition date ${x.transition.at.slice(0, 10)} appears in the pack's tables — the period filter is not filtering`)
+
+    return { examined, inT: inT.length, outT: outT.length, inC: inC.length, outC: outC.length }
+  },
+}
+
+const REFUSAL_HOOK_REL = 'src/dgiw/report/useDeliverable.ts'
+const REFUSING_BUILDERS = [
+  ['gapStatements', 'buildGapStatementsPdf', (m) => m.buildGapStatementsPdf({
+    meta: { orgName: 'x', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z', layer: 'all', accent: [0, 0, 0], isDraft: false, artefactId: 'AR-55' },
+    answers: {}, targets: {}, tier: 'deep', intake: null,
+  })],
+  ['pillarPlans', 'buildPillarPlansPdf', (m) => m.buildPillarPlansPdf({
+    meta: { orgName: 'x', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z', layer: 'all', accent: [0, 0, 0], isDraft: false, artefactId: 'AR-56' },
+    answers: {}, targets: {}, tier: 'deep', intake: null,
+  })],
+  ['councilPack', 'buildCouncilPackPdf', (m) => m.buildCouncilPackPdf({
+    meta: { orgName: 'x', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z', layer: 'all', accent: [0, 0, 0], isDraft: false, artefactId: 'AR-57' },
+    answers: {}, targets: {}, tier: 'deep', intake: null, statusLog: {}, kpiLog: [], period: { label: '', from: '', to: '' },
+  })],
+]
+
+const refusalChannel = {
+  code: 'REFUSAL-CHANNEL',
+  run(ctx) {
+    const { fail, root } = ctx
+    let examined = 0
+
+    // Branch 1 — every engagement-only builder refuses through the TYPED
+    // class. Checked by discriminant (name + refusal marker), because the
+    // gate's bundle is not the app's bundle and instanceof is false across
+    // that boundary — the exact hazard isRefusal itself is written for.
+    for (const [modName, exportName, invoke] of REFUSING_BUILDERS) {
+      examined++
+      if (!ctx.ts?.[modName]) {
+        fail(`could not build or load the ${modName} module — ${exportName}'s refusal channel was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+        continue
+      }
+      let err = null
+      try {
+        invoke(ctx.ts[modName])
+      } catch (e) {
+        err = e
+      }
+      if (err === null)
+        fail(`${exportName} produced a document where a refusal was required — the refusal contract has forked from the predicate`)
+      else if (err.name !== 'Refusal' || err.refusal !== true)
+        fail(`${exportName} refused through a bare ${err.name ?? typeof err} — a designed refusal travelling the error channel is D-020, and useDeliverable would console.error working behaviour`)
+    }
+
+    // Branch 2 — the refusal branch in useDeliverable is console-silent, and
+    // the real-failure branch keeps its console.error. Source-level, because
+    // the hook cannot run outside React: the isRefusal(...) block up to the
+    // else must not name console.error; the remainder of the catch must.
+    examined++
+    const abs = path.join(root, REFUSAL_HOOK_REL)
+    if (!fs.existsSync(abs)) {
+      fail(`${REFUSAL_HOOK_REL} does not resolve — the refusal branch this class is declared over has moved, and the declaration has to move with it`)
+      return { examined }
+    }
+    const src = fs.readFileSync(abs, 'utf8')
+    if (!src.includes("from './refusal'") || !src.includes('isRefusal('))
+      fail(`${REFUSAL_HOOK_REL} does not branch on isRefusal — every refusal would travel the error channel again, which is D-020 reopened`)
+    const branch = src.match(/if\s*\(isRefusal\(err\)\)\s*\{([\s\S]*?)\}\s*else\s*\{([\s\S]*?)\}/)
+    if (!branch) {
+      fail(`${REFUSAL_HOOK_REL} has no isRefusal/else split in its catch — the two channels have been refolded into one`)
+    } else {
+      // Comments are stripped before the scan: the refusal branch's own
+      // comment legitimately NAMES console.error in order to forbid it —
+      // the PLAN-EFFORT disclaimer-stripping rule, one level down.
+      const code = (s) => s.replace(/\/\/[^\n]*/g, '').replace(/\/\*[\s\S]*?\*\//g, '')
+      if (/console\.(error|warn)/.test(code(branch[1])))
+        fail(`${REFUSAL_HOOK_REL}'s REFUSAL branch calls console.${code(branch[1]).match(/console\.(error|warn)/)[1]} — a designed refusal must print nothing; the click-throughs' console-clean assertion depends on it`)
+      if (!/console\.error/.test(code(branch[2])))
+        fail(`${REFUSAL_HOOK_REL}'s real-failure branch lost its console.error — a REAL fault must keep the error channel; silence there hides genuine breakage`)
+    }
+
+    return { examined }
+  },
+}
+
+/*
  * ── G1: THE INTAKE GATES ────────────────────────────────────────────────────
  *
  * The program-design stage generates the charter (AR-08) and the operating
@@ -1913,6 +2259,11 @@ export default {
     // first; PLAN-EFFORT and PLAN-REFUSAL call the second's real builder.
     slices: 'src/dgiw/plan/slices.ts',
     pillarPlans: 'src/dgiw/report/pillarPlans.ts',
+    // G5: the append-only tracking primitives and the steering pack —
+    // STATUS-LOG and PACK-PERIOD run them; REFUSAL-CHANNEL throws all three
+    // refusing builders and reads the class off the error.
+    tracking: 'src/dgiw/tracking/log.ts',
+    councilPack: 'src/dgiw/report/councilPack.ts',
   },
 
   /**
@@ -1964,6 +2315,7 @@ export default {
     accountability,
     gates,
     waveGraph,
+    placement,
     layerCoherence,
     coreChassis,
     artefactEvidence,
@@ -1980,6 +2332,10 @@ export default {
     sliceDeps,
     planEffort,
     planRefusal,
+    kpiId,
+    statusLogGuard,
+    packPeriod,
+    refusalChannel,
     intakeScope,
     intakeMode,
     crosswalk.spineUniverse,
@@ -2064,6 +2420,29 @@ export default {
         `PLAN ${ss.slices} slice${ss.slices === 1 ? '' : 's'} from ${ss.entries} register entr${ss.entries === 1 ? 'y' : 'ies'} — ` +
           `pass-through and dependsOn asserted through the compiled plan/slices.ts; ` +
           `no invented effort and the refusal asserted through the real AR-56 output (PLAN-EFFORT, PLAN-REFUSAL)`,
+      )
+    }
+
+    // G5: the tracking gates, printed from the checks' own results.
+    const ki = r['KPI-ID']
+    const pp2 = r['PACK-PERIOD']
+    if (ki?.ids !== undefined) {
+      out.push(
+        `TRACKING ${ki.ids} KPI ids unique, ${ki.captures ?? 0} fixture captures resolve (KPI-ID) · ` +
+          `status log append-only through the compiled module (STATUS-LOG) · ` +
+          (pp2?.inT !== undefined
+            ? `pack scoped to its period over ${pp2.inT}+${pp2.inC} in / ${pp2.outT}+${pp2.outC} out (PACK-PERIOD) · `
+            : '') +
+          `refusals typed, refusal branch console-silent (REFUSAL-CHANNEL)`,
+      )
+    }
+
+    // G5: the authored placement, printed from the check's own counts.
+    const pl = r['PLACEMENT']
+    if (pl?.placed !== undefined) {
+      out.push(
+        `PLACEMENT ${pl.placed} artefacts placed across ${plan.waves.length} waves, ${pl.unplaced} unplaced with written reasons — ` +
+          `every register id exactly once, both dangling directions asserted`,
       )
     }
 

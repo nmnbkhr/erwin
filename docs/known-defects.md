@@ -2106,7 +2106,21 @@ viewer can read. When prose wants an arrow, write `->`.
 ## D-020 — a designed refusal and a real failure share one channel, and the console-clean assertion cannot tell them apart
 
 **Found:** 2026-08-05, filed at G4 checkpoint 0 from a G3-close observation.
-**Status: OPEN — described here, deliberately not fixed in G4.**
+**Status: RESOLVED 2026-08-05, G5 checkpoint 1.** The refusal is now TYPED:
+`src/dgiw/report/refusal.ts` declares a `Refusal` error class (name +
+`refusal: true` discriminant, so the check survives the gate's separate
+esbuild bundle where `instanceof` would not), AR-55, AR-56 and the G5 council
+pack throw it, and `useDeliverable.ts::run()` branches on `isRefusal`: tone
+'info', **no `console.error`** — the error path is untouched for real faults.
+GAP-REFUSAL's and PLAN-REFUSAL's contract holds unchanged (the builder still
+throws the predicate's own message; `Refusal extends Error`), and the new
+REFUSAL-CHANNEL gate asserts both halves: every engagement-only builder
+throws the class rather than a bare `Error`, and the refusal branch carries
+no console output. The click-through now drives the refusing Deliverables
+button with the console-clean assertion intact — and the assertion was shown
+FAILING under a temporary revert of the branch, then restored, because a
+guard that has never failed is decoration. The section below is the entry as
+filed, kept for the history.
 
 ### What it is
 

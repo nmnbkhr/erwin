@@ -13,6 +13,7 @@ import { useCallback, useState } from 'react'
 import { useLayer } from '../layer'
 import { useEngagement } from '../../engagement/context'
 import { useOrgName } from '../../engagement/useOrgName'
+import { isRefusal } from './refusal'
 import type { ReportMeta } from '../../report/types'
 
 /** rose-600, the DGIW accent, as a jsPDF RGB triple. */
@@ -68,8 +69,17 @@ export function useDeliverable() {
       const notice = await task()
       if (notice) setMessage({ tone: 'info', text: notice })
     } catch (err) {
-      console.error('[dgiw] deliverable generation failed', err)
-      setMessage({ tone: 'error', text: err instanceof Error ? err.message : 'Generation failed.' })
+      if (isRefusal(err)) {
+        // G5, D-020: a designed refusal is a legitimate outcome, not a fault.
+        // Tone 'info', NO console.error — the click-throughs' console-clean
+        // assertion can now drive a refusing button, and a consultant with
+        // the console open is not told "failed" about behaviour the page
+        // itself describes as by-design. REFUSAL-CHANNEL holds this branch.
+        setMessage({ tone: 'info', text: err instanceof Error ? err.message : 'Generation refused.' })
+      } else {
+        console.error('[dgiw] deliverable generation failed', err)
+        setMessage({ tone: 'error', text: err instanceof Error ? err.message : 'Generation failed.' })
+      }
     } finally {
       setBusy(null)
     }

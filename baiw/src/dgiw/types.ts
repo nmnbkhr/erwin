@@ -236,8 +236,26 @@ export interface PlanWave {
   theme: string
   objectives: string[]
   deliverables: string[]
+  /**
+   * G5: AUTHORED artefact-to-wave placement — register ids this wave delivers,
+   * authored from the wave's own deliverables/objectives prose. Before G5 the
+   * only relation was exact name identity between a register row's `artefact`
+   * and a deliverable string (1 of 35), and composing artefact → pillar → wave
+   * was (and remains) forbidden. PLACEMENT asserts every register id appears
+   * in exactly one wave or in `unplacedArtefactIds`, with no dangling ids in
+   * either direction.
+   */
+  artefactIds: string[]
   pillarIds: string[]
-  kpis: string[]
+  /**
+   * G5: KPIs carry ids (`K-W1-01` style) because capture entries key on them
+   * — `dgiw.kpi` records {kpiId, value, capturedAt, source}, and KPI-ID
+   * asserts uniqueness and that every capture references an existing id. The
+   * text is the coverage phrase, unchanged from when this was `string[]`.
+   * A KPI still holds NO measurement: values exist only where a person
+   * recorded one.
+   */
+  kpis: { id: string; text: string }[]
   /** Wave ids this wave cannot start without. Validated acyclic, and a core wave
    *  may never depend on a banking one — the overlay is additive, not required. */
   dependsOn: string[]
@@ -305,6 +323,14 @@ export interface ArtefactRegisterEntry {
 export interface ImplementationPlanData {
   first90Days: Day90Row[]
   waves: PlanWave[]
+  /**
+   * G5: every register id NO wave delivers, each with a written reason —
+   * diagnostic-rung artefacts that precede W0, recurring run-phase outputs,
+   * withdrawn shapes, and content no wave prose names. Unplaced is a decision,
+   * and PLACEMENT fails an entry whose reason is missing, exactly as
+   * `mayBeEmpty` demands one for a check that runs over nothing.
+   */
+  unplacedArtefactIds: { id: string; reason: string }[]
   artefactRegister: ArtefactRegisterEntry[]
 }
 

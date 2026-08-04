@@ -67,13 +67,17 @@
  *
  * ─── NO WAVE COLUMN ────────────────────────────────────────────────────────
  *
- * Waves carry `pillarIds` and free-text `deliverables`; they carry no artefact
- * id. Of 35 wave deliverable strings, exactly ONE matches a register artefact
- * name. So artefact → wave is a string bridge, not a join, and composing
- * artefact → pillar → wave puts AR-09 — a rung-2 operating model — into W6 "Run,
- * Prove & Expand" because both name P01. The wave section here is the ONLY
- * direction that is a real key: wave.pillarIds → pillar, reported per wave, with
- * no artefact attached to any wave row.
+ * When this was written, waves carried `pillarIds` and free-text
+ * `deliverables` and no artefact id — of 35 deliverable strings exactly ONE
+ * matched a register name, so artefact → wave was a string bridge, not a
+ * join. G5 authored the join: `wave.artefactIds` plus a reasoned
+ * `unplacedArtefactIds`, held by the PLACEMENT gate. What remains forbidden,
+ * unchanged, is COMPOSING artefact → pillar → wave, which puts AR-09 — a
+ * rung-2 operating model — into W6 "Run, Prove & Expand" because both name
+ * P01. This report's wave section still reports wave.pillarIds → pillar per
+ * wave and does not restate the authored placement — rendering it per pillar
+ * is AR-56's job, and two documents carrying the same table is how they
+ * drift.
  *
  * ─── NO CSV ────────────────────────────────────────────────────────────────
  *
@@ -152,6 +156,7 @@ export const PROGRAMME_GAP_ARTEFACT_ID = 'AR-54'
 export const IMPLEMENTED_ARTEFACT_IDS = [
   'AR-01', 'AR-02', 'AR-04', 'AR-05', 'AR-06', 'AR-08', 'AR-09', 'AR-13',
   'AR-17', 'AR-20', 'AR-23', 'AR-27', 'AR-47', 'AR-48', 'AR-54', 'AR-55', 'AR-56',
+  'AR-57',
 ] as const
 
 const BUILT = new Set<string>(IMPLEMENTED_ARTEFACT_IDS)
@@ -199,11 +204,12 @@ export const B_NO_WAVE_ROW =
   // arrow freely; a string a PDF generator renders may not — the golden
   // harness now refuses to capture a document carrying one (assertNonEmpty's
   // UTF-16 branch).
-  'NO ARTEFACT IS ATTACHED TO A WAVE. The waves carry pillar ids and free-text deliverables and ' +
-  'no artefact id: of 35 deliverable strings, one matches a register artefact name. Composing ' +
-  'artefact -> pillar -> wave would place AR-09, a rung-2 operating model, in W6 "Run, Prove & ' +
-  'Expand" because both name P01. The wave section reports only wave -> pillar, which is a real ' +
-  'key, and names no artefact on any wave row.'
+  'NO ARTEFACT IS INFERRED ONTO A WAVE. Artefact-to-wave placement exists only as the plan\'s ' +
+  'authored artefactIds key, with every unplaced id carrying a written reason (G5); composing ' +
+  'artefact -> pillar -> wave remains forbidden — it would place AR-09, a rung-2 operating ' +
+  'model, in W6 "Run, Prove & Expand" because both name P01. The wave section reports only ' +
+  'wave -> pillar and does not restate the authored placement, which the per-pillar plan ' +
+  '(AR-56) renders.'
 
 /**
  * G3's addition, and the fence around it. The programme axis (what the

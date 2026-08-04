@@ -257,6 +257,51 @@ const MUTATIONS = [
       pl.waves[1].dependsOn = [pl.waves[0].id]
     }),
   },
+  /*
+   * ── PLACEMENT, five rows, EACH ISOLATING ONE BRANCH (G5) ────────────────
+   *
+   * The obvious mutation — delete a wave's artefactIds — trips the missing-key
+   * branch AND leaves its ids uncovered, proving nothing about which assertion
+   * caught what. Each row below leaves every other branch satisfied.
+   */
+  {
+    code: 'PLACEMENT',
+    what: 'a register id silently unscheduled — in no wave and not in the unplaced list',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => {
+      pl.unplacedArtefactIds = pl.unplacedArtefactIds.filter((u) => u.id !== 'AR-01')
+    }),
+  },
+  {
+    code: 'PLACEMENT',
+    what: 'one artefact placed in two waves — two claims about one document',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => {
+      const [first] = pl.waves.find((w) => (w.artefactIds ?? []).length > 0).artefactIds
+      pl.waves.find((w) => !(w.artefactIds ?? []).includes(first)).artefactIds.push(first)
+    }),
+  },
+  {
+    code: 'PLACEMENT',
+    what: 'a wave placing an id the register does not catalogue — a scheduled document that does not exist',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => { pl.waves[0].artefactIds.push('AR-99') }),
+  },
+  {
+    code: 'PLACEMENT',
+    what: 'an unplaced entry with a blank reason — a decision nobody wrote down',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => { pl.unplacedArtefactIds[0].reason = '  ' }),
+  },
+  {
+    code: 'PLACEMENT',
+    what: 'an id both placed and unplaced — two contradictory claims about where it is delivered',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => {
+      const [first] = pl.waves.find((w) => (w.artefactIds ?? []).length > 0).artefactIds
+      pl.unplacedArtefactIds.push({ id: first, reason: 'selftest: contradicts its wave placement' })
+    }),
+  },
   {
     code: 'LAYER-COHERENCE',
     what: 'a core DQ rule referencing a banking-only CDE',
@@ -607,7 +652,7 @@ const MUTATIONS = [
     code: 'GAP-REFUSAL',
     what: "the builder stops throwing the predicate's refusal — the predicate and the builder fork",
     touches: ['src/dgiw/report/gapStatements.ts'],
-    apply: () => sub('src/dgiw/report/gapStatements.ts', '  if (refusal) throw new Error(refusal)', '  void refusal'),
+    apply: () => sub('src/dgiw/report/gapStatements.ts', '  if (refusal) throw new Refusal(refusal)', '  void refusal'),
   },
   {
     code: 'TIER-DIGEST',
@@ -690,13 +735,136 @@ const MUTATIONS = [
     code: 'PLAN-REFUSAL',
     what: "the builder stops throwing the predicate's refusal — the predicate and the builder fork",
     touches: ['src/dgiw/report/pillarPlans.ts'],
-    apply: () => sub('src/dgiw/report/pillarPlans.ts', '  if (refusal) throw new Error(refusal)', '  void refusal'),
+    apply: () => sub('src/dgiw/report/pillarPlans.ts', '  if (refusal) throw new Refusal(refusal)', '  void refusal'),
   },
   {
     code: 'TIER-DIGEST',
     what: 'AR-56 stops folding the tier into its /ID digest — the G4 extension must actually reach it',
     touches: ['src/dgiw/report/pillarPlans.ts'],
     apply: () => sub('src/dgiw/report/pillarPlans.ts', '      `tier:${tier}`,\n', ''),
+  },
+
+  /*
+   * ── THE G5 TRACKING CLASSES, EACH ROW ISOLATING ONE BRANCH ──────────────
+   *
+   * KPI-ID's two rows split the id side from the capture side. STATUS-LOG's
+   * four are the four assertions the class makes — rewrite, edit path,
+   * neutered validator, defaulted state — and the obvious mutation (gut the
+   * module) would trip all four at once and prove nothing. PACK-PERIOD's two
+   * split the transition filter from the capture filter. REFUSAL-CHANNEL's
+   * three: a builder downgraded to a bare Error, console output smuggled
+   * into the refusal branch, and the REAL failure branch losing its one
+   * legitimate console.error — the guard against over-rotating the fix.
+   */
+  {
+    code: 'KPI-ID',
+    what: 'two waves declaring the same KPI id — one capture would measure two different things',
+    touches: [`${DGIW}/implementationPlan.json`],
+    apply: () => json(`${DGIW}/implementationPlan.json`, (pl) => {
+      pl.waves[1].kpis[0].id = pl.waves[0].kpis[0].id
+    }),
+  },
+  {
+    code: 'KPI-ID',
+    what: 'a stored capture referencing a KPI id no wave declares — a measurement filed under nothing',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { f.kpi[0].kpiId = 'K-W9-99' }),
+  },
+  {
+    code: 'STATUS-LOG',
+    what: 'appendTransition rewrites history — the latest entry replaces the log instead of joining it',
+    touches: ['src/dgiw/tracking/log.ts'],
+    apply: () => sub(
+      'src/dgiw/tracking/log.ts',
+      '[...(log[artefactId] ?? []), transition]',
+      '[transition]',
+    ),
+  },
+  {
+    code: 'STATUS-LOG',
+    what: 'an exported edit path appears on the tracking module — append-only in name only',
+    touches: ['src/dgiw/tracking/log.ts'],
+    apply: () => sub(
+      'src/dgiw/tracking/log.ts',
+      'export function appendCapture',
+      'export function removeTransition(log: StatusLog): StatusLog { return {} }\nexport function appendCapture',
+    ),
+  },
+  {
+    code: 'STATUS-LOG',
+    what: 'the stored-shape validator neutered — a malformed log would flow into the pack as delivery fact',
+    touches: ['src/dgiw/tracking/log.ts'],
+    apply: () => sub(
+      'src/dgiw/tracking/log.ts',
+      'export function isStatusLog(parsed: unknown): boolean {',
+      'export function isStatusLog(parsed: unknown): boolean { if (parsed !== undefined) return true;',
+    ),
+  },
+  {
+    code: 'STATUS-LOG',
+    what: "an untracked artefact defaulted to 'planned' — a record nobody made",
+    touches: ['src/dgiw/tracking/log.ts'],
+    apply: () => sub(
+      'src/dgiw/tracking/log.ts',
+      "return entries && entries.length > 0 ? entries[entries.length - 1].to : null",
+      "return entries && entries.length > 0 ? entries[entries.length - 1].to : ('planned' as StatusState)",
+    ),
+  },
+  {
+    code: 'PACK-PERIOD',
+    what: 'the transition filter unbounded — every logged transition renders whatever the period says',
+    touches: ['src/dgiw/report/councilPack.ts'],
+    apply: () => sub(
+      'src/dgiw/report/councilPack.ts',
+      'const periodTransitions = transitionsInPeriod(statusLog, period)',
+      "const periodTransitions = transitionsInPeriod(statusLog, { label: period.label, from: '', to: '' })",
+    ),
+  },
+  {
+    code: 'PACK-PERIOD',
+    what: 'the capture filter dropped — out-of-period KPI values leak into the pack',
+    touches: ['src/dgiw/report/councilPack.ts'],
+    apply: () => sub(
+      'src/dgiw/report/councilPack.ts',
+      'const periodCaptures = capturesInPeriod(kpiLog, period)',
+      'const periodCaptures = kpiLog',
+    ),
+  },
+  {
+    code: 'REFUSAL-CHANNEL',
+    what: 'a builder downgraded to a bare Error — the refusal travels the failure channel again (D-020)',
+    touches: ['src/dgiw/report/councilPack.ts'],
+    apply: () => sub(
+      'src/dgiw/report/councilPack.ts',
+      'if (refusal) throw new Refusal(refusal)',
+      'if (refusal) throw new Error(refusal)',
+    ),
+  },
+  {
+    code: 'REFUSAL-CHANNEL',
+    what: 'console output smuggled into the refusal branch — two verdicts for one designed outcome',
+    touches: ['src/dgiw/report/useDeliverable.ts'],
+    apply: () => sub(
+      'src/dgiw/report/useDeliverable.ts',
+      "setMessage({ tone: 'info', text: err instanceof Error ? err.message : 'Generation refused.' })",
+      "console.error('[dgiw] refusal', err); setMessage({ tone: 'info', text: err instanceof Error ? err.message : 'Generation refused.' })",
+    ),
+  },
+  {
+    code: 'REFUSAL-CHANNEL',
+    what: 'the REAL failure branch loses its console.error — over-rotating the fix hides genuine breakage',
+    touches: ['src/dgiw/report/useDeliverable.ts'],
+    apply: () => sub(
+      'src/dgiw/report/useDeliverable.ts',
+      "console.error('[dgiw] deliverable generation failed', err)",
+      'void err',
+    ),
+  },
+  {
+    code: 'TIER-DIGEST',
+    what: 'AR-57 stops folding the tier into its /ID digest — the G5 extension must actually reach it',
+    touches: ['src/dgiw/report/councilPack.ts'],
+    apply: () => sub('src/dgiw/report/councilPack.ts', '      `tier:${tier}`,\n', ''),
   },
 
   // ── the four suite classes ──────────────────────────────────────────────

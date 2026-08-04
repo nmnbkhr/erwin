@@ -15,7 +15,9 @@
  *  - the GapEntry rides by reference — a post-hoc mutation is visible through
  *    the slice, proving pass-through rather than re-derivation
  *  - no slice field carries invented effort (person-days, FTE, currency)
- *  - deliverables unmapped to any wave carry waveId null and are LISTED
+ *  - wave placement is the AUTHORED artefactIds key (G5): every placed
+ *    deliverable matches its wave's own list, every null is either reasoned
+ *    in unplacedArtefactIds or placed in a wave outside the active layer
  *
  * Compiles src/ through the same esbuild loader the gate uses. NOT a gate:
  * the SLICE-* classes in check/modules/dgiw.mjs hold these rules on every
@@ -104,19 +106,33 @@ mutated.priority.band = 'moderate'
 check(p01.entry.priority.band === 'moderate', 'a post-hoc entry mutation is visible through the slice — no private copy')
 mutated.priority.band = 'critical'
 
-console.log('— wave placement is the exact-name key, nulls listed')
+console.log('— wave placement is the AUTHORED artefactIds key (G5)')
 const placed = slices.flatMap((s) => s.deliverables).filter((d) => d.waveId !== null)
 const unplaced = slices.flatMap((s) => s.deliverables).filter((d) => d.waveId === null)
-check(unplaced.length > 0, 'unmapped deliverables are listed with waveId null, not dropped', `${unplaced.length} null, ${placed.length} placed`)
+check(placed.length > 0, 'authored placements come through the slices', `${placed.length} placed, ${unplaced.length} null in this view`)
 for (const d of placed) {
   const wave = PLAN.waves.find((w) => w.id === d.waveId)
-  check(Boolean(wave) && wave.deliverables.includes(d.artefact), `placed ${d.artefactId} matches a wave deliverable string EXACTLY (${d.waveId})`)
+  check(Boolean(wave) && wave.artefactIds.includes(d.artefactId), `placed ${d.artefactId} is in its wave's OWN artefactIds (${d.waveId})`)
 }
+for (const d of unplaced) {
+  const reasoned = PLAN.unplacedArtefactIds.some((u) => u.id === d.artefactId)
+  const outOfLayer = PLAN.waves.some((w) => w.artefactIds.includes(d.artefactId) && w.layer !== 'core')
+  check(reasoned || outOfLayer, `null ${d.artefactId} is reasoned in unplacedArtefactIds or placed out of layer`,
+    reasoned ? 'reasoned' : 'banking-wave placement, core view')
+}
+const wholePlan = PLAN.waves.reduce((s, w) => s + w.artefactIds.length, 0)
+console.log(`  (whole plan: ${wholePlan} of ${PLAN.artefactRegister.length} register ids placed across ${PLAN.waves.length} waves, ` +
+  `${PLAN.unplacedArtefactIds.length} unplaced with reasons — PLACEMENT holds exactly-one)`)
 
 console.log('— no invented effort anywhere in a slice')
 const EFFORT = /\d+\s*(person-|man-|p)?days?\b|FTE|PKR|USD|\$\s*\d/i
 const offending = []
 const scan = (v, at) => {
+  // builtFrom.note is excluded: the register's own notes NAME the forbidden
+  // units in order to disclaim them (AR-56's says "no person-days, FTEs…"),
+  // and AR-56 renders the evidence word only, never the note — the rendered
+  // output is what PLAN-EFFORT scans, with the same disclaimer-stripping rule.
+  if (at.endsWith('.builtFrom.note')) return
   if (typeof v === 'string' && EFFORT.test(v)) offending.push(`${at}: ${v.slice(0, 50)}`)
   else if (Array.isArray(v)) v.forEach((x, i) => scan(x, `${at}[${i}]`))
   else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) scan(x, `${at}.${k}`)

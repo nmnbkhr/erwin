@@ -14,6 +14,11 @@ import { usePlanSlices } from '../plan/state'
 import { B_STRUCTURE_OVER_PRIORITY, B_THIN_IS_INFORMATION } from '../plan/slices'
 import { intakeIsActionable } from '../intake/types'
 import { TIER_META } from '../tier'
+// G5: delivery tracking on the engagement view only — statuses on deliverable
+// rows, KPI capture on wave rows. Reference tabs are untouched. A KPI value
+// exists only when a person records one; nothing here computes a number.
+import { useKpiLog, useStatusLog } from '../tracking/state'
+import { currentState, type KpiLog } from '../tracking/log'
 
 const PLAN = implementationPlan as ImplementationPlanData
 const PILLARS = pillars as Pillar[]
@@ -30,9 +35,76 @@ const BAND_STYLE: Record<string, string> = {
 
 const show1 = (n: number) => (Math.round(n * 10) / 10).toFixed(1)
 
+const STATUS_CHIP: Record<string, string> = {
+  planned: 'bg-slate-100 text-slate-600',
+  'in-progress': 'bg-sky-100 text-sky-700',
+  delivered: 'bg-indigo-100 text-indigo-700',
+  accepted: 'bg-emerald-100 text-emerald-700',
+}
+
+/**
+ * One wave KPI on an engagement slice card: the recorded captures (verbatim,
+ * with source and date) and the affordance to record another. The date is
+ * stamped by the hook at the moment of capture; value and source are typed,
+ * because CAPTURED means a person wrote it down — nothing is computed.
+ */
+function KpiRow({
+  kpi,
+  entries,
+  capture,
+}: {
+  kpi: { id: string; text: string }
+  entries: KpiLog
+  capture: (kpiId: string, value: string, source: string) => void
+}) {
+  const [value, setValue] = useState('')
+  const [source, setSource] = useState('')
+  return (
+    <li className="text-xs text-slate-600 leading-snug">
+      <span className="font-mono text-[10px] text-slate-400 mr-1">{kpi.id}</span>
+      {kpi.text}
+      {entries.length === 0 && <span className="text-slate-400"> — no measurement recorded</span>}
+      {entries.map((c) => (
+        <span key={`${c.capturedAt}-${c.value}`} className="ml-1.5 px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200">
+          {c.value} <span className="text-emerald-600/70">({c.source}, {c.capturedAt.slice(0, 10)})</span>
+        </span>
+      ))}
+      <span className="inline-flex items-center gap-1 ml-2">
+        <input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="value"
+          className="border border-slate-200 rounded px-1 py-0.5 w-20 bg-white"
+          aria-label={`Value for ${kpi.id}`}
+        />
+        <input
+          value={source}
+          onChange={(e) => setSource(e.target.value)}
+          placeholder="source"
+          className="border border-slate-200 rounded px-1 py-0.5 w-24 bg-white"
+          aria-label={`Source for ${kpi.id}`}
+        />
+        <button
+          onClick={() => {
+            if (!value.trim() || !source.trim()) return
+            capture(kpi.id, value.trim(), source.trim())
+            setValue('')
+            setSource('')
+          }}
+          className="px-1.5 py-0.5 rounded bg-emerald-600 text-white hover:bg-emerald-700"
+        >
+          Capture
+        </button>
+      </span>
+    </li>
+  )
+}
+
 export default function ImplementationPlan() {
   const { keep } = useLayer()
   const { slices, exclusions, tier, intake } = usePlanSlices()
+  const [statusLog] = useStatusLog()
+  const [kpiLog, captureKpi] = useKpiLog()
   // The engagement view exists when the intake is actionable AND something is
   // measured — the same two facts AR-55's refusal predicate rests on.
   const engagementActive = intakeIsActionable(intake) && slices.length + exclusions.length > 0
@@ -58,7 +130,7 @@ export default function ImplementationPlan() {
         pillars: w.pillarIds.map(pillarName).join('; '),
         objectives: w.objectives.join('; '),
         deliverables: w.deliverables.join('; '),
-        kpis: w.kpis.join('; '),
+        kpis: w.kpis.map((k) => `${k.id}: ${k.text}`).join('; '),
         depends_on_waves: w.dependsOn.join('; '),
         external_dependencies: w.externalDependencies.join('; '),
         exit_criteria: w.exitCriteria,
@@ -174,14 +246,24 @@ export default function ImplementationPlan() {
                     Catalogued deliverables ({s.deliverables.length})
                   </p>
                   <ul className="space-y-1.5">
-                    {s.deliverables.map((d) => (
-                      <li key={d.artefactId} className="text-sm text-slate-600 leading-snug">
-                        <span className="font-mono text-xs text-slate-400 mr-1.5">{d.artefactId}</span>
-                        {d.artefact}
-                        <span className="text-xs text-slate-400"> — rung {d.rung}, {d.builtFrom.evidence}
-                          {d.waveId ? `, named by ${d.waveId}` : ''}</span>
-                      </li>
-                    ))}
+                    {s.deliverables.map((d) => {
+                      // G5: the engagement's delivery status beside — never in
+                      // place of — the register disposition. Two facts, two chips.
+                      const status = currentState(statusLog, d.artefactId)
+                      return (
+                        <li key={d.artefactId} className="text-sm text-slate-600 leading-snug">
+                          <span className="font-mono text-xs text-slate-400 mr-1.5">{d.artefactId}</span>
+                          {d.artefact}
+                          <span className="text-xs text-slate-400"> — rung {d.rung}, {d.builtFrom.evidence}
+                            {d.waveId ? `, placed in ${d.waveId}` : ''}</span>
+                          {status ? (
+                            <span className={`ml-1.5 px-1.5 py-0.5 text-xs rounded ${STATUS_CHIP[status]}`}>{status}</span>
+                          ) : (
+                            <span className="ml-1.5 text-xs text-slate-300">not tracked</span>
+                          )}
+                        </li>
+                      )
+                    })}
                     {s.deliverables.length === 0 && (
                       <li className="text-sm text-slate-400">
                         The register catalogues nothing for this pillar under the current layer — that is the finding, not a blank.
@@ -203,6 +285,19 @@ export default function ImplementationPlan() {
                             {' '}— held by {w.heldBy.join(', ')}
                           </span>
                         )}
+                        {/* G5: the wave's KPIs with recorded captures and the
+                            capture affordance. Values are typed by a person;
+                            "no measurement recorded" is the honest empty. */}
+                        <ul className="mt-1 ml-3 space-y-1">
+                          {(PLAN.waves.find((x) => x.id === w.waveId)?.kpis ?? []).map((k) => (
+                            <KpiRow
+                              key={k.id}
+                              kpi={k}
+                              entries={kpiLog.filter((c) => c.kpiId === k.id)}
+                              capture={captureKpi}
+                            />
+                          ))}
+                        </ul>
                       </li>
                     ))}
                     {s.waves.length === 0 && (
@@ -311,7 +406,9 @@ export default function ImplementationPlan() {
                     <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">KPIs</p>
                     <div className="flex flex-wrap gap-1.5">
                       {w.kpis.map((k) => (
-                        <span key={k} className="text-xs px-2 py-1 rounded bg-slate-100 text-slate-600">{k}</span>
+                        <span key={k.id} className="text-xs px-2 py-1 rounded bg-slate-100 text-slate-600" title={k.id}>
+                          {k.text}
+                        </span>
                       ))}
                     </div>
                   </div>

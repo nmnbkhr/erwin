@@ -38,9 +38,15 @@
  * is against the entries a generator may legally be written for, which is what
  * `builtFrom.evidence === 'derived'` marks and ARTEFACT-EVIDENCE enforces.
  */
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { FileSpreadsheet, FileText, Package } from 'lucide-react'
 import { Card, PageHeader, SectionTitle, Stat } from './ui'
+// G5: the engagement delivery lifecycle — append-only, a DIFFERENT fact from
+// the register's builtFrom disposition. Disposition says how an artefact is
+// built; status says where it stands in THIS engagement. The two render in
+// visually distinct places on each card and never substitute for each other.
+import { useKpiLog, useReportingPeriod, useStatusLog } from '../tracking/state'
+import { STATUS_STATES, currentState, stateCounts, type StatusLog, type StatusState } from '../tracking/log'
 import { useLayer, layerShows } from '../layer'
 import { useDeliverable } from '../report/useDeliverable'
 import { answerEvidence, answerScores, useDiagnosticAnswers } from '../answers'
@@ -413,6 +419,26 @@ const SPECS: Spec[] = [
     shortcut: '/dg/gaps',
   },
   {
+    artefactId: 'AR-57',
+    title: 'Engagement Steering Pack',
+    blurb:
+      'The reporting period\'s record: the maturity line at the active tier, the critical and ' +
+      'high gaps, per-state delivery counts with the period\'s transitions verbatim (regressions ' +
+      'and notes included), the period\'s captured KPI entries with their sources, and the plan ' +
+      'slices\' thin and held-by notes.',
+    caveat:
+      'RECORDED, NEVER COMPUTED, PERIOD-SCOPED. Every value was typed by a person; unmeasured ' +
+      'KPIs print "no measurement recorded". No delta, no comparison to an earlier period, no ' +
+      'judgement of progress — one period cannot ground one. NOT AR-41: council decisions and ' +
+      'actions have no capture surface here and are not restated. Refuses without an actionable ' +
+      'intake, or when nothing is measured AND nothing is tracked.',
+    primary: 'pdf',
+    // Overridden in the cards memo below — the count is engagement state.
+    count: () => 0,
+    countLabel: 'recorded facts (gaps + transitions + captures)',
+    shortcut: '',
+  },
+  {
     artefactId: 'AR-56',
     title: 'Per-Pillar Implementation Plan',
     blurb:
@@ -433,6 +459,79 @@ const SPECS: Spec[] = [
   },
 ]
 
+/** Chip styling per lifecycle state — sky family, never the disposition's slate. */
+const STATUS_CHIP: Record<StatusState, string> = {
+  planned: 'bg-slate-100 text-slate-600',
+  'in-progress': 'bg-sky-100 text-sky-700',
+  delivered: 'bg-indigo-100 text-indigo-700',
+  accepted: 'bg-emerald-100 text-emerald-700',
+}
+
+/**
+ * The per-artefact status control: current state + a transition with an
+ * optional note. Every press APPENDS to the engagement's transition log —
+ * a regression is a new entry beside the old one, never a correction.
+ */
+function StatusControl({
+  artefactId,
+  log,
+  record,
+}: {
+  artefactId: string
+  log: StatusLog
+  record: (artefactId: string, to: StatusState, note?: string) => void
+}) {
+  const [to, setTo] = useState<StatusState>('planned')
+  const [note, setNote] = useState('')
+  const state = currentState(log, artefactId)
+  const history = log[artefactId] ?? []
+  return (
+    <div className="border-t border-sky-100 bg-sky-50/40 -mx-1 px-3 py-2 rounded-md">
+      <div className="flex flex-wrap items-center gap-2 text-xs">
+        <span className="uppercase tracking-wide font-semibold text-sky-800">Engagement status</span>
+        {state ? (
+          <span className={`px-2 py-0.5 rounded ${STATUS_CHIP[state]}`}>{state}</span>
+        ) : (
+          <span className="text-slate-400">not tracked</span>
+        )}
+        {history.length > 0 && (
+          <span className="text-slate-400">{history.length} transition{history.length === 1 ? '' : 's'} logged</span>
+        )}
+        <select
+          value={to}
+          onChange={(e) => setTo(e.target.value as StatusState)}
+          className="border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700"
+          aria-label={`Next status for ${artefactId}`}
+        >
+          {STATUS_STATES.map((s) => (
+            <option key={s} value={s}>{s}</option>
+          ))}
+        </select>
+        <input
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          placeholder="note (optional)"
+          className="border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700 w-40"
+          aria-label={`Transition note for ${artefactId}`}
+        />
+        <button
+          onClick={() => {
+            record(artefactId, to, note)
+            setNote('')
+          }}
+          className="px-2 py-1 rounded bg-sky-600 text-white hover:bg-sky-700"
+        >
+          Record
+        </button>
+      </div>
+      <p className="text-[10px] text-slate-400 mt-1 leading-snug">
+        Append-only per engagement: every change is a new log entry, regressions included. The
+        register disposition above is a different fact and does not move.
+      </p>
+    </div>
+  )
+}
+
 export default function Deliverables() {
   const { filter } = useLayer()
   const [answersRich] = useDiagnosticAnswers()
@@ -445,6 +544,18 @@ export default function Deliverables() {
   const [targets] = useDiagnosticTargets()
   const [intake] = useProgramIntake()
   const { busy, message, metaFor, run } = useDeliverable()
+  // G5: the engagement delivery lifecycle over THIS page's artefacts.
+  const [statusLog, recordStatus] = useStatusLog()
+  const [kpiLog] = useKpiLog()
+  const [period, setPeriod] = useReportingPeriod()
+  const tracking = useMemo(
+    () => stateCounts(statusLog, SPECS.map((s) => s.artefactId)),
+    [statusLog],
+  )
+  const totalTransitions = useMemo(
+    () => Object.values(statusLog).reduce((s, t) => s + t.length, 0),
+    [statusLog],
+  )
 
   // G1: one predicate decides both documents' mode — imported, never re-derived.
   const actionable = intakeIsActionable(intake)
@@ -477,10 +588,12 @@ export default function Deliverables() {
               ? gapEntries.length
               : spec.artefactId === 'AR-56'
                 ? slices.length
-                : spec.count(filter)
+                : spec.artefactId === 'AR-57'
+                  ? gapEntries.length + totalTransitions + kpiLog.length
+                  : spec.count(filter)
         return { spec, artefact, count }
       }),
-    [filter, actionable, scopeCount, gapEntries, slices],
+    [filter, actionable, scopeCount, gapEntries, slices, totalTransitions, kpiLog],
   )
 
   const available = cards.filter((c) => c.count > 0).length
@@ -558,7 +671,7 @@ export default function Deliverables() {
         false,
         artefactId === 'AR-08' || artefactId === 'AR-09'
           ? intakeMode
-          : artefactId === 'AR-55' || artefactId === 'AR-56'
+          : artefactId === 'AR-55' || artefactId === 'AR-56' || artefactId === 'AR-57'
             ? 'engagement'
             : undefined,
       )
@@ -569,7 +682,7 @@ export default function Deliverables() {
       // AR-04 carries the tier ONLY when its gap-driven view will render
       // (slices exist) — meta claiming a tier the document did not apply
       // would be a lying record, the AR-06 lesson from G2.
-      const SCORE_CARRIERS = ['AR-01', 'AR-48', 'AR-47', 'AR-06', 'AR-54', 'AR-55', 'AR-56',
+      const SCORE_CARRIERS = ['AR-01', 'AR-48', 'AR-47', 'AR-06', 'AR-54', 'AR-55', 'AR-56', 'AR-57',
         ...(slices.length > 0 ? ['AR-04'] : [])]
       const tierQuestions = applicableQuestions(DIAG.questions, filter, tier)
       const meta = SCORE_CARRIERS.includes(artefactId)
@@ -614,6 +727,17 @@ export default function Deliverables() {
           // show, so a non-actionable engagement still gets pre-G4 bytes.
           saveReport(
             buildRoadmapPdf({ meta, engagement: { answers: answersRich, targets, tier, intake } }),
+            reportFilename(meta, 'pdf'),
+            meta,
+          )
+          return null
+        }
+        case 'AR-57': {
+          const { buildCouncilPackPdf } = await import('../report/councilPack')
+          // Refuses (throws Refusal) without an actionable intake or with
+          // nothing measured AND nothing tracked; run() shows it as a notice.
+          saveReport(
+            buildCouncilPackPdf({ meta, answers: answersRich, targets, tier, intake, statusLog, kpiLog, period }),
             reportFilename(meta, 'pdf'),
             meta,
           )
@@ -719,6 +843,60 @@ export default function Deliverables() {
           label="Of the artefacts a generator can be written for"
         />
       </div>
+
+      {/* G5: the state-counts strip. The denominator is stated because
+          "3 delivered" of 17 and of 56 are different claims; the register's
+          other 39 artefacts are produced by hand and tracked nowhere yet. */}
+      <Card className="p-4">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+          <span className="font-semibold text-sky-800">Engagement status</span>
+          {STATUS_STATES.map((s) => (
+            <span key={s} className="text-slate-600">
+              <span className={`px-1.5 py-0.5 rounded text-xs mr-1 ${STATUS_CHIP[s]}`}>{s}</span>
+              {tracking.counts[s]}
+            </span>
+          ))}
+          <span className="text-slate-600">
+            <span className="px-1.5 py-0.5 rounded text-xs mr-1 bg-slate-50 text-slate-400 ring-1 ring-slate-200">not tracked</span>
+            {tracking.untracked}
+          </span>
+          <span className="text-xs text-slate-400">
+            of the {SPECS.length} artefacts this page generates — delivery lifecycle, not the
+            register's builtFrom disposition
+          </span>
+        </div>
+        {/* G5: the reporting period the steering pack (AR-57) filters by —
+            a consultant-chosen label with date boundaries, per engagement. */}
+        <div className="flex flex-wrap items-center gap-2 text-xs mt-3 pt-3 border-t border-slate-100">
+          <span className="uppercase tracking-wide font-semibold text-slate-500">Reporting period</span>
+          <input
+            value={period.label}
+            onChange={(e) => setPeriod({ ...period, label: e.target.value })}
+            placeholder="period label (e.g. August council)"
+            className="border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700 w-48"
+            aria-label="Reporting period label"
+          />
+          <label className="text-slate-400">from</label>
+          <input
+            type="date"
+            value={period.from}
+            onChange={(e) => setPeriod({ ...period, from: e.target.value })}
+            className="border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700"
+            aria-label="Reporting period start"
+          />
+          <label className="text-slate-400">to</label>
+          <input
+            type="date"
+            value={period.to}
+            onChange={(e) => setPeriod({ ...period, to: e.target.value })}
+            className="border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700"
+            aria-label="Reporting period end"
+          />
+          <span className="text-slate-400">
+            scopes the steering pack (AR-57); an empty date is unbounded on that side
+          </span>
+        </div>
+      </Card>
 
       {message && (
         <div
@@ -840,6 +1018,8 @@ export default function Deliverables() {
                     pack and is not a substitute for the register.
                   </p>
                 )}
+
+                <StatusControl artefactId={spec.artefactId} log={statusLog} record={recordStatus} />
               </Card>
             )
           })}

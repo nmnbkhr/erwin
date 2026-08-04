@@ -17,16 +17,19 @@
  *
  * ─── WHAT A DELIVERABLE'S WAVE PLACEMENT IS, AND IS NOT ────────────────────
  *
- * AR-54's B_NO_WAVE_ROW is load-bearing here: NO dataset attaches an artefact
- * to a wave, and composing artefact -> pillar -> wave is the forbidden bridge
- * (it puts AR-09 in W6 because both name P01). The ONLY artefact-to-wave
- * relation that exists at all is exact name identity between a register row's
- * `artefact` and a wave's free-text deliverable string — measured at 1 of 35
- * when AR-54 was built. So `waveId` here is that exact-match key and nothing
- * looser: almost every deliverable carries `waveId: null`, and that is the
- * honest state of the data, listed rather than dropped. The wave view of a
- * slice comes from the REAL key instead: wave.pillarIds -> pillar
- * (`why: 'pillar-listed'`).
+ * G5: placement is AUTHORED — `wave.artefactIds`, written per wave from the
+ * wave's own deliverables/objectives prose, with every id no wave delivers in
+ * `unplacedArtefactIds` carrying a written reason. The PLACEMENT gate holds
+ * exactly-one placement with no dangling ids in either direction. G4's
+ * interim key — exact name identity between a register row's `artefact` and
+ * a wave's free-text deliverable string, measured at 1 of 35 — is DELETED,
+ * not kept as fallback: two placement keys is two claims about where a
+ * document is delivered. Composing artefact -> pillar -> wave remains the
+ * forbidden bridge (it puts AR-09 in W6 because both name P01). `waveId:
+ * null` now means the plan DECIDED no wave delivers it (diagnostic-rung,
+ * recurring, withdrawn — the unplaced list has the reason), or the placing
+ * wave is outside the active layer. The wave view of a slice still comes
+ * from wave.pillarIds -> pillar (`why: 'pillar-listed'`).
  *
  * ─── SEQUENCE: STRUCTURE BEATS PRIORITY ────────────────────────────────────
  *
@@ -101,8 +104,9 @@ export interface SliceDeliverable {
   /** The register's own disposition — a blocked row is not a remedy (AR-54). */
   builtFrom: ArtefactRegisterEntry['builtFrom']
   /**
-   * Exact-name-identity wave placement, or null. See the header: 1 of 35 wave
-   * deliverable strings matches a register artefact name; null is the norm.
+   * The AUTHORED placement (wave.artefactIds), or null — meaning the plan
+   * filed this id in `unplacedArtefactIds` with a reason, or the placing wave
+   * is outside the active layer. See the header.
    */
   waveId: string | null
 }
@@ -209,12 +213,13 @@ const compose = (
   const visibleWaves = (plan.waves ?? []).filter((w) => waveVisible(layer, w))
   const waveById = new Map(visibleWaves.map((w) => [w.id, w]))
   const fullSequence = waveSequence(visibleWaves)
-  // The one artefact->wave key that exists: exact name identity with a wave
-  // deliverable string. Built over VISIBLE waves so placement respects scope.
-  const waveByDeliverableName = new Map<string, string>()
+  // The authored placement key (G5). Built over VISIBLE waves so placement
+  // respects the layer scope: an artefact placed in a banking wave reads
+  // unplaced under a core-only view, which is true of that view.
+  const waveByArtefactId = new Map<string, string>()
   for (const w of visibleWaves)
-    for (const d of w.deliverables ?? [])
-      if (!waveByDeliverableName.has(d)) waveByDeliverableName.set(d, w.id)
+    for (const id of w.artefactIds ?? [])
+      if (!waveByArtefactId.has(id)) waveByArtefactId.set(id, w.id)
 
   for (const entry of entries) {
     if (!actionable) {
@@ -247,7 +252,7 @@ const compose = (
         format: a.format,
         owner: a.owner,
         builtFrom: a.builtFrom,
-        waveId: waveByDeliverableName.get(a.artefact) ?? null,
+        waveId: waveByArtefactId.get(a.id) ?? null,
       }))
 
     // (b) the waves that LIST the pillar — the real key.

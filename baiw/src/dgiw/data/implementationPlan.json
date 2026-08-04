@@ -86,15 +86,21 @@
         "Ratified CDE register with owners and criticality",
         "Benefit baseline record"
       ],
+      "artefactIds": [
+        "AR-08",
+        "AR-09",
+        "AR-13",
+        "AR-03"
+      ],
       "pillarIds": [
         "P01",
         "P02",
         "P07"
       ],
       "kpis": [
-        "CDEs identified and owned",
-        "Percentage of CDEs with a named steward",
-        "Baseline metrics captured"
+        { "id": "K-W0-01", "text": "CDEs identified and owned" },
+        { "id": "K-W0-02", "text": "Percentage of CDEs with a named steward" },
+        { "id": "K-W0-03", "text": "Baseline metrics captured" }
       ],
       "exitCriteria": "Charter signed, stewards time-allocated, CDE register ratified at council. Gates G1–G6.",
       "layer": "core",
@@ -122,6 +128,15 @@
         "CDE-to-column binding complete",
         "Classification recorded against every governed CDE"
       ],
+      "artefactIds": [
+        "AR-17",
+        "AR-22",
+        "AR-23",
+        "AR-24",
+        "AR-25",
+        "AR-15",
+        "AR-52"
+      ],
       "pillarIds": [
         "P04",
         "P07",
@@ -131,10 +146,10 @@
         "P09"
       ],
       "kpis": [
-        "Catalogue coverage of scoped systems",
-        "Glossary coverage of CDEs",
-        "Lineage coverage of CDEs",
-        "Classification coverage of CDEs"
+        { "id": "K-W1-01", "text": "Catalogue coverage of scoped systems" },
+        { "id": "K-W1-02", "text": "Glossary coverage of CDEs" },
+        { "id": "K-W1-03", "text": "Lineage coverage of CDEs" },
+        { "id": "K-W1-04", "text": "Classification coverage of CDEs" }
       ],
       "exitCriteria": "Harvest running on schedule; every CDE has a definition, a binding, a lineage path and a classification.",
       "layer": "core",
@@ -164,16 +179,25 @@
         "Issue queue open and triaged by stewards",
         "At least one policy enforced as code in a pipeline"
       ],
+      "artefactIds": [
+        "AR-26",
+        "AR-27",
+        "AR-36",
+        "AR-28",
+        "AR-16",
+        "AR-29",
+        "AR-30"
+      ],
       "pillarIds": [
         "P05",
         "P10",
         "P06"
       ],
       "kpis": [
-        "Rules deployed per CDE",
-        "Pass rate by dimension",
-        "Blocker-severity failures outstanding",
-        "Issue triage within SLA"
+        { "id": "K-W2-01", "text": "Rules deployed per CDE" },
+        { "id": "K-W2-02", "text": "Pass rate by dimension" },
+        { "id": "K-W2-03", "text": "Blocker-severity failures outstanding" },
+        { "id": "K-W2-04", "text": "Issue triage within SLA" }
       ],
       "exitCriteria": "Scorecard published and reviewed at council; issues being triaged by stewards rather than by the delivery team. Gate G8.",
       "layer": "core",
@@ -203,16 +227,22 @@
         "Regulator-presentable derivation evidence pack",
         "Model and ECL input quality controls running pre-execution"
       ],
+      "artefactIds": [
+        "AR-21",
+        "AR-31",
+        "AR-38",
+        "AR-53"
+      ],
       "pillarIds": [
         "P05",
         "P07",
         "P03"
       ],
       "kpis": [
-        "Return line items with complete lineage",
-        "Reconciliation break count and ageing",
-        "Submission rework cycles",
-        "Manual interventions in critical flows"
+        { "id": "K-W3-01", "text": "Return line items with complete lineage" },
+        { "id": "K-W3-02", "text": "Reconciliation break count and ageing" },
+        { "id": "K-W3-03", "text": "Submission rework cycles" },
+        { "id": "K-W3-04", "text": "Manual interventions in critical flows" }
       ],
       "exitCriteria": "Derivation of any priority return line item can be evidenced on request from live lineage.",
       "layer": "banking",
@@ -242,15 +272,19 @@
         "Group and related-party linkage register",
         "Reference code-set register with named owners and change control"
       ],
+      "artefactIds": [
+        "AR-39",
+        "AR-33"
+      ],
       "pillarIds": [
         "P06",
         "P03"
       ],
       "kpis": [
-        "Duplicate rate",
-        "Match confidence distribution",
-        "Exposure aggregation completeness",
-        "Identifier validity rate"
+        { "id": "K-W4-01", "text": "Duplicate rate" },
+        { "id": "K-W4-02", "text": "Match confidence distribution" },
+        { "id": "K-W4-03", "text": "Exposure aggregation completeness" },
+        { "id": "K-W4-04", "text": "Identifier validity rate" }
       ],
       "exitCriteria": "Group exposure can be aggregated on demand with evidenced completeness; duplicate rate trending down.",
       "layer": "banking",
@@ -279,16 +313,19 @@
         "Classification and entitlement controls extended to the AI consumption layer",
         "Shadow reporting inventory with a rationalisation plan"
       ],
+      "artefactIds": [
+        "AR-35"
+      ],
       "pillarIds": [
         "P11",
         "P08",
         "P04"
       ],
       "kpis": [
-        "Use cases passing the readiness gate",
-        "Certified assets published",
-        "Model inputs traced to CDEs",
-        "Uncertified shadow reports retired"
+        { "id": "K-W5-01", "text": "Use cases passing the readiness gate" },
+        { "id": "K-W5-02", "text": "Certified assets published" },
+        { "id": "K-W5-03", "text": "Model inputs traced to CDEs" },
+        { "id": "K-W5-04", "text": "Uncertified shadow reports retired" }
       ],
       "exitCriteria": "An AI use case has passed the gate on evidence rather than assertion, with entitlements enforced at query time.",
       "layer": "core",
@@ -316,6 +353,10 @@
         "Next domain scope statement using the same derivation method",
         "Transition into the managed governance retainer"
       ],
+      "artefactIds": [
+        "AR-42",
+        "AR-43"
+      ],
       "pillarIds": [
         "P01",
         "P02",
@@ -323,10 +364,10 @@
         "P08"
       ],
       "kpis": [
-        "Cycle completed without intervention",
-        "Benefit delta versus baseline",
-        "Recertification exceptions closed",
-        "Domains governed"
+        { "id": "K-W6-01", "text": "Cycle completed without intervention" },
+        { "id": "K-W6-02", "text": "Benefit delta versus baseline" },
+        { "id": "K-W6-03", "text": "Recertification exceptions closed" },
+        { "id": "K-W6-04", "text": "Domains governed" }
       ],
       "exitCriteria": "Client-run cycle completed; benefit evidenced; next domain scoped. Gate G10.",
       "layer": "core",
@@ -337,6 +378,128 @@
         "W5"
       ],
       "externalDependencies": []
+    }
+  ],
+  "unplacedArtefactIds": [
+    {
+      "id": "AR-01",
+      "reason": "Rung-1 diagnostic artefact — produced during the diagnostic that precedes W0; the wave plan exists because it already does."
+    },
+    {
+      "id": "AR-02",
+      "reason": "Rung-1 diagnostic artefact — the landscape map is diagnostic output, produced before W0 starts."
+    },
+    {
+      "id": "AR-04",
+      "reason": "The roadmap IS the wave plan's own document — it describes the waves rather than being delivered by one."
+    },
+    {
+      "id": "AR-05",
+      "reason": "Rung-1 diagnostic artefact — the derivation-method exhibit belongs to the diagnostic, before W0."
+    },
+    {
+      "id": "AR-06",
+      "reason": "Rung-1 diagnostic artefact — the AI readiness statement is diagnostic output, before W0."
+    },
+    {
+      "id": "AR-07",
+      "reason": "Rung-1 diagnostic artefact, and blocked on AR-21 besides — precedes the waves either way."
+    },
+    {
+      "id": "AR-10",
+      "reason": "Withdrawn — a retired shape is not scheduled; the reason is in builtFrom.note."
+    },
+    {
+      "id": "AR-11",
+      "reason": "No wave deliverable names the policy set. W2's enforced-policy line CONSUMES a policy; nothing in the wave prose authors the set."
+    },
+    {
+      "id": "AR-12",
+      "reason": "Blocked on AR-11 and named by no wave deliverable — W2's enforcement line is AR-30's runtime control, not this mapping."
+    },
+    {
+      "id": "AR-14",
+      "reason": "Named by no wave deliverable — a work list raised FROM the CDE register for the Data Architect, not a scheduled build."
+    },
+    {
+      "id": "AR-18",
+      "reason": "No wave names the business case. Its baseline half is W0's benefit baseline record (AR-03); its plan half is AR-04."
+    },
+    {
+      "id": "AR-19",
+      "reason": "P09's only wave (W1) names no retention deliverable — the schedule is authored with Legal outside the wave structure."
+    },
+    {
+      "id": "AR-20",
+      "reason": "Named by no wave deliverable — produced from the register whenever needed rather than delivered by a wave."
+    },
+    {
+      "id": "AR-32",
+      "reason": "Withdrawn — a retired shape is not scheduled; the reason is in builtFrom.note."
+    },
+    {
+      "id": "AR-34",
+      "reason": "Withdrawn — a retired shape is not scheduled. W5's 'Certified report and trusted dataset register' deliverable still names this shape; the register withdrew it and the wave prose was never read against that."
+    },
+    {
+      "id": "AR-37",
+      "reason": "Withdrawn — a retired shape is not scheduled; the reason is in builtFrom.note."
+    },
+    {
+      "id": "AR-40",
+      "reason": "Recurring run-phase output of the monthly cycle W6 proves — the waves end at week 32 and no wave deliverable names it."
+    },
+    {
+      "id": "AR-41",
+      "reason": "Recurring council-cycle output — the first cycle runs inside the 90-day plan and every cycle after the waves end; not one wave's deliverable."
+    },
+    {
+      "id": "AR-44",
+      "reason": "Recurring quarterly increment — W6's deliverable is the next domain's scope STATEMENT, not the onboarding itself."
+    },
+    {
+      "id": "AR-45",
+      "reason": "Event-driven — produced when a circular arrives, not on a wave schedule; blocked on AR-21 besides."
+    },
+    {
+      "id": "AR-46",
+      "reason": "Maintained-current run-phase pack. W3 delivers AR-38's point-in-time pack; 'maintained current' is exactly what a wave window cannot deliver."
+    },
+    {
+      "id": "AR-47",
+      "reason": "Rung-1 diagnostic artefact — the alignment statement is diagnostic output, before W0."
+    },
+    {
+      "id": "AR-48",
+      "reason": "Rung-1 diagnostic artefact — the scorecard is diagnostic output, before W0."
+    },
+    {
+      "id": "AR-49",
+      "reason": "Cannot open before AR-11 exists and is named by no wave deliverable — exceptions are council decisions recorded as they occur."
+    },
+    {
+      "id": "AR-50",
+      "reason": "Named by no wave deliverable — a Compliance determination made from the client's legal position, not a scheduled build."
+    },
+    {
+      "id": "AR-51",
+      "reason": "W1 carries lineage coverage as a KPI, not a deliverable — the report is recurring run output of the collector."
+    },
+    {
+      "id": "AR-54",
+      "reason": "Rung-1 engagement-state artefact — regenerated whenever the programme picture moves, not delivered by one wave."
+    },
+    {
+      "id": "AR-55",
+      "reason": "Rung-1 engagement-state artefact — regenerated whenever measurements move, not delivered by one wave."
+    },
+    {
+      "id": "AR-56",
+      "reason": "Rung-1 engagement-state artefact — regenerated whenever the gap register moves, not delivered by one wave."
+    },
+    {
+      "id": "AR-57",
+      "reason": "Recurring per-period steering output — regenerated each reporting period once the engagement runs; not one wave's deliverable, exactly as AR-41."
     }
   ],
   "artefactRegister": [
@@ -941,7 +1104,7 @@
       "layer": "core",
       "builtFrom": {
         "evidence": "observed",
-        "note": "Decisions taken and actions tracked at the council. The standing agenda is derivable from council.decisionRights, but a pack of empty tables is not the deliverable — the decisions are."
+        "note": "Decisions taken and actions tracked at the council. The standing agenda is derivable from council.decisionRights, but a pack of empty tables is not the deliverable — the decisions are. AR-57 (G5) is the adjacent-but-different artefact: a period steering pack over workbench-recorded state (statuses, KPI captures, gaps, slices). It does NOT deliver this entry's decisions log or action tracker — those remain client runtime with no capture surface here, which is why this entry stays observed and why the G5 generator was catalogued under a new id rather than this one (the AR-46/AR-47 precedent)."
       }
     },
     {
@@ -1135,7 +1298,7 @@
           "dgiw/data/programSetup.json",
           "frameworks/data/frameworks.json"
         ],
-        "note": "THE INVERSE OF A COVERAGE REPORT, WHICH IS NOT BUILDABLE. Per pillar: the checklist items and register entries filed against it, every entry with its disposition, and each framework's induced share from the projection engine — four columns, never summed, because leaf weights total 1.00 in DMBOK2 and 3.00 in DGI. Three states, and NOT CATALOGUED never renders as zero. NO DATASET RELATES A CHECKLIST ITEM OR AN ARTEFACT TO A FRAMEWORK DIMENSION: the pillarId on those two is a filing with no weight and no rationale, where the crosswalk entry carries both, so no coverage figure appears anywhere. Waves are reported wave-to-pillar only; artefact-to-wave is a string bridge, 1 of 35 deliverable strings matching a register name."
+        "note": "THE INVERSE OF A COVERAGE REPORT, WHICH IS NOT BUILDABLE. Per pillar: the checklist items and register entries filed against it, every entry with its disposition, and each framework's induced share from the projection engine — four columns, never summed, because leaf weights total 1.00 in DMBOK2 and 3.00 in DGI. Three states, and NOT CATALOGUED never renders as zero. NO DATASET RELATES A CHECKLIST ITEM OR AN ARTEFACT TO A FRAMEWORK DIMENSION: the pillarId on those two is a filing with no weight and no rationale, where the crosswalk entry carries both, so no coverage figure appears anywhere. Waves are reported wave-to-pillar only; artefact-to-wave placement is authored since G5 (wave.artefactIds + reasoned unplaced list, PLACEMENT-gated) and this report deliberately does not restate it — AR-56 renders it per pillar. Before G5 the only relation was a string bridge, 1 of 35 deliverable strings matching a register name."
       }
     },
     {
@@ -1173,7 +1336,26 @@
           "dgiw/data/pillars.json",
           "dgiw/data/crosswalk.json"
         ],
-        "note": "G4. planSlices() over the gap register: per in-scope pillar with both measurements, the register's catalogued deliverables (disposition kept — a blocked row is not a remedy), the waves that LIST the pillar, and a dependsOn-honouring sequence. NO INVENTED EFFORT: no person-days, FTEs, costs or dates anywhere; the only durations are the reference waves' own week windows, verbatim, under a stated assumptions block. NO INVENTED INITIATIVES: lines derive only from the register rows and the waves' own text — a thin pillar gets a thin plan, flagged, never padded. Artefact-to-wave placement is exact name identity only (1 of 35 wave deliverable strings matches a register name); the pillar-hop bridge AR-54 forbids is not used. ENGAGEMENT MODE ONLY on AR-55's refusal pattern — there is no reference mode for a plan derived from measurements."
+        "note": "G4. planSlices() over the gap register: per in-scope pillar with both measurements, the register's catalogued deliverables (disposition kept — a blocked row is not a remedy), the waves that LIST the pillar, and a dependsOn-honouring sequence. NO INVENTED EFFORT: no person-days, FTEs, costs or dates anywhere; the only durations are the reference waves' own week windows, verbatim, under a stated assumptions block. NO INVENTED INITIATIVES: lines derive only from the register rows and the waves' own text — a thin pillar gets a thin plan, flagged, never padded. Artefact-to-wave placement is the AUTHORED wave.artefactIds key (G5, PLACEMENT-gated, reasoned unplaced list; G4's interim exact-name key is deleted); the pillar-hop bridge AR-54 forbids is not used. ENGAGEMENT MODE ONLY on AR-55's refusal pattern — there is no reference mode for a plan derived from measurements."
+      }
+    },
+    {
+      "id": "AR-57",
+      "artefact": "Engagement steering pack (per reporting period)",
+      "pillarId": "P01",
+      "rung": 4,
+      "owner": "Engagement Lead",
+      "format": "Report",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/implementationPlan.json",
+          "dgiw/data/diagnostic.json",
+          "dgiw/data/pillars.json",
+          "dgiw/data/crosswalk.json"
+        ],
+        "note": "G5. THE PERIOD'S RECORD, NOT THE COUNCIL'S MINUTES — see AR-41, which stays observed: council decisions and actions remain client runtime with no capture surface here, and this id deliberately does not restate that shape (the AR-46/AR-47 precedent, applied before building rather than after). Composed ONLY from what the engagement has recorded in the workbench: the maturity line (tier + coverage), the top-band gap entries, the append-only status log's per-state counts with the period's transitions verbatim (regressions and notes included), the period's captured KPI entries (value/source/date, typed by a person — NEVER computed), and the plan slices' thin and held-by notes. Scoped to the consultant's own reporting period and prints the boundaries it filtered by; prints 'no measurement recorded' where none exists; makes no delta or direction-of-travel claim, because one period cannot ground one — comparing periods is G6's. ENGAGEMENT MODE ONLY on AR-55's refusal pattern: refuses without an actionable intake, or when nothing is measured AND nothing is tracked."
       }
     }
   ]

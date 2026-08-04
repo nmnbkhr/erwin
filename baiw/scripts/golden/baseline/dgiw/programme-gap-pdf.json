@@ -1,6 +1,6 @@
 {
   "artefact": "programme-gap-pdf",
-  "bytes": 169819,
+  "bytes": 171027,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "6d1a050f43511b4ed4ac6d23453c3304e2bea0b265d443f84313b9c699265192",
+    "sha256": "f99048630ee88673a420370a0b1c4bd7988a46aa8d7d9b49cb6cb4e3a4e21b40",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-54_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-54_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildProgrammeGapPdf",
-  "glyphCount": 19318,
+  "glyphCount": 19477,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "cb16360ca4a6ebea946b7ae3e84fad9b9529bb057472876714431dcd4a891a9d",
+  "normalisedTextSha256": "f16b3f1225c2bf3a406b3c7304d38cd6b2a75499ab0d71a4a38d030ba28b9ceb",
   "notReproducible": {},
   "pageCount": 11,
   "pages": [
@@ -62,7 +62,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 2716,
+      "glyphs": 2763,
       "heightPt": 841.89,
       "multiColumnBaselines": 2,
       "page": 2,
@@ -97,10 +97,10 @@
         "`derived` is the only one a generator may legally be written for; `authored` is library content nobody has written, `observed` is",
         "measured at the client, `blocked` waits on another catalogued artefact, and `withdrawn` was retired with its reason kept. A pillar",
         "showing three catalogued artefacts may have none that this workbench can produce, and P06 is exactly that.",
-        "NO ARTEFACT IS ATTACHED TO A WAVE. The waves carry pillar ids and free-text deliverables and no artefact id: of 35",
-        "deliverable strings, one matches a register artefact name. Composing artefact -> pillar -> wave would place AR-09, a rung-2",
-        "operating model, in W6 \"Run, Prove & Expand\" because both name P01. The wave section reports only wave -> pillar, which is a",
-        "real key, and names no artefact on any wave row.",
+        "NO ARTEFACT IS INFERRED ONTO A WAVE. Artefact-to-wave placement exists only as the plan's authored artefactIds key,",
+        "with every unplaced id carrying a written reason (G5); composing artefact -> pillar -> wave remains forbidden — it would place",
+        "AR-09, a rung-2 operating model, in W6 \"Run, Prove & Expand\" because both name P01. The wave section reports only wave ->",
+        "pillar and does not restate the authored placement, which the per-pillar plan (AR-56) renders.",
         "Layer scope of every figure in this document",
         "Core chassis + banking overlay — every record in all five datasets is in scope.",
         "Prepared by Godaitec | godai.tech",
@@ -203,8 +203,8 @@
         "Operating Model",
         "HAS A GENERATOR",
         "16",
-        "12",
-        "8",
+        "13",
+        "9",
         "Checklist items and catalogued artefacts are counts of records that name this pillar. They are not a measure of how much of the pillar is",
         "addressed, and no such measure is computed anywhere in this document.",
         "Prepared by Godaitec | godai.tech",
@@ -561,7 +561,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1328,
+      "glyphs": 1375,
       "heightPt": 841.89,
       "multiColumnBaselines": 8,
       "page": 8,
@@ -578,10 +578,10 @@
         "Powered by DGIW",
         "Waves naming a pillar with nothing scheduled",
         "Wave to pillar only. No artefact is named on any row.",
-        "NO ARTEFACT IS ATTACHED TO A WAVE. The waves carry pillar ids and free-text deliverables and no artefact id: of 35",
-        "deliverable strings, one matches a register artefact name. Composing artefact -> pillar -> wave would place AR-09, a rung-2",
-        "operating model, in W6 \"Run, Prove & Expand\" because both name P01. The wave section reports only wave -> pillar, which is a",
-        "real key, and names no artefact on any wave row.",
+        "NO ARTEFACT IS INFERRED ONTO A WAVE. Artefact-to-wave placement exists only as the plan's authored artefactIds key,",
+        "with every unplaced id carrying a written reason (G5); composing artefact -> pillar -> wave remains forbidden — it would place",
+        "AR-09, a rung-2 operating model, in W6 \"Run, Prove & Expand\" because both name P01. The wave section reports only wave ->",
+        "pillar and does not restate the authored placement, which the per-pillar plan (AR-56) renders.",
         "Wave",
         "Name",
         "Weeks",
@@ -700,7 +700,7 @@
         "Fixture Bank Limited — Programme Gap Report",
         "Powered by DGIW",
         "Every catalogued artefact counted",
-        "56 entries in scope under this layer.",
+        "57 entries in scope under this layer.",
         "A WITHDRAWN OR BLOCKED ENTRY IS NOT A REMEDY. Every artefact counted below is printed with its register disposition.",
         "`derived` is the only one a generator may legally be written for; `authored` is library content nobody has written, `observed` is",
         "measured at the client, `blocked` waits on another catalogued artefact, and `withdrawn` was retired with its reason kept. A pillar",
@@ -874,9 +874,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1513,
+      "glyphs": 1578,
       "heightPt": 841.89,
-      "multiColumnBaselines": 28,
+      "multiColumnBaselines": 29,
       "page": 11,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -885,7 +885,7 @@
       "rotatedRuns": 0,
       "runsPastMargin": 0,
       "runsPastPaper": 0,
-      "tableRows": 26,
+      "tableRows": 27,
       "text": [
         "Artefact",
         "Pillar",
@@ -1017,21 +1017,26 @@
         "Per-pillar implementation plan",
         "derived",
         "yes",
+        "AR-57",
+        "P01",
+        "Engagement steering pack (per reporting period)",
+        "derived",
+        "yes",
         "Fixture Bank Limited — Programme Gap Report",
         "Powered by DGIW",
         "Prepared by Godaitec | godai.tech",
         "Page 11 of 11"
       ],
-      "textRuns": 134,
+      "textRuns": 139,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "8f215500e0e4fd4afcb92255510ecf8bb602eb823ee24c18c880f2e63d6e0c7c",
-  "tableRowsTotal": 107,
-  "textRunCount": 772,
+  "rawBytesSha256": "8bc5d48345c93dfa013a23069921cd44f5edcd64366f1b2eae2ffe5fbfae7963",
+  "tableRowsTotal": 108,
+  "textRunCount": 777,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

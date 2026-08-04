@@ -1030,6 +1030,31 @@ export const REGISTRY = {
         ),
       },
 
+      /*
+       * G5 — the engagement steering pack, AR-57. Engagement-only on AR-55's
+       * refusal pattern (typed as Refusal — D-020). The fixture's seeded
+       * record covers both sides of every boundary this document filters by:
+       * an in-period regression WITH its note beside a pre-period accept, two
+       * in-period KPI captures beside a pre-period one — so the baseline
+       * freezes the period filter doing its job, and PACK-PERIOD asserts the
+       * same facts against the compiled module on every build. No reference
+       * capture: a refusal produces nothing to baseline.
+       */
+      {
+        id: 'council-pack-pdf', entry: DGIW_REPORT('councilPack'), kind: 'pdf',
+        exportName: 'buildCouncilPackPdf', artefactIdExport: 'COUNCIL_PACK_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(
+          m.buildCouncilPackPdf({
+            meta: { ...c.meta, mode: 'engagement' },
+            answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake,
+            statusLog: f.status, kpiLog: f.kpi, period: f.period,
+          }),
+          c.reportFilename(c.meta, 'pdf'),
+          { ...c.meta, mode: 'engagement' },
+        ),
+      },
+
       // AR-47 is one artefact id producing four documents, one per framework.
       // All four are captured: the crosswalk work is recent, and a projection
       // that silently changed under a spine edit is exactly what 0a is for.

@@ -217,5 +217,20 @@
     "DG-P01-01": "Charter sighted; signed by the CFO 2025-11. Budget line confirmed in the 2026 plan.",
     "DG-P02-01": "Strategy document exists but is undated and names no owner; treated as draft."
   },
-  "tier": "quick"
+  "tier": "quick",
+  "status": {
+    "AR-13": [
+      { "to": "delivered", "at": "2026-08-02T10:00:00.000Z" },
+      { "to": "in-progress", "at": "2026-08-05T09:00:00.000Z", "note": "client returned the draft register" }
+    ],
+    "AR-01": [
+      { "to": "accepted", "at": "2026-07-20T10:00:00.000Z" }
+    ]
+  },
+  "kpi": [
+    { "kpiId": "K-W0-01", "value": "58 of 76", "capturedAt": "2026-08-03T12:00:00.000Z", "source": "CDE register v3" },
+    { "kpiId": "K-W2-02", "value": "81% pass", "capturedAt": "2026-08-06T12:00:00.000Z", "source": "DQ engine run 14" },
+    { "kpiId": "K-W0-02", "value": "99%", "capturedAt": "2026-07-19T12:00:00.000Z", "source": "pre-period baseline" }
+  ],
+  "period": { "label": "August council", "from": "2026-08-01", "to": "2026-08-31" }
 }

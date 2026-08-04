@@ -27,6 +27,7 @@
  */
 import type jsPDF from 'jspdf'
 import { contentKey, createReport, SLATE } from '../../report/spine'
+import { Refusal } from './refusal'
 import type { ReportMeta } from '../../report/types'
 import { gapRegister } from '../gap/register'
 import { gapStatementsRefusal } from './gapStatements'
@@ -92,8 +93,9 @@ export function buildPillarPlansPdf(input: PillarPlansInput): jsPDF {
   const slices = planSlices(entries, intake, PLAN, meta.layer)
   const exclusions = sliceExclusions(entries, intake, PLAN, meta.layer)
 
+  // G5: a typed Refusal, not a bare Error — D-020. Same message, new channel.
   const refusal = pillarPlansRefusal(intake, entries, slices)
-  if (refusal) throw new Error(refusal)
+  if (refusal) throw new Refusal(refusal)
 
   const answeredTotal = slices.reduce((s, x) => s + x.entry.coverage.answered, 0)
   const applicableTotal = slices.reduce((s, x) => s + x.entry.coverage.applicable, 0)
@@ -190,9 +192,9 @@ export function buildPillarPlansPdf(input: PillarPlansInput): jsPDF {
     } else {
       r.paragraph(
         'Disposition per row, because a blocked or observed entry is not a document this ' +
-          'workbench can produce. Wave placement is exact name identity with a wave deliverable ' +
-          'string — the only artefact-to-wave key that exists — and blank means no wave names ' +
-          'this artefact, which is the normal state of the data.',
+          'workbench can produce. Wave placement is the plan\'s authored artefactIds key; blank ' +
+          'means the plan filed this artefact as unplaced with a written reason (diagnostic-rung, ' +
+          'recurring or withdrawn), or the placing wave sits outside the active layer.',
         { color: SLATE, size: 8 },
       )
       r.table({
