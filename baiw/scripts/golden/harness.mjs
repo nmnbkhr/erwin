@@ -934,29 +934,73 @@ export const REGISTRY = {
        * rather than asserted — the argument lineage-trace-pdf-core,
        * ai-readiness-pdf-core and tooling-pdf-core already ship under.
        */
+      // G3: both captures pass the fixture's assessment state, so the maturity
+      // section renders the measured register rather than its absent-input
+      // paragraph — the Deliverables call site verbatim, as always.
       {
         id: 'programme-gap-pdf', entry: DGIW_REPORT('programmeGap'), kind: 'pdf',
         exportName: 'buildProgrammeGapPdf', artefactIdExport: 'PROGRAMME_GAP_ARTEFACT_ID',
         assertRawBytes: true,
-        call: (m, f, c) => c.saveReport(m.buildProgrammeGapPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+        call: (m, f, c) => c.saveReport(
+          m.buildProgrammeGapPdf({ meta: c.meta, maturity: { answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake } }),
+          c.reportFilename(c.meta, 'pdf'),
+          c.meta,
+        ),
       },
       {
         id: 'programme-gap-pdf-core', entry: DGIW_REPORT('programmeGap'), kind: 'pdf',
         exportName: 'buildProgrammeGapPdf', artefactIdExport: 'PROGRAMME_GAP_ARTEFACT_ID',
         assertRawBytes: true, layer: 'core',
-        call: (m, f, c) => c.saveReport(m.buildProgrammeGapPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+        call: (m, f, c) => c.saveReport(
+          m.buildProgrammeGapPdf({ meta: c.meta, maturity: { answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake } }),
+          c.reportFilename(c.meta, 'pdf'),
+          c.meta,
+        ),
+      },
+
+      /*
+       * G3 — the maturity gap register, AR-55. Engagement-mode only: the
+       * fixture intake is actionable and the fixture's four targets meet the
+       * fixture's quick-tier scores, so the register holds entries in all four
+       * bands (critical, high, moderate, met — GAP-PRIORITY's reachability set)
+       * plus seven exclusions. There is deliberately NO reference capture: the
+       * generator refuses without measurements, and a refusal produces no
+       * artefact to baseline — GAP-REFUSAL asserts the refusal instead.
+       */
+      {
+        id: 'gap-statements-pdf', entry: DGIW_REPORT('gapStatements'), kind: 'pdf',
+        exportName: 'buildGapStatementsPdf', artefactIdExport: 'GAP_STATEMENTS_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(
+          m.buildGapStatementsPdf({
+            meta: { ...c.meta, mode: 'engagement' },
+            // The fixture's evidence notes are folded onto their answers as the
+            // rich G2 shape, the rest stay legacy numbers — one call exercising
+            // the mixed-shape lift, the evidence appendix (DG-P01-01 is quick-
+            // tier and renders) and the tier filter on evidence (DG-P02-01 is
+            // NOT quick-tier, so its note must be absent from the document).
+            answers: Object.fromEntries(Object.entries(f.answers).map(([id, v]) =>
+              f.evidence?.[id] ? [id, { score: v, evidence: f.evidence[id] }] : [id, v])),
+            targets: f.targets, tier: f.tier, intake: f.intake,
+          }),
+          c.reportFilename(c.meta, 'pdf'),
+          { ...c.meta, mode: 'engagement' },
+        ),
       },
 
       // AR-47 is one artefact id producing four documents, one per framework.
       // All four are captured: the crosswalk work is recent, and a projection
       // that silently changed under a spine edit is exactly what 0a is for.
+      // G3: the fixture targets ride along, so the projected-target and gap
+      // columns are exercised in both branches — the fixture's four targets
+      // fill P01-only dimensions and leave every multi-pillar one em-dashed.
       ...['FW-01', 'FW-02', 'FW-03', 'FW-04'].map((frameworkId) => ({
         id: `framework-alignment-${frameworkId.toLowerCase()}-pdf`,
         entry: DGIW_REPORT('frameworkAlignment'), kind: 'pdf',
         exportName: 'buildFrameworkAlignmentPdf', artefactIdExport: 'FRAMEWORK_ALIGNMENT_ARTEFACT_ID',
         assertRawBytes: true,
         call: (m, f, c) => c.saveReport(
-          m.buildFrameworkAlignmentPdf({ meta: c.meta, answers: f.answers, frameworkId }),
+          m.buildFrameworkAlignmentPdf({ meta: c.meta, answers: f.answers, frameworkId, targets: f.targets }),
           c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, `_${frameworkId.toLowerCase()}.pdf`),
           c.meta,
         ),

@@ -1,6 +1,6 @@
 {
   "artefact": "ai-readiness-pdf",
-  "bytes": 40159,
+  "bytes": 41735,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0952373075986e454bc3864e46c977ca946a5e72dcbd6d244151b08cf3874bb5",
+    "sha256": "a35173267392f44ea31af1e10f58e6889fcc0e5715bf03812ee77807452187ab",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,13 +27,13 @@
   "filename": "AR-06_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-06_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildAiReadinessPdf",
-  "glyphCount": 7714,
+  "glyphCount": 7924,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "28ff397da743e23d690837bfc7fd03787b7a3ddc188529c46b724fe93174425e",
+  "normalisedTextSha256": "398a41f5abf90733819bd1dec2a86e58211aae8f7e46518ef4843740c6c84fa6",
   "notReproducible": {},
-  "pageCount": 6,
+  "pageCount": 7,
   "pages": [
     {
       "glyphs": 201,
@@ -91,7 +91,7 @@
         "ASSESSED — never 0, and it enters no mean. A pillar with no applicable questions under the active layer reads NOT",
         "APPLICABLE. Unmeasured and low are different findings and this document never lets them print the same.",
         "Prepared by Godaitec | godai.tech",
-        "Page 2 of 6"
+        "Page 2 of 7"
       ],
       "textRuns": 17,
       "utf16Runs": 0,
@@ -99,7 +99,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 2547,
+      "glyphs": 2423,
       "heightPt": 841.89,
       "multiColumnBaselines": 21,
       "page": 3,
@@ -123,6 +123,10 @@
         "5 of 5 applicable",
         "Coverage",
         "100% of this pillar's question weight",
+        "Assessment tier",
+        "Deep Dive",
+        "Coverage at this tier",
+        "55 of 55 applicable questions answered across all pillars",
         "Layer scope",
         "Core chassis + banking overlay",
         "THREE STATES, AND THE DENOMINATOR IS PRINTED. A pillar with applicable questions and none answered reads NOT ASSESSED —",
@@ -165,14 +169,38 @@
         "Does model risk management require evidenced data lineage for regulatory and credit models?",
         "Answer",
         "5 — Optimising",
+        "Prepared by Godaitec | godai.tech",
+        "Page 3 of 7"
+      ],
+      "textRuns": 59,
+      "utf16Runs": 0,
+      "widestText": "Powered by DGIW",
+      "widthPt": 595.28
+    },
+    {
+      "glyphs": 334,
+      "heightPt": 841.89,
+      "multiColumnBaselines": 4,
+      "page": 4,
+      "pastMarginPt": 0,
+      "pastPaperPt": 0,
+      "rightEdgePt": 552.76,
+      "rightMarginPt": 552.76,
+      "rotatedRuns": 0,
+      "runsPastMargin": 0,
+      "runsPastPaper": 0,
+      "tableRows": 0,
+      "text": [
+        "Fixture Bank Limited — AI Readiness Gap Statement",
+        "Powered by DGIW",
         "At this level",
         "Lineage evidence is produced automatically from the governance platform for each validation cycle.",
         "At Optimising (5)",
         "Lineage evidence is produced automatically from the governance platform for each validation cycle.",
         "Prepared by Godaitec | godai.tech",
-        "Page 3 of 6"
+        "Page 4 of 7"
       ],
-      "textRuns": 59,
+      "textRuns": 8,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -181,7 +209,7 @@
       "glyphs": 1131,
       "heightPt": 841.89,
       "multiColumnBaselines": 7,
-      "page": 4,
+      "page": 5,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -233,7 +261,7 @@
         "Four numbers, four denominators, no fifth number. Which of the three dependencies matters most for a given deployment is a judgement about",
         "that deployment, and this workbench holds no deployment to judge.",
         "Prepared by Godaitec | godai.tech",
-        "Page 4 of 6"
+        "Page 5 of 7"
       ],
       "textRuns": 43,
       "utf16Runs": 0,
@@ -244,7 +272,7 @@
       "glyphs": 1323,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
-      "page": 5,
+      "page": 6,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -298,7 +326,7 @@
         "•",
         "Credit and fraud model input assurance",
         "Prepared by Godaitec | godai.tech",
-        "Page 5 of 6"
+        "Page 6 of 7"
       ],
       "textRuns": 45,
       "utf16Runs": 0,
@@ -309,7 +337,7 @@
       "glyphs": 1034,
       "heightPt": 841.89,
       "multiColumnBaselines": 6,
-      "page": 6,
+      "page": 7,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -352,7 +380,7 @@
         "CW-D-063 — Ensured Benefits Delivery",
         "For a data programme, benefit is overwhelmingly realised at the consumption end, P11.",
         "Prepared by Godaitec | godai.tech",
-        "Page 6 of 6"
+        "Page 7 of 7"
       ],
       "textRuns": 34,
       "utf16Runs": 0,
@@ -361,9 +389,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "841ee21f0d280e9e4db358e087644fd13067cca12467a851951a2d422bc4cef7",
+  "rawBytesSha256": "c65d6c1dd774f7f09fa2516c8e9ac518c2bd27c6f8aa85a2a6bdf035653e30d2",
   "tableRowsTotal": 9,
-  "textRunCount": 204,
+  "textRunCount": 212,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

@@ -25,8 +25,11 @@ import { useDeliverable } from '../report/useDeliverable'
 import { inducedPillarWeights, projectAll, type DimensionDecomposition } from '../projection'
 import { findingCodes, leafCount, worstFindings } from '../report/findings'
 import { LEVEL_LABEL, applicableQuestions } from '../scoring'
-import { useAssessmentTier } from '../assessmentState'
+import { useAssessmentTier, useDiagnosticTargets } from '../assessmentState'
 import { TIER_META } from '../tier'
+// G3: the projected-target column, ONE implementation shared with AR-47's
+// dimension table — the screen and the pack must show the same cell.
+import { projectedDimensionTargets } from '../gap/register'
 import diagnostic from '../data/diagnostic.json'
 import {
   FRAMEWORKS,
@@ -84,6 +87,8 @@ export default function Frameworks() {
       if (scores[q.id] !== undefined) out[q.id] = scores[q.id]
     return out
   }, [answersRich, filter, tier])
+  const [targets] = useDiagnosticTargets()
+  const dimTargets = useMemo(() => projectedDimensionTargets(targets, filter), [targets, filter])
   const { busy, message, metaFor, run } = useDeliverable()
   // Coverage at the active tier, for the meta both generators record.
   const coverage = () => {
@@ -139,7 +144,7 @@ export default function Frameworks() {
         assessmentCoverage: coverage(),
       }
       const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, `_${code.toLowerCase()}.pdf`)
-      saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId, tier }), name, meta)
+      saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId, tier, targets }), name, meta)
       return null
     })
 
@@ -353,6 +358,8 @@ export default function Frameworks() {
                   <th className="py-2 pr-3 font-medium">Code</th>
                   <th className="py-2 pr-3 font-medium">Dimension</th>
                   <th className="py-2 pr-3 font-medium text-center">Score</th>
+                  <th className="py-2 pr-3 font-medium text-center">Target</th>
+                  <th className="py-2 pr-3 font-medium text-center">Gap</th>
                   <th className="py-2 pr-3 font-medium text-center">Retained share</th>
                   <th className="py-2 pr-3 font-medium text-center">Scored share</th>
                   <th className="py-2 pr-3 font-medium">Contributing pillars</th>
@@ -369,6 +376,18 @@ export default function Frameworks() {
                         <td className="py-2 pr-3 text-slate-700">{d.name}</td>
                         <td className="py-2 pr-3 text-center">
                           <StateCell d={d} />
+                        </td>
+                        {/* G3: projected target and gap — same helper as the
+                            AR-47 pack, so screen and paper cannot disagree.
+                            A '—' means at least one mapped pillar has no
+                            target; the rule is stated under the table. */}
+                        <td className="py-2 pr-3 text-center text-slate-600">
+                          {dimTargets[d.dimensionId] == null ? '—' : show1(dimTargets[d.dimensionId])}
+                        </td>
+                        <td className="py-2 pr-3 text-center text-slate-600">
+                          {dimTargets[d.dimensionId] == null || d.state !== 'scored'
+                            ? '—'
+                            : show1((dimTargets[d.dimensionId] as number) - (d.score as number))}
                         </td>
                         <td className="py-2 pr-3 text-center">
                           <span className={d.retainedShare < 1 - 1e-9 ? 'text-amber-700 font-medium' : 'text-slate-600'}>
@@ -395,7 +414,7 @@ export default function Frameworks() {
                       isOpen && d.contributions.length > 0 ? (
                         <tr key={`${d.dimensionId}-detail`} className="border-b border-slate-100 bg-slate-50/60">
                           <td />
-                          <td colSpan={5} className="py-2 pr-3">
+                          <td colSpan={7} className="py-2 pr-3">
                             <p className="text-xs text-slate-500 mb-1.5">
                               Weights are renormalised over the scored pillars, so they sum to 100% and{' '}
                               {d.code}&rsquo;s score is their weighted mean.
@@ -437,6 +456,12 @@ export default function Frameworks() {
               </tbody>
             </table>
           </TableWrap>
+          <p className="text-xs text-slate-400 mt-3">
+            A projected target appears only where every capability pillar the dimension maps to
+            under this layer carries a target; the gap only where the dimension is also scored. A
+            dimension with any unset pillar target shows neither — no partial-target arithmetic.
+            The projection is the same convex combination the score uses, applied to the targets.
+          </p>
         </Card>
       )}
 

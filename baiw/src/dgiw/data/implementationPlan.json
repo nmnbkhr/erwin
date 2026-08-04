@@ -1137,6 +1137,25 @@
         ],
         "note": "THE INVERSE OF A COVERAGE REPORT, WHICH IS NOT BUILDABLE. Per pillar: the checklist items and register entries filed against it, every entry with its disposition, and each framework's induced share from the projection engine — four columns, never summed, because leaf weights total 1.00 in DMBOK2 and 3.00 in DGI. Three states, and NOT CATALOGUED never renders as zero. NO DATASET RELATES A CHECKLIST ITEM OR AN ARTEFACT TO A FRAMEWORK DIMENSION: the pillarId on those two is a filing with no weight and no rationale, where the crosswalk entry carries both, so no coverage figure appears anywhere. Waves are reported wave-to-pillar only; artefact-to-wave is a string bridge, 1 of 35 deliverable strings matching a register name."
       }
+    },
+    {
+      "id": "AR-55",
+      "artefact": "Maturity gap register with per-pillar gap statements",
+      "pillarId": "P01",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Report + CSV",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/diagnostic.json",
+          "dgiw/data/pillars.json",
+          "dgiw/data/crosswalk.json",
+          "frameworks/data/frameworks.json"
+        ],
+        "note": "G3. Built from gapRegister() — the single gap function — over ENGAGEMENT STATE the datasets cannot carry: per-pillar targets, tier-scoped answers and the intake's declared driver-to-pillar mapping. A gap needs two measurements, so a pillar missing its target or unscored at the active tier produces no statement and is listed as excluded with the reason. ENGAGEMENT MODE ONLY: with no actionable intake or an empty register the generator REFUSES — an ILLUSTRATIVE gap register is a contradiction, because there is no reference mode for measurements. Priority is the stated formula (gap size, crosswalk decisiveness, declared driver alignment), never a rank without inputs; framework references are the existing projection's dimensions under their share-of-dimension semantics, no invented framework gap scores."
+      }
     }
   ]
 }

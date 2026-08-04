@@ -48,6 +48,8 @@ import { useAssessmentTier, useDiagnosticTargets } from '../assessmentState'
 import { applicableQuestions } from '../scoring'
 import { useProgramIntake } from '../intake/state'
 import { PILLAR_IDS, intakeIsActionable, validScopeIds } from '../intake/types'
+// G3: the single gap function — pure, no jsPDF, safe to import statically.
+import { gapRegister } from '../gap/register'
 import implementationPlan from '../data/implementationPlan.json'
 import operatingModel from '../data/operatingModel.json'
 import cdeRegister from '../data/cdeRegister.json'
@@ -387,6 +389,26 @@ const SPECS: Spec[] = [
     countLabel: 'live catalogued artefacts in scope',
     shortcut: '/dg/frameworks',
   },
+  {
+    artefactId: 'AR-55',
+    title: 'Maturity Gap Register',
+    blurb:
+      'Every pillar with both measurements — a current score at the active tier and a ' +
+      'consultant-set target — as one statement each: the gap, the priority with its formula and ' +
+      'inputs stated, the framework dimensions resting on the pillar, and the recorded evidence. ' +
+      'Excluded pillars are listed with the reason.',
+    caveat:
+      'ENGAGEMENT MODE ONLY. A gap is two measurements of THIS engagement, so there is no ' +
+      'reference mode and no ILLUSTRATIVE fallback: without an actionable intake, or with no ' +
+      'pillar carrying both measurements at the active tier, generation REFUSES with the reason ' +
+      'rather than producing an empty or watermarked document.',
+    primary: 'pdf',
+    // Overridden in the cards memo below — the count is the live register's
+    // entry count, which needs engagement state a module constant cannot read.
+    count: () => 0,
+    countLabel: 'pillars with both measurements',
+    shortcut: '/dg/gaps',
+  },
 ]
 
 export default function Deliverables() {
@@ -407,17 +429,28 @@ export default function Deliverables() {
   const intakeMode = actionable ? ('engagement' as const) : ('reference' as const)
   const scopeCount = validScopeIds(intake).length
 
+  // G3: the live register, for AR-55's card count and its generator input.
+  const gapEntries = useMemo(
+    () => gapRegister(answersRich, targets, tier, filter, intake),
+    [answersRich, targets, tier, filter, intake],
+  )
+
   const cards = useMemo(
     () =>
       SPECS.map((spec) => {
         const artefact = ARTEFACTS.get(spec.artefactId)
         // AR-08's count comes from the intake, not the layer filter — see the
-        // spec's own comment. Everything else is untouched.
+        // spec's own comment. AR-55's comes from the live gap register, which
+        // is engagement state no module-level count() can read.
         const count =
-          spec.artefactId === 'AR-08' && actionable ? scopeCount : spec.count(filter)
+          spec.artefactId === 'AR-08' && actionable
+            ? scopeCount
+            : spec.artefactId === 'AR-55'
+              ? gapEntries.length
+              : spec.count(filter)
         return { spec, artefact, count }
       }),
-    [filter, actionable, scopeCount],
+    [filter, actionable, scopeCount, gapEntries],
   )
 
   const available = cards.filter((c) => c.count > 0).length
@@ -486,18 +519,24 @@ export default function Deliverables() {
         import('../../report/spine'),
         import('../../report/naming'),
       ])
-      // G1: only the two intake-driven artefacts carry a mode; every other
-      // meta is built exactly as before and its provenance records stay null.
+      // G1: the intake-driven artefacts carry a mode; every other meta is
+      // built exactly as before and its provenance records stay null. AR-55
+      // is always 'engagement' — it has no reference mode; the generator
+      // refuses instead, and the refusal surfaces as this page's message.
       const baseMeta = metaFor(
         artefactId,
         false,
-        artefactId === 'AR-08' || artefactId === 'AR-09' ? intakeMode : undefined,
+        artefactId === 'AR-08' || artefactId === 'AR-09'
+          ? intakeMode
+          : artefactId === 'AR-55'
+            ? 'engagement'
+            : undefined,
       )
       // G2: only the artefacts whose GENERATOR applies the tier carry it in
       // meta — claiming a tier the document did not apply would be a lying
-      // record. AR-06 also prints a diagnostic score and does not yet take a
-      // tier; it is deliberately absent here and noted in the G2 report.
-      const SCORE_CARRIERS = ['AR-01', 'AR-48', 'AR-47']
+      // record. G3 closed the AR-06 flag (its generator now takes the tier)
+      // and added AR-54's maturity section and AR-55, so all three join.
+      const SCORE_CARRIERS = ['AR-01', 'AR-48', 'AR-47', 'AR-06', 'AR-54', 'AR-55']
       const tierQuestions = applicableQuestions(DIAG.questions, filter, tier)
       const meta = SCORE_CARRIERS.includes(artefactId)
         ? {
@@ -577,12 +616,27 @@ export default function Deliverables() {
         }
         case 'AR-06': {
           const { buildAiReadinessPdf } = await import('../report/aiReadiness')
-          saveReport(buildAiReadinessPdf({ meta, answers }), reportFilename(meta, 'pdf'), meta)
+          saveReport(buildAiReadinessPdf({ meta, answers, tier }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-54': {
           const { buildProgrammeGapPdf } = await import('../report/programmeGap')
-          saveReport(buildProgrammeGapPdf({ meta }), reportFilename(meta, 'pdf'), meta)
+          saveReport(
+            buildProgrammeGapPdf({ meta, maturity: { answers: answersRich, targets, tier, intake } }),
+            reportFilename(meta, 'pdf'),
+            meta,
+          )
+          return null
+        }
+        case 'AR-55': {
+          const { buildGapStatementsPdf } = await import('../report/gapStatements')
+          // The generator refuses (throws) without an actionable intake or an
+          // empty register; run() surfaces the reason as this page's message.
+          saveReport(
+            buildGapStatementsPdf({ meta, answers: answersRich, targets, tier, intake }),
+            reportFilename(meta, 'pdf'),
+            meta,
+          )
           return null
         }
         case 'AR-17': {

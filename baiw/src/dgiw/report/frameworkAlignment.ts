@@ -32,6 +32,8 @@ import type { ReportMeta } from '../../report/types'
 import { decompose, projectFramework, type DimensionDecomposition } from '../projection'
 import { LEVEL_LABEL, applicableQuestions } from '../scoring'
 import { DEFAULT_TIER, TIER_META, type AssessmentTier } from '../tier'
+import { projectedDimensionTargets } from '../gap/register'
+import type { TargetMap } from '../assessmentState'
 import diagnostic from '../data/diagnostic.json'
 import {
   FRAMEWORKS,
@@ -62,6 +64,13 @@ export interface FrameworkAlignmentInput {
   frameworkId: string
   /** G2: see MultiFrameworkInput.tier — pre-filters answers, math untouched. */
   tier?: AssessmentTier
+  /**
+   * G3: per-pillar targets. A dimension row gains a projected target and a
+   * gap ONLY when every pillar its visible mapping reaches carries a target —
+   * `projectedDimensionTargets` in gap/register.ts is the one implementation,
+   * shared with the Frameworks screen. No partial-target arithmetic.
+   */
+  targets?: TargetMap
 }
 
 const entriesByDim = new Map<string, CrosswalkEntry[]>()
@@ -97,6 +106,7 @@ export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPD
 
   const proj = projectFramework(frameworkId, answers, meta.layer)
   const dims = decompose(frameworkId, answers, meta.layer)
+  const dimTargets = projectedDimensionTargets(input.targets ?? {}, meta.layer)
   const leaves = dims.filter((d) => d.isLeaf)
   const partial = leaves.filter((d) => d.state === 'scored' && d.retainedShare < 1 - 1e-9)
   const notApplicable = leaves.filter((d) => d.state === 'not-applicable')
@@ -112,6 +122,12 @@ export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPD
       `tier:${tier}`,
       `coverage:${answeredCount}/${tierQuestions.length}`,
       ...leaves.map((d) => `dim:${d.dimensionId}=${d.state}:${d.score === null ? 'null' : d.score.toFixed(6)}`),
+      // G3: the projected targets are rendered content, so they seed the /ID —
+      // a pack generated after one more target is set is a different document.
+      ...leaves.map((d) => {
+        const t = dimTargets[d.dimensionId]
+        return `tgt:${d.dimensionId}=${t === null || t === undefined ? 'none' : t.toFixed(6)}`
+      }),
     ]),
   )
 
@@ -158,21 +174,29 @@ export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPD
     { color: SLATE, size: 8 },
   )
   r.table({
-    head: ['Code', 'Dimension', 'Score', 'Level', 'Retained', 'Scored', 'Pillars'],
-    rows: leaves.map((d) => [
-      d.code,
-      d.name,
-      stateLabel(d),
-      d.state === 'scored' ? LEVEL_LABEL[Math.round(d.score as number)] : '—',
-      pct(d.retainedShare),
-      pct(d.scoredShare),
-      d.contributions.length ? d.contributions.map((c) => c.spineId).join(', ') : '—',
-    ]),
+    head: ['Code', 'Dimension', 'Score', 'Level', 'Target', 'Gap', 'Retained', 'Scored', 'Pillars'],
+    rows: leaves.map((d) => {
+      const t = dimTargets[d.dimensionId] ?? null
+      const gap = t !== null && d.state === 'scored' ? t - (d.score as number) : null
+      return [
+        d.code,
+        d.name,
+        stateLabel(d),
+        d.state === 'scored' ? LEVEL_LABEL[Math.round(d.score as number)] : '—',
+        t === null ? '—' : show1(t),
+        gap === null ? '—' : show1(gap),
+        pct(d.retainedShare),
+        pct(d.scoredShare),
+        d.contributions.length ? d.contributions.map((c) => c.spineId).join(', ') : '—',
+      ]
+    }),
     columnStyles: {
       0: { cellWidth: 20 },
-      2: { cellWidth: 20, halign: 'center' },
-      4: { cellWidth: 18, halign: 'center' },
-      5: { cellWidth: 16, halign: 'center' },
+      2: { cellWidth: 18, halign: 'center' },
+      4: { cellWidth: 14, halign: 'center' },
+      5: { cellWidth: 12, halign: 'center' },
+      6: { cellWidth: 16, halign: 'center' },
+      7: { cellWidth: 14, halign: 'center' },
     },
     bodyFontSize: 7,
     didParseCell: (data) => {
@@ -180,6 +204,15 @@ export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPD
         data.cell.styles.textColor = [180, 83, 9]
     },
   })
+  // Stated once, for every '—' in the two new columns above.
+  r.paragraph(
+    'A projected target appears only where EVERY capability pillar the dimension maps to under ' +
+      'this layer carries a target set on the diagnostic; the gap only where the dimension is ' +
+      'also scored. A dimension with any unset pillar target shows neither — a target projected ' +
+      'from part of its mapping would be arithmetic over measurements that do not exist. The ' +
+      'projected target is the same convex combination the score uses, applied to the targets.',
+    { color: SLATE, size: 8 },
+  )
 
   if (partial.length > 0) {
     r.sectionHeading('Dimensions only partly in scope')

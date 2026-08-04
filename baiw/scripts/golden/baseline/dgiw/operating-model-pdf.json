@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0952373075986e454bc3864e46c977ca946a5e72dcbd6d244151b08cf3874bb5",
+    "sha256": "a35173267392f44ea31af1e10f58e6889fcc0e5715bf03812ee77807452187ab",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -31,7 +31,7 @@
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "0ff59374c81eb708ff04e96c57040165a189cc7b3e0826389aeb83d2487d24ce",
+  "normalisedTextSha256": "830e90b3cd92003f44d0099e1a7574d86761ccae91c3f2d717eafbf1d2001f81",
   "notReproducible": {},
   "pageCount": 21,
   "pages": [
@@ -673,7 +673,7 @@
         "Every step, checklist item and artefact names one owner as free text. The role registry resolves those strings to archetypes — 32 of 32 registry",
         "entries are in scope under the current layer. Without that mapping the RACI is prose: \"Head of Credit Risk\" and \"Data Owner\" are unrelated",
         "strings until something joins them.",
-        "All 141 owned records in scope resolve to exactly one archetype. No record is unowned and none names two accountable",
+        "All 142 owned records in scope resolve to exactly one archetype. No record is unowned and none names two accountable",
         "parties.",
         "Accountability load by archetype",
         "Steps in scope for which each in-scope archetype is the accountable owner. A zero is a real reading, not a gap: that archetype owns no step",
@@ -1933,7 +1933,7 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "495b123bfd030f00c37593d49a78dc7c8bb1a8682a22b0b52cc8f535d7c09e04",
+  "rawBytesSha256": "8af84bec7f6b7b268ef47eee2efca6406ccc3be4ccba4dd1f06673236af3b05b",
   "tableRowsTotal": 164,
   "textRunCount": 1476,
   "unknownFonts": [],

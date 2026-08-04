@@ -178,6 +178,10 @@ export default function Diagnostic() {
       pillarScores.map((p) => ({
         pillar_id: p.pillarId,
         pillar: p.name,
+        // G3 rider on G2: the export was already tier-filtered but did not SAY
+        // so — a spreadsheet row that omits the tier reads as the full
+        // instrument. Same claim-honesty rule as the PDF's tier line.
+        tier,
         // Empty, not 0. A spreadsheet cannot tell "unassessed" from "worst possible"
         // once a zero is written, and it will average the zero into the total.
         weighted_score: p.score === null ? '' : Math.round(p.score * 100) / 100,
@@ -242,6 +246,10 @@ export default function Diagnostic() {
       {
         organisation: orgName.trim() || 'Unnamed',
         layerScope: filter,
+        // G3 rider on G2 — the tier the numbers were computed at, and its
+        // coverage, in the export itself rather than only in the UI around it.
+        assessmentTier: tier,
+        coverageAtTier: { answered: answeredCount, applicable: questions.length },
         overallScore: overall === null ? null : Math.round(overall * 100) / 100,
         rankingCoverageFloor: RANK_MIN_CONFIDENCE,
         pillarScores: pillarScores.map((p) => ({

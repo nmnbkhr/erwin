@@ -520,6 +520,102 @@ const MUTATIONS = [
     apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { f.targets.P99 = 3 }),
   },
 
+  /*
+   * ── G3: the gap gates — one row per branch ──────────────────────────────
+   *
+   * GAP-PAIR's two rows break the two halves of the pairing rule separately:
+   * the register defaulting a missing TARGET (exclusion demoted to an entry),
+   * and the register scoring an unassessed pillar (the not-assessed reason
+   * neutered, caught by the gate's de-answer probe). GAP-PRIORITY's two rows
+   * are a band made unreachable by DATA and a formula forked in CODE — the
+   * gate recomputes from the module's own constants, so the fork cannot hide
+   * behind them. GAP-DRIVER's three: a stale fixture id, an inference pattern
+   * appearing in the engine, and the validity filter removed (caught by the
+   * denominator assertion — a stale driver diluting the mapped count IS a
+   * contribution). GAP-REFUSAL's three: each refusal branch neutered, then
+   * the builder's throw removed while the predicate stands. The TIER-DIGEST
+   * row proves the G3 extension actually reaches AR-06 — the class had three
+   * declared generators for the whole of G2 and nothing would have noticed a
+   * fourth being listed but not checked.
+   */
+  {
+    code: 'GAP-PAIR',
+    what: 'a pillar with ONE missing measurement becomes an entry instead of an exclusion — a defaulted gap',
+    touches: ['src/dgiw/gap/register.ts'],
+    apply: () => sub('src/dgiw/gap/register.ts', 'if (reasons.length > 0) {', 'if (reasons.length > 1) {'),
+  },
+  {
+    code: 'GAP-PAIR',
+    what: 'the not-assessed exclusion neutered — an unscored pillar with a target would be scored from nothing',
+    touches: ['src/dgiw/gap/register.ts'],
+    apply: () => sub('src/dgiw/gap/register.ts', "} else if (o.state === 'not-assessed') {", '} else if (false) {'),
+  },
+  {
+    code: 'GAP-PRIORITY',
+    what: "the fixture loses its only high-band gap — a band no baseline has ever rendered",
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { delete f.targets.P06 }),
+  },
+  {
+    code: 'GAP-PRIORITY',
+    what: 'the score formula drops its driver term — printed inputs that no longer reproduce the rank',
+    touches: ['src/dgiw/gap/register.ts'],
+    apply: () => sub(
+      'src/dgiw/gap/register.ts',
+      'const score = gapSize * (1 + GAIN_DECISIVENESS * decisiveness + GAIN_DRIVER * driverAlignment)',
+      'const score = gapSize * (1 + GAIN_DECISIVENESS * decisiveness)',
+    ),
+  },
+  {
+    code: 'GAP-DRIVER',
+    what: 'the fixture maps a driver to a pillar pillars.json does not contain',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { f.intake.drivers.driverPillars['regulatory:0'] = ['P99'] }),
+  },
+  {
+    code: 'GAP-DRIVER',
+    what: 'name-matching inference appears in the gap engine — a priority steered by wording nobody declared',
+    touches: ['src/dgiw/gap/register.ts'],
+    apply: () => append(
+      'src/dgiw/gap/register.ts',
+      '\nconst __selftestInferAlignment = (driver: string, pillarName: string) => driver.toLowerCase().includes(pillarName)\nvoid __selftestInferAlignment\n',
+    ),
+  },
+  {
+    code: 'GAP-DRIVER',
+    what: 'the mapping validity filter removed — a stale pillar id stays in the mapped-driver denominator',
+    touches: ['src/dgiw/intake/types.ts'],
+    apply: () => sub(
+      'src/dgiw/intake/types.ts',
+      'const pillarIds = (mapping[driverKey(list, index)] ?? []).filter((id) => PILLAR_ID_SET.has(id))',
+      'const pillarIds = mapping[driverKey(list, index)] ?? []',
+    ),
+  },
+  {
+    code: 'GAP-REFUSAL',
+    what: 'the non-actionable-intake refusal neutered — a reference-mode gap register would generate',
+    touches: ['src/dgiw/report/gapStatements.ts'],
+    apply: () => sub('src/dgiw/report/gapStatements.ts', 'if (!intake || !intakeIsActionable(intake)) {', 'if (false) {'),
+  },
+  {
+    code: 'GAP-REFUSAL',
+    what: 'the empty-register refusal neutered — a document documenting nothing would generate',
+    touches: ['src/dgiw/report/gapStatements.ts'],
+    apply: () => sub('src/dgiw/report/gapStatements.ts', 'if (entries.length === 0) {', 'if (false) {'),
+  },
+  {
+    code: 'GAP-REFUSAL',
+    what: "the builder stops throwing the predicate's refusal — the predicate and the builder fork",
+    touches: ['src/dgiw/report/gapStatements.ts'],
+    apply: () => sub('src/dgiw/report/gapStatements.ts', '  if (refusal) throw new Error(refusal)', '  void refusal'),
+  },
+  {
+    code: 'TIER-DIGEST',
+    what: 'AR-06 stops folding the tier into its /ID digest — the G3 extension must actually reach it',
+    touches: ['src/dgiw/report/aiReadiness.ts'],
+    apply: () => sub('src/dgiw/report/aiReadiness.ts', '      `tier:${tier}`,\n', ''),
+  },
+
   // ── the four suite classes ──────────────────────────────────────────────
   {
     code: 'REPORT-SOURCES',

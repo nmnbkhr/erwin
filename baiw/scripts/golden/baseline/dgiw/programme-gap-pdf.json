@@ -1,6 +1,6 @@
 {
   "artefact": "programme-gap-pdf",
-  "bytes": 159857,
+  "bytes": 168747,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0952373075986e454bc3864e46c977ca946a5e72dcbd6d244151b08cf3874bb5",
+    "sha256": "a35173267392f44ea31af1e10f58e6889fcc0e5715bf03812ee77807452187ab",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,13 +27,13 @@
   "filename": "AR-54_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-54_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildProgrammeGapPdf",
-  "glyphCount": 18031,
+  "glyphCount": 19270,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "464a58d81244e81fb695c9d9e91d40d0142df28975cbdf499931c3dedfecd235",
+  "normalisedTextSha256": "362bb55960b97eedc4d059b48de9ae7f5684b9c02d876f200e29aade664f1856",
   "notReproducible": {},
-  "pageCount": 10,
+  "pageCount": 11,
   "pages": [
     {
       "glyphs": 204,
@@ -104,7 +104,7 @@
         "Layer scope of every figure in this document",
         "Core chassis + banking overlay — every record in all five datasets is in scope.",
         "Prepared by Godaitec | godai.tech",
-        "Page 2 of 10"
+        "Page 2 of 11"
       ],
       "textRuns": 30,
       "utf16Runs": 0,
@@ -203,12 +203,12 @@
         "Operating Model",
         "HAS A GENERATOR",
         "16",
-        "10",
-        "6",
+        "11",
+        "7",
         "Checklist items and catalogued artefacts are counts of records that name this pillar. They are not a measure of how much of the pillar is",
         "addressed, and no such measure is computed anywhere in this document.",
         "Prepared by Godaitec | godai.tech",
-        "Page 3 of 10"
+        "Page 3 of 11"
       ],
       "textRuns": 84,
       "utf16Runs": 0,
@@ -326,7 +326,7 @@
         "A 0.0% column entry means that framework maps nothing to that pillar under this layer. That is a fact about the crosswalk, not a score, and it is",
         "not a gap in the programme.",
         "Prepared by Godaitec | godai.tech",
-        "Page 4 of 10"
+        "Page 4 of 11"
       ],
       "textRuns": 98,
       "utf16Runs": 0,
@@ -420,7 +420,7 @@
         "authored",
         "no",
         "Prepared by Godaitec | godai.tech",
-        "Page 5 of 10"
+        "Page 5 of 11"
       ],
       "textRuns": 74,
       "utf16Runs": 0,
@@ -493,7 +493,7 @@
         "and the three states apply unchanged, labelled / not-labelled / not-applicable, never a zero. It must NOT be derived from cdeRegister.criticality: CRITICAL and HIGH",
         "are business impact, not confidentiality, which is the two-vocabularies error at the level of the value that AR-15's own note fences off.",
         "Prepared by Godaitec | godai.tech",
-        "Page 6 of 10"
+        "Page 6 of 11"
       ],
       "textRuns": 53,
       "utf16Runs": 0,
@@ -553,7 +553,7 @@
         "P09",
         "0.08",
         "Prepared by Godaitec | godai.tech",
-        "Page 7 of 10"
+        "Page 7 of 11"
       ],
       "textRuns": 40,
       "utf16Runs": 0,
@@ -622,7 +622,7 @@
         "what a consultant produces rather than only what this workbench generates. It is a place where the plan and the generated pack do not meet,",
         "and where a client asking \"what will you hand me for this?\" has no answer from this tool.",
         "Prepared by Godaitec | godai.tech",
-        "Page 8 of 10"
+        "Page 8 of 11"
       ],
       "textRuns": 49,
       "utf16Runs": 0,
@@ -630,10 +630,64 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 2165,
+      "glyphs": 1168,
+      "heightPt": 841.89,
+      "multiColumnBaselines": 5,
+      "page": 9,
+      "pastMarginPt": 0,
+      "pastPaperPt": 0,
+      "rightEdgePt": 552.76,
+      "rightMarginPt": 552.76,
+      "rotatedRuns": 0,
+      "runsPastMargin": 0,
+      "runsPastPaper": 0,
+      "tableRows": 3,
+      "text": [
+        "Fixture Bank Limited — Programme Gap Report",
+        "Powered by DGIW",
+        "Maturity gaps against target",
+        "A different axis: the engagement as measured, not the programme as catalogued.",
+        "THE MATURITY GAP SECTION IS A DIFFERENT AXIS FROM EVERYTHING ELSE IN THIS DOCUMENT. The rest of this",
+        "report is about the PROGRAMME: what is catalogued, buildable and scheduled per pillar, with no answer to any diagnostic",
+        "question involved. The maturity section is about the ENGAGEMENT: measured current scores against consultant-set targets,",
+        "from the gap register (gapRegister() — the same function the /gaps screen renders). A pillar can be thinly scheduled and fully",
+        "mature, or heavily scheduled and far from target; the two sections must be read separately and no figure crosses between them.",
+        "Top-band entries only (critical and high), at the Quick tier. The full register — every band, every entry's stated priority inputs, and every excluded",
+        "pillar with its reason — is AR-55, and the /gaps screen renders the same rows through the same function.",
+        "Pillar",
+        "Name",
+        "Current",
+        "Target",
+        "Gap",
+        "Band",
+        "Priority score",
+        "P01",
+        "Operating Model",
+        "1.0",
+        "4",
+        "3.0",
+        "critical",
+        "5.66",
+        "P06",
+        "MDM & Reference",
+        "1.0",
+        "2",
+        "1.0",
+        "high",
+        "1.59",
+        "Prepared by Godaitec | godai.tech",
+        "Page 9 of 11"
+      ],
+      "textRuns": 34,
+      "utf16Runs": 0,
+      "widestText": "Powered by DGIW",
+      "widthPt": 595.28
+    },
+    {
+      "glyphs": 2166,
       "heightPt": 841.89,
       "multiColumnBaselines": 34,
-      "page": 9,
+      "page": 10,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -646,7 +700,7 @@
         "Fixture Bank Limited — Programme Gap Report",
         "Powered by DGIW",
         "Every catalogued artefact counted",
-        "54 entries in scope under this layer.",
+        "55 entries in scope under this layer.",
         "A WITHDRAWN OR BLOCKED ENTRY IS NOT A REMEDY. Every artefact counted below is printed with its register disposition.",
         "`derived` is the only one a generator may legally be written for; `authored` is library content nobody has written, `observed` is",
         "measured at the client, `blocked` waits on another catalogued artefact, and `withdrawn` was retired with its reason kept. A pillar",
@@ -812,7 +866,7 @@
         "observed",
         "no",
         "Prepared by Godaitec | godai.tech",
-        "Page 9 of 10"
+        "Page 10 of 11"
       ],
       "textRuns": 170,
       "utf16Runs": 0,
@@ -820,10 +874,10 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1395,
+      "glyphs": 1465,
       "heightPt": 841.89,
-      "multiColumnBaselines": 26,
-      "page": 10,
+      "multiColumnBaselines": 27,
+      "page": 11,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -831,7 +885,7 @@
       "rotatedRuns": 0,
       "runsPastMargin": 0,
       "runsPastPaper": 0,
-      "tableRows": 24,
+      "tableRows": 25,
       "text": [
         "Artefact",
         "Pillar",
@@ -953,21 +1007,26 @@
         "Programme gap report",
         "derived",
         "yes",
+        "AR-55",
+        "P01",
+        "Maturity gap register with per-pillar gap statements",
+        "derived",
+        "yes",
         "Fixture Bank Limited — Programme Gap Report",
         "Powered by DGIW",
         "Prepared by Godaitec | godai.tech",
-        "Page 10 of 10"
+        "Page 11 of 11"
       ],
-      "textRuns": 124,
+      "textRuns": 129,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "9f4bec5cebf6169ff598be93aa21e8bd07901d5b5a832e5695ca94d129939500",
-  "tableRowsTotal": 102,
-  "textRunCount": 728,
+  "rawBytesSha256": "1aacd520dbd8c61ddc86f03499deb038e13319ca97728a74a775412d5a0a239f",
+  "tableRowsTotal": 106,
+  "textRunCount": 767,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

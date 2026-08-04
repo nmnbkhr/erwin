@@ -722,6 +722,10 @@ const TIER_DIGEST_GENERATORS = [
   'src/dgiw/report/diagnosticReport.ts',
   'src/dgiw/report/multiFrameworkScorecard.ts',
   'src/dgiw/report/frameworkAlignment.ts',
+  // G3: AR-06 joined the tier-carrying set (the flag G2 closed), and the gap
+  // register is tier-scoped by definition.
+  'src/dgiw/report/aiReadiness.ts',
+  'src/dgiw/report/gapStatements.ts',
 ]
 
 const tierDigest = {
@@ -839,6 +843,333 @@ const targetRange = {
       if (!(typeof v === 'number' && Number.isInteger(v) && v >= 1 && v <= 5))
         fail(`fixture target for ${pid} is ${JSON.stringify(v)} — a target is an integer 1..5; anything else poisons target − current, the one gap function G3 derives from`)
     }
+    return { examined }
+  },
+}
+
+/*
+ * ── G3: THE GAP GATES ───────────────────────────────────────────────────────
+ *
+ * `gapRegister()` in src/dgiw/gap/register.ts is the single source of every
+ * gap claim — the /gaps page, AR-55, AR-54's maturity section and AR-47's
+ * projected-target column all consume it. Four promises hold that design
+ * together, and each is asserted against the REAL compiled module (the
+ * PROJECTION-INVARIANT precedent), over the one stored fixture the gate can
+ * read — the same scripts/golden/fixtures/dgiw.json the intake gates use, no
+ * parallel fixture:
+ *
+ *   GAP-PAIR      no GapEntry without BOTH measurements. Asserted three ways:
+ *                 every fixture entry's pillar has a target and is scored at
+ *                 the fixture tier (scored recomputed from scoring.ts directly
+ *                 — the I1 idiom, so the comparison is not circular); the
+ *                 entries and exclusions partition the pillar set exactly; and
+ *                 two mutation probes run the register against degraded input
+ *                 (a removed target, a de-answered pillar) and require the
+ *                 entry to vanish INTO an exclusion naming the reason.
+ *
+ *   GAP-PRIORITY  no unexplained ranks. Every entry's printed inputs must
+ *                 reproduce its score under the MODULE'S OWN exported
+ *                 constants (never re-declared here — a gate carrying its own
+ *                 copy of the formula would assert its copy), the band must
+ *                 follow from the score, and all four bands must be reachable
+ *                 on the fixture — a band no fixture reaches is a claim no
+ *                 baseline has ever rendered.
+ *
+ *   GAP-DRIVER    driver alignment is DECLARED, never inferred. The fixture's
+ *                 driverPillars ids must exist in pillars.json; no source
+ *                 under src/dgiw/gap/ may fuzzy-match driver text against
+ *                 pillar names (grep-level, INTAKE-MODE's precedent); and a
+ *                 mapping pointing at a pillar the dataset dropped must
+ *                 contribute NOTHING, asserted by running the register with a
+ *                 stale-id intake.
+ *
+ *   GAP-REFUSAL   the gap-statement generator REFUSES rather than fabricating.
+ *                 `gapStatementsRefusal` must refuse a non-actionable intake
+ *                 and an empty register, pass when both measurements exist,
+ *                 and `buildGapStatementsPdf` must throw the SAME message the
+ *                 predicate returns — an empty PDF where a refusal was
+ *                 required is the D-013 shape with a page count.
+ */
+const readGapFixture = (root) => {
+  const abs = path.join(root, INTAKE_FIXTURE_REL)
+  if (!fs.existsSync(abs)) return null
+  try {
+    return JSON.parse(fs.readFileSync(abs, 'utf8'))
+  } catch {
+    return null
+  }
+}
+
+const GAP_FIXTURE_UNAVAILABLE =
+  'INTAKE-SCOPE already fails on a missing or unparseable fixture; failing twice would report one defect under two codes'
+
+const gapPair = {
+  code: 'GAP-PAIR',
+  run(ctx) {
+    const { fail, root } = ctx
+    const { pillarIds } = ctx.state
+    const { diag, pillars } = ctx.data
+    if (!ctx.ts?.gap || !ctx.ts?.scoring) {
+      fail(`could not build or load gap/register.ts or scoring.ts — the two-measurement pairing rule was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const f = readGapFixture(root)
+    if (!f) return { examined: 0, mayBeEmpty: GAP_FIXTURE_UNAVAILABLE }
+    const { gapRegister, gapExclusions } = ctx.ts.gap
+    const { applicableQuestions, scorePillars } = ctx.ts.scoring
+    let examined = 0
+
+    // The scored set, recomputed from scoring.ts DIRECTLY — comparing the
+    // register against its own internals would be circular (the I1 idiom).
+    const numeric = Object.fromEntries(
+      Object.entries(f.answers ?? {}).map(([id, v]) => [id, typeof v === 'number' ? v : v?.score]),
+    )
+    const questions = applicableQuestions(diag.questions, f.layer, f.tier)
+    const scored = new Set(
+      scorePillars(pillars, questions, numeric)
+        .filter((o) => o.state === 'scored')
+        .map((o) => o.pillarId),
+    )
+
+    const entries = gapRegister(f.answers, f.targets, f.tier, f.layer, f.intake)
+    const exclusions = gapExclusions(f.answers, f.targets, f.tier, f.layer)
+
+    // Branch 1 — every entry rests on BOTH measurements.
+    for (const e of entries) {
+      examined++
+      if ((f.targets ?? {})[e.pillarId] === undefined)
+        fail(`gapRegister emitted an entry for ${e.pillarId} with NO TARGET set — a gap is two measurements, and this one has one. A default or assumed target is a fabrication with a delta`)
+      if (!scored.has(e.pillarId))
+        fail(`gapRegister emitted an entry for ${e.pillarId}, which is NOT SCORED at the ${f.tier} tier — its "current" is a number scoring.ts never produced`)
+      if (typeof e.current !== 'number' || Number.isNaN(e.current))
+        fail(`entry ${e.pillarId} carries current=${JSON.stringify(e.current)} — not a measurement`)
+    }
+
+    // Branch 2 — entries and exclusions PARTITION the pillar set: every pillar
+    // appears exactly once, so an excluded pillar is visible, never silent.
+    examined++
+    const seen = [...entries.map((e) => e.pillarId), ...exclusions.map((x) => x.pillarId)]
+    if (new Set(seen).size !== seen.length)
+      fail(`a pillar appears in both the register and the exclusion list — the two are one partition computed by one pass, and an overlap means the pairing rule forked`)
+    for (const pid of pillarIds) {
+      if (!seen.includes(pid))
+        fail(`pillar ${pid} appears in neither the register nor the exclusion list — exclusion must be visible, and a pillar that simply vanishes is the silent-drop this class exists for`)
+    }
+
+    // Branch 3 — the mutation probes: degrade one measurement, require the
+    // entry to become an exclusion NAMING the missing half.
+    const victim = entries[0]?.pillarId
+    if (victim) {
+      examined++
+      const withoutTarget = { ...f.targets }
+      delete withoutTarget[victim]
+      const e2 = gapRegister(f.answers, withoutTarget, f.tier, f.layer, f.intake)
+      const x2 = gapExclusions(f.answers, withoutTarget, f.tier, f.layer)
+      if (e2.some((e) => e.pillarId === victim))
+        fail(`with ${victim}'s target removed the register STILL emits its entry — a missing target must remove the gap, never default it`)
+      const reason = x2.find((x) => x.pillarId === victim)
+      if (!reason || !reason.reasons.some((r) => r.includes('no target set')))
+        fail(`with ${victim}'s target removed its exclusion does not say 'no target set' — the reason is the honesty; an unexplained absence reads as a check that did not run`)
+
+      examined++
+      const victimQuestions = new Set(diag.questions.filter((q) => q.pillarId === victim).map((q) => q.id))
+      const withoutAnswers = Object.fromEntries(
+        Object.entries(f.answers ?? {}).filter(([id]) => !victimQuestions.has(id)),
+      )
+      const e3 = gapRegister(withoutAnswers, f.targets, f.tier, f.layer, f.intake)
+      const x3 = gapExclusions(withoutAnswers, f.targets, f.tier, f.layer)
+      if (e3.some((e) => e.pillarId === victim))
+        fail(`with ${victim}'s answers removed the register STILL emits its entry — an unscored pillar has no current, and a current from nowhere is the D-001 shape`)
+      const reason3 = x3.find((x) => x.pillarId === victim)
+      if (!reason3 || !reason3.reasons.some((r) => r.includes('not assessed')))
+        fail(`with ${victim}'s answers removed its exclusion does not say 'not assessed' — unmeasured and untargeted are different missing halves and the reason must name which`)
+    }
+
+    return { examined, entries: entries.length, exclusions: exclusions.length }
+  },
+}
+
+const gapPriority = {
+  code: 'GAP-PRIORITY',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.gap) {
+      fail(`could not build or load gap/register.ts — the priority formula was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const f = readGapFixture(root)
+    if (!f) return { examined: 0, mayBeEmpty: GAP_FIXTURE_UNAVAILABLE }
+    const { gapRegister, GAIN_DECISIVENESS, GAIN_DRIVER, CRITICAL_MIN, HIGH_MIN } = ctx.ts.gap
+    let examined = 0
+
+    // The constants come FROM the module. A gate re-declaring 3.0 and 1.5
+    // would go on asserting its own copy after someone moved the real ones.
+    for (const [name, v] of [
+      ['GAIN_DECISIVENESS', GAIN_DECISIVENESS],
+      ['GAIN_DRIVER', GAIN_DRIVER],
+      ['CRITICAL_MIN', CRITICAL_MIN],
+      ['HIGH_MIN', HIGH_MIN],
+    ]) {
+      examined++
+      if (typeof v !== 'number' || Number.isNaN(v))
+        fail(`gap/register.ts no longer exports ${name} as a number — the formula's constants must be readable from the module, or every consumer states a formula nobody can verify`)
+    }
+
+    const entries = gapRegister(f.answers, f.targets, f.tier, f.layer, f.intake)
+    const bands = new Set()
+    for (const e of entries) {
+      bands.add(e.priority.band)
+      // Branch 1 — the score reproduces from the entry's OWN printed inputs.
+      examined++
+      const i = e.priority.inputs
+      const recomputed = i.gapSize * (1 + GAIN_DECISIVENESS * i.decisiveness + GAIN_DRIVER * i.driverAlignment)
+      if (Math.abs(recomputed - e.priority.score) > 1e-9)
+        fail(`entry ${e.pillarId}: score ${e.priority.score} does not reproduce from its printed inputs (${recomputed}) — the PDF states this formula, so an entry it cannot explain is an unexplained rank`)
+      // Branch 2 — the band follows from the score and the constants.
+      examined++
+      const expected = e.gap <= 0 ? 'met' : e.priority.score >= CRITICAL_MIN ? 'critical' : e.priority.score >= HIGH_MIN ? 'high' : 'moderate'
+      if (e.priority.band !== expected)
+        fail(`entry ${e.pillarId}: band '${e.priority.band}' but gap ${e.gap} and score ${e.priority.score} derive '${expected}' under the module's own thresholds — a band that does not follow from the stated inputs is a judgement wearing a formula's clothes`)
+    }
+
+    // Branch 3 — every band is reachable on the fixture, so every band's
+    // rendering has a baseline that has actually shown it.
+    for (const band of ['critical', 'high', 'moderate', 'met']) {
+      examined++
+      if (!bands.has(band))
+        fail(`band '${band}' is unreachable on the golden fixture — a priority band no fixture reaches has never been rendered by any baseline, and the first client to reach it gets the untested branch`)
+    }
+
+    return { examined, bands: entries.map((e) => `${e.priority.band} ${e.pillarId}`) }
+  },
+}
+
+const GAP_SRC_DIR = 'src/dgiw/gap'
+/** Textual shapes of name-matching inference. Grep-level, INTAKE-MODE's precedent. */
+const GAP_INFERENCE_PATTERNS = [
+  [/toLowerCase\(\)\s*\.\s*includes\(/, 'lowercased substring matching'],
+  [/levenshtein/i, 'edit-distance matching'],
+  [/similarity/i, 'similarity scoring'],
+  [/fuzzy/i, 'fuzzy matching'],
+]
+
+const gapDriver = {
+  code: 'GAP-DRIVER',
+  run(ctx) {
+    const { fail, root } = ctx
+    const { pillarIds } = ctx.state
+    const f = readGapFixture(root)
+    let examined = 0
+
+    // Branch 1 — the fixture's declared mapping is valid against pillars.json.
+    if (f) {
+      const dp = f.intake?.drivers?.driverPillars
+      if (!dp || typeof dp !== 'object' || Object.keys(dp).length === 0) {
+        fail(`${INTAKE_FIXTURE_REL} intake maps no driver to any pillar — the driver-alignment input would be 0 in every baseline and its rendering untested; map at least one driver`)
+      } else {
+        for (const [key, ids] of Object.entries(dp)) {
+          examined++
+          if (!/^(regulatory|strategic):\d+$/.test(key))
+            fail(`driverPillars key ${JSON.stringify(key)} is not a driver reference (list:index) — the mapping references the driver lists the way PrimaryDriverRef does, never a copy of the text`)
+          if (!Array.isArray(ids) || ids.length === 0)
+            fail(`driverPillars[${key}] is ${JSON.stringify(ids)} — an empty mapping is not a mapping; remove the key`)
+          for (const id of Array.isArray(ids) ? ids : [])
+            if (!pillarIds.has(id))
+              fail(`driverPillars[${key}] names pillar ${id}, which pillars.json does not contain — the mapping is validated against the dataset, never a second list`)
+        }
+      }
+    }
+
+    // Branch 2 — no inference anywhere under src/dgiw/gap/. The mapping is a
+    // consultant's declaration; code that guesses it from wording would put a
+    // priority on a pillar nobody chose.
+    const dir = path.join(root, GAP_SRC_DIR)
+    if (!fs.existsSync(dir)) {
+      fail(`${GAP_SRC_DIR}/ does not resolve — the gap engine this class is declared over has moved, and the declaration has to move with it`)
+      return { examined }
+    }
+    for (const name of fs.readdirSync(dir).filter((n) => n.endsWith('.ts')).sort()) {
+      examined++
+      const src = fs.readFileSync(path.join(dir, name), 'utf8')
+      for (const [pattern, label] of GAP_INFERENCE_PATTERNS)
+        if (pattern.test(src))
+          fail(`${GAP_SRC_DIR}/${name} contains ${label} (${pattern}) — driver-to-pillar alignment is DECLARED on the intake, never inferred from a driver's wording; a guessed alignment is a priority nobody chose`)
+    }
+
+    // Branch 3 — a stale mapped id contributes NOTHING, asserted by running
+    // the real register with one driver remapped to a pillar the dataset does
+    // not contain. "Nothing" includes the DENOMINATOR: the stale driver must
+    // vanish from the mapped-driver count, not sit in it diluting the others —
+    // so the surviving driver's pillar must read alignment 1.0 exactly.
+    if (f && ctx.ts?.gap) {
+      examined++
+      const staleIntake = JSON.parse(JSON.stringify(f.intake ?? {}))
+      staleIntake.drivers = {
+        ...(staleIntake.drivers ?? {}),
+        driverPillars: { 'regulatory:0': ['P99'], 'strategic:0': ['P06'] },
+      }
+      const entries = ctx.ts.gap.gapRegister(f.answers, f.targets, f.tier, f.layer, staleIntake)
+      for (const e of entries)
+        if (e.priority.inputs.driverIds.includes('regulatory:0'))
+          fail(`entry ${e.pillarId} is aligned by the driver whose only mapped pillar is P99 — a stale id must contribute nothing, or a renamed pillar silently keeps steering priorities`)
+      const p06 = entries.find((e) => e.pillarId === 'P06')
+      if (p06 && p06.priority.inputs.driverAlignment !== 1)
+        fail(`with one valid mapped driver (naming P06) and one stale one, P06 reads driverAlignment ${p06.priority.inputs.driverAlignment} instead of 1.0 — the stale driver is diluting the denominator, which is a contribution`)
+    }
+
+    return { examined }
+  },
+}
+
+const gapRefusal = {
+  code: 'GAP-REFUSAL',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.gapStatements) {
+      fail(`could not build or load report/gapStatements.ts — the refusal contract was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const { gapStatementsRefusal, buildGapStatementsPdf } = ctx.ts.gapStatements
+    const f = readGapFixture(root)
+    let examined = 0
+
+    // Branch 1 — a non-actionable intake refuses EVEN WITH entries present,
+    // so this probe isolates the intake half of the contract.
+    examined++
+    const noIntake = gapStatementsRefusal(null, [{ pillarId: 'P01' }])
+    if (typeof noIntake !== 'string' || noIntake.length === 0)
+      fail(`gapStatementsRefusal(null, [entry]) returned ${JSON.stringify(noIntake)} — with no actionable intake the generator must refuse; an ILLUSTRATIVE gap register is a contradiction, because there is no reference mode for measurements`)
+
+    // Branch 2 — an actionable intake with an EMPTY register still refuses.
+    if (f?.intake) {
+      examined++
+      const emptyRegister = gapStatementsRefusal(f.intake, [])
+      if (typeof emptyRegister !== 'string' || emptyRegister.length === 0)
+        fail(`gapStatementsRefusal(intake, []) returned ${JSON.stringify(emptyRegister)} — an empty register must refuse, not render a document that documents nothing`)
+
+      // Branch 3 — both measurements present passes, or the button is dead.
+      examined++
+      if (gapStatementsRefusal(f.intake, [{ pillarId: 'P01' }]) !== null)
+        fail(`gapStatementsRefusal refuses an actionable intake WITH entries — the refusal has over-rotated into a generator that can never run`)
+    }
+
+    // Branch 4 — the BUILDER enforces the predicate: same refusal, thrown.
+    examined++
+    const meta = {
+      orgName: 'refusal-probe', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z',
+      layer: 'all', accent: [0, 0, 0], isDraft: false, artefactId: 'AR-55',
+    }
+    let threw = null
+    try {
+      buildGapStatementsPdf({ meta, answers: {}, targets: {}, tier: 'deep', intake: null })
+    } catch (err) {
+      threw = String(err?.message ?? err)
+    }
+    if (threw === null)
+      fail(`buildGapStatementsPdf produced a document where a refusal was required — the predicate and the builder have forked, and a surface calling the builder directly ships the empty register the predicate exists to stop`)
+    else if (threw !== noIntake)
+      fail(`buildGapStatementsPdf threw a DIFFERENT message than gapStatementsRefusal returns (${JSON.stringify(threw.slice(0, 60))}) — one predicate decides the refusal; two texts drifting apart is two predicates`)
+
     return { examined }
   },
 }
@@ -1289,6 +1620,10 @@ export default {
     scoring: 'src/dgiw/scoring.ts',
     // G2: the stored-answer guard, run rather than read — ANSWER-SHAPE's engine.
     answers: 'src/dgiw/answerShape.ts',
+    // G3: the single gap function and the refusing generator — GAP-PAIR,
+    // GAP-PRIORITY and GAP-DRIVER run the first; GAP-REFUSAL calls the second.
+    gap: 'src/dgiw/gap/register.ts',
+    gapStatements: 'src/dgiw/report/gapStatements.ts',
   },
 
   /**
@@ -1348,6 +1683,10 @@ export default {
     tierDigest,
     answerShapeGuard,
     targetRange,
+    gapPair,
+    gapPriority,
+    gapDriver,
+    gapRefusal,
     intakeScope,
     intakeMode,
     crosswalk.spineUniverse,
@@ -1411,6 +1750,17 @@ export default {
       out.push(
         `TIER quick ${c.quick} ⊂ standard ${c.quick + c.standard} ⊂ deep ${c.quick + c.standard + c.deep} — ` +
           `nesting asserted through scoring.applicableQuestions per layer; tier+coverage in every score-carrying digest (TIER-DIGEST)`,
+      )
+    }
+
+    // G3: the register the gates ran, printed from the checks' own results —
+    // which pillar reached which band is the fact GAP-PRIORITY rests on.
+    const gp = r['GAP-PAIR']
+    const gb = r['GAP-PRIORITY']
+    if (gp?.entries !== undefined && gb?.bands) {
+      out.push(
+        `GAP register ${gp.entries} entries (${gb.bands.join(', ')}) · ${gp.exclusions} exclusions — ` +
+          `pairing, formula and bands asserted through the compiled gap/register.ts; refusal through gapStatements.ts (GAP-REFUSAL)`,
       )
     }
 

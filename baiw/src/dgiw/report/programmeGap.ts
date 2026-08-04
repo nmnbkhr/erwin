@@ -94,6 +94,11 @@ import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import { layerShows } from '../layer'
 import { inducedPillarWeights, mappingVisible } from '../projection'
+import { gapRegister, type GapEntry } from '../gap/register'
+import type { StoredAnswerMap } from '../answerShape'
+import type { TargetMap } from '../assessmentState'
+import { TIER_META, type AssessmentTier } from '../tier'
+import type { ProgramIntake } from '../intake/types'
 import pillars from '../data/pillars.json'
 import crosswalk from '../data/crosswalk.json'
 import implementationPlan from '../data/implementationPlan.json'
@@ -146,7 +151,7 @@ export const PROGRAMME_GAP_ARTEFACT_ID = 'AR-54'
  */
 export const IMPLEMENTED_ARTEFACT_IDS = [
   'AR-01', 'AR-02', 'AR-04', 'AR-05', 'AR-06', 'AR-08', 'AR-09', 'AR-13',
-  'AR-17', 'AR-20', 'AR-23', 'AR-27', 'AR-47', 'AR-48', 'AR-54',
+  'AR-17', 'AR-20', 'AR-23', 'AR-27', 'AR-47', 'AR-48', 'AR-54', 'AR-55',
 ] as const
 
 const BUILT = new Set<string>(IMPLEMENTED_ARTEFACT_IDS)
@@ -199,6 +204,21 @@ export const B_NO_WAVE_ROW =
   'artefact -> pillar -> wave would place AR-09, a rung-2 operating model, in W6 "Run, Prove & ' +
   'Expand" because both name P01. The wave section reports only wave -> pillar, which is a real ' +
   'key, and names no artefact on any wave row.'
+
+/**
+ * G3's addition, and the fence around it. The programme axis (what the
+ * register catalogues) and the maturity axis (what the diagnostic measured
+ * against the targets) are different facts; the new section renders the
+ * second and this statement keeps a reader from folding them together.
+ */
+export const B_TWO_AXES =
+  'THE MATURITY GAP SECTION IS A DIFFERENT AXIS FROM EVERYTHING ELSE IN THIS DOCUMENT. The rest ' +
+  'of this report is about the PROGRAMME: what is catalogued, buildable and scheduled per ' +
+  'pillar, with no answer to any diagnostic question involved. The maturity section is about ' +
+  'the ENGAGEMENT: measured current scores against consultant-set targets, from the gap ' +
+  'register (gapRegister() — the same function the /gaps screen renders). A pillar can be ' +
+  'thinly scheduled and fully mature, or heavily scheduled and far from target; the two ' +
+  'sections must be read separately and no figure crosses between them.'
 
 /** The frameworks' induced shares are per framework and are never summed. */
 export const B_NOT_SUMMED =
@@ -284,17 +304,40 @@ export function measureProgrammeGap(layer: LayerFilter): PillarGapRow[] {
 
 export interface ProgrammeGapInput {
   meta: ReportMeta
+  /**
+   * G3, additive: the engagement's assessment state for the maturity-gap
+   * section. When absent the section says so honestly rather than being
+   * omitted — a section that vanishes reads as a check that was not run. The
+   * generator calls gapRegister() itself so the section cannot disagree with
+   * the /gaps screen; nothing here computes target - current.
+   */
+  maturity?: {
+    answers: StoredAnswerMap
+    targets: TargetMap
+    tier: AssessmentTier
+    intake: ProgramIntake | null
+  }
 }
 
 const pct = (n: number): string => `${(n * 100).toFixed(1)}%`
 
 export function buildProgrammeGapPdf(input: ProgrammeGapInput): jsPDF {
-  const { meta } = input
+  const { meta, maturity } = input
   const rows = measureProgrammeGap(meta.layer)
   const frameworkList = FW.frameworks ?? []
   const dims = FW.dimensions ?? []
   const induced = frameworkList.map((f) => ({ f, w: inducedPillarWeights(f.id, meta.layer) }))
   const gaps = rows.filter((r) => r.state !== 'has-generator')
+
+  // G3: the maturity axis, from the single gap function. Top bands only —
+  // critical and high are what a programme reprioritises around; the full
+  // register is AR-55's document, not a page of this one.
+  const maturityEntries: GapEntry[] = maturity
+    ? gapRegister(maturity.answers, maturity.targets, maturity.tier, meta.layer, maturity.intake)
+    : []
+  const topBand = maturityEntries.filter(
+    (e) => e.priority.band === 'critical' || e.priority.band === 'high',
+  )
 
   const layerLine =
     meta.layer === 'all'
@@ -307,7 +350,18 @@ export function buildProgrammeGapPdf(input: ProgrammeGapInput): jsPDF {
   // rather than only the counts, because the state is the finding.
   const r = createReport(
     meta,
-    contentKey(rows.map((x) => `${x.pillar.id}:${x.state}:${x.built.length}/${x.catalogued.length}:${x.checklistItems}:${x.entries}`)),
+    contentKey([
+      ...rows.map((x) => `${x.pillar.id}:${x.state}:${x.built.length}/${x.catalogued.length}:${x.checklistItems}:${x.entries}`),
+      // G3: the maturity section is rendered content, so it seeds the /ID.
+      // 'maturity:absent' is a distinct document from one with an empty
+      // register, which is distinct again from one with entries.
+      maturity === undefined
+        ? 'maturity:absent'
+        : `maturity:${maturity.tier}:${maturityEntries.length}`,
+      ...topBand.map(
+        (e) => `mgap:${e.pillarId}=${e.current.toFixed(6)}->${e.target}:${e.priority.band}:${e.priority.score.toFixed(6)}`,
+      ),
+    ]),
   )
 
   r.cover(
@@ -523,6 +577,61 @@ export function buildProgrammeGapPdf(input: ProgrammeGapInput): jsPDF {
         'answer from this tool.',
       { color: SLATE, size: 8 },
     )
+  }
+
+  /* ---- G3: the maturity axis, fenced off from everything above ---- */
+  r.page(
+    'Maturity gaps against target',
+    'A different axis: the engagement as measured, not the programme as catalogued.',
+  )
+  r.paragraph(B_TWO_AXES)
+  if (maturity === undefined) {
+    r.paragraph(
+      'No assessment state was supplied to this generation, so this section reports nothing. ' +
+        'That is an absence of input, not a finding that no maturity gap exists — generate from ' +
+        'the Deliverables page with an active engagement to include the measured register.',
+    )
+  } else if (maturityEntries.length === 0) {
+    r.paragraph(
+      `No pillar carries both measurements at the ${TIER_META[maturity.tier].label} tier — a ` +
+        'current score and a consultant-set target. This section is empty because the register ' +
+        'is empty, not because the check was skipped. The full register, including every ' +
+        'exclusion and its reason, is AR-55.',
+    )
+  } else if (topBand.length === 0) {
+    r.paragraph(
+      `${maturityEntries.length} pillar${maturityEntries.length === 1 ? ' carries' : 's carry'} both measurements at the ` +
+        `${TIER_META[maturity.tier].label} tier, and none bands critical or high. This section lists top-band ` +
+        'entries only; the full register with every band and every exclusion is AR-55.',
+    )
+  } else {
+    r.paragraph(
+      `Top-band entries only (critical and high), at the ${TIER_META[maturity.tier].label} tier. The full ` +
+        'register — every band, every entry\'s stated priority inputs, and every excluded pillar ' +
+        'with its reason — is AR-55, and the /gaps screen renders the same rows through the same ' +
+        'function.',
+      { color: SLATE, size: 8 },
+    )
+    r.table({
+      head: ['Pillar', 'Name', 'Current', 'Target', 'Gap', 'Band', 'Priority score'],
+      rows: topBand.map((e) => [
+        e.pillarId,
+        e.pillarShort,
+        (Math.round(e.current * 10) / 10).toFixed(1),
+        String(e.target),
+        (Math.round(e.gap * 10) / 10).toFixed(1),
+        e.priority.band,
+        (Math.round(e.priority.score * 100) / 100).toFixed(2),
+      ]),
+      columnStyles: {
+        0: { cellWidth: 16 },
+        2: { halign: 'center', cellWidth: 18 },
+        3: { halign: 'center', cellWidth: 16 },
+        4: { halign: 'center', cellWidth: 14 },
+        6: { halign: 'center', cellWidth: 28 },
+      },
+      bodyFontSize: 7,
+    })
   }
 
   /* ---- the full ledger ---- */

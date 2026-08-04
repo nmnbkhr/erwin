@@ -78,6 +78,7 @@ import {
   scorePillars,
   stateReason,
 } from '../scoring'
+import { DEFAULT_TIER, TIER_META, type AssessmentTier } from '../tier'
 import pillars from '../data/pillars.json'
 import diagnostic from '../data/diagnostic.json'
 import crosswalk from '../data/crosswalk.json'
@@ -137,11 +138,22 @@ export const B_THREE_STATES =
 export interface AiReadinessInput {
   meta: ReportMeta
   answers: Record<string, number>
+  /**
+   * G3 (closing the flag raised at G2): the assessment tier. The question set
+   * is restricted to the tier BEFORE scoring — the scoring math is untouched,
+   * exactly as the scorecards pre-filter. Defaults to deep, the identity, so
+   * a caller that has no tier still gets the full instrument it always did.
+   * Tier-blind provenance was the reason AR-06 was excluded from G2's
+   * tier-carrying set; with the tier applied here, meta may carry it honestly.
+   */
+  tier?: AssessmentTier
 }
 
 export function buildAiReadinessPdf(input: AiReadinessInput): jsPDF {
   const { meta, answers } = input
-  const inScope = applicableQuestions(DIAG.questions, meta.layer)
+  const tier = input.tier ?? DEFAULT_TIER
+  const inScope = applicableQuestions(DIAG.questions, meta.layer, tier)
+  const answeredCount = inScope.filter((q) => answers[q.id]).length
   const outcomes = scorePillars(PILLARS, inScope, answers)
   const byId = new Map(outcomes.map((o) => [o.pillarId, o]))
   const subject = byId.get(SUBJECT_PILLAR)
@@ -163,6 +175,10 @@ export function buildAiReadinessPdf(input: AiReadinessInput): jsPDF {
   const r = createReport(
     meta,
     contentKey([
+      // G3: a Quick-tier statement and a Deep-tier statement must never share
+      // a fingerprint, even when the rendered answers happen to coincide.
+      `tier:${tier}`,
+      `coverage:${answeredCount}/${inScope.length}`,
       ...questions.map((q) => `${q.id}:${answers[q.id] ?? 'unanswered'}`),
       ...deps.map((d) => `${d.pillarId}:${scoreLabel(d)}`),
     ]),
@@ -189,6 +205,9 @@ export function buildAiReadinessPdf(input: AiReadinessInput): jsPDF {
         : scoreLabel(subject)],
       ['Questions answered', `${subject.answered} of ${subject.total} applicable`],
       ['Coverage', `${Math.round(subject.confidence * 100)}% of this pillar's question weight`],
+      // G3: the tier line sits beside the score it qualifies, not in a footnote.
+      ['Assessment tier', TIER_META[tier].label],
+      ['Coverage at this tier', `${answeredCount} of ${inScope.length} applicable questions answered across all pillars`],
       ['Layer scope', meta.layer === 'all' ? 'Core chassis + banking overlay' : `${meta.layer} layer only`],
     ])
     // Never a bare score without its state's reason. `stateReason` is empty for a

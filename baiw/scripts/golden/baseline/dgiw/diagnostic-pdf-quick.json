@@ -1,6 +1,6 @@
 {
   "artefact": "diagnostic-pdf-quick",
-  "bytes": 66107,
+  "bytes": 68275,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0952373075986e454bc3864e46c977ca946a5e72dcbd6d244151b08cf3874bb5",
+    "sha256": "a35173267392f44ea31af1e10f58e6889fcc0e5715bf03812ee77807452187ab",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-01_fixture-bank-limited_all_2026-07-31_quick.pdf",
   "filenameNormalised": "AR-01_fixture-bank-limited_all_2026-07-31_quick.pdf",
   "generator": "buildDiagnosticReport",
-  "glyphCount": 7163,
+  "glyphCount": 7259,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "a17528317fbf7924bb442797eb40c3ffe98abe47285c969b41aac2e502ca41ad",
+  "normalisedTextSha256": "c75f1eaf5905f45324fa22d67faf27844bdf49aba824ecd66a0909e5c4185b1c",
   "notReproducible": {},
   "pageCount": 8,
   "pages": [
@@ -428,9 +428,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 600,
+      "glyphs": 696,
       "heightPt": 841.89,
-      "multiColumnBaselines": 5,
+      "multiColumnBaselines": 7,
       "page": 7,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -439,7 +439,7 @@
       "rotatedRuns": 0,
       "runsPastMargin": 0,
       "runsPastPaper": 0,
-      "tableRows": 3,
+      "tableRows": 5,
       "text": [
         "Fixture Bank Limited — Data Governance Diagnostic",
         "Powered by DGIW",
@@ -460,12 +460,22 @@
         "2.0",
         "3 — Defined",
         "+1.0",
+        "P04",
+        "Metadata & Business Glossary",
+        "1.0",
+        "1 — Initial",
+        "+0.0",
+        "P06",
+        "Master & Reference Data",
+        "1.0",
+        "2 — Developing",
+        "+1.0",
         "A target on an unassessed pillar is listed with no delta — the ambition is recorded, the distance to it is not yet measured. Nothing here ranks or",
         "colour-codes the deltas; that interpretation is the gap register's, which this document deliberately precedes.",
         "Prepared by Godaitec | godai.tech",
         "Page 7 of 8"
       ],
-      "textRuns": 23,
+      "textRuns": 33,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -504,9 +514,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "c402eb050d63345b24d2fd7c466d649a7f1db67249126da0e299436bcbbbeb6a",
-  "tableRowsTotal": 31,
-  "textRunCount": 307,
+  "rawBytesSha256": "1ba0eb27f8055dbfccb49616fcf17ea08c0482ef5532e343163c9656bfa9e541",
+  "tableRowsTotal": 33,
+  "textRunCount": 317,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

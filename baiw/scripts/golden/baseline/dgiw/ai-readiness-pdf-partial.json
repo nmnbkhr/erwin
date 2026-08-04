@@ -1,6 +1,6 @@
 {
   "artefact": "ai-readiness-pdf-partial",
-  "bytes": 41694,
+  "bytes": 42207,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0952373075986e454bc3864e46c977ca946a5e72dcbd6d244151b08cf3874bb5",
+    "sha256": "a35173267392f44ea31af1e10f58e6889fcc0e5715bf03812ee77807452187ab",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-06_fixture-bank-limited-partial_all_2026-07-31.pdf",
   "filenameNormalised": "AR-06_fixture-bank-limited-partial_all_2026-07-31.pdf",
   "generator": "buildAiReadinessPdf",
-  "glyphCount": 8002,
+  "glyphCount": 8104,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "c8e021c4902615175b99f2b39c6dcbf832fe4812fe40b712b0b1ccf47fe2c28c",
+  "normalisedTextSha256": "ea62fb6afeaef044b41c80db301b1446ca60f5d3fad0abe88762b39f7e6b571f",
   "notReproducible": {},
   "pageCount": 7,
   "pages": [
@@ -99,9 +99,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 2538,
+      "glyphs": 2442,
       "heightPt": 841.89,
-      "multiColumnBaselines": 19,
+      "multiColumnBaselines": 20,
       "page": 3,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -123,6 +123,10 @@
         "0 of 5 applicable",
         "Coverage",
         "0% of this pillar's question weight",
+        "Assessment tier",
+        "Deep Dive",
+        "Coverage at this tier",
+        "50 of 55 applicable questions answered across all pillars",
         "Layer scope",
         "Core chassis + banking overlay",
         "NOT ASSESSED: 5 applicable questions, none answered. This is not a score of zero. An unmeasured pillar and a pillar",
@@ -163,10 +167,6 @@
         "—",
         "At Optimising (5)",
         "Ingestion is automatically gated on classification, with entitlement enforced at query time.",
-        "DG-P11-05 — weight 2 · banking",
-        "Does model risk management require evidenced data lineage for regulatory and credit models?",
-        "Answer",
-        "Not answered. Contributes to neither the numerator nor the denominator.",
         "Prepared by Godaitec | godai.tech",
         "Page 3 of 7"
       ],
@@ -176,9 +176,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 245,
+      "glyphs": 443,
       "heightPt": 841.89,
-      "multiColumnBaselines": 4,
+      "multiColumnBaselines": 5,
       "page": 4,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -191,6 +191,10 @@
       "text": [
         "Fixture Bank Limited Partial — AI Readiness Gap Statement",
         "Powered by DGIW",
+        "DG-P11-05 — weight 2 · banking",
+        "Does model risk management require evidenced data lineage for regulatory and credit models?",
+        "Answer",
+        "Not answered. Contributes to neither the numerator nor the denominator.",
         "At this level",
         "—",
         "At Optimising (5)",
@@ -198,7 +202,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 4 of 7"
       ],
-      "textRuns": 8,
+      "textRuns": 12,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -388,9 +392,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "c705ed4c0aa5ecec9e6f4d6095e3408c0fb2c2696777a73e55237e70393ef303",
+  "rawBytesSha256": "8e4f579159436a2eff8e0ef4c36aa300f07b691cdef1d2b884ceba406ef85e65",
   "tableRowsTotal": 9,
-  "textRunCount": 211,
+  "textRunCount": 215,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

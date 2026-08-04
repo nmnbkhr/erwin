@@ -7,6 +7,7 @@ import PageSkeleton from '../components/layout/PageSkeleton'
 const PracticeOverview = lazy(() => import('./components/PracticeOverview'))
 const ProgramDesign = lazy(() => import('./components/ProgramDesign'))
 const Diagnostic = lazy(() => import('./components/Diagnostic'))
+const GapRegister = lazy(() => import('./components/GapRegister'))
 const ServiceLadder = lazy(() => import('./components/ServiceLadder'))
 const OperatingModel = lazy(() => import('./components/OperatingModel'))
 const CdeRegister = lazy(() => import('./components/CdeRegister'))
@@ -26,6 +27,7 @@ export default function DgiwRoutes() {
             <Route path="/" element={<PracticeOverview />} />
             <Route path="/design" element={<ProgramDesign />} />
             <Route path="/diagnostic" element={<Diagnostic />} />
+            <Route path="/gaps" element={<GapRegister />} />
             <Route path="/ladder" element={<ServiceLadder />} />
             <Route path="/operating-model" element={<OperatingModel />} />
             <Route path="/cde" element={<CdeRegister />} />

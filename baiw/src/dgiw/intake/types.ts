@@ -61,6 +61,16 @@ export interface ProgramIntake {
     regulatory: string[]
     strategic: string[]
     primary: PrimaryDriverRef | null
+    /**
+     * G3: driver → pillar ids, filled BY THE CONSULTANT on /dg/design and
+     * validated against pillars.json — never inferred by matching driver text
+     * against pillar names. Keys are `driverKey(list, index)` — a reference
+     * into the two lists on the PrimaryDriverRef precedent, remapped on row
+     * removal exactly as `primary` is. Optional: intakes stored before G3
+     * lack it, and every reader treats absence as `{}` (the answerShape
+     * migration idiom — lossless, no version bump, first write persists it).
+     */
+    driverPillars?: Record<string, string[]>
   }
   scope: {
     /** Subset of the pillar ids in data/pillars.json — see `validScopeIds`. */
@@ -85,6 +95,9 @@ const PILLAR_ID_SET = new Set(PILLAR_IDS)
 
 /** Pillar name lookup for rendering scope sections. */
 export const PILLAR_NAMES: ReadonlyMap<string, string> = new Map(pillars.map((p) => [p.id, p.name]))
+
+/** Short pillar labels, for compact controls like the driver-pillar chips. */
+export const PILLAR_SHORTS: ReadonlyMap<string, string> = new Map(pillars.map((p) => [p.id, p.short]))
 
 /**
  * The ids in an intake's scope that exist in pillars.json. Anything else is
@@ -127,6 +140,40 @@ export function intakeIsActionable(intake: ProgramIntake): boolean {
   )
 }
 
+/** Storage key for a driver's pillar mapping — a reference, never the text. */
+export function driverKey(list: 'regulatory' | 'strategic', index: number): string {
+  return `${list}:${index}`
+}
+
+export interface MappedDriver {
+  key: string
+  list: 'regulatory' | 'strategic'
+  index: number
+  text: string
+  /** Only ids that exist in pillars.json — a stale id contributes nothing. */
+  pillarIds: string[]
+}
+
+/**
+ * The drivers that count toward gap priority: NAMED (non-blank text) and
+ * MAPPED to at least one pillar id that exists in pillars.json. A blank row,
+ * an unmapped driver, or a mapping whose every id is stale contributes
+ * nothing — absence is absence, exactly as `namedDrivers` treats blanks.
+ */
+export function mappedDrivers(intake: ProgramIntake): MappedDriver[] {
+  const mapping = intake.drivers.driverPillars ?? {}
+  const out: MappedDriver[] = []
+  for (const list of ['regulatory', 'strategic'] as const) {
+    intake.drivers[list].forEach((text, index) => {
+      if (text.trim().length === 0) return
+      const pillarIds = (mapping[driverKey(list, index)] ?? []).filter((id) => PILLAR_ID_SET.has(id))
+      if (pillarIds.length === 0) return
+      out.push({ key: driverKey(list, index), list, index, text: text.trim(), pillarIds })
+    })
+  }
+  return out
+}
+
 /**
  * Seed activities for the RACI editor. A STARTING POINT for the consultant to
  * edit, not reference content a generator may render on its own: a row whose
@@ -145,7 +192,7 @@ export const SEED_RACI_ACTIVITIES: readonly string[] = [
 export function emptyIntake(): ProgramIntake {
   return {
     org: { name: '', sector: null, sizeBand: null },
-    drivers: { regulatory: [], strategic: [], primary: null },
+    drivers: { regulatory: [], strategic: [], primary: null, driverPillars: {} },
     scope: { pillarIds: [] },
     sponsorship: { sponsorTitle: '', chairTitle: '', cadence: null, escalationPath: '' },
     raci: SEED_RACI_ACTIVITIES.map((activity) => ({ activity, R: '', A: '', C: '', I: '' })),
@@ -167,10 +214,20 @@ export function isProgramIntake(parsed: unknown): boolean {
   const scope = p.scope as Record<string, unknown> | undefined
   const sponsorship = p.sponsorship as Record<string, unknown> | undefined
   const meta = p.meta as Record<string, unknown> | undefined
+  // driverPillars is optional (pre-G3 intakes lack it) but when present it
+  // must be a record of arrays — a malformed mapping is a malformed intake.
+  const dp = drivers?.driverPillars
+  const driverPillarsOk =
+    dp === undefined ||
+    (typeof dp === 'object' &&
+      dp !== null &&
+      !Array.isArray(dp) &&
+      Object.values(dp as Record<string, unknown>).every((v) => Array.isArray(v)))
   return (
     typeof org?.name === 'string' &&
     Array.isArray(drivers?.regulatory) &&
     Array.isArray(drivers?.strategic) &&
+    driverPillarsOk &&
     Array.isArray(scope?.pillarIds) &&
     typeof sponsorship?.sponsorTitle === 'string' &&
     Array.isArray(p.raci) &&

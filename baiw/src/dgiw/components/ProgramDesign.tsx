@@ -21,9 +21,12 @@ import {
   CADENCES,
   PILLAR_IDS,
   PILLAR_NAMES,
+  PILLAR_SHORTS,
   SECTORS,
   SIZE_BANDS,
+  driverKey,
   intakeIsActionable,
+  mappedDrivers,
   namedDrivers,
   validScopeIds,
   type Cadence,
@@ -75,49 +78,98 @@ function DriverList({
       <p className="text-xs font-medium text-slate-600 mb-2">{title}</p>
       <div className="space-y-2">
         {values.map((value, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <input
-              type="radio"
-              name={`primary-driver`}
-              className="accent-rose-600"
-              title="Primary driver"
-              checked={intake.drivers.primary?.list === list && intake.drivers.primary.index === i}
-              onChange={() =>
-                update((p) => ({ ...p, drivers: { ...p.drivers, primary: { list, index: i } } }))
-              }
-            />
-            <input
-              className={INPUT}
-              value={value}
-              placeholder={list === 'regulatory' ? 'e.g. SBP data submission accountability' : 'e.g. Single view of customer'}
-              onChange={(e) =>
-                update((p) => {
-                  const next = [...p.drivers[list]]
-                  next[i] = e.target.value
-                  return { ...p, drivers: { ...p.drivers, [list]: next } }
-                })
-              }
-            />
-            <button
-              className={SMALL_BTN}
-              title="Remove driver"
-              onClick={() =>
-                update((p) => {
-                  const next = p.drivers[list].filter((_, j) => j !== i)
-                  // A removed row invalidates any primary reference at or past it.
-                  const prim = p.drivers.primary
-                  const primary =
-                    prim && prim.list === list && prim.index >= i
-                      ? prim.index === i
-                        ? null
-                        : { list, index: prim.index - 1 }
-                      : prim
-                  return { ...p, drivers: { ...p.drivers, [list]: next, primary } }
-                })
-              }
-            >
-              <Trash2 size={13} />
-            </button>
+          <div key={i}>
+            <div className="flex items-center gap-2">
+              <input
+                type="radio"
+                name={`primary-driver`}
+                className="accent-rose-600"
+                title="Primary driver"
+                checked={intake.drivers.primary?.list === list && intake.drivers.primary.index === i}
+                onChange={() =>
+                  update((p) => ({ ...p, drivers: { ...p.drivers, primary: { list, index: i } } }))
+                }
+              />
+              <input
+                className={INPUT}
+                value={value}
+                placeholder={list === 'regulatory' ? 'e.g. SBP data submission accountability' : 'e.g. Single view of customer'}
+                onChange={(e) =>
+                  update((p) => {
+                    const next = [...p.drivers[list]]
+                    next[i] = e.target.value
+                    return { ...p, drivers: { ...p.drivers, [list]: next } }
+                  })
+                }
+              />
+              <button
+                className={SMALL_BTN}
+                title="Remove driver"
+                onClick={() =>
+                  update((p) => {
+                    const next = p.drivers[list].filter((_, j) => j !== i)
+                    // A removed row invalidates any primary reference at or past it.
+                    const prim = p.drivers.primary
+                    const primary =
+                      prim && prim.list === list && prim.index >= i
+                        ? prim.index === i
+                          ? null
+                          : { list, index: prim.index - 1 }
+                        : prim
+                    // driverPillars keys reference rows by index too, so they
+                    // shift with the removal exactly as `primary` does — a
+                    // mapping left at a stale index would silently attach one
+                    // driver's pillars to its neighbour.
+                    const dp: Record<string, string[]> = {}
+                    for (const [key, ids] of Object.entries(p.drivers.driverPillars ?? {})) {
+                      const [keyList, keyIndexRaw] = key.split(':')
+                      const keyIndex = Number(keyIndexRaw)
+                      if (keyList !== list) { dp[key] = ids; continue }
+                      if (keyIndex === i) continue
+                      dp[keyIndex > i ? driverKey(list, keyIndex - 1) : key] = ids
+                    }
+                    return { ...p, drivers: { ...p.drivers, [list]: next, primary, driverPillars: dp } }
+                  })
+                }
+              >
+                <Trash2 size={13} />
+              </button>
+            </div>
+            {/* G3: pillar mapping for gap priority — declared by the
+                consultant, never inferred from the driver's wording. Only a
+                named driver can be mapped: a blank row is not a driver. */}
+            {value.trim().length > 0 && (
+              <div className="ml-6 mt-1 flex flex-wrap items-center gap-1">
+                <span className="text-[10px] text-slate-400 mr-1">Pillars this driver bears on:</span>
+                {PILLAR_IDS.map((pid) => {
+                  const key = driverKey(list, i)
+                  const selected = (intake.drivers.driverPillars?.[key] ?? []).includes(pid)
+                  return (
+                    <button
+                      key={pid}
+                      title={PILLAR_NAMES.get(pid)}
+                      className={`px-1.5 py-0.5 text-[10px] rounded border transition-colors ${
+                        selected
+                          ? 'border-rose-300 bg-rose-50 text-rose-700'
+                          : 'border-slate-200 bg-white text-slate-400 hover:bg-slate-50'
+                      }`}
+                      onClick={() =>
+                        update((p) => {
+                          const dp = { ...(p.drivers.driverPillars ?? {}) }
+                          const cur = dp[key] ?? []
+                          const next = selected ? cur.filter((x) => x !== pid) : [...cur, pid]
+                          if (next.length === 0) delete dp[key]
+                          else dp[key] = next
+                          return { ...p, drivers: { ...p.drivers, driverPillars: dp } }
+                        })
+                      }
+                    >
+                      {pid} {PILLAR_SHORTS.get(pid)}
+                    </button>
+                  )
+                })}
+              </div>
+            )}
           </div>
         ))}
         <button
@@ -248,7 +300,10 @@ export default function ProgramDesign() {
           <DriverList title="Strategic" list="strategic" values={intake.drivers.strategic} intake={intake} update={update} />
         </div>
         <p className="text-xs text-slate-400 mt-3">
-          {drivers.regulatory.length + drivers.strategic.length} named driver(s). Blank rows are ignored.
+          {drivers.regulatory.length + drivers.strategic.length} named driver(s), of which{' '}
+          {mappedDrivers(intake).length} mapped to pillars. Blank rows are ignored, and an unmapped
+          driver contributes nothing to gap priority — mapping is a declaration made here, never
+          inferred from the driver&apos;s wording.
         </p>
       </Card>
 
