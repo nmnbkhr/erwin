@@ -1,36 +1,43 @@
 {
   "principles": [
     {
+      "id": "PR1",
       "title": "Govern critical data elements, not everything",
       "statement": "Only elements that drive regulatory returns, risk models, board KPIs or P&L are stewarded. Everything else is catalogued but not governed.",
       "rationale": "A large bank holds on the order of a million columns and a few hundred elements that actually matter. Programmes that attempt full coverage exhaust their sponsor's patience before producing a measurable outcome."
     },
     {
+      "id": "PR2",
       "title": "Derive scope backwards from consumption",
       "statement": "Start at the regulatory return line or board KPI, trace lineage back to source, and every element on that path is in scope.",
       "rationale": "Produces a finite, defensible list with immediate business relevance, and avoids an open-ended nomination process that never converges."
     },
     {
+      "id": "PR3",
       "title": "Federated ownership, central standards",
       "statement": "The DG Office sets standards, runs tooling and reports. Domains own their data, their definitions and their quality.",
       "rationale": "Central-only models collapse at the throughput limit of the central team. Federation scales; centralisation queues."
     },
     {
+      "id": "PR4",
       "title": "Accountability sits with the business, never with IT",
       "statement": "Data Owners are business department heads. IT is custodian — it implements and secures, but does not decide what a term means or what quality is acceptable.",
       "rationale": "When IT owns definitions, business disputes are unresolvable because the arbiter has no authority over the disputing parties."
     },
     {
+      "id": "PR5",
       "title": "Enforcement over publication",
       "statement": "Every policy must name at least one enforcement point — a pipeline test, an approval gate or a control — or it is not adopted.",
       "rationale": "Unenforced policy documents are the most common artefact of failed programmes and the least useful."
     },
     {
+      "id": "PR6",
       "title": "Stewardship time is explicit and contractual",
       "statement": "Stewards are named individuals with a written percentage of time in their formal objectives, countersigned by their line manager.",
       "rationale": "Unallocated stewardship is the single most reliable predictor of programme failure, and the easiest to eliminate before it happens."
     },
     {
+      "id": "PR7",
       "title": "Every wave publishes a number",
       "statement": "No wave completes without a measurable output — coverage, defect rate, issue closure or cost baseline.",
       "rationale": "Governance is invisible until a number moves. Visible movement is what survives the next budget cycle."

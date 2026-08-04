@@ -25,6 +25,26 @@ import path from 'node:path'
 import { unique, sorted, near, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
 import { makeCrosswalkChecks, crosswalkSummary } from '../lib/crosswalk.mjs'
 import { ts, parseFile } from '../lib/ts-ast.mjs'
+/*
+ * The policy set (AR-11). FOUR EXTENSIONS ARE LIVE AND TWO CLASSES ARE NOT.
+ *
+ * `policies.json` does not exist yet, so each of these contributes zero rows —
+ * which costs nothing, because the four classes they join each examine hundreds
+ * of other rows and cannot go VACUOUS on that account. The day the dataset is
+ * declared they cover it with no further edit here.
+ *
+ * `policyEnforcement` and `policyAuthored` are deliberately absent from `checks`
+ * below, and `policySummary` prints that fact on every build rather than leaving
+ * it to be noticed. The header of lib/policies.mjs is the argument and names the
+ * three lines that wire them on.
+ */
+import {
+  policyLayeredRows,
+  policyUnique,
+  policyForeignKeys,
+  policyOwnerRefs,
+  policySummary,
+} from '../lib/policies.mjs'
 
 const LAYERS = ['core', 'banking']
 const DIMS = ['Completeness', 'Validity', 'Accuracy', 'Consistency', 'Uniqueness', 'Timeliness', 'Integrity']
@@ -62,6 +82,9 @@ const layerTags = {
       ['positioning.wedges', pos.wedges],
       ['positioning.accelerators', pos.accelerators],
       ...prog.flows.map((f) => [`flow ${f.id}.steps`, f.steps]),
+      // The policy set joins the declared layered-rows list. Zero rows until
+      // policies.json is declared; see the import header.
+      policyLayeredRows(ctx),
     ]
     let examined = 0
     for (const [name, rows] of layered)
@@ -96,6 +119,9 @@ const uniqueIds = {
     examined += unique(f, 'UNIQUE', 'wave', plan.waves.map((w) => w.id))
     examined += unique(f, 'UNIQUE', 'programStep', prog.flows.flatMap((fl) => fl.steps.map((s) => s.id)))
     examined += unique(f, 'UNIQUE', 'roleRegistry', (om.roleRegistry ?? []).map((r) => r.name))
+    examined += unique(f, 'UNIQUE', 'principle', om.principles.map((p) => p.id))
+    // The code is a PARAMETER all the way down — lib/policies.mjs never names one.
+    examined += policyUnique(f, 'UNIQUE', ctx)
     return { examined }
   },
 }
@@ -118,6 +144,8 @@ const foreignKeys = {
       if (!rungNums.has(a.rung)) fail(`artefact ${a.id} -> ladder rung ${a.rung}`)
     }
     for (const r of rules) { examined++; if (!cdeById.has(r.cdeRef)) fail(`dqRule ${r.id} -> cde ${r.cdeRef}`) }
+    // policy -> pillar, policy -> principle. Zero rows until policies.json exists.
+    examined += policyForeignKeys(ctx, fail)
     return { examined }
   },
 }
@@ -165,6 +193,10 @@ const accountability = {
       ...prog.checklist.map((c) => [`checklist ${c.id}`, c, 'owner']),
       ...plan.artefactRegister.map((a) => [`artefact ${a.id}`, a, 'owner']),
       ...prog.flows.flatMap((f) => f.steps.map((s) => [`step ${s.id}`, s, 'owner'])),
+      // A policy owner resolves through roleRegistry like every other owner, and
+      // is singular for the same reason: two accountable parties is the same as
+      // none, and a policy is the artefact where that matters most.
+      ...policyOwnerRefs(ctx),
     ]
     for (const [where, rec, field] of ownerRefs) {
       const o = rec[field]
@@ -1007,6 +1039,10 @@ export default {
           ` = ${gs.scanned.length} scanned from the report sources — AR-54's built column, asserted rather than trusted`,
       )
     }
+
+    // Printed in BOTH states. A gate that is not running is a fact to be stated,
+    // not an absence a reader has to notice — the REGISTRY line's discipline.
+    for (const l of policySummary(ctx)) out.push(l)
 
     const unmapped = r['CROSSWALK-ORPHAN']?.unmapped ?? []
     out.push(

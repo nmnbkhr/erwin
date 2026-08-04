@@ -124,8 +124,22 @@ export interface RoleRegistryEntry {
   layer: Layer
 }
 
+/**
+ * A governance principle. `id` is PR1..PR7 and exists so a policy can cite the
+ * principle it discharges: `Policy.principleRef` is a foreign key, and before D6
+ * the seven principles were positional — referencing one meant referencing its
+ * index, which moves the day an eighth is written between two existing ones.
+ */
+export interface GovernancePrinciple {
+  /** PR1..PR7. */
+  id: string
+  title: string
+  statement: string
+  rationale: string
+}
+
 export interface OperatingModelData {
-  principles: { title: string; statement: string; rationale: string }[]
+  principles: GovernancePrinciple[]
   roles: OperatingRole[]
   roleRegistry: RoleRegistryEntry[]
   raci: RaciRow[]
@@ -349,6 +363,77 @@ export interface CrosswalkEntry {
 
 export interface CrosswalkData {
   entries: CrosswalkEntry[]
+}
+
+/* ── The policy set — AR-11 ────────────────────────────────────────────────
+ *
+ * NOTHING IMPORTS THESE SHAPES YET, AND `policies.json` DOES NOT EXIST. AR-11 is
+ * `authored` in the register and stays there: one policy is not the artefact, and
+ * flipping it to `derived` would let ARTEFACT-EVIDENCE permit a generator over a
+ * set that has not been written. The types are declared ahead of the content on
+ * the same reasoning the crosswalk shapes were in C1 — so the check has a
+ * contract to be reviewed against rather than being its own specification.
+ *
+ * `positioning.accelerators` advertises a policy set alongside the templated
+ * charter, the RACI, the issue workflow and the phase-gate checklist. Four of
+ * those five are in `operatingModel.json` and `programSetup.json`. This is the
+ * fifth, and AR-11's register note calls it the largest single authoring gap.
+ */
+
+/**
+ * WHERE A POLICY IS ENFORCED, and the vocabulary is closed on purpose.
+ *
+ *   dqRule    a rule in `dqRules.json` fails when the policy is breached
+ *   gate      a gate in `operatingModel.gates` will not pass without it
+ *   activity  a step in a `programSetup` flow performs the enforcement
+ *   external  a control outside this workbench — a DLP tool, an HR process, a
+ *             contract clause. It resolves against no dataset, so it carries a
+ *             mandatory `note` instead and that note is all a reader gets.
+ *
+ * PR5 "Enforcement over publication" is the principle this serves: a policy that
+ * names no enforcement point is not adopted. Gate G7 checks it at council and is
+ * `blocking: false`, which is why POLICY-ENFORCEMENT counts an empty
+ * `enforcedBy` and refuses to fail on it — see the check.
+ */
+export type EnforcementKind = 'dqRule' | 'gate' | 'activity' | 'external'
+
+export interface EnforcementPoint {
+  kind: EnforcementKind
+  /**
+   * Resolved THROUGH `kind`, never against a union of every id in the module.
+   * The id namespaces overlap: `W1` is a wave in `implementationPlan.json` AND a
+   * wedge in `positioning.json`, so a bare id is not a reference to anything in
+   * particular. `kind` is what makes `ref` mean one thing.
+   *
+   * Unused when `kind` is `external` — there is nothing in the repo to point at.
+   */
+  ref: string
+  /** Mandatory when `kind` is `external`, where it is the only evidence there is. */
+  note?: string
+}
+
+export interface Policy {
+  /** POL-01.. — zero-padded fixed width, so code-unit order is numeric order. */
+  id: string
+  title: string
+  statement: string
+  /** A pillar in `pillars.json`. */
+  pillarId: string
+  /** PR1..PR7 — the principle this policy discharges. */
+  principleRef: string
+  /** Single accountable party, resolved through `OperatingModelData.roleRegistry`. */
+  owner: string
+  /** May be empty — that is a STATE, flagged at council under G7, not a defect. */
+  enforcedBy: EnforcementPoint[]
+  /** How a breach is granted a time-boxed exception, and by whom. */
+  exceptionPolicy: string
+  /** How often the policy is re-approved. */
+  reviewCycle: string
+  layer: Layer
+}
+
+export interface PoliciesData {
+  policies: Policy[]
 }
 
 export interface PositioningData {
