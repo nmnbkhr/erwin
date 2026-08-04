@@ -838,6 +838,31 @@ export const REGISTRY = {
         call: (m, f, c) => c.saveReport(m.buildAiReadinessPdf({ meta: c.meta, answers: f.answersPartial }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
 
+      /*
+       * WAVE D — the tooling recommendation, two captures.
+       *
+       * PDF only; the connector-scope table is AR-02's CSV and duplicating it
+       * here would grow the register a duplicate.
+       *
+       * The core variant is not label coverage: the connector scope is derived
+       * from the elements in scope, so a core-only engagement recommends the same
+       * stack against 14 systems rather than 32. Capturing it is what makes that
+       * claim checkable — the argument lineage-trace-pdf-core and
+       * ai-readiness-pdf-core already ship under.
+       */
+      {
+        id: 'tooling-pdf', entry: DGIW_REPORT('toolingRecommendation'), kind: 'pdf',
+        exportName: 'buildToolingRecommendationPdf', artefactIdExport: 'TOOLING_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildToolingRecommendationPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      {
+        id: 'tooling-pdf-core', entry: DGIW_REPORT('toolingRecommendation'), kind: 'pdf',
+        exportName: 'buildToolingRecommendationPdf', artefactIdExport: 'TOOLING_ARTEFACT_ID',
+        assertRawBytes: true, layer: 'core',
+        call: (m, f, c) => c.saveReport(m.buildToolingRecommendationPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+
       // AR-47 is one artefact id producing four documents, one per framework.
       // All four are captured: the crosswalk work is recent, and a projection
       // that silently changed under a spine edit is exactly what 0a is for.

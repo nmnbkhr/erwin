@@ -302,6 +302,32 @@ const SPECS: Spec[] = [
     countLabel: 'P11 questions in scope',
     shortcut: '/dg/diagnostic',
   },
+
+  /*
+   * ── WAVE D: the tooling recommendation ─────────────────────────────────
+   *
+   * The last derived-and-unbuilt entry, and the only generator that reads
+   * positioning.json — a dataset no report had ever touched. Its header records
+   * what that file turned out to hold and which fields are deliberately not
+   * reproduced; the short version is on the card below.
+   */
+  {
+    artefactId: 'AR-17',
+    title: 'Tooling Recommendation',
+    blurb:
+      'Two tiers and their eight components with the authored selection rationale for each, the ' +
+      'capability layers rendered as bands, the source systems the governed elements are sourced ' +
+      'from as the connector scope, and P10’s platform constraints.',
+    caveat:
+      'Capability layers, NOT a wired topology — no integration edge exists in any dataset, and ' +
+      'P10’s overlay names an on-premise topology it does not contain. The system count is what ' +
+      'this engagement governs, not the bank’s estate. Products are a recommendation, not an ' +
+      'evaluation: the two tiers share no capability, so no comparison matrix is possible.',
+    primary: 'pdf',
+    count: (f) => new Set(CDES.filter((c) => layerShows(f, c.layer)).map((c) => c.sourceSystem)).size,
+    countLabel: 'source systems in connector scope',
+    shortcut: '',
+  },
 ]
 
 export default function Deliverables() {
@@ -445,6 +471,11 @@ export default function Deliverables() {
         case 'AR-06': {
           const { buildAiReadinessPdf } = await import('../report/aiReadiness')
           saveReport(buildAiReadinessPdf({ meta, answers }), reportFilename(meta, 'pdf'), meta)
+          return null
+        }
+        case 'AR-17': {
+          const { buildToolingRecommendationPdf } = await import('../report/toolingRecommendation')
+          saveReport(buildToolingRecommendationPdf({ meta }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         default:
