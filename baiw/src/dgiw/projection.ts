@@ -60,7 +60,7 @@ const MAPPINGS: SpineMapping[] = XW.entries.map((e) => ({
  * `layerShows`. Composed rather than reimplemented — `layerShows` stays the one
  * scope predicate, and this adds only the third tag the crosswalk introduced.
  */
-const mappingVisible = (filter: LayerFilter | null, mappingLayer: string | undefined): boolean =>
+export const mappingVisible = (filter: LayerFilter | null, mappingLayer: string | undefined): boolean =>
   mappingLayer === 'both' || filter === null || layerShows(filter, mappingLayer as Layer)
 
 /** Pillar outcomes for these answers under this layer. The single source. */

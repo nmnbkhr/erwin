@@ -863,6 +863,30 @@ export const REGISTRY = {
         call: (m, f, c) => c.saveReport(m.buildToolingRecommendationPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
 
+      /*
+       * WAVE E — the programme gap report, two captures.
+       *
+       * The core variant is not label coverage. Under core the checklist drops
+       * 52 -> 42 and the register 54 -> 43, P07's induced share falls from 17.7%
+       * to 7.8% of DMBOK2, P03 loses a built artefact (AR-20 is banking) and DGI
+       * maps nothing to P06 at all. Every one of those moves a printed cell, so
+       * capturing both is what makes "the figures are on this layer" checkable
+       * rather than asserted — the argument lineage-trace-pdf-core,
+       * ai-readiness-pdf-core and tooling-pdf-core already ship under.
+       */
+      {
+        id: 'programme-gap-pdf', entry: DGIW_REPORT('programmeGap'), kind: 'pdf',
+        exportName: 'buildProgrammeGapPdf', artefactIdExport: 'PROGRAMME_GAP_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildProgrammeGapPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      {
+        id: 'programme-gap-pdf-core', entry: DGIW_REPORT('programmeGap'), kind: 'pdf',
+        exportName: 'buildProgrammeGapPdf', artefactIdExport: 'PROGRAMME_GAP_ARTEFACT_ID',
+        assertRawBytes: true, layer: 'core',
+        call: (m, f, c) => c.saveReport(m.buildProgrammeGapPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+
       // AR-47 is one artefact id producing four documents, one per framework.
       // All four are captured: the crosswalk work is recent, and a projection
       // that silently changed under a spine edit is exactly what 0a is for.

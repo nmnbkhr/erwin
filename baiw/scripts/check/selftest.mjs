@@ -372,6 +372,34 @@ const MUTATIONS = [
     }),
   },
 
+  /*
+   * ── GENERATOR-SET, two rows, one per DIRECTION ──────────────────────────
+   *
+   * The two directions are different defects and a single mutation that broke
+   * both would prove nothing about which assertion caught it — the discipline
+   * ARTEFACT-EVIDENCE's five rows and HACR-INSTRUMENT's three already follow.
+   *
+   * Both edit the DECLARATION rather than the generators, because deleting a
+   * generator file would also trip ARTEFACT-IMPL and REPORT-SOURCES.
+   */
+  {
+    code: 'GENERATOR-SET',
+    what: 'the declared built-artefact list omits a generator that exists — AR-54 would call its pillar unserved',
+    touches: ['src/dgiw/report/programmeGap.ts'],
+    // AR-17 has a generator (report/toolingRecommendation.ts). Dropping it from
+    // the list leaves every other id correct, so only the missing direction trips.
+    apply: () => sub('src/dgiw/report/programmeGap.ts', "'AR-17', ", ''),
+  },
+  {
+    code: 'GENERATOR-SET',
+    what: 'the declared list names an artefact no generator declares — a built count including a document nobody can produce',
+    touches: ['src/dgiw/report/programmeGap.ts'],
+    // AR-03 is catalogued and `observed`, so it can never acquire a generator.
+    // Added rather than substituted so no existing id goes missing and the
+    // other direction stays untripped.
+    apply: () => sub('src/dgiw/report/programmeGap.ts', "'AR-01', ", "'AR-01', 'AR-03', "),
+  },
+
   // ── the four suite classes ──────────────────────────────────────────────
   {
     code: 'REPORT-SOURCES',

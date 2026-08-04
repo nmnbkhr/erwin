@@ -1116,6 +1116,26 @@
         "evidence": "observed",
         "note": "CATALOGUED FROM THE SEQUENCE: CL-45 asks for model and ECL input checks running before model execution, and no entry existed. 'Running before model execution' is a runtime property of the client's pipeline, as AR-30 is. THE APPARENT PATH IS THE CONSUMPTION POINT 'ECL computation', which is the highest-ranked point in the register at six feeding elements, joined to their DQ rules — refused because consumers is free text and unnormalised, no model inventory exists to say which models these are or who owns them, and AR-06 established that no candidate use case exists in any dataset. A control set assembled from a consumption-point string would be the AR-07 bridge with a model risk heading."
       }
+    },
+    {
+      "id": "AR-54",
+      "artefact": "Programme gap report",
+      "pillarId": "P01",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Report",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/pillars.json",
+          "dgiw/data/crosswalk.json",
+          "dgiw/data/implementationPlan.json",
+          "dgiw/data/programSetup.json",
+          "frameworks/data/frameworks.json"
+        ],
+        "note": "THE INVERSE OF A COVERAGE REPORT, WHICH IS NOT BUILDABLE. Per pillar: the checklist items and register entries filed against it, every entry with its disposition, and each framework's induced share from the projection engine — four columns, never summed, because leaf weights total 1.00 in DMBOK2 and 3.00 in DGI. Three states, and NOT CATALOGUED never renders as zero. NO DATASET RELATES A CHECKLIST ITEM OR AN ARTEFACT TO A FRAMEWORK DIMENSION: the pillarId on those two is a filing with no weight and no rationale, where the crosswalk entry carries both, so no coverage figure appears anywhere. Waves are reported wave-to-pillar only; artefact-to-wave is a string bridge, 1 of 35 deliverable strings matching a register name."
+      }
     }
   ]
 }

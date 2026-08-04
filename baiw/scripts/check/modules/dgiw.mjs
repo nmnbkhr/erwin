@@ -449,6 +449,126 @@ const artefactEvidence = {
   },
 }
 
+/**
+ * GENERATOR-SET — the app's own list of built artefacts must equal the real one.
+ *
+ * ─── WHY A LIST EXISTS AT ALL ──────────────────────────────────────────────
+ *
+ * NO DATASET RECORDS WHICH ARTEFACTS HAVE A GENERATOR. The gate knows, because
+ * ARTEFACT-EVIDENCE scans `src/dgiw/report/` for `*_ARTEFACT_ID` declarations —
+ * but that is a source scan, and `report/programmeGap.ts` runs in a browser and
+ * cannot do one. AR-54's whole subject is which pillars have nothing this
+ * workbench can produce, so it needs that set at runtime and the only way to
+ * have it is to declare it.
+ *
+ * A DECLARATION BESIDE A COMPUTED TRUTH IS THIS REPO'S MOST REPEATED DEFECT.
+ * `SuiteLanding.tsx` claims 56 CDEs against 76 and 81 DQ rules against 115;
+ * CLAUDE.md carried `REGISTRY 40` for a whole phase and `15, 11 built` for two
+ * waves after it stopped being eleven; `Deliverables.tsx`'s own header said
+ * "five" while SPECS held seven. Every one was a hand-typed number beside a
+ * computed one, and the prose lost every time. Shipping a fourteenth on a
+ * client-facing cover page, where the number IS the finding, is not acceptable.
+ *
+ * ─── SO THE LIST FAILS THE BUILD WHEN IT DRIFTS ────────────────────────────
+ *
+ * Both directions, and they are different defects:
+ *
+ *   declared, not scanned   AR-54 would count a pillar as served by a generator
+ *                           that does not exist — a pillar wrongly reported as
+ *                           covered, which is the exact failure the artefact is
+ *                           written to prevent, inside the artefact itself
+ *   scanned, not declared   a new generator lands and the gap report keeps
+ *                           calling its pillar unserved — the quieter direction,
+ *                           and the one nobody would notice
+ *
+ * This scans independently rather than reading ARTEFACT-EVIDENCE's result. The
+ * two classes ask different questions and a shared assertion helper hardcoding
+ * one code is precisely the defect `unique()` shipped — CLAUDE.md records it.
+ *
+ * ─── WHAT IT CANNOT SEE ────────────────────────────────────────────────────
+ *
+ * That the id in the list is the id the generator actually renders under.
+ * ARTEFACT-IMPL owns that. This asserts set equality between two lists of
+ * strings, which is all "is the count on the cover the real count" needs.
+ */
+const GENERATOR_SET_DECL = {
+  rel: 'src/dgiw/report/programmeGap.ts',
+  name: 'IMPLEMENTED_ARTEFACT_IDS',
+}
+
+const generatorSet = {
+  code: 'GENERATOR-SET',
+  run(ctx) {
+    const { fail, root, sources } = ctx
+    const catalogued = new Set((ctx.data.plan.artefactRegister ?? []).map((a) => a.id))
+
+    /*
+     * The scanned truth: every `*_ARTEFACT_ID = 'AR-nn'` in the declared report
+     * source set, FILTERED TO CATALOGUED IDS. Same declaration ARTEFACT-EVIDENCE
+     * reads and the same filter it applies.
+     *
+     * `ctx.sources` is the whole SUITE's report source set, not this module's —
+     * it resolves the eight declared locations across five rule files. Without
+     * the filter this class demanded that DGIW's list name TAIW's and HAIW's
+     * thirteen `MR-*` module reports, which are not catalogued artefacts and
+     * belong to no pillar. Caught by running it; the finding named all thirteen.
+     */
+    const scanned = new Set()
+    for (const file of sources) {
+      const { sf } = parseFile(root, file)
+      const visit = (node) => {
+        if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && /ARTEFACT_ID$/.test(node.name.text)) {
+          const init = node.initializer
+          if (init && ts.isStringLiteralLike(init) && catalogued.has(init.text)) scanned.add(init.text)
+        }
+        ts.forEachChild(node, visit)
+      }
+      visit(sf)
+    }
+
+    const declFile = path.join(root, GENERATOR_SET_DECL.rel)
+    if (!fs.existsSync(declFile)) {
+      fail(`${GENERATOR_SET_DECL.rel} does not resolve, so ${GENERATOR_SET_DECL.name} cannot be read — AR-54 renders a built/not-built column from that list and a missing declaration would silently make every pillar read as unserved`)
+      return { examined: 0 }
+    }
+
+    const { sf } = parseFile(root, declFile)
+    let declared = null
+    const visit = (node) => {
+      if (
+        ts.isVariableDeclaration(node) &&
+        ts.isIdentifier(node.name) &&
+        node.name.text === GENERATOR_SET_DECL.name
+      ) {
+        // `as const` wraps the array literal in an assertion expression.
+        let init = node.initializer
+        while (init && (ts.isAsExpression(init) || ts.isParenthesizedExpression(init))) init = init.expression
+        if (init && ts.isArrayLiteralExpression(init)) {
+          const values = init.elements.map((e) => (ts.isStringLiteralLike(e) ? e.text : null))
+          if (values.every((v) => v !== null)) declared = new Set(values)
+        }
+      }
+      ts.forEachChild(node, visit)
+    }
+    visit(sf)
+
+    if (!declared) {
+      fail(`${GENERATOR_SET_DECL.rel} does not export ${GENERATOR_SET_DECL.name} as an array of string literals — an unreadable declaration is not the same as an empty one, and this class refuses to pass over something it could not parse`)
+      return { examined: 0 }
+    }
+
+    const missing = [...scanned].filter((id) => !declared.has(id)).sort()
+    const extra = [...declared].filter((id) => !scanned.has(id)).sort()
+
+    if (missing.length)
+      fail(`${GENERATOR_SET_DECL.name} in ${GENERATOR_SET_DECL.rel} omits ${missing.join(', ')} — a generator exists for ${missing.length === 1 ? 'it' : 'those'} and AR-54 would report their pillar as having nothing this workbench can produce. Add the id to the array in the same commit as the generator`)
+    if (extra.length)
+      fail(`${GENERATOR_SET_DECL.name} in ${GENERATOR_SET_DECL.rel} names ${extra.join(', ')}, which no file in the declared report source set declares a generator for — AR-54 would print a built count that includes a document nobody can produce, which is the defect the artefact exists to report`)
+
+    return { examined: declared.size, declared: [...declared].sort(), scanned: [...scanned].sort() }
+  },
+}
+
 // ── 12-16. THE CROSSWALK CLASSES, FROM THE SHARED FACTORY ──────────────────
 /**
  * Five inline classes became seven from `lib/crosswalk.mjs` in D5 stage C, when
@@ -833,6 +953,7 @@ export default {
     layerCoherence,
     coreChassis,
     artefactEvidence,
+    generatorSet,
     crosswalk.spineUniverse,
     crosswalk.crosswalkShape,
     crosswalk.crosswalkWeight,
@@ -872,6 +993,18 @@ export default {
       out.push(
         `  blocked on: ${ae.blockedOn.map(([id, on]) => `${id} <- ${on.join(', ')}`).join('  ') || 'nothing'}` +
           ` — a generator may only be written for a derived entry, and that is asserted rather than asked for`,
+      )
+    }
+
+    // Printed because AR-54 renders a built/not-built column from a DECLARED
+    // list and this repo's most repeated defect is a hand-typed count beside a
+    // computed one. The two numbers here are the same number by assertion; the
+    // line exists so a reader can see that they are.
+    const gs = r['GENERATOR-SET']
+    if (gs?.declared) {
+      out.push(
+        `GENERATOR-SET ${gs.declared.length} declared in ${GENERATOR_SET_DECL.rel.split('/').pop()}` +
+          ` = ${gs.scanned.length} scanned from the report sources — AR-54's built column, asserted rather than trusted`,
       )
     }
 

@@ -328,6 +328,35 @@ const SPECS: Spec[] = [
     countLabel: 'source systems in connector scope',
     shortcut: '',
   },
+  /*
+   * ── WAVE E: the programme gap report ───────────────────────────────────
+   *
+   * The INVERSE of the coverage artefact this join invites and cannot support.
+   * The generator's header carries the measurement that killed the coverage
+   * shape — 44 leaf dimensions producing 30 distinct answers, CL-01 returned as
+   * the remedy for seventeen of them — and the reason no percentage appears on
+   * any surface of this one. PDF only, on AR-06's argument: eleven rows whose
+   * finding is the prose beside them, not a column to sort.
+   */
+  {
+    artefactId: 'AR-54',
+    title: 'Programme Gap Report',
+    blurb:
+      'Every pillar thinnest-first with its three-state verdict, each framework\u2019s induced share ' +
+      'from the projection engine in its own column, every catalogued artefact printed with its ' +
+      'register disposition, the leaf dimensions whose pillars carry nothing this workbench can ' +
+      'produce, and the waves that name an unscheduled pillar.',
+    caveat:
+      'NO COVERAGE FIGURE ANYWHERE. The pillarId on a checklist item or an artefact is a FILING \u2014 ' +
+      'no weight, no rationale \u2014 and no dataset relates either to a framework dimension. A ' +
+      'withdrawn or blocked entry is not a remedy and is never counted as one. The four framework ' +
+      'columns are never summed. No artefact is attached to any wave.',
+    primary: 'pdf',
+    count: (f) =>
+      PLAN.artefactRegister.filter((a) => layerShows(f, a.layer) && a.builtFrom.evidence !== 'withdrawn').length,
+    countLabel: 'live catalogued artefacts in scope',
+    shortcut: '/dg/frameworks',
+  },
 ]
 
 export default function Deliverables() {
@@ -471,6 +500,11 @@ export default function Deliverables() {
         case 'AR-06': {
           const { buildAiReadinessPdf } = await import('../report/aiReadiness')
           saveReport(buildAiReadinessPdf({ meta, answers }), reportFilename(meta, 'pdf'), meta)
+          return null
+        }
+        case 'AR-54': {
+          const { buildProgrammeGapPdf } = await import('../report/programmeGap')
+          saveReport(buildProgrammeGapPdf({ meta }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-17': {
