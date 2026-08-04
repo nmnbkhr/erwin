@@ -826,6 +826,25 @@ signature, opposite cause. **Rule out the instrument before you accept the
 finding**, and enumerate the operator forms present before trusting a reader that
 matches one. There were two; the second carried the missing tenth.
 
+**And a fourth way — D-019 — to ship text no reader can read while every byte
+is faithfully on the page.** The suite renders with the standard 14 fonts, and
+their ceiling is WinAnsi: one character above it (AR-54's `→`, U+2192) makes
+jsPDF silently emit the WHOLE line as a UTF-16 string with no /ToUnicode, which
+every viewer decodes as mojibake — `artefact !' pillar !' wave`, on two pages
+of every AR-54 ever exported. No guard saw it: TEXT-MAXWIDTH greps a key,
+text-integrity covers table cells only, `nonWinAnsiFonts` checks fonts rather
+than characters, and `rawBytesSha256` reproduced the garble perfectly. The
+instrument that flagged anything did so by accident and with a FALSE finding —
+the extractor counted UTF-16 runs by byte and reported a 1130 pt right edge on
+a 595 pt sheet, which is D-018's lesson at the encoding level: two string
+encodings appear in these documents and the reader knew one. Fixed both ways:
+`unescapePdfString` decodes UTF-16BE so measurements are honest, and
+`assertNonEmpty` REFUSES a document with a non-zero `utf16RunCount`, so a
+mojibake artefact can be neither captured nor `--accept`ed. **When prose in a
+PDF generator wants an arrow, write `->`.** Markdown generators may use real
+Unicode freely — a `.md` is UTF-8 text and the two roadmap templates' arrows
+are deliberately untouched.
+
 **Never `doc.text(s, x, y, { maxWidth: n })`.** It reads as "wrap this". jsPDF
 computes the split and then draws **only the first line**; everything past the
 break is discarded with no error and nothing visible except a sentence that
