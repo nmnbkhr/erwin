@@ -16,7 +16,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0705c8f6de893920d1b4516cbfeacd676a1b103eccd3383754d1fd3e5265b4ad",
+    "sha256": "c042b7645f756f55f580446d15ddf2c811dc5082e1ea8b52bd9939a94a753614",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]

@@ -641,11 +641,11 @@ Every entry now carries `builtFrom` — `evidence`, optional `datasets` or
 
 | | |
 |---|---|
-| `derived` | a generator can build it from the named datasets — **17**, 7 built |
-| `authored` | library content nobody has written; a generator follows it — **6** |
+| `derived` | a generator can build it from the named datasets — **15**, 11 built |
+| `authored` | library content nobody has written; a generator follows it — **7** |
 | `observed` | measured at the client, or the artefact IS the running thing — **15** |
 | `blocked` | buildable once a named catalogued artefact lands — **7** |
-| `withdrawn` | the register named a shape the data cannot support — **3** |
+| `withdrawn` | withdrawn: the data cannot support the shape, or another artefact already delivers it — **4** |
 
 **`ARTEFACT-EVIDENCE` is what makes it binding, and one of its five branches is
 the point.** Four are shape: a value from the closed set, a non-empty `note`,
@@ -659,8 +659,8 @@ no generator and that is the roadmap, so the pair is printed instead.
 
 **Withdrawn entries are kept, not deleted.** An id that vanishes gets
 re-catalogued by the next person who reads the ladder, with the reason gone.
-AR-32, AR-34 and AR-37 stay in the array with the apparent path that does not
-hold written into the note — AR-37's, for instance, records that all eight
+AR-32, AR-34, AR-37 and AR-10 stay in the array with the apparent path that does
+not hold written into the note — AR-37's, for instance, records that all eight
 `GL & Finance`/`Ledger` rules were read and **not one reconciles a subledger
 balance to a GL control account**.
 
@@ -672,6 +672,26 @@ the import graph and a mismatch between the two is reported by neither. And it
 cannot judge a note, for the same reason ARTEFACT-IMPL accepts
 `contentKey(['constant'])`: a static check verifies a claim was **supplied**,
 never that it is true. **Read the note when reviewing a new entry.**
+
+**A `withdrawn` entry is not always "the data cannot support it".** AR-10, the
+council terms of reference, is withdrawn because AR-09 ALREADY renders all seven
+fields of `operatingModel.council` — the data supports it perfectly and a second
+document would be one operating model under two covers. Two different reasons,
+one value, and the distinction lives in the `note`. ARTEFACT-EVIDENCE's finding
+therefore names the disposition and points at the note rather than paraphrasing
+why: it used to say "withdrawn because the data cannot support it", which was
+true of three entries and false of the fourth, and a finding that guesses the
+reason sends the reader to the wrong fix.
+
+**Wave B is the worked example of the field doing its job.** AR-08 (charter) and
+AR-10 (council ToR) were both catalogued, both `derived`, and building them was
+the plan. Reading the data first killed both: `charterPurpose` is a COUNCIL
+purpose rather than a programme mandate, a charter's distinguishing content
+(scope with explicit exclusions, term, amendment, review, signature) is in no
+dataset, and `positioning.accelerators` calls it a *templated* charter in the
+same sentence as the policy set and the issue workflow — both already `authored`.
+Marking it `derived` was an inconsistency against those two. **The stage shipped
+two dispositions and zero documents, and that was the honest output.**
 
 The five selftest rows each isolate ONE branch. Corrupting a `builtFrom` block
 trips three at once and proves nothing about which caught it — the `unique()`

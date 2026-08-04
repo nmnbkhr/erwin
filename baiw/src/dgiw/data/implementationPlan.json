@@ -464,11 +464,8 @@
       "format": "Document",
       "layer": "core",
       "builtFrom": {
-        "evidence": "derived",
-        "datasets": [
-          "dgiw/data/operatingModel.json"
-        ],
-        "note": "council.charterPurpose, chair, cadence, quorum, members, decisionRights and escalationPath, the seven principles, the ten role archetypes with what each is accountable for, and gates G1 to G3. Term, amendment procedure and review cycle are not in the dataset and are authored per engagement — the only authoring gap inside a derived entry."
+        "evidence": "authored",
+        "note": "RE-DISPOSITIONED from derived to authored, Wave B. A charter is a TEMPLATE filled per engagement, not a document derived from a dataset, and positioning.accelerators says so itself — it advertises a 'templated charter' in the same sentence as the policy set and the issue workflow, both already authored here. What makes a charter a charter is absent from every dataset: a scope statement with explicit exclusions (checklist CL-05 catalogues that separately), a term, an amendment procedure, a review cycle and a signature block. operatingModel.council.charterPurpose is not the missing mandate — read it, it is a COUNCIL purpose, 'to hold decision rights over enterprise data at a level below the executive committee'. Everything else a charter would draw on — the seven principles, the ten roles, the council object — is already rendered by AR-09, so a generator here would assemble AR-09's content under a cover saying Charter. That is the AR-46 shape, matching the shape and nothing else. Marking it derived in D5 stage G was an error against AR-11 and AR-16; this corrects it. Author the template, then a generator can fill it."
       }
     },
     {
@@ -498,11 +495,8 @@
       "format": "Governance document",
       "layer": "core",
       "builtFrom": {
-        "evidence": "derived",
-        "datasets": [
-          "dgiw/data/operatingModel.json"
-        ],
-        "note": "The council object rendered as a terms of reference. SAME SOURCE AS AR-08 and already a page inside AR-09: three documents over one authored object, kept because they carry different signatures, but this is deliberate duplication and not new evidence."
+        "evidence": "withdrawn",
+        "note": "WITHDRAWN, Wave B. Not because the data cannot support it — it is the most literal match in the register — but because it is ALREADY DELIVERED. report/operatingModel.ts renders a Data Governance Council page carrying all seven fields of operatingModel.council: charterPurpose, chair, cadence, quorum, members, decisionRights, escalationPath. Nothing is held back for a second document to add. Measured before deciding: the only content a standalone terms of reference could add is the council's own rows of the RACI (accountable on 3 of 15 activities, consulted on 4), one table; and member archetype resolution is NOT available, because 0 of the 8 members resolve through roleRegistry — they are role descriptions ('Risk representative'), not registry titles. Two documents over seven identical fields is one operating model under two covers, and cataloguing it twice is how a register grows a duplicate — the test that withdrew AR-34. REVERSIBLE with a stated trigger: re-catalogue it if the council object gains what distinguishes a maintained instrument from a snapshot (a version, a review date, an amendment record), or if AR-09's council page is ever replaced by a cross-reference, at which point the terms of reference has somewhere of its own to live."
       }
     },
     {

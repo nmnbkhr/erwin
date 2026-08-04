@@ -431,7 +431,13 @@ const artefactEvidence = {
     for (const [id, rel] of implemented) {
       const ev = byId.get(id).builtFrom?.evidence
       if (ev && ev !== 'derived')
-        fail(`${rel} declares a generator for artefact ${id}, which the register marks ${ev} — ${ev === 'withdrawn' ? 'the register withdrew this shape because the data cannot support it' : 'the register says this document cannot be built from the datasets yet'}. Building it anyway is the D-001 shape: a plausible document under a catalogued heading. Change the register entry and say why in its note, or do not write the generator`)
+        // The message names the disposition and points at the note. It does NOT
+        // paraphrase why: this used to read "withdrawn because the data cannot
+        // support it", which was true of AR-32/34/37 and false of AR-10, which
+        // was withdrawn as a duplicate of a document that already ships. A
+        // finding that guesses the reason sends the reader to the wrong fix, and
+        // the reason is written down one field away.
+        fail(`${rel} declares a generator for artefact ${id}, which the register marks ${ev} rather than derived — read builtFrom.note on ${id} for why. Building it anyway is the D-001 shape: a plausible document under a catalogued heading. Change the register entry and say why in its note, in the same commit, or do not write the generator`)
     }
 
     return {
