@@ -1,6 +1,6 @@
 {
   "artefact": "programme-gap-pdf",
-  "bytes": 160340,
+  "bytes": 160339,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "df4631ae2835e00e91c6e5f3f7e54c6e21cc9ea8587a36e87bd5fc00d56d2a09",
+    "sha256": "1b0c85434f77d627be3836b78a5f24395f58a0621d707922e3e4a870d6a9e02d",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -31,7 +31,7 @@
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "41d0b88f5f708d09ed573e0a36bd679a4058463dbc4d24e6c281e2b04fbc414f",
+  "normalisedTextSha256": "4f5aaba4854e69eb7178aec6aecb15ba5116608a5415c4c4f927f76785f012cc",
   "notReproducible": {},
   "pageCount": 10,
   "pages": [
@@ -202,7 +202,7 @@
         "HAS A GENERATOR",
         "16",
         "10",
-        "5",
+        "6",
         "Checklist items and catalogued artefacts are counts of records that name this pillar. They are not a measure of how much of the pillar is",
         "addressed, and no such measure is computed anywhere in this document.",
         "Prepared by Godaitec | godai.tech",
@@ -686,8 +686,8 @@
         "AR-08",
         "P01",
         "Data Governance charter",
-        "authored",
-        "no",
+        "derived",
+        "yes",
         "AR-09",
         "P01",
         "Target operating model",
@@ -955,7 +955,7 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "932a0e6a8c75f49a71a5347d250a9ca3073657c851212a0d5b926fd9e23887f6",
+  "rawBytesSha256": "f49c63e3e9828147f6ae37fe09ad9e2eb08a5ca35e3bd6ae2f96d5e7dcd35d26",
   "tableRowsTotal": 102,
   "textRunCount": 728,
   "unknownFonts": [],

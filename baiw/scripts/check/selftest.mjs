@@ -400,6 +400,55 @@ const MUTATIONS = [
     apply: () => sub('src/dgiw/report/programmeGap.ts', "'AR-01', ", "'AR-01', 'AR-03', "),
   },
 
+  /*
+   * ── G1: the intake gates — one row per branch ───────────────────────────
+   *
+   * INTAKE-SCOPE has three content branches and each row isolates one. The
+   * fixture file itself is never removed or corrupted here: fingerprint-
+   * coverage reads the same file and throws (rather than failing) on a
+   * missing or unparseable fixture, so those two defensive branches cannot be
+   * demonstrated without crashing the gate — they stay defensive, and the
+   * rows below keep the file valid JSON throughout.
+   *
+   * INTAKE-MODE has two branches with opposite directions — the shared
+   * predicate's import gone, and a second inline predicate appearing — and a
+   * mutation that did both at once (delete the import, add a local copy)
+   * would prove nothing about which assertion caught it.
+   */
+  {
+    code: 'INTAKE-SCOPE',
+    what: 'the intake fixture names a pillar id pillars.json does not contain — a renamed pillar or a stale fixture',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { f.intake.scope.pillarIds[0] = 'P99' }),
+  },
+  {
+    code: 'INTAKE-SCOPE',
+    what: 'the intake fixture loses its scope entirely — an unactionable fixture exercising nothing',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { f.intake.scope.pillarIds = [] }),
+  },
+  {
+    code: 'INTAKE-SCOPE',
+    what: 'the fixture stores no intake at all — the engagement-mode golden entries would silently render reference mode',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { delete f.intake }),
+  },
+  {
+    code: 'INTAKE-MODE',
+    what: 'the charter stops importing intakeIsActionable — the mode switch is no longer the shared predicate',
+    touches: ['src/dgiw/report/charter.ts'],
+    apply: () => sub('src/dgiw/report/charter.ts', '  intakeIsActionable,\n', ''),
+  },
+  {
+    code: 'INTAKE-MODE',
+    what: 'a second inline actionability predicate in the operating model — two copies that can drift apart',
+    touches: ['src/dgiw/report/operatingModel.ts'],
+    apply: () => append(
+      'src/dgiw/report/operatingModel.ts',
+      '\nconst __selftestIntakeActionable = (i: { org: { name: string } }) => i.org.name.length > 0\nvoid __selftestIntakeActionable\n',
+    ),
+  },
+
   // ── the four suite classes ──────────────────────────────────────────────
   {
     code: 'REPORT-SOURCES',

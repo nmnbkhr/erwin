@@ -5,6 +5,7 @@ import { LayerProvider } from './LayerContext'
 import PageSkeleton from '../components/layout/PageSkeleton'
 
 const PracticeOverview = lazy(() => import('./components/PracticeOverview'))
+const ProgramDesign = lazy(() => import('./components/ProgramDesign'))
 const Diagnostic = lazy(() => import('./components/Diagnostic'))
 const ServiceLadder = lazy(() => import('./components/ServiceLadder'))
 const OperatingModel = lazy(() => import('./components/OperatingModel'))
@@ -23,6 +24,7 @@ export default function DgiwRoutes() {
         <Suspense fallback={<PageSkeleton />}>
           <Routes>
             <Route path="/" element={<PracticeOverview />} />
+            <Route path="/design" element={<ProgramDesign />} />
             <Route path="/diagnostic" element={<Diagnostic />} />
             <Route path="/ladder" element={<ServiceLadder />} />
             <Route path="/operating-model" element={<OperatingModel />} />

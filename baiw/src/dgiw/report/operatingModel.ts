@@ -56,6 +56,7 @@ import type { ReportMeta } from '../../report/types'
 import { byNumber, idOrdinal } from '../../report/order'
 import { layerShows } from '../layer'
 import { archetypeOf } from '../roles'
+import { intakeIsActionable, type ProgramIntake } from '../intake/types'
 import operatingModel from '../data/operatingModel.json'
 import programSetup from '../data/programSetup.json'
 import implementationPlan from '../data/implementationPlan.json'
@@ -84,6 +85,17 @@ export const OPERATING_MODEL_ARTEFACT_ID = 'AR-09'
 
 export interface OperatingModelInput {
   meta: ReportMeta
+  /**
+   * G1: the engagement intake. When present AND actionable
+   * (`intakeIsActionable` — the imported predicate, never re-derived), the
+   * council page and the RACI page additionally render the engagement's own
+   * parameters, and the document is `mode: 'engagement'`. When absent or not
+   * actionable, output is the pre-G1 reference document plus an ILLUSTRATIVE
+   * watermark on every page and `mode: 'reference'` — the reference council
+   * and RACI are the methodology's TARGET model, and presenting them
+   * un-watermarked as a client's own decisions is the D-001 shape.
+   */
+  intake?: ProgramIntake
 }
 
 export type ScopeState = 'in-scope' | 'out-of-scope'
@@ -252,8 +264,42 @@ export function buildChecklistPhases(input: OperatingModelInput): { phase: strin
   return order.map((phase) => ({ phase, items: byPhase.get(phase) ?? [] }))
 }
 
+/** Intake RACI rows worth printing: a named activity with at least one assignment. */
+function printableIntakeRaci(intake: ProgramIntake) {
+  return intake.raci.filter(
+    (r) => r.activity.trim().length > 0 && [r.R, r.A, r.C, r.I].some((c) => c.trim().length > 0),
+  )
+}
+
 export function buildOperatingModelPdf(input: OperatingModelInput): jsPDF {
-  const { meta } = input
+  /*
+   * G1 mode split. Engagement mode adds intake-driven blocks below; reference
+   * mode is the pre-G1 document under an ILLUSTRATIVE watermark. The digest
+   * gains the mode and, in engagement mode, every intake string this document
+   * renders — a revised intake is a different document and /ID must say so.
+   */
+  const intake = input.intake
+  const mode: NonNullable<ReportMeta['mode']> =
+    intake && intakeIsActionable(intake) ? 'engagement' : 'reference'
+  const intakeRaci = mode === 'engagement' && intake ? printableIntakeRaci(intake) : []
+  const councilParams: [string, string][] =
+    mode === 'engagement' && intake
+      ? (
+          [
+            ['Executive sponsor', intake.sponsorship.sponsorTitle],
+            ['Council chair', intake.sponsorship.chairTitle],
+            ['Council cadence', intake.sponsorship.cadence ?? ''],
+            ['Escalation path', intake.sponsorship.escalationPath],
+          ] as [string, string][]
+        ).filter(([, v]) => v.trim().length > 0)
+      : []
+
+  const meta: ReportMeta =
+    mode === 'reference'
+      ? { ...input.meta, mode, watermark: 'ILLUSTRATIVE' }
+      : { ...input.meta, mode }
+  input = { ...input, meta }
+
   const roles = buildRoleScopes(input)
   const flows = buildFlowScopes(input)
   const phases = buildChecklistPhases(input)
@@ -272,11 +318,17 @@ export function buildOperatingModelPdf(input: OperatingModelInput): jsPDF {
   // The RACI activities and the role archetypes in scope. Activities have no id
   // in the dataset, so the activity text is the identifier — which is correct
   // here anyway: rewording an activity changes what the matrix says.
+  // G1: the mode and every rendered intake string join the digest — a revised
+  // intake, or the same engagement flipping between reference and engagement
+  // mode, is a different document.
   const r = createReport(
     meta,
     contentKey([
+      `mode:${mode}`,
       ...OM.raci.map((x) => `activity:${x.activity}`),
       ...inScopeRoles.map((x) => `role:${x.role.id}`),
+      ...councilParams.map(([k, v]) => `intake:${k}:${v}`),
+      ...intakeRaci.map((x) => `intakeRaci:${x.activity}|${x.R}|${x.A}|${x.C}|${x.I}`),
     ]),
   )
   r.cover('Target Operating Model', `${inScopeRoles.length} of ${OM.roles.length} role archetypes in scope`)
@@ -398,6 +450,23 @@ export function buildOperatingModelPdf(input: OperatingModelInput): jsPDF {
         d.problem,
       ]),
       columnStyles: { 0: { cellWidth: 46 }, 1: { cellWidth: 40 } },
+      bodyFontSize: 7,
+    })
+  }
+
+  /* ---- engagement RACI (G1) — only in engagement mode, only filled rows ---- */
+  if (intakeRaci.length > 0) {
+    r.sectionHeading('Engagement RACI — from the intake')
+    r.paragraph(
+      'The engagement’s own decision-rights rows, entered in Program Design. These are the ' +
+        'engagement’s decisions, distinct from the declared matrix above, which is the ' +
+        'methodology’s target model. Rows with no assignment are not printed.',
+      { color: SLATE, size: 8 },
+    )
+    r.table({
+      head: ['Activity', 'R', 'A', 'C', 'I'],
+      rows: intakeRaci.map((row) => [row.activity, row.R, row.A, row.C, row.I]),
+      columnStyles: { 0: { cellWidth: 60 } },
       bodyFontSize: 7,
     })
   }
@@ -542,6 +611,17 @@ export function buildOperatingModelPdf(input: OperatingModelInput): jsPDF {
   r.bullets(OM.council.decisionRights)
   r.sectionHeading('Escalation path')
   r.bullets(OM.council.escalationPath)
+
+  /* ---- engagement council parameters (G1) — only non-empty intake fields ---- */
+  if (councilParams.length > 0) {
+    r.sectionHeading('Engagement council parameters — from the intake')
+    r.paragraph(
+      'The engagement’s own decisions for this council, entered in Program Design. Fields left ' +
+        'empty in the intake are omitted here, never defaulted from the reference model above.',
+      { color: SLATE, size: 8 },
+    )
+    r.keyValueBlock(councilParams)
+  }
 
   return r.build()
 }

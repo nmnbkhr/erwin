@@ -601,6 +601,117 @@ const generatorSet = {
   },
 }
 
+/*
+ * ── G1: THE INTAKE GATES ────────────────────────────────────────────────────
+ *
+ * The program-design stage generates the charter (AR-08) and the operating
+ * model's council/RACI sections (AR-09) from a per-engagement intake, falling
+ * back to ILLUSTRATIVE reference output when none is actionable. Two promises
+ * hold that design together, and each gets a class because each can decay
+ * silently:
+ *
+ *   INTAKE-SCOPE  the intake validates pillar scope against pillars.json,
+ *                 never a second hardcoded list. The one stored intake the
+ *                 gate can read is the golden fixture's (`intake` in
+ *                 scripts/golden/fixtures/dgiw.json — the same object the
+ *                 harness drives the engagement-mode baselines with), so a
+ *                 fixture pillar id the dataset does not carry means either a
+ *                 renamed pillar or a fixture nobody updated, and both are
+ *                 findings. A fixture with no intake at all fails too: the
+ *                 engagement-mode golden entries would silently render
+ *                 reference mode, and a baseline that quietly changed modes is
+ *                 the check-that-stopped-running shape.
+ *
+ *   INTAKE-MODE   `intakeIsActionable` is the ONLY reference/engagement
+ *                 switch — one function in intake/types.ts, imported by both
+ *                 generators, never re-derived. A second inline predicate is
+ *                 how one surface watermarks a document another presents as
+ *                 client-specific. Grep-level by design: it asserts the import
+ *                 exists and that no local declaration re-derives the idea
+ *                 (any function/variable whose name contains "actionable").
+ */
+const INTAKE_FIXTURE_REL = 'scripts/golden/fixtures/dgiw.json'
+const INTAKE_PREDICATE = 'intakeIsActionable'
+const INTAKE_MODE_GENERATORS = ['src/dgiw/report/charter.ts', 'src/dgiw/report/operatingModel.ts']
+
+const intakeScope = {
+  code: 'INTAKE-SCOPE',
+  run(ctx) {
+    const { fail, root } = ctx
+    const { pillarIds } = ctx.state
+    const abs = path.join(root, INTAKE_FIXTURE_REL)
+    if (!fs.existsSync(abs)) {
+      fail(`${INTAKE_FIXTURE_REL} does not resolve — the stored intake fixture is the one intake this gate can read, and without it the validate-against-pillars promise is unchecked`)
+      return { examined: 0 }
+    }
+    let fixture
+    try {
+      fixture = JSON.parse(fs.readFileSync(abs, 'utf8'))
+    } catch (err) {
+      fail(`${INTAKE_FIXTURE_REL} is not valid JSON (${err.message}) — an unreadable fixture is not the same as a passing one`)
+      return { examined: 0 }
+    }
+    const intake = fixture.intake
+    if (!intake || typeof intake !== 'object') {
+      fail(`${INTAKE_FIXTURE_REL} stores no intake — the engagement-mode golden entries would silently render reference mode, and a baseline that changed modes without anyone deciding so is the failure this class exists for`)
+      return { examined: 0 }
+    }
+    const ids = intake.scope?.pillarIds
+    if (!Array.isArray(ids) || ids.length === 0) {
+      fail(`${INTAKE_FIXTURE_REL} intake declares no scope.pillarIds — an intake with no scope is not actionable, so the fixture would exercise nothing the engagement mode renders`)
+      return { examined: 0 }
+    }
+    let examined = 0
+    for (const id of ids) {
+      examined++
+      if (!pillarIds.has(id))
+        fail(`intake fixture scope names pillar ${id}, which pillars.json does not contain — scope is validated against the dataset, never a second list, and a fixture id the dataset dropped is a renamed pillar or a stale fixture`)
+    }
+    return { examined, ids: [...ids] }
+  },
+}
+
+const intakeMode = {
+  code: 'INTAKE-MODE',
+  run(ctx) {
+    const { fail, root } = ctx
+    let examined = 0
+    for (const rel of INTAKE_MODE_GENERATORS) {
+      const abs = path.join(root, rel)
+      if (!fs.existsSync(abs)) {
+        fail(`${rel} does not resolve — an intake-driven generator this class is declared over has moved, and the declaration has to move with it`)
+        continue
+      }
+      examined++
+      const { sf } = parseFile(root, abs)
+      let importsPredicate = false
+      const localPredicates = []
+      const visit = (node) => {
+        if (ts.isImportDeclaration(node) && /intake\/types['"]$/.test(node.moduleSpecifier.getText(sf))) {
+          const named = node.importClause?.namedBindings
+          if (named && ts.isNamedImports(named))
+            for (const el of named.elements)
+              if ((el.propertyName ?? el.name).text === INTAKE_PREDICATE) importsPredicate = true
+        }
+        if (
+          (ts.isVariableDeclaration(node) || ts.isFunctionDeclaration(node)) &&
+          node.name &&
+          ts.isIdentifier(node.name) &&
+          /actionable/i.test(node.name.text)
+        )
+          localPredicates.push(node.name.text)
+        ts.forEachChild(node, visit)
+      }
+      visit(sf)
+      if (!importsPredicate)
+        fail(`${rel} does not import ${INTAKE_PREDICATE} from intake/types — the reference/engagement switch must be the one shared predicate, and a generator deciding the mode any other way can disagree with the page that generated it`)
+      for (const name of localPredicates)
+        fail(`${rel} declares ${name} — a second inline actionability predicate. One function decides the mode (intake/types.${INTAKE_PREDICATE}); two copies drifting apart is how one surface watermarks a document another presents as client-specific`)
+    }
+    return { examined }
+  },
+}
+
 // ── 12-16. THE CROSSWALK CLASSES, FROM THE SHARED FACTORY ──────────────────
 /**
  * Five inline classes became seven from `lib/crosswalk.mjs` in D5 stage C, when
@@ -986,6 +1097,8 @@ export default {
     coreChassis,
     artefactEvidence,
     generatorSet,
+    intakeScope,
+    intakeMode,
     crosswalk.spineUniverse,
     crosswalk.crosswalkShape,
     crosswalk.crosswalkWeight,
@@ -1039,6 +1152,14 @@ export default {
           ` = ${gs.scanned.length} scanned from the report sources — AR-54's built column, asserted rather than trusted`,
       )
     }
+
+    // G1: what the intake gates actually examined, printed rather than implied.
+    const is = r['INTAKE-SCOPE']
+    if (is?.ids)
+      out.push(
+        `INTAKE fixture scope ${is.ids.join(', ')} — validated against pillars.json; ` +
+          `${INTAKE_PREDICATE} imported by ${INTAKE_MODE_GENERATORS.map((p) => p.split('/').pop()).join(' + ')}, no second predicate`,
+      )
 
     // Printed in BOTH states. A gate that is not running is a fact to be stated,
     // not an absence a reader has to notice — the REGISTRY line's discipline.

@@ -38,7 +38,12 @@ export function useDeliverable() {
    * afternoon differ in nothing but PDF metadata.
    */
   const metaFor = useCallback(
-    (artefactId: string, isDraft = false): ReportMeta => ({
+    /**
+     * `mode` is G1's engagement/reference flag, set only by the intake-driven
+     * artefacts (AR-08, AR-09) from `intakeIsActionable` — everything else
+     * omits it and its provenance records stay `null`, exactly as before.
+     */
+    (artefactId: string, isDraft = false, mode?: ReportMeta['mode']): ReportMeta => ({
       orgName: orgName.trim() || 'Unnamed engagement',
       engagementId: active?.id ?? '',
       generatedAt: `${new Date().toISOString().slice(0, 10)}T00:00:00.000Z`,
@@ -46,6 +51,7 @@ export function useDeliverable() {
       accent: DGIW_ACCENT,
       isDraft,
       artefactId,
+      ...(mode ? { mode } : {}),
     }),
     [orgName, active, filter],
   )

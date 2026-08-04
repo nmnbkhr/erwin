@@ -60,6 +60,30 @@ export interface ReportMeta {
    */
   scopeLabel?: string
   /**
+   * How the document's client-specific content was sourced — G1.
+   *
+   *  - `'engagement'` — built from the engagement's own intake; every
+   *    client-specific string traces to an intake field.
+   *  - `'reference'`  — built from reference/illustrative content because no
+   *    actionable intake exists. Such a document must carry the ILLUSTRATIVE
+   *    watermark (see `watermark`), and its provenance record carries the flag
+   *    so the audit trail can tell the two apart.
+   *  - absent — the artefact predates the distinction or does not have a
+   *    reference fallback; provenance records `null`.
+   *
+   * Set by the caller from `intakeIsActionable` (src/dgiw/intake/types.ts) —
+   * the one predicate, imported, never re-derived.
+   */
+  mode?: 'engagement' | 'reference'
+  /**
+   * Full-page diagonal watermark text, drawn on every page like the DRAFT
+   * mark. `isDraft` keeps its existing behaviour untouched; this field exists
+   * so reference-mode output can say ILLUSTRATIVE on every page (G1's
+   * fallback-honesty rule), and so BAIW/TAIW/HAIW can reuse the same helper
+   * later. When both are set, this text wins — one watermark per page.
+   */
+  watermark?: string
+  /**
    * The small line under the cover date, overridden outright.
    *
    *  - `undefined` — the default: artefact id and scope label, joined by ` · `.

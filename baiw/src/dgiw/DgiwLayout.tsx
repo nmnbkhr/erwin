@@ -1,7 +1,7 @@
 import { type ReactNode, useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import {
-  LayoutDashboard, ClipboardCheck, Layers, Users, Database, ShieldCheck,
+  LayoutDashboard, ClipboardCheck, ClipboardList, Layers, Users, Database, ShieldCheck,
   ListChecks, CalendarRange, Megaphone, Package, Network, ChevronLeft, ChevronRight, ArrowLeft, Home,
 } from 'lucide-react'
 import { useLayer } from './layer'
@@ -24,6 +24,7 @@ const INVENTORY = [
 
 const navItems = [
   { path: '/dg', label: 'Practice Overview', icon: LayoutDashboard },
+  { path: '/dg/design', label: 'Program Design', icon: ClipboardList },
   { path: '/dg/diagnostic', label: 'Diagnostic Instrument', icon: ClipboardCheck },
   { path: '/dg/ladder', label: 'Service Offering', icon: Layers },
   { path: '/dg/operating-model', label: 'Operating Model', icon: Users },

@@ -45,6 +45,8 @@ import { useLayer, layerShows } from '../layer'
 import { useDeliverable } from '../report/useDeliverable'
 import { useDiagnosticAnswers } from '../answers'
 import { applicableQuestions } from '../scoring'
+import { useProgramIntake } from '../intake/state'
+import { PILLAR_IDS, intakeIsActionable, validScopeIds } from '../intake/types'
 import implementationPlan from '../data/implementationPlan.json'
 import operatingModel from '../data/operatingModel.json'
 import cdeRegister from '../data/cdeRegister.json'
@@ -154,6 +156,33 @@ const SPECS: Spec[] = [
     count: (f) => PLAN.waves.filter((w) => layerShows(f, w.layer)).length,
     countLabel: 'waves',
     shortcut: '',
+  },
+  /*
+   * ── G1: the charter, generated from the Program Design intake ──────────
+   *
+   * The one card whose count is NOT a function of the layer filter: charter
+   * scope comes from the intake, which is engagement state a module-level
+   * const cannot read. The component overrides the count below — actionable
+   * intake: pillars in scope; otherwise the full pillar universe the template
+   * renders. `count` here is the reference-mode value.
+   */
+  {
+    artefactId: 'AR-08',
+    title: 'Data Governance Charter',
+    blurb:
+      'The engagement charter from the Program Design intake: mandate, drivers, scope with ' +
+      'explicit exclusions, sponsorship, and the engagement RACI. Every client-specific string ' +
+      'traces to an intake field; sections with no intake content are omitted, never padded.',
+    caveat:
+      'INTAKE-DRIVEN. Without an actionable intake — organisation name, at least one driver, at ' +
+      'least one pillar in scope — the output is the reference TEMPLATE, watermarked ILLUSTRATIVE ' +
+      'on every page and flagged mode: reference in the provenance log. It is not a client ' +
+      'deliverable in that state. Term, amendment procedure and review cycle are authored with ' +
+      'the sponsor, not generated.',
+    primary: 'pdf',
+    count: () => PILLAR_IDS.length,
+    countLabel: 'pillars in charter scope',
+    shortcut: '/dg/design',
   },
   {
     artefactId: 'AR-09',
@@ -362,15 +391,25 @@ const SPECS: Spec[] = [
 export default function Deliverables() {
   const { filter } = useLayer()
   const [answers] = useDiagnosticAnswers()
+  const [intake] = useProgramIntake()
   const { busy, message, metaFor, run } = useDeliverable()
+
+  // G1: one predicate decides both documents' mode — imported, never re-derived.
+  const actionable = intakeIsActionable(intake)
+  const intakeMode = actionable ? ('engagement' as const) : ('reference' as const)
+  const scopeCount = validScopeIds(intake).length
 
   const cards = useMemo(
     () =>
       SPECS.map((spec) => {
         const artefact = ARTEFACTS.get(spec.artefactId)
-        return { spec, artefact, count: spec.count(filter) }
+        // AR-08's count comes from the intake, not the layer filter — see the
+        // spec's own comment. Everything else is untouched.
+        const count =
+          spec.artefactId === 'AR-08' && actionable ? scopeCount : spec.count(filter)
+        return { spec, artefact, count }
       }),
-    [filter],
+    [filter, actionable, scopeCount],
   )
 
   const available = cards.filter((c) => c.count > 0).length
@@ -439,8 +478,19 @@ export default function Deliverables() {
         import('../../report/spine'),
         import('../../report/naming'),
       ])
-      const meta = metaFor(artefactId)
+      // G1: only the two intake-driven artefacts carry a mode; every other
+      // meta is built exactly as before and its provenance records stay null.
+      const meta = metaFor(
+        artefactId,
+        false,
+        artefactId === 'AR-08' || artefactId === 'AR-09' ? intakeMode : undefined,
+      )
       switch (artefactId) {
+        case 'AR-08': {
+          const { buildCharterPdf } = await import('../report/charter')
+          saveReport(buildCharterPdf({ meta, intake }), reportFilename(meta, 'pdf'), meta)
+          return null
+        }
         case 'AR-01': {
           const { buildDiagnosticReport } = await import('../report/diagnosticReport')
           saveReport(buildDiagnosticReport({ meta, answers }), reportFilename(meta, 'pdf'), meta)
@@ -463,7 +513,7 @@ export default function Deliverables() {
         }
         case 'AR-09': {
           const { buildOperatingModelPdf } = await import('../report/operatingModel')
-          saveReport(buildOperatingModelPdf({ meta }), reportFilename(meta, 'pdf'), meta)
+          saveReport(buildOperatingModelPdf({ meta, intake }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-48': {

@@ -134,6 +134,15 @@ export interface ProvenanceRecord {
   /** ISO 8601, truncated to the day — copied verbatim from ReportMeta.generatedAt. */
   generatedAt: string
   filename: string
+  /**
+   * G1: 'engagement' when the document was built from the engagement's own
+   * intake, 'reference' when it fell back to ILLUSTRATIVE reference content,
+   * null when the artefact predates or does not carry the distinction. Copied
+   * verbatim from ReportMeta.mode — the audit trail must be able to tell a
+   * client-specific charter from a watermarked reference one without opening
+   * the PDF.
+   */
+  mode: 'engagement' | 'reference' | null
   /** jsPDF's own /ID, from doc.getFileId(). Always null for 'csv' and 'md'. */
   fileId: string | null
   /** This module's dataset fingerprint as of THIS BUILD. null if unavailable — see moduleFingerprint(). */
@@ -229,6 +238,7 @@ export function recordProvenance(kind: ProvenanceKind, meta: ReportMeta, filenam
       layer: meta.layer,
       generatedAt: meta.generatedAt,
       filename,
+      mode: meta.mode ?? null,
       fileId,
       datasetFingerprint: moduleFingerprint(module),
     }

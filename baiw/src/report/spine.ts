@@ -554,14 +554,21 @@ export class ReportDoc {
     doc.setPage(prev)
   }
 
-  /** Drawn at page creation so document content paints over it, not under it. */
+  /**
+   * Drawn at page creation so document content paints over it, not under it.
+   *
+   * `meta.watermark` (e.g. ILLUSTRATIVE for reference-mode output — G1) takes
+   * precedence over the DRAFT mark; with neither set this is a no-op, which is
+   * what keeps every pre-existing non-draft artefact byte-identical.
+   */
   private drawWatermark(pageNumber: number): void {
-    if (!this.meta.isDraft) return
+    const label = this.meta.watermark ?? (this.meta.isDraft ? 'DRAFT' : null)
+    if (!label) return
     const prev = this.doc.getCurrentPageInfo().pageNumber
     this.doc.setPage(pageNumber)
     this.doc.setFontSize(50)
     this.doc.setTextColor(200, 200, 200)
-    this.doc.text('DRAFT', this.pageWidth / 2, this.pageHeight / 2, { align: 'center', angle: 45 })
+    this.doc.text(label, this.pageWidth / 2, this.pageHeight / 2, { align: 'center', angle: 45 })
     this.doc.setPage(prev)
   }
 

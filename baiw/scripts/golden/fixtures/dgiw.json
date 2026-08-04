@@ -17,7 +17,13 @@
     "mean the baseline stopped describing the module in production. The",
     "datasetFingerprint recorded in each baseline closes that gap - a dataset",
     "edit reports as its own finding instead of blaming a spine change.",
-    "artefactId is not here: it is read from each generator exported constant."
+    "artefactId is not here: it is read from each generator exported constant.",
+    "intake: G1 program-design fixture. Actionable (name + drivers + scope), so",
+    "charter-pdf and operating-model-pdf-intake render engagement mode; the",
+    "entries that omit it render reference mode under the ILLUSTRATIVE watermark.",
+    "The third RACI row is deliberately unassigned and must never print.",
+    "INTAKE-SCOPE (check/modules/dgiw.mjs) validates intake.scope.pillarIds here",
+    "against pillars.json - the same fixture the harness drives."
   ],
   "answers": {
     "DG-P01-01": 1,
@@ -128,5 +134,65 @@
     "DG-P10-04": 4,
     "DG-P10-05": 5
   },
-  "data": {}
+  "data": {},
+  "intake": {
+    "org": {
+      "name": "Fixture Bank Limited",
+      "sector": "banking",
+      "sizeBand": "2000-10000"
+    },
+    "drivers": {
+      "regulatory": [
+        "SBP data submission accountability",
+        "BCBS 239 Principles 1-2"
+      ],
+      "strategic": [
+        "Single view of customer"
+      ],
+      "primary": {
+        "list": "regulatory",
+        "index": 0
+      }
+    },
+    "scope": {
+      "pillarIds": [
+        "P01",
+        "P02",
+        "P05"
+      ]
+    },
+    "sponsorship": {
+      "sponsorTitle": "Chief Financial Officer",
+      "chairTitle": "Chief Data Officer",
+      "cadence": "monthly",
+      "escalationPath": "Steward to Data Owner to DG Council to ExCo"
+    },
+    "raci": [
+      {
+        "activity": "Approve data policies and standards",
+        "R": "Head of Data Governance",
+        "A": "DG Council",
+        "C": "Chief Risk Officer",
+        "I": "Internal Audit"
+      },
+      {
+        "activity": "Approve changes to the CDE register",
+        "R": "Data Steward",
+        "A": "Data Owner",
+        "C": "DG Office",
+        "I": "DG Council"
+      },
+      {
+        "activity": "Unassigned seed activity",
+        "R": "",
+        "A": "",
+        "C": "",
+        "I": ""
+      }
+    ],
+    "meta": {
+      "completedAt": null,
+      "version": 1
+    }
+  }
 }

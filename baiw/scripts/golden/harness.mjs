@@ -711,6 +711,47 @@ export const REGISTRY = {
         assertRawBytes: true,
         call: (m, f, c) => c.saveReport(m.buildOperatingModelPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
+      /*
+       * G1 — the intake-driven pair, in BOTH modes each.
+       *
+       * The no-intake calls above and below are the reference mode: as of G1
+       * they carry the ILLUSTRATIVE watermark and mode:'reference', which is
+       * the fallback-honesty rule made visible in the baseline record. The
+       * `f.intake` calls are engagement mode: the fixture intake is actionable
+       * (name + drivers + scope) and its third RACI row is deliberately
+       * unassigned, so the drop-empty-rows path is exercised on every capture.
+       * Filename suffixes keep the raw artefacts of one artefact id distinct —
+       * AR-47's `_fw-01` precedent.
+       */
+      {
+        id: 'operating-model-pdf-intake', entry: DGIW_REPORT('operatingModel'), kind: 'pdf',
+        exportName: 'buildOperatingModelPdf', artefactIdExport: 'OPERATING_MODEL_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) =>
+          c.saveReport(
+            m.buildOperatingModelPdf({ meta: c.meta, intake: f.intake }),
+            c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, '_intake.pdf'),
+            c.meta,
+          ),
+      },
+      {
+        id: 'charter-pdf', entry: DGIW_REPORT('charter'), kind: 'pdf',
+        exportName: 'buildCharterPdf', artefactIdExport: 'CHARTER_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) =>
+          c.saveReport(m.buildCharterPdf({ meta: c.meta, intake: f.intake }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      {
+        id: 'charter-pdf-reference', entry: DGIW_REPORT('charter'), kind: 'pdf',
+        exportName: 'buildCharterPdf', artefactIdExport: 'CHARTER_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) =>
+          c.saveReport(
+            m.buildCharterPdf({ meta: c.meta }),
+            c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, '_reference.pdf'),
+            c.meta,
+          ),
+      },
       {
         id: 'multi-framework-pdf', entry: DGIW_REPORT('multiFrameworkScorecard'), kind: 'pdf',
         exportName: 'buildMultiFrameworkScorecardPdf', artefactIdExport: 'MULTI_FRAMEWORK_ARTEFACT_ID',
