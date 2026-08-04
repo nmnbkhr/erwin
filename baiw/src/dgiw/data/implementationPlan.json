@@ -236,7 +236,8 @@
       "pillarIds": [
         "P05",
         "P07",
-        "P03"
+        "P03",
+        "P11"
       ],
       "kpis": [
         { "id": "K-W3-01", "text": "Return line items with complete lineage" },
@@ -307,7 +308,7 @@
         "Make model inputs traceable to governed elements"
       ],
       "deliverables": [
-        "Certified report and trusted dataset register",
+        "Certification of reports and datasets decided at council against the readiness gate",
         "AI intake process with an enforced data-readiness gate",
         "Model input traceability to governed CDEs",
         "Classification and entitlement controls extended to the AI consumption layer",
@@ -439,7 +440,7 @@
     },
     {
       "id": "AR-34",
-      "reason": "Withdrawn — a retired shape is not scheduled. W5's 'Certified report and trusted dataset register' deliverable still names this shape; the register withdrew it and the wave prose was never read against that."
+      "reason": "Withdrawn — a retired shape is not scheduled. W5's deliverable prose named this shape until G5.1 (D-021); it now records certification as the council decision it is, and the inventory half was always AR-02's."
     },
     {
       "id": "AR-37",
@@ -546,7 +547,7 @@
       "layer": "core",
       "builtFrom": {
         "evidence": "observed",
-        "note": "The client's own rework hours, findings and headcount, measured during the diagnostic. positioning holds pain as prose and no baseline exists anywhere. DGIW persists exactly one thing today — dgiw_diagnostic_answers — so there is no surface to record this in."
+        "note": "The client's own rework hours, findings and headcount, measured during the diagnostic. positioning holds pain as prose and no baseline exists anywhere. DGIW now persists intake, targets, tier, status, KPI captures and a reporting period, but none of those is a pain-item register: the KPI log keys on the 27 wave KPI ids, not on arbitrary client metrics, so the rework hours and findings this entry names still have no surface — G5 measured that rather than assumed it."
       }
     },
     {

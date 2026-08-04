@@ -38,15 +38,19 @@
  * is against the entries a generator may legally be written for, which is what
  * `builtFrom.evidence === 'derived'` marks and ARTEFACT-EVIDENCE enforces.
  */
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { FileSpreadsheet, FileText, Package } from 'lucide-react'
 import { Card, PageHeader, SectionTitle, Stat } from './ui'
 // G5: the engagement delivery lifecycle — append-only, a DIFFERENT fact from
 // the register's builtFrom disposition. Disposition says how an artefact is
 // built; status says where it stands in THIS engagement. The two render in
 // visually distinct places on each card and never substitute for each other.
+// G5.1 moved the control to its own file so the ImplementationPlan register
+// listing imports the SAME one — never a second copy.
+import { StatusControl } from './StatusControl'
+import { STATUS_CHIP } from './statusChip'
 import { useKpiLog, useReportingPeriod, useStatusLog } from '../tracking/state'
-import { STATUS_STATES, currentState, stateCounts, type StatusLog, type StatusState } from '../tracking/log'
+import { STATUS_STATES, stateCounts } from '../tracking/log'
 import { useLayer, layerShows } from '../layer'
 import { useDeliverable } from '../report/useDeliverable'
 import { answerEvidence, answerScores, useDiagnosticAnswers } from '../answers'
@@ -459,79 +463,6 @@ const SPECS: Spec[] = [
   },
 ]
 
-/** Chip styling per lifecycle state — sky family, never the disposition's slate. */
-const STATUS_CHIP: Record<StatusState, string> = {
-  planned: 'bg-slate-100 text-slate-600',
-  'in-progress': 'bg-sky-100 text-sky-700',
-  delivered: 'bg-indigo-100 text-indigo-700',
-  accepted: 'bg-emerald-100 text-emerald-700',
-}
-
-/**
- * The per-artefact status control: current state + a transition with an
- * optional note. Every press APPENDS to the engagement's transition log —
- * a regression is a new entry beside the old one, never a correction.
- */
-function StatusControl({
-  artefactId,
-  log,
-  record,
-}: {
-  artefactId: string
-  log: StatusLog
-  record: (artefactId: string, to: StatusState, note?: string) => void
-}) {
-  const [to, setTo] = useState<StatusState>('planned')
-  const [note, setNote] = useState('')
-  const state = currentState(log, artefactId)
-  const history = log[artefactId] ?? []
-  return (
-    <div className="border-t border-sky-100 bg-sky-50/40 -mx-1 px-3 py-2 rounded-md">
-      <div className="flex flex-wrap items-center gap-2 text-xs">
-        <span className="uppercase tracking-wide font-semibold text-sky-800">Engagement status</span>
-        {state ? (
-          <span className={`px-2 py-0.5 rounded ${STATUS_CHIP[state]}`}>{state}</span>
-        ) : (
-          <span className="text-slate-400">not tracked</span>
-        )}
-        {history.length > 0 && (
-          <span className="text-slate-400">{history.length} transition{history.length === 1 ? '' : 's'} logged</span>
-        )}
-        <select
-          value={to}
-          onChange={(e) => setTo(e.target.value as StatusState)}
-          className="border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700"
-          aria-label={`Next status for ${artefactId}`}
-        >
-          {STATUS_STATES.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
-        </select>
-        <input
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-          placeholder="note (optional)"
-          className="border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700 w-40"
-          aria-label={`Transition note for ${artefactId}`}
-        />
-        <button
-          onClick={() => {
-            record(artefactId, to, note)
-            setNote('')
-          }}
-          className="px-2 py-1 rounded bg-sky-600 text-white hover:bg-sky-700"
-        >
-          Record
-        </button>
-      </div>
-      <p className="text-[10px] text-slate-400 mt-1 leading-snug">
-        Append-only per engagement: every change is a new log entry, regressions included. The
-        register disposition above is a different fact and does not move.
-      </p>
-    </div>
-  )
-}
-
 export default function Deliverables() {
   const { filter } = useLayer()
   const [answersRich] = useDiagnosticAnswers()
@@ -548,8 +479,11 @@ export default function Deliverables() {
   const [statusLog, recordStatus] = useStatusLog()
   const [kpiLog] = useKpiLog()
   const [period, setPeriod] = useReportingPeriod()
+  // G5.1: the denominator is the WHOLE register, not just this page's cards —
+  // the control now reaches every row (ImplementationPlan's register listing),
+  // and the pack already counted all of them.
   const tracking = useMemo(
-    () => stateCounts(statusLog, SPECS.map((s) => s.artefactId)),
+    () => stateCounts(statusLog, PLAN.artefactRegister.map((a) => a.id)),
     [statusLog],
   )
   const totalTransitions = useMemo(
@@ -861,8 +795,8 @@ export default function Deliverables() {
             {tracking.untracked}
           </span>
           <span className="text-xs text-slate-400">
-            of the {SPECS.length} artefacts this page generates — delivery lifecycle, not the
-            register's builtFrom disposition
+            of the {CATALOGUE.total} catalogued artefacts — delivery lifecycle, not the register's
+            builtFrom disposition; hand-produced rows transition on the Implementation Plan register
           </span>
         </div>
         {/* G5: the reporting period the steering pack (AR-57) filters by —

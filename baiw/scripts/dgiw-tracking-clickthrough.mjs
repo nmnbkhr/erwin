@@ -25,8 +25,9 @@
  * NOT a gate: needs a dev server and a browser. Exit 1 on any failed assertion.
  */
 import path from 'node:path'
-import { mkdtempSync } from 'node:fs'
+import fs, { mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
+import { execFileSync } from 'node:child_process'
 import { launch } from './golden/cdp.mjs'
 
 const BASE = process.env.CLICKTHROUGH_BASE ?? 'http://127.0.0.1:5174'
@@ -138,6 +139,30 @@ const captureKpiOnRow = (kpiId, value, source) => `(() => {
   btn.scrollIntoView({ block: 'center' }); btn.click(); return true;
 })()`
 
+/** Row-scoped variants for the register TABLE (td id cell, compact control). */
+const recordStatusOnRow = (artefactId, state, note) => `(() => {
+  const idEl = [...document.querySelectorAll('td')].find(t => t.textContent.trim() === ${JSON.stringify(artefactId)});
+  const row = idEl?.closest('tr');
+  const sel = row?.querySelector('select');
+  const noteEl = [...(row?.querySelectorAll('input') ?? [])].find(e => (e.placeholder ?? '').includes('note'));
+  const btn = [...(row?.querySelectorAll('button') ?? [])].find(b => b.textContent.trim() === 'Record');
+  if (!sel || !noteEl || !btn) return false;
+  const selSet = Object.getOwnPropertyDescriptor(window.HTMLSelectElement.prototype, 'value').set;
+  selSet.call(sel, ${JSON.stringify(state)});
+  sel.dispatchEvent(new Event('change', { bubbles: true }));
+  const inSet = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+  inSet.call(noteEl, ${JSON.stringify(note)});
+  noteEl.dispatchEvent(new Event('input', { bubbles: true }));
+  btn.scrollIntoView({ block: 'center' }); btn.click(); return true;
+})()`
+
+const statusChipOnRow = (artefactId) => `(() => {
+  const idEl = [...document.querySelectorAll('td')].find(t => t.textContent.trim() === ${JSON.stringify(artefactId)});
+  const row = idEl?.closest('tr');
+  const chip = [...(row?.querySelectorAll('span') ?? [])].find(s => /^(planned|in-progress|delivered|accepted)$/.test(s.textContent.trim()));
+  return chip ? chip.textContent.trim() : null;
+})()`
+
 async function createEngagement(b, name) {
   const opened =
     (await b.page.eval(clickByText('No engagement'))) || (await b.page.eval(clickByText('Track-CT')))
@@ -163,7 +188,8 @@ async function createEngagement(b, name) {
 
 console.log(`\nDelivery-tracking click-through — real Chrome over CDP, no npm dependency\n  dev server ${BASE}\n`)
 
-const b = await launch({ downloadPath: mkdtempSync(path.join(tmpdir(), 'dgiw-track-')), port: 9227 })
+const DL = mkdtempSync(path.join(tmpdir(), 'dgiw-track-'))
+const b = await launch({ downloadPath: DL, port: 9227 })
 try {
   console.log('— seed: measurements WITHOUT an intake, so AR-55 is enabled but must refuse')
   await b.goto(`${BASE}/dg/diagnostic`)
@@ -256,6 +282,47 @@ try {
   check(await b.page.eval(clickByText('Track-CT Alpha')), 'switched back to engagement A')
   await sleep(600)
   check((await b.page.eval(statusChipOnCard('AR-13'))) === 'in-progress', "engagement A's statuses returned")
+
+  console.log('— G5.1: a HAND-PRODUCED register row transitions through the register listing')
+  await b.goto(`${BASE}/dg/plan`)
+  await b.page.waitFor(hasText('Implementation Plan'), { label: 'the plan page' })
+  check(await b.page.eval(clickByText('Artefact register')), 'opened the artefact register tab')
+  await sleep(400)
+  // AR-11 (policy set) is authored-evidence — no generator, no Deliverables
+  // card. Its row must carry the same control the cards do.
+  check(await b.page.eval(recordStatusOnRow('AR-11', 'in-progress', 'drafting with the DG office')),
+    'recorded AR-11 (authored, hand-produced) in-progress from its register row')
+  await sleep(400)
+  check((await b.page.eval(statusChipOnRow('AR-11'))) === 'in-progress', "AR-11's row chip reads in-progress")
+  await sleep(400)
+  await b.goto(`${BASE}/dg/plan`)
+  await b.page.waitFor(hasText('Implementation Plan'), { label: 'the plan page after reload' })
+  await b.page.eval(clickByText('Artefact register'))
+  await sleep(400)
+  check((await b.page.eval(statusChipOnRow('AR-11'))) === 'in-progress', "AR-11's status survived the reload")
+
+  console.log('— the counts strip and the council pack both carry the hand-produced transition')
+  await b.goto(`${BASE}/dg/deliverables`)
+  await b.page.waitFor(hasText('Deliverables'), { label: 'the pack view' })
+  const strip = await b.page.eval(`(() => {
+    const el = [...document.querySelectorAll('div')].find(d => d.textContent.includes('of the 57 catalogued artefacts'));
+    return el ? el.textContent : null;
+  })()`)
+  check(Boolean(strip) && /in-progress\s*2/.test(strip.replace(/\s+/g, ' ')),
+    'the counts strip counts AR-11 over the whole register (in-progress 2: AR-13 + AR-11)',
+    strip ? strip.replace(/\s+/g, ' ').slice(0, 120) : 'strip missing')
+  check(await b.page.eval(clickPdfOnCard('AR-57')), "clicked AR-57's PDF button")
+  let pdf = null
+  for (let i = 0; i < 40 && !pdf; i++) {
+    await sleep(250)
+    pdf = fs.readdirSync(DL).find((f) => f.endsWith('.pdf'))
+  }
+  check(Boolean(pdf), 'the steering pack downloaded', pdf ?? 'no pdf appeared')
+  if (pdf) {
+    const text = execFileSync('pdftotext', [path.join(DL, pdf), '-'], { encoding: 'utf8' }).replace(/\s+/g, ' ')
+    check(text.includes('AR-11') && text.includes('drafting with the DG office'),
+      "the pack's transitions table carries AR-11 with its note")
+  }
 
   const noise2 = b.consoleErrors.filter((e) => !/Download the React DevTools/.test(e))
   check(noise2.length === 0, 'browser console clean through the whole run',

@@ -2165,3 +2165,44 @@ generators keep throwing plain `Error` for real faults. The AR-55 precheck on
 GAP-REFUSAL's contract (builder throws the predicate's message) must keep
 holding for direct callers, and the click-throughs can then drive the
 refusing Deliverables button with the console-clean assertion intact.
+
+## D-021 — W5's deliverable prose names an artefact the register withdrew, and no reading ever crossed the two
+
+**Found:** 2026-08-05, G5 checkpoint 1, while authoring the wave placement.
+**Status: RESOLVED same stage (G5.1 checkpoint 2) — the deliverable string
+corrected to what W5's surviving register rows actually deliver; AR-34's
+unplaced reason updated with it.**
+
+### What it is
+
+W5 "AI & Consumption Readiness" listed the deliverable **"Certified report
+and trusted dataset register"** — which is AR-34, withdrawn in D5 stage G
+because its derivable half already ships inside AR-02 and its certification
+half is a council decision recorded nowhere. The wave prose was authored
+before the register was dispositioned, and nothing ever re-read the waves
+against the withdrawals, so for three stages the reference plan promised a
+deliverable the register records as a shape the data cannot support.
+
+### The shape it belongs to
+
+This is the CL-40/AR-37 lesson recurring one dataset over: the checklist
+asked for an unbuildable reconciliation rule set until the sequence was read
+against the register, and here the WAVES did the same thing. The register
+was dispositioned top-down; the prose surfaces that cite artefacts by
+description — checklist items then, wave deliverables now — each had to be
+read against it separately, and each was found stale separately. G5's
+authored placement is what surfaced this one: placing every register id
+forced the wave prose and the register into one field of view, and the
+withdrawn id had nowhere to hide (its unplaced reason recorded the conflict
+at G5; this entry files it).
+
+### Adjacent corrections in the same stage, not separately numbered
+
+- **W3 `pillarIds` gains P11**: W3's own deliverable prose names AR-53, a
+  P11 artefact ("Model and ECL input quality controls running
+  pre-execution"), but the wave's pillar list read P05/P07/P03 — incomplete
+  against its own deliverables, found by the same placement pass.
+- **The G5 status control reached only the 17 generated artefacts**: the
+  other 40 hand-produced register rows were trackable in the log (the pack
+  and the counts already included them) but had no UI to transition them;
+  the control now sits on the register listing as well.

@@ -362,6 +362,15 @@ export function buildRoadmapPdf(input: RoadmapInput): jsPDF {
   }
 
   /* ---- G4: the gap-driven view, engagement mode only ---- */
+  // DECIDED, G5.1: reference-mode AR-04 carries NO ILLUSTRATIVE watermark,
+  // and that is by design, not an omission. The watermark marks reference
+  // content that could be mistaken for engagement output (a charter template
+  // posing as a client charter — G1's fabrication boundary). Reference AR-04
+  // is the published reference METHODOLOGY itself: the seven waves and the
+  // gates are the deliverable, true of no client and claiming none, so there
+  // is nothing to mark as illustrative. Engagement state only ever ADDS the
+  // gap-driven section below; the reference document stays byte-identical.
+  // Do not reopen this as a defect.
   if (gapView) {
     r.page(
       'Gap-driven view',

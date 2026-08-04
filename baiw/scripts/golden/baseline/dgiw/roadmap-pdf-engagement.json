@@ -1,6 +1,6 @@
 {
   "artefact": "roadmap-pdf-engagement",
-  "bytes": 101957,
+  "bytes": 102032,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "f99048630ee88673a420370a0b1c4bd7988a46aa8d7d9b49cb6cb4e3a4e21b40",
+    "sha256": "0f4d3f933845c87a04d067a49a9e2361011432c9628782dd54380377a0bfd1cf",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-04_fixture-bank-limited_all_2026-07-31_engagement.pdf",
   "filenameNormalised": "AR-04_fixture-bank-limited_all_2026-07-31_engagement.pdf",
   "generator": "buildRoadmapPdf",
-  "glyphCount": 15116,
+  "glyphCount": 15189,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "e6d6a640c750fe33307bcb0f04dd027a18c3ca7ef8e9434f5c476dbb10e3c7de",
+  "normalisedTextSha256": "ce737b021050c4306e51123a01294e55bf3fcbee24e8541564e6e166a232c99b",
   "notReproducible": {},
   "pageCount": 13,
   "pages": [
@@ -62,7 +62,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1437,
+      "glyphs": 1454,
       "heightPt": 841.89,
       "multiColumnBaselines": 20,
       "page": 2,
@@ -135,7 +135,8 @@
         "Weeks 13–20",
         "banking",
         "W1, W2",
-        "Data Quality, Lineage, Architecture",
+        "Data Quality, Lineage, Architecture, AI &",
+        "Consumption",
         "In scope",
         "W4",
         "Master Data & Single",
@@ -166,7 +167,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 2 of 13"
       ],
-      "textRuns": 90,
+      "textRuns": 91,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -638,7 +639,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1215,
+      "glyphs": 1233,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
       "page": 10,
@@ -659,7 +660,7 @@
         "Depends on",
         "W1, W2",
         "Pillars addressed",
-        "Data Quality, Lineage, Architecture",
+        "Data Quality, Lineage, Architecture, AI & Consumption",
         "Gates named",
         "None named in the exit criteria — this wave closes on outcome, not on a control",
         "Objectives",
@@ -768,7 +769,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1235,
+      "glyphs": 1273,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
       "page": 12,
@@ -801,7 +802,7 @@
         "Make model inputs traceable to governed elements",
         "Deliverables",
         "•",
-        "Certified report and trusted dataset register",
+        "Certification of reports and datasets decided at council against the readiness gate",
         "•",
         "AI intake process with an enforced data-readiness gate",
         "•",
@@ -899,9 +900,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "dd67df08e4bc3a51c41805468bedf866d4fd5a91bda09965af79d3790cf6a457",
+  "rawBytesSha256": "0ec79de5b490cf8e5ce6b5cc677d398e8620d44811fc0fe7804d75f1a24421b6",
   "tableRowsTotal": 28,
-  "textRunCount": 602,
+  "textRunCount": 603,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

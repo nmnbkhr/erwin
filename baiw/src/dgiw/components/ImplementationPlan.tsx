@@ -19,6 +19,11 @@ import { TIER_META } from '../tier'
 // exists only when a person records one; nothing here computes a number.
 import { useKpiLog, useStatusLog } from '../tracking/state'
 import { currentState, type KpiLog } from '../tracking/log'
+// G5.1: the SAME status control the Deliverables cards carry, on the full
+// register listing — the other 40 hand-produced rows were trackable in the
+// log but had no UI to transition them (recorded beside D-021).
+import { StatusControl } from './StatusControl'
+import { STATUS_CHIP } from './statusChip'
 
 const PLAN = implementationPlan as ImplementationPlanData
 const PILLARS = pillars as Pillar[]
@@ -34,13 +39,6 @@ const BAND_STYLE: Record<string, string> = {
 }
 
 const show1 = (n: number) => (Math.round(n * 10) / 10).toFixed(1)
-
-const STATUS_CHIP: Record<string, string> = {
-  planned: 'bg-slate-100 text-slate-600',
-  'in-progress': 'bg-sky-100 text-sky-700',
-  delivered: 'bg-indigo-100 text-indigo-700',
-  accepted: 'bg-emerald-100 text-emerald-700',
-}
 
 /**
  * One wave KPI on an engagement slice card: the recorded captures (verbatim,
@@ -103,7 +101,7 @@ function KpiRow({
 export default function ImplementationPlan() {
   const { keep } = useLayer()
   const { slices, exclusions, tier, intake } = usePlanSlices()
-  const [statusLog] = useStatusLog()
+  const [statusLog, recordStatus] = useStatusLog()
   const [kpiLog, captureKpi] = useKpiLog()
   // The engagement view exists when the intake is actionable AND something is
   // measured — the same two facts AR-55's refusal predicate rests on.
@@ -496,7 +494,8 @@ export default function ImplementationPlan() {
                     <th className="py-2 pr-4 font-medium">Pillar</th>
                     <th className="py-2 pr-4 font-medium">Owner</th>
                     <th className="py-2 pr-4 font-medium">Format</th>
-                    <th className="py-2 font-medium">Layer</th>
+                    <th className="py-2 pr-4 font-medium">Layer</th>
+                    <th className="py-2 font-medium">Engagement status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -508,11 +507,14 @@ export default function ImplementationPlan() {
                       <td className="py-2.5 pr-4 text-slate-500">{pillarName(a.pillarId)}</td>
                       <td className="py-2.5 pr-4"><Owner name={a.owner} support={a.support} /></td>
                       <td className="py-2.5 pr-4 text-slate-500">{a.format}</td>
-                      <td className="py-2.5"><LayerBadge layer={a.layer} /></td>
+                      <td className="py-2.5 pr-4"><LayerBadge layer={a.layer} /></td>
+                      <td className="py-2.5">
+                        <StatusControl artefactId={a.id} log={statusLog} record={recordStatus} compact />
+                      </td>
                     </tr>
                   ))}
                   {artefacts.length === 0 && (
-                    <tr><td colSpan={7} className="py-6 text-center text-sm text-slate-400">No artefacts match the current filters.</td></tr>
+                    <tr><td colSpan={8} className="py-6 text-center text-sm text-slate-400">No artefacts match the current filters.</td></tr>
                   )}
                 </tbody>
               </table>
