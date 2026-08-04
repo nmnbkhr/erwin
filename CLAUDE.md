@@ -103,8 +103,10 @@ below both.
    because if a check can run over nothing then someone should have to write down
    why. Nothing declares it today.
 5. **`npm run check:selftest` demonstrates every finding code, and every row.**
-   93 mutations, 58 codes — so 35 rows share a code with a sibling, and until D5
-   stage H a dead one of those exited 0 behind its sibling. It copies `src/` and
+   100 mutations, 61 codes as of G1 (which added the five INTAKE rows — read
+   the run's own closing tally rather than this number, which has already been
+   wrong in this file once) — so 40 rows share a code with a sibling, and until
+   D5 stage H a dead one of those exited 0 behind its sibling. It copies `src/` and
    `scripts/` to a scratch root under `node_modules`, applies one mutation per
    row, asserts the code is reported *and* the tool exits non-zero, then restores
    and re-runs the control. **No
@@ -301,9 +303,13 @@ tracked record was not touched).
   outside it is **reported, not folded in** — a fix riding on an unrelated change
   is a fix nobody reviewed.
 - **State plainly what the harness CANNOT see.** `verify` prints this itself and
-  the report must repeat it. Nothing here renders a React component or clicks
+  the report must repeat it. Nothing IN VERIFY renders a React component or clicks
   anything; `drive:dashboards` calls the real exported scoring functions and
-  **prints a table a human still has to read**. **Zero baseline movement is not
+  **prints a table a human still has to read**. Two committed CDP reporters DO
+  drive real Chrome — `scripts/golden/clickthrough.mjs` (the three report
+  components) and `scripts/dgiw-design-clickthrough.mjs` (the G1 intake page) —
+  but both need a dev server and a browser, so they are run by hand and are
+  deliberately not gates. **Zero baseline movement is not
   evidence for a component, a fallback branch or a dashboard** — both maturity
   radars carried a fabrication for two phases while every harness reported green.
   `compare` also regenerates BAIW/TAIW/HAIW from **frozen fixtures**, so a live
@@ -350,7 +356,9 @@ is the fix that made the output readable — not `verify:quick`, which removes 1
 
 Three classes — CSV-HEADER, TEXT-MAXWIDTH and ARTEFACT-IMPL — read source code
 rather than data, and they read exactly what the registry declares. **Eight
-locations from five rule files, resolving to 30 `.ts` files** as of D5 stage G:
+locations from five rule files, resolving to 39 `.ts` files** as of G1 — the
+REPORT-SOURCES line on every build is the number these classes are actually as
+wide as, and it has outgrown this sentence twice:
 
 | Location | Declared by |
 |---|---|
@@ -436,7 +444,7 @@ D4 filled two of the empty rule files; D5 added the crosswalk factory to TAIW an
 HAIW. The REGISTRY line prints the breakdown on every build:
 
 ```
-REGISTRY 7 entries, 65 checks (suite 6, _spine 0, baiw 3, taiw 19, haiw 19, coe 0, alm 0, dgiw 18)
+REGISTRY 7 entries, 68 checks (suite 6, _spine 0, baiw 3, taiw 19, haiw 19, coe 0, alm 0, dgiw 21)
 ```
 
 **Read that line rather than this paragraph.** It said 40 for the whole of D4 —
@@ -547,7 +555,9 @@ engagement, built from what data. Phase F1 closes that: `src/report/
 provenance.ts` appends one `ProvenanceRecord` — `kind`, `artefactId`, `module`
 (derived from the id's own shape, `MR-<MODULE>-*` or `AR-nn`), `engagementId`
 (`null`, never fabricated, when none is active), `orgName`, `layer`,
-`generatedAt`, `filename`, `fileId`, `datasetFingerprint` — every time
+`generatedAt`, `filename`, `mode` (`engagement`/`reference`/`null` — G1, so
+the log can tell a client-specific charter from a watermarked template without
+opening the PDF), `fileId`, `datasetFingerprint` — every time
 `saveReport`, `downloadCsv` or `saveMarkdown` is called with a `meta` argument.
 
 **Not signed.** A client-side signature is not evidence against the party who
@@ -671,9 +681,9 @@ waves after the eleventh generator, through two stages that each added one — t
 one file that warns about both. The build prints, verbatim:
 
 ```
-ARTEFACT-EVIDENCE 48 catalogued, 44 live  derived 15 (13 with a generator: AR-01, AR-02,
-AR-04, AR-05, AR-06, AR-09, AR-13, AR-17, AR-20, AR-23, AR-27, AR-47, AR-48)  authored 7
-observed 15  blocked 7  withdrawn 4
+ARTEFACT-EVIDENCE 54 catalogued, 50 live  derived 17 (15 with a generator: AR-01, AR-02,
+AR-04, AR-05, AR-06, AR-08, AR-09, AR-13, AR-17, AR-20, AR-23, AR-27, AR-47, AR-48, AR-54)
+authored 6  observed 19  blocked 8  withdrawn 4
 ```
 
 **Read the line, and if you are about to retype one of its numbers into this
@@ -726,9 +736,71 @@ same sentence as the policy set and the issue workflow — both already `authore
 Marking it `derived` was an inconsistency against those two. **The stage shipped
 two dispositions and zero documents, and that was the honest output.**
 
+G1 then reversed AR-08 a second time — `authored → derived` — and the reversal
+is the field working, not churn: the engagement intake now supplies exactly the
+per-engagement fill Wave B's note said was missing, and the note records both
+directions with both reasons. See "The program-design intake" below. AR-10
+stays withdrawn; the council ToR is still AR-09's.
+
 The five selftest rows each isolate ONE branch. Corrupting a `builtFrom` block
 trips three at once and proves nothing about which caught it — the `unique()`
 lesson inside a single class, as `HACR-INSTRUMENT` already ships it.
+
+## The program-design intake (G1)
+
+DGIW's program-design artefacts are engagement-driven. `src/dgiw/intake/`
+holds a `ProgramIntake` per engagement (base key `dgiw.intake`, through
+`usePersistedState` — never raw localStorage), filled on `/dg/design`
+(`ProgramDesign.tsx`). Two generators read it: the **AR-08 charter**
+(`report/charter.ts`) is built FROM it, and **AR-09** renders the engagement's
+council parameters and RACI beside the reference model.
+
+**`intakeIsActionable` (intake/types.ts) is the ONLY reference/engagement
+switch** — one function, imported everywhere, never re-derived; the
+`layerShows` principle, and **INTAKE-MODE** asserts it: both generators must
+import it and neither may declare a second inline predicate. Actionable means
+org name + ≥1 named driver + ≥1 in-scope pillar that exists in pillars.json.
+
+The two modes are a fabrication boundary, not a feature flag:
+
+- **engagement** — every client-specific string on every page traces to an
+  intake field. A section whose intake fields are empty is OMITTED, never
+  filled with a placeholder. Meta carries `mode: 'engagement'`.
+- **reference** — no actionable intake, so reference/template content renders
+  under an **ILLUSTRATIVE watermark on every page** (`meta.watermark`, a spine
+  field BAIW/TAIW/HAIW can reuse) with `mode: 'reference'`. Canned content
+  presented as client-specific is the D-001 shape; the watermark is what makes
+  the fallback honest, and it is deliberate that generation still works — an
+  incomplete intake switches the output's claim, it does not block the button.
+
+`ProvenanceRecord.mode` carries the flag into the audit trail, so a
+client-specific charter and a watermarked template are distinguishable without
+opening either PDF. `mode` also joins both documents' `/ID` digests, with every
+rendered intake string — a revised intake is a different document.
+
+**Scope validates against pillars.json, never a second list** — `PILLAR_IDS`
+is derived from the dataset, and **INTAKE-SCOPE** holds the same promise for
+the one stored intake the gate can read: the `intake` key in
+`scripts/golden/fixtures/dgiw.json`, the same object the harness drives the
+engagement-mode golden entries with (`charter-pdf`,
+`operating-model-pdf-intake`; the no-intake entries are the watermarked
+reference mode, recorded as such in the baseline). A fixture pillar id the
+dataset dropped, or a fixture that silently stops being actionable, is a
+finding — a baseline that changed modes without anyone deciding so is the
+check-that-stopped-running shape.
+
+**What the charter deliberately is not:** a re-render of AR-09. Council ToR,
+role archetypes and the declared RACI matrix stay in the operating model —
+that separation is what keeps AR-08 off the AR-46 shape Wave B warned about.
+Term, amendment procedure and review cycle have no intake fields; both modes
+name them on the page as authored-per-engagement rather than omitting them
+silently or padding them.
+
+`scripts/dgiw-design-clickthrough.mjs` is the committed browser verification
+(CDP over the installed Chrome, no npm dependency, dev server on 5174): fills
+the intake through the real controls, asserts the banner flip, reload
+persistence, per-engagement isolation and switch-back. A reporter, not a gate
+— same contract as `clickthrough.mjs`.
 
 ## Text in a report must go through the spine
 
