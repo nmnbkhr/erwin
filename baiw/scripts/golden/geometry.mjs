@@ -60,6 +60,17 @@ const TRANSFORM_OPS = ['cm', 'q', 'Q', 'v', 'y']
  * here, not an over-estimate.
  */
 function readPaths(body) {
+  /*
+   * Strip string literals BEFORE scanning for operators — the D-018/D-019
+   * lesson, caught a third time by this very scan: G6's delta chart page says
+   * "The y axis is the real 1..5 maturity scale" in its prose, and the bare
+   * ` y ` inside that (...) literal matched the curve-operator regex below,
+   * failing verify on a sentence. An operator scan that cannot tell a PDF
+   * operator from a word a paragraph was HANDED is reading the wrong
+   * encoding. Escaped parens survive the strip; operands and operators never
+   * sit inside literals, so path detection below is unchanged.
+   */
+  body = body.replace(/\((?:[^()\\]|\\.)*\)/g, '()')
   for (const op of TRANSFORM_OPS) {
     if (new RegExp(`(^|[\\s\\n])${op}([\\s\\n]|$)`).test(body)) {
       throw new Error(`content stream uses '${op}' — coordinates are no longer absolute; geometry.mjs needs a transform stack`)

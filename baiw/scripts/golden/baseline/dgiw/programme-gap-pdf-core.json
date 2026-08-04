@@ -1,6 +1,6 @@
 {
   "artefact": "programme-gap-pdf-core",
-  "bytes": 155831,
+  "bytes": 156920,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0f4d3f933845c87a04d067a49a9e2361011432c9628782dd54380377a0bfd1cf",
+    "sha256": "d4da13cee0991fb7b39a4497290580304a9ed7a8fc783ee17b8d5c2d3a725cc1",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-54_fixture-bank-limited_core_2026-07-31.pdf",
   "filenameNormalised": "AR-54_fixture-bank-limited_core_2026-07-31.pdf",
   "generator": "buildProgrammeGapPdf",
-  "glyphCount": 17948,
+  "glyphCount": 17993,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "12add6a6df77d3ad030a93dc42476e8655458a980df065eaf47d10cd0a1d4713",
+  "normalisedTextSha256": "f01776bc89cc555efc63cf840334b4392b73cbffa8db57bf640870cc465cafaa",
   "notReproducible": {},
   "pageCount": 11,
   "pages": [
@@ -112,7 +112,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1251,
+      "glyphs": 1252,
       "heightPt": 841.89,
       "multiColumnBaselines": 14,
       "page": 3,
@@ -203,8 +203,8 @@
         "Operating Model",
         "HAS A GENERATOR",
         "14",
-        "13",
-        "9",
+        "14",
+        "10",
         "Checklist items and catalogued artefacts are counts of records that name this pillar. They are not a measure of how much of the pillar is",
         "addressed, and no such measure is computed anywhere in this document.",
         "Prepared by Godaitec | godai.tech",
@@ -686,7 +686,7 @@
         "Fixture Bank Limited — Programme Gap Report",
         "Powered by DGIW",
         "Every catalogued artefact counted",
-        "46 entries in scope under this layer.",
+        "47 entries in scope under this layer.",
         "A WITHDRAWN OR BLOCKED ENTRY IS NOT A REMEDY. Every artefact counted below is printed with its register disposition.",
         "`derived` is the only one a generator may legally be written for; `authored` is library content nobody has written, `observed` is",
         "measured at the client, `blocked` waits on another catalogued artefact, and `withdrawn` was retired with its reason kept. A pillar",
@@ -860,9 +860,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 955,
+      "glyphs": 999,
       "heightPt": 841.89,
-      "multiColumnBaselines": 18,
+      "multiColumnBaselines": 19,
       "page": 11,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -871,7 +871,7 @@
       "rotatedRuns": 0,
       "runsPastMargin": 0,
       "runsPastPaper": 0,
-      "tableRows": 16,
+      "tableRows": 17,
       "text": [
         "Artefact",
         "Pillar",
@@ -953,21 +953,26 @@
         "Engagement steering pack (per reporting period)",
         "derived",
         "yes",
+        "AR-58",
+        "P01",
+        "Re-assessment delta report",
+        "derived",
+        "yes",
         "Fixture Bank Limited — Programme Gap Report",
         "Powered by DGIW",
         "Prepared by Godaitec | godai.tech",
         "Page 11 of 11"
       ],
-      "textRuns": 84,
+      "textRuns": 89,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "e1fb8fd2537030bc30f88ddfc9bf67e4e856aa42d02de750f86624d872d49af7",
-  "tableRowsTotal": 95,
-  "textRunCount": 708,
+  "rawBytesSha256": "64efc698925122e2193db77cc1b65ecf677fd31e9f08d047c2836b131645dbb6",
+  "tableRowsTotal": 96,
+  "textRunCount": 713,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

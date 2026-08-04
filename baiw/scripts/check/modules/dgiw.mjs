@@ -809,6 +809,8 @@ const TIER_DIGEST_GENERATORS = [
   'src/dgiw/report/pillarPlans.ts',
   // G5: the steering pack's maturity line is tier-scoped by definition.
   'src/dgiw/report/councilPack.ts',
+  // G6: the delta report is measured at the cited pair's shared tier.
+  'src/dgiw/report/deltaReport.ts',
 ]
 
 const tierDigest = {
@@ -1700,6 +1702,9 @@ const packPeriod = {
       doc = buildCouncilPackPdf({
         meta, answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake,
         statusLog: fixture.status, kpiLog: fixture.kpi, period: fixture.period,
+        // G6: the pack takes the snapshot store; this class stays about the
+        // period filter — TREND-EARNED owns the trend section's contract.
+        snapshots: fixture.snapshots ?? [],
       })
     } catch (err) {
       fail(`buildCouncilPackPdf threw on the fixture state (${String(err?.message ?? err).slice(0, 80)}) — the output could not be scanned, so the period rule was NOT checked`)
@@ -1730,6 +1735,408 @@ const packPeriod = {
   },
 }
 
+/*
+ * ── G6: THE TRAJECTORY GATES ───────────────────────────────────────────────
+ *
+ * The workbench learns time: frozen labelled snapshots, a delta engine under
+ * strict comparability, a chart, a delta artefact and an earned trend
+ * section. Five classes, each holding one promise that decays silently:
+ *
+ *   SNAPSHOT-FROZEN  a capture is a deep-frozen COPY — a later edit to live
+ *                    state must not reach it; the store exports no edit path;
+ *                    the fixture's stored digests recompute against the
+ *                    compiled digest function (a stale one would put fake
+ *                    citations in every golden baseline).
+ *   DELTA-PAIR       deltas only between comparable captures: a cross-tier
+ *                    pair yields NOT-comparable, a pillar scored one side
+ *                    yields an exclusion WITH a reason, the overall covers
+ *                    exactly the comparable set.
+ *   DELTA-CITE       the generated AR-58 carries BOTH cited digests in its
+ *                    rendered text — real PDF, every string form (D-018/D-019:
+ *                    the reader takes ALL parenthesised literals, not the
+ *                    first per line).
+ *   TREND-EARNED     the pack's trend section appears exactly when >=2
+ *                    comparable snapshots exist at or before the period end —
+ *                    both directions, PACK-PERIOD style, and a fixture that
+ *                    stops seeding both cases fails as the VACUOUS shape.
+ *   CHART-HONEST     the delta chart is straight segments and squares: zero
+ *                    curve operators in the whole document, and every point
+ *                    marker sits at the y the compiled scoring engine puts
+ *                    its value — recomputed HERE from the exported DELTA_CHART
+ *                    constants, so a corrupted map cannot vouch for itself.
+ */
+const snapshotFrozen = {
+  code: 'SNAPSHOT-FROZEN',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.snapshots) {
+      fail(`could not build or load trajectory/snapshots.ts — the freeze contract was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const m = ctx.ts.snapshots
+    let examined = 0
+
+    // Branch 1 — structural freeze: mutate the live maps every way a page
+    // can, and the snapshot must not move. A copy-by-reference capture fails.
+    examined++
+    const live = {
+      answers: { 'DG-P01-01': 4, 'DG-P02-01': { score: 2, evidence: 'sighted' } },
+      targets: { P01: 4 },
+      tier: 'standard',
+      layer: 'all',
+    }
+    const snap = m.captureSnapshot(live, 'gate-probe', '2026-01-01T00:00:00.000Z')
+    const before = JSON.stringify(snap)
+    live.answers['DG-P01-01'] = 1
+    live.answers['DG-P02-01'].score = 5
+    live.answers['DG-P02-01'].evidence = 'REWRITTEN'
+    live.targets.P01 = 1
+    if (JSON.stringify(snap) !== before)
+      fail(`mutating the live maps altered a captured snapshot — the capture shares references with live state, and every delta citation downstream is citing a record that moves`)
+
+    // Branch 2 — the module surface offers no rewrite (STATUS-LOG's contract,
+    // held for the second audit-trail seed).
+    examined++
+    const editPaths = Object.keys(m).filter(
+      (k) => typeof m[k] === 'function' && /edit|remove|delete|update|rewrite|clear/i.test(k),
+    )
+    if (editPaths.length > 0)
+      fail(`trajectory/snapshots.ts exports ${editPaths.join(', ')} — an append-only snapshot store with an edit path is append-only in name, and the name is what an auditor is told`)
+
+    // Branch 3 — the digest is content, not identity: identical state (legacy
+    // and rich shapes included) collides, one moved answer separates, and an
+    // empty label is rejected at the helper.
+    examined++
+    const a = m.captureSnapshot({ answers: { Q1: 4 }, targets: {}, tier: 'quick', layer: 'all' }, 'x', '2026-01-01T00:00:00.000Z')
+    const b = m.captureSnapshot({ answers: { Q1: { score: 4 } }, targets: {}, tier: 'quick', layer: 'all' }, 'y', '2026-01-02T00:00:00.000Z')
+    const c = m.captureSnapshot({ answers: { Q1: 3 }, targets: {}, tier: 'quick', layer: 'all' }, 'z', '2026-01-03T00:00:00.000Z')
+    if (a.digest !== b.digest)
+      fail(`two captures of identical state carry different digests (${a.digest} / ${b.digest}) — a re-generated report would cite a "different" state that is byte-for-byte the same assessment`)
+    if (a.digest === c.digest)
+      fail(`one moved answer left the digest unchanged — the digest is not covering the captured content, which is the identity-only /ID defect replayed on snapshots`)
+    let rejected = false
+    try { m.captureSnapshot(live, '   ', '2026-01-04T00:00:00.000Z') } catch { rejected = true }
+    if (!rejected)
+      fail(`captureSnapshot accepted a whitespace label — an unnamed point cannot be cited by any delta, and the helper is the one place every call path crosses`)
+
+    // Branch 4 — the fixture's stored snapshots are valid AND their digests
+    // recompute. A stale digest would put an uncheckable citation into every
+    // golden PDF that renders it.
+    const abs = path.join(root, INTAKE_FIXTURE_REL)
+    if (fs.existsSync(abs)) {
+      const fixture = JSON.parse(fs.readFileSync(abs, 'utf8'))
+      examined++
+      if (!Array.isArray(fixture.snapshots) || !m.isSnapshotList(fixture.snapshots))
+        fail(`the golden fixture stores no valid snapshot list — the delta-report and trend baselines would freeze documents whose evidence base was never exercised`)
+      else {
+        for (const s of fixture.snapshots) {
+          examined++
+          const recomputed = m.snapshotDigest(s.answers, s.targets, s.tier, s.layer)
+          if (recomputed !== s.digest)
+            fail(`fixture snapshot "${s.label}" stores digest ${s.digest} but its own content recomputes to ${recomputed} — every citation of it in a golden baseline is a claim a reader cannot verify`)
+        }
+      }
+    }
+
+    return { examined }
+  },
+}
+
+const deltaPair = {
+  code: 'DELTA-PAIR',
+  run(ctx) {
+    const { fail } = ctx
+    if (!ctx.ts?.snapshots || !ctx.ts?.deltas) {
+      fail(`could not build or load trajectory/deltas.ts — the comparability rules were NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const S = ctx.ts.snapshots
+    const D = ctx.ts.deltas
+    let examined = 0
+
+    const cap = (answers, tier, at, label) =>
+      S.captureSnapshot({ answers, targets: {}, tier, layer: 'all' }, label, at)
+    // DG-P01-01 and DG-P02-01 are quick-tier core questions — the fixture's
+    // own anchors, asserted quick by TIER-NESTING's dataset branches.
+    const early = cap({ 'DG-P01-01': 2 }, 'standard', '2026-01-01T00:00:00.000Z', 'early')
+    const late = cap({ 'DG-P01-01': 4, 'DG-P02-01': 3 }, 'standard', '2026-01-15T00:00:00.000Z', 'late')
+    const quick = cap({ 'DG-P01-01': 5 }, 'quick', '2026-01-20T00:00:00.000Z', 'quick')
+
+    // Branch 1 — a cross-tier pair is NOT comparable, does not throw, names
+    // both tiers, and yields no pillar delta.
+    examined++
+    let cross
+    try {
+      cross = D.snapshotDeltas(late, quick)
+    } catch (err) {
+      fail(`snapshotDeltas THREW on a cross-tier pair (${String(err?.message ?? err).slice(0, 60)}) — the UI is the honest surface for "cannot compare" and only generators refuse`)
+      return { examined }
+    }
+    if (cross.comparable !== false)
+      fail(`a Standard capture compared against a Quick one produced pillar deltas — coverage differs across tiers by construction, and this "movement" is a change of instrument wearing a trend costume`)
+    else if (cross.aTier !== 'standard' || cross.bTier !== 'quick' || !cross.rule)
+      fail(`the not-comparable result does not name both tiers with the rule's statement — a reader shown "cannot compare" with no why will average the two by hand`)
+    if (Array.isArray(cross.deltas) && cross.deltas.length > 0)
+      fail(`the not-comparable result CARRIES pillar deltas — the refusal to compare and the comparison are travelling together`)
+
+    // Branch 2 — scored one side only: no delta row, an exclusion WITH a
+    // written reason. A zero-delta here claims "no movement" about a pillar
+    // measured once.
+    examined++
+    const r = D.snapshotDeltas(early, late)
+    if (r.comparable !== true) {
+      fail(`a same-tier same-layer pair reports not-comparable — no delta can ever exist and the whole G6 surface is dead`)
+      return { examined }
+    }
+    if (r.deltas.some((d) => d.pillarId === 'P02'))
+      fail(`P02 is scored in only one snapshot yet produced a delta row — a pillar delta requires TWO scores, and this one was invented from one`)
+    const excl = r.exclusions.find((x) => x.pillarId === 'P02')
+    if (!excl)
+      fail(`P02 (scored one side only) is neither a delta nor an exclusion — it silently vanished, and an exclusion a reader cannot see is indistinguishable from a check that did not run`)
+    examined++
+    for (const x of r.exclusions) {
+      if (!Array.isArray(x.reasons) || x.reasons.length === 0 || x.reasons.some((t) => typeof t !== 'string' || t.trim().length === 0))
+        fail(`exclusion ${x.pillarId} carries no written reason — "excluded" without why is a silent drop wearing a label`)
+    }
+
+    // Branch 3 — the delta and the overall cover exactly the comparable set.
+    examined++
+    const p01 = r.deltas.find((d) => d.pillarId === 'P01')
+    if (!p01 || p01.from !== 2 || p01.to !== 4 || p01.delta !== 2)
+      fail(`P01 scored 2 then 4 but the delta row reads ${JSON.stringify(p01)} — the engine is not subtracting the two scores scoring.ts produced`)
+    if (!r.overall || r.overall.pillarCount !== r.deltas.length)
+      fail(`the overall claims ${r.overall?.pillarCount} pillars against ${r.deltas.length} comparable — the headline movement is averaging pillars that were not measured twice`)
+
+    return { examined, deltas: r.deltas.length, exclusions: r.exclusions.length }
+  },
+}
+
+/** Build the fixture's AR-58 the way the harness does; null when impossible. */
+const buildFixtureDeltaReport = (ctx, root, snapshots) => {
+  const fixture = fs.existsSync(path.join(root, INTAKE_FIXTURE_REL))
+    ? JSON.parse(fs.readFileSync(path.join(root, INTAKE_FIXTURE_REL), 'utf8'))
+    : null
+  if (!fixture) return null
+  const meta = {
+    orgName: 'gate-probe', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z',
+    layer: fixture.layer, accent: [0, 0, 0], isDraft: false, artefactId: 'AR-58', mode: 'engagement',
+  }
+  return ctx.ts.deltaReport.buildDeltaReportPdf({ meta, snapshots: snapshots ?? fixture.snapshots })
+}
+
+const deltaCite = {
+  code: 'DELTA-CITE',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.deltaReport || !ctx.ts?.snapshots) {
+      fail(`could not build or load report/deltaReport.ts — the citation rule was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const fixture = fs.existsSync(path.join(root, INTAKE_FIXTURE_REL))
+      ? JSON.parse(fs.readFileSync(path.join(root, INTAKE_FIXTURE_REL), 'utf8'))
+      : null
+    if (!fixture?.snapshots?.length) return { examined: 0, mayBeEmpty: 'the golden fixture is absent in this checkout, so no stored snapshot pair exists to render — SNAPSHOT-FROZEN fails loudly in the same run when the fixture exists but its snapshots are missing or stale' }
+    let examined = 0
+
+    examined++
+    let doc
+    try {
+      doc = buildFixtureDeltaReport(ctx, root)
+    } catch (err) {
+      fail(`buildDeltaReportPdf threw on the fixture snapshots (${String(err?.message ?? err).slice(0, 80)}) — the output could not be scanned, so the citation rule was NOT checked`)
+      return { examined }
+    }
+    const text = pdfTextOf(doc)
+    const pair = ctx.ts.snapshots.comparableSnapshotPairs(fixture.snapshots)[0]
+    examined++
+    for (const s of pair) {
+      if (!text.includes(s.digest))
+        fail(`the generated delta report does not carry cited digest ${s.digest} ("${s.label}") in its rendered text — a delta claim a reader cannot trace to its two frozen states is a number with no evidence`)
+    }
+    return { examined }
+  },
+}
+
+const trendEarned = {
+  code: 'TREND-EARNED',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.councilPack || !ctx.ts?.snapshots) {
+      fail(`could not build or load report/councilPack.ts — the earned-trend rule was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const f = gapFixtureState(root)
+    const fixture = fs.existsSync(path.join(root, INTAKE_FIXTURE_REL))
+      ? JSON.parse(fs.readFileSync(path.join(root, INTAKE_FIXTURE_REL), 'utf8'))
+      : null
+    if (!f || !fixture?.status || !fixture?.kpi || !fixture?.period)
+      return { examined: 0, mayBeEmpty: GAP_FIXTURE_UNAVAILABLE }
+    const S = ctx.ts.snapshots
+    let examined = 0
+
+    // Branch 1 — the fixture seeds BOTH cases: an in-period comparable pair,
+    // and at least one snapshot that pair excludes (cross-tier in period, or
+    // captured after the period end). Without both, one direction of this
+    // class is demonstrated against nothing — the VACUOUS shape.
+    examined++
+    const snaps = fixture.snapshots ?? []
+    const inPeriodEligible = snaps.filter((s) => !fixture.period.to || s.capturedAt.slice(0, 10) <= fixture.period.to)
+    const pair = S.comparableSnapshotPairs(inPeriodEligible)[0] ?? null
+    const excluded = snaps.filter((s) => !pair || (s.id !== pair[0].id && s.id !== pair[1].id))
+    if (!pair || excluded.length === 0)
+      fail(`the fixture no longer seeds both trend cases (pair ${pair ? 'present' : 'ABSENT'}, ${excluded.length} snapshots outside it) — the earned/excluded boundary would be demonstrated against nothing, the VACUOUS shape`)
+
+    const build = (snapshots) => ctx.ts.councilPack.buildCouncilPackPdf({
+      meta: {
+        orgName: 'gate-probe', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z',
+        layer: f.layer, accent: [0, 0, 0], isDraft: false, artefactId: 'AR-57', mode: 'engagement',
+      },
+      answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake,
+      statusLog: fixture.status, kpiLog: fixture.kpi, period: fixture.period, snapshots,
+    })
+
+    // Branch 2 — over the full fixture store the trend is EARNED: the cited
+    // pair's digests and at least one past-fact movement line render, and the
+    // cited pair is the IN-PERIOD one (the post-period capture must not be).
+    examined++
+    let withText
+    try {
+      withText = pdfTextOf(build(snaps))
+    } catch (err) {
+      fail(`buildCouncilPackPdf threw over the fixture snapshots (${String(err?.message ?? err).slice(0, 80)}) — the earned direction was NOT checked`)
+      return { examined }
+    }
+    if (pair) {
+      for (const s of pair)
+        if (!withText.includes(s.digest))
+          fail(`>=2 comparable snapshots exist at or before the period end but the pack does not cite digest ${s.digest} ("${s.label}") — the trend was earned and not rendered`)
+      if (!/moved .* between/.test(withText.replace(/\s+/g, ' ')))
+        fail(`the pack cites a comparable pair but states no past-fact movement line — a trend section with citations and no facts is a heading over nothing`)
+      const outOfPeriod = snaps.filter((s) => fixture.period.to && s.capturedAt.slice(0, 10) > fixture.period.to)
+      for (const s of outOfPeriod)
+        if (withText.includes(s.digest))
+          fail(`the pack cites digest ${s.digest} ("${s.label}"), captured AFTER the period end — the pack claims its period and this citation reaches outside it`)
+    }
+
+    // Branch 3 — over fewer than two comparable snapshots the section is
+    // absent WITH the reason, and no snapshot digest is cited.
+    examined++
+    const single = pair ? [pair[0]] : []
+    const withoutText = pdfTextOf(build(single)).replace(/\s+/g, ' ')
+    // Both halves of the TREND section's own absence statement — the slices
+    // section carries a similar "absent because its input is" and must not be
+    // able to satisfy this assertion on the trend's behalf.
+    if (!/absent because its input is/.test(withoutText) || !/capture snapshots on the Diagnostic/.test(withoutText))
+      fail(`with fewer than two comparable snapshots the pack neither earns the trend nor states why it is absent — an absent section must be a statement, not a silent skip`)
+    if (pair && withoutText.includes(pair[1].digest))
+      fail(`with only one snapshot supplied the pack still cites digest ${pair[1].digest} — a trend section rendered over evidence that was not passed in is a fabricated comparison`)
+
+    return { examined, eligible: inPeriodEligible.length, excluded: excluded.length }
+  },
+}
+
+const chartHonest = {
+  code: 'CHART-HONEST',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.deltaReport || !ctx.ts?.snapshots || !ctx.ts?.deltas) {
+      fail(`could not build or load report/deltaReport.ts — the drawn-honesty rules were NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const fixture = fs.existsSync(path.join(root, INTAKE_FIXTURE_REL))
+      ? JSON.parse(fs.readFileSync(path.join(root, INTAKE_FIXTURE_REL), 'utf8'))
+      : null
+    if (!fixture?.snapshots?.length) return { examined: 0, mayBeEmpty: 'the golden fixture is absent in this checkout, so there is no stored pair to draw — SNAPSHOT-FROZEN fails loudly when the fixture exists with missing snapshots' }
+    let examined = 0
+
+    let doc
+    try {
+      doc = buildFixtureDeltaReport(ctx, root)
+    } catch (err) {
+      fail(`buildDeltaReportPdf threw (${String(err?.message ?? err).slice(0, 80)}) — the chart could not be scanned, so drawn honesty was NOT checked`)
+      return { examined }
+    }
+    const bytes = Buffer.from(doc.output('arraybuffer'))
+
+    // Inflate every content stream (pdfTextOf's walk, kept separate because
+    // this class reads OPERATORS, and must strip string literals first —
+    // the D-019 lesson: know which encoding you are reading).
+    const streams = []
+    let idx = 0
+    for (;;) {
+      const s = bytes.indexOf('stream', idx)
+      if (s === -1) break
+      let start = s + 6
+      if (bytes[start] === 0x0d) start++
+      if (bytes[start] === 0x0a) start++
+      const e = bytes.indexOf('endstream', start)
+      if (e === -1) break
+      const raw = bytes.subarray(start, e)
+      try { streams.push(zlib.inflateSync(raw).toString('latin1')) } catch { streams.push(raw.toString('latin1')) }
+      idx = e + 9
+    }
+
+    // Branch 1 — zero curve operators in the WHOLE document. The spine draws
+    // none (measured before this class was written), so any c/v/y here is the
+    // chart reaching for smoothing, or a circle marker (jsPDF circles are
+    // four beziers).
+    examined++
+    let curveOps = 0
+    for (const c of streams) {
+      const noStrings = c.replace(/\((?:[^()\\]|\\.)*\)/g, '()')
+      curveOps += (noStrings.match(/(?:^|[\s)])(?:c|v|y)\s/g) ?? []).length
+    }
+    if (curveOps > 0)
+      fail(`${curveOps} curve operator(s) in the delta report's content streams — the chart is drawing something no capture contains: a smoothed or curved path between two measured points`)
+
+    // Branch 2 — every point marker sits at the y its VALUE maps to. The
+    // expected set is recomputed here: scores from the compiled delta engine,
+    // geometry from the exported DELTA_CHART constants, the linear 1..5 map
+    // applied by THIS check — so a corrupted map in the generator cannot
+    // vouch for itself.
+    examined++
+    const M = ctx.ts.deltaReport
+    const pair = ctx.ts.snapshots.comparableSnapshotPairs(fixture.snapshots)[0]
+    const result = ctx.ts.deltas.snapshotDeltas(pair[0], pair[1])
+    const C = M.DELTA_CHART
+    const K = 72 / 25.4
+    const PAGE_H = 297
+    const plotH = C.tileH - C.padTop - C.padBottom
+    const plotW = C.tileW - C.padLeft - C.padRight
+    const expected = []
+    result.deltas.forEach((d, i) => {
+      const row = Math.floor(i / C.cols)
+      const col = i % C.cols
+      const ox = C.originX + col * (C.tileW + C.colGap)
+      const oy = C.originY + row * (C.tileH + C.rowGap)
+      for (const [frac, value] of [[C.xFrom, d.from], [C.xTo, d.to]]) {
+        const cx = ox + C.padLeft + frac * plotW
+        const cy = oy + C.padTop + ((5 - value) / 4) * plotH
+        expected.push({ x: (cx - C.markerMm / 2) * K, y: (PAGE_H - (cy - C.markerMm / 2)) * K, value })
+      }
+    })
+
+    const markerW = C.markerMm * K
+    const found = []
+    for (const c of streams) {
+      for (const m of c.matchAll(/([\d.]+) ([\d.]+) (-?[\d.]+) (-?[\d.]+) re/g)) {
+        const [, x, y, w, h] = m
+        if (Math.abs(Math.abs(Number(w)) - markerW) < 0.03 && Math.abs(Math.abs(Number(h)) - markerW) < 0.03)
+          found.push({ x: Number(x), y: Number(y) })
+      }
+    }
+    if (found.length !== expected.length)
+      fail(`the chart draws ${found.length} point markers where the comparable set holds ${expected.length} captured values — a point exists that no snapshot contains, or a captured value is not drawn`)
+    for (const e of expected) {
+      examined++
+      if (!found.some((p) => Math.abs(p.x - e.x) < 0.05 && Math.abs(p.y - e.y) < 0.05))
+        fail(`no marker sits where value ${e.value} maps on the 1..5 scale (expected ${e.x.toFixed(2)},${e.y.toFixed(2)}pt) — the chart plots a value no snapshot contains, which is a fabricated measurement in a picture`)
+    }
+
+    return { examined, markers: found.length }
+  },
+}
+
 const REFUSAL_HOOK_REL = 'src/dgiw/report/useDeliverable.ts'
 const REFUSING_BUILDERS = [
   ['gapStatements', 'buildGapStatementsPdf', (m) => m.buildGapStatementsPdf({
@@ -1742,7 +2149,12 @@ const REFUSING_BUILDERS = [
   })],
   ['councilPack', 'buildCouncilPackPdf', (m) => m.buildCouncilPackPdf({
     meta: { orgName: 'x', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z', layer: 'all', accent: [0, 0, 0], isDraft: false, artefactId: 'AR-57' },
-    answers: {}, targets: {}, tier: 'deep', intake: null, statusLog: {}, kpiLog: [], period: { label: '', from: '', to: '' },
+    answers: {}, targets: {}, tier: 'deep', intake: null, statusLog: {}, kpiLog: [], period: { label: '', from: '', to: '' }, snapshots: [],
+  })],
+  // G6: AR-58 refuses without two comparable snapshots — same typed channel.
+  ['deltaReport', 'buildDeltaReportPdf', (m) => m.buildDeltaReportPdf({
+    meta: { orgName: 'x', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z', layer: 'all', accent: [0, 0, 0], isDraft: false, artefactId: 'AR-58' },
+    snapshots: [],
   })],
 ]
 
@@ -2264,6 +2676,14 @@ export default {
     // refusing builders and reads the class off the error.
     tracking: 'src/dgiw/tracking/log.ts',
     councilPack: 'src/dgiw/report/councilPack.ts',
+    // G6: the snapshot store, the delta engine and the delta artefact —
+    // SNAPSHOT-FROZEN and DELTA-PAIR run the first two; DELTA-CITE,
+    // TREND-EARNED and CHART-HONEST scan real PDFs built by the third (and
+    // by councilPack above); REFUSAL-CHANNEL throws the fourth refusing
+    // builder.
+    snapshots: 'src/dgiw/trajectory/snapshots.ts',
+    deltas: 'src/dgiw/trajectory/deltas.ts',
+    deltaReport: 'src/dgiw/report/deltaReport.ts',
   },
 
   /**
@@ -2335,6 +2755,11 @@ export default {
     kpiId,
     statusLogGuard,
     packPeriod,
+    snapshotFrozen,
+    deltaPair,
+    deltaCite,
+    trendEarned,
+    chartHonest,
     refusalChannel,
     intakeScope,
     intakeMode,
@@ -2434,6 +2859,19 @@ export default {
             ? `pack scoped to its period over ${pp2.inT}+${pp2.inC} in / ${pp2.outT}+${pp2.outC} out (PACK-PERIOD) · `
             : '') +
           `refusals typed, refusal branch console-silent (REFUSAL-CHANNEL)`,
+      )
+    }
+
+    // G6: the trajectory gates, printed from the checks' own results.
+    const dp = r['DELTA-PAIR']
+    const te = r['TREND-EARNED']
+    const ch = r['CHART-HONEST']
+    if (dp?.deltas !== undefined) {
+      out.push(
+        `TRAJECTORY probe pair ${dp.deltas} delta${dp.deltas === 1 ? '' : 's'} / ${dp.exclusions} exclusions (DELTA-PAIR) · ` +
+          `snapshot freeze + fixture digests recompute (SNAPSHOT-FROZEN) · AR-58 cites both digests (DELTA-CITE) · ` +
+          (te?.eligible !== undefined ? `trend earned over ${te.eligible} eligible / ${te.excluded} outside the cited pair (TREND-EARNED) · ` : '') +
+          (ch?.markers !== undefined ? `${ch.markers} chart markers at their recomputed positions, zero curve operators (CHART-HONEST)` : ''),
       )
     }
 

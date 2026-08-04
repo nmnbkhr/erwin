@@ -33,7 +33,11 @@
 import path from 'node:path'
 import { mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { launch } from './golden/cdp.mjs'
+import { fileURLToPath } from 'node:url'
+import { launch, screenshot } from './golden/cdp.mjs'
+
+// G6 screenshot rider: this script's own surface, for human layout review.
+const SHOTS = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'scripts', 'screenshots')
 
 const BASE = process.env.CLICKTHROUGH_BASE ?? 'http://127.0.0.1:5174'
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
@@ -165,6 +169,10 @@ try {
   check((await b.page.eval(valueByPlaceholder('Meezan'))) === ORG, "engagement A's org name returned")
   check((await b.page.eval(valueByPlaceholder('SBP data submission'))) === DRIVER, "engagement A's driver returned")
   check((await b.page.eval(pillarChecked('P01'))) === true, "engagement A's pillar scope returned")
+
+  // G6 rider: the filled, actionable intake as a human would see it.
+  const shotFile = await screenshot(b.page, path.join(SHOTS, 'g1-program-design-actionable.png'))
+  console.log(`  screenshot written: ${shotFile}`)
 
   const noise = b.consoleErrors.filter((e) => !/Download the React DevTools/.test(e))
   check(noise.length === 0, 'browser console clean', noise.length ? `\n    ${noise.join('\n    ')}` : '')

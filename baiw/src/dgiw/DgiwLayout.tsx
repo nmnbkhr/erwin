@@ -3,6 +3,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom'
 import {
   LayoutDashboard, ClipboardCheck, ClipboardList, Crosshair, Layers, Users, Database, ShieldCheck,
   ListChecks, CalendarRange, Megaphone, Package, Network, ChevronLeft, ChevronRight, ArrowLeft, Home,
+  ChartLine,
 } from 'lucide-react'
 import { useLayer } from './layer'
 import EngagementSwitcher from '../components/shared/EngagementSwitcher'
@@ -27,6 +28,7 @@ const navItems = [
   { path: '/dg/design', label: 'Program Design', icon: ClipboardList },
   { path: '/dg/diagnostic', label: 'Diagnostic Instrument', icon: ClipboardCheck },
   { path: '/dg/gaps', label: 'Gap Register', icon: Crosshair },
+  { path: '/dg/trajectory', label: 'Trajectory', icon: ChartLine },
   { path: '/dg/ladder', label: 'Service Offering', icon: Layers },
   { path: '/dg/operating-model', label: 'Operating Model', icon: Users },
   { path: '/dg/cde', label: 'CDE Register', icon: Database },

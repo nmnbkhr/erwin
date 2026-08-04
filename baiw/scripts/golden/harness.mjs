@@ -1049,6 +1049,34 @@ export const REGISTRY = {
             meta: { ...c.meta, mode: 'engagement' },
             answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake,
             statusLog: f.status, kpiLog: f.kpi, period: f.period,
+            // G6: the trend section is earned by the fixture's quick in-period
+            // pair (Baseline -> Wave 1 close); the standard-tier and
+            // post-period captures are eligible for nothing here, which is
+            // the comparability and boundary rules frozen into the baseline.
+            snapshots: f.snapshots,
+          }),
+          c.reportFilename(c.meta, 'pdf'),
+          { ...c.meta, mode: 'engagement' },
+        ),
+      },
+
+      /*
+       * G6 — the re-assessment delta report, AR-58. Engagement-only on
+       * AR-55's refusal pattern (typed Refusal): two comparable snapshots or
+       * nothing. The default pair is the most recent comparable one — the
+       * fixture's quick "Wave 1 close" -> "September pulse", which carries a
+       * moved pillar (P01), an unchanged pillar (P02) and a scored-one-side
+       * exclusion (P04) — every claim shape on one capture. No reference
+       * capture: a refusal produces nothing to baseline.
+       */
+      {
+        id: 'delta-report-pdf', entry: DGIW_REPORT('deltaReport'), kind: 'pdf',
+        exportName: 'buildDeltaReportPdf', artefactIdExport: 'DELTA_REPORT_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(
+          m.buildDeltaReportPdf({
+            meta: { ...c.meta, mode: 'engagement' },
+            snapshots: f.snapshots,
           }),
           c.reportFilename(c.meta, 'pdf'),
           { ...c.meta, mode: 'engagement' },

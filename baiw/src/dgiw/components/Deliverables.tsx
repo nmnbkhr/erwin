@@ -60,6 +60,10 @@ import { useProgramIntake } from '../intake/state'
 import { PILLAR_IDS, intakeIsActionable, validScopeIds } from '../intake/types'
 // G3: the single gap function — pure, no jsPDF, safe to import statically.
 import { gapRegister } from '../gap/register'
+// G6: the frozen snapshot store — AR-58's evidence base and the pack's trend
+// input. Pure pair logic from snapshots.ts; the list from the state hook.
+import { useSnapshots } from '../trajectory/state'
+import { comparableSnapshotPairs } from '../trajectory/snapshots'
 // G4: the plan composition — pure too; AR-56's card count and AR-04's
 // engagement input both read it.
 import { planSlices } from '../plan/slices'
@@ -443,6 +447,25 @@ const SPECS: Spec[] = [
     shortcut: '',
   },
   {
+    artefactId: 'AR-58',
+    title: 'Re-assessment Delta Report',
+    blurb:
+      'Movement between the two most recent comparable snapshots: per-pillar deltas where both ' +
+      'captures score the pillar, exclusions with reasons, overall movement across the ' +
+      'comparable set only, and the first DGIW chart — captured points joined by straight ' +
+      'segments, nothing more. Every claim cites both snapshot digests.',
+    caveat:
+      'DELTAS ONLY BETWEEN COMPARABLE CAPTURES. Two snapshots compare only at the same tier and ' +
+      'layer — a Quick score moving against a Deep score is a change of instrument, not of ' +
+      'maturity. Movement is PAST FACT: nothing is smoothed, extended or promised. Refuses ' +
+      'without two comparable snapshots; there is no reference mode for measurements.',
+    primary: 'pdf',
+    // Overridden in the cards memo below — the count is engagement state.
+    count: () => 0,
+    countLabel: 'comparable snapshot pairs',
+    shortcut: '/dg/trajectory',
+  },
+  {
     artefactId: 'AR-56',
     title: 'Per-Pillar Implementation Plan',
     blurb:
@@ -479,6 +502,10 @@ export default function Deliverables() {
   const [statusLog, recordStatus] = useStatusLog()
   const [kpiLog] = useKpiLog()
   const [period, setPeriod] = useReportingPeriod()
+  // G6: the frozen snapshots — AR-58's whole evidence base, and AR-57's
+  // trend input. The capture surface is the Diagnostic results view.
+  const [snapshots] = useSnapshots()
+  const snapshotPairs = useMemo(() => comparableSnapshotPairs(snapshots), [snapshots])
   // G5.1: the denominator is the WHOLE register, not just this page's cards —
   // the control now reaches every row (ImplementationPlan's register listing),
   // and the pack already counted all of them.
@@ -524,10 +551,12 @@ export default function Deliverables() {
                 ? slices.length
                 : spec.artefactId === 'AR-57'
                   ? gapEntries.length + totalTransitions + kpiLog.length
-                  : spec.count(filter)
+                  : spec.artefactId === 'AR-58'
+                    ? snapshotPairs.length
+                    : spec.count(filter)
         return { spec, artefact, count }
       }),
-    [filter, actionable, scopeCount, gapEntries, slices, totalTransitions, kpiLog],
+    [filter, actionable, scopeCount, gapEntries, slices, totalTransitions, kpiLog, snapshotPairs],
   )
 
   const available = cards.filter((c) => c.count > 0).length
@@ -605,7 +634,7 @@ export default function Deliverables() {
         false,
         artefactId === 'AR-08' || artefactId === 'AR-09'
           ? intakeMode
-          : artefactId === 'AR-55' || artefactId === 'AR-56' || artefactId === 'AR-57'
+          : artefactId === 'AR-55' || artefactId === 'AR-56' || artefactId === 'AR-57' || artefactId === 'AR-58'
             ? 'engagement'
             : undefined,
       )
@@ -670,10 +699,38 @@ export default function Deliverables() {
           const { buildCouncilPackPdf } = await import('../report/councilPack')
           // Refuses (throws Refusal) without an actionable intake or with
           // nothing measured AND nothing tracked; run() shows it as a notice.
+          // G6: the snapshots ride along — the trend section is earned by two
+          // comparable captures at or before the period end, absent-with-the-
+          // reason otherwise.
           saveReport(
-            buildCouncilPackPdf({ meta, answers: answersRich, targets, tier, intake, statusLog, kpiLog, period }),
+            buildCouncilPackPdf({ meta, answers: answersRich, targets, tier, intake, statusLog, kpiLog, period, snapshots }),
             reportFilename(meta, 'pdf'),
             meta,
+          )
+          return null
+        }
+        case 'AR-58': {
+          const { buildDeltaReportPdf } = await import('../report/deltaReport')
+          // Refuses (throws Refusal) without two comparable snapshots. The
+          // tier in meta is the CITED PAIR's tier, not the page's live tier —
+          // this document was measured at the captures' tier, and a meta
+          // claiming today's selector would be a lying record (the AR-06
+          // lesson from G2, applied to a frozen pair).
+          const pair = snapshotPairs[0]
+          const deltaMeta = pair
+            ? {
+                ...meta,
+                assessmentTier: pair[0].tier,
+                assessmentCoverage: {
+                  answered: Object.keys(pair[1].answers).length,
+                  applicable: applicableQuestions(DIAG.questions, pair[1].layer, pair[1].tier).length,
+                },
+              }
+            : meta
+          saveReport(
+            buildDeltaReportPdf({ meta: deltaMeta, snapshots }),
+            reportFilename(deltaMeta, 'pdf'),
+            deltaMeta,
           )
           return null
         }

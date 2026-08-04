@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# G6 screenshot rider — PNGs written by the CDP click-throughs for human
+# layout review. Regenerable; never a baseline.
+scripts/screenshots/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

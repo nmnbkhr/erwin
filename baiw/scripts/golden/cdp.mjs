@@ -203,4 +203,20 @@ export async function launch({ downloadPath, port = 9223 }) {
   }
 }
 
+/**
+ * G6 screenshot rider: capture the page as a PNG for human layout review.
+ * The click-throughs call this at named waypoints and list the files they
+ * wrote — nothing asserts on the pixels; a screenshot is for eyes, which is
+ * the one instrument this repo's harnesses have never had.
+ */
+export async function screenshot(page, filePath) {
+  const { writeFileSync, mkdirSync } = await import('node:fs')
+  mkdirSync(path.dirname(filePath), { recursive: true })
+  // Full page, not the viewport: the layout defects worth catching (an
+  // overflowing tile, a collapsed grid) are usually below the fold.
+  const { data } = await page.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true })
+  writeFileSync(filePath, Buffer.from(data, 'base64'))
+  return filePath
+}
+
 export { sleep }

@@ -16,6 +16,9 @@ import { useEngagement } from '../../engagement/context'
 import { answerEvidence, answerScores, useDiagnosticAnswers } from '../answers'
 import { useAssessmentTier, useDiagnosticTargets } from '../assessmentState'
 import { ASSESSMENT_TIERS, TIER_META } from '../tier'
+// G6: deliberate, labelled, frozen captures of this assessment — the store is
+// append-only and the page offers no delete, trajectory/snapshots.ts's rule.
+import { useSnapshots } from '../trajectory/state'
 // G4: the roadmap rows come from the gap register and the plan slices — the
 // same functions every other gap/plan surface reads, never a local copy.
 import { useGapRegister } from '../gap/state'
@@ -73,6 +76,12 @@ export default function Diagnostic() {
   const { active } = useEngagement()
   const { entries: gapEntries } = useGapRegister()
   const planned = usePlanSlices()
+  // G6: snapshot capture. The label starts as the conventional first name and
+  // empties after each capture; captureSnapshot itself rejects a blank label,
+  // the input here just keeps the button honest about it.
+  const [snapshots, captureSnapshot] = useSnapshots()
+  const [snapshotLabel, setSnapshotLabel] = useState(snapshots.length === 0 ? 'Baseline' : '')
+  const [captureNotice, setCaptureNotice] = useState<string | null>(null)
 
   // The two orthogonal axes compose in scoring.ts, not here (TIER-NESTING
   // asserts the composition). `deepQuestions` is the same layer at the full
@@ -534,6 +543,75 @@ export default function Diagnostic() {
               </tbody>
             </table>
           </TableWrap>
+        </Card>
+
+        {/* G6: snapshot capture — deliberate, labelled, frozen. The list below
+            offers no edit and no delete: this is the second audit-trail seed
+            beside the status log, and history only ever gains entries. */}
+        <Card className="p-6">
+          <SectionTitle hint={`A snapshot freezes the answers, targets, tier and layer as they stand right now — later edits cannot alter it, and its digest is what every delta on the Trajectory page cites. Captured at the ${TIER_META[tier].label} tier, ${filter} layer.`}>
+            Assessment snapshots
+          </SectionTitle>
+          <div className="flex flex-wrap items-center gap-3">
+            <input
+              type="text"
+              value={snapshotLabel}
+              onChange={(e) => setSnapshotLabel(e.target.value)}
+              placeholder='e.g. "Baseline" or "Post wave 1 re-assessment"'
+              className="flex-1 min-w-64 max-w-md px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+            />
+            <button
+              onClick={() => {
+                // The live state THIS page renders — the same hook instances
+                // the sliders write to — so the frozen record is the screen.
+                const snap = captureSnapshot(
+                  { answers: answersRich, targets, tier, layer: filter },
+                  snapshotLabel,
+                )
+                setCaptureNotice(`Captured "${snap.label}" — digest ${snap.digest}`)
+                setSnapshotLabel('')
+              }}
+              disabled={snapshotLabel.trim().length === 0}
+              className="px-4 py-2 text-sm font-medium rounded-lg bg-rose-600 text-white hover:bg-rose-700 disabled:bg-slate-200 disabled:text-slate-400 transition-colors"
+            >
+              Capture snapshot
+            </button>
+          </div>
+          {captureNotice && (
+            <p className="text-xs text-emerald-700 mt-2 font-mono">{captureNotice}</p>
+          )}
+          {snapshots.length > 0 && (
+            <div className="mt-4">
+              <TableWrap>
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="text-left text-xs uppercase tracking-wide text-slate-500 border-b border-slate-200">
+                      <th className="py-2 pr-4 font-medium">Label</th>
+                      <th className="py-2 pr-4 font-medium">Captured</th>
+                      <th className="py-2 pr-4 font-medium">Tier</th>
+                      <th className="py-2 pr-4 font-medium">Layer</th>
+                      <th className="py-2 font-medium">Content digest</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {snapshots.map((s) => (
+                      <tr key={s.id} className="border-b border-slate-100 last:border-0">
+                        <td className="py-2 pr-4 text-slate-700">{s.label}</td>
+                        <td className="py-2 pr-4 text-slate-500">{s.capturedAt.slice(0, 10)}</td>
+                        <td className="py-2 pr-4 text-slate-500">{TIER_META[s.tier].label}</td>
+                        <td className="py-2 pr-4 text-slate-500">{s.layer}</td>
+                        <td className="py-2 font-mono text-xs text-slate-500">{s.digest}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </TableWrap>
+              <p className="text-xs text-slate-400 mt-2">
+                Snapshots are append-only — there is nothing here to edit or delete. Compare them on
+                the Trajectory page.
+              </p>
+            </div>
+          )}
         </Card>
       </div>
     )

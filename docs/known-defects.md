@@ -2206,3 +2206,60 @@ at G5; this entry files it).
   other 40 hand-produced register rows were trackable in the log (the pack
   and the counts already included them) but had no UI to transition them;
   the control now sits on the register listing as well.
+
+## D-022 — six engagement bases shipped across G1–G5 without joining PERSISTED_BASES, so export, duplicate and delete silently missed them
+
+**Filed and fixed in G6 CP1** (`feat/g6-trajectory`), because CP1's first task
+was to register the NEW snapshot base in `PERSISTED_BASES` and reading that
+array showed it still ended at `dgiw-diagnostic-answers` — nothing after
+phase A had ever joined it.
+
+The missing bases: `dgiw.intake` (G1), `dgiw.tier` and `dgiw.targets` (G2),
+`dgiw.status` and `dgiw.kpi` (G5), `dgiw.period` (G5). Consequences, each the
+silent kind:
+
+- **Export** (`exportOne` → `collectNs`) wrote a bundle with the diagnostic
+  answers but no intake, no tier, no targets, no status log, no KPI captures
+  and no period — reimported elsewhere it opened as an engagement that had
+  answered questions and decided nothing else.
+- **Duplicate** copied the answers and dropped the rest of the G-series state.
+- **Delete** (`removeAllNs`) left the six namespaced keys orphaned in
+  localStorage forever, unreachable through any UI.
+
+Fixed by registering all six beside G6's `dgiw.snapshots` — the same one-line
+mechanism, in the same array CP1 was already editing, with the reasoning in a
+comment above the entries. Old bundles import unchanged (`restoreNs` ignores
+absent keys). The trajectory drive asserts all seven registrations against the
+compiled module on every run.
+
+The lesson is the one `types.ts` already carried: "a base that is added to a
+module but not added here leaks across engagement deletion." Four stages read
+that sentence and none acted on it, because nothing failed. No gate asserts
+this today — a check that every `usePersistedState` base string in `src/`
+appears in PERSISTED_BASES would close the class; filed as an observation, not
+built in G6.
+
+## D-023 — two instances of one usePersistedState base do not see each other's writes, and the G6 capture hook shipped (briefly) reading its own stale instance
+
+**Found by the G6 CP3 click-through, not by reading the code.** The first
+`useSnapshots` implementation instantiated its own `useDiagnosticAnswers` /
+`useDiagnosticTargets` / `useAssessmentTier` and captured from those — and the
+captured snapshots were EMPTY. `usePersistedState` re-reads storage only on
+engagement change; two instances of the same base in one tree are independent
+`useState`s, so the Diagnostic page's edits lived in ITS instance while the
+capture hook's instance still held the mount-time value. Fixed the same day:
+`capture(live, label)` now takes the exact objects the page renders, so the
+frozen record is the screen (the hook's header documents the failed shape).
+
+**The standing instance of the same defect is OBSERVED, not fixed:**
+`Diagnostic.tsx`'s results view renders `useGapRegister()` (G4's derived
+roadmap), and `useGapRegister` instantiates its own answers/targets/tier
+hooks. Within one mount, answering questions or setting targets updates the
+page's instances but not the register's, so the derived-roadmap card can lag
+the sliders until a navigation remounts the page. Every full-page surface
+(/dg/gaps, Deliverables) mounts fresh and is unaffected; the lag is confined
+to same-mount edits on the results view. Fixing it properly means either a
+shared subscription in `usePersistedState` (suite-level change, every module
+affected) or passing live state into `useGapRegister` the way `capture` now
+takes it — both beyond G6's declared scope. Filed here so the next person who
+sees a stale roadmap row knows it is the wiring, not the register.

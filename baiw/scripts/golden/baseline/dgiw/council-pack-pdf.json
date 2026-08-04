@@ -1,6 +1,6 @@
 {
   "artefact": "council-pack-pdf",
-  "bytes": 48987,
+  "bytes": 52979,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0f4d3f933845c87a04d067a49a9e2361011432c9628782dd54380377a0bfd1cf",
+    "sha256": "d4da13cee0991fb7b39a4497290580304a9ed7a8fc783ee17b8d5c2d3a725cc1",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,13 +27,13 @@
   "filename": "AR-57_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-57_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildCouncilPackPdf",
-  "glyphCount": 5002,
+  "glyphCount": 5982,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "7d6789f3414606180d7a620a4114e1bcf15afa2883a2a85d7d329377615bc327",
+  "normalisedTextSha256": "294dfc259f10d2b22ca01a24618a85614dd3b6aa44efb6b57ae285333a7edba2",
   "notReproducible": {},
-  "pageCount": 6,
+  "pageCount": 7,
   "pages": [
     {
       "glyphs": 169,
@@ -101,7 +101,7 @@
         "KPI captures in period",
         "2",
         "Prepared by Godaitec | godai.tech",
-        "Page 2 of 6"
+        "Page 2 of 7"
       ],
       "textRuns": 27,
       "utf16Runs": 0,
@@ -146,9 +146,53 @@
         "1.0",
         "high",
         "Prepared by Godaitec | godai.tech",
-        "Page 3 of 6"
+        "Page 3 of 7"
       ],
       "textRuns": 25,
+      "utf16Runs": 0,
+      "widestText": "Powered by DGIW",
+      "widthPt": 595.28
+    },
+    {
+      "glyphs": 980,
+      "heightPt": 841.89,
+      "multiColumnBaselines": 8,
+      "page": 4,
+      "pastMarginPt": 0,
+      "pastPaperPt": 0,
+      "rightEdgePt": 552.76,
+      "rightMarginPt": 552.76,
+      "rotatedRuns": 0,
+      "runsPastMargin": 0,
+      "runsPastPaper": 0,
+      "tableRows": 0,
+      "text": [
+        "Fixture Bank Limited — Engagement Steering Pack",
+        "Powered by DGIW",
+        "Maturity movement",
+        "Between frozen snapshots — earned, cited, past fact only.",
+        "MOVEMENT IS REPORTED AS PAST FACT, between the two most recent comparable snapshots at or before the period end. Nothing here",
+        "says where any number is heading — a captured pair grounds exactly the movement it contains.",
+        "From snapshot",
+        "\"Baseline\" — captured 2026-08-05",
+        "From digest",
+        "96D8746748783802DD36F70970E82AFC",
+        "To snapshot",
+        "\"Wave 1 close\" — captured 2026-08-20",
+        "To digest",
+        "8F281F4020C534F347B59C5AA535A595",
+        "Tier of both captures",
+        "Quick",
+        "Pillars comparable in both",
+        "1",
+        "The weighted overall across the 1 comparable pillar moved 2.0 -> 4.0 between \"Baseline\" and \"Wave 1 close\".",
+        "P01 Operating Model moved 2.00 -> 4.00 between \"Baseline\" and \"Wave 1 close\".",
+        "10 pillars are excluded from this comparison for want of a score in one or both captures; AR-58 lists each with its reason. An excluded pillar is",
+        "never rendered as a zero.",
+        "Prepared by Godaitec | godai.tech",
+        "Page 4 of 7"
+      ],
+      "textRuns": 24,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -157,7 +201,7 @@
       "glyphs": 514,
       "heightPt": 841.89,
       "multiColumnBaselines": 10,
-      "page": 4,
+      "page": 5,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -180,7 +224,7 @@
         "accepted",
         "1",
         "not tracked",
-        "55 of the 57 catalogued artefacts",
+        "56 of the 58 catalogued artefacts",
         "Transitions in this period",
         "Verbatim from the log, regressions included — a state moving backwards is a recorded fact of the engagement, not an error to hide.",
         "Artefact",
@@ -196,7 +240,7 @@
         "2026-08-05",
         "client returned the draft register",
         "Prepared by Godaitec | godai.tech",
-        "Page 4 of 6"
+        "Page 5 of 7"
       ],
       "textRuns": 30,
       "utf16Runs": 0,
@@ -207,7 +251,7 @@
       "glyphs": 2123,
       "heightPt": 841.89,
       "multiColumnBaselines": 30,
-      "page": 5,
+      "page": 6,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -336,7 +380,7 @@
         "Domains governed",
         "no measurement recorded",
         "Prepared by Godaitec | godai.tech",
-        "Page 5 of 6"
+        "Page 6 of 7"
       ],
       "textRuns": 120,
       "utf16Runs": 0,
@@ -347,7 +391,7 @@
       "glyphs": 445,
       "heightPt": 841.89,
       "multiColumnBaselines": 2,
-      "page": 6,
+      "page": 7,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -361,10 +405,10 @@
         "Powered by DGIW",
         "Plan notes from the slices",
         "Thin and held-by facts, from the same composition AR-56 renders.",
-        "P01 Governance & Operating Model: 12 catalogued deliverables. Held: W6 waits on W0, W1, W2, W5 — structure beats priority.",
+        "P01 Governance & Operating Model: 13 catalogued deliverables. Held: W6 waits on W0, W1, W2, W5 — structure beats priority.",
         "P02 Data Strategy & Business Alignment: 7 catalogued deliverables. Held: W6 waits on W0, W1, W2, W5 — structure beats priority.",
         "Prepared by Godaitec | godai.tech",
-        "Page 6 of 6"
+        "Page 7 of 7"
       ],
       "textRuns": 8,
       "utf16Runs": 0,
@@ -373,9 +417,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "726ecc480c1411575005812b2909a2a1e85041a7eb195ba5e6a6cfca2d02031c",
+  "rawBytesSha256": "d04f12214171345447ff2cf41a7d96c1a76bfb13e744ce8012a28e4cb51bd5c0",
   "tableRowsTotal": 34,
-  "textRunCount": 216,
+  "textRunCount": 240,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

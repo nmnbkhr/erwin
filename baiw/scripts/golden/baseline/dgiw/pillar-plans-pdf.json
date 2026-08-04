@@ -1,6 +1,6 @@
 {
   "artefact": "pillar-plans-pdf",
-  "bytes": 54763,
+  "bytes": 56073,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "0f4d3f933845c87a04d067a49a9e2361011432c9628782dd54380377a0bfd1cf",
+    "sha256": "d4da13cee0991fb7b39a4497290580304a9ed7a8fc783ee17b8d5c2d3a725cc1",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-56_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-56_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildPillarPlansPdf",
-  "glyphCount": 5854,
+  "glyphCount": 5909,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "e394488dd3f00aa316359d45b617feab309873c05f589d6ca832e015f5896bd3",
+  "normalisedTextSha256": "a6758b5e643078e08d3075c1bd2d20466fc30592974d0c0bdd60c85b923b0b29",
   "notReproducible": {},
   "pageCount": 4,
   "pages": [
@@ -125,9 +125,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1967,
+      "glyphs": 2022,
       "heightPt": 841.89,
-      "multiColumnBaselines": 24,
+      "multiColumnBaselines": 25,
       "page": 3,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -136,7 +136,7 @@
       "rotatedRuns": 0,
       "runsPastMargin": 0,
       "runsPastPaper": 0,
-      "tableRows": 16,
+      "tableRows": 17,
       "text": [
         "Fixture Bank Limited — Per-Pillar Implementation Plan",
         "Powered by DGIW",
@@ -239,6 +239,12 @@
         "Engagement Lead",
         "derived",
         "-",
+        "AR-58",
+        "Re-assessment delta report",
+        "4",
+        "Engagement Lead",
+        "derived",
+        "-",
         "Waves listing this pillar",
         "STRUCTURE BEATS PRIORITY. Sequencing respects the wave plan's declared dependencies absolutely; priority reorders nothing across a",
         "dependency edge. A critical gap whose waves sit behind unmet predecessors stays where the structure puts it, and the plan states what holds it",
@@ -258,7 +264,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 3 of 4"
       ],
-      "textRuns": 119,
+      "textRuns": 125,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -371,9 +377,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "9339a0eb7447fa24b1f67f306def069f656fcad5c900f9f64fca145e16791304",
-  "tableRowsTotal": 30,
-  "textRunCount": 254,
+  "rawBytesSha256": "9579886395091a26da73692eca6b09abc782b5a034b4f3e32e3d0ae47b7aef13",
+  "tableRowsTotal": 31,
+  "textRunCount": 260,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

@@ -220,17 +220,142 @@
   "tier": "quick",
   "status": {
     "AR-13": [
-      { "to": "delivered", "at": "2026-08-02T10:00:00.000Z" },
-      { "to": "in-progress", "at": "2026-08-05T09:00:00.000Z", "note": "client returned the draft register" }
+      {
+        "to": "delivered",
+        "at": "2026-08-02T10:00:00.000Z"
+      },
+      {
+        "to": "in-progress",
+        "at": "2026-08-05T09:00:00.000Z",
+        "note": "client returned the draft register"
+      }
     ],
     "AR-01": [
-      { "to": "accepted", "at": "2026-07-20T10:00:00.000Z" }
+      {
+        "to": "accepted",
+        "at": "2026-07-20T10:00:00.000Z"
+      }
     ]
   },
   "kpi": [
-    { "kpiId": "K-W0-01", "value": "58 of 76", "capturedAt": "2026-08-03T12:00:00.000Z", "source": "CDE register v3" },
-    { "kpiId": "K-W2-02", "value": "81% pass", "capturedAt": "2026-08-06T12:00:00.000Z", "source": "DQ engine run 14" },
-    { "kpiId": "K-W0-02", "value": "99%", "capturedAt": "2026-07-19T12:00:00.000Z", "source": "pre-period baseline" }
+    {
+      "kpiId": "K-W0-01",
+      "value": "58 of 76",
+      "capturedAt": "2026-08-03T12:00:00.000Z",
+      "source": "CDE register v3"
+    },
+    {
+      "kpiId": "K-W2-02",
+      "value": "81% pass",
+      "capturedAt": "2026-08-06T12:00:00.000Z",
+      "source": "DQ engine run 14"
+    },
+    {
+      "kpiId": "K-W0-02",
+      "value": "99%",
+      "capturedAt": "2026-07-19T12:00:00.000Z",
+      "source": "pre-period baseline"
+    }
   ],
-  "period": { "label": "August council", "from": "2026-08-01", "to": "2026-08-31" }
+  "period": {
+    "label": "August council",
+    "from": "2026-08-01",
+    "to": "2026-08-31"
+  },
+  "snapshots": [
+    {
+      "id": "snap-2026-08-05T09:00:00.000Z-96D87467",
+      "label": "Baseline",
+      "capturedAt": "2026-08-05T09:00:00.000Z",
+      "tier": "quick",
+      "layer": "all",
+      "answers": {
+        "DG-P01-01": {
+          "score": 2
+        },
+        "DG-P02-01": {
+          "score": 2
+        }
+      },
+      "targets": {
+        "P01": 4,
+        "P02": 3,
+        "P04": 1,
+        "P06": 2
+      },
+      "digest": "96D8746748783802DD36F70970E82AFC"
+    },
+    {
+      "id": "snap-2026-08-20T09:00:00.000Z-8F281F40",
+      "label": "Wave 1 close",
+      "capturedAt": "2026-08-20T09:00:00.000Z",
+      "tier": "quick",
+      "layer": "all",
+      "answers": {
+        "DG-P01-01": {
+          "score": 4
+        },
+        "DG-P02-01": {
+          "score": 3
+        },
+        "DG-P04-01": {
+          "score": 3
+        }
+      },
+      "targets": {
+        "P01": 4,
+        "P02": 3,
+        "P04": 1,
+        "P06": 2
+      },
+      "digest": "8F281F4020C534F347B59C5AA535A595"
+    },
+    {
+      "id": "snap-2026-08-25T09:00:00.000Z-97488284",
+      "label": "Standard probe",
+      "capturedAt": "2026-08-25T09:00:00.000Z",
+      "tier": "standard",
+      "layer": "all",
+      "answers": {
+        "DG-P01-01": {
+          "score": 4
+        },
+        "DG-P01-02": {
+          "score": 3
+        },
+        "DG-P02-01": {
+          "score": 3
+        }
+      },
+      "targets": {
+        "P01": 4,
+        "P02": 3,
+        "P04": 1,
+        "P06": 2
+      },
+      "digest": "97488284C2C9C335BD1065AA0EE9E26B"
+    },
+    {
+      "id": "snap-2026-09-03T09:00:00.000Z-7D53885F",
+      "label": "September pulse",
+      "capturedAt": "2026-09-03T09:00:00.000Z",
+      "tier": "quick",
+      "layer": "all",
+      "answers": {
+        "DG-P01-01": {
+          "score": 5
+        },
+        "DG-P02-01": {
+          "score": 3
+        }
+      },
+      "targets": {
+        "P01": 4,
+        "P02": 3,
+        "P04": 1,
+        "P06": 2
+      },
+      "digest": "7D53885F474155DEC7B1F27D797C06E4"
+    }
+  ]
 }

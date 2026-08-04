@@ -501,6 +501,10 @@
     {
       "id": "AR-57",
       "reason": "Recurring per-period steering output — regenerated each reporting period once the engagement runs; not one wave's deliverable, exactly as AR-41."
+    },
+    {
+      "id": "AR-58",
+      "reason": "Recurring re-assessment output — regenerated whenever a new comparable snapshot is captured; movement between captures belongs to no single wave, exactly as AR-57 belongs to no single period."
     }
   ],
   "artefactRegister": [
@@ -1357,6 +1361,23 @@
           "dgiw/data/crosswalk.json"
         ],
         "note": "G5. THE PERIOD'S RECORD, NOT THE COUNCIL'S MINUTES — see AR-41, which stays observed: council decisions and actions remain client runtime with no capture surface here, and this id deliberately does not restate that shape (the AR-46/AR-47 precedent, applied before building rather than after). Composed ONLY from what the engagement has recorded in the workbench: the maturity line (tier + coverage), the top-band gap entries, the append-only status log's per-state counts with the period's transitions verbatim (regressions and notes included), the period's captured KPI entries (value/source/date, typed by a person — NEVER computed), and the plan slices' thin and held-by notes. Scoped to the consultant's own reporting period and prints the boundaries it filtered by; prints 'no measurement recorded' where none exists; makes no delta or direction-of-travel claim, because one period cannot ground one — comparing periods is G6's. ENGAGEMENT MODE ONLY on AR-55's refusal pattern: refuses without an actionable intake, or when nothing is measured AND nothing is tracked."
+      }
+    },
+    {
+      "id": "AR-58",
+      "artefact": "Re-assessment delta report",
+      "pillarId": "P01",
+      "rung": 4,
+      "owner": "Engagement Lead",
+      "format": "Report",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/diagnostic.json",
+          "dgiw/data/pillars.json"
+        ],
+        "note": "G6. Movement between two FROZEN workbench snapshots of the diagnostic, computed by the single delta engine (trajectory/deltas.ts) the /dg/trajectory page renders. NOT AR-40 (DQ rule results over time, observed at the client), NOT AR-41 (council runtime), NOT AR-42 (client-measured benefits against the AR-03 baseline, whose own note says gate G6 rejects a retro-fitted baseline) - all three were read before this id was minted, the AR-46/AR-47 precedent applied before building. Deltas exist only between captures at the same tier and layer with the pillar scored in BOTH; anything else is an exclusion with its reason, never a zero. Every claim cites both snapshot content digests. Movement is reported as past fact - no forward-looking language, no line drawn beyond the captures. ENGAGEMENT MODE ONLY on AR-55's refusal pattern: refuses without two comparable snapshots, because there is no reference mode for measurements."
       }
     }
   ]

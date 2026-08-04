@@ -21,14 +21,25 @@
  *     derived stand-in
  *   - the plan slices' thin and held-by notes
  *
- * ─── ONE PERIOD MAKES NO CLAIM ABOUT DIRECTION ─────────────────────────────
+ * ─── ONE PERIOD MAKES NO CLAIM ABOUT DIRECTION — TREND IS EARNED (G6) ──────
  *
  * The pack claims its reporting period and nothing outside it: entries are
  * filtered by the consultant's own period boundaries, which are printed so a
- * reader can check the filter. No delta, no comparison to a prior period, no
- * judgement of progress appears anywhere — a single period cannot ground
- * one, and period-over-period movement is G6's to build. The CP4 inspection
- * greps the rendered text for judgement vocabulary and expects zero.
+ * reader can check the filter. No judgement of progress appears anywhere,
+ * and the CP4 inspection greps the rendered text for forward-looking
+ * vocabulary and expects zero.
+ *
+ * G6 adds the ONE thing that can ground movement: two frozen snapshots. The
+ * trend section appears only when at least two comparable (same tier, same
+ * layer) snapshots exist at or before the period end; it renders the delta
+ * engine's output for the most recent such pair, as PAST FACT with both
+ * digests cited, and it promises nothing about any capture that has not
+ * happened. With fewer than two comparable snapshots the section is absent
+ * the way every absent section here is — present as a statement of WHY its
+ * input is missing, never silently skipped (TREND-EARNED holds both
+ * directions). The pack's /ID digest carries the cited snapshot digests, so
+ * a pack generated before and after a new snapshot enters the cited pair
+ * cannot collide.
  *
  * ─── REFUSAL ───────────────────────────────────────────────────────────────
  *
@@ -61,6 +72,10 @@ import {
 } from '../tracking/log'
 import { normaliseAnswers, type StoredAnswerMap } from '../answerShape'
 import type { TargetMap } from '../assessmentState'
+// G6: the earned trend section — the same snapshot store and delta engine the
+// /dg/trajectory page and AR-58 read, never a local comparison.
+import { comparableSnapshotPairs, type AssessmentSnapshot } from '../trajectory/snapshots'
+import { snapshotDeltas } from '../trajectory/deltas'
 import { TIER_META, type AssessmentTier } from '../tier'
 import { intakeIsActionable, type ProgramIntake } from '../intake/types'
 import { applicableQuestions } from '../scoring'
@@ -113,20 +128,30 @@ export interface CouncilPackInput {
   statusLog: StatusLog
   kpiLog: KpiLog
   period: ReportingPeriod
+  /** G6: the engagement's frozen snapshots — the trend section's only input. */
+  snapshots: AssessmentSnapshot[]
 }
 
 const show1 = (n: number): string => (Math.round(n * 10) / 10).toFixed(1)
+const show2 = (n: number): string => (Math.round(n * 100) / 100).toFixed(2)
 
 const periodLabel = (p: ReportingPeriod): string => (p.label.trim() ? p.label.trim() : 'Unlabelled period')
 const periodBounds = (p: ReportingPeriod): string =>
   `${p.from || 'open start'} to ${p.to || 'open end'}`
 
 export function buildCouncilPackPdf(input: CouncilPackInput): jsPDF {
-  const { meta, answers, targets, tier, intake, statusLog, kpiLog, period } = input
+  const { meta, answers, targets, tier, intake, statusLog, kpiLog, period, snapshots } = input
   const entries = gapRegister(answers, targets, tier, meta.layer, intake)
 
   const refusal = councilPackRefusal(intake, entries, statusLog, kpiLog)
   if (refusal) throw new Refusal(refusal)
+
+  // G6: trend is EARNED. Snapshots captured at or before the period end are
+  // the eligible set; the most recent comparable pair among them grounds the
+  // section, and anything less grounds its absence statement instead.
+  const eligible = snapshots.filter((s) => !period.to || s.capturedAt.slice(0, 10) <= period.to)
+  const trendPair = comparableSnapshotPairs(eligible)[0] ?? null
+  const trend = trendPair ? snapshotDeltas(trendPair[0], trendPair[1]) : null
 
   const slices = planSlices(entries, intake, PLAN, meta.layer)
   const registerIds = PLAN.artefactRegister.map((a) => a.id)
@@ -159,6 +184,12 @@ export function buildCouncilPackPdf(input: CouncilPackInput): jsPDF {
       `coverage:${answered}/${questions.length}`,
       `period:${periodLabel(period)}:${period.from || 'open'}:${period.to || 'open'}`,
       `log:${totalTransitions}transitions:${kpiLog.length}captures`,
+      // G6: the cited snapshot pair joins the /ID — a pack before and after a
+      // new snapshot enters the cited pair cannot collide; an absent trend
+      // section is content too and carries the eligible count it states.
+      trend && trend.comparable
+        ? `trend:cite:${trend.citations.aDigest}:${trend.citations.bDigest}`
+        : `trend:absent:${eligible.length}eligible`,
       ...registerIds
         .map((id) => ({ id, state: currentState(statusLog, id) }))
         .filter((x) => x.state !== null)
@@ -245,6 +276,72 @@ export function buildCouncilPackPdf(input: CouncilPackInput): jsPDF {
         },
         bodyFontSize: 7,
       })
+    }
+  }
+
+  /* ---- the earned trend (G6) ---- */
+  r.page('Maturity movement', 'Between frozen snapshots — earned, cited, past fact only.')
+  if (!trend || !trend.comparable) {
+    // The absent-section idiom: absent because its input is, and the page
+    // says exactly which input. Never a placeholder series, never a hint of
+    // where the numbers are heading.
+    r.paragraph(
+      eligible.length < 2
+        ? `This section needs two comparable snapshots captured at or before the period end, and ` +
+          `${eligible.length === 0 ? 'none exists' : 'only one exists'} for this engagement. It is absent ` +
+          'because its input is, not because it was skipped — capture snapshots on the Diagnostic ' +
+          'results view and the next pack over this period earns it.'
+        : `${eligible.length} snapshots exist at or before the period end but no two share a tier and ` +
+          'layer, so no pair is comparable and no movement can be stated. Coverage differs across ' +
+          'tiers by construction; a Quick score moving against a Deep score would be a change of ' +
+          'instrument, not of maturity.',
+    )
+  } else {
+    const cited = trend.citations
+    r.paragraph(
+      'MOVEMENT IS REPORTED AS PAST FACT, between the two most recent comparable snapshots at or ' +
+        'before the period end. Nothing here says where any number is heading — a captured pair ' +
+        'grounds exactly the movement it contains.',
+      { color: SLATE, size: 8 },
+    )
+    r.keyValueBlock([
+      ['From snapshot', `"${cited.aLabel}" — captured ${cited.aAt.slice(0, 10)}`],
+      ['From digest', cited.aDigest],
+      ['To snapshot', `"${cited.bLabel}" — captured ${cited.bAt.slice(0, 10)}`],
+      ['To digest', cited.bDigest],
+      ['Tier of both captures', TIER_META[trend.tier].label],
+      ['Pillars comparable in both', String(trend.deltas.length)],
+    ])
+    if (trend.overall) {
+      r.paragraph(
+        `The weighted overall across the ${trend.overall.pillarCount} comparable pillar` +
+          `${trend.overall.pillarCount === 1 ? '' : 's'} moved ${show1(trend.overall.from)} -> ` +
+          `${show1(trend.overall.to)} between "${cited.aLabel}" and "${cited.bLabel}".`,
+        { size: 8 },
+      )
+    }
+    if (trend.deltas.length === 0) {
+      r.paragraph(
+        'The two captures share a tier but no pillar is scored in both, so no pillar movement can ' +
+          'be stated — the exclusion list on the trajectory surface carries the per-pillar reasons.',
+        { size: 8 },
+      )
+    } else {
+      for (const d of trend.deltas) {
+        r.paragraph(
+          `${d.pillarId} ${d.pillarShort} moved ${show2(d.from)} -> ${show2(d.to)} between ` +
+            `"${cited.aLabel}" and "${cited.bLabel}".`,
+          { size: 8 },
+        )
+      }
+    }
+    if (trend.exclusions.length > 0) {
+      r.paragraph(
+        `${trend.exclusions.length} pillar${trend.exclusions.length === 1 ? ' is' : 's are'} excluded from ` +
+          'this comparison for want of a score in one or both captures; AR-58 lists each with its ' +
+          'reason. An excluded pillar is never rendered as a zero.',
+        { color: SLATE, size: 8 },
+      )
     }
   }
 

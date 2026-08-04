@@ -867,6 +867,156 @@ const MUTATIONS = [
     apply: () => sub('src/dgiw/report/councilPack.ts', '      `tier:${tier}`,\n', ''),
   },
 
+  /*
+   * ── THE G6 TRAJECTORY CLASSES, EACH ROW ISOLATING ONE BRANCH ────────────
+   *
+   * SNAPSHOT-FROZEN's three: a copy-by-reference capture (freeze AND copy
+   * removed together — removing only the copy leaves the freeze making the
+   * probe's mutation a silent no-op, so the pair IS the one implementation
+   * mistake), an exported edit path, and a stale fixture digest. DELTA-PAIR's
+   * three are its three assertions — cross-tier guard, scored-both guard,
+   * exclusion reasons — and the obvious mutation (gut snapshotDeltas) would
+   * trip all of them and prove nothing. DELTA-CITE's row removes BOTH digest
+   * renders (keyValue block and chart citation line), because the check
+   * accepts a digest anywhere in the text and removing one render alone is
+   * not a defect. TREND-EARNED's four: never earned, boundary ignored,
+   * absence statement gutted, fixture stops seeding the excluded side.
+   * CHART-HONEST's two: a bezier smoothing the segment (markers untouched —
+   * a circle marker would trip both branches at once), and a value offset
+   * moving markers off their recomputed positions. TIER-DIGEST's row proves
+   * the G6 extension actually reaches AR-58.
+   */
+  {
+    code: 'SNAPSHOT-FROZEN',
+    what: 'capture by reference — the deep copy and the freeze removed together, so live edits reach the record',
+    touches: ['src/dgiw/trajectory/snapshots.ts'],
+    apply: () => {
+      sub('src/dgiw/trajectory/snapshots.ts',
+        'const answers = deepCopy(normaliseAnswers(live.answers))',
+        'const answers = normaliseAnswers(live.answers)')
+      sub('src/dgiw/trajectory/snapshots.ts', 'return deepFreeze({', 'return ({')
+    },
+  },
+  {
+    code: 'SNAPSHOT-FROZEN',
+    what: 'an exported edit path appears on the snapshot store — append-only in name only',
+    touches: ['src/dgiw/trajectory/snapshots.ts'],
+    apply: () => sub(
+      'src/dgiw/trajectory/snapshots.ts',
+      'export function appendSnapshot',
+      'export function removeSnapshot(list: AssessmentSnapshot[]): AssessmentSnapshot[] { return [] }\nexport function appendSnapshot',
+    ),
+  },
+  {
+    code: 'SNAPSHOT-FROZEN',
+    what: 'a fixture snapshot digest goes stale — every golden citation of it becomes unverifiable',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => {
+      f.snapshots[0].digest = 'ABCDEF0123456789ABCDEF0123456789'
+    }),
+  },
+  {
+    code: 'DELTA-PAIR',
+    what: 'the same-tier guard neutered — a Quick score moves against a Standard one and calls it a trend',
+    touches: ['src/dgiw/trajectory/deltas.ts'],
+    apply: () => sub(
+      'src/dgiw/trajectory/deltas.ts',
+      'if (a.tier !== b.tier || a.layer !== b.layer) {',
+      'if (false) {',
+    ),
+  },
+  {
+    code: 'DELTA-PAIR',
+    what: 'the scored-both guard loosened to either — a pillar measured once produces a delta',
+    touches: ['src/dgiw/trajectory/deltas.ts'],
+    apply: () => sub('src/dgiw/trajectory/deltas.ts', 'if (aScored && bScored) {', 'if (aScored || bScored) {'),
+  },
+  {
+    code: 'DELTA-PAIR',
+    what: 'exclusions lose their reasons — a silent drop wearing a label',
+    touches: ['src/dgiw/trajectory/deltas.ts'],
+    apply: () => sub(
+      'src/dgiw/trajectory/deltas.ts',
+      'exclusions.push({ pillarId: ao.pillarId, pillarName: ao.name, reasons })',
+      'exclusions.push({ pillarId: ao.pillarId, pillarName: ao.name, reasons: [] })',
+    ),
+  },
+  {
+    code: 'DELTA-CITE',
+    what: 'both digest renders removed from AR-58 — a delta claim nobody can trace to its two frozen states',
+    touches: ['src/dgiw/report/deltaReport.ts'],
+    apply: () => {
+      sub('src/dgiw/report/deltaReport.ts', "    ['From digest', citations.aDigest],", "    ['From digest', 'redacted'],")
+      sub('src/dgiw/report/deltaReport.ts',
+        '`From "${citations.aLabel}" (${day(citations.aAt)}, digest ${citations.aDigest}) to `',
+        '`From "${citations.aLabel}" (${day(citations.aAt)}) to `')
+    },
+  },
+  {
+    code: 'TREND-EARNED',
+    what: 'the trend is never earned — two comparable in-period snapshots exist and the pack stays silent',
+    touches: ['src/dgiw/report/councilPack.ts'],
+    apply: () => sub(
+      'src/dgiw/report/councilPack.ts',
+      'const trendPair = comparableSnapshotPairs(eligible)[0] ?? null',
+      'const trendPair = null',
+    ),
+  },
+  {
+    code: 'TREND-EARNED',
+    what: 'the at-or-before-period-end boundary dropped — a post-period capture enters the cited pair',
+    touches: ['src/dgiw/report/councilPack.ts'],
+    apply: () => sub(
+      'src/dgiw/report/councilPack.ts',
+      "const eligible = snapshots.filter((s) => !period.to || s.capturedAt.slice(0, 10) <= period.to)",
+      'const eligible = snapshots',
+    ),
+  },
+  {
+    code: 'TREND-EARNED',
+    what: 'the absence statement gutted — the unearned trend section stops saying why it is absent',
+    touches: ['src/dgiw/report/councilPack.ts'],
+    apply: () => sub(
+      'src/dgiw/report/councilPack.ts',
+      "'because its input is, not because it was skipped — capture snapshots on the Diagnostic '",
+      "'without further explanation. '",
+    ),
+  },
+  {
+    code: 'TREND-EARNED',
+    what: 'the fixture stops seeding the excluded side — the boundary would be demonstrated against nothing',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => {
+      f.snapshots = f.snapshots.filter((s) => s.label === 'Baseline' || s.label === 'Wave 1 close')
+    }),
+  },
+  {
+    code: 'CHART-HONEST',
+    what: 'the segment between two captured points becomes a bezier — smoothing, the banned operator itself',
+    touches: ['src/dgiw/report/deltaReport.ts'],
+    apply: () => sub(
+      'src/dgiw/report/deltaReport.ts',
+      '    pdf.line(xF, yF, xT, yT)',
+      "    pdf.lines([[(xT - xF) / 2, -6, (xT - xF) / 2, 6, xT - xF, yT - yF]], xF, yF, [1, 1], 'S')",
+    ),
+  },
+  {
+    code: 'CHART-HONEST',
+    what: 'a point drawn half a level above its captured value — a measurement the picture invented',
+    touches: ['src/dgiw/report/deltaReport.ts'],
+    apply: () => sub(
+      'src/dgiw/report/deltaReport.ts',
+      'const yF = deltaChartPointY(i, d.from)',
+      'const yF = deltaChartPointY(i, d.from + 0.5)',
+    ),
+  },
+  {
+    code: 'TIER-DIGEST',
+    what: 'AR-58 stops folding the tier into its /ID digest — the G6 extension must actually reach it',
+    touches: ['src/dgiw/report/deltaReport.ts'],
+    apply: () => sub('src/dgiw/report/deltaReport.ts', '      `tier:${tier}`,\n', ''),
+  },
+
   // ── the four suite classes ──────────────────────────────────────────────
   {
     code: 'REPORT-SOURCES',
