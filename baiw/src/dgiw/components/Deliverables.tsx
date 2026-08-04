@@ -43,7 +43,8 @@ import { FileSpreadsheet, FileText, Package } from 'lucide-react'
 import { Card, PageHeader, SectionTitle, Stat } from './ui'
 import { useLayer, layerShows } from '../layer'
 import { useDeliverable } from '../report/useDeliverable'
-import { useDiagnosticAnswers } from '../answers'
+import { answerEvidence, answerScores, useDiagnosticAnswers } from '../answers'
+import { useAssessmentTier, useDiagnosticTargets } from '../assessmentState'
 import { applicableQuestions } from '../scoring'
 import { useProgramIntake } from '../intake/state'
 import { PILLAR_IDS, intakeIsActionable, validScopeIds } from '../intake/types'
@@ -390,7 +391,14 @@ const SPECS: Spec[] = [
 
 export default function Deliverables() {
   const { filter } = useLayer()
-  const [answers] = useDiagnosticAnswers()
+  const [answersRich] = useDiagnosticAnswers()
+  // The numeric view the generators take — their math is untouched by G2.
+  const answers = useMemo(() => answerScores(answersRich), [answersRich])
+  // G2: the assessment tier and targets the score-carrying artefacts state.
+  // Same stores the Diagnostic page writes — the pack view must produce the
+  // assessment the consultant was just looking at.
+  const [tier] = useAssessmentTier()
+  const [targets] = useDiagnosticTargets()
   const [intake] = useProgramIntake()
   const { busy, message, metaFor, run } = useDeliverable()
 
@@ -480,11 +488,27 @@ export default function Deliverables() {
       ])
       // G1: only the two intake-driven artefacts carry a mode; every other
       // meta is built exactly as before and its provenance records stay null.
-      const meta = metaFor(
+      const baseMeta = metaFor(
         artefactId,
         false,
         artefactId === 'AR-08' || artefactId === 'AR-09' ? intakeMode : undefined,
       )
+      // G2: only the artefacts whose GENERATOR applies the tier carry it in
+      // meta — claiming a tier the document did not apply would be a lying
+      // record. AR-06 also prints a diagnostic score and does not yet take a
+      // tier; it is deliberately absent here and noted in the G2 report.
+      const SCORE_CARRIERS = ['AR-01', 'AR-48', 'AR-47']
+      const tierQuestions = applicableQuestions(DIAG.questions, filter, tier)
+      const meta = SCORE_CARRIERS.includes(artefactId)
+        ? {
+            ...baseMeta,
+            assessmentTier: tier,
+            assessmentCoverage: {
+              answered: tierQuestions.filter((q) => answers[q.id] !== undefined).length,
+              applicable: tierQuestions.length,
+            },
+          }
+        : baseMeta
       switch (artefactId) {
         case 'AR-08': {
           const { buildCharterPdf } = await import('../report/charter')
@@ -493,7 +517,11 @@ export default function Deliverables() {
         }
         case 'AR-01': {
           const { buildDiagnosticReport } = await import('../report/diagnosticReport')
-          saveReport(buildDiagnosticReport({ meta, answers }), reportFilename(meta, 'pdf'), meta)
+          saveReport(
+            buildDiagnosticReport({ meta, answers, tier, evidence: answerEvidence(answersRich), targets }),
+            reportFilename(meta, 'pdf'),
+            meta,
+          )
           return null
         }
         case 'AR-13': {
@@ -518,13 +546,13 @@ export default function Deliverables() {
         }
         case 'AR-48': {
           const { buildMultiFrameworkScorecardPdf } = await import('../report/multiFrameworkScorecard')
-          saveReport(buildMultiFrameworkScorecardPdf({ meta, answers }), reportFilename(meta, 'pdf'), meta)
+          saveReport(buildMultiFrameworkScorecardPdf({ meta, answers, tier }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         case 'AR-47': {
           const { buildFrameworkAlignmentPdf } = await import('../report/frameworkAlignment')
           const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, '_dmbok2.pdf')
-          saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId: 'FW-01' }), name, meta)
+          saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId: 'FW-01', tier }), name, meta)
           return null
         }
         case 'AR-23': {

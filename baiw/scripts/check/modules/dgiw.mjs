@@ -602,6 +602,248 @@ const generatorSet = {
 }
 
 /*
+ * ── G2: THE TIER GATE ───────────────────────────────────────────────────────
+ *
+ * The diagnostic gains three nested assessment tiers — quick ⊂ standard ⊂ deep.
+ * A question's `tier` is the MINIMUM tier at which it appears, and the
+ * composition happens in ONE place: `scoring.applicableQuestions(questions,
+ * layer, tier)`. The failure modes this class exists for are all silent:
+ *
+ *   - an untagged question falls out of every tier comparison and simply stops
+ *     being asked (the shape this gate was watched FAILING on, before the
+ *     dataset was tagged — 55 findings, one per question);
+ *   - a pillar with no quick-tier core question reports `not-assessed` under
+ *     Quick mode forever, and nothing on screen says the mode is why;
+ *   - "overlay = deep" laziness: if every banking question is deep, the tier
+ *     axis silently aliases the layer axis and Standard mode can never see the
+ *     overlay at all. The two axes are orthogonal by declaration.
+ *
+ * The nesting itself is asserted COMPUTATIONALLY, not read off the data: the
+ * real compiled `scoring.applicableQuestions` (ctx.ts, the same esbuild module
+ * PROJECTION-INVARIANT runs) is called per tier per layer and each set must be
+ * a superset of the one below it. A check that trusted the tier field's
+ * semantics without running the function would pass over a broken comparator.
+ */
+const TIERS = ['quick', 'standard', 'deep']
+
+const tierNesting = {
+  code: 'TIER-NESTING',
+  run(ctx) {
+    const { diag, pillars } = ctx.data
+    const { fail } = ctx
+    let examined = 0
+
+    // Branch 1 — every question carries a valid tier.
+    let untagged = 0
+    for (const q of diag.questions) {
+      examined++
+      if (!TIERS.includes(q.tier)) {
+        untagged++
+        fail(`question ${q.id} has tier=${JSON.stringify(q.tier)} — expected one of ${TIERS.join(', ')}; an untagged question falls out of every tier comparison and silently stops being asked`)
+      }
+    }
+    // The remaining branches would fire once per question on an untagged
+    // dataset and bury the real finding; one clear message per question above
+    // is the honest report of that state.
+    if (untagged > 0) return { examined }
+
+    // Branch 2 — every pillar has at least one quick-tier question in the core
+    // layer. Quick mode composes with a core-only engagement, and a pillar
+    // invisible to that combination reports not-assessed with nothing saying why.
+    for (const p of pillars) {
+      examined++
+      const qs = diag.questions.filter((q) => q.pillarId === p.id)
+      if (!qs.some((q) => q.tier === 'quick' && q.layer === 'core'))
+        fail(`pillar ${p.id} has no quick-tier core question — a Quick pass under any layer would report it not-assessed forever, and the tier would be the reason without ever being named`)
+    }
+
+    // Branch 3 — the tier axis must not degenerate into the layer axis.
+    examined++
+    if (!diag.questions.some((q) => q.layer === 'banking' && q.tier !== 'deep'))
+      fail(`every banking question is deep-tier — the tier axis has collapsed into the layer axis, and Standard mode can never see the overlay. The two axes are declared orthogonal; keep at least one banking question below deep`)
+
+    // Branch 4 — nesting holds through the REAL composition function, per layer.
+    if (!ctx.ts?.scoring?.applicableQuestions) {
+      fail(`could not load scoring.ts to verify tier composition — the nesting invariant was NOT checked`)
+      return { examined }
+    }
+    const aq = ctx.ts.scoring.applicableQuestions
+    /*
+     * The probe is BEHAVIOURAL, not an arity check — `Function.length` does
+     * not count a defaulted parameter, so a `tier = 'deep'` third argument is
+     * invisible to it (measured: it read 2 with the parameter present).
+     * Instead the expected membership of every tier set is computed here from
+     * the tier field's declared semantics (minimum tier), and the function's
+     * actual output must equal it in BOTH directions per layer. A function
+     * that ignores its tier argument returns the deep set for quick and fails
+     * the first comparison; one that widens instead of narrowing fails the
+     * second.
+     */
+    const order = Object.fromEntries(TIERS.map((t, i) => [t, i]))
+    for (const layer of ['all', 'core', 'banking']) {
+      const layerSet = new Set(aq(diag.questions, layer).map((q) => q.id))
+      for (const t of TIERS) {
+        examined++
+        const got = new Set(aq(diag.questions, layer, t).map((q) => q.id))
+        const expected = new Set(
+          diag.questions.filter((q) => layerSet.has(q.id) && order[q.tier] <= order[t]).map((q) => q.id),
+        )
+        for (const id of expected)
+          if (!got.has(id))
+            fail(`under layer=${layer} tier=${t}: question ${id} (tier ${diag.questions.find((q) => q.id === id).tier}) is missing from the composed set — an answer to it would vanish from scoring, which is the nesting invariant, not a convention`)
+        for (const id of got)
+          if (!expected.has(id))
+            fail(`under layer=${layer} tier=${t}: question ${id} appears in the composed set but its tier says it should not — an answer from outside the active tier would be counted`)
+      }
+      // Deep is the identity: the tier axis may narrow the layer set, never widen it.
+      examined++
+      const deep = new Set(aq(diag.questions, layer, 'deep').map((q) => q.id))
+      if (deep.size !== layerSet.size)
+        fail(`under layer=${layer} the deep tier sees ${deep.size} questions but the layer alone sees ${layerSet.size} — deep must be the identity, or "full assessment" quietly stops meaning full`)
+    }
+
+    const counts = Object.fromEntries(TIERS.map((t) => [t, diag.questions.filter((q) => q.tier === t).length]))
+    return { examined, counts }
+  },
+}
+
+/*
+ * ── G2: THE TIER-DIGEST GATE ────────────────────────────────────────────────
+ *
+ * A Quick-tier PDF and a Deep-tier PDF of the same answers are different
+ * documents and must never share a trailer /ID — otherwise a DMS holding the
+ * Deep report treats the directional Quick pass as the copy it already has,
+ * which is the exact revision-swallowing defect the content digest exists to
+ * prevent. ARTEFACT-IMPL proves a digest is SUPPLIED; nothing proved the tier
+ * is IN it. Grep-level on INTAKE-MODE's precedent: each score-carrying
+ * generator must fold a `tier:` and a `coverage:` part into its digest.
+ */
+const TIER_DIGEST_GENERATORS = [
+  'src/dgiw/report/diagnosticReport.ts',
+  'src/dgiw/report/multiFrameworkScorecard.ts',
+  'src/dgiw/report/frameworkAlignment.ts',
+]
+
+const tierDigest = {
+  code: 'TIER-DIGEST',
+  run(ctx) {
+    const { fail, root } = ctx
+    let examined = 0
+    for (const rel of TIER_DIGEST_GENERATORS) {
+      const abs = path.join(root, rel)
+      if (!fs.existsSync(abs)) {
+        fail(`${rel} does not resolve — a score-carrying generator this class is declared over has moved, and the declaration has to move with it`)
+        continue
+      }
+      examined++
+      const src = fs.readFileSync(abs, 'utf8')
+      if (!src.includes('`tier:${'))
+        fail(`${rel} does not fold the assessment tier into its content digest — a Quick-tier PDF and a Deep-tier PDF could share an /ID, and a reader's DMS would treat the directional pass as the full report it already holds`)
+      if (!src.includes('`coverage:${'))
+        fail(`${rel} does not fold its coverage into the content digest — the same tier at different coverage is a different document, and /ID must say so`)
+    }
+    return { examined }
+  },
+}
+
+/*
+ * ── G2: THE ANSWER-SHAPE AND TARGET GATES ───────────────────────────────────
+ *
+ * ANSWER-SHAPE runs the REAL compiled answerShape.ts (ctx.ts.answers — the
+ * PROJECTION-INVARIANT precedent) against both stored shapes and the
+ * malformed ones, on every build. The migration promise it pins: a legacy
+ * `{id: 4}` map normalises to `{id: {score: 4}}` LOSSLESSLY, evidence
+ * survives verbatim, and a malformed value rejects the whole map rather than
+ * crashing or half-loading. A guard like this decays silently — someone
+ * loosens the validator to accept a new shape and the range check goes with
+ * it — and no browser session would ever notice.
+ *
+ * TARGET-RANGE holds `dgiw.targets`' promise the way INTAKE-SCOPE holds the
+ * intake's: against the one stored fixture the gate can read (the `targets`
+ * key in scripts/golden/fixtures/dgiw.json — the same fixture, not a parallel
+ * one). Every key must be a pillar in pillars.json, every value an integer
+ * 1..5 — target − current is the single gap function everything in G3+
+ * derives from, and a target of 0, 3.5 or P99 poisons it at the source.
+ */
+const answerShapeGuard = {
+  code: 'ANSWER-SHAPE',
+  run(ctx) {
+    const { fail } = ctx
+    if (!ctx.ts?.answers) {
+      fail(`could not build or load answerShape.ts — the stored-answer guard was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const { isAnswerMap, normaliseAnswers, answerScores } = ctx.ts.answers
+    let examined = 0
+    const accept = (label, v) => {
+      examined++
+      if (!isAnswerMap(v)) fail(`isAnswerMap rejects ${label} — a stored map in that shape would be silently discarded and a consultant's assessment would open empty`)
+    }
+    const reject = (label, v) => {
+      examined++
+      if (isAnswerMap(v)) fail(`isAnswerMap ACCEPTS ${label} — that value would flow into the weighted mean and produce a maturity no scale explains`)
+    }
+    accept('a legacy numeric map', { 'DG-P01-01': 4 })
+    accept('a G2 object map', { 'DG-P01-01': { score: 4 } })
+    accept('a G2 map with evidence', { 'DG-P01-01': { score: 4, evidence: 'Charter sighted, signed 2025-11.' } })
+    accept('a MIXED map (legacy + G2, mid-migration)', { a: 4, b: { score: 2, evidence: 'x' } })
+    accept('an empty map', {})
+    reject('a score of 0', { a: 0 })
+    reject('a score of 7', { a: 7 })
+    reject('a fractional score', { a: 3.5 })
+    reject('a string score', { a: { score: '4' } })
+    reject('a non-string evidence', { a: { score: 4, evidence: 5 } })
+    reject('an array', ['x'])
+    reject('null', null)
+
+    // The migration itself: lossless in both directions that matter.
+    examined++
+    const up = normaliseAnswers({ Q1: 4 })
+    if (!(up && typeof up.Q1 === 'object' && up.Q1.score === 4 && !('evidence' in up.Q1)))
+      fail(`normaliseAnswers({Q1: 4}) produced ${JSON.stringify(up)} — a legacy answer must lift to {score: 4}, nothing more and nothing less; this is the lossless-migration promise`)
+    examined++
+    const keep = normaliseAnswers({ Q1: { score: 2, evidence: '  verbatim, untrimmed  ' } })
+    if (keep?.Q1?.evidence !== '  verbatim, untrimmed  ')
+      fail(`normaliseAnswers rewrote an evidence note (${JSON.stringify(keep?.Q1)}) — normalisation runs on every read, so any lossy step compounds`)
+    examined++
+    const scores = answerScores(normaliseAnswers({ a: 4, b: { score: 1 } }))
+    if (scores.a !== 4 || scores.b !== 1)
+      fail(`answerScores round-trip failed (${JSON.stringify(scores)}) — scoring.ts consumes this view and its math is deliberately untouched by G2`)
+    return { examined }
+  },
+}
+
+const targetRange = {
+  code: 'TARGET-RANGE',
+  run(ctx) {
+    const { fail, root } = ctx
+    const { pillarIds } = ctx.state
+    const abs = path.join(root, INTAKE_FIXTURE_REL)
+    if (!fs.existsSync(abs)) return { examined: 0, mayBeEmpty: 'INTAKE-SCOPE already fails on the missing fixture; failing twice would report one defect under two codes' }
+    let fixture
+    try {
+      fixture = JSON.parse(fs.readFileSync(abs, 'utf8'))
+    } catch {
+      return { examined: 0, mayBeEmpty: 'INTAKE-SCOPE already fails on the unparseable fixture' }
+    }
+    const targets = fixture.targets
+    if (!targets || typeof targets !== 'object' || Array.isArray(targets) || Object.keys(targets).length === 0) {
+      fail(`${INTAKE_FIXTURE_REL} stores no targets — the target-table golden entry would silently render nothing, and a baseline that lost a section without anyone deciding so is the check-that-stopped-running shape`)
+      return { examined: 0 }
+    }
+    let examined = 0
+    for (const [pid, v] of Object.entries(targets)) {
+      examined++
+      if (!pillarIds.has(pid))
+        fail(`fixture target names pillar ${pid}, which pillars.json does not contain — targets are per pillar, validated against the dataset, never a second list`)
+      if (!(typeof v === 'number' && Number.isInteger(v) && v >= 1 && v <= 5))
+        fail(`fixture target for ${pid} is ${JSON.stringify(v)} — a target is an integer 1..5; anything else poisons target − current, the one gap function G3 derives from`)
+    }
+    return { examined }
+  },
+}
+
+/*
  * ── G1: THE INTAKE GATES ────────────────────────────────────────────────────
  *
  * The program-design stage generates the charter (AR-08) and the operating
@@ -1042,7 +1284,12 @@ export default {
    * pillar scores the projection USED against pillar scores from scoring.ts
    * called directly, and sharing one bundle would make that comparison circular.
    */
-  tsModules: { projection: 'src/dgiw/projection.ts', scoring: 'src/dgiw/scoring.ts' },
+  tsModules: {
+    projection: 'src/dgiw/projection.ts',
+    scoring: 'src/dgiw/scoring.ts',
+    // G2: the stored-answer guard, run rather than read — ANSWER-SHAPE's engine.
+    answers: 'src/dgiw/answerShape.ts',
+  },
 
   /**
    * Derived indexes, built once. Pure — every failure path lives in a check.
@@ -1097,6 +1344,10 @@ export default {
     coreChassis,
     artefactEvidence,
     generatorSet,
+    tierNesting,
+    tierDigest,
+    answerShapeGuard,
+    targetRange,
     intakeScope,
     intakeMode,
     crosswalk.spineUniverse,
@@ -1150,6 +1401,16 @@ export default {
       out.push(
         `GENERATOR-SET ${gs.declared.length} declared in ${GENERATOR_SET_DECL.rel.split('/').pop()}` +
           ` = ${gs.scanned.length} scanned from the report sources — AR-54's built column, asserted rather than trusted`,
+      )
+    }
+
+    // G2: the tier shape, printed from the check's own counts — never retyped.
+    const tn = r['TIER-NESTING']
+    if (tn?.counts) {
+      const c = tn.counts
+      out.push(
+        `TIER quick ${c.quick} ⊂ standard ${c.quick + c.standard} ⊂ deep ${c.quick + c.standard + c.deep} — ` +
+          `nesting asserted through scoring.applicableQuestions per layer; tier+coverage in every score-carrying digest (TIER-DIGEST)`,
       )
     }
 

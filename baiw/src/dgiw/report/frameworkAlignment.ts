@@ -30,7 +30,9 @@ import type jsPDF from 'jspdf'
 import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import { decompose, projectFramework, type DimensionDecomposition } from '../projection'
-import { LEVEL_LABEL } from '../scoring'
+import { LEVEL_LABEL, applicableQuestions } from '../scoring'
+import { DEFAULT_TIER, TIER_META, type AssessmentTier } from '../tier'
+import diagnostic from '../data/diagnostic.json'
 import {
   FRAMEWORKS,
   ONE_ASSESSMENT,
@@ -42,7 +44,7 @@ import {
 } from './frameworkNotes'
 import crosswalkData from '../data/crosswalk.json'
 import pillarsData from '../data/pillars.json'
-import type { CrosswalkData, CrosswalkEntry, Pillar } from '../types'
+import type { CrosswalkData, CrosswalkEntry, DiagnosticData, Pillar } from '../types'
 
 const XW = crosswalkData as unknown as CrosswalkData
 const PILLARS = pillarsData as Pillar[]
@@ -58,6 +60,8 @@ export interface FrameworkAlignmentInput {
   meta: ReportMeta
   answers: Record<string, number>
   frameworkId: string
+  /** G2: see MultiFrameworkInput.tier — pre-filters answers, math untouched. */
+  tier?: AssessmentTier
 }
 
 const entriesByDim = new Map<string, CrosswalkEntry[]>()
@@ -65,6 +69,7 @@ for (const e of [...XW.entries].sort((a, b) => (a.id < b.id ? -1 : 1)))
   entriesByDim.set(e.dimensionId, [...(entriesByDim.get(e.dimensionId) ?? []), e])
 
 const pillarName = (id: string): string => PILLARS.find((p) => p.id === id)?.short ?? id
+const DIAG = diagnostic as DiagnosticData
 
 const pct = (x: number): string => `${Math.round(x * 100)}%`
 const show1 = (n: number | null): string => (n === null ? '—' : (Math.round(n * 10) / 10).toFixed(1))
@@ -77,9 +82,18 @@ function stateLabel(d: DimensionDecomposition): string {
 }
 
 export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPDF {
-  const { meta, answers, frameworkId } = input
+  const { meta, frameworkId } = input
   const framework = FRAMEWORKS.find((f) => f.id === frameworkId)
   if (!framework) throw new Error(`No framework ${frameworkId} in frameworks.json`)
+
+  // G2: restrict the answers to the tier's question set BEFORE projection —
+  // the projection math is untouched, it simply receives fewer answers, and an
+  // answer outside the active tier is never counted. Deep is the identity.
+  const tier = input.tier ?? DEFAULT_TIER
+  const tierQuestions = applicableQuestions(DIAG.questions, meta.layer, tier)
+  const answers: Record<string, number> = {}
+  for (const q of tierQuestions) if (input.answers[q.id] !== undefined) answers[q.id] = input.answers[q.id]
+  const answeredCount = Object.keys(answers).length
 
   const proj = projectFramework(frameworkId, answers, meta.layer)
   const dims = decompose(frameworkId, answers, meta.layer)
@@ -94,6 +108,9 @@ export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPD
     // one more question is answered is a different document and says so.
     contentKey([
       `framework:${framework.code}`,
+      // G2: a Quick-tier pack and a Deep-tier pack must never share an /ID.
+      `tier:${tier}`,
+      `coverage:${answeredCount}/${tierQuestions.length}`,
       ...leaves.map((d) => `dim:${d.dimensionId}=${d.state}:${d.score === null ? 'null' : d.score.toFixed(6)}`),
     ]),
   )
@@ -110,6 +127,9 @@ export function buildFrameworkAlignmentPdf(input: FrameworkAlignmentInput): jsPD
     ['Publisher', framework.publisher],
     ['Overall', proj.state === 'scored' ? `${show1(proj.overall)} / 5.0` : proj.state.toUpperCase().replace('-', ' ')],
     ['Maturity level', proj.state === 'scored' ? LEVEL_LABEL[Math.round(proj.overall as number)] : '—'],
+    // G2: the tier line sits beside the score it qualifies, not in a footnote.
+    ['Assessment tier', TIER_META[tier].label],
+    ['Coverage at this tier', `${answeredCount} of ${tierQuestions.length} applicable questions answered`],
     ['Layer scope', meta.layer === 'all' ? 'Core chassis + banking overlay' : `${meta.layer} layer only`],
     ['Dimensions assessed', `${leaves.length - notApplicable.length - notAssessed.length} of ${leaves.length} leaf dimensions`],
     ['Retained share', pct(proj.retainedShare)],

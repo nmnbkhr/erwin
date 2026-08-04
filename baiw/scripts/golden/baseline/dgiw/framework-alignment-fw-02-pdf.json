@@ -1,6 +1,6 @@
 {
   "artefact": "framework-alignment-fw-02-pdf",
-  "bytes": 69089,
+  "bytes": 69580,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "1b0c85434f77d627be3836b78a5f24395f58a0621d707922e3e4a870d6a9e02d",
+    "sha256": "0952373075986e454bc3864e46c977ca946a5e72dcbd6d244151b08cf3874bb5",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-47_fixture-bank-limited_all_2026-07-31_fw-02.pdf",
   "filenameNormalised": "AR-47_fixture-bank-limited_all_2026-07-31_fw-02.pdf",
   "generator": "buildFrameworkAlignmentPdf",
-  "glyphCount": 8086,
+  "glyphCount": 8169,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "21b54f79258ea60bbb66dd1ef8ce846fbe1c289a874285629871231ad7a3efb5",
+  "normalisedTextSha256": "dbd09fa1e50fa4c6ca3bbd0dc0791480aa8e95b513790ae885b102d6a7e5f209",
   "notReproducible": {},
   "pageCount": 6,
   "pages": [
@@ -62,9 +62,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 2666,
+      "glyphs": 2749,
       "heightPt": 841.89,
-      "multiColumnBaselines": 11,
+      "multiColumnBaselines": 13,
       "page": 2,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -86,6 +86,10 @@
         "2.9 / 5.0",
         "Maturity level",
         "Defined",
+        "Assessment tier",
+        "Deep Dive",
+        "Coverage at this tier",
+        "55 of 55 applicable questions answered",
         "Layer scope",
         "Core chassis + banking overlay",
         "Dimensions assessed",
@@ -119,7 +123,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 2 of 6"
       ],
-      "textRuns": 43,
+      "textRuns": 47,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -475,9 +479,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "f2074ec8cce021d3a57af9bd302a994dc3b59b4107011a990a482e9577fe1ac9",
+  "rawBytesSha256": "5b9062316574e13164bc6bfc8ffc785a53fa618c9c0c16db844eaf43b611eee0",
   "tableRowsTotal": 34,
-  "textRunCount": 318,
+  "textRunCount": 322,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

@@ -3,7 +3,7 @@ import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
   ResponsiveContainer, Tooltip, Legend,
 } from 'recharts'
-import { ChevronDown, ChevronUp, FileText, RotateCcw } from 'lucide-react'
+import { ChevronDown, ChevronUp, FileText, NotebookPen, RotateCcw } from 'lucide-react'
 import { Card, PageHeader, SectionTitle, Stat, ExportButton, TableWrap } from './ui'
 import { LayerBadge } from '../LayerContext'
 import { useLayer } from '../layer'
@@ -14,7 +14,9 @@ import implementationPlan from '../data/implementationPlan.json'
 import type { DiagnosticData, Pillar, ImplementationPlanData } from '../types'
 import { useOrgName } from '../../engagement/useOrgName'
 import { useEngagement } from '../../engagement/context'
-import { useDiagnosticAnswers } from '../answers'
+import { answerEvidence, answerScores, useDiagnosticAnswers } from '../answers'
+import { useAssessmentTier, useDiagnosticTargets } from '../assessmentState'
+import { ASSESSMENT_TIERS, TIER_META } from '../tier'
 // Every number on this page comes from scoring.ts, so the PDF cannot disagree
 // with the screen. See the three-state model documented there.
 import {
@@ -52,7 +54,13 @@ export default function Diagnostic() {
   const { filter, shows } = useLayer()
   // Persisted per engagement, not component state: they survive a reload and the
   // deliverables page reads the same answers this page is collecting.
-  const [answers, setAnswers] = useDiagnosticAnswers()
+  const [answersRich, setAnswers] = useDiagnosticAnswers()
+  // G2: the numeric view every scoring call takes (scoring math is untouched);
+  // the rich map carries the evidence notes beside it.
+  const answers = useMemo(() => answerScores(answersRich), [answersRich])
+  const [tier, setTier] = useAssessmentTier()
+  const [targets, setTargets] = useDiagnosticTargets()
+  const [evidenceOpen, setEvidenceOpen] = useState<Record<string, boolean>>({})
   // The client's name lives on the active engagement, not in this component.
   const [orgName, setOrgName] = useOrgName()
   const [showResults, setShowResults] = useState(false)
@@ -62,7 +70,11 @@ export default function Diagnostic() {
   const [pdfError, setPdfError] = useState<string | null>(null)
   const { active } = useEngagement()
 
-  const questions = useMemo(() => applicableQuestions(DIAG.questions, filter), [filter])
+  // The two orthogonal axes compose in scoring.ts, not here (TIER-NESTING
+  // asserts the composition). `deepQuestions` is the same layer at the full
+  // tier — the honest denominator the coverage lines print beside the active one.
+  const questions = useMemo(() => applicableQuestions(DIAG.questions, filter, tier), [filter, tier])
+  const deepQuestions = useMemo(() => applicableQuestions(DIAG.questions, filter), [filter])
 
   const answeredCount = questions.filter((q) => answers[q.id]).length
   const progress = questions.length ? Math.round((answeredCount / questions.length) * 100) : 0
@@ -128,9 +140,33 @@ export default function Diagnostic() {
 
   // setAnswers is a stable useCallback from usePersistedState, so naming it here
   // costs nothing and keeps the hook honest about what it closes over.
+  // Scoring an answer preserves its evidence note; the two are edited
+  // independently and losing a note on a re-score would be a silent data loss.
   const setAnswer = useCallback((qid: string, value: number) => {
-    setAnswers((prev) => ({ ...prev, [qid]: value }))
+    setAnswers((prev) => ({ ...prev, [qid]: { ...prev[qid], score: value } }))
   }, [setAnswers])
+
+  // Empty (after trim) removes the key: absent and blank must stay the same
+  // fact, or the evidence indicator and the AR-01 appendix would disagree.
+  const setEvidence = useCallback((qid: string, text: string) => {
+    setAnswers((prev) => {
+      const current = prev[qid]
+      if (!current) return prev
+      const next = { ...current }
+      if (text.trim().length === 0) delete next.evidence
+      else next.evidence = text
+      return { ...prev, [qid]: next }
+    })
+  }, [setAnswers])
+
+  const setTarget = useCallback((pillarId: string, value: number | null) => {
+    setTargets((prev) => {
+      const next = { ...prev }
+      if (value === null) delete next[pillarId]
+      else next[pillarId] = value as 1 | 2 | 3 | 4 | 5
+      return next
+    })
+  }, [setTargets])
 
   const handleReset = () => {
     setAnswers({})
@@ -183,8 +219,16 @@ export default function Diagnostic() {
         accent: [225, 29, 72] as const, // rose-600, the DGIW accent
         isDraft: progress < 100,
         artefactId: DIAGNOSTIC_ARTEFACT_ID,
+        // G2: the tier and its coverage travel in meta so the provenance
+        // record can answer "was that a Quick pass?" without opening the PDF.
+        assessmentTier: tier,
+        assessmentCoverage: { answered: answeredCount, applicable: questions.length },
       }
-      saveReport(buildDiagnosticReport({ meta, answers }), reportFilename(meta, 'pdf'), meta)
+      saveReport(
+        buildDiagnosticReport({ meta, answers, tier, evidence: answerEvidence(answersRich), targets }),
+        reportFilename(meta, 'pdf'),
+        meta,
+      )
     } catch (err) {
       console.error('[dgiw] diagnostic report failed', err)
       setPdfError(err instanceof Error ? err.message : 'Report generation failed.')
@@ -220,7 +264,7 @@ export default function Diagnostic() {
       <div className="space-y-6">
         <PageHeader
           title="Diagnostic Results"
-          subtitle={`Weighted maturity across ${pillarScores.length} pillars, scored on ${answeredCount} of ${questions.length} questions in the ${filter === 'all' ? 'combined core + banking' : filter} layer.`}
+          subtitle={`Weighted maturity across ${pillarScores.length} pillars, measured at the ${TIER_META[tier].label} tier — ${answeredCount} of ${questions.length} questions at this tier (${deepQuestions.length} at Deep Dive) in the ${filter === 'all' ? 'combined core + banking' : filter} layer.`}
           actions={
             <>
               <button
@@ -364,6 +408,58 @@ export default function Diagnostic() {
           </Card>
         </div>
 
+        {/* G2: target-state. Captured and displayed only — the raw delta with no
+            colour-coded judgment; the gap register that interprets it is G3. */}
+        <Card className="p-6">
+          <SectionTitle hint="Target maturity per pillar, 1–5. The delta is target − current, shown as-is. Unassessed pillars can carry a target; their delta waits for a score.">
+            Target state
+          </SectionTitle>
+          <TableWrap>
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-xs uppercase tracking-wide text-slate-500 border-b border-slate-200">
+                  <th className="py-2 pr-4 font-medium">Pillar</th>
+                  <th className="py-2 pr-4 font-medium">Current</th>
+                  <th className="py-2 pr-4 font-medium">Target</th>
+                  <th className="py-2 font-medium">Delta</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pillarScores.map((p) => {
+                  const target = targets[p.pillarId]
+                  const delta = target !== undefined && p.score !== null ? target - p.score : null
+                  return (
+                    <tr key={p.pillarId} className="border-b border-slate-100 last:border-0">
+                      <td className="py-2 pr-4 text-slate-700">
+                        <span className="font-mono text-xs text-slate-400 mr-2">{p.pillarId}</span>
+                        {p.name}
+                      </td>
+                      <td className="py-2 pr-4 text-slate-600">
+                        {p.score === null ? <span className="text-slate-400">Not assessed</span> : show1(p.score)}
+                      </td>
+                      <td className="py-2 pr-4">
+                        <select
+                          value={target ?? ''}
+                          onChange={(e) => setTarget(p.pillarId, e.target.value === '' ? null : Number(e.target.value))}
+                          className="px-2 py-1 text-sm rounded-md border border-slate-200 bg-white text-slate-700"
+                        >
+                          <option value="">—</option>
+                          {[1, 2, 3, 4, 5].map((v) => (
+                            <option key={v} value={v}>{v} — {LEVEL_LABEL[v]}</option>
+                          ))}
+                        </select>
+                      </td>
+                      <td className="py-2 text-slate-600">
+                        {delta === null ? <span className="text-slate-400">—</span> : (delta >= 0 ? '+' : '') + show1(delta)}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </TableWrap>
+        </Card>
+
         {/* Derived roadmap */}
         <Card className="p-6">
           <SectionTitle hint="Generated from the weakest pillars and the implementation waves that address them — the diagnostic's roadmap output, not a generic template.">
@@ -427,9 +523,34 @@ export default function Diagnostic() {
         }
       />
 
+      {/* G2: the tier selector. Selection persists per engagement (dgiw.tier);
+          the question list below filters through applicableQuestions, where the
+          tier and layer axes compose — never here. */}
+      <Card className="p-4">
+        <div className="flex flex-wrap items-start gap-2">
+          <div className="flex bg-slate-100 rounded-lg p-1">
+            {ASSESSMENT_TIERS.map((t) => (
+              <button
+                key={t}
+                onClick={() => setTier(t)}
+                className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                  tier === t ? 'bg-rose-600 text-white' : 'text-slate-600 hover:bg-slate-200'
+                }`}
+              >
+                {TIER_META[t].label}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-slate-500 leading-relaxed flex-1 min-w-60 pt-1">
+            <span className="font-medium text-slate-600">{TIER_META[tier].label}:</span> {TIER_META[tier].hint}{' '}
+            Showing {questions.length} of {deepQuestions.length} questions in this layer.
+          </p>
+        </div>
+      </Card>
+
       <Card className="p-4">
         <div className="flex items-center gap-3">
-          <span className="text-sm text-slate-500 shrink-0">{answeredCount} / {questions.length} answered</span>
+          <span className="text-sm text-slate-500 shrink-0">{answeredCount} / {questions.length} at this tier</span>
           <div className="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden">
             <div className="h-full bg-rose-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }} />
           </div>
@@ -452,7 +573,12 @@ export default function Diagnostic() {
               <span className="text-xs font-mono text-slate-400 shrink-0">{pillar.id}</span>
               <div className="flex-1 min-w-0">
                 <h2 className="text-sm font-semibold text-slate-800">{pillar.name}</h2>
-                <p className="text-xs text-slate-500 mt-0.5">{pillarAnswered} of {qs.length} answered</p>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  {pillarAnswered} of {qs.length} question{qs.length === 1 ? '' : 's'} at the{' '}
+                  {TIER_META[tier].label} tier
+                  {tier !== 'deep' &&
+                    ` · ${deepQuestions.filter((q) => q.pillarId === pillar.id).length} at Deep Dive`}
+                </p>
               </div>
               {isOpen ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
             </button>
@@ -499,13 +625,41 @@ export default function Diagnostic() {
                           </span>
                         </div>
 
-                        <button
-                          onClick={() => setExpandedQ((prev) => ({ ...prev, [q.id]: !prev[q.id] }))}
-                          className="mt-2 flex items-center gap-1 text-xs text-slate-400 hover:text-rose-600 transition-colors"
-                        >
-                          {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-                          {isExpanded ? 'Hide' : 'Show'} level descriptions
-                        </button>
+                        <div className="mt-2 flex items-center gap-4">
+                          <button
+                            onClick={() => setExpandedQ((prev) => ({ ...prev, [q.id]: !prev[q.id] }))}
+                            className="flex items-center gap-1 text-xs text-slate-400 hover:text-rose-600 transition-colors"
+                          >
+                            {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                            {isExpanded ? 'Hide' : 'Show'} level descriptions
+                          </button>
+                          {/* G2: evidence — offered only once a question is answered,
+                              never required. A score without evidence is an opinion;
+                              a note here reaches AR-01's evidence appendix. */}
+                          {val > 0 && (
+                            <button
+                              onClick={() => setEvidenceOpen((prev) => ({ ...prev, [q.id]: !prev[q.id] }))}
+                              className={`flex items-center gap-1 text-xs transition-colors ${
+                                answersRich[q.id]?.evidence ? 'text-emerald-600 hover:text-emerald-700' : 'text-slate-400 hover:text-rose-600'
+                              }`}
+                            >
+                              <NotebookPen size={13} />
+                              {answersRich[q.id]?.evidence
+                                ? 'Evidence recorded'
+                                : evidenceOpen[q.id] ? 'Hide evidence' : 'Add evidence'}
+                            </button>
+                          )}
+                        </div>
+
+                        {val > 0 && evidenceOpen[q.id] && (
+                          <textarea
+                            value={answersRich[q.id]?.evidence ?? ''}
+                            onChange={(e) => setEvidence(q.id, e.target.value)}
+                            placeholder="What was seen, who said it, which document — the evidence behind this score."
+                            rows={2}
+                            className="mt-2 w-full px-3 py-2 text-xs rounded-lg border border-slate-200 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-200"
+                          />
+                        )}
 
                         {isExpanded && (
                           <div className="mt-2 space-y-1">

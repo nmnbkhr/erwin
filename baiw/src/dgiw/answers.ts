@@ -13,25 +13,39 @@
  * the report must agree about where the answers live, and two copies of a storage
  * key is how they stop agreeing.
  */
+import { useCallback, useMemo } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 import { usePersistedState } from '../engagement/usePersistedState'
+import { isAnswerMap, normaliseAnswers, type AnswerMap, type StoredAnswerMap } from './answerShape'
 
 /** Also listed in PERSISTED_BASES, which is what makes it survive export/import. */
 export const DIAGNOSTIC_ANSWERS_KEY = 'dgiw-diagnostic-answers'
 
-/**
- * questionId → 1..5.
- *
- * Rejects the whole map if any value is out of range rather than dropping the bad
- * entry: a stored answer of 0 or 7 would flow straight into the weighted mean and
- * produce a maturity score no scale explains.
+/*
+ * The shape logic lives in answerShape.ts (pure — the gate's ANSWER-SHAPE
+ * check compiles and runs it; report generators import it outside React).
+ * Re-exported here so pre-G2 importers keep their one import path.
  */
-export function isAnswerMap(parsed: unknown): boolean {
-  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) return false
-  return Object.values(parsed as Record<string, unknown>).every(
-    (v) => typeof v === 'number' && Number.isInteger(v) && v >= 1 && v <= 5,
-  )
-}
+export { isAnswerMap, normaliseAnswers, answerScores, answerEvidence } from './answerShape'
+export type { AnswerMap, DiagnosticAnswer, StoredAnswerMap } from './answerShape'
 
-export function useDiagnosticAnswers() {
-  return usePersistedState<Record<string, number>>(DIAGNOSTIC_ANSWERS_KEY, {}, isAnswerMap)
+/**
+ * The answers, ALWAYS in the G2 shape — a legacy `{id: 4}` map is upgraded in
+ * memory on read (`normaliseAnswers`, lossless by the ANSWER-SHAPE gate), and
+ * the first write persists the upgraded map. Until that write the stored
+ * legacy bytes are untouched, which is migrate.ts's only-ever-copy contract
+ * one level down.
+ */
+export function useDiagnosticAnswers(): [AnswerMap, Dispatch<SetStateAction<AnswerMap>>] {
+  const [stored, setStored] = usePersistedState<StoredAnswerMap>(DIAGNOSTIC_ANSWERS_KEY, {}, isAnswerMap)
+  const answers = useMemo(() => normaliseAnswers(stored), [stored])
+  const setAnswers = useCallback<Dispatch<SetStateAction<AnswerMap>>>(
+    (action) =>
+      setStored((prev) => {
+        const rich = normaliseAnswers(prev)
+        return typeof action === 'function' ? (action as (p: AnswerMap) => AnswerMap)(rich) : action
+      }),
+    [setStored],
+  )
+  return [answers, setAnswers]
 }

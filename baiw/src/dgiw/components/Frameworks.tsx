@@ -20,11 +20,14 @@ import { useMemo, useState } from 'react'
 import { FileText, ChevronDown, ChevronRight, Info } from 'lucide-react'
 import { Card, PageHeader, SectionTitle, Stat, TableWrap } from './ui'
 import { useLayer } from '../layer'
-import { useDiagnosticAnswers } from '../answers'
+import { answerScores, useDiagnosticAnswers } from '../answers'
 import { useDeliverable } from '../report/useDeliverable'
 import { inducedPillarWeights, projectAll, type DimensionDecomposition } from '../projection'
 import { findingCodes, leafCount, worstFindings } from '../report/findings'
-import { LEVEL_LABEL } from '../scoring'
+import { LEVEL_LABEL, applicableQuestions } from '../scoring'
+import { useAssessmentTier } from '../assessmentState'
+import { TIER_META } from '../tier'
+import diagnostic from '../data/diagnostic.json'
 import {
   FRAMEWORKS,
   ONE_ASSESSMENT,
@@ -34,9 +37,10 @@ import {
   WEIGHTS_ARE_OURS,
 } from '../report/frameworkNotes'
 import pillarsData from '../data/pillars.json'
-import type { Pillar } from '../types'
+import type { DiagnosticData, Pillar } from '../types'
 
 const PILLARS = [...(pillarsData as Pillar[])].sort((a, b) => (a.id < b.id ? -1 : 1))
+const DIAG = diagnostic as DiagnosticData
 const pillarShort = (id: string) => PILLARS.find((p) => p.id === id)?.short ?? id
 
 const pct = (x: number) => `${Math.round(x * 100)}%`
@@ -67,8 +71,25 @@ function ConfidencePill({ value }: { value: string }) {
 
 export default function Frameworks() {
   const { filter } = useLayer()
-  const [answers] = useDiagnosticAnswers()
+  const [answersRich] = useDiagnosticAnswers()
+  const [tier] = useAssessmentTier()
+  // The numeric view every consumer below takes, restricted to the active
+  // tier's question set — the SCREEN and the PDFs must read the same answers,
+  // and an answer outside the active tier is counted by neither. Projection
+  // and generator math is deliberately untouched by G2.
+  const answers = useMemo(() => {
+    const scores = answerScores(answersRich)
+    const out: Record<string, number> = {}
+    for (const q of applicableQuestions(DIAG.questions, filter, tier))
+      if (scores[q.id] !== undefined) out[q.id] = scores[q.id]
+    return out
+  }, [answersRich, filter, tier])
   const { busy, message, metaFor, run } = useDeliverable()
+  // Coverage at the active tier, for the meta both generators record.
+  const coverage = () => {
+    const qs = applicableQuestions(DIAG.questions, filter, tier)
+    return { answered: qs.filter((q) => answers[q.id] !== undefined).length, applicable: qs.length }
+  }
   const [open, setOpen] = useState<string | null>(null)
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
 
@@ -95,8 +116,12 @@ export default function Frameworks() {
           import('../../report/spine'),
           import('../../report/naming'),
         ])
-      const meta = metaFor(MULTI_FRAMEWORK_ARTEFACT_ID)
-      saveReport(buildMultiFrameworkScorecardPdf({ meta, answers }), reportFilename(meta, 'pdf'), meta)
+      const meta = {
+        ...metaFor(MULTI_FRAMEWORK_ARTEFACT_ID),
+        assessmentTier: tier,
+        assessmentCoverage: coverage(),
+      }
+      saveReport(buildMultiFrameworkScorecardPdf({ meta, answers, tier }), reportFilename(meta, 'pdf'), meta)
       return null
     })
 
@@ -108,9 +133,13 @@ export default function Frameworks() {
           import('../../report/spine'),
           import('../../report/naming'),
         ])
-      const meta = metaFor(FRAMEWORK_ALIGNMENT_ARTEFACT_ID)
+      const meta = {
+        ...metaFor(FRAMEWORK_ALIGNMENT_ARTEFACT_ID),
+        assessmentTier: tier,
+        assessmentCoverage: coverage(),
+      }
       const name = reportFilename(meta, 'pdf').replace(/\.pdf$/, `_${code.toLowerCase()}.pdf`)
-      saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId }), name, meta)
+      saveReport(buildFrameworkAlignmentPdf({ meta, answers, frameworkId, tier }), name, meta)
       return null
     })
 
@@ -120,7 +149,7 @@ export default function Frameworks() {
     <div className="space-y-6">
       <PageHeader
         title="Framework Crosswalk"
-        subtitle="One assessment, projected onto four published frameworks. Every figure is derived from the same diagnostic answers through the same eleven capability pillars."
+        subtitle={`One assessment, projected onto four published frameworks. Every figure is derived from the same diagnostic answers through the same eleven capability pillars — measured at the ${TIER_META[tier].label} tier, which the generated documents state beside their scores.`}
         actions={
           <button
             onClick={generateScorecard}

@@ -31,6 +31,9 @@
  */
 import type jsPDF from 'jspdf'
 import { contentKey, createReport, SLATE } from '../../report/spine'
+import { applicableQuestions } from '../scoring'
+import { DEFAULT_TIER, TIER_META, type AssessmentTier } from '../tier'
+import diagnostic from '../data/diagnostic.json'
 import type { ReportMeta } from '../../report/types'
 import { inducedPillarWeights, projectAll, type FrameworkProjection } from '../projection'
 import { findingCodes, findingNames, leafCount, worstFindings, type Finding } from './findings'
@@ -45,9 +48,10 @@ import {
   FRAMEWORKS,
 } from './frameworkNotes'
 import pillarsData from '../data/pillars.json'
-import type { Pillar } from '../types'
+import type { DiagnosticData, Pillar } from '../types'
 
 const PILLARS = [...(pillarsData as Pillar[])].sort((a, b) => (a.id < b.id ? -1 : 1))
+const DIAG = diagnostic as DiagnosticData
 
 /**
  * artefactRegister: "Multi-framework maturity scorecard", rung 1, owned by the
@@ -58,6 +62,13 @@ export const MULTI_FRAMEWORK_ARTEFACT_ID = 'AR-48'
 export interface MultiFrameworkInput {
   meta: ReportMeta
   answers: Record<string, number>
+  /**
+   * G2: the assessment tier. The answer map is restricted to the tier's
+   * question set BEFORE projection — the projection math is deliberately
+   * untouched; it simply receives fewer answers, exactly as if the out-of-tier
+   * questions had never been asked. Defaults to deep, the identity.
+   */
+  tier?: AssessmentTier
 }
 
 const pct = (x: number): string => `${Math.round(x * 100)}%`
@@ -96,7 +107,12 @@ function overallLabel(p: FrameworkProjection): string {
 const worstThree = (p: FrameworkProjection): Finding[] => worstFindings(p, 3)
 
 export function buildMultiFrameworkScorecardPdf(input: MultiFrameworkInput): jsPDF {
-  const { meta, answers } = input
+  const { meta } = input
+  const tier = input.tier ?? DEFAULT_TIER
+  const tierQuestions = applicableQuestions(DIAG.questions, meta.layer, tier)
+  const answers: Record<string, number> = {}
+  for (const q of tierQuestions) if (input.answers[q.id] !== undefined) answers[q.id] = input.answers[q.id]
+  const answeredCount = Object.keys(answers).length
   const projections = projectAll(answers, meta.layer)
   const scored = projections.filter((p) => p.state === 'scored')
   const overalls = scored.map((p) => p.overall as number)
@@ -104,14 +120,18 @@ export function buildMultiFrameworkScorecardPdf(input: MultiFrameworkInput): jsP
 
   const r = createReport(
     meta,
-    contentKey(
-      projections.flatMap((p) => [
+    contentKey([
+      // G2: a Quick-tier scorecard and a Deep-tier scorecard must never share
+      // a fingerprint, even when their projections happen to coincide.
+      `tier:${tier}`,
+      `coverage:${answeredCount}/${tierQuestions.length}`,
+      ...projections.flatMap((p) => [
         `fw:${p.code}=${p.state}:${p.overall === null ? 'null' : p.overall.toFixed(6)}`,
         ...p.dimensions
           .filter((d) => d.isLeaf)
           .map((d) => `dim:${d.dimensionId}=${d.state}:${d.score === null ? 'null' : d.score.toFixed(6)}`),
       ]),
-    ),
+    ]),
   )
 
   r.cover('Multi-Framework Scorecard', `${projections.length} published frameworks, one assessment`)
@@ -142,6 +162,9 @@ export function buildMultiFrameworkScorecardPdf(input: MultiFrameworkInput): jsP
   })
   r.keyValueBlock([
     ['Spread across frameworks', scored.length ? show2(spread) : 'not comparable — fewer than two frameworks scored'],
+    // G2: the tier line sits beside the scores it qualifies, not in a footnote.
+    ['Assessment tier', TIER_META[tier].label],
+    ['Coverage at this tier', `${answeredCount} of ${tierQuestions.length} applicable questions answered`],
     ['Layer scope', meta.layer === 'all' ? 'Core chassis + banking overlay' : `${meta.layer} layer only`],
   ])
   r.paragraph(

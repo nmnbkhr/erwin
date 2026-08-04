@@ -76,6 +76,18 @@ export interface ReportMeta {
    */
   mode?: 'engagement' | 'reference'
   /**
+   * G2: the assessment tier a score-carrying artefact was measured at, and its
+   * coverage (answered / applicable AT THAT TIER). A Quick-tier score is
+   * directional, and the principle is no manufactured precision: any document
+   * that prints a maturity figure must say what tier produced it and how much
+   * of that tier was answered — near the score, not in a footnote. Both feed
+   * the provenance record, and the generators fold both into the /ID digest,
+   * so a Quick PDF and a Deep PDF can never share a fingerprint. Absent on
+   * artefacts that carry no assessment score.
+   */
+  assessmentTier?: 'quick' | 'standard' | 'deep'
+  assessmentCoverage?: { answered: number; applicable: number }
+  /**
    * Full-page diagonal watermark text, drawn on every page like the DRAFT
    * mark. `isDraft` keeps its existing behaviour untouched; this field exists
    * so reference-mode output can say ILLUSTRATIVE on every page (G1's

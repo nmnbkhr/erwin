@@ -449,6 +449,77 @@ const MUTATIONS = [
     ),
   },
 
+  /*
+   * ── G2: tiers, answer shapes, targets — one row per branch ──────────────
+   *
+   * TIER-NESTING's three rows isolate its three data branches; the
+   * computational nesting branch runs on every one of them (the compiled
+   * scoring function is called either way) and needs no mutation of its own —
+   * breaking applicableQuestions would trip the control, not a row.
+   * TIER-DIGEST's row proves the tier actually reaches the /ID digest, which
+   * is the difference between printing a tier and being unable to pass one
+   * document off as the other. ANSWER-SHAPE's two rows break the two promises
+   * separately: the validator's range, and the migration's losslessness.
+   */
+  {
+    code: 'TIER-NESTING',
+    what: 'a question with no tier field — it falls out of every tier comparison and silently stops being asked',
+    touches: [`${DGIW}/diagnostic.json`],
+    apply: () => json(`${DGIW}/diagnostic.json`, (d) => { delete d.questions[0].tier }),
+  },
+  {
+    code: 'TIER-NESTING',
+    what: 'a pillar with no quick-tier core question — invisible to a Quick pass forever',
+    touches: [`${DGIW}/diagnostic.json`],
+    apply: () => json(`${DGIW}/diagnostic.json`, (d) => {
+      const q = d.questions.find((x) => x.pillarId === 'P01' && x.tier === 'quick' && x.layer === 'core')
+      if (!q) throw new Error('P01 has no quick core question — update this mutation')
+      q.tier = 'standard'
+    }),
+  },
+  {
+    code: 'TIER-NESTING',
+    what: 'every banking question pushed to deep — the tier axis collapsing into the layer axis',
+    touches: [`${DGIW}/diagnostic.json`],
+    apply: () => json(`${DGIW}/diagnostic.json`, (d) => {
+      for (const q of d.questions) if (q.layer === 'banking') q.tier = 'deep'
+    }),
+  },
+  {
+    code: 'TIER-DIGEST',
+    what: 'the diagnostic report stops folding the tier into its /ID digest — a Quick PDF could impersonate a Deep one',
+    touches: ['src/dgiw/report/diagnosticReport.ts'],
+    apply: () => sub('src/dgiw/report/diagnosticReport.ts', '      `tier:${tier}`,\n', ''),
+  },
+  {
+    code: 'ANSWER-SHAPE',
+    what: 'the stored-answer validator loosened to accept 0..9 — an out-of-range score would reach the weighted mean',
+    touches: ['src/dgiw/answerShape.ts'],
+    apply: () => sub('src/dgiw/answerShape.ts', 'Number.isInteger(v) && v >= 1 && v <= 5', 'Number.isInteger(v) && v >= 0 && v <= 9'),
+  },
+  {
+    code: 'ANSWER-SHAPE',
+    what: 'the legacy upgrade stops being lossless — an invented empty evidence field on every migrated answer',
+    touches: ['src/dgiw/answerShape.ts'],
+    apply: () => sub(
+      'src/dgiw/answerShape.ts',
+      "out[id] = typeof v === 'number' ? { score: v } : v",
+      "out[id] = typeof v === 'number' ? { score: v, evidence: '' } : v",
+    ),
+  },
+  {
+    code: 'TARGET-RANGE',
+    what: 'a fixture target of 9 — outside the 1..5 scale the gap function derives from',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { f.targets.P01 = 9 }),
+  },
+  {
+    code: 'TARGET-RANGE',
+    what: 'a fixture target on a pillar pillars.json does not contain',
+    touches: ['scripts/golden/fixtures/dgiw.json'],
+    apply: () => json('scripts/golden/fixtures/dgiw.json', (f) => { f.targets.P99 = 3 }),
+  },
+
   // ── the four suite classes ──────────────────────────────────────────────
   {
     code: 'REPORT-SOURCES',

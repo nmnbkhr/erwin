@@ -21,7 +21,8 @@
         "3": "A sponsor with budget authority is formally appointed and the appointment is documented.",
         "4": "The sponsor actively reallocates budget for data work and holds owners accountable in performance reviews.",
         "5": "Data accountability is embedded in executive objectives across the leadership team, not just the sponsor's."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P01-02",
@@ -35,7 +36,8 @@
         "3": "Data Owners are named per domain at department-head level and the accountability is documented.",
         "4": "Owners actively approve definitions, thresholds and access, and are measured on their domain's quality.",
         "5": "Ownership is a standing element of the role, transfers cleanly on personnel change, and is audited."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P01-03",
@@ -49,7 +51,8 @@
         "3": "A council is constituted with documented terms of reference, membership and quorum.",
         "4": "The council meets on cadence, records decisions, enforces quorum and tracks actions to closure.",
         "5": "The council is embedded in the corporate committee hierarchy and its decisions are treated as binding across the organisation."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P01-04",
@@ -63,7 +66,8 @@
         "3": "A defined reporting line into an established bank committee exists and is documented.",
         "4": "Data matters appear as standing agenda items with recorded decisions at a risk or board committee.",
         "5": "Data risk is a recognised risk category with defined appetite, reported to the board like any other risk."
-      }
+      },
+      "tier": "deep"
     },
     {
       "id": "DG-P01-05",
@@ -77,9 +81,9 @@
         "3": "Findings are tracked with owners and remediation plans that address root cause.",
         "4": "Structural remediation is evidenced and no repeat findings have arisen in the most recent cycle.",
         "5": "The bank self-identifies governance gaps ahead of examination and presents remediation proactively."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P02-01",
       "pillarId": "P02",
@@ -92,7 +96,8 @@
         "3": "The strategy is approved and maps initiatives to named business outcomes.",
         "4": "The strategy drives budget allocation and its progress is reviewed against outcome measures.",
         "5": "Data strategy is a component of corporate strategy, refreshed on the same cycle and tracked with the same rigour."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P02-02",
@@ -106,7 +111,8 @@
         "3": "A cost-of-poor-data model exists covering the main categories with a documented method.",
         "4": "The cost is baselined, attributed to owning domains, and tracked over time.",
         "5": "Cost movement is attributed to specific governance interventions and used to prioritise investment."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P02-03",
@@ -120,7 +126,8 @@
         "3": "Baselines are captured before work begins for the primary claimed benefits.",
         "4": "Baselines are measured on a defined cadence and variance is explained.",
         "5": "Benefit tracking is automated from operational systems and reported alongside financial results."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P02-04",
@@ -134,7 +141,8 @@
         "3": "Resubmissions, corrections and manual adjustments are logged per submission cycle.",
         "4": "Rework is trended, root-caused to specific data defects and attributed to owning domains.",
         "5": "Rework is near-zero by design, with pre-submission validation catching defects at source."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P02-05",
@@ -148,9 +156,9 @@
         "3": "A documented readiness assessment exists per candidate use case.",
         "4": "Readiness gaps are costed, owned and sequenced into the data roadmap.",
         "5": "A data-readiness gate is embedded in the AI intake process; use cases cannot proceed without passing it."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P03-01",
       "pillarId": "P03",
@@ -163,7 +171,8 @@
         "3": "Systems of record are designated and documented for the major subject areas.",
         "4": "Designation is enforced at the architecture-approval gate and deviations require exception approval.",
         "5": "Consumption is automatically traceable to designated sources and unauthorised sourcing is detected."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P03-02",
@@ -177,7 +186,8 @@
         "3": "A canonical logical model covers the governed domains and is published.",
         "4": "New development is assessed against the canonical model at design review.",
         "5": "The model is maintained as a living asset with change control, and physical implementations are traceable to it."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P03-03",
@@ -191,7 +201,8 @@
         "3": "An inventory of pipelines and copies exists and is periodically refreshed.",
         "4": "Duplication is measured, attributed to cost, and a retirement backlog is actively worked.",
         "5": "New pipeline creation requires justification against the existing inventory; duplication trends down."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P03-04",
@@ -205,7 +216,8 @@
         "3": "Core subject areas are mapped to a banking reference model and the mapping is documented.",
         "4": "The mapping is maintained through change and used in impact analysis for new products.",
         "5": "The reference model drives design; product extensions are registered as governed gap extensions."
-      }
+      },
+      "tier": "deep"
     },
     {
       "id": "DG-P03-05",
@@ -219,9 +231,9 @@
         "3": "Documented aggregation processes exist with defined completeness checks.",
         "4": "Aggregation is automated, completeness is evidenced, and timeframes are met consistently.",
         "5": "On-demand aggregation is available, including under stress conditions, with automated completeness assurance."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P04-01",
       "pillarId": "P04",
@@ -234,7 +246,8 @@
         "3": "An enterprise glossary exists with approved definitions for key terms and a defined approval route.",
         "4": "Definitions are maintained under change control, disputes are arbitrated by the council, and coverage is measured.",
         "5": "Glossary terms are bound to physical assets and surfaced in reporting and analytics tools at the point of use."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P04-02",
@@ -248,7 +261,8 @@
         "3": "Automated harvesting is configured for the main source systems on a defined schedule.",
         "4": "Coverage and freshness are measured, and harvest failures are alerted and resolved.",
         "5": "Harvesting spans the estate including pipelines and reporting layers, with near-real-time freshness."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P04-03",
@@ -262,7 +276,8 @@
         "3": "Governed terms are bound to their physical assets in the catalogue.",
         "4": "Binding coverage is measured against the CDE register and gaps are worked.",
         "5": "Binding is validated automatically and breaks when schemas change, triggering steward review."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P04-04",
@@ -276,7 +291,8 @@
         "3": "Regulatory definitions are recorded as authoritative and management variants are documented separately.",
         "4": "Reconciliation between regulatory and management figures is documented and explained systematically.",
         "5": "Both variants are derived from the same governed source with the difference computed and explained automatically."
-      }
+      },
+      "tier": "deep"
     },
     {
       "id": "DG-P04-05",
@@ -290,9 +306,9 @@
         "3": "A governed product hierarchy is approved with a defined change process.",
         "4": "All consuming systems derive from the governed hierarchy and drift is detected.",
         "5": "New product introduction requires governed hierarchy registration before it can be launched."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P05-01",
       "pillarId": "P05",
@@ -305,7 +321,8 @@
         "3": "A rule set is defined against critical elements and executes on a defined schedule.",
         "4": "Rules cover all governed CDEs, have owners and thresholds, and failures raise issues automatically.",
         "5": "Rules are version-controlled, tested, and enforced in pipelines so defective data is blocked rather than reported."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P05-02",
@@ -319,7 +336,8 @@
         "3": "A scorecard is published on cadence covering the governed elements.",
         "4": "The scorecard has a named owner per failing measure, is reviewed at council, and trends are tracked.",
         "5": "The scorecard drives accountability — persistent failures affect owner objectives and funding decisions."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P05-03",
@@ -333,7 +351,8 @@
         "3": "A defined workflow exists with severity classification, ownership and target resolution times.",
         "4": "SLA adherence is measured, root cause is recorded, and recurring causes are escalated.",
         "5": "Root-cause remediation is funded and tracked, and recurrence rates measurably decline."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P05-04",
@@ -347,7 +366,8 @@
         "3": "Automated reconciliation covers the main flows with documented tolerances and break handling.",
         "4": "Breaks are trended, aged, root-caused and attributed to owning domains.",
         "5": "Reconciliation runs continuously rather than at period end, and break volumes trend structurally down."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P05-05",
@@ -361,9 +381,9 @@
         "3": "Defined input quality checks exist and run before model execution.",
         "4": "Input quality is reported alongside model output and failures block model runs.",
         "5": "Output variance can be attributed between genuine credit movement and input data quality change."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P06-01",
       "pillarId": "P06",
@@ -376,7 +396,8 @@
         "3": "A golden record is defined with documented survivorship rules and published.",
         "4": "Consuming systems subscribe to the golden record and local variants are being retired.",
         "5": "The golden record is authoritative estate-wide, with match confidence measured and exceptions stewarded."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P06-02",
@@ -390,7 +411,8 @@
         "3": "Duplicate rate is measured on a defined method and reported.",
         "4": "A stewardship queue processes match exceptions continuously and the rate trends down.",
         "5": "Prevention controls at the point of creation keep new duplication near zero."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P06-03",
@@ -404,7 +426,8 @@
         "3": "A register exists with owners and a defined change process.",
         "4": "Changes follow the process, are versioned, and downstream impact is assessed before release.",
         "5": "Code sets are distributed from a single governed service and drift is impossible by design."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P06-04",
@@ -418,7 +441,8 @@
         "3": "A single customer view is defined and maintained across the main systems.",
         "4": "Group and related-party linkages are maintained and used in limit monitoring.",
         "5": "Aggregation is on demand with evidenced completeness, including indirect and connected exposures."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P06-05",
@@ -432,9 +456,9 @@
         "3": "Validation is applied at capture across channels and format rules are documented.",
         "4": "Historical records are remediated and identifier quality is measured on the scorecard.",
         "5": "Identifiers are verified against an authoritative external source and used as the primary matching key."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P07-01",
       "pillarId": "P07",
@@ -447,7 +471,8 @@
         "3": "Lineage is captured in structured form for the governed elements.",
         "4": "Lineage is maintained automatically from pipeline execution and coverage is measured.",
         "5": "Lineage is complete end to end including reporting and analytics layers, and is used routinely in impact analysis."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P07-02",
@@ -461,7 +486,8 @@
         "3": "Lineage-based impact analysis is documented as a required step in the change process.",
         "4": "Impact analysis is evidenced in change records and consumers are notified before release.",
         "5": "Impact analysis is automated in the deployment pipeline and blocks changes with unresolved downstream breaks."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P07-03",
@@ -475,7 +501,8 @@
         "3": "An inventory of manual interventions in critical flows exists.",
         "4": "Interventions are risk-rated, controlled, and a reduction backlog is actively worked.",
         "5": "Critical flows are free of uncontrolled manual intervention; any remaining steps are controlled and evidenced."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P07-04",
@@ -489,7 +516,8 @@
         "3": "Line-item to source-field mapping is documented for the priority returns.",
         "4": "An evidence pack is maintained current and has been used successfully in an examination.",
         "5": "Evidence is generated on demand from live lineage rather than maintained as a separate document."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P07-05",
@@ -503,9 +531,9 @@
         "3": "Field-level lineage is documented for monitoring and screening inputs.",
         "4": "Feed completeness is monitored with alerting on gaps, and lineage is maintained through change.",
         "5": "Completeness and lineage evidence is produced automatically for each reporting period."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P08-01",
       "pillarId": "P08",
@@ -518,7 +546,8 @@
         "3": "Governed elements are classified and the classification is recorded in the catalogue.",
         "4": "Classification coverage is measured, reviewed periodically, and drives access and masking controls.",
         "5": "Classification is applied automatically at ingestion with steward validation of exceptions."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P08-02",
@@ -532,7 +561,8 @@
         "3": "The Data Owner approves access and a recertification cycle is defined.",
         "4": "Recertification is executed on cycle with exceptions revoked and evidenced.",
         "5": "Entitlements are role-derived and drift is detected automatically between recertification cycles."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P08-03",
@@ -546,7 +576,8 @@
         "3": "A masking standard exists and is applied to sensitive elements in non-production.",
         "4": "Masking is enforced in the environment provisioning process and coverage is verified.",
         "5": "Non-production environments never receive unmasked sensitive data by construction, with automated verification."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P08-04",
@@ -560,7 +591,8 @@
         "3": "Classification and sharing rules are documented at element level for governed data.",
         "4": "A defined intake assesses each use case against classification, with recorded decisions.",
         "5": "Controls are technically enforced so non-permitted elements cannot reach an external processor."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P08-05",
@@ -574,9 +606,9 @@
         "3": "Constraints are mapped to specific data elements and systems.",
         "4": "Technical controls enforce residency and sharing constraints, with exceptions registered.",
         "5": "Constraint compliance is continuously monitored and evidenced for regulators and auditors."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P09-01",
       "pillarId": "P09",
@@ -589,7 +621,8 @@
         "3": "A schedule exists per category with legal basis recorded and legal sign-off obtained.",
         "4": "The schedule is applied operationally with archival and disposal actually executed.",
         "5": "Retention is enforced automatically with evidence of disposal retained for audit."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P09-02",
@@ -603,7 +636,8 @@
         "3": "A copy inventory exists with purpose and owner recorded.",
         "4": "Redundant copies are identified, attributed to cost, and retired on a worked backlog.",
         "5": "Copy creation requires registration and justification; the count trends down over time."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P09-03",
@@ -617,7 +651,8 @@
         "3": "Cost is attributed to owning domains on a documented basis.",
         "4": "Attributed cost is reported to owners and influences retention decisions.",
         "5": "Owners actively manage their data footprint against a cost budget."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P09-04",
@@ -631,7 +666,8 @@
         "3": "Obligations are mapped across the systems holding the relevant records.",
         "4": "System configuration is verified against obligations and deviations are remediated.",
         "5": "Compliance is monitored continuously with legal-hold handling integrated."
-      }
+      },
+      "tier": "deep"
     },
     {
       "id": "DG-P09-05",
@@ -645,9 +681,9 @@
         "3": "A disposition plan exists covering retention, access and eventual disposal.",
         "4": "The plan is executed with evidence, and legacy access is controlled and time-limited.",
         "5": "Legacy disposition is a standard, repeatable component of every migration programme."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P10-01",
       "pillarId": "P10",
@@ -660,7 +696,8 @@
         "3": "The catalogue is deployed, integrated with the main systems, and coverage is measured.",
         "4": "Adoption is measured by active users outside the governance team and is growing.",
         "5": "The catalogue is the default starting point for analysts and engineers seeking data."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P10-02",
@@ -674,7 +711,8 @@
         "3": "Defined policies have named enforcement points implemented in pipelines or gates.",
         "4": "Enforcement is standard for new pipelines and failures block promotion to production.",
         "5": "Policy-as-code is version-controlled, tested and applied estate-wide with exception registration."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P10-03",
@@ -688,7 +726,8 @@
         "3": "Scheduled harvesting is configured with monitoring in place.",
         "4": "Failures alert to a named owner and freshness is reported as a metric.",
         "5": "Harvesting is self-healing with freshness maintained within a defined tolerance."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P10-04",
@@ -702,7 +741,8 @@
         "3": "A documented extraction approach exists and has been proven for the core.",
         "4": "Core metadata is harvested on schedule into the catalogue.",
         "5": "Core lineage is captured to field level and maintained automatically through vendor releases."
-      }
+      },
+      "tier": "deep"
     },
     {
       "id": "DG-P10-05",
@@ -716,9 +756,9 @@
         "3": "Governance steps are defined within the standard change process.",
         "4": "Change records reference catalogue and lineage impact analysis as a required input.",
         "5": "Change approval is automatically gated on governance checks passing."
-      }
+      },
+      "tier": "deep"
     },
-
     {
       "id": "DG-P11-01",
       "pillarId": "P11",
@@ -731,7 +771,8 @@
         "3": "A certification standard exists and a register of certified assets is published.",
         "4": "Certified assets carry owners and quality measures, and uncertified proliferation is being reduced.",
         "5": "Certification status is surfaced in consumption tools at the point of use."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P11-02",
@@ -745,7 +786,8 @@
         "3": "A documented readiness assessment is required at intake.",
         "4": "The gate is enforced — use cases failing it do not proceed until gaps are closed.",
         "5": "Readiness is assessed automatically from catalogue, classification and quality metadata."
-      }
+      },
+      "tier": "quick"
     },
     {
       "id": "DG-P11-03",
@@ -759,7 +801,8 @@
         "3": "Inputs are traced to governed elements and recorded in model documentation.",
         "4": "Input quality metrics are reported alongside model performance.",
         "5": "Model drift is attributable to input data change, and input changes notify model owners automatically."
-      }
+      },
+      "tier": "standard"
     },
     {
       "id": "DG-P11-04",
@@ -773,7 +816,8 @@
         "3": "A classification and approval process governs what may be ingested.",
         "4": "Access controls on the source are preserved through to the AI consumption layer.",
         "5": "Ingestion is automatically gated on classification, with entitlement enforced at query time."
-      }
+      },
+      "tier": "deep"
     },
     {
       "id": "DG-P11-05",
@@ -787,7 +831,8 @@
         "3": "Lineage evidence is a documented requirement of model validation.",
         "4": "Validation is blocked where lineage evidence is absent, and this is enforced in practice.",
         "5": "Lineage evidence is produced automatically from the governance platform for each validation cycle."
-      }
+      },
+      "tier": "deep"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "artefact": "multi-framework-pdf",
-  "bytes": 73803,
+  "bytes": 74289,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "1b0c85434f77d627be3836b78a5f24395f58a0621d707922e3e4a870d6a9e02d",
+    "sha256": "0952373075986e454bc3864e46c977ca946a5e72dcbd6d244151b08cf3874bb5",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-48_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-48_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildMultiFrameworkScorecardPdf",
-  "glyphCount": 7113,
+  "glyphCount": 7196,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "b9733b9f61e4f94583f60bc3a516b2d788746c7ae78407ad51e46ae0f8b3bd02",
+  "normalisedTextSha256": "c4e0f884de0fada9f83f84accc70e34a4ed26a8283450376acfee4d5f5b9eb46",
   "notReproducible": {},
   "pageCount": 6,
   "pages": [
@@ -62,9 +62,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1319,
+      "glyphs": 1402,
       "heightPt": 841.89,
-      "multiColumnBaselines": 9,
+      "multiColumnBaselines": 11,
       "page": 2,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -119,6 +119,10 @@
         "medium",
         "Spread across frameworks",
         "0.07",
+        "Assessment tier",
+        "Deep Dive",
+        "Coverage at this tier",
+        "55 of 55 applicable questions answered",
         "Layer scope",
         "Core chassis + banking overlay",
         "A spread of 0.07 means the four frameworks agree closely about overall maturity, which is what one evidence base should produce. Read the",
@@ -128,7 +132,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 2 of 6"
       ],
-      "textRuns": 52,
+      "textRuns": 56,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -489,9 +493,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "5915238b256feb69fb0b0033a275aeab21371e75cbd0045efd23e260972f0132",
+  "rawBytesSha256": "caf7528e6ad1108adc713c38a42bad5fcb75aedf0f34ae6aa73214a0a34f09fa",
   "tableRowsTotal": 38,
-  "textRunCount": 332,
+  "textRunCount": 336,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

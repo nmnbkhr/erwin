@@ -1,6 +1,6 @@
 {
   "artefact": "diagnostic-pdf-core",
-  "bytes": 57591,
+  "bytes": 58021,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "1b0c85434f77d627be3836b78a5f24395f58a0621d707922e3e4a870d6a9e02d",
+    "sha256": "0952373075986e454bc3864e46c977ca946a5e72dcbd6d244151b08cf3874bb5",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-01_fixture-bank-limited_core_2026-07-31.pdf",
   "filenameNormalised": "AR-01_fixture-bank-limited_core_2026-07-31.pdf",
   "generator": "buildDiagnosticReport",
-  "glyphCount": 5795,
+  "glyphCount": 5935,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "7d2a8a10e3cf7a6e75f4650a287d27de9028ec19ed52a71cd4a4a204e03ed849",
+  "normalisedTextSha256": "d0eb1917625beeaf7ed6ba8a20c6574e4dd5034a78c60132da78e4e30b6e5a02",
   "notReproducible": {},
   "pageCount": 6,
   "pages": [
@@ -62,9 +62,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1445,
+      "glyphs": 1585,
       "heightPt": 841.89,
-      "multiColumnBaselines": 11,
+      "multiColumnBaselines": 12,
       "page": 2,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -82,10 +82,13 @@
         "1.9 / 5.0",
         "Maturity level",
         "Developing",
+        "Assessment tier",
+        "Deep Dive — Every question in the instrument — the complete evidence base for a",
+        "defended maturity claim.",
+        "Coverage at this tier",
+        "33 of 33 applicable questions answered",
         "Scored pillars",
         "11 of 11",
-        "Questions answered",
-        "33 of 33 applicable",
         "Layer scope",
         "core layer only",
         "What the overall score is, and is not",
@@ -113,7 +116,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 2 of 6"
       ],
-      "textRuns": 37,
+      "textRuns": 40,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -424,9 +427,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "13639cf67e76c6c19b3c87a2350978733189b9e63db3430ead9ee74ddef3a59c",
+  "rawBytesSha256": "eb33a0b75bbf573110fd1a117d3174dbc3cf14c91cab8c547d99ae5fb9623d82",
   "tableRowsTotal": 28,
-  "textRunCount": 267,
+  "textRunCount": 270,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

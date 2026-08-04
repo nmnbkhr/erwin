@@ -31,6 +31,7 @@ import {
   stateReason,
   type PillarOutcome,
 } from '../scoring'
+import { DEFAULT_TIER, TIER_META, type AssessmentTier } from '../tier'
 import diagnostic from '../data/diagnostic.json'
 import pillars from '../data/pillars.json'
 import type { DiagnosticData, Pillar } from '../types'
@@ -49,6 +50,18 @@ export interface DiagnosticReportInput {
   meta: ReportMeta
   /** questionId → 1..5. Exactly what the Diagnostic page holds in state. */
   answers: Record<string, number>
+  /**
+   * G2: the tier this assessment was measured at. Filters the question set
+   * through the same `applicableQuestions` the screen uses, so an answer
+   * outside the tier is never counted and a quick answer never vanishes.
+   * Defaults to deep — the identity — so every pre-G2 caller keeps meaning
+   * "the whole assessment".
+   */
+  tier?: AssessmentTier
+  /** questionId → evidence note. Only non-empty notes; the appendix renders these. */
+  evidence?: Record<string, string>
+  /** pillarId → target maturity 1..5. The current-vs-target table renders these. */
+  targets?: Record<string, number>
 }
 
 /** One decimal, or the state word. Never a bare 0 for an unmeasured pillar. */
@@ -72,7 +85,17 @@ function weightedShortfall(p: PillarOutcome): number | null {
 
 export function buildDiagnosticReport(input: DiagnosticReportInput): jsPDF {
   const { meta, answers } = input
-  const questions = applicableQuestions(DIAG.questions, meta.layer)
+  const tier = input.tier ?? DEFAULT_TIER
+  const questions = applicableQuestions(DIAG.questions, meta.layer, tier)
+  // Only evidence and targets the document actually renders: notes on
+  // questions inside the tier+layer set, targets on real pillars. A dangling
+  // key must neither render nor move the /ID.
+  const evidence = Object.entries(input.evidence ?? {})
+    .filter(([id, note]) => questions.some((q) => q.id === id) && note.trim().length > 0)
+    .map(([id, note]) => ({ q: questions.find((x) => x.id === id)!, note }))
+  const targets = Object.entries(input.targets ?? {})
+    .filter(([pid, v]) => PILLARS.some((p) => p.id === pid) && Number.isInteger(v) && v >= 1 && v <= 5)
+  const targetOf = new Map(targets)
   const outcomes = scorePillars(PILLARS, questions, answers)
   const counts = stateCounts(outcomes)
   const overall = overallScore(questions, answers)
@@ -91,9 +114,18 @@ export function buildDiagnosticReport(input: DiagnosticReportInput): jsPDF {
    * claim a revision that a reader cannot see. The converse is the one that
    * matters — changing an answer that IS rendered must change the id.
    */
+  // G2: the tier and its coverage join the digest, with the rendered evidence
+  // and targets — a Quick-tier PDF and a Deep-tier PDF of the same answers are
+  // different documents and must never share an /ID.
   const r = createReport(
     meta,
-    contentKey(questions.filter((q) => answers[q.id] !== undefined).map((q) => `${q.id}=${answers[q.id]}`)),
+    contentKey([
+      `tier:${tier}`,
+      `coverage:${answeredCount}/${questions.length}`,
+      ...questions.filter((q) => answers[q.id] !== undefined).map((q) => `${q.id}=${answers[q.id]}`),
+      ...evidence.map((e) => `evidence:${e.q.id}:${e.note}`),
+      ...targets.map(([pid, v]) => `target:${pid}=${v}`),
+    ]),
   )
 
   /* ── Cover ─────────────────────────────────────────────────────────
@@ -111,10 +143,21 @@ export function buildDiagnosticReport(input: DiagnosticReportInput): jsPDF {
   r.keyValueBlock([
     ['Overall maturity', overall === null ? 'Not assessed' : `${show1(overall)} / 5.0`],
     ['Maturity level', overall === null ? '—' : LEVEL_LABEL[Math.round(overall)]],
+    // G2: the tier and its coverage sit HERE, beside the score they qualify —
+    // a visible line, not a footnote. A Quick figure is directional and the
+    // document says so before the reader can quote it as a full assessment.
+    ['Assessment tier', `${TIER_META[tier].label} — ${TIER_META[tier].hint}`],
+    ['Coverage at this tier', `${answeredCount} of ${questions.length} applicable questions answered`],
     ['Scored pillars', `${counts.scored} of ${PILLARS.length}`],
-    ['Questions answered', `${answeredCount} of ${questions.length} applicable`],
     ['Layer scope', meta.layer === 'all' ? 'Core chassis + banking overlay' : `${meta.layer} layer only`],
   ])
+  if (tier !== 'deep')
+    r.paragraph(
+      `This assessment was measured at the ${TIER_META[tier].label} tier — a deliberate subset of ` +
+        `the instrument. Scores are directional at this depth; a defended maturity claim needs the ` +
+        `Deep Dive tier's full question set.`,
+      { color: SLATE, size: 8 },
+    )
 
   r.sectionHeading('What the overall score is, and is not')
   r.paragraph(
@@ -280,6 +323,56 @@ export function buildDiagnosticReport(input: DiagnosticReportInput): jsPDF {
           `overstates what was measured.`,
         { color: SLATE, size: 8 },
       )
+    }
+  }
+
+  /* ── Current vs target (G2) — only when targets exist, never a stub ──
+     Captured and displayed as-is; the interpreting gap register is G3's. */
+  if (targets.length > 0) {
+    // ASCII '-' in "target - current" on purpose — U+2212 is not WinAnsi and
+    // ships as mojibake (D-019; the capture guard caught this exact line).
+    r.page('Current vs target', 'Target maturity per pillar as set on the diagnostic. Delta is target - current, unjudged.')
+    r.table({
+      head: ['ID', 'Pillar', 'Current', 'Target', 'Delta'],
+      rows: outcomes
+        .filter((p) => targetOf.has(p.pillarId))
+        .map((p) => {
+          const t = targetOf.get(p.pillarId) as number
+          const delta = p.state === 'scored' ? t - (p.score as number) : null
+          return [
+            p.pillarId,
+            p.name,
+            scoreLabel(p),
+            `${t} — ${LEVEL_LABEL[t]}`,
+            delta === null ? '—' : `${delta >= 0 ? '+' : ''}${show1(delta)}`,
+          ]
+        }),
+      columnStyles: { 0: { cellWidth: 12 }, 2: { halign: 'center' }, 4: { halign: 'center', cellWidth: 18 } },
+    })
+    r.paragraph(
+      `A target on an unassessed pillar is listed with no delta — the ambition is recorded, the ` +
+        `distance to it is not yet measured. Nothing here ranks or colour-codes the deltas; that ` +
+        `interpretation is the gap register's, which this document deliberately precedes.`,
+      { color: SLATE, size: 8 },
+    )
+  }
+
+  /* ── Evidence appendix (G2) — only questions that HAVE evidence ──
+     Omitted entirely when none: an empty appendix page would be a placeholder,
+     and a placeholder under a client's name is the D-001 shape. */
+  if (evidence.length > 0) {
+    r.page(
+      'Evidence appendix',
+      `${evidence.length} of ${answeredCount} answered questions carry an evidence note. The rest are scored assertions awaiting evidence.`,
+    )
+    for (const { q, note } of evidence) {
+      r.pageBreakIfNeeded(26)
+      r.sectionHeading(`${q.id} · ${q.pillarId}`)
+      r.text(q.text, { size: 8, color: SLATE, gapAfter: 1 })
+      r.keyValueBlock([
+        ['Answer', answers[q.id] !== undefined ? `${answers[q.id]} — ${LEVEL_LABEL[answers[q.id]]}` : 'Not answered'],
+        ['Evidence', note],
+      ])
     }
   }
 

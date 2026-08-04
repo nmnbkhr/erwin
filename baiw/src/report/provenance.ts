@@ -143,6 +143,15 @@ export interface ProvenanceRecord {
    * the PDF.
    */
   mode: 'engagement' | 'reference' | null
+  /**
+   * G2: the tier a score-carrying artefact was measured at and its coverage at
+   * that tier, copied verbatim from ReportMeta. Both null on artefacts with no
+   * assessment score — the record says "no tier applies" rather than implying
+   * a full assessment. The audit question they answer: was the March scorecard
+   * a Deep Dive or a Quick pass, without opening the PDF.
+   */
+  assessmentTier: 'quick' | 'standard' | 'deep' | null
+  assessmentCoverage: { answered: number; applicable: number } | null
   /** jsPDF's own /ID, from doc.getFileId(). Always null for 'csv' and 'md'. */
   fileId: string | null
   /** This module's dataset fingerprint as of THIS BUILD. null if unavailable — see moduleFingerprint(). */
@@ -239,6 +248,8 @@ export function recordProvenance(kind: ProvenanceKind, meta: ReportMeta, filenam
       generatedAt: meta.generatedAt,
       filename,
       mode: meta.mode ?? null,
+      assessmentTier: meta.assessmentTier ?? null,
+      assessmentCoverage: meta.assessmentCoverage ?? null,
       fileId,
       datasetFingerprint: moduleFingerprint(module),
     }

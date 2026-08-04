@@ -23,6 +23,7 @@
  * missing one.
  */
 import { layerShows } from './layer'
+import { DEFAULT_TIER, tierShows, type AssessmentTier } from './tier'
 import type { DiagnosticQuestion, Layer, LayerFilter, Pillar } from './types'
 
 /** British spelling, matching the rest of DGIW. One vocabulary, not two. */
@@ -55,12 +56,22 @@ export interface PillarOutcome {
   confidence: number
 }
 
-/** Questions in scope for a layer filter. */
+/**
+ * Questions in scope for a layer filter AND an assessment tier.
+ *
+ * G2: this is the ONE place the two orthogonal axes compose — components and
+ * generators pass the active tier and never filter for themselves, so an
+ * answer outside the active tier is never counted and a quick answer is never
+ * hidden at a higher tier (TIER-NESTING asserts both through this function).
+ * The tier default is `deep`, the identity: every pre-tier caller keeps
+ * receiving exactly the set it always did.
+ */
 export function applicableQuestions(
   questions: DiagnosticQuestion[],
   filter: LayerFilter,
+  tier: AssessmentTier = DEFAULT_TIER,
 ): DiagnosticQuestion[] {
-  return questions.filter((q) => layerShows(filter, q.layer as Layer))
+  return questions.filter((q) => layerShows(filter, q.layer as Layer) && tierShows(tier, q.tier))
 }
 
 /**

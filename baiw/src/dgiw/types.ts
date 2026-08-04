@@ -36,6 +36,12 @@ export interface DiagnosticQuestion {
   text: string
   /** 1 = contextual, 2 = important, 3 = decisive. Drives the weighted score. */
   weight: 1 | 2 | 3
+  /**
+   * The MINIMUM assessment tier this question appears at — quick ⊂ standard ⊂
+   * deep by construction (G2). Orthogonal to `layer`; TIER-NESTING enforces
+   * both the vocabulary and the nesting through the real composition function.
+   */
+  tier: 'quick' | 'standard' | 'deep'
   levelDescriptions: Record<string, string>
 }
 

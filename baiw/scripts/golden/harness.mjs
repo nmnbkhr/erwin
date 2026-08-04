@@ -669,6 +669,25 @@ export const REGISTRY = {
         assertRawBytes: true, layer: 'banking',
         call: (m, f, c) => c.saveReport(m.buildDiagnosticReport({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
+      /*
+       * G2 — the same report at the QUICK tier, with the fixture's evidence
+       * notes and targets. The three entries above omit `tier` and default to
+       * deep (the identity), so they are the tier-line-only side of the pair;
+       * this one exercises the tier filter, the evidence appendix and the
+       * current-vs-target table, which otherwise no baseline would describe.
+       * Filename suffixed on AR-47's precedent so raw artefacts stay distinct.
+       */
+      {
+        id: 'diagnostic-pdf-quick', entry: DGIW_REPORT('diagnosticReport'), kind: 'pdf',
+        exportName: 'buildDiagnosticReport', artefactIdExport: 'DIAGNOSTIC_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) =>
+          c.saveReport(
+            m.buildDiagnosticReport({ meta: c.meta, answers: f.answers, tier: f.tier, evidence: f.evidence, targets: f.targets }),
+            c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, '_quick.pdf'),
+            c.meta,
+          ),
+      },
       {
         id: 'cde-register-pdf', entry: DGIW_REPORT('cdeRegister'), kind: 'pdf',
         exportName: 'buildCdeRegisterPdf', artefactIdExport: 'CDE_REGISTER_ARTEFACT_ID',

@@ -23,7 +23,10 @@
     "entries that omit it render reference mode under the ILLUSTRATIVE watermark.",
     "The third RACI row is deliberately unassigned and must never print.",
     "INTAKE-SCOPE (check/modules/dgiw.mjs) validates intake.scope.pillarIds here",
-    "against pillars.json - the same fixture the harness drives."
+    "against pillars.json - the same fixture the harness drives.",
+    "targets: G2 per-pillar target maturity fixture. TARGET-RANGE validates the",
+    "keys against pillars.json and the values as integers 1..5. evidence + tier",
+    "drive the AR-01 quick-tier golden entry; the deep entries carry none."
   ],
   "answers": {
     "DG-P01-01": 1,
@@ -194,5 +197,14 @@
       "completedAt": null,
       "version": 1
     }
-  }
+  },
+  "targets": {
+    "P01": 4,
+    "P02": 3
+  },
+  "evidence": {
+    "DG-P01-01": "Charter sighted; signed by the CFO 2025-11. Budget line confirmed in the 2026 plan.",
+    "DG-P02-01": "Strategy document exists but is undated and names no owner; treated as draft."
+  },
+  "tier": "quick"
 }
