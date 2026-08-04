@@ -8,7 +8,8 @@
  * the reason was the same: the closing check was REMEMBERED rather than
  * STRUCTURAL. `npm run build` is not it. It runs `check.mjs`, `tsc -b` and
  * `vite build`, and skips lint, the selftest, the golden comparison, the geometry
- * audit and the dashboard drive. A defect has surfaced in every one of those.
+ * audit, the text-integrity check and the dashboard drive. A defect has surfaced
+ * in every one of those.
  *
  * So this is one command with one exit code, and the rule in CLAUDE.md is that a
  * stage is not complete until it exits 0 and its output is pasted.
@@ -61,14 +62,16 @@
  *
  * THE OBJECTION IS REAL AND SO IS THE ANSWER. A second target invites routing
  * around the first. But the target people already route to is `npm run build`,
- * which skips FIVE steps — lint, selftest, compare, geometry, drive — and a
- * defect has surfaced in every one. `verify:quick` skips one, under a refusal.
+ * which skips SIX steps — lint, selftest, compare, geometry, text-integrity,
+ * drive — and a defect has surfaced in every one. `verify:quick` skips one,
+ * under a refusal.
  * The choice is not quick-versus-full; it is quick-versus-build, and quick
  * strictly dominates for about seven more seconds:
  *
- *     npm run build     3 steps   skips lint, selftest, compare x2, geometry, drive
- *     verify:quick      7 steps   skips selftest, and REFUSES when that matters
- *     npm run verify    8 steps   the stage-closing run — CLAUDE.md hard rule 11
+ *     npm run build     3 steps   skips lint, selftest, compare x2, geometry,
+ *                                 text-integrity, drive — a defect in every one
+ *     verify:quick      8 steps   skips selftest, and REFUSES when that matters
+ *     npm run verify    9 steps   the stage-closing run — CLAUDE.md hard rule 11
  *
  * THE REFUSAL IS THE WHOLE SAFETY PROPERTY, so it is structural rather than
  * remembered — which is the thing this file was written to fix in the first
@@ -306,6 +309,32 @@ const STEPS = [
     argv: [process.execPath, P('scripts', 'golden', 'geometry.mjs'), '--fail-on-overflow'],
     gate: (r) => (r.code === 0 ? null : `exited ${r.code}`),
     summarise: (r) => (/\d+ path\(s\) past the content column[^\n]*/.exec(r.out)?.[0] ?? '').trim(),
+  },
+  {
+    name: 'text-integrity',
+    /*
+     * D-018. Every other step here reads the OUTPUT and compares it to a record
+     * of a previous output. This one compares the output to its own INPUT — the
+     * strings a table cell was handed, recorded in front of the one module that
+     * imports jspdf-autotable — and is therefore the only step that can tell
+     * "the text is not on the page" from "the text is on the page and the
+     * baseline agrees with a reader that could not see it".
+     *
+     * That distinction is not hypothetical: it is the whole of D-018. The
+     * extractor dropped every `T*` continuation line, so 9.1% of the suite's
+     * text was missing from `glyphs`, `textRuns` and `normalisedTextSha256` —
+     * and `compare` reported stable, because a baseline can only ever be as wide
+     * as the reader that built it.
+     *
+     * It is written against the SYMPTOM rather than a mechanism. Three
+     * mechanisms have now produced one symptom (D-004 maxWidth, D-005
+     * measure-before-setFontSize, D-018 the reader) and each guard was written
+     * against a mechanism, which is why each was blind to the next.
+     */
+    what: 'every table cell\'s text reaches the content stream — input vs output, not output vs baseline (D-018)',
+    argv: [process.execPath, P('scripts', 'golden', 'text-integrity.mjs')],
+    gate: (r) => (r.code === 0 ? null : `exited ${r.code} — text handed to a table cell did not reach the page`),
+    summarise: (r) => (/documents \d+ +tables \d+ +cells [\d,]+ +cells losing text \d+/.exec(r.out)?.[0] ?? '').trim(),
   },
   {
     name: 'compare (second run)',

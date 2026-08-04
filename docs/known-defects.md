@@ -23,6 +23,7 @@ entry here is not a substitute for fixing it — it is a substitute for
 | D-007 | four dangling capability ids in TAIW's `dataRequirements.json` | **fixed** 2026-08-01 — two of the four original items **withdrawn**, one narrowed |
 | D-008 | HAIW invented 132 rows when the capability dataset failed to load | **fixed** 2026-08-01 — by removal |
 | D-009 | `aeo_compliance_monitoring_aeo` carries its suffix twice | **open** — dataset-level, not client-visible |
+| D-018 | the golden harness read only the first line of every wrapped table cell | **fixed** 2026-08-04 + gated by TEXT-INTEGRITY — no generator was at fault |
 
 **Three of these are one defect wearing three costumes.** D-001, D-003 and D-008
 are all *a plausible number substituted where a real one was unavailable*:
@@ -1812,3 +1813,206 @@ fields, four are now known mechanical (`maturityLevelRequired`,
 capability name). The taxonomy — `id`, `name`, `theme`, `group` — and the two data
 linkages survive. **Measure the field before you ship the column**, and measure it
 even when the stage brief already calls it real.
+
+---
+
+## D-018 — the golden harness read only the first line of every wrapped table cell
+
+**Found:** 2026-08-04, investigating a reported third text-loss mechanism —
+autotable cell clipping in `spine.ts::table()`, said to have truncated 44 of 52
+checklist items and 27 of 52 artefact names in AR-09's PDF. **Status: RESOLVED
+same stage — the extractor fixed, and `TEXT-INTEGRITY` added as the guard.**
+
+### The reported defect does not exist. The guard that would have told you so did not either.
+
+The investigation was set up to confirm autotable clipping and measure its blast
+radius. The measurement said something else, and it is worth recording in that
+order because the wrong conclusion was one step away and every existing signal
+pointed at it.
+
+`docs/`'s worked example was CL-20. Its checklist item reads *"Every CDE has a
+named owner and steward; unassigned elements logged as open risks"*, and the
+phrase `as open risks` could not be found anywhere in the 21 pages of AR-09. That
+is true of the harness. It is not true of the PDF:
+
+```
+$ pdftotext -layout operating-model-pdf.pdf om.txt
+$ grep -n "unassigned elements logged" om.txt
+789:   unassigned elements logged as open risks        open risk log
+```
+
+Every glyph is on the page. The content stream says so directly:
+
+```
+BT
+/F1 7 Tf
+8.05 TL
+87.20 691.50 Td
+(Every CDE has a named owner and steward;) Tj
+T* (unassigned elements logged as open risks) Tj
+ET
+```
+
+### The mechanism
+
+`scripts/golden/harness.mjs::readTextRuns` matched a text-showing operator only
+when the string literal began the stream line:
+
+```js
+if ((t = /^(\((?:\\[\s\S]|[^\\()])*\))\s*Tj$/.exec(line))) { emit(...) }
+```
+
+That is correct for `doc.text(string, x, y)`, which is what `spine.ts::text()`,
+`bullets()`, `keyValueBlock()` and `sectionHeading()` all emit — one call per
+line, so one `Td` per line, so one literal at the start of its own line. It is
+wrong for `doc.text(arrayOfLines, x, y)`, which is what **jspdf-autotable calls
+once per wrapped cell**: one `Td`, then every subsequent line as `T*` followed by
+the literal **on the same stream line**. Two operator forms appear in these
+documents and the reader knew one:
+
+| form | count in AR-09 | read |
+|---|---:|---|
+| `(S) Tj` | 1,284 | yes |
+| `T* (S) Tj` | 171 | **no** |
+
+So the harness saw the first line of every wrapped cell and none of the rest, in
+all four modules, for as long as the reader has existed.
+
+### What that cost
+
+`glyphs`, `textRuns`, `widestText`, `rightEdgePt` and `normalisedTextSha256` were
+all computed over a subset of the page. Measured across the full capture, after
+the fix:
+
+```
+19 of 54 artefacts moved · glyphs 249,044 -> 273,980 · 24,936 glyphs reappeared
+9.1% of the suite's text was invisible to its own golden record
+raw bytes: stable on all 54 · page count: unchanged · right-edge extent: unchanged
+```
+
+The three worst are HAIW's framework alignment packs at +3,335, +3,167 and
++3,044 glyphs each. **`rawBytesSha256` did not move on a single artefact**, which
+is the proof that nothing was wrong with any generator: the bytes were always
+right and only the reading of them was short.
+
+`tableRows` also rose on two artefacts (AR-09 140 → 164, AR-02 39 → 45). That
+proxy counts baselines carrying ≥3 distinct x positions; continuation lines sit
+on their own baselines, so seeing them makes more rows visible. The proxy is
+behaving as its comment says it does — it is not a table parse.
+
+### Why every existing guard was blind, including the ones written for this
+
+This is the third text-loss symptom in the register and the first where the text
+was not actually lost. All four signals agreed, and all four were wrong for
+different reasons:
+
+| | why it said nothing |
+|---|---|
+| `TEXT-MAXWIDTH` | greps for a `maxWidth` key. `table()` sets no such key — D-004's mechanism, not this one |
+| `geometry.mjs` | looks for drawn paths PAST the margin. A cell that stops short is inside the margin, and so is a cell that does not |
+| the golden baselines | hash whatever the extractor produced. A reader that drops 9.1% of the text hashes that consistently, forever |
+| the extractor itself | not a guard at all, which is exactly why nothing was watching it |
+
+**A guard is only as wide as its reader.** Two of the three golden classes —
+glyph count and text hash — are functions of `readTextRuns`, so a gap there is a
+gap in everything downstream of it, silently and in the safe-looking direction.
+`geometry.mjs` was built precisely because "the text harness cannot see the rest"
+and it reads *paths*; nothing was ever built on the premise that the text harness
+could not see the text.
+
+### The observation that looked like proof and was not
+
+The strongest evidence for the clipping hypothesis was that the symptom got
+BETTER with more text: a longer draft moved the count from 44 truncated items to
+32. That reads as decisive — a text-losing defect that improves under longer
+input cannot be found by reading the code, and it is exactly what column-width-
+from-longest-cell would produce.
+
+It is exactly what the extractor bug produces too. Column width comes from the
+longest cell in the same table, so a longer draft widens the column, so **fewer
+cells wrap onto a second line** — and only a cell that wraps has a continuation
+line for the reader to drop. Same input, same direction, same magnitude, opposite
+cause. A behavioural signature can be consistent with two mechanisms, and the one
+that has to be ruled out is the one in the instrument.
+
+### The fix
+
+`readTextRuns` now tracks the text-line state the `T*` operator depends on —
+`TL` leading, and the x of the last positioning operator — and handles `T*` both
+standing alone and carrying its literal. Position is tracked rather than guessed
+because `right` feeds `pastMarginPt`: a run placed at an invented x would swap a
+blind spot for a false reading, which is worse.
+
+`TD`'s leading side effect is handled in the same branch. jsPDF emits `TL` + `Td`
+so that path is defensive rather than observed, and it is written down as such.
+
+### The guard: `TEXT-INTEGRITY`, and why it is written against the symptom
+
+Three mechanisms have now produced one symptom, and every guard in this repo was
+written against a **mechanism** — which is why each was blind to the next:
+
+```
+D-004  doc.text(s, x, y, { maxWidth })    TEXT-MAXWIDTH  greps the key
+D-005  splitTextToSize before setFontSize  (none)        fixed, never guarded
+D-018  the reader itself                   (none)        this
+```
+
+`scripts/golden/text-integrity.mjs` compares the **input** to the **output** and
+names neither mechanism. The input side is the generator's own row data, recorded
+by `scripts/golden/autotable-recorder.mjs` — a shim aliased over the bare
+`jspdf-autotable` specifier, on the `file-saver` sink's precedent, so **no
+application source changes at all**. `src/report/spine.ts` is the suite's only
+runtime importer of that package, so one alias covers every table every generator
+in every module draws. The output side is the glyphs `analysePdf` already reads.
+
+```
+documents 40   tables 279   cells 9,236   cells losing text 0
+```
+
+It would have caught all three of the mechanisms above, and it does not have to
+be told what the fourth will be.
+
+**The assertion is glyphs in order, with whitespace removed on both sides**, and
+that specific shape was arrived at by three false positives, each of which is a
+real property of correct output:
+
+| what a naive comparison called LOST | what it actually was |
+|---|---|
+| 593 cells across 18 documents | the extractor bug itself — the finding above |
+| 16 header cells in AR-02 | `dataLandscape.ts:164` injects `&\n`, and a 13 mm column breaks `Payments` mid-word into `Paymen`/`ts` |
+| CW-H-063 in HAIW's DCAM pack | autotable split the row across a page break; the cell's second line opens page 7 under the repeated header |
+
+Only the first was a defect. **A guard that fails on correct output is a guard
+people turn off**, so the two legitimate discontinuities are declared in the
+source with the measurement that found them, rather than absorbed by loosening
+the test until it went quiet. The cost is stated too: a lost *space* is invisible
+to a glyph-sequence check. That is the right trade — the symptom with three
+instances is dropped glyphs.
+
+### What it does not cover
+
+Table cells only. `text()`, `bullets()`, `keyValueBlock()` and `sectionHeading()`
+are not recorded, because the recorder sits on the autoTable import rather than
+on jsPDF. Widening it is strictly additive to the same comparison and is not done
+here: D-018 is a table defect, and a guard shipped wider than it was demonstrated
+is the `FRAMEWORK-COVERAGE` shape — a class that cannot fail over most of its
+declared scope.
+
+It asserts **presence, not placement**. A cell whose text appears somewhere in
+the document passes even if it was drawn in the wrong column. That floor is
+deliberate: losing text is the symptom with three instances, and a check that
+also asserted position would fail on every legitimate reflow.
+
+### The rule this earns
+
+**Rule out the instrument before you accept the finding.** Three independent
+signals — a missing phrase, a plausible mechanism in a library known to clip, and
+a behavioural signature that got better with more text — all pointed at
+`spine.ts::table()`, and one `pdftotext` run pointed somewhere else. The check
+running, the check finding, and the check *reading the whole artefact* are three
+separate facts; this repo had already learned the first two.
+
+And the narrower one, for anything that parses a content stream: **enumerate the
+operator forms present before trusting a reader that matches one.** The count is
+two here, it took one `sed` to establish, and the second form carried 9.1% of the
+suite's text.

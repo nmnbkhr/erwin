@@ -542,7 +542,7 @@
           "dgiw/data/cdeRegister.json",
           "dgiw/data/dqRules.json"
         ],
-        "note": "76 elements with the owner string resolved to an archetype through roles.ts, joined to the rules in scope under the active layer. 0 of 76 owner strings are unresolved; the column still prints UNRESOLVED rather than a blank if one ever is."
+        "note": "76 elements with the owner string resolved to an archetype through roles.ts, joined to the rules in scope under the active layer. 0 of 76 owner strings are unresolved; the column still prints UNRESOLVED rather than a blank if one ever is. THE OPEN-RISK LOG IS THIS ENTRY, NOT A SEPARATE ONE: step F3-S5 produces 'Open-risk log for unassigned elements', CL-20 names it, and gate G5 requires that unassigned elements are recorded as open risks rather than silently carried — all three are the UNRESOLVED rows of this register, which is empty today and is a state of the same artefact rather than a second one. Catalogued here rather than given an id of its own."
       }
     },
     {
@@ -558,7 +558,7 @@
         "datasets": [
           "dgiw/data/cdeRegister.json"
         ],
-        "note": "RENAMED from 'System-of-record map', D5 stage G. fsdmEntity groups the 76 elements into 53 entities: 11 are sourced by more than one system, 42 by exactly one. NEITHER IS A DESIGNATION. No designation field exists, and one system appearing without a competitor is the absence of a second row, not a decision — that is the difference between a foreign key resolving and a relation being real. The register reports the three states as a work list for the Data Architect and must never name a system of record."
+        "note": "RENAMED from 'System-of-record map', D5 stage G. fsdmEntity groups the 76 elements into 53 entities: 11 are sourced by more than one system, 42 by exactly one. NEITHER IS A DESIGNATION. No designation field exists, and one system appearing without a competitor is the absence of a second row, not a decision — that is the difference between a foreign key resolving and a relation being real. The register reports the three states as a work list for the Data Architect and must never name a system of record. CL-21 CARRIED THE OLD NAME UNTIL NOW: it asked for a 'System-of-record map' and asserted 'system of record designated for each CDE', which is the shape this rename removed and at the wrong grain besides — designation is per fsdmEntity, of which there are 53, not per element. It now names this register and states the designation as the Data Owner's decision."
       }
     },
     {
@@ -829,7 +829,7 @@
         "blockedOn": [
           "AR-22"
         ],
-        "note": "BLOCKED, D5 stage G, previously buildable-looking. The apparent path is a regex over dqRules.expression, which yields nine ref_* table names and five inline enums and looks like a code-set register. It carries no code values, no owner, no versioning and no change process — which is the entire content of the artefact. The sets live in the client's reference data service and the catalogue harvest is what surfaces them."
+        "note": "BLOCKED, D5 stage G, previously buildable-looking. The apparent path is a regex over dqRules.expression, which yields nine ref_* table names and five inline enums and looks like a code-set register. It carries no code values, no owner, no versioning and no change process — which is the entire content of the artefact. The sets live in the client's reference data service and the catalogue harvest is what surfaces them. P06 IS THE LEAST-INSTRUMENTED PILLAR IN THE MODULE AND THIS ENTRY IS HALF OF THE EVIDENCE: P06 Master & Reference Data holds 0 of the 52 checklist items, has no built artefact, and its only two register entries are this one and AR-32, which is withdrawn — while waves W2 and W4 both name it. Every other pillar carries at least one checklist item. Visible only by reading the sequence against the register, which is why it is recorded here rather than left to be noticed."
       }
     },
     {
@@ -885,7 +885,7 @@
       "layer": "banking",
       "builtFrom": {
         "evidence": "withdrawn",
-        "note": "WITHDRAWN, D5 stage G. The apparent path is families 'GL & Finance' and 'Ledger' — eight rules, all read: chart-of-accounts validity, regulatory and statutory line mapping, mapping-change control, trial-balance identity, cost-centre completeness. NOT ONE reconciles a subledger balance to a GL control account. Those eight are already delivered by AR-27, and the control pairs, tolerances and frequencies exist nowhere."
+        "note": "WITHDRAWN, D5 stage G. The apparent path is families 'GL & Finance' and 'Ledger' — eight rules, all read: chart-of-accounts validity, regulatory and statutory line mapping, mapping-change control, trial-balance identity, cost-centre completeness. NOT ONE reconciles a subledger balance to a GL control account. Those eight are already delivered by AR-27, and the control pairs, tolerances and frequencies exist nowhere. THE SEQUENCE ASKED FOR IT ANYWAY UNTIL NOW: checklist item CL-40 was a BLOCKING banking item named 'Reconciliation rule set', requiring 'reconciliation controls between GL, subledger and source automated' — a consultant would have been blocked on an artefact this entry records as unbuildable. CL-40 now names the deployed GL and Ledger rule families, which AR-27 and AR-36 do produce. The register was dispositioned top-down in D5 stage G and the sequence was not read against it; that is the gap ARTEFACT-SEQUENCE is proposed to close."
       }
     },
     {
@@ -1047,6 +1047,74 @@
           "dgiw/data/pillars.json"
         ],
         "note": "The same projection as AR-47 across all four frameworks side by side, with each framework's weakest three dimensions and the pillars it maps nothing to. Scales differ per framework and are rescaled explicitly rather than printed under one another's heading."
+      }
+    },
+    {
+      "id": "AR-49",
+      "artefact": "Policy exception register",
+      "pillarId": "P01",
+      "rung": 2,
+      "owner": "DG Council",
+      "format": "Register",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "CATALOGUED FROM THE SEQUENCE, not from the ladder: step F4-S5 produces it and CL-28 requires it with a time-limiting rule on every exception, and no register entry existed for either. The content is council decisions granted during the engagement, which is AR-29's shape exactly — a runtime log measured against an authored definition. It cannot be opened before AR-11 exists, because an exception is an exception TO a policy; that dependency is stated here rather than as blockedOn, since what is missing is the content to record, not a buildable input."
+      }
+    },
+    {
+      "id": "AR-50",
+      "artefact": "Cross-border and confidentiality constraint mapping",
+      "pillarId": "P08",
+      "rung": 2,
+      "owner": "Head of Compliance",
+      "format": "Mapping",
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "CATALOGUED FROM THE SEQUENCE: CL-30 names it and nothing carried it. A constraint per element is a Compliance determination made from the client's own legal position, not library content. THE APPARENT PATH IS CDE-010 'Customer Residency & Domicile' and CDE-061 'Party Address' — elements ABOUT residency and jurisdiction, which is not the same as a transfer or confidentiality constraint attached to an element, exactly as AR-19's 'Retention Rule' entity records that retention rules are data without recording what any of them say. The confidentiality half additionally needs AR-15's label vocabulary before it can be written down consistently."
+      }
+    },
+    {
+      "id": "AR-51",
+      "artefact": "Lineage coverage report",
+      "pillarId": "P07",
+      "rung": 3,
+      "owner": "DG Office / Data Governance Lead",
+      "format": "Report",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "CATALOGUED FROM THE SEQUENCE: CL-36 requires it as a blocking Platform item and P07's own coreArtefacts names 'Lineage coverage metric against governed CDEs'; no entry existed. The denominator is in the repo — the governed CDEs under the active layer — and the numerator is what the collector actually harvested, which AR-25 records comes from the lineage collector and never from inference. AR-28's shape: everything but the measured half is present, which is what makes filling it in easy and wrong."
+      }
+    },
+    {
+      "id": "AR-52",
+      "artefact": "Classification coverage report",
+      "pillarId": "P08",
+      "rung": 3,
+      "owner": "Data Steward",
+      "format": "Report",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "blocked",
+        "blockedOn": [
+          "AR-15"
+        ],
+        "note": "CATALOGUED FROM THE SEQUENCE: CL-37 requires classification applied and recorded against every governed CDE, as a blocking Platform item, and no entry existed. Genuinely derivable once AR-15's labels exist and are attached — the denominator is already the governed CDE set under the layer filter and the three states apply unchanged, labelled / not-labelled / not-applicable, never a zero. It must NOT be derived from cdeRegister.criticality: CRITICAL and HIGH are business impact, not confidentiality, which is the two-vocabularies error at the level of the value that AR-15's own note fences off."
+      }
+    },
+    {
+      "id": "AR-53",
+      "artefact": "Model and ECL input control set",
+      "pillarId": "P11",
+      "rung": 3,
+      "owner": "Head of Credit Risk",
+      "format": "Control set",
+      "layer": "banking",
+      "builtFrom": {
+        "evidence": "observed",
+        "note": "CATALOGUED FROM THE SEQUENCE: CL-45 asks for model and ECL input checks running before model execution, and no entry existed. 'Running before model execution' is a runtime property of the client's pipeline, as AR-30 is. THE APPARENT PATH IS THE CONSUMPTION POINT 'ECL computation', which is the highest-ranked point in the register at six feeding elements, joined to their DQ rules — refused because consumers is free text and unnormalised, no model inventory exists to say which models these are or who owns them, and AR-06 established that no candidate use case exists in any dataset. A control set assembled from a consumption-point string would be the AR-07 bridge with a model risk heading."
       }
     }
   ]

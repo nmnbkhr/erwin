@@ -117,8 +117,8 @@ below both.
 11. **A stage is not complete until the right verify command exits 0 and its
     output is pasted.** `npm run build` is **not** sufficient and never was: it
     runs `check.mjs`, `tsc -b` and `vite build`, and skips lint,
-    `check:selftest`, `compare`, `geometry` and `drive:dashboards`. **A defect
-    has surfaced in every one of those.** Which command is required is
+    `check:selftest`, `compare`, `geometry`, `text-integrity` and
+    `drive:dashboards`. **A defect has surfaced in every one of those.** Which command is required is
     conditional:
 
     ```
@@ -145,7 +145,7 @@ below both.
     and a `compare` run to build "quick" would save ~3% of the runtime and lose
     the only steps that read generated output — for almost nothing, since the
     entire saving is in one step. So `verify:quick` is `npm run verify` **minus
-    `check:selftest` alone** (7 of 8 steps, both `compare` runs kept), and it
+    `check:selftest` alone** (8 of 9 steps, both `compare` runs kept), and it
     must **refuse — exit non-zero, not warn** — when `git status --porcelain`
     reports any change under `scripts/`, or when that cannot be established.
 
@@ -166,11 +166,15 @@ below both.
     quick-versus-`build`, because `npm run build` is what a hurry already reaches
     for, and quick strictly dominates it for about seven more seconds:
 
-    | | steps | skips | wall |
-    |---|---:|---|---:|
-    | `npm run build` | 3 | lint, selftest, compare ×2, geometry, drive — **a defect has surfaced in every one** | ~11 s |
-    | **`npm run verify:quick`** | **7** | selftest only, **under a refusal** | **18.5 s** |
-    | `npm run verify` | 8 | — | 82.5 s |
+    | | steps | skips |
+    |---|---:|---|
+    | `npm run build` | 3 | lint, selftest, compare ×2, geometry, text-integrity, drive — **a defect has surfaced in every one** |
+    | **`npm run verify:quick`** | **8** | selftest only, **under a refusal** |
+    | `npm run verify` | 9 | — |
+
+    The wall-clock figures this table used to carry were measured before
+    `text-integrity` was the ninth step; read the run rather than a number typed
+    here, which is the rule this file states about every other count.
 
     Refusing costs nothing and happens before any step runs: the git query is the
     first thing the target does, so a wrong choice is rejected instantly rather
@@ -228,14 +232,26 @@ it checks that every code can still be reached.
 
 ## Closing verification
 
-`npm run verify` (`scripts/verify.mjs`, **82.5 s measured**). One command, one exit
-code, eight steps in this order — `npm run verify:quick` is the same file and the
-same sequence minus step four, under the refusal in hard rule 11:
+`npm run verify` (`scripts/verify.mjs`). One command, one exit code, **nine**
+steps in this order — `npm run verify:quick` is the same file and the same
+sequence minus step four, under the refusal in hard rule 11:
 
 ```
 check → tsc -b --force → lint (asserted) → check:selftest → compare
-      → geometry --fail-on-overflow → compare again → drive:dashboards
+      → geometry --fail-on-overflow → text-integrity → compare again
+      → drive:dashboards
 ```
+
+**`text-integrity` is the ninth, added by D-018, and it is the only step that
+compares output to its own INPUT.** Every other step compares output to a record
+of a previous output, so all of them agreed with a reader that could not see 9.1%
+of the suite's text for as long as that reader existed. `npm run text-integrity`
+runs it alone. It reads the strings a table cell was HANDED — recorded by
+`scripts/golden/autotable-recorder.mjs`, aliased over the bare `jspdf-autotable`
+specifier on the `file-saver` sink's precedent, so **no application source
+changes** — and asserts every glyph reaches the content stream. `src/report/
+spine.ts` is the suite's only runtime importer of that package, so one alias
+covers every table in every module. It covers table cells only, and says so.
 
 **Defects here have surfaced rounds after work was declared complete, and the
 reason was always the same: the closing check was remembered rather than
@@ -719,12 +735,42 @@ lesson inside a single class, as `HACR-INSTRUMENT` already ships it.
 Two ways to lose text on a page, both silent, both found by measurement rather
 than by reading the code. Neither is a style preference.
 
+**And a third way to believe you have lost text when you have not — D-018.** The
+golden harness's own PDF reader matched a text operator only when the string
+literal began the stream line, which is true of `doc.text(string, x, y)` and
+false of `doc.text(arrayOfLines, x, y)` — the form jspdf-autotable calls once per
+wrapped cell, emitting continuation lines as `T* (…) Tj`. So the harness read the
+FIRST LINE ONLY of every wrapped table cell, in all four modules, and **9.1% of
+the suite's text (24,936 glyphs) was invisible to its own golden record** while
+`rawBytesSha256` stayed stable on all 54 artefacts. No generator was at fault; the
+text was always in the PDF and `pdftotext` finds it.
+
+Read D-018 before diagnosing the next one. Three signals pointed at
+`spine.ts::table()` — a phrase missing from 21 pages, a library known to clip, and
+a symptom that got BETTER with more text — and the third is the trap: column width
+comes from the longest cell, so a longer draft widens the column, so fewer cells
+wrap, so fewer cells have a continuation line for the reader to drop. Identical
+signature, opposite cause. **Rule out the instrument before you accept the
+finding**, and enumerate the operator forms present before trusting a reader that
+matches one. There were two; the second carried the missing tenth.
+
 **Never `doc.text(s, x, y, { maxWidth: n })`.** It reads as "wrap this". jsPDF
 computes the split and then draws **only the first line**; everything past the
 break is discarded with no error and nothing visible except a sentence that
 stops. Three sentences were lost from every HAIW PDF ever exported, and three
 instances were sitting in `spine.ts` itself. **TEXT-MAXWIDTH** rejects the key
 outright across the whole declared report source set.
+
+**Every guard here is written against a MECHANISM, which is why each was blind to
+the next.** TEXT-MAXWIDTH greps for a key; `geometry.mjs` looks for paths past the
+margin, and a clipped cell stops SHORT of it; the baselines hash whatever the
+extractor produced. `scripts/golden/text-integrity.mjs` is written against the
+SYMPTOM instead — the text a cell was given must appear in the content stream —
+and would have caught all three. It asserts glyphs in order with whitespace
+removed, because two legitimate discontinuities exist and are declared in its
+source with the measurement that found them: jsPDF breaks mid-word when a word is
+wider than its column, and autotable splits a tall row across a page break. A
+guard that fails on correct output is a guard people turn off.
 Wrap with `splitTextToSize` and emit one `doc.text` per line — which is what
 `spine.ts::text()` does — or, where only one line fits, call
 `spine.ts::fitOneLine`, which marks the cut with an ellipsis instead of hiding

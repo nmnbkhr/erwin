@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "c042b7645f756f55f580446d15ddf2c811dc5082e1ea8b52bd9939a94a753614",
+    "sha256": "ecb4f04bd12f6f23c70365dadf1f137946ab4c778fab0152849991040b0455b8",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-47_fixture-bank-limited_all_2026-07-31_fw-04.pdf",
   "filenameNormalised": "AR-47_fixture-bank-limited_all_2026-07-31_fw-04.pdf",
   "generator": "buildFrameworkAlignmentPdf",
-  "glyphCount": 11161,
+  "glyphCount": 11304,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "f80c827725a040202d98f9b88def8dc94b6a1dd77b734271a97cf30aaeb61793",
+  "normalisedTextSha256": "90ee7f960bb2497a5724513bb4a7848f55b4a36e7471d6b817bd517eb0cc3b19",
   "notReproducible": {},
   "pageCount": 8,
   "pages": [
@@ -127,7 +127,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1454,
+      "glyphs": 1487,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
       "page": 3,
@@ -173,6 +173,7 @@
         "100%",
         "100%",
         "P01, P05, P07,",
+        "P08",
         "EDM04",
         "Ensured Resource Optimization",
         "2.8",
@@ -189,6 +190,7 @@
         "P01, P02",
         "APO14.01",
         "Define and communicate the data management strategy, roles",
+        "and responsibilities",
         "2.9",
         "Defined",
         "100%",
@@ -203,6 +205,7 @@
         "P04",
         "APO14.03",
         "Establish processes and infrastructure for metadata",
+        "management",
         "2.6",
         "Defined",
         "100%",
@@ -260,12 +263,12 @@
         "Prepared by Godaitec | godai.tech",
         "Page 3 of 8"
       ],
-      "textRuns": 119,
+      "textRuns": 122,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 1887,
+      "glyphs": 1943,
       "heightPt": 841.89,
       "multiColumnBaselines": 25,
       "page": 4,
@@ -353,6 +356,7 @@
         "20%",
         "banking",
         "BCBS 239 makes risk data aggregation a lineage problem: a bank must show how a risk number was",
+        "derived. Banking-only, so EDM03 retains 0.80 under core.",
         "EDM04 · Ensured Resource Optimization",
         "Assessed",
         "2.8",
@@ -381,12 +385,12 @@
         "Prepared by Godaitec | godai.tech",
         "Page 4 of 8"
       ],
-      "textRuns": 102,
+      "textRuns": 103,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 1606,
+      "glyphs": 1660,
       "heightPt": 841.89,
       "multiColumnBaselines": 26,
       "page": 5,
@@ -416,6 +420,7 @@
         "60%",
         "both",
         "Stakeholder engagement and transparency of governance reporting are operating-model capabilities,",
+        "P01.",
         "P02",
         "Strategy",
         "40%",
@@ -497,10 +502,11 @@
         "15%",
         "banking",
         "In a regulated bank the quality strategy has to state how accuracy is evidenced to source.",
+        "Banking-only, so APO14.04 retains 0.85 under core.",
         "Prepared by Godaitec | godai.tech",
         "Page 5 of 8"
       ],
-      "textRuns": 100,
+      "textRuns": 102,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -701,7 +707,7 @@
   "rawBytesAsserted": true,
   "rawBytesSha256": "eb60f64898cd99b7d1b87dbb6a73ed002404acafb9ecd0757ef6703a86d2ba2e",
   "tableRowsTotal": 61,
-  "textRunCount": 510,
+  "textRunCount": 516,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

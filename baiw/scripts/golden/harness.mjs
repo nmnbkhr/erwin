@@ -980,7 +980,15 @@ export async function createDriver(modules, opts = {}) {
     plugins: [fixtureDataPlugin(dataByAbsPath, served), ...(opts.plugins ?? [])],
     define: opts.define,
     resolve: {
-      alias: [{ find: /^file-saver$/, replacement: path.join(HERE, 'file-saver-sink.mjs') }],
+      // `opts.alias` is appended, never prepended: file-saver's sink is what
+      // makes every generator's save() reachable at all, and a caller-supplied
+      // entry that shadowed it would break the harness silently. Used by
+      // text-integrity.mjs to put the autoTable recorder in front of the one
+      // module that imports it (src/report/spine.ts).
+      alias: [
+        { find: /^file-saver$/, replacement: path.join(HERE, 'file-saver-sink.mjs') },
+        ...(opts.alias ?? []),
+      ],
       conditions: ['browser', 'import', 'module', 'default'],
     },
     ssr: {
@@ -1102,6 +1110,14 @@ export async function createDriver(modules, opts = {}) {
       DOM_SINK.length = 0
 
       const ctx = spec.artefactIdExport ? { ...spine, meta: metaFor(fixture, spec, mod) } : {}
+      // Additive per-artefact hook, for a caller that has to attribute something
+      // it observes DURING generation to the artefact that caused it.
+      // text-integrity.mjs drains the autoTable recorder here: `generate()`
+      // returns the whole module at once, so without a boundary every table in
+      // the module would be attributed to its first document — which is exactly
+      // the wrong answer, and it reads as a catastrophic finding rather than as a
+      // harness bug.
+      opts.beforeArtefact?.(module, spec)
       spec.call(mod, fixture, ctx)
 
       const produced = pdfs.length + sink.SINK.length + DOM_SINK.length
@@ -1358,10 +1374,42 @@ const round2 = n => Math.round(n * 100) / 100
  * (BT resets the text matrix, so Td is absolute here rather than relative).
  * Rotated text uses `Tm` instead; those runs are collected but excluded from the
  * right-edge extent, because a 45-degree DRAFT watermark has no meaningful one.
+ *
+ * ─── CONTINUATION LINES: `T*`, and why this reader missed them ────────────
+ *
+ * That description is true of `doc.text(string, x, y)`, which is what
+ * `spine.ts::text()`, `bullets()` and `keyValueBlock()` all emit — one call per
+ * line, so one `Td` per line. It is NOT true of `doc.text(arrayOfLines, x, y)`,
+ * which is what jspdf-autotable calls once per wrapped cell. That form emits ONE
+ * `Td` and then the second and subsequent lines as
+ *
+ *     8.05 TL
+ *     87.20 691.50 Td
+ *     (Every CDE has a named owner and steward;) Tj
+ *     T* (unassigned elements logged as open risks) Tj
+ *
+ * — the operator and the literal on ONE line of the stream. This reader matched
+ * `Tj` only when the literal began the line, so it dropped every continuation
+ * line of every wrapped table cell in the suite, and had done since it was
+ * written. `glyphs`, `textRuns`, `rightEdgePt`, `widestText` and
+ * `normalisedTextSha256` were therefore computed over the FIRST LINE ONLY of
+ * every cell that wrapped, in all four modules' baselines.
+ *
+ * That is docs/known-defects.md **D-018**, and it is a defect in the guard
+ * rather than in a generator: the text was always in the PDF — `pdftotext`
+ * finds it — and only the golden record could not see it.
+ *
+ * `T*` is `0 -TL Td` applied to the LINE matrix, so x returns to the x of the
+ * last positioning operator and y drops by the current leading. Both are tracked
+ * below, because a run whose x is guessed contributes a wrong `right` and would
+ * put a false reading into `pastMarginPt` — swapping one blind spot for a lie.
  */
 function readTextRuns(body, fontByResource, ruler, unknownFonts, usedBaseFonts) {
   const runs = []
   let font = null, size = 12, x = 0, y = 0, rotated = false
+  // The x every `T*` returns to, and the distance it drops. `TL` is emitted by
+  // jsPDF immediately before the `Td` of a multi-line run.
+  let lineX = 0, leading = 0
 
   const emit = str => {
     if (!str.length) return
@@ -1381,10 +1429,25 @@ function readTextRuns(body, fontByResource, ruler, unknownFonts, usedBaseFonts) 
     let t
     if (line === 'BT') { rotated = false; continue }
     if ((t = /^\/(\w+)\s+([\d.]+)\s+Tf$/.exec(line))) { font = t[1]; size = Number(t[2]); continue }
-    if ((t = /^([-\d.]+)\s+([-\d.]+)\s+(?:Td|TD)$/.exec(line))) { x = Number(t[1]); y = Number(t[2]); rotated = false; continue }
+    if ((t = /^([-\d.]+)\s+TL$/.exec(line))) { leading = Number(t[1]); continue }
+    if ((t = /^([-\d.]+)\s+([-\d.]+)\s+(Td|TD)$/.exec(line))) {
+      x = Number(t[1]); y = Number(t[2]); lineX = x; rotated = false
+      // TD additionally sets the leading to -ty. jsPDF emits TL + Td, so this
+      // branch is defensive rather than observed — but a reader that silently
+      // used a stale leading would misplace every following T* run.
+      if (t[3] === 'TD') leading = -Number(t[2])
+      continue
+    }
     if ((t = /^([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+Tm$/.exec(line))) {
-      x = Number(t[5]); y = Number(t[6])
+      x = Number(t[5]); y = Number(t[6]); lineX = x
       rotated = Number(t[2]) !== 0 || Number(t[3]) !== 0
+      continue
+    }
+    // `T*` may stand alone or carry its literal on the same stream line — jsPDF
+    // emits the second form. Both advance the line before the text is drawn.
+    if ((t = /^T\*\s*(?:(\((?:\\[\s\S]|[^\\()])*\))\s*Tj)?$/.exec(line))) {
+      x = lineX; y -= leading
+      if (t[1]) emit(unescapePdfString(t[1]))
       continue
     }
     if ((t = /^(\((?:\\[\s\S]|[^\\()])*\))\s*Tj$/.exec(line))) { emit(unescapePdfString(t[1])); continue }

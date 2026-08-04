@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "c042b7645f756f55f580446d15ddf2c811dc5082e1ea8b52bd9939a94a753614",
+    "sha256": "ecb4f04bd12f6f23c70365dadf1f137946ab4c778fab0152849991040b0455b8",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-04_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-04_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildRoadmapPdf",
-  "glyphCount": 13584,
+  "glyphCount": 13676,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "088a25eef8faae6ff242e33dd1b58fc0199509eac30a163f33c353bc44c9fbfa",
+  "normalisedTextSha256": "bddb4060459803b123877b356990173c55fb48e48c312b9906e25b360e5ef492",
   "notReproducible": {},
   "pageCount": 12,
   "pages": [
@@ -61,9 +61,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1345,
+      "glyphs": 1437,
       "heightPt": 841.89,
-      "multiColumnBaselines": 19,
+      "multiColumnBaselines": 20,
       "page": 2,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -111,6 +111,7 @@
         "Weeks 1–4",
         "core",
         "Nothing — can start",
+        "immediately",
         "Operating Model, Strategy, Lineage",
         "In scope",
         "W1",
@@ -119,6 +120,7 @@
         "core",
         "W0",
         "Metadata, Lineage, Security & Privacy,",
+        "Platform, Architecture, Lifecycle",
         "In scope",
         "W2",
         "Quality & Scorecard",
@@ -136,6 +138,7 @@
         "In scope",
         "W4",
         "Master Data & Single",
+        "Customer View",
         "Weeks 17–24",
         "banking",
         "W2",
@@ -143,10 +146,12 @@
         "In scope",
         "W5",
         "AI & Consumption",
+        "Readiness",
         "Weeks 21–28",
         "core",
         "W1, W2",
         "AI & Consumption, Security & Privacy,",
+        "Metadata",
         "In scope",
         "W6",
         "Run, Prove & Expand",
@@ -154,12 +159,13 @@
         "core",
         "W0, W1, W2, W5",
         "Operating Model, Strategy, Data Quality,",
+        "Security & Privacy",
         "In scope",
         "Every wave in the plan is in scope under the current layer.",
         "Prepared by Godaitec | godai.tech",
         "Page 2 of 12"
       ],
-      "textRuns": 84,
+      "textRuns": 90,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -816,7 +822,7 @@
   "rawBytesAsserted": true,
   "rawBytesSha256": "aabe32fc56359ba6a6683e4e31b1a3831346de5bfe3e5d64ac7bc9df42049ef0",
   "tableRowsTotal": 20,
-  "textRunCount": 549,
+  "textRunCount": 555,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "c042b7645f756f55f580446d15ddf2c811dc5082e1ea8b52bd9939a94a753614",
+    "sha256": "ecb4f04bd12f6f23c70365dadf1f137946ab4c778fab0152849991040b0455b8",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-47_fixture-bank-limited_all_2026-07-31_fw-03.pdf",
   "filenameNormalised": "AR-47_fixture-bank-limited_all_2026-07-31_fw-03.pdf",
   "generator": "buildFrameworkAlignmentPdf",
-  "glyphCount": 8686,
+  "glyphCount": 9310,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "6c8a79ce8c0d545b4aac8be045457ac0b021f041e4b8ebeeff154443a4a74544",
+  "normalisedTextSha256": "bf9058873e1e2d1f678031712ba3cc863af96c690467fa28d33394471c8a7e19",
   "notReproducible": {},
   "pageCount": 7,
   "pages": [
@@ -121,7 +121,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 919,
+      "glyphs": 932,
       "heightPt": 841.89,
       "multiColumnBaselines": 13,
       "page": 3,
@@ -155,6 +155,7 @@
         "P02",
         "DGI02",
         "Goals, Governance Metrics, Success Measures & Funding",
+        "Strategies",
         "2.9",
         "Defined",
         "100%",
@@ -167,6 +168,7 @@
         "100%",
         "100%",
         "P03, P04, P05,",
+        "P06",
         "DGI04",
         "Decision Rights",
         "2.8",
@@ -219,12 +221,12 @@
         "Prepared by Godaitec | godai.tech",
         "Page 3 of 7"
       ],
-      "textRuns": 84,
+      "textRuns": 86,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 1594,
+      "glyphs": 1658,
       "heightPt": 841.89,
       "multiColumnBaselines": 22,
       "page": 4,
@@ -307,6 +309,7 @@
         "10%",
         "banking",
         "In a bank, the contested definitions are product, GL and counterparty hierarchies — reference data",
+        "governance, P06. Banking-only, so DGI03 retains 0.90 under core.",
         "DGI04 · Decision Rights",
         "Assessed",
         "2.8",
@@ -325,12 +328,12 @@
         "Prepared by Godaitec | godai.tech",
         "Page 4 of 7"
       ],
-      "textRuns": 87,
+      "textRuns": 88,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 1563,
+      "glyphs": 2110,
       "heightPt": 841.89,
       "multiColumnBaselines": 26,
       "page": 5,
@@ -400,6 +403,7 @@
         "70%",
         "both",
         "Identifying and engaging stakeholders is operating-model work — who sits in the forum and who is",
+        "consulted.",
         "P02",
         "Strategy",
         "30%",
@@ -420,16 +424,23 @@
         "60%",
         "both",
         "The DG Office as a structural element of the operating model — its constitution, its place in the forum",
+        "hierarchy and its decision rights — is P01. This was authored at 1.00 as 'a clean one-to-one'; that was",
+        "true of the office's EXISTENCE and wrong about the component, which also covers how the office is",
+        "funded and what it operates. Reduced to 0.60 with the remainder mapped explicitly.",
         "P02",
         "Strategy",
         "20%",
         "both",
         "DGI's DGO component covers the office's mandate and funding strategy, not only its structure. A DG",
+        "Office that cannot fund itself past the next budget cycle is the failure P02 measures, and nothing else",
+        "in the DGI crosswalk reaches it.",
         "P10",
         "Platform",
         "20%",
         "both",
         "The DGO is the operator of the catalogue, quality engine and lineage collection. A governance tool at",
+        "8% population is a DGO capacity finding that gets misread as a tooling problem, and P10 is where it",
+        "is actually measured.",
         "DGI09 · Data Stewards",
         "Assessed",
         "2.8",
@@ -443,7 +454,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 5 of 7"
       ],
-      "textRuns": 99,
+      "textRuns": 107,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -551,7 +562,7 @@
   "rawBytesAsserted": true,
   "rawBytesSha256": "4c69bc87e0f5895fdf4af8c83c21b75bd7feff61cc3e1db825958e5349ca6444",
   "tableRowsTotal": 44,
-  "textRunCount": 379,
+  "textRunCount": 390,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

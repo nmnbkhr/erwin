@@ -15,6 +15,7 @@
     "check": "node scripts/check.mjs",
     "check:dgiw": "node scripts/check.mjs",
     "check:selftest": "node scripts/check/selftest.mjs",
+    "text-integrity": "node scripts/golden/text-integrity.mjs",
     "drive:dashboards": "node scripts/dashboard-drive.mjs",
     "drive:provenance": "node scripts/provenance-drive.mjs"
   },

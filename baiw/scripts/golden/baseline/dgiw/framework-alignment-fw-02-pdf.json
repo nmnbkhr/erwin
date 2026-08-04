@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "c042b7645f756f55f580446d15ddf2c811dc5082e1ea8b52bd9939a94a753614",
+    "sha256": "ecb4f04bd12f6f23c70365dadf1f137946ab4c778fab0152849991040b0455b8",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-47_fixture-bank-limited_all_2026-07-31_fw-02.pdf",
   "filenameNormalised": "AR-47_fixture-bank-limited_all_2026-07-31_fw-02.pdf",
   "generator": "buildFrameworkAlignmentPdf",
-  "glyphCount": 7868,
+  "glyphCount": 8086,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "e0fa2318f00a9f0b0487bc23715d3ae35fb983112db1bcb733af838482174839",
+  "normalisedTextSha256": "21b54f79258ea60bbb66dd1ef8ce846fbe1c289a874285629871231ad7a3efb5",
   "notReproducible": {},
   "pageCount": 6,
   "pages": [
@@ -212,7 +212,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1665,
+      "glyphs": 1691,
       "heightPt": 841.89,
       "multiColumnBaselines": 23,
       "page": 4,
@@ -265,6 +265,7 @@
         "50%",
         "both",
         "Programme structure, resourcing and who is accountable for delivery is operating-model territory,",
+        "P01.",
         "DCAM3 · Business & Data Architecture",
         "Assessed",
         "2.9",
@@ -285,6 +286,7 @@
         "30%",
         "both",
         "DCAM places the business glossary and the definition of critical data in this component; DGIW",
+        "measures those in P04.",
         "P06",
         "MDM & Reference",
         "15%",
@@ -318,12 +320,12 @@
         "Prepared by Godaitec | godai.tech",
         "Page 4 of 6"
       ],
-      "textRuns": 92,
+      "textRuns": 94,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 1352,
+      "glyphs": 1544,
       "heightPt": 841.89,
       "multiColumnBaselines": 22,
       "page": 5,
@@ -358,6 +360,7 @@
         "15%",
         "banking",
         "The same BCBS 239 argument as DM11: evidencing quality to a regulator means evidencing it to",
+        "source. Banking-only, so DCAM5 retains 0.85 under core.",
         "DCAM6 · Data Governance",
         "Assessed",
         "2.8",
@@ -403,6 +406,8 @@
         "25%",
         "banking",
         "Demonstrating control effectiveness to a regulator requires traceable flow from source to report.",
+        "Banking-only, so DCAM7 retains 0.75 under core — the largest retained-share gap in this crosswalk",
+        "and the one most worth showing a client.",
         "DCAM8 · Analytics Management",
         "Assessed",
         "2.9",
@@ -421,7 +426,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 5 of 6"
       ],
-      "textRuns": 84,
+      "textRuns": 87,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -466,7 +471,7 @@
   "rawBytesAsserted": true,
   "rawBytesSha256": "f2074ec8cce021d3a57af9bd302a994dc3b59b4107011a990a482e9577fe1ac9",
   "tableRowsTotal": 34,
-  "textRunCount": 313,
+  "textRunCount": 318,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

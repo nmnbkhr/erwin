@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "c042b7645f756f55f580446d15ddf2c811dc5082e1ea8b52bd9939a94a753614",
+    "sha256": "ecb4f04bd12f6f23c70365dadf1f137946ab4c778fab0152849991040b0455b8",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-48_fixture-bank-limited_all_2026-07-31.pdf",
   "filenameNormalised": "AR-48_fixture-bank-limited_all_2026-07-31.pdf",
   "generator": "buildMultiFrameworkScorecardPdf",
-  "glyphCount": 7069,
+  "glyphCount": 7113,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "43378c01ce06f3bf9926578825860481b19f2b3cd3fd4555341a0d7a55d17d65",
+  "normalisedTextSha256": "b9733b9f61e4f94583f60bc3a516b2d788746c7ae78407ad51e46ae0f8b3bd02",
   "notReproducible": {},
   "pageCount": 6,
   "pages": [
@@ -132,7 +132,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1911,
+      "glyphs": 1955,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
       "page": 3,
@@ -213,6 +213,7 @@
         "Driven by",
         "DGI04, DGI05",
         "Decision Rights · Accountabilities — all 2 mapped wholly to",
+        "P01 Governance & Operating Model",
         "2.75",
         "100%",
         "100%",
@@ -229,6 +230,7 @@
         "100%",
         "100%",
         "P04 45%, P05 30%, P03",
+        "15%, P06 10%",
         "COBIT2019 — 2.8",
         "Code",
         "Dimension",
@@ -258,7 +260,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 3 of 6"
       ],
-      "textRuns": 112,
+      "textRuns": 114,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -483,7 +485,7 @@
   "rawBytesAsserted": true,
   "rawBytesSha256": "5915238b256feb69fb0b0033a275aeab21371e75cbd0045efd23e260972f0132",
   "tableRowsTotal": 38,
-  "textRunCount": 330,
+  "textRunCount": 332,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

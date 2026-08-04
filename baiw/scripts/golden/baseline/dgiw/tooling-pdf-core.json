@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "c042b7645f756f55f580446d15ddf2c811dc5082e1ea8b52bd9939a94a753614",
+    "sha256": "ecb4f04bd12f6f23c70365dadf1f137946ab4c778fab0152849991040b0455b8",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-17_fixture-bank-limited_core_2026-07-31.pdf",
   "filenameNormalised": "AR-17_fixture-bank-limited_core_2026-07-31.pdf",
   "generator": "buildToolingRecommendationPdf",
-  "glyphCount": 7748,
+  "glyphCount": 7800,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "b6a03ac1b3ebe1251eb705a0ec7f1d530286b87c5350aa9ee3a35e72a2009a01",
+  "normalisedTextSha256": "b5ee337b2f7dab2c9ee1608e49bdbaaa17371260afe6b0796516a4b38d2ac98f",
   "notReproducible": {},
   "pageCount": 7,
   "pages": [
@@ -103,7 +103,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 769,
+      "glyphs": 786,
       "heightPt": 841.89,
       "multiColumnBaselines": 8,
       "page": 3,
@@ -134,21 +134,23 @@
         "Keeps lineage portable if the catalogue is later replaced.",
         "Access and classification",
         "Native RDBMS controls with a policy",
+        "layer",
         "Avoids introducing a second entitlement system.",
         "Scorecards",
         "Superset or Streamlit over the DQ",
+        "result store",
         "Scorecard is the primary visible output — it must not depend on licence seats.",
         "Prepared by Godaitec | godai.tech",
         "Page 3 of 7"
       ],
-      "textRuns": 24,
+      "textRuns": 26,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 557,
+      "glyphs": 592,
       "heightPt": 841.89,
-      "multiColumnBaselines": 6,
+      "multiColumnBaselines": 7,
       "page": 4,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -167,7 +169,9 @@
         "Product",
         "Selection rationale",
         "Enterprise catalogue and",
+        "governance",
         "Collibra, Informatica CDGC, Alation,",
+        "Atlan",
         "Selection driven by existing estate and support expectations.",
         "Quality and MDM",
         "Ataccama, Informatica",
@@ -175,10 +179,11 @@
         "Microsoft-aligned estate",
         "Microsoft Purview",
         "Frequently the easiest approval — the licence may already be owned under",
+        "existing agreements.",
         "Prepared by Godaitec | godai.tech",
         "Page 4 of 7"
       ],
-      "textRuns": 18,
+      "textRuns": 21,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -391,7 +396,7 @@
   "rawBytesAsserted": true,
   "rawBytesSha256": "9d7bc42812be8e8798e863dd430e5ec54f63a2752dc60232da74de68a9aecd2c",
   "tableRowsTotal": 25,
-  "textRunCount": 219,
+  "textRunCount": 224,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

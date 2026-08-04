@@ -826,8 +826,8 @@
     {
       "id": "CL-21",
       "phase": "Scope Derivation",
-      "item": "System of record designated for each CDE",
-      "artefact": "System-of-record map",
+      "item": "System of record designated per entity by its Data Owner",
+      "artefact": "System-of-record designation gap register",
       "owner": "Data Owner",
       "blocking": true,
       "pillarId": "P03",
@@ -1016,8 +1016,8 @@
     {
       "id": "CL-40",
       "phase": "Quality",
-      "item": "Reconciliation controls between GL, subledger and source automated",
-      "artefact": "Reconciliation rule set",
+      "item": "GL and Ledger rule families deployed and executing",
+      "artefact": "Deployed GL and Ledger rule families",
       "owner": "Chief Financial Officer",
       "blocking": true,
       "pillarId": "P05",

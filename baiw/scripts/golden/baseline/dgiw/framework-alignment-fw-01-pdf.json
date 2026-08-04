@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "c042b7645f756f55f580446d15ddf2c811dc5082e1ea8b52bd9939a94a753614",
+    "sha256": "ecb4f04bd12f6f23c70365dadf1f137946ab4c778fab0152849991040b0455b8",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-47_fixture-bank-limited_all_2026-07-31_fw-01.pdf",
   "filenameNormalised": "AR-47_fixture-bank-limited_all_2026-07-31_fw-01.pdf",
   "generator": "buildFrameworkAlignmentPdf",
-  "glyphCount": 8221,
+  "glyphCount": 8543,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "d958f7f8c2303dded43ce900b36ae5cc0f29934601274f89861d33f75f2b7305",
+  "normalisedTextSha256": "d7c59120d47ffe30f27c1e6a5d35cae17584d2a0412d166071478a8d7a2268cc",
   "notReproducible": {},
   "pageCount": 7,
   "pages": [
@@ -226,7 +226,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1589,
+      "glyphs": 1703,
       "heightPt": 841.89,
       "multiColumnBaselines": 22,
       "page": 4,
@@ -259,11 +259,13 @@
         "75%",
         "both",
         "DMBOK's Data Governance knowledge area is decision rights, stewardship and the council structure",
+        "— which is what P01 measures directly.",
         "P02",
         "Strategy",
         "25%",
         "both",
         "The knowledge area also covers strategy, funding and the governance business case, which DGIW",
+        "separates into P02.",
         "DM02 · Data Architecture",
         "Assessed",
         "3.0",
@@ -284,6 +286,7 @@
         "20%",
         "both",
         "DMBOK's architecture area also covers the technology landscape the architecture is realised on,",
+        "which DGIW holds in P10.",
         "DM03 · Data Modelling & Design",
         "Assessed",
         "2.9",
@@ -304,6 +307,7 @@
         "30%",
         "both",
         "Model artefacts are metadata: the definitions and structures a model produces are what P04 asks",
+        "whether the organisation curates.",
         "DM04 · Data Storage & Operations",
         "Assessed",
         "2.8",
@@ -327,12 +331,12 @@
         "Prepared by Godaitec | godai.tech",
         "Page 4 of 7"
       ],
-      "textRuns": 87,
+      "textRuns": 91,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 1784,
+      "glyphs": 1838,
       "heightPt": 841.89,
       "multiColumnBaselines": 27,
       "page": 5,
@@ -362,6 +366,7 @@
         "100%",
         "both",
         "A clean one-to-one: DMBOK Data Security and P08 Security & Privacy address the same capability",
+        "with the same evidence.",
         "DM06 · Data Integration & Interoperability",
         "Assessed",
         "2.9",
@@ -382,6 +387,7 @@
         "35%",
         "both",
         "Interoperability is where lineage is created or lost; P07 asks whether movement between systems is",
+        "traceable.",
         "P03",
         "Architecture",
         "20%",
@@ -402,6 +408,7 @@
         "55%",
         "both",
         "Records management, retention schedules and disposal are the substance of this knowledge area",
+        "and of P09.",
         "P08",
         "Security & Privacy",
         "25%",
@@ -447,15 +454,16 @@
         "30%",
         "both",
         "The warehouse itself is platform: P10 asks whether the analytical estate is engineered rather than",
+        "assembled.",
         "Prepared by Godaitec | godai.tech",
         "Page 5 of 7"
       ],
-      "textRuns": 104,
+      "textRuns": 108,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 700,
+      "glyphs": 854,
       "heightPt": 841.89,
       "multiColumnBaselines": 12,
       "page": 6,
@@ -490,6 +498,7 @@
         "30%",
         "both",
         "DMBOK treats lineage as a metadata type; DGIW gives lineage its own pillar, so a share of this area",
+        "lands in P07.",
         "DM11 · Data Quality",
         "Assessed",
         "2.9",
@@ -510,10 +519,12 @@
         "15%",
         "banking",
         "Under BCBS 239 a bank must evidence accuracy through to source, so demonstrating data quality",
+        "becomes partly a lineage exercise. This does not apply to a sector-neutral engagement, so it is",
+        "banking-only and DM11 retains 0.85 under core.",
         "Prepared by Godaitec | godai.tech",
         "Page 6 of 7"
       ],
-      "textRuns": 44,
+      "textRuns": 47,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -558,7 +569,7 @@
   "rawBytesAsserted": true,
   "rawBytesSha256": "23203b4616be4925ffc0f30069ee4365b5cc42925980562749a9e81ec45bfaf6",
   "tableRowsTotal": 45,
-  "textRunCount": 386,
+  "textRunCount": 397,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",
