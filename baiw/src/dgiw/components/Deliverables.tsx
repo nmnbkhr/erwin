@@ -274,6 +274,34 @@ const SPECS: Spec[] = [
     countLabel: 'consumption points reachable',
     shortcut: '',
   },
+
+  /*
+   * ── WAVE C: one assessment note ────────────────────────────────────────
+   *
+   * The AR-01/AR-48 shape narrowed to a single pillar. PDF only, and the absence
+   * of a CSV is a decision rather than an omission — see the generator's header:
+   * five questions and four scores have nothing to sort and nothing to assign,
+   * and a five-row spreadsheet emitted for symmetry would imply a working
+   * artefact that it is not.
+   */
+  {
+    artefactId: 'AR-06',
+    title: 'AI Readiness Gap Statement',
+    blurb:
+      'P11 scored through the same function the diagnostic screen calls, its five questions with ' +
+      'the answer given and the level description at that answer, the three pillars P11’s own ' +
+      'focus text names as dependencies printed beside it, and how the four published frameworks ' +
+      'reach this pillar.',
+    caveat:
+      'Pillar level only — one pillar’s score and its five questions. NO USE CASES EXIST IN ANY ' +
+      'DATASET, though the ladder and P11’s banking overlay both say "per candidate use case". ' +
+      'P08, P07 and P05 print separately and are never combined into a readiness index no dataset ' +
+      'defines. NOT ASSESSED is not zero, and the denominator prints.',
+    primary: 'pdf',
+    count: (f) => applicableQuestions(DIAG.questions, f).filter((q) => q.pillarId === 'P11').length,
+    countLabel: 'P11 questions in scope',
+    shortcut: '/dg/diagnostic',
+  },
 ]
 
 export default function Deliverables() {
@@ -412,6 +440,11 @@ export default function Deliverables() {
         case 'AR-05': {
           const { buildLineageTracePdf } = await import('../report/lineageTrace')
           saveReport(buildLineageTracePdf({ meta }), reportFilename(meta, 'pdf'), meta)
+          return null
+        }
+        case 'AR-06': {
+          const { buildAiReadinessPdf } = await import('../report/aiReadiness')
+          saveReport(buildAiReadinessPdf({ meta, answers }), reportFilename(meta, 'pdf'), meta)
           return null
         }
         default:

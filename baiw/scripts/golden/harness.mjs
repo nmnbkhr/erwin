@@ -799,6 +799,45 @@ export const REGISTRY = {
         call: (m, f, c) => c.saveReport(m.buildLineageTracePdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
 
+      /*
+       * WAVE C — the AI readiness gap statement, three captures.
+       *
+       * PDF only: the generator emits no CSV, deliberately, and its header says
+       * why. Three variants because two of this document's four boundary
+       * statements are only OBSERVABLE under a variant:
+       *
+       *   all      P11 scored at 5 of 5, the ordinary case.
+       *   core     P11 is 3 core + 2 banking questions, so a core-only
+       *            engagement scores a DIFFERENT pillar from different evidence.
+       *            Same argument as lineage-trace-pdf-core: a layer claim nobody
+       *            captured is a layer claim nobody checked.
+       *   partial  the subject pillar NOT ASSESSED while its three dependencies
+       *            score. At 55 of 55 that branch is unreachable, which is the
+       *            gap `assessmentPartial` and `answersPartial` closed for TAIW
+       *            and HAIW — and `fixtures/dgiw.json::answersPartial` is DGIW's
+       *            first, answering 50 of 55.
+       */
+      {
+        id: 'ai-readiness-pdf', entry: DGIW_REPORT('aiReadiness'), kind: 'pdf',
+        exportName: 'buildAiReadinessPdf', artefactIdExport: 'AI_READINESS_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(m.buildAiReadinessPdf({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      {
+        id: 'ai-readiness-pdf-core', entry: DGIW_REPORT('aiReadiness'), kind: 'pdf',
+        exportName: 'buildAiReadinessPdf', artefactIdExport: 'AI_READINESS_ARTEFACT_ID',
+        assertRawBytes: true, layer: 'core',
+        call: (m, f, c) => c.saveReport(m.buildAiReadinessPdf({ meta: c.meta, answers: f.answers }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+      {
+        id: 'ai-readiness-pdf-partial', entry: DGIW_REPORT('aiReadiness'), kind: 'pdf',
+        exportName: 'buildAiReadinessPdf', artefactIdExport: 'AI_READINESS_ARTEFACT_ID',
+        // Own orgName so it gets its own filename and a reader comparing the two
+        // captures can tell which is which from the cover — TAIW's convention.
+        assertRawBytes: true, orgName: 'Fixture Bank Limited Partial',
+        call: (m, f, c) => c.saveReport(m.buildAiReadinessPdf({ meta: c.meta, answers: f.answersPartial }), c.reportFilename(c.meta, 'pdf'), c.meta),
+      },
+
       // AR-47 is one artefact id producing four documents, one per framework.
       // All four are captured: the crosswalk work is recent, and a projection
       // that silently changed under a spine edit is exactly what 0a is for.
