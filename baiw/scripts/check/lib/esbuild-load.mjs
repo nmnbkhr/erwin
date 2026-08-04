@@ -59,6 +59,18 @@ export const loadTsModules = async (outRoot, srcRoot, specs) => {
       // emitted file is projection.js and Node loads it as CommonJS and throws.
       outExtension: { '.js': '.mjs' },
       external: ['react'],
+      // G4: PLAN-EFFORT is the first check that CONSTRUCTS a jsPDF from one of
+      // these bundles rather than stopping at a refusal throw. Under platform
+      // 'node' the exports map selects jspdf's CJS build and esbuild's
+      // Node-mode interop makes `import jsPDF from 'jspdf'` resolve to
+      // module.exports — an object, not the class — so construction throws
+      // "not a constructor". Aliasing to the ES build (a real default export)
+      // is the surgical fix: ONLY jspdf's resolution changes, measured against
+      // the alternative of browser-wide conditions which would re-resolve
+      // every dependency of every tsModule. The golden harness reaches the
+      // same file through Vite's browser conditions, so gate and harness run
+      // the same jspdf code.
+      alias: { jspdf: 'jspdf/dist/jspdf.es.min.js' },
       logLevel: 'silent',
     })
     const modules = {}

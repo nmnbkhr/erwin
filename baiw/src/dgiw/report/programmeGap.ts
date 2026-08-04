@@ -151,7 +151,7 @@ export const PROGRAMME_GAP_ARTEFACT_ID = 'AR-54'
  */
 export const IMPLEMENTED_ARTEFACT_IDS = [
   'AR-01', 'AR-02', 'AR-04', 'AR-05', 'AR-06', 'AR-08', 'AR-09', 'AR-13',
-  'AR-17', 'AR-20', 'AR-23', 'AR-27', 'AR-47', 'AR-48', 'AR-54', 'AR-55',
+  'AR-17', 'AR-20', 'AR-23', 'AR-27', 'AR-47', 'AR-48', 'AR-54', 'AR-55', 'AR-56',
 ] as const
 
 const BUILT = new Set<string>(IMPLEMENTED_ARTEFACT_IDS)

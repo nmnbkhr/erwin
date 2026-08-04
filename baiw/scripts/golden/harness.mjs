@@ -724,6 +724,25 @@ export const REGISTRY = {
         assertRawBytes: true,
         call: (m, f, c) => c.saveReport(m.buildRoadmapPdf({ meta: c.meta }), c.reportFilename(c.meta, 'pdf'), c.meta),
       },
+      /*
+       * G4 — the same roadmap WITH engagement state: the gap-driven view
+       * renders and joins the digest. The no-engagement entry above is the
+       * byte-identity claim (reference mode must not move under G4), and
+       * keeping both is what makes that claim checkable rather than asserted.
+       */
+      {
+        id: 'roadmap-pdf-engagement', entry: DGIW_REPORT('roadmap'), kind: 'pdf',
+        exportName: 'buildRoadmapPdf', artefactIdExport: 'ROADMAP_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(
+          m.buildRoadmapPdf({
+            meta: { ...c.meta, mode: 'engagement' },
+            engagement: { answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake },
+          }),
+          c.reportFilename(c.meta, 'pdf').replace(/\.pdf$/, '_engagement.pdf'),
+          { ...c.meta, mode: 'engagement' },
+        ),
+      },
       {
         id: 'operating-model-pdf', entry: DGIW_REPORT('operatingModel'), kind: 'pdf',
         exportName: 'buildOperatingModelPdf', artefactIdExport: 'OPERATING_MODEL_ARTEFACT_ID',
@@ -982,6 +1001,29 @@ export const REGISTRY = {
             answers: Object.fromEntries(Object.entries(f.answers).map(([id, v]) =>
               f.evidence?.[id] ? [id, { score: v, evidence: f.evidence[id] }] : [id, v])),
             targets: f.targets, tier: f.tier, intake: f.intake,
+          }),
+          c.reportFilename(c.meta, 'pdf'),
+          { ...c.meta, mode: 'engagement' },
+        ),
+      },
+
+      /*
+       * G4 — the per-pillar implementation plan, AR-56. Engagement-only on
+       * AR-55's argument, with one more refusal branch (zero in-scope
+       * slices). The fixture intake scopes P01/P02/P05 and the register holds
+       * P01, P02, P04, P06 — so the golden document carries two slices AND
+       * two visible scope exclusions, which is both paths on every capture.
+       * No reference capture: a refusal produces nothing to baseline, and
+       * PLAN-REFUSAL asserts the refusal instead.
+       */
+      {
+        id: 'pillar-plans-pdf', entry: DGIW_REPORT('pillarPlans'), kind: 'pdf',
+        exportName: 'buildPillarPlansPdf', artefactIdExport: 'PILLAR_PLANS_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => c.saveReport(
+          m.buildPillarPlansPdf({
+            meta: { ...c.meta, mode: 'engagement' },
+            answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake,
           }),
           c.reportFilename(c.meta, 'pdf'),
           { ...c.meta, mode: 'engagement' },

@@ -616,6 +616,89 @@ const MUTATIONS = [
     apply: () => sub('src/dgiw/report/aiReadiness.ts', '      `tier:${tier}`,\n', ''),
   },
 
+  /*
+   * ── G4: the plan gates — one row per branch ─────────────────────────────
+   *
+   * SLICE-SOURCE's row makes the slice carry a deep COPY of its entry — field-
+   * equal, identity-broken — which only the post-hoc-mutation probe can see.
+   * SLICE-DEPS' two rows: the sequencer reduced to ordinal order (caught only
+   * by the reversed-edge probe, because the real plan's ordinals happen to
+   * satisfy dependsOn — WAVE-ORDER holds that), and a reversed sequence
+   * (caught by the real-plan edge scan). PLAN-EFFORT's two: an effort figure
+   * injected into a rendered string, and the assumptions block removed while
+   * week windows still print. PLAN-REFUSAL's two: the zero-slice refusal
+   * neutered, and the builder's throw removed while the predicate stands.
+   * The TIER-DIGEST row proves the G4 extension actually reaches AR-56.
+   */
+  {
+    code: 'SLICE-SOURCE',
+    what: 'a slice carries a deep copy of its GapEntry — field-equal today, a fork the day the register moves',
+    touches: ['src/dgiw/plan/slices.ts'],
+    apply: () => sub(
+      'src/dgiw/plan/slices.ts',
+      '      entry,\n      deliverables,',
+      '      entry: JSON.parse(JSON.stringify(entry)) as GapEntry,\n      deliverables,',
+    ),
+  },
+  {
+    code: 'SLICE-DEPS',
+    what: 'the sequencer reduced to ordinal order — right by accident on this plan, wrong on any re-scoped one',
+    touches: ['src/dgiw/plan/slices.ts'],
+    apply: () => sub(
+      'src/dgiw/plan/slices.ts',
+      'const batch = ready.length > 0 ? ready : [remaining[0]]',
+      'const batch = remaining',
+    ),
+  },
+  {
+    code: 'SLICE-DEPS',
+    what: 'a slice sequence reversed — every dependsOn edge now points forward',
+    touches: ['src/dgiw/plan/slices.ts'],
+    apply: () => sub(
+      'src/dgiw/plan/slices.ts',
+      'sequence: fullSequence.filter((id) => sliceWaveIds.has(id)),',
+      'sequence: fullSequence.filter((id) => sliceWaveIds.has(id)).reverse(),',
+    ),
+  },
+  {
+    code: 'PLAN-EFFORT',
+    what: 'an invented effort figure in a rendered string — the fabrication the whole class exists for',
+    touches: ['src/dgiw/report/pillarPlans.ts'],
+    apply: () => sub(
+      'src/dgiw/report/pillarPlans.ts',
+      "['Wave sequence', s.sequence.length ? s.sequence.join(' -> ') : 'no wave lists this pillar'],",
+      "['Wave sequence', (s.sequence.length ? s.sequence.join(' -> ') : 'no wave lists this pillar') + ' - estimated 40 person-days'],",
+    ),
+  },
+  {
+    code: 'PLAN-EFFORT',
+    what: 'the assumptions block removed while week windows still print — durations without their disclaimer',
+    touches: ['src/dgiw/report/pillarPlans.ts'],
+    apply: () => sub(
+      'src/dgiw/report/pillarPlans.ts',
+      "  r.sectionHeading('Assumptions')\n  r.bullets([...PLAN_ASSUMPTIONS])\n",
+      '',
+    ),
+  },
+  {
+    code: 'PLAN-REFUSAL',
+    what: 'the zero-slice refusal neutered — a plan of nothing would generate',
+    touches: ['src/dgiw/report/pillarPlans.ts'],
+    apply: () => sub('src/dgiw/report/pillarPlans.ts', 'if (slices.length === 0) {', 'if (false) {'),
+  },
+  {
+    code: 'PLAN-REFUSAL',
+    what: "the builder stops throwing the predicate's refusal — the predicate and the builder fork",
+    touches: ['src/dgiw/report/pillarPlans.ts'],
+    apply: () => sub('src/dgiw/report/pillarPlans.ts', '  if (refusal) throw new Error(refusal)', '  void refusal'),
+  },
+  {
+    code: 'TIER-DIGEST',
+    what: 'AR-56 stops folding the tier into its /ID digest — the G4 extension must actually reach it',
+    touches: ['src/dgiw/report/pillarPlans.ts'],
+    apply: () => sub('src/dgiw/report/pillarPlans.ts', '      `tier:${tier}`,\n', ''),
+  },
+
   // ── the four suite classes ──────────────────────────────────────────────
   {
     code: 'REPORT-SOURCES',

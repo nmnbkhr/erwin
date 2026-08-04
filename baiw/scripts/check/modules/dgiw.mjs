@@ -22,6 +22,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import zlib from 'node:zlib'
 import { unique, sorted, near, shapeCheck, str, num, idLike, oneOf } from '../lib/assert.mjs'
 import { makeCrosswalkChecks, crosswalkSummary } from '../lib/crosswalk.mjs'
 import { ts, parseFile } from '../lib/ts-ast.mjs'
@@ -726,6 +727,12 @@ const TIER_DIGEST_GENERATORS = [
   // register is tier-scoped by definition.
   'src/dgiw/report/aiReadiness.ts',
   'src/dgiw/report/gapStatements.ts',
+  // G4: the per-pillar plan derives from the tier-scoped register. AR-04 is
+  // deliberately NOT here: its tier joins the digest only when the gap-driven
+  // view renders (`gap-view:` parts), and this class's contract is
+  // unconditional — listing it would either fail a correct generator or force
+  // a tier part into reference documents that apply no tier.
+  'src/dgiw/report/pillarPlans.ts',
 ]
 
 const tierDigest = {
@@ -1169,6 +1176,284 @@ const gapRefusal = {
       fail(`buildGapStatementsPdf produced a document where a refusal was required — the predicate and the builder have forked, and a surface calling the builder directly ships the empty register the predicate exists to stop`)
     else if (threw !== noIntake)
       fail(`buildGapStatementsPdf threw a DIFFERENT message than gapStatementsRefusal returns (${JSON.stringify(threw.slice(0, 60))}) — one predicate decides the refusal; two texts drifting apart is two predicates`)
+
+    return { examined }
+  },
+}
+
+/*
+ * ── G4: THE PLAN GATES ──────────────────────────────────────────────────────
+ *
+ * `planSlices()` in src/dgiw/plan/slices.ts composes the gap register into
+ * per-pillar plans, and AR-56 renders them. Four promises, each asserted
+ * against the REAL compiled modules over the same stored fixture:
+ *
+ *   SLICE-SOURCE  slices are PASS-THROUGH: every slice carries its GapEntry
+ *                 by reference (identity, not field equality), in register
+ *                 order, one per in-scope entry — and a post-hoc mutation of
+ *                 an entry is visible through the slice, which is the proof
+ *                 there is no private copy re-deriving gap facts.
+ *
+ *   SLICE-DEPS    the sequence honours dependsOn. Three ways: no edge in the
+ *                 real plan points forward in any slice's sequence; a plan
+ *                 with a deliberately REVERSED edge (W2 before W1) resequences
+ *                 accordingly; and a shuffled wave array changes nothing.
+ *
+ *   PLAN-EFFORT   the real AR-56 OUTPUT carries no invented effort. The PDF
+ *                 is built and its text extracted (every parenthesised string
+ *                 literal in every inflated content stream — the D-018 lesson
+ *                 says match ALL operator forms, so this takes the literals
+ *                 regardless of operator); after stripping the module's own
+ *                 declared statements (which NAME the forbidden units to
+ *                 disclaim them), any person-day/FTE/currency match trips.
+ *                 And a document printing any week window without the
+ *                 assumptions block trips — a duration without its
+ *                 disclaimer is a schedule nobody committed to.
+ *
+ *   PLAN-REFUSAL  AR-56 refuses rather than illustrating: the predicate
+ *                 refuses a non-actionable intake and a zero-slice plan,
+ *                 passes when there is something true to render, and the
+ *                 builder throws the predicate's own message.
+ */
+const gapFixtureState = (root) => {
+  const f = readGapFixture(root)
+  if (!f) return null
+  return { answers: f.answers, targets: f.targets, tier: f.tier, layer: f.layer, intake: f.intake }
+}
+
+const sliceSource = {
+  code: 'SLICE-SOURCE',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.gap || !ctx.ts?.slices) {
+      fail(`could not build or load gap/register.ts or plan/slices.ts — the pass-through rule was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const f = gapFixtureState(root)
+    if (!f) return { examined: 0, mayBeEmpty: GAP_FIXTURE_UNAVAILABLE }
+    const { gapRegister } = ctx.ts.gap
+    const { planSlices } = ctx.ts.slices
+    const plan = JSON.parse(fs.readFileSync(path.join(root, 'src/dgiw/data/implementationPlan.json'), 'utf8'))
+    let examined = 0
+
+    const entries = gapRegister(f.answers, f.targets, f.tier, f.layer, f.intake)
+    const slices = planSlices(entries, f.intake, plan, f.layer)
+    const byPillar = new Map(entries.map((e) => [e.pillarId, e]))
+
+    // Branch 1 — identity, order, completeness.
+    let last = -1
+    for (const s of slices) {
+      examined++
+      if (s.entry !== byPillar.get(s.pillarId))
+        fail(`slice ${s.pillarId} carries an entry that is NOT the register's own object — a copy is a fork, and a fork is where a slice starts disagreeing with the /gaps screen`)
+      const pos = entries.indexOf(byPillar.get(s.pillarId))
+      if (pos < last)
+        fail(`slice ${s.pillarId} is out of register order — the register ranks by priority and slices must not re-rank`)
+      last = pos
+    }
+
+    // Branch 2 — a post-hoc mutation is visible through the slice.
+    if (entries.length > 0 && slices.length > 0) {
+      examined++
+      const victim = slices[0].entry
+      const original = victim.priority.band
+      victim.priority.band = '__selftest__'
+      if (slices[0].entry.priority.band !== '__selftest__')
+        fail(`mutating a register entry post-hoc is NOT visible through its slice — the slice holds a private copy, which is re-derivation wearing a cache's clothes`)
+      victim.priority.band = original
+    }
+
+    return { examined, slices: slices.length, entries: entries.length }
+  },
+}
+
+const sliceDeps = {
+  code: 'SLICE-DEPS',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.gap || !ctx.ts?.slices) {
+      fail(`could not build or load the plan modules — the dependency rule was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const f = gapFixtureState(root)
+    if (!f) return { examined: 0, mayBeEmpty: GAP_FIXTURE_UNAVAILABLE }
+    const { gapRegister } = ctx.ts.gap
+    const { planSlices, waveSequence } = ctx.ts.slices
+    const plan = JSON.parse(fs.readFileSync(path.join(root, 'src/dgiw/data/implementationPlan.json'), 'utf8'))
+    let examined = 0
+
+    const entries = gapRegister(f.answers, f.targets, f.tier, f.layer, f.intake)
+
+    // Branch 1 — no dependsOn edge points forward in any slice sequence.
+    const slices = planSlices(entries, f.intake, plan, f.layer)
+    const waveById = new Map(plan.waves.map((w) => [w.id, w]))
+    for (const s of slices) {
+      examined++
+      const pos = Object.fromEntries(s.sequence.map((id, i) => [id, i]))
+      for (const id of s.sequence)
+        for (const dep of waveById.get(id)?.dependsOn ?? [])
+          if (pos[dep] !== undefined && pos[dep] > pos[id])
+            fail(`slice ${s.pillarId}: sequence places ${dep} AFTER ${id}, which depends on it — priority may never reorder across a dependency edge (B_STRUCTURE_OVER_PRIORITY)`)
+    }
+
+    // Branch 2 — a REVERSED edge resequences. W1 currently precedes W2; a
+    // plan where W2 is W1's prerequisite must put W2 first, whatever the
+    // ordinals say. This is what proves the sequence reads dependsOn rather
+    // than echoing the ordinal order that happens to satisfy it.
+    examined++
+    const mutated = JSON.parse(JSON.stringify(plan))
+    for (const w of mutated.waves) {
+      if (w.id === 'W1') w.dependsOn = ['W0', 'W2']
+      if (w.id === 'W2') w.dependsOn = []
+    }
+    const seq = waveSequence(mutated.waves)
+    if (seq.indexOf('W2') > seq.indexOf('W1'))
+      fail(`with W2 declared W1's prerequisite the sequence still runs ${seq.join(' -> ')} — the composition is echoing wave ordinals, not reading dependsOn, and a re-scoped plan would sequence wrongly`)
+
+    // Branch 3 — a shuffled wave array changes nothing.
+    examined++
+    const shuffled = { ...plan, waves: [...plan.waves].reverse() }
+    const a = JSON.stringify(planSlices(entries, f.intake, plan, f.layer).map((s) => s.sequence))
+    const b = JSON.stringify(planSlices(entries, f.intake, shuffled, f.layer).map((s) => s.sequence))
+    if (a !== b)
+      fail(`reversing the wave ARRAY changed slice sequences — the order is leaking from file order rather than from dependsOn and the declared ordinals`)
+
+    return { examined }
+  },
+}
+
+/** Every parenthesised string literal in every (inflated) content stream. */
+const pdfTextOf = (doc) => {
+  const bytes = Buffer.from(doc.output('arraybuffer'))
+  const chunks = []
+  let idx = 0
+  for (;;) {
+    const s = bytes.indexOf('stream', idx)
+    if (s === -1) break
+    let start = s + 6
+    if (bytes[start] === 0x0d) start++
+    if (bytes[start] === 0x0a) start++
+    const e = bytes.indexOf('endstream', start)
+    if (e === -1) break
+    const raw = bytes.subarray(start, e)
+    try {
+      chunks.push(zlib.inflateSync(raw).toString('latin1'))
+    } catch {
+      chunks.push(raw.toString('latin1'))
+    }
+    idx = e + 9
+  }
+  const literals = []
+  for (const c of chunks)
+    for (const m of c.matchAll(/\(((?:[^()\\]|\\.)*)\)/g)) literals.push(m[1])
+  return literals.map((l) => l.replace(/\\([()\\])/g, '$1')).join(' ')
+}
+
+const EFFORT_PATTERN = /\d+\s*(person-|man-|p)?days?\b|FTE|PKR|USD|\$\s*\d/i
+
+const planEffort = {
+  code: 'PLAN-EFFORT',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.pillarPlans || !ctx.ts?.slices) {
+      fail(`could not build or load report/pillarPlans.ts — the no-invented-effort rule was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const f = gapFixtureState(root)
+    if (!f) return { examined: 0, mayBeEmpty: GAP_FIXTURE_UNAVAILABLE }
+    const { buildPillarPlansPdf } = ctx.ts.pillarPlans
+    const { B_NO_EFFORT, B_STRUCTURE_OVER_PRIORITY, B_THIN_IS_INFORMATION, PLAN_ASSUMPTIONS } = ctx.ts.slices
+    let examined = 0
+
+    const meta = {
+      orgName: 'gate-probe', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z',
+      layer: f.layer, accent: [0, 0, 0], isDraft: false, artefactId: 'AR-56', mode: 'engagement',
+    }
+    let doc
+    try {
+      doc = buildPillarPlansPdf({ meta, answers: f.answers, targets: f.targets, tier: f.tier, intake: f.intake })
+    } catch (err) {
+      fail(`buildPillarPlansPdf threw on the fixture state (${String(err?.message ?? err).slice(0, 80)}) — the output could not be scanned, so the no-invented-effort rule was NOT checked`)
+      return { examined: 0 }
+    }
+
+    // WinAnsi bytes (the em-dash is 0x97) come out of the latin1 decode as
+    // control characters, while the module constants hold real Unicode — so
+    // both sides are flattened to ASCII before any comparison. Every pattern
+    // this check matches is ASCII, so nothing the check is FOR is lost.
+    const norm = (x) => x.replace(/[^\x20-\x7e]+/g, ' ').replace(/\s+/g, ' ')
+    const fullText = norm(pdfTextOf(doc))
+
+    // Branch 1 — no effort figure outside the declared statements, which
+    // name the forbidden units in order to disclaim them.
+    examined++
+    let scan = fullText
+    for (const c of [B_NO_EFFORT, B_STRUCTURE_OVER_PRIORITY, B_THIN_IS_INFORMATION, ...PLAN_ASSUMPTIONS])
+      scan = scan.split(norm(c)).join(' ')
+    const hit = scan.match(EFFORT_PATTERN)
+    if (hit)
+      fail(`the rendered plan carries an effort-shaped string outside the declared statements: "...${scan.slice(Math.max(0, hit.index - 30), hit.index + 40)}..." — no dataset holds effort, so any such figure was fabricated`)
+
+    // Branch 2 — a week window without the assumptions block is a schedule
+    // nobody committed to. The probe fragment is the block's own first line.
+    examined++
+    const printsWeeks = /Weeks\s*\d/.test(fullText)
+    const hasAssumptions = fullText.includes(norm(PLAN_ASSUMPTIONS[0]))
+    if (printsWeeks && !hasAssumptions)
+      fail(`the plan prints week windows but the assumptions block is absent — a duration without its disclaimer reads as a calendar commitment, and the windows are the reference plan's, not this engagement's`)
+
+    return { examined }
+  },
+}
+
+const planRefusal = {
+  code: 'PLAN-REFUSAL',
+  run(ctx) {
+    const { fail, root } = ctx
+    if (!ctx.ts?.pillarPlans) {
+      fail(`could not build or load report/pillarPlans.ts — the refusal contract was NOT checked: ${ctx.tsLoadError ?? 'module unavailable'}`)
+      return { examined: 0 }
+    }
+    const { pillarPlansRefusal, buildPillarPlansPdf } = ctx.ts.pillarPlans
+    const f = gapFixtureState(root)
+    let examined = 0
+
+    // Branch 1 — no actionable intake refuses, even with entries and slices.
+    examined++
+    const noIntake = pillarPlansRefusal(null, [{ pillarId: 'P01' }], [{ pillarId: 'P01' }])
+    if (typeof noIntake !== 'string' || noIntake.length === 0)
+      fail(`pillarPlansRefusal(null, [entry], [slice]) returned ${JSON.stringify(noIntake)} — a plan derived from measurements has no reference mode, and no intake means no engagement to plan for`)
+
+    if (f?.intake) {
+      // Branch 2 — measured pillars but ZERO slices refuses: a plan of
+      // nothing would document nothing.
+      examined++
+      const zeroSlices = pillarPlansRefusal(f.intake, [{ pillarId: 'P01' }], [])
+      if (typeof zeroSlices !== 'string' || zeroSlices.length === 0)
+        fail(`pillarPlansRefusal(intake, [entry], []) returned ${JSON.stringify(zeroSlices)} — every measured pillar sitting outside the scope must refuse, not render an empty plan`)
+
+      // Branch 3 — something true to render passes, or the button is dead.
+      examined++
+      if (pillarPlansRefusal(f.intake, [{ pillarId: 'P01' }], [{ pillarId: 'P01' }]) !== null)
+        fail(`pillarPlansRefusal refuses an actionable intake with entries AND slices — the refusal has over-rotated into a generator that can never run`)
+    }
+
+    // Branch 4 — the builder enforces the predicate: same message, thrown.
+    examined++
+    const meta = {
+      orgName: 'refusal-probe', engagementId: '', generatedAt: '2026-01-01T00:00:00.000Z',
+      layer: 'all', accent: [0, 0, 0], isDraft: false, artefactId: 'AR-56',
+    }
+    let threw = null
+    try {
+      buildPillarPlansPdf({ meta, answers: {}, targets: {}, tier: 'deep', intake: null })
+    } catch (err) {
+      threw = String(err?.message ?? err)
+    }
+    if (threw === null)
+      fail(`buildPillarPlansPdf produced a document where a refusal was required — the predicate and the builder have forked`)
+    else if (threw !== pillarPlansRefusal(null, [], []))
+      fail(`buildPillarPlansPdf threw a DIFFERENT message than pillarPlansRefusal returns (${JSON.stringify(threw.slice(0, 60))}) — one predicate decides the refusal; two texts drifting apart is two predicates`)
 
     return { examined }
   },
@@ -1624,6 +1909,10 @@ export default {
     // GAP-PRIORITY and GAP-DRIVER run the first; GAP-REFUSAL calls the second.
     gap: 'src/dgiw/gap/register.ts',
     gapStatements: 'src/dgiw/report/gapStatements.ts',
+    // G4: the plan composition and the refusing generator — SLICE-* run the
+    // first; PLAN-EFFORT and PLAN-REFUSAL call the second's real builder.
+    slices: 'src/dgiw/plan/slices.ts',
+    pillarPlans: 'src/dgiw/report/pillarPlans.ts',
   },
 
   /**
@@ -1687,6 +1976,10 @@ export default {
     gapPriority,
     gapDriver,
     gapRefusal,
+    sliceSource,
+    sliceDeps,
+    planEffort,
+    planRefusal,
     intakeScope,
     intakeMode,
     crosswalk.spineUniverse,
@@ -1761,6 +2054,16 @@ export default {
       out.push(
         `GAP register ${gp.entries} entries (${gb.bands.join(', ')}) · ${gp.exclusions} exclusions — ` +
           `pairing, formula and bands asserted through the compiled gap/register.ts; refusal through gapStatements.ts (GAP-REFUSAL)`,
+      )
+    }
+
+    // G4: what the plan gates ran, printed from the checks' own results.
+    const ss = r['SLICE-SOURCE']
+    if (ss?.slices !== undefined) {
+      out.push(
+        `PLAN ${ss.slices} slice${ss.slices === 1 ? '' : 's'} from ${ss.entries} register entr${ss.entries === 1 ? 'y' : 'ies'} — ` +
+          `pass-through and dependsOn asserted through the compiled plan/slices.ts; ` +
+          `no invented effort and the refusal asserted through the real AR-56 output (PLAN-EFFORT, PLAN-REFUSAL)`,
       )
     }
 

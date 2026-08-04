@@ -50,6 +50,9 @@ import { useProgramIntake } from '../intake/state'
 import { PILLAR_IDS, intakeIsActionable, validScopeIds } from '../intake/types'
 // G3: the single gap function — pure, no jsPDF, safe to import statically.
 import { gapRegister } from '../gap/register'
+// G4: the plan composition — pure too; AR-56's card count and AR-04's
+// engagement input both read it.
+import { planSlices } from '../plan/slices'
 import implementationPlan from '../data/implementationPlan.json'
 import operatingModel from '../data/operatingModel.json'
 import cdeRegister from '../data/cdeRegister.json'
@@ -409,6 +412,25 @@ const SPECS: Spec[] = [
     countLabel: 'pillars with both measurements',
     shortcut: '/dg/gaps',
   },
+  {
+    artefactId: 'AR-56',
+    title: 'Per-Pillar Implementation Plan',
+    blurb:
+      'One section per in-scope pillar with both measurements: the gap with its band, the ' +
+      'catalogued deliverables with their dispositions, the waves that list the pillar and the ' +
+      'dependency-honouring sequence. Thin pillars are flagged, never padded; measured pillars ' +
+      'outside the intake scope are listed as excluded.',
+    caveat:
+      'NO INVENTED EFFORT, NO REFERENCE MODE. Durations are the reference waves\' own week ' +
+      'windows under a stated assumptions block — no person-days, FTEs, costs or dates. Without ' +
+      'an actionable intake, an empty register, or with every measured pillar out of scope, ' +
+      'generation REFUSES with the reason.',
+    primary: 'pdf',
+    // Overridden in the cards memo below, like AR-55's.
+    count: () => 0,
+    countLabel: 'pillar slices in the plan',
+    shortcut: '/dg/plan',
+  },
 ]
 
 export default function Deliverables() {
@@ -434,6 +456,12 @@ export default function Deliverables() {
     () => gapRegister(answersRich, targets, tier, filter, intake),
     [answersRich, targets, tier, filter, intake],
   )
+  // G4: the live slices — empty unless the intake is actionable, which is
+  // what makes slices.length > 0 the honest "the plan view exists" fact.
+  const slices = useMemo(
+    () => planSlices(gapEntries, intake, PLAN, filter),
+    [gapEntries, intake, filter],
+  )
 
   const cards = useMemo(
     () =>
@@ -447,10 +475,12 @@ export default function Deliverables() {
             ? scopeCount
             : spec.artefactId === 'AR-55'
               ? gapEntries.length
-              : spec.count(filter)
+              : spec.artefactId === 'AR-56'
+                ? slices.length
+                : spec.count(filter)
         return { spec, artefact, count }
       }),
-    [filter, actionable, scopeCount, gapEntries],
+    [filter, actionable, scopeCount, gapEntries, slices],
   )
 
   const available = cards.filter((c) => c.count > 0).length
@@ -528,7 +558,7 @@ export default function Deliverables() {
         false,
         artefactId === 'AR-08' || artefactId === 'AR-09'
           ? intakeMode
-          : artefactId === 'AR-55'
+          : artefactId === 'AR-55' || artefactId === 'AR-56'
             ? 'engagement'
             : undefined,
       )
@@ -536,7 +566,11 @@ export default function Deliverables() {
       // meta — claiming a tier the document did not apply would be a lying
       // record. G3 closed the AR-06 flag (its generator now takes the tier)
       // and added AR-54's maturity section and AR-55, so all three join.
-      const SCORE_CARRIERS = ['AR-01', 'AR-48', 'AR-47', 'AR-06', 'AR-54', 'AR-55']
+      // AR-04 carries the tier ONLY when its gap-driven view will render
+      // (slices exist) — meta claiming a tier the document did not apply
+      // would be a lying record, the AR-06 lesson from G2.
+      const SCORE_CARRIERS = ['AR-01', 'AR-48', 'AR-47', 'AR-06', 'AR-54', 'AR-55', 'AR-56',
+        ...(slices.length > 0 ? ['AR-04'] : [])]
       const tierQuestions = applicableQuestions(DIAG.questions, filter, tier)
       const meta = SCORE_CARRIERS.includes(artefactId)
         ? {
@@ -575,7 +609,25 @@ export default function Deliverables() {
         }
         case 'AR-04': {
           const { buildRoadmapPdf } = await import('../report/roadmap')
-          saveReport(buildRoadmapPdf({ meta }), reportFilename(meta, 'pdf'), meta)
+          // G4: the engagement state rides along; the generator renders and
+          // digests the gap-driven view only when it has something true to
+          // show, so a non-actionable engagement still gets pre-G4 bytes.
+          saveReport(
+            buildRoadmapPdf({ meta, engagement: { answers: answersRich, targets, tier, intake } }),
+            reportFilename(meta, 'pdf'),
+            meta,
+          )
+          return null
+        }
+        case 'AR-56': {
+          const { buildPillarPlansPdf } = await import('../report/pillarPlans')
+          // Refuses (throws) without an actionable intake, an empty register
+          // or zero in-scope slices; run() surfaces the reason as the message.
+          saveReport(
+            buildPillarPlansPdf({ meta, answers: answersRich, targets, tier, intake }),
+            reportFilename(meta, 'pdf'),
+            meta,
+          )
           return null
         }
         case 'AR-09': {

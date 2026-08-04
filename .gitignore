@@ -26,3 +26,6 @@ venv/
 
 # Unpacked pptx working directories — regenerable from the decks.
 unpacked_*/
+
+# Session history notes — local, never committed
+.claude-history

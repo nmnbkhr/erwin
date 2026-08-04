@@ -1,6 +1,6 @@
 {
-  "artefact": "roadmap-pdf",
-  "bytes": 91406,
+  "artefact": "roadmap-pdf-engagement",
+  "bytes": 101957,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -24,16 +24,16 @@
       "src/frameworks/data/frameworks.json"
     ]
   },
-  "filename": "AR-04_fixture-bank-limited_all_2026-07-31.pdf",
-  "filenameNormalised": "AR-04_fixture-bank-limited_all_2026-07-31.pdf",
+  "filename": "AR-04_fixture-bank-limited_all_2026-07-31_engagement.pdf",
+  "filenameNormalised": "AR-04_fixture-bank-limited_all_2026-07-31_engagement.pdf",
   "generator": "buildRoadmapPdf",
-  "glyphCount": 13676,
+  "glyphCount": 15116,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "bddb4060459803b123877b356990173c55fb48e48c312b9906e25b360e5ef492",
+  "normalisedTextSha256": "e6d6a640c750fe33307bcb0f04dd027a18c3ca7ef8e9434f5c476dbb10e3c7de",
   "notReproducible": {},
-  "pageCount": 12,
+  "pageCount": 13,
   "pages": [
     {
       "glyphs": 147,
@@ -164,9 +164,76 @@
         "In scope",
         "Every wave in the plan is in scope under the current layer.",
         "Prepared by Godaitec | godai.tech",
-        "Page 2 of 12"
+        "Page 2 of 13"
       ],
       "textRuns": 90,
+      "utf16Runs": 0,
+      "widestText": "Powered by DGIW",
+      "widthPt": 595.28
+    },
+    {
+      "glyphs": 1439,
+      "heightPt": 841.89,
+      "multiColumnBaselines": 12,
+      "page": 3,
+      "pastMarginPt": 0,
+      "pastPaperPt": 0,
+      "rightEdgePt": 552.76,
+      "rightMarginPt": 552.76,
+      "rotatedRuns": 0,
+      "runsPastMargin": 0,
+      "runsPastPaper": 0,
+      "tableRows": 8,
+      "text": [
+        "Fixture Bank Limited — Implementation Roadmap",
+        "Powered by DGIW",
+        "Gap-driven view",
+        "The same waves, annotated with the measured gaps of the in-scope pillars each carries.",
+        "Every figure below comes from the gap register (a current score at the stated tier plus a consultant-set target) through the plan slices — the",
+        "same rows AR-55 and AR-56 render. Structure beats priority: a wave keeps its place in the declared dependency order whatever bands it",
+        "carries, and no wave is re-sequenced by urgency.",
+        "Assessment tier",
+        "Quick",
+        "Pillars with slices",
+        "P01 (critical) · P02 (moderate)",
+        "Wave",
+        "Name",
+        "Weeks",
+        "Gaps carried (pillar, band, gap)",
+        "W0",
+        "Mobilise & Derive",
+        "Weeks 1–4",
+        "P01 critical 3.0 · P02 moderate 1.0",
+        "W1",
+        "Platform & Catalogue",
+        "Weeks 5–10",
+        "no in-scope measured gap - reference content only",
+        "W2",
+        "Quality & Scorecard",
+        "Weeks 9–16",
+        "no in-scope measured gap - reference content only",
+        "W3",
+        "Regulatory Defensibility",
+        "Weeks 13–20",
+        "no in-scope measured gap - reference content only",
+        "W4",
+        "Master Data & Single Customer View",
+        "Weeks 17–24",
+        "no in-scope measured gap - reference content only",
+        "W5",
+        "AI & Consumption Readiness",
+        "Weeks 21–28",
+        "no in-scope measured gap - reference content only",
+        "W6",
+        "Run, Prove & Expand",
+        "Weeks 25–32",
+        "P01 critical 3.0 · P02 moderate 1.0",
+        "A wave carrying no measured gap is not empty work — it is reference plan content this engagement has not measured against. Week windows",
+        "are the reference plan's own; calendar mapping and staffing are engagement decisions not made here.",
+        "Prepared by Godaitec | godai.tech",
+        "Page 3 of 13"
+      ],
+      "textRuns": 47,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
@@ -175,7 +242,7 @@
       "glyphs": 1616,
       "heightPt": 841.89,
       "multiColumnBaselines": 17,
-      "page": 3,
+      "page": 4,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -273,7 +340,7 @@
         "•",
         "Every gate is run by a delivery flow.",
         "Prepared by Godaitec | godai.tech",
-        "Page 3 of 12"
+        "Page 4 of 13"
       ],
       "textRuns": 89,
       "utf16Runs": 0,
@@ -284,7 +351,7 @@
       "glyphs": 2068,
       "heightPt": 841.89,
       "multiColumnBaselines": 12,
-      "page": 4,
+      "page": 5,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -336,7 +403,7 @@
         "Stewards have run a full monthly cycle — scorecard review, triage, council attendance — without delivery-team intervention. Required before",
         "the retainer tier reduces.",
         "Prepared by Godaitec | godai.tech",
-        "Page 4 of 12"
+        "Page 5 of 13"
       ],
       "textRuns": 43,
       "utf16Runs": 0,
@@ -347,7 +414,7 @@
       "glyphs": 345,
       "heightPt": 841.89,
       "multiColumnBaselines": 3,
-      "page": 5,
+      "page": 6,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -364,7 +431,7 @@
         "Harvest jobs for every in-scope system have completed on schedule for two consecutive cycles, and the catalogue reflects the current",
         "production schema rather than a point-in-time import.",
         "Prepared by Godaitec | godai.tech",
-        "Page 5 of 12"
+        "Page 6 of 13"
       ],
       "textRuns": 8,
       "utf16Runs": 0,
@@ -375,7 +442,7 @@
       "glyphs": 1087,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
-      "page": 6,
+      "page": 7,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -429,7 +496,7 @@
         "Exit criteria",
         "Charter signed, stewards time-allocated, CDE register ratified at council. Gates G1–G6.",
         "Prepared by Godaitec | godai.tech",
-        "Page 6 of 12"
+        "Page 7 of 13"
       ],
       "textRuns": 45,
       "utf16Runs": 0,
@@ -440,7 +507,7 @@
       "glyphs": 1228,
       "heightPt": 841.89,
       "multiColumnBaselines": 19,
-      "page": 7,
+      "page": 8,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -496,7 +563,7 @@
         "Exit criteria",
         "Harvest running on schedule; every CDE has a definition, a binding, a lineage path and a classification.",
         "Prepared by Godaitec | godai.tech",
-        "Page 7 of 12"
+        "Page 8 of 13"
       ],
       "textRuns": 47,
       "utf16Runs": 0,
@@ -507,7 +574,7 @@
       "glyphs": 1065,
       "heightPt": 841.89,
       "multiColumnBaselines": 19,
-      "page": 8,
+      "page": 9,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -563,7 +630,7 @@
         "Exit criteria",
         "Scorecard published and reviewed at council; issues being triaged by stewards rather than by the delivery team. Gate G8.",
         "Prepared by Godaitec | godai.tech",
-        "Page 8 of 12"
+        "Page 9 of 13"
       ],
       "textRuns": 47,
       "utf16Runs": 0,
@@ -571,10 +638,10 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 1214,
+      "glyphs": 1215,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
-      "page": 9,
+      "page": 10,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -628,7 +695,7 @@
         "Exit criteria",
         "Derivation of any priority return line item can be evidenced on request from live lineage.",
         "Prepared by Godaitec | godai.tech",
-        "Page 9 of 12"
+        "Page 10 of 13"
       ],
       "textRuns": 45,
       "utf16Runs": 0,
@@ -639,7 +706,7 @@
       "glyphs": 1129,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
-      "page": 10,
+      "page": 11,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -693,7 +760,7 @@
         "Exit criteria",
         "Group exposure can be aggregated on demand with evidenced completeness; duplicate rate trending down.",
         "Prepared by Godaitec | godai.tech",
-        "Page 10 of 12"
+        "Page 11 of 13"
       ],
       "textRuns": 45,
       "utf16Runs": 0,
@@ -704,7 +771,7 @@
       "glyphs": 1235,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
-      "page": 11,
+      "page": 12,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -758,7 +825,7 @@
         "Exit criteria",
         "An AI use case has passed the gate on evidence rather than assertion, with entitlements enforced at query time.",
         "Prepared by Godaitec | godai.tech",
-        "Page 11 of 12"
+        "Page 12 of 13"
       ],
       "textRuns": 45,
       "utf16Runs": 0,
@@ -769,7 +836,7 @@
       "glyphs": 1105,
       "heightPt": 841.89,
       "multiColumnBaselines": 18,
-      "page": 12,
+      "page": 13,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
       "rightEdgePt": 552.76,
@@ -823,7 +890,7 @@
         "Exit criteria",
         "Client-run cycle completed; benefit evidenced; next domain scoped. Gate G10.",
         "Prepared by Godaitec | godai.tech",
-        "Page 12 of 12"
+        "Page 13 of 13"
       ],
       "textRuns": 45,
       "utf16Runs": 0,
@@ -832,9 +899,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "aabe32fc56359ba6a6683e4e31b1a3831346de5bfe3e5d64ac7bc9df42049ef0",
-  "tableRowsTotal": 20,
-  "textRunCount": 555,
+  "rawBytesSha256": "dd67df08e4bc3a51c41805468bedf866d4fd5a91bda09965af79d3790cf6a457",
+  "tableRowsTotal": 28,
+  "textRunCount": 602,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

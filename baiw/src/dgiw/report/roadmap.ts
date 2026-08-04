@@ -45,6 +45,14 @@ import { contentKey, createReport, SLATE } from '../../report/spine'
 import type { ReportMeta } from '../../report/types'
 import { byNumber, idOrdinal } from '../../report/order'
 import { layerShows } from '../layer'
+// G4: the gap-driven view composes plan slices — the same composition AR-56
+// renders in full. Nothing here recomputes a gap or re-derives a placement.
+import { gapRegister } from '../gap/register'
+import { planSlices, type PillarPlanSlice } from '../plan/slices'
+import { intakeIsActionable, type ProgramIntake } from '../intake/types'
+import type { StoredAnswerMap } from '../answerShape'
+import type { TargetMap } from '../assessmentState'
+import { TIER_META, type AssessmentTier } from '../tier'
 import implementationPlan from '../data/implementationPlan.json'
 import operatingModel from '../data/operatingModel.json'
 import programSetup from '../data/programSetup.json'
@@ -68,6 +76,21 @@ export const ROADMAP_ARTEFACT_ID = 'AR-04'
 
 export interface RoadmapInput {
   meta: ReportMeta
+  /**
+   * G4, additive: the engagement's assessment state. When present AND the
+   * intake is actionable AND at least one slice exists, the document gains a
+   * "Gap-driven view" section annotating the same waves with the in-scope
+   * pillars' gaps. When absent — every pre-G4 caller and the reference golden
+   * entries — the document is BYTE-IDENTICAL to pre-G4: the digest gains no
+   * parts and no section renders, deliberately, so the reference baselines
+   * cannot move under an additive feature.
+   */
+  engagement?: {
+    answers: StoredAnswerMap
+    targets: TargetMap
+    tier: AssessmentTier
+    intake: ProgramIntake | null
+  }
 }
 
 /** Never `null`, never an empty cell: every row states which of the three it is. */
@@ -225,9 +248,25 @@ function statusCell(state: ScopeState): string {
 }
 
 export function buildRoadmapPdf(input: RoadmapInput): jsPDF {
-  const { meta } = input
+  const { meta, engagement } = input
   const waves = buildWaveScopes(input)
   const gates = buildGateScopes(input)
+
+  // The gap-driven view is ACTIVE only when there is something true to show:
+  // supplied state, an actionable intake, and at least one slice. Anything
+  // less renders nothing and — critically — seeds nothing into the digest.
+  let slices: PillarPlanSlice[] = []
+  if (engagement && engagement.intake && intakeIsActionable(engagement.intake)) {
+    const entries = gapRegister(
+      engagement.answers,
+      engagement.targets,
+      engagement.tier,
+      meta.layer,
+      engagement.intake,
+    )
+    slices = planSlices(entries, engagement.intake, PLAN, meta.layer)
+  }
+  const gapView = slices.length > 0
 
   const inScopeWaves = waves.filter((w) => w.state === 'in-scope')
   const outWaves = waves.filter((w) => w.state === 'out-of-scope')
@@ -247,6 +286,16 @@ export function buildRoadmapPdf(input: RoadmapInput): jsPDF {
     contentKey([
       ...inScopeWaves.map((w) => `wave:${w.wave.id}`),
       ...inScopeGates.map((g) => `gate:${g.id}`),
+      // G4: appended ONLY when the gap-driven view renders, so a reference
+      // generation's digest — and therefore its bytes — is exactly pre-G4's.
+      ...(gapView
+        ? [
+            `gap-view:${engagement!.tier}`,
+            ...slices.map(
+              (s) => `gap:${s.pillarId}=${s.entry.current.toFixed(6)}->${s.entry.target}:${s.entry.priority.band}:${s.sequence.join('>')}`,
+            ),
+          ]
+        : []),
     ]),
   )
   r.cover('Implementation Roadmap', `${inScopeWaves.length} of ${PLAN.waves.length} waves in scope`)
@@ -310,6 +359,49 @@ export function buildRoadmapPdf(input: RoadmapInput): jsPDF {
     )
   } else {
     r.paragraph('Every wave in the plan is in scope under the current layer.', { size: 8 })
+  }
+
+  /* ---- G4: the gap-driven view, engagement mode only ---- */
+  if (gapView) {
+    r.page(
+      'Gap-driven view',
+      'The same waves, annotated with the measured gaps of the in-scope pillars each carries.',
+    )
+    r.paragraph(
+      'Every figure below comes from the gap register (a current score at the stated tier plus a ' +
+        'consultant-set target) through the plan slices — the same rows AR-55 and AR-56 render. ' +
+        'Structure beats priority: a wave keeps its place in the declared dependency order ' +
+        'whatever bands it carries, and no wave is re-sequenced by urgency.',
+      { color: SLATE, size: 8 },
+    )
+    r.keyValueBlock([
+      ['Assessment tier', TIER_META[engagement!.tier].label],
+      ['Pillars with slices', slices.map((s) => `${s.pillarId} (${s.entry.priority.band})`).join(' · ')],
+    ])
+    r.table({
+      head: ['Wave', 'Name', 'Weeks', 'Gaps carried (pillar, band, gap)'],
+      rows: inScopeWaves.map((w) => {
+        const carried = slices.filter((s) => s.waves.some((sw) => sw.waveId === w.wave.id))
+        return [
+          w.wave.id,
+          w.wave.name,
+          w.wave.weeks,
+          carried.length
+            ? carried
+                .map((s) => `${s.pillarId} ${s.entry.priority.band} ${(Math.round(s.entry.gap * 10) / 10).toFixed(1)}`)
+                .join(' · ')
+            : 'no in-scope measured gap - reference content only',
+        ]
+      }),
+      columnStyles: { 0: { cellWidth: 14 }, 2: { cellWidth: 22 } },
+      bodyFontSize: 7,
+    })
+    r.paragraph(
+      'A wave carrying no measured gap is not empty work — it is reference plan content this ' +
+        'engagement has not measured against. Week windows are the reference plan\'s own; ' +
+        'calendar mapping and staffing are engagement decisions not made here.',
+      { color: SLATE, size: 8 },
+    )
   }
 
   /* ---- gate control map ---- */

@@ -10,13 +10,16 @@ import { useLayer } from '../layer'
 import { downloadCSV, downloadJSON } from '../../utils/export'
 import diagnostic from '../data/diagnostic.json'
 import pillars from '../data/pillars.json'
-import implementationPlan from '../data/implementationPlan.json'
-import type { DiagnosticData, Pillar, ImplementationPlanData } from '../types'
+import type { DiagnosticData, Pillar } from '../types'
 import { useOrgName } from '../../engagement/useOrgName'
 import { useEngagement } from '../../engagement/context'
 import { answerEvidence, answerScores, useDiagnosticAnswers } from '../answers'
 import { useAssessmentTier, useDiagnosticTargets } from '../assessmentState'
 import { ASSESSMENT_TIERS, TIER_META } from '../tier'
+// G4: the roadmap rows come from the gap register and the plan slices — the
+// same functions every other gap/plan surface reads, never a local copy.
+import { useGapRegister } from '../gap/state'
+import { usePlanSlices } from '../plan/state'
 // Every number on this page comes from scoring.ts, so the PDF cannot disagree
 // with the screen. See the three-state model documented there.
 import {
@@ -31,7 +34,6 @@ import {
 
 const DIAG = diagnostic as DiagnosticData
 const PILLARS = pillars as Pillar[]
-const PLAN = implementationPlan as ImplementationPlanData
 
 const WEIGHT_LABEL: Record<number, string> = {
   1: 'Contextual', 2: 'Important', 3: 'Decisive',
@@ -51,7 +53,7 @@ function heatColour(score: number | null): string {
 const show1 = (n: number | null) => (n === null ? '—' : (Math.round(n * 10) / 10).toFixed(1))
 
 export default function Diagnostic() {
-  const { filter, shows } = useLayer()
+  const { filter } = useLayer()
   // Persisted per engagement, not component state: they survive a reload and the
   // deliverables page reads the same answers this page is collecting.
   const [answersRich, setAnswers] = useDiagnosticAnswers()
@@ -69,6 +71,8 @@ export default function Diagnostic() {
   const [generating, setGenerating] = useState(false)
   const [pdfError, setPdfError] = useState<string | null>(null)
   const { active } = useEngagement()
+  const { entries: gapEntries } = useGapRegister()
+  const planned = usePlanSlices()
 
   // The two orthogonal axes compose in scoring.ts, not here (TIER-NESTING
   // asserts the composition). `deepQuestions` is the same layer at the full
@@ -114,29 +118,37 @@ export default function Diagnostic() {
   )
 
   /**
-   * Gap-to-roadmap: the weakest pillars, mapped to the waves that address them.
-   *
-   * The banking layer is *additive* — a banking engagement runs the core waves and
-   * the banking ones on top. Filtering waves through `shows()` therefore hid every
-   * core wave in banking-only mode and left seven of eleven pillars with an empty
-   * roadmap cell. Core waves always apply; banking waves apply when banking is shown.
+   * Gap-to-roadmap, G4: REPLACED. The old table ranked score-only pillars and
+   * read waves through its own additive-layer filter — a tier-blind top-5
+   * beside a register that already knows better. Rows now come from
+   * `gapRegister` (top-band entries, tier and coverage carried) and their
+   * wave placement from `planSlices` — the same slices the ImplementationPlan
+   * page and the pillar-plan PDF render, so three surfaces cannot disagree.
+   * The additive-layer rule the old code carried lives in slices.ts now.
    */
   const derivedRoadmap = useMemo(() => {
-    return ranked.slice(0, 5).map((gap) => {
-      const pillar = PILLARS.find((p) => p.id === gap.pillarId)
-      const waves = PLAN.waves.filter(
-        (w) => w.pillarIds.includes(gap.pillarId) && (w.layer === 'core' || shows(w.layer))
-      )
-      return {
-        pillarId: gap.pillarId,
-        name: gap.name,
-        score: gap.score,
-        confidence: gap.confidence,
-        firstDeliverable: pillar?.deliverables[0] ?? '',
-        waves: waves.map((w) => `W${w.wave} ${w.name} (${w.weeks})`),
-      }
-    })
-  }, [ranked, shows])
+    const sliceBy = new Map(planned.slices.map((s) => [s.pillarId, s]))
+    const exclBy = new Map(planned.exclusions.map((x) => [x.pillarId, x]))
+    return gapEntries
+      .filter((e) => e.priority.band === 'critical' || e.priority.band === 'high')
+      .map((e) => {
+        const slice = sliceBy.get(e.pillarId)
+        return {
+          pillarId: e.pillarId,
+          name: e.pillarName,
+          band: e.priority.band,
+          gap: e.gap,
+          // The G3 flag, closed: the tier the row was measured at, and its
+          // coverage, ride in the row — on screen and in the JSON export.
+          tier: e.tier,
+          coverage: e.coverage,
+          firstDeliverable: slice?.deliverables[0]?.artefact ?? '',
+          waves: slice ? slice.waves.map((w) => `${w.waveId} ${w.name} (${w.weeks})`) : [],
+          planned: Boolean(slice),
+          exclusionReason: exclBy.get(e.pillarId)?.reasons.join('; ') ?? null,
+        }
+      })
+  }, [gapEntries, planned])
 
   // setAnswers is a stable useCallback from usePersistedState, so naming it here
   // costs nothing and keeps the hook honest about what it closes over.
@@ -468,9 +480,11 @@ export default function Diagnostic() {
           </TableWrap>
         </Card>
 
-        {/* Derived roadmap */}
+        {/* Derived roadmap — G4: sourced from the gap register's top bands and
+            the plan slices, the same rows the ImplementationPlan page and the
+            pillar-plan PDF render. Tier and coverage ride on every row. */}
         <Card className="p-6">
-          <SectionTitle hint="Generated from the weakest pillars and the implementation waves that address them — the diagnostic's roadmap output, not a generic template.">
+          <SectionTitle hint="Top-band gaps (critical and high) from the gap register, with their wave placement from the plan slices. A gap needs both measurements — a current score at the active tier and a target — so this table is empty until targets are set.">
             Derived roadmap
           </SectionTitle>
           <TableWrap>
@@ -478,9 +492,11 @@ export default function Diagnostic() {
               <thead>
                 <tr className="text-left text-xs uppercase tracking-wide text-slate-500 border-b border-slate-200">
                   <th className="py-2 pr-4 font-medium">Pillar</th>
-                  <th className="py-2 pr-4 font-medium">Score</th>
-                  <th className="py-2 pr-4 font-medium">Coverage</th>
-                  <th className="py-2 pr-4 font-medium">First deliverable that moves it</th>
+                  <th className="py-2 pr-4 font-medium">Band</th>
+                  <th className="py-2 pr-4 font-medium">Gap</th>
+                  <th className="py-2 pr-4 font-medium">Tier</th>
+                  <th className="py-2 pr-4 font-medium">Coverage at tier</th>
+                  <th className="py-2 pr-4 font-medium">First catalogued deliverable</th>
                   <th className="py-2 font-medium">Addressed in</th>
                 </tr>
               </thead>
@@ -489,20 +505,29 @@ export default function Diagnostic() {
                   <tr key={r.pillarId} className="border-b border-slate-100 last:border-0 align-top">
                     <td className="py-3 pr-4 text-slate-700">{r.name}</td>
                     <td className="py-3 pr-4">
-                      <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${heatColour(r.score)}`}>{show1(r.score)}</span>
+                      <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${r.band === 'critical' ? 'bg-rose-100 text-rose-700' : 'bg-amber-100 text-amber-700'}`}>
+                        {r.band}
+                      </span>
                     </td>
-                    <td className="py-3 pr-4 text-slate-500">{Math.round(r.confidence * 100)}%</td>
-                    <td className="py-3 pr-4 text-slate-600 leading-snug">{r.firstDeliverable}</td>
+                    <td className="py-3 pr-4 text-slate-600">{show1(r.gap)}</td>
+                    <td className="py-3 pr-4 text-slate-500">{TIER_META[r.tier].label}</td>
+                    <td className="py-3 pr-4 text-slate-500">{r.coverage.answered} / {r.coverage.applicable}</td>
+                    <td className="py-3 pr-4 text-slate-600 leading-snug">
+                      {r.firstDeliverable || <span className="text-slate-400">—</span>}
+                    </td>
                     <td className="py-3 text-slate-600 leading-snug">
-                      {r.waves.length ? r.waves.join(' · ') : <span className="text-slate-400">No wave addresses this pillar</span>}
+                      {r.planned
+                        ? (r.waves.length ? r.waves.join(' · ') : <span className="text-slate-400">No wave lists this pillar</span>)
+                        : <span className="text-amber-700">{r.exclusionReason}</span>}
                     </td>
                   </tr>
                 ))}
                 {derivedRoadmap.length === 0 && (
                   <tr>
-                    <td colSpan={5} className="py-4 text-sm text-slate-400">
-                      No pillar has reached {Math.round(RANK_MIN_CONFIDENCE * 100)}% question coverage yet. Answer more
-                      questions in a pillar to generate a roadmap from it.
+                    <td colSpan={7} className="py-4 text-sm text-slate-400">
+                      No critical- or high-band gap exists yet. A gap needs both measurements — answer
+                      questions at the active tier and set targets in the table above; the register on
+                      the Gap Register page lists every pillar still missing one.
                     </td>
                   </tr>
                 )}

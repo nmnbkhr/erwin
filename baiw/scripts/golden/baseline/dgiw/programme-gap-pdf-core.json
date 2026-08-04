@@ -1,6 +1,6 @@
 {
   "artefact": "programme-gap-pdf-core",
-  "bytes": 153551,
+  "bytes": 154643,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -19,7 +19,7 @@
   "datasets": {
     "dir": "src/dgiw/data",
     "files": 11,
-    "sha256": "a35173267392f44ea31af1e10f58e6889fcc0e5715bf03812ee77807452187ab",
+    "sha256": "6d1a050f43511b4ed4ac6d23453c3304e2bea0b265d443f84313b9c699265192",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -27,11 +27,11 @@
   "filename": "AR-54_fixture-bank-limited_core_2026-07-31.pdf",
   "filenameNormalised": "AR-54_fixture-bank-limited_core_2026-07-31.pdf",
   "generator": "buildProgrammeGapPdf",
-  "glyphCount": 17741,
+  "glyphCount": 17789,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "1c871d13e371a603f53446ce33f3563eba89ec00933f76f103ab6c0a6d3473b8",
+  "normalisedTextSha256": "cbdb5aceb6b4101c45f563f5bfab2a8b995d6007c0824f0b4044fb7367a9be16",
   "notReproducible": {},
   "pageCount": 11,
   "pages": [
@@ -203,8 +203,8 @@
         "Operating Model",
         "HAS A GENERATOR",
         "14",
-        "11",
-        "7",
+        "12",
+        "8",
         "Checklist items and catalogued artefacts are counts of records that name this pillar. They are not a measure of how much of the pillar is",
         "addressed, and no such measure is computed anywhere in this document.",
         "Prepared by Godaitec | godai.tech",
@@ -686,7 +686,7 @@
         "Fixture Bank Limited — Programme Gap Report",
         "Powered by DGIW",
         "Every catalogued artefact counted",
-        "44 entries in scope under this layer.",
+        "45 entries in scope under this layer.",
         "A WITHDRAWN OR BLOCKED ENTRY IS NOT A REMEDY. Every artefact counted below is printed with its register disposition.",
         "`derived` is the only one a generator may legally be written for; `authored` is library content nobody has written, `observed` is",
         "measured at the client, `blocked` waits on another catalogued artefact, and `withdrawn` was retired with its reason kept. A pillar",
@@ -860,9 +860,9 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 842,
+      "glyphs": 890,
       "heightPt": 841.89,
-      "multiColumnBaselines": 16,
+      "multiColumnBaselines": 17,
       "page": 11,
       "pastMarginPt": 0,
       "pastPaperPt": 0,
@@ -871,7 +871,7 @@
       "rotatedRuns": 0,
       "runsPastMargin": 0,
       "runsPastPaper": 0,
-      "tableRows": 14,
+      "tableRows": 15,
       "text": [
         "Artefact",
         "Pillar",
@@ -943,21 +943,26 @@
         "Maturity gap register with per-pillar gap statements",
         "derived",
         "yes",
+        "AR-56",
+        "P01",
+        "Per-pillar implementation plan",
+        "derived",
+        "yes",
         "Fixture Bank Limited — Programme Gap Report",
         "Powered by DGIW",
         "Prepared by Godaitec | godai.tech",
         "Page 11 of 11"
       ],
-      "textRuns": 74,
+      "textRuns": 79,
       "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "f505af4a7f7a91a0fd8cb8f6104977bda72b61c3c2f8b87d36535551acfb9bf7",
-  "tableRowsTotal": 93,
-  "textRunCount": 698,
+  "rawBytesSha256": "942844603a677e7abba50ba6f4f547cecaeec326cf4209106e2d49ce0259eb5c",
+  "tableRowsTotal": 94,
+  "textRunCount": 703,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

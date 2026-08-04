@@ -2102,3 +2102,52 @@ mojibake can become a baseline.
 with the standard 14 fonts; their ceiling is WinAnsi, and any character above
 it does not degrade gracefully — it takes its whole line into an encoding no
 viewer can read. When prose wants an arrow, write `->`.
+
+## D-020 — a designed refusal and a real failure share one channel, and the console-clean assertion cannot tell them apart
+
+**Found:** 2026-08-05, filed at G4 checkpoint 0 from a G3-close observation.
+**Status: OPEN — described here, deliberately not fixed in G4.**
+
+### What it is
+
+AR-55 (`gapStatements.ts`) refuses by design: `buildGapStatementsPdf` throws
+the refusal message when the intake is not actionable or the register is
+empty, and that throw is the contract GAP-REFUSAL asserts. On the /gaps page
+the refusal never reaches the throw — `GapRegister.tsx::generatePdf` calls
+`gapStatementsRefusal` first and returns the message as an info notice. On
+the Deliverables page it does reach it: `useDeliverable.ts::run()` catches
+the throw, surfaces the message correctly in the page banner — and also
+prints it through `console.error('[dgiw] deliverable generation failed', err)`,
+the same line every REAL generation failure goes through.
+
+Two consequences, one worse than the other:
+
+- The committed CDP click-throughs assert a clean browser console. A script
+  that drives the Deliverables AR-55 button in a refusing state would fail
+  its console-clean assertion on behaviour that is working as designed — so
+  either nobody ever drives that path (the current state), or someone adds a
+  filter for the message text, which is a filter that hides a real error the
+  day one carries similar wording.
+- A consultant with the console open reads "deliverable generation failed"
+  for an outcome the page itself describes as expected. The channel says
+  failure; the banner says by-design. Two surfaces, two verdicts, one event.
+
+### The shape it belongs to
+
+The check running, the check finding, and the check reporting what it found
+are three separate facts — this file's recurring lesson, here applied to an
+error channel: the REPORT is wrong even though the behaviour and the message
+are right. A refusal is a legitimate outcome, not an exception; squeezing it
+through the exception channel makes it indistinguishable from the failures
+that channel exists for.
+
+### The fix when taken (not in G4)
+
+`run()` needs a second refusal-shaped path — a typed refusal (subclass or a
+sentinel the task returns, as the CSV path already returns `false` → notice)
+so designed refusals surface as notices without touching `console.error`, and
+generators keep throwing plain `Error` for real faults. The AR-55 precheck on
+/gaps is the pattern: ask the predicate before building. Whichever shape,
+GAP-REFUSAL's contract (builder throws the predicate's message) must keep
+holding for direct callers, and the click-throughs can then drive the
+refusing Deliverables button with the console-clean assertion intact.

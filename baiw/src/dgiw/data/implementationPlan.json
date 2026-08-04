@@ -1156,6 +1156,25 @@
         ],
         "note": "G3. Built from gapRegister() — the single gap function — over ENGAGEMENT STATE the datasets cannot carry: per-pillar targets, tier-scoped answers and the intake's declared driver-to-pillar mapping. A gap needs two measurements, so a pillar missing its target or unscored at the active tier produces no statement and is listed as excluded with the reason. ENGAGEMENT MODE ONLY: with no actionable intake or an empty register the generator REFUSES — an ILLUSTRATIVE gap register is a contradiction, because there is no reference mode for measurements. Priority is the stated formula (gap size, crosswalk decisiveness, declared driver alignment), never a rank without inputs; framework references are the existing projection's dimensions under their share-of-dimension semantics, no invented framework gap scores."
       }
+    },
+    {
+      "id": "AR-56",
+      "artefact": "Per-pillar implementation plan",
+      "pillarId": "P01",
+      "rung": 1,
+      "owner": "Engagement Lead",
+      "format": "Report",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/implementationPlan.json",
+          "dgiw/data/diagnostic.json",
+          "dgiw/data/pillars.json",
+          "dgiw/data/crosswalk.json"
+        ],
+        "note": "G4. planSlices() over the gap register: per in-scope pillar with both measurements, the register's catalogued deliverables (disposition kept — a blocked row is not a remedy), the waves that LIST the pillar, and a dependsOn-honouring sequence. NO INVENTED EFFORT: no person-days, FTEs, costs or dates anywhere; the only durations are the reference waves' own week windows, verbatim, under a stated assumptions block. NO INVENTED INITIATIVES: lines derive only from the register rows and the waves' own text — a thin pillar gets a thin plan, flagged, never padded. Artefact-to-wave placement is exact name identity only (1 of 35 wave deliverable strings matches a register name); the pillar-hop bridge AR-54 forbids is not used. ENGAGEMENT MODE ONLY on AR-55's refusal pattern — there is no reference mode for a plan derived from measurements."
+      }
     }
   ]
 }
