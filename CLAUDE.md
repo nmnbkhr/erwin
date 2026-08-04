@@ -102,10 +102,12 @@ below both.
    runs over nothing declares `mayBeEmpty: '<reason>'` — the reason is mandatory,
    because if a check can run over nothing then someone should have to write down
    why. Nothing declares it today.
-5. **`npm run check:selftest` demonstrates every finding code.** 93 mutations,
-   58 codes. It copies `src/` and `scripts/` to a scratch root under
-   `node_modules`, applies one mutation per code, asserts the code is reported
-   *and* the tool exits non-zero, then restores and re-runs the control. **No
+5. **`npm run check:selftest` demonstrates every finding code, and every row.**
+   93 mutations, 58 codes — so 35 rows share a code with a sibling, and until D5
+   stage H a dead one of those exited 0 behind its sibling. It copies `src/` and
+   `scripts/` to a scratch root under `node_modules`, applies one mutation per
+   row, asserts the code is reported *and* the tool exits non-zero, then restores
+   and re-runs the control. **No
    tracked file is ever written.** Run it after touching the gate: a refactor
    that leaves a check passing because it stopped running is the failure mode it
    exists for, and inspection has missed that twelve times.
@@ -641,11 +643,25 @@ Every entry now carries `builtFrom` — `evidence`, optional `datasets` or
 
 | | |
 |---|---|
-| `derived` | a generator can build it from the named datasets — **15**, 11 built |
-| `authored` | library content nobody has written; a generator follows it — **7** |
-| `observed` | measured at the client, or the artefact IS the running thing — **15** |
-| `blocked` | buildable once a named catalogued artefact lands — **7** |
-| `withdrawn` | withdrawn: the data cannot support the shape, or another artefact already delivers it — **4** |
+| `derived` | a generator can build it from the named datasets |
+| `authored` | library content nobody has written; a generator follows it |
+| `observed` | measured at the client, or the artefact IS the running thing |
+| `blocked` | buildable once a named catalogued artefact lands |
+| `withdrawn` | withdrawn: the data cannot support the shape, or another artefact already delivers it |
+
+**The counts are on stdout, not here.** This table carried `15, 11 built` for two
+waves after the eleventh generator, through two stages that each added one — the
+`REGISTRY 40` mistake and `SuiteLanding.tsx`'s dataset counts a third time, in the
+one file that warns about both. The build prints, verbatim:
+
+```
+ARTEFACT-EVIDENCE 48 catalogued, 44 live  derived 15 (13 with a generator: AR-01, AR-02,
+AR-04, AR-05, AR-06, AR-09, AR-13, AR-17, AR-20, AR-23, AR-27, AR-47, AR-48)  authored 7
+observed 15  blocked 7  withdrawn 4
+```
+
+**Read the line, and if you are about to retype one of its numbers into this
+file, quote the line instead.**
 
 **`ARTEFACT-EVIDENCE` is what makes it binding, and one of its five branches is
 the point.** Four are shape: a value from the closed set, a non-empty `note`,
@@ -654,8 +670,9 @@ The fifth is **a generator may only exist for a `derived` entry** — writing on
 against an entry marked authored, observed, blocked or withdrawn fails the build
 by name, at the line the generator declares its id. Reversing a disposition means
 editing the register and saying why in the note, in the same commit; that is
-`HAIW-WEIGHT`'s shape. The reverse does **not** fail: ten `derived` entries have
-no generator and that is the roadmap, so the pair is printed instead.
+`HAIW-WEIGHT`'s shape. The reverse does **not** fail: a `derived` entry with no
+generator is the roadmap, so the pair is printed instead — the count is in the
+line above, and it was `ten` here for two waves after it stopped being ten.
 
 **Withdrawn entries are kept, not deleted.** An id that vanishes gets
 re-catalogued by the next person who reads the ladder, with the reason gone.
@@ -1159,6 +1176,31 @@ code trips catches this**, which is the second thing `npm run check:selftest`
 buys beyond "the check still runs": every `fail()` code must be reachable *from
 the check that declares it*. Pass the code as a parameter to any shared
 assertion helper — `unique`, `sorted`, `shapeCheck` — never hardcode one inside.
+
+**And a matrix asserting which code trips does not assert which BRANCH.** The
+same defect one level down, in the tool that exists to catch it. `selftest.mjs`
+computed `unreachable` as `codes.filter(c => !trippedCodes.has(c))` and asserted
+nothing else, so a row that stopped tripping exited **0** whenever any sibling
+row shared its code — and **35 of the 93 rows have a sibling**. They are exactly
+the rows written to isolate one branch each: ARTEFACT-EVIDENCE ×5,
+PROVENANCE-COVERAGE ×4, HACR-INSTRUMENT ×3, CROSSWALK-WEIGHT ×2. The
+branch-isolation discipline was real in the rows and absent from the verdict,
+and the file's own header said NOT TRIPPED "exits 1 here" for two phases while
+it did not. A `92 of 93 mutations tripped · 58 of 58 codes demonstrated · **PASS**`
+was observed once, which is what sent someone looking; the un-tripped row was
+not reproducible and the hole that printed it green was.
+
+It asserts **both** now — every row must trip, naming the row and its code when
+one does not, and every code must still be demonstrated. Demonstrated by
+neutering one ARTEFACT-EVIDENCE row: `1 of 1 distinct codes demonstrated`
+(the old assertion, clean) beside `1 row(s) NOT TRIPPED`, exit 1.
+
+**That is the third time in this repo a check has worked while its verdict
+lied** — `unique()` emitting a code no rule file declared, `compare.mjs`'s
+summary reading clean above a rejection, and a sibling row masking a dead one.
+The check running, the check finding, and the check *reporting what it found*
+are three separate facts, and only the first two have ever been obvious from
+outside.
 
 Concretely, for any generator: an empty result is a legitimate output.
 `downloadCsv` returns `false` and writes no file on an empty set; propagate that

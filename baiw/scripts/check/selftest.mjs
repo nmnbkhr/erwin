@@ -42,7 +42,13 @@
  *
  * TRIPPED      the mutation produced its target code, and the tool exited 1.
  * NOT TRIPPED  it did not. That is a finding: either the mutation is wrong or the
- *              code is unreachable. Both are worth knowing and both exit 1 here.
+ *              branch is gone. Both are worth knowing and both exit 1 here.
+ *
+ * Two assertions close the matrix, not one: EVERY ROW must trip, and every CODE
+ * must be demonstrated. The second alone was asserted until D5 stage H, which
+ * let a dead row exit 0 behind a sibling sharing its code — the paragraph above
+ * said "both exit 1 here" for two phases while a `92 of 93 · PASS` was possible.
+ * See the end of this file.
  *
  * A mutation often trips codes besides its target — a compound owner string is
  * also an unresolved one. Those are listed as `+also` and are not failures. What
@@ -1283,9 +1289,39 @@ const unreachable = codes.filter((c) => !trippedCodes.has(c))
 console.log(`\n  ${rows.filter((r) => r.tripped).length} of ${rows.length} mutations tripped their target`)
 console.log(`  ${trippedCodes.size} of ${codes.length} distinct codes demonstrated${keep ? `\n  scratch root kept at ${path.relative(REPO, SCRATCH)}` : ''}`)
 
+// TWO assertions, because they answer two different questions and only one of
+// them was asked until D5 stage H.
+//
+// `unreachable` asks whether a CODE still has a failure path ANYWHERE.
+// `dead` asks whether THIS ROW still proves the BRANCH it was written for.
+//
+// A code-level assertion alone exits 0 on a row that has stopped tripping,
+// whenever any sibling row shares its code — and 35 of these 93 rows have a
+// sibling. They are precisely the rows that exist to isolate one branch each:
+// ARTEFACT-EVIDENCE ×5, PROVENANCE-COVERAGE ×4, HACR-INSTRUMENT ×3,
+// CROSSWALK-WEIGHT ×2, written that way because corrupting one block trips
+// three at once and proves nothing about which assertion caught it. The
+// discipline was real in the rows and absent from the verdict, and the header
+// of this file claimed NOT TRIPPED "exits 1 here" while it did not.
+//
+// This is the third time in this project a check has worked while its verdict
+// lied: `unique()` hardcoding one code so two rules failed under a name neither
+// declared, `compare.mjs`'s summary reading clean above a rejection, and now a
+// sibling row masking a dead one. The check running is not the same fact as the
+// check reporting what it found.
+const dead = rows.filter((r) => !r.tripped)
+let failed = false
+
+if (dead.length) {
+  console.error(`\n  ${dead.length} row(s) NOT TRIPPED:`)
+  for (const r of dead) console.error(`    ${r.code.padEnd(23)} ${r.what}`)
+  console.error(`  A row that stops tripping has stopped proving its branch, whether or not a sibling row shares its code.`)
+  failed = true
+}
 if (unreachable.length) {
   console.error(`\n  ${unreachable.length} code(s) NOT DEMONSTRATED: ${unreachable.join(', ')}`)
   console.error(`  A code with no reachable failure path is decoration. Either the mutation is wrong or the branch is gone.`)
-  process.exit(1)
+  failed = true
 }
-console.log(`\n  OK — every code has a reachable failure path`)
+if (failed) process.exit(1)
+console.log(`\n  OK — every row tripped its branch and every code has a reachable failure path`)
