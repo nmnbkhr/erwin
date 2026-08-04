@@ -1405,12 +1405,42 @@ function decodeWinAnsi(s) {
   return out
 }
 
+/**
+ * One PDF string literal -> { text, utf16 }.
+ *
+ * TWO ENCODINGS, NOT ONE — D-019. jsPDF emits WinAnsi single-byte strings for
+ * text its standard-14 font can encode, and silently switches the WHOLE line
+ * to a two-byte UTF-16BE string the moment one character (AR-54's '→',
+ * U+2192) cannot be. This reader assumed the first form only, so it counted
+ * every BYTE of a UTF-16 run as a glyph: the run's estimated width doubled,
+ * `rightEdgePt` on AR-54 page 2 read 1130.53pt on a 595.28pt sheet, and the
+ * walk reported text past the paper edge that was never drawn there. Same
+ * lesson as D-018's `T*` continuation lines: enumerate the operator — and now
+ * the encoding — forms actually present before trusting the reading.
+ *
+ * The flag matters more than the decode. A UTF-16 string under a standard-14
+ * font has no /ToUnicode and no usable /Encoding, so every viewer renders its
+ * byte pairs as WinAnsi mojibake — the '→' shipped as "!'" in every AR-54
+ * export. Decoding it here makes the MEASUREMENT honest; `assertNonEmpty`
+ * failing on the flag is what keeps the defect from being frozen into a
+ * baseline again.
+ *
+ * Detection: a genuine WinAnsi text string never contains a NUL byte (jsPDF
+ * never emits one), while UTF-16BE text over Latin scripts has one at every
+ * even index of an ASCII pair. Even length + any NUL is therefore decisive.
+ */
 function unescapePdfString(literal) {
   const bytes = literal
     .slice(1, -1)
     .replace(/\\(\d{1,3})/g, (_, o) => String.fromCharCode(parseInt(o, 8)))
     .replace(/\\([\\()nrtbf])/g, (_, c) => ({ n: '\n', r: '\r', t: '\t', b: '\b', f: '\f' }[c] ?? c))
-  return decodeWinAnsi(bytes)
+  if (bytes.length % 2 === 0 && bytes.includes('\u0000')) {
+    let out = ''
+    for (let i = 0; i < bytes.length; i += 2)
+      out += String.fromCharCode(bytes.charCodeAt(i) * 256 + bytes.charCodeAt(i + 1))
+    return { text: out, utf16: true }
+  }
+  return { text: decodeWinAnsi(bytes), utf16: false }
 }
 
 const BASE_FONT_MAP = {
@@ -1476,7 +1506,11 @@ function readTextRuns(body, fontByResource, ruler, unknownFonts, usedBaseFonts) 
   // jsPDF immediately before the `Td` of a multi-line run.
   let lineX = 0, leading = 0
 
-  const emit = str => {
+  const emit = decoded => {
+    // `decoded` is unescapePdfString's { text, utf16 }. The width is measured
+    // over the decoded TEXT either way — measuring a UTF-16 run's bytes was
+    // the doubled-width instrument artifact D-019 records.
+    const str = decoded.text
     if (!str.length) return
     const base = font ? fontByResource[font] : undefined
     if (font && !base) unknownFonts.add(font)
@@ -1486,7 +1520,7 @@ function readTextRuns(body, fontByResource, ruler, unknownFonts, usedBaseFonts) 
     ruler.setFont(mapped[0], mapped[1])
     ruler.setFontSize(size)
     const width = ruler.getStringUnitWidth(str) * size
-    runs.push({ text: str, x: round2(x), y: round2(y), size: round2(size), width: round2(width), right: round2(x + width), rotated })
+    runs.push({ text: str, x: round2(x), y: round2(y), size: round2(size), width: round2(width), right: round2(x + width), rotated, utf16: decoded.utf16 })
   }
 
   for (const rawLine of body.split('\n')) {
@@ -1517,8 +1551,8 @@ function readTextRuns(body, fontByResource, ruler, unknownFonts, usedBaseFonts) 
     }
     if ((t = /^(\((?:\\[\s\S]|[^\\()])*\))\s*Tj$/.exec(line))) { emit(unescapePdfString(t[1])); continue }
     if ((t = /^\[([\s\S]*)\]\s*TJ$/.exec(line))) {
-      const lits = t[1].match(/\((?:\\[\s\S]|[^\\()])*\)/g) ?? []
-      emit(lits.map(unescapePdfString).join(''))
+      const lits = (t[1].match(/\((?:\\[\s\S]|[^\\()])*\)/g) ?? []).map(unescapePdfString)
+      emit({ text: lits.map(l => l.text).join(''), utf16: lits.some(l => l.utf16) })
       continue
     }
   }
@@ -1627,6 +1661,9 @@ export function analysePdf(buf, ruler, spec = {}) {
       pastPaperPt: round2(Math.max(0, rightEdgePt - pageW)),
       runsPastMargin: straight.filter(r => r.right > marginEdge + 0.05).length,
       runsPastPaper: straight.filter(r => r.right > pageW + 0.05).length,
+      // D-019: UTF-16 text-show strings on this page. Under jsPDF's standard-14
+      // fonts every one renders as mojibake; assertNonEmpty refuses the document.
+      utf16Runs: p.runs.filter(r => r.utf16).length,
       widestText: widest ? widest.text : null,
       text: p.runs.map(r => r.text),
     }
@@ -1641,6 +1678,7 @@ export function analysePdf(buf, ruler, spec = {}) {
     glyphCount: pageReports.reduce((n, p) => n + p.glyphs, 0),
     textRunCount: pageReports.reduce((n, p) => n + p.textRuns, 0),
     tableRowsTotal: pageReports.reduce((n, p) => n + p.tableRows, 0),
+    utf16RunCount: pageReports.reduce((n, p) => n + p.utf16Runs, 0),
     unknownFonts: [...unknownFonts].sort(),
     // Only fonts actually drawn with — see the comment where nonWinAnsiBase is built.
     nonWinAnsiFonts: [...usedBaseFonts].filter(f => nonWinAnsiBase.has(f)).sort(),
@@ -1795,6 +1833,15 @@ export function assertNonEmpty(label, analysis) {
     if (!analysis.textRunCount) bad('zero text runs')
     if (!analysis.glyphCount) bad('zero glyphs')
     if (!analysis.tableRowsTotal) bad('zero table rows across the whole document')
+    // D-019, and a REFUSAL rather than a count: a UTF-16 text string under a
+    // standard-14 font has no /ToUnicode, so every viewer decodes its byte
+    // pairs as WinAnsi — AR-54 shipped "artefact !' pillar !' wave" on two
+    // pages of every export because one '→' put its whole paragraph into this
+    // encoding. The character does not survive the font; the string must not
+    // contain it. Failing here means a mojibake document can be neither
+    // captured nor accepted into the golden record. (Absent on pre-D-019
+    // baselines — undefined reads as zero, which is also what they measured.)
+    if (analysis.utf16RunCount) bad(`${analysis.utf16RunCount} UTF-16 text run(s) — a non-WinAnsi character reached a PDF string and renders as mojibake in every viewer`)
     if (!analysis.pages?.length) bad('empty pages array')
     if (analysis.pages.some(p => !p.widthPt)) bad('a page has no /MediaBox width')
   } else if (analysis.kind === 'csv') {

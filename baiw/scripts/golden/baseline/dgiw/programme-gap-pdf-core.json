@@ -1,6 +1,6 @@
 {
   "artefact": "programme-gap-pdf-core",
-  "bytes": 145163,
+  "bytes": 144681,
   "capturedEnvVars": {
     "LANG": "en_US.UTF-8",
     "LC_ALL": null,
@@ -27,11 +27,11 @@
   "filename": "AR-54_fixture-bank-limited_core_2026-07-31.pdf",
   "filenameNormalised": "AR-54_fixture-bank-limited_core_2026-07-31.pdf",
   "generator": "buildProgrammeGapPdf",
-  "glyphCount": 16984,
+  "glyphCount": 16502,
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "61d3cf0783593c37736b9bc30bbd8a8192feb8997d98608fd2eea30708b1bac0",
+  "normalisedTextSha256": "760b1114e6fb26a7ac1560a83f23630a8a952b127e03b1187d2fcee458057950",
   "notReproducible": {},
   "pageCount": 10,
   "pages": [
@@ -57,21 +57,22 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "Where the programme has nothing scheduled for a pillar the frameworks will score",
       "widthPt": 595.28
     },
     {
-      "glyphs": 2968,
+      "glyphs": 2727,
       "heightPt": 841.89,
       "multiColumnBaselines": 2,
       "page": 2,
-      "pastMarginPt": 577.77,
-      "pastPaperPt": 535.25,
-      "rightEdgePt": 1130.53,
+      "pastMarginPt": 0,
+      "pastPaperPt": 0,
+      "rightEdgePt": 552.76,
       "rightMarginPt": 552.76,
       "rotatedRuns": 0,
-      "runsPastMargin": 2,
-      "runsPastPaper": 2,
+      "runsPastMargin": 0,
+      "runsPastPaper": 0,
       "tableRows": 0,
       "text": [
         "Fixture Bank Limited — Programme Gap Report",
@@ -97,8 +98,8 @@
         "measured at the client, `blocked` waits on another catalogued artefact, and `withdrawn` was retired with its reason kept. A pillar",
         "showing three catalogued artefacts may have none that this workbench can produce, and P06 is exactly that.",
         "NO ARTEFACT IS ATTACHED TO A WAVE. The waves carry pillar ids and free-text deliverables and no artefact id: of 35",
-        "\u0000d\u0000e\u0000l\u0000i\u0000v\u0000e\u0000r\u0000a\u0000b\u0000l\u0000e\u0000 \u0000s\u0000t\u0000r\u0000i\u0000n\u0000g\u0000s\u0000,\u0000 \u0000o\u0000n\u0000e\u0000 \u0000m\u0000a\u0000t\u0000c\u0000h\u0000e\u0000s\u0000 \u0000a\u0000 \u0000r\u0000e\u0000g\u0000i\u0000s\u0000t\u0000e\u0000r\u0000 \u0000a\u0000r\u0000t\u0000e\u0000f\u0000a\u0000c\u0000t\u0000 \u0000n\u0000a\u0000m\u0000e\u0000.\u0000 \u0000C\u0000o\u0000m\u0000p\u0000o\u0000s\u0000i\u0000n\u0000g\u0000 \u0000a\u0000r\u0000t\u0000e\u0000f\u0000a\u0000c\u0000t\u0000 !’\u0000 \u0000p\u0000i\u0000l\u0000l\u0000a\u0000r\u0000 !’\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 \u0000w\u0000o\u0000u\u0000l\u0000d\u0000 \u0000p\u0000l\u0000a\u0000c\u0000e\u0000 \u0000A\u0000R\u0000-\u00000\u00009\u0000,\u0000 \u0000a\u0000 \u0000r\u0000u\u0000n\u0000g\u0000-\u00002",
-        "\u0000o\u0000p\u0000e\u0000r\u0000a\u0000t\u0000i\u0000n\u0000g\u0000 \u0000m\u0000o\u0000d\u0000e\u0000l\u0000,\u0000 \u0000i\u0000n\u0000 \u0000W\u00006\u0000 \u0000\"\u0000R\u0000u\u0000n\u0000,\u0000 \u0000P\u0000r\u0000o\u0000v\u0000e\u0000 \u0000&\u0000 \u0000E\u0000x\u0000p\u0000a\u0000n\u0000d\u0000\"\u0000 \u0000b\u0000e\u0000c\u0000a\u0000u\u0000s\u0000e\u0000 \u0000b\u0000o\u0000t\u0000h\u0000 \u0000n\u0000a\u0000m\u0000e\u0000 \u0000P\u00000\u00001\u0000.\u0000 \u0000T\u0000h\u0000e\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 \u0000s\u0000e\u0000c\u0000t\u0000i\u0000o\u0000n\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000 \u0000o\u0000n\u0000l\u0000y\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 !’\u0000 \u0000p\u0000i\u0000l\u0000l\u0000a\u0000r\u0000,\u0000 \u0000w\u0000h\u0000i\u0000c\u0000h\u0000 \u0000i\u0000s\u0000 \u0000a",
+        "deliverable strings, one matches a register artefact name. Composing artefact -> pillar -> wave would place AR-09, a rung-2",
+        "operating model, in W6 \"Run, Prove & Expand\" because both name P01. The wave section reports only wave -> pillar, which is a",
         "real key, and names no artefact on any wave row.",
         "Layer scope of every figure in this document",
         "core layer only — records tagged for the other layer are out of scope and are not counted.",
@@ -106,7 +107,8 @@
         "Page 2 of 10"
       ],
       "textRuns": 30,
-      "widestText": "\u0000o\u0000p\u0000e\u0000r\u0000a\u0000t\u0000i\u0000n\u0000g\u0000 \u0000m\u0000o\u0000d\u0000e\u0000l\u0000,\u0000 \u0000i\u0000n\u0000 \u0000W\u00006\u0000 \u0000\"\u0000R\u0000u\u0000n\u0000,\u0000 \u0000P\u0000r\u0000o\u0000v\u0000e\u0000 \u0000&\u0000 \u0000E\u0000x\u0000p\u0000a\u0000n\u0000d\u0000\"\u0000 \u0000b\u0000e\u0000c\u0000a\u0000u\u0000s\u0000e\u0000 \u0000b\u0000o\u0000t\u0000h\u0000 \u0000n\u0000a\u0000m\u0000e\u0000 \u0000P\u00000\u00001\u0000.\u0000 \u0000T\u0000h\u0000e\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 \u0000s\u0000e\u0000c\u0000t\u0000i\u0000o\u0000n\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000 \u0000o\u0000n\u0000l\u0000y\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 !’\u0000 \u0000p\u0000i\u0000l\u0000l\u0000a\u0000r\u0000,\u0000 \u0000w\u0000h\u0000i\u0000c\u0000h\u0000 \u0000i\u0000s\u0000 \u0000a",
+      "utf16Runs": 0,
+      "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
@@ -209,6 +211,7 @@
         "Page 3 of 10"
       ],
       "textRuns": 84,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -326,6 +329,7 @@
         "Page 4 of 10"
       ],
       "textRuns": 98,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -416,6 +420,7 @@
         "Page 5 of 10"
       ],
       "textRuns": 71,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -477,6 +482,7 @@
         "Page 6 of 10"
       ],
       "textRuns": 42,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -536,21 +542,22 @@
         "Page 7 of 10"
       ],
       "textRuns": 40,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
-      "glyphs": 1569,
+      "glyphs": 1328,
       "heightPt": 841.89,
       "multiColumnBaselines": 8,
       "page": 8,
-      "pastMarginPt": 577.77,
-      "pastPaperPt": 535.25,
-      "rightEdgePt": 1130.53,
+      "pastMarginPt": 0,
+      "pastPaperPt": 0,
+      "rightEdgePt": 552.76,
       "rightMarginPt": 552.76,
       "rotatedRuns": 0,
-      "runsPastMargin": 2,
-      "runsPastPaper": 2,
+      "runsPastMargin": 0,
+      "runsPastPaper": 0,
       "tableRows": 6,
       "text": [
         "Fixture Bank Limited — Programme Gap Report",
@@ -558,8 +565,8 @@
         "Waves naming a pillar with nothing scheduled",
         "Wave to pillar only. No artefact is named on any row.",
         "NO ARTEFACT IS ATTACHED TO A WAVE. The waves carry pillar ids and free-text deliverables and no artefact id: of 35",
-        "\u0000d\u0000e\u0000l\u0000i\u0000v\u0000e\u0000r\u0000a\u0000b\u0000l\u0000e\u0000 \u0000s\u0000t\u0000r\u0000i\u0000n\u0000g\u0000s\u0000,\u0000 \u0000o\u0000n\u0000e\u0000 \u0000m\u0000a\u0000t\u0000c\u0000h\u0000e\u0000s\u0000 \u0000a\u0000 \u0000r\u0000e\u0000g\u0000i\u0000s\u0000t\u0000e\u0000r\u0000 \u0000a\u0000r\u0000t\u0000e\u0000f\u0000a\u0000c\u0000t\u0000 \u0000n\u0000a\u0000m\u0000e\u0000.\u0000 \u0000C\u0000o\u0000m\u0000p\u0000o\u0000s\u0000i\u0000n\u0000g\u0000 \u0000a\u0000r\u0000t\u0000e\u0000f\u0000a\u0000c\u0000t\u0000 !’\u0000 \u0000p\u0000i\u0000l\u0000l\u0000a\u0000r\u0000 !’\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 \u0000w\u0000o\u0000u\u0000l\u0000d\u0000 \u0000p\u0000l\u0000a\u0000c\u0000e\u0000 \u0000A\u0000R\u0000-\u00000\u00009\u0000,\u0000 \u0000a\u0000 \u0000r\u0000u\u0000n\u0000g\u0000-\u00002",
-        "\u0000o\u0000p\u0000e\u0000r\u0000a\u0000t\u0000i\u0000n\u0000g\u0000 \u0000m\u0000o\u0000d\u0000e\u0000l\u0000,\u0000 \u0000i\u0000n\u0000 \u0000W\u00006\u0000 \u0000\"\u0000R\u0000u\u0000n\u0000,\u0000 \u0000P\u0000r\u0000o\u0000v\u0000e\u0000 \u0000&\u0000 \u0000E\u0000x\u0000p\u0000a\u0000n\u0000d\u0000\"\u0000 \u0000b\u0000e\u0000c\u0000a\u0000u\u0000s\u0000e\u0000 \u0000b\u0000o\u0000t\u0000h\u0000 \u0000n\u0000a\u0000m\u0000e\u0000 \u0000P\u00000\u00001\u0000.\u0000 \u0000T\u0000h\u0000e\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 \u0000s\u0000e\u0000c\u0000t\u0000i\u0000o\u0000n\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000 \u0000o\u0000n\u0000l\u0000y\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 !’\u0000 \u0000p\u0000i\u0000l\u0000l\u0000a\u0000r\u0000,\u0000 \u0000w\u0000h\u0000i\u0000c\u0000h\u0000 \u0000i\u0000s\u0000 \u0000a",
+        "deliverable strings, one matches a register artefact name. Composing artefact -> pillar -> wave would place AR-09, a rung-2",
+        "operating model, in W6 \"Run, Prove & Expand\" because both name P01. The wave section reports only wave -> pillar, which is a",
         "real key, and names no artefact on any wave row.",
         "Wave",
         "Name",
@@ -604,7 +611,8 @@
         "Page 8 of 10"
       ],
       "textRuns": 49,
-      "widestText": "\u0000o\u0000p\u0000e\u0000r\u0000a\u0000t\u0000i\u0000n\u0000g\u0000 \u0000m\u0000o\u0000d\u0000e\u0000l\u0000,\u0000 \u0000i\u0000n\u0000 \u0000W\u00006\u0000 \u0000\"\u0000R\u0000u\u0000n\u0000,\u0000 \u0000P\u0000r\u0000o\u0000v\u0000e\u0000 \u0000&\u0000 \u0000E\u0000x\u0000p\u0000a\u0000n\u0000d\u0000\"\u0000 \u0000b\u0000e\u0000c\u0000a\u0000u\u0000s\u0000e\u0000 \u0000b\u0000o\u0000t\u0000h\u0000 \u0000n\u0000a\u0000m\u0000e\u0000 \u0000P\u00000\u00001\u0000.\u0000 \u0000T\u0000h\u0000e\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 \u0000s\u0000e\u0000c\u0000t\u0000i\u0000o\u0000n\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000 \u0000o\u0000n\u0000l\u0000y\u0000 \u0000w\u0000a\u0000v\u0000e\u0000 !’\u0000 \u0000p\u0000i\u0000l\u0000l\u0000a\u0000r\u0000,\u0000 \u0000w\u0000h\u0000i\u0000c\u0000h\u0000 \u0000i\u0000s\u0000 \u0000a",
+      "utf16Runs": 0,
+      "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
     {
@@ -793,6 +801,7 @@
         "Page 9 of 10"
       ],
       "textRuns": 170,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -881,17 +890,19 @@
         "Page 10 of 10"
       ],
       "textRuns": 69,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "42e90e59c604499dd2acfe081c10ca6446d79e99246dd974e61c566a60d8f612",
+  "rawBytesSha256": "a2f4d83fba5abd949f739deefe2f6d1d0c23d5c3ca05eaf8bc6839b27e3ef3c4",
   "tableRowsTotal": 89,
   "textRunCount": 659,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

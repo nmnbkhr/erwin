@@ -57,6 +57,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "Analytics, AI & Consumption Governance · pillar level, not per use case",
       "widthPt": 595.28
     },
@@ -93,6 +94,7 @@
         "Page 2 of 6"
       ],
       "textRuns": 17,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -155,6 +157,7 @@
         "Page 3 of 6"
       ],
       "textRuns": 43,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -217,6 +220,7 @@
         "Page 4 of 6"
       ],
       "textRuns": 43,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -281,6 +285,7 @@
         "Page 5 of 6"
       ],
       "textRuns": 45,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -334,6 +339,7 @@
         "Page 6 of 6"
       ],
       "textRuns": 34,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -346,5 +352,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

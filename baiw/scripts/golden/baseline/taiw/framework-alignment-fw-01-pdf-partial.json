@@ -60,6 +60,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 5,
+      "utf16Runs": 0,
       "widestText": "Fixture Customs Authority Partial",
       "widthPt": 595.28
     },
@@ -136,6 +137,7 @@
         "Page 2 of 8"
       ],
       "textRuns": 57,
+      "utf16Runs": 0,
       "widestText": "Page 2 of 8",
       "widthPt": 595.28
     },
@@ -253,6 +255,7 @@
         "Page 3 of 8"
       ],
       "textRuns": 98,
+      "utf16Runs": 0,
       "widestText": "Page 3 of 8",
       "widthPt": 595.28
     },
@@ -367,6 +370,7 @@
         "Page 4 of 8"
       ],
       "textRuns": 95,
+      "utf16Runs": 0,
       "widestText": "Page 4 of 8",
       "widthPt": 595.28
     },
@@ -482,6 +486,7 @@
         "Page 5 of 8"
       ],
       "textRuns": 96,
+      "utf16Runs": 0,
       "widestText": "Page 5 of 8",
       "widthPt": 595.28
     },
@@ -542,6 +547,7 @@
         "Page 6 of 8"
       ],
       "textRuns": 41,
+      "utf16Runs": 0,
       "widestText": "Page 6 of 8",
       "widthPt": 595.28
     },
@@ -640,6 +646,7 @@
         "Page 7 of 8"
       ],
       "textRuns": 79,
+      "utf16Runs": 0,
       "widestText": "Page 7 of 8",
       "widthPt": 595.28
     },
@@ -672,6 +679,7 @@
         "Page 8 of 8"
       ],
       "textRuns": 13,
+      "utf16Runs": 0,
       "widestText": "Page 8 of 8",
       "widthPt": 595.28
     }
@@ -684,5 +692,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

@@ -57,6 +57,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "Fixture Bank Limited",
       "widthPt": 595.28
     },
@@ -128,6 +129,7 @@
         "Page 2 of 3"
       ],
       "textRuns": 52,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -153,6 +155,7 @@
         "Page 3 of 3"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -165,5 +168,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

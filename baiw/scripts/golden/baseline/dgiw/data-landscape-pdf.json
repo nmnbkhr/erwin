@@ -57,6 +57,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "Fixture Bank Limited",
       "widthPt": 595.28
     },
@@ -96,6 +97,7 @@
         "Page 2 of 9"
       ],
       "textRuns": 20,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -286,6 +288,7 @@
         "Page 3 of 9"
       ],
       "textRuns": 171,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -444,6 +447,7 @@
         "Page 4 of 9"
       ],
       "textRuns": 139,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -591,6 +595,7 @@
         "Page 5 of 9"
       ],
       "textRuns": 128,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -651,6 +656,7 @@
         "Page 6 of 9"
       ],
       "textRuns": 41,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -708,6 +714,7 @@
         "Page 7 of 9"
       ],
       "textRuns": 38,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -749,6 +756,7 @@
         "Page 8 of 9"
       ],
       "textRuns": 22,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -783,6 +791,7 @@
         "Page 9 of 9"
       ],
       "textRuns": 15,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -795,5 +804,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

@@ -57,6 +57,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "Tooling Recommendation and Reference Architecture",
       "widthPt": 595.28
     },
@@ -99,6 +100,7 @@
         "Page 2 of 8"
       ],
       "textRuns": 23,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -144,6 +146,7 @@
         "Page 3 of 8"
       ],
       "textRuns": 26,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -184,6 +187,7 @@
         "Page 4 of 8"
       ],
       "textRuns": 21,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -225,6 +229,7 @@
         "Page 5 of 8"
       ],
       "textRuns": 22,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -374,6 +379,7 @@
         "Page 6 of 8"
       ],
       "textRuns": 130,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -421,6 +427,7 @@
         "Page 7 of 8"
       ],
       "textRuns": 28,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -488,6 +495,7 @@
         "Page 8 of 8"
       ],
       "textRuns": 48,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -500,5 +508,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

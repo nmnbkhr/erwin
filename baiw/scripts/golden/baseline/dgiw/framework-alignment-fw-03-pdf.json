@@ -57,6 +57,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "How this programme satisfies DGI Data Governance Framework",
       "widthPt": 595.28
     },
@@ -117,6 +118,7 @@
         "Page 2 of 7"
       ],
       "textRuns": 41,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -222,6 +224,7 @@
         "Page 3 of 7"
       ],
       "textRuns": 86,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -329,6 +332,7 @@
         "Page 4 of 7"
       ],
       "textRuns": 88,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -455,6 +459,7 @@
         "Page 5 of 7"
       ],
       "textRuns": 107,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -518,6 +523,7 @@
         "Page 6 of 7"
       ],
       "textRuns": 44,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -555,6 +561,7 @@
         "Page 7 of 7"
       ],
       "textRuns": 18,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -567,5 +574,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

@@ -57,6 +57,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "Fixture Bank Limited",
       "widthPt": 595.28
     },
@@ -166,6 +167,7 @@
         "Page 2 of 12"
       ],
       "textRuns": 90,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -274,6 +276,7 @@
         "Page 3 of 12"
       ],
       "textRuns": 89,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -336,6 +339,7 @@
         "Page 4 of 12"
       ],
       "textRuns": 43,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -363,6 +367,7 @@
         "Page 5 of 12"
       ],
       "textRuns": 8,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -427,6 +432,7 @@
         "Page 6 of 12"
       ],
       "textRuns": 45,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -493,6 +499,7 @@
         "Page 7 of 12"
       ],
       "textRuns": 47,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -559,6 +566,7 @@
         "Page 8 of 12"
       ],
       "textRuns": 47,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -623,6 +631,7 @@
         "Page 9 of 12"
       ],
       "textRuns": 45,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -687,6 +696,7 @@
         "Page 10 of 12"
       ],
       "textRuns": 45,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -751,6 +761,7 @@
         "Page 11 of 12"
       ],
       "textRuns": 45,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -815,6 +826,7 @@
         "Page 12 of 12"
       ],
       "textRuns": 45,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -827,5 +839,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

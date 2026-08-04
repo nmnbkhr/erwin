@@ -64,6 +64,7 @@
         "Defined"
       ],
       "textRuns": 9,
+      "utf16Runs": 0,
       "widestText": "Fixture Customs Authority Partial",
       "widthPt": 595.28
     },
@@ -101,6 +102,7 @@
         "Page 2 of 18"
       ],
       "textRuns": 18,
+      "utf16Runs": 0,
       "widestText": "Page 2 of 18",
       "widthPt": 595.28
     },
@@ -134,6 +136,7 @@
         "Page 3 of 18"
       ],
       "textRuns": 14,
+      "utf16Runs": 0,
       "widestText": "Page 3 of 18",
       "widthPt": 595.28
     },
@@ -189,6 +192,7 @@
         "Page 4 of 18"
       ],
       "textRuns": 36,
+      "utf16Runs": 0,
       "widestText": "Page 4 of 18",
       "widthPt": 595.28
     },
@@ -240,6 +244,7 @@
         "Page 5 of 18"
       ],
       "textRuns": 32,
+      "utf16Runs": 0,
       "widestText": "Page 5 of 18",
       "widthPt": 595.28
     },
@@ -291,6 +296,7 @@
         "Page 6 of 18"
       ],
       "textRuns": 32,
+      "utf16Runs": 0,
       "widestText": "Page 6 of 18",
       "widthPt": 595.28
     },
@@ -342,6 +348,7 @@
         "Page 7 of 18"
       ],
       "textRuns": 32,
+      "utf16Runs": 0,
       "widestText": "Page 7 of 18",
       "widthPt": 595.28
     },
@@ -393,6 +400,7 @@
         "Page 8 of 18"
       ],
       "textRuns": 32,
+      "utf16Runs": 0,
       "widestText": "Page 8 of 18",
       "widthPt": 595.28
     },
@@ -421,6 +429,7 @@
         "Page 9 of 18"
       ],
       "textRuns": 9,
+      "utf16Runs": 0,
       "widestText": "Page 9 of 18",
       "widthPt": 595.28
     },
@@ -449,6 +458,7 @@
         "Page 10 of 18"
       ],
       "textRuns": 9,
+      "utf16Runs": 0,
       "widestText": "Page 10 of 18",
       "widthPt": 595.28
     },
@@ -477,6 +487,7 @@
         "Page 11 of 18"
       ],
       "textRuns": 9,
+      "utf16Runs": 0,
       "widestText": "Page 11 of 18",
       "widthPt": 595.28
     },
@@ -505,6 +516,7 @@
         "Page 12 of 18"
       ],
       "textRuns": 9,
+      "utf16Runs": 0,
       "widestText": "Page 12 of 18",
       "widthPt": 595.28
     },
@@ -661,6 +673,7 @@
         "Page 13 of 18"
       ],
       "textRuns": 137,
+      "utf16Runs": 0,
       "widestText": "Page 13 of 18",
       "widthPt": 595.28
     },
@@ -759,6 +772,7 @@
         "Page 14 of 18"
       ],
       "textRuns": 79,
+      "utf16Runs": 0,
       "widestText": "Page 14 of 18",
       "widthPt": 595.28
     },
@@ -796,6 +810,7 @@
         "Page 15 of 18"
       ],
       "textRuns": 18,
+      "utf16Runs": 0,
       "widestText": "Page 15 of 18",
       "widthPt": 595.28
     },
@@ -868,6 +883,7 @@
         "Page 16 of 18"
       ],
       "textRuns": 53,
+      "utf16Runs": 0,
       "widestText": "Page 16 of 18",
       "widthPt": 595.28
     },
@@ -903,6 +919,7 @@
         "Page 17 of 18"
       ],
       "textRuns": 16,
+      "utf16Runs": 0,
       "widestText": "Page 17 of 18",
       "widthPt": 595.28
     },
@@ -955,6 +972,7 @@
         "Page 18 of 18"
       ],
       "textRuns": 33,
+      "utf16Runs": 0,
       "widestText": "Page 18 of 18",
       "widthPt": 595.28
     }
@@ -967,5 +985,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

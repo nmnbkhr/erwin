@@ -58,6 +58,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 5,
+      "utf16Runs": 0,
       "widestText": "Fixture Health Authority",
       "widthPt": 595.28
     },
@@ -119,6 +120,7 @@
         "Page 2 of 6"
       ],
       "textRuns": 42,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -182,6 +184,7 @@
         "Page 3 of 6"
       ],
       "textRuns": 44,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -309,6 +312,7 @@
         "Page 4 of 6"
       ],
       "textRuns": 108,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -380,6 +384,7 @@
         "Page 5 of 6"
       ],
       "textRuns": 52,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -459,6 +464,7 @@
         "Page 6 of 6"
       ],
       "textRuns": 60,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     }
@@ -471,5 +477,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

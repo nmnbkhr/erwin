@@ -58,6 +58,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 5,
+      "utf16Runs": 0,
       "widestText": "Fixture Health Authority",
       "widthPt": 595.28
     },
@@ -137,6 +138,7 @@
         "Page 2 of 8"
       ],
       "textRuns": 60,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -162,6 +164,7 @@
         "Page 3 of 8"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -297,6 +300,7 @@
         "Page 4 of 8"
       ],
       "textRuns": 116,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -407,6 +411,7 @@
         "Page 5 of 8"
       ],
       "textRuns": 91,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -536,6 +541,7 @@
         "Page 6 of 8"
       ],
       "textRuns": 110,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -668,6 +674,7 @@
         "Page 7 of 8"
       ],
       "textRuns": 113,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -742,6 +749,7 @@
         "Page 8 of 8"
       ],
       "textRuns": 55,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     }
@@ -754,5 +762,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

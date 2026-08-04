@@ -58,6 +58,7 @@
         "ILLUSTRATIVE"
       ],
       "textRuns": 7,
+      "utf16Runs": 0,
       "widestText": "Fixture Bank Limited",
       "widthPt": 595.28
     },
@@ -131,6 +132,7 @@
         "Page 2 of 21"
       ],
       "textRuns": 54,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -159,6 +161,7 @@
         "Page 3 of 21"
       ],
       "textRuns": 9,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -297,6 +300,7 @@
         "Page 4 of 21"
       ],
       "textRuns": 119,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -374,6 +378,7 @@
         "Page 5 of 21"
       ],
       "textRuns": 58,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -462,6 +467,7 @@
         "Page 6 of 21"
       ],
       "textRuns": 69,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -503,6 +509,7 @@
         "Page 7 of 21"
       ],
       "textRuns": 22,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -641,6 +648,7 @@
         "Page 8 of 21"
       ],
       "textRuns": 119,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -696,6 +704,7 @@
         "Page 9 of 21"
       ],
       "textRuns": 36,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -761,6 +770,7 @@
         "Page 10 of 21"
       ],
       "textRuns": 46,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -833,6 +843,7 @@
         "Page 11 of 21"
       ],
       "textRuns": 53,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -905,6 +916,7 @@
         "Page 12 of 21"
       ],
       "textRuns": 53,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -988,6 +1000,7 @@
         "Page 13 of 21"
       ],
       "textRuns": 64,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -1065,6 +1078,7 @@
         "Page 14 of 21"
       ],
       "textRuns": 58,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -1132,6 +1146,7 @@
         "Page 15 of 21"
       ],
       "textRuns": 48,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -1207,6 +1222,7 @@
         "Page 16 of 21"
       ],
       "textRuns": 56,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -1274,6 +1290,7 @@
         "Page 17 of 21"
       ],
       "textRuns": 48,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -1466,6 +1483,7 @@
         "Page 18 of 21"
       ],
       "textRuns": 173,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -1670,6 +1688,7 @@
         "Page 19 of 21"
       ],
       "textRuns": 185,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -1827,6 +1846,7 @@
         "Page 20 of 21"
       ],
       "textRuns": 138,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -1907,6 +1927,7 @@
         "Page 21 of 21"
       ],
       "textRuns": 61,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -1919,5 +1940,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

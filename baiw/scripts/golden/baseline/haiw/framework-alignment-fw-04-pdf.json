@@ -58,6 +58,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 5,
+      "utf16Runs": 0,
       "widestText": "How this assessment satisfies COBIT 2019 — governance objectives and Managed Data",
       "widthPt": 595.28
     },
@@ -135,6 +136,7 @@
         "Page 2 of 11"
       ],
       "textRuns": 58,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -168,6 +170,7 @@
         "Page 3 of 11"
       ],
       "textRuns": 14,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -364,6 +367,7 @@
         "Page 4 of 11"
       ],
       "textRuns": 177,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -391,6 +395,7 @@
         "Page 5 of 11"
       ],
       "textRuns": 8,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -515,6 +520,7 @@
         "Page 6 of 11"
       ],
       "textRuns": 105,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -649,6 +655,7 @@
         "Page 7 of 11"
       ],
       "textRuns": 115,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -772,6 +779,7 @@
         "Page 8 of 11"
       ],
       "textRuns": 104,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -894,6 +902,7 @@
         "Page 9 of 11"
       ],
       "textRuns": 103,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -950,6 +959,7 @@
         "Page 10 of 11"
       ],
       "textRuns": 37,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     },
@@ -1024,6 +1034,7 @@
         "Page 11 of 11"
       ],
       "textRuns": 55,
+      "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
     }
@@ -1036,5 +1047,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

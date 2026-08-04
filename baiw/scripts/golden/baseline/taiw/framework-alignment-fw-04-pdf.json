@@ -60,6 +60,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 5,
+      "utf16Runs": 0,
       "widestText": "How this assessment satisfies COBIT 2019 — governance objectives and Managed Data",
       "widthPt": 595.28
     },
@@ -137,6 +138,7 @@
         "Page 2 of 9"
       ],
       "textRuns": 58,
+      "utf16Runs": 0,
       "widestText": "Page 2 of 9",
       "widthPt": 595.28
     },
@@ -170,6 +172,7 @@
         "Page 3 of 9"
       ],
       "textRuns": 14,
+      "utf16Runs": 0,
       "widestText": "Page 3 of 9",
       "widthPt": 595.28
     },
@@ -317,6 +320,7 @@
         "Page 4 of 9"
       ],
       "textRuns": 128,
+      "utf16Runs": 0,
       "widestText": "Page 4 of 9",
       "widthPt": 595.28
     },
@@ -430,6 +434,7 @@
         "Page 5 of 9"
       ],
       "textRuns": 94,
+      "utf16Runs": 0,
       "widestText": "Page 5 of 9",
       "widthPt": 595.28
     },
@@ -542,6 +547,7 @@
         "Page 6 of 9"
       ],
       "textRuns": 93,
+      "utf16Runs": 0,
       "widestText": "Page 6 of 9",
       "widthPt": 595.28
     },
@@ -658,6 +664,7 @@
         "Page 7 of 9"
       ],
       "textRuns": 97,
+      "utf16Runs": 0,
       "widestText": "Page 7 of 9",
       "widthPt": 595.28
     },
@@ -714,6 +721,7 @@
         "Page 8 of 9"
       ],
       "textRuns": 37,
+      "utf16Runs": 0,
       "widestText": "Page 8 of 9",
       "widthPt": 595.28
     },
@@ -774,6 +782,7 @@
         "Page 9 of 9"
       ],
       "textRuns": 41,
+      "utf16Runs": 0,
       "widestText": "Page 9 of 9",
       "widthPt": 595.28
     }
@@ -786,5 +795,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

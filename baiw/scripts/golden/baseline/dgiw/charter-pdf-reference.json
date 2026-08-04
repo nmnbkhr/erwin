@@ -58,6 +58,7 @@
         "ILLUSTRATIVE"
       ],
       "textRuns": 7,
+      "utf16Runs": 0,
       "widestText": "Data Governance Charter — Template",
       "widthPt": 595.28
     },
@@ -116,6 +117,7 @@
         "Page 2 of 3"
       ],
       "textRuns": 39,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -179,6 +181,7 @@
         "Page 3 of 3"
       ],
       "textRuns": 44,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -191,5 +194,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }

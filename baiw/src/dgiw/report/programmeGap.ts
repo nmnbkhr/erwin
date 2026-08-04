@@ -187,10 +187,17 @@ export const B_DISPOSITION =
   'produce, and P06 is exactly that.'
 
 export const B_NO_WAVE_ROW =
+  // ASCII '->' on purpose, not '→' (U+2192) — D-019. Helvetica's WinAnsi
+  // encoding has no U+2192, so jsPDF emitted this paragraph's lines as UTF-16
+  // strings that every viewer decoded as mojibake: "artefact !' pillar !'
+  // wave" on pages 2 and 8 of every AR-54 ever exported. Comments may use the
+  // arrow freely; a string a PDF generator renders may not — the golden
+  // harness now refuses to capture a document carrying one (assertNonEmpty's
+  // UTF-16 branch).
   'NO ARTEFACT IS ATTACHED TO A WAVE. The waves carry pillar ids and free-text deliverables and ' +
   'no artefact id: of 35 deliverable strings, one matches a register artefact name. Composing ' +
-  'artefact → pillar → wave would place AR-09, a rung-2 operating model, in W6 "Run, Prove & ' +
-  'Expand" because both name P01. The wave section reports only wave → pillar, which is a real ' +
+  'artefact -> pillar -> wave would place AR-09, a rung-2 operating model, in W6 "Run, Prove & ' +
+  'Expand" because both name P01. The wave section reports only wave -> pillar, which is a real ' +
   'key, and names no artefact on any wave row.'
 
 /** The frameworks' induced shares are per framework and are never summed. */

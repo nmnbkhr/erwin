@@ -24,6 +24,7 @@ entry here is not a substitute for fixing it — it is a substitute for
 | D-008 | HAIW invented 132 rows when the capability dataset failed to load | **fixed** 2026-08-01 — by removal |
 | D-009 | `aeo_compliance_monitoring_aeo` carries its suffix twice | **open** — dataset-level, not client-visible |
 | D-018 | the golden harness read only the first line of every wrapped table cell | **fixed** 2026-08-04 + gated by TEXT-INTEGRITY — no generator was at fault |
+| D-019 | a '→' in AR-54's prose shipped as mojibake, and the harness measured its UTF-16 lines at double width | **fixed** 2026-08-04 + capture now refuses UTF-16 text runs |
 
 **Three of these are one defect wearing three costumes.** D-001, D-003 and D-008
 are all *a plausible number substituted where a real one was unavailable*:
@@ -2016,3 +2017,88 @@ And the narrower one, for anything that parses a content stream: **enumerate the
 operator forms present before trusting a reader that matches one.** The count is
 two here, it took one `sed` to establish, and the second form carried 9.1% of the
 suite's text.
+
+
+## D-019 — a `→` in AR-54's prose shipped as mojibake, and the instrument that could have said so was busy reporting a different, false finding
+
+**Found:** 2026-08-04, walking the G1 diff. **Status: RESOLVED same stage — the
+character replaced, the extractor taught the second string encoding, and
+`assertNonEmpty` now refuses to record a document carrying one.**
+
+### Two findings in one measurement, one true and one false
+
+`walk.mjs` reported two text runs on AR-54 pages 2 and 8 with a right edge of
+**1130.53 pt on a 595.28 pt sheet** — text past the paper edge, unchanged
+before→after, so pre-existing. That finding is FALSE, and D-018's closing rule
+("rule out the instrument before you accept the finding") is the only reason it
+was not filed as a layout defect: no `Tm` in the whole document carries a
+translation past 560 pt, so nothing was ever drawn there.
+
+The true finding was underneath. The runs are the two lines of
+`programmeGap.ts::B_NO_WAVE_ROW` containing `→` (U+2192). Helvetica's WinAnsi
+encoding has no U+2192, so jsPDF silently emits any line containing one as a
+**UTF-16BE string** — `(\x00a\x00r\x00t...)` — and, because a standard-14 font
+carries no `/ToUnicode` and no usable two-byte `/Encoding`, every viewer decodes
+those byte pairs as WinAnsi:
+
+```
+$ pdftotext AR-54_fixture-bank-limited_all_2026-07-31.pdf - | grep Composing
+... Composing artefact !' pillar !' wave would place AR-09, a rung-2
+```
+
+**"artefact !' pillar !' wave", on pages 2 and 8 of every AR-54 ever exported,
+in both layer variants.** The character does not survive the font; the string
+must not contain it.
+
+### Why every existing guard missed it
+
+| guard | why it was blind |
+|---|---|
+| `TEXT-MAXWIDTH` | greps for a key, not an encoding |
+| `text-integrity` | covers table cells only, and says so — this is paragraph prose |
+| `nonWinAnsiFonts` (baseline field) | checks the FONTS a run selects, not the characters in the string |
+| `geometry.mjs` | drawn paths; no path moved |
+| golden `rawBytesSha256` | stable — the mojibake was faithfully reproduced every run |
+
+The one instrument that flagged anything was `readTextRuns`, **by accident and
+with the wrong finding**: it assumed every string literal is single-byte
+WinAnsi, counted each BYTE of the UTF-16 runs as a glyph, and estimated the
+lines at double width — which is the 1130.53 pt. D-018's narrower rule, one
+level down: it enumerated the operator forms and not the **encoding** forms.
+Two appear in these documents; the reader knew one.
+
+### The fix, in three parts
+
+1. **Content** — `B_NO_WAVE_ROW` uses ASCII `->`, with a comment saying why.
+   Comments and markdown generators may use `→` freely (six arrows in the two
+   roadmap markdown templates are untouched — UTF-8 text files render them
+   correctly); a string a PDF generator renders may not.
+2. **Instrument** — `unescapePdfString` detects UTF-16BE (even length + a NUL
+   byte, which no WinAnsi string jsPDF emits can contain) and decodes it, so
+   glyph counts, widths and `rightEdgePt` are measured over characters, not
+   bytes. AR-54 page 2's right edge reads 552.76 pt again.
+3. **Guard** — every page report records `utf16Runs`, the document records
+   `utf16RunCount`, and `assertNonEmpty` FAILS on a non-zero count, so a
+   mojibake document can be neither captured nor `--accept`ed into the golden
+   record. Demonstrated failing before trusted: an arrow reintroduced in a
+   throwaway edit produced `Error: dgiw/programme-gap-pdf: 2 UTF-16 text
+   run(s) — a non-WinAnsi character reached a PDF string and renders as
+   mojibake in every viewer`, and the edit was reverted.
+
+### What the guard does not cover
+
+It runs where PDFs are analysed — capture, walk, and baseline read-back — not
+in `npm run check`, so the first signal for a new instance arrives at the
+golden gate rather than the dataset gate. A static check over report-source
+string literals was considered and rejected: the same files legitimately hold
+markdown template strings full of Unicode, and a rule that needed a
+per-file exception list to avoid false positives would go stale the first time
+a generator moved. The refusal at the record is the honest floor: nothing
+mojibake can become a baseline.
+
+### The rule this earns
+
+**A character set is part of the contract with the font.** The suite renders
+with the standard 14 fonts; their ceiling is WinAnsi, and any character above
+it does not degrade gracefully — it takes its whole line into an encoding no
+viewer can read. When prose wants an arrow, write `->`.

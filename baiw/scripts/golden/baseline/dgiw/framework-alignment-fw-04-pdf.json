@@ -57,6 +57,7 @@
         "Prepared by Godaitec (godai.tech)"
       ],
       "textRuns": 6,
+      "utf16Runs": 0,
       "widestText": "How this programme satisfies COBIT 2019 — governance objectives and Managed Data",
       "widthPt": 595.28
     },
@@ -123,6 +124,7 @@
         "Page 2 of 8"
       ],
       "textRuns": 47,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -264,6 +266,7 @@
         "Page 3 of 8"
       ],
       "textRuns": 122,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -386,6 +389,7 @@
         "Page 4 of 8"
       ],
       "textRuns": 103,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -507,6 +511,7 @@
         "Page 5 of 8"
       ],
       "textRuns": 102,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -620,6 +625,7 @@
         "Page 6 of 8"
       ],
       "textRuns": 94,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -663,6 +669,7 @@
         "Page 7 of 8"
       ],
       "textRuns": 24,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     },
@@ -700,6 +707,7 @@
         "Page 8 of 8"
       ],
       "textRuns": 18,
+      "utf16Runs": 0,
       "widestText": "Powered by DGIW",
       "widthPt": 595.28
     }
@@ -712,5 +720,6 @@
   "usedFonts": [
     "Helvetica",
     "Helvetica-Bold"
-  ]
+  ],
+  "utf16RunCount": 0
 }
