@@ -23,10 +23,13 @@ COE and ALM are banking use-case domains, not industries of their own.
 The registry establishes identity, source provenance and the common shape needed
 by DGIW. Its portfolio supports engagement-scoped selection under
 `dgiw.use-cases::<engagement-id>`; selection changes scope only and does not
-change source content or imply readiness. Governance relationships (`cdeRefs`,
-`dqRuleRefs`, `policyRefs`) are explicit empty arrays until they are authored.
-An empty relationship is displayed as pending mapping and never converted into
-a readiness score.
+change source content or imply readiness. Direct use-case governance
+relationships (`cdeRefs`, `dqRuleRefs`, `policyRefs`) are explicit empty arrays
+until they are authored. DGIW's assurance catalogue adds a separate, narrower
+path from selected source module and jurisdiction to candidate obligations and
+shared controls. That is an applicability aid, not a claim that a specific use
+case is ready or compliant. An empty direct relationship remains pending
+mapping and is never converted into a readiness score.
 
 HAIW's common workbench dataset contains seven canonical cases. Its separate
 component-local specialist explorer contains eight other cases. The registry
@@ -45,4 +48,6 @@ that says which extend, overlap or replace the canonical cases.
 - explicit governance-reference arrays, including when empty.
 
 Readiness decisions must not be added until CDE, DQ-rule and policy relationships
-have been authored and gated.
+have been authored and gated. Evidence assurance may reach `verified` only
+through the separate control-review workflow documented in
+`compliance-assurance.md`; `verified` is not a readiness or compliance state.

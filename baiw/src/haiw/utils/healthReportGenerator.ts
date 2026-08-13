@@ -837,7 +837,7 @@ export function generateHealthMaturityPDF(
       'Partner with medical universities for health analytics capacity building',
     ],
     'Data Governance & Standards': [
-      'Establish patient data governance committee with HIPAA/local compliance focus',
+      'Establish a patient data governance committee for applicable national privacy and security requirements; apply HIPAA only to US-covered entities and business associates',
       'Implement master patient index (MPI) across all facilities',
       'Define data quality metrics for clinical, financial, and operational data',
     ],

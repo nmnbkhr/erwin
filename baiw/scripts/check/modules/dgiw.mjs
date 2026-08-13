@@ -2622,6 +2622,7 @@ export default {
     prog: 'programSetup.json',
     plan: 'implementationPlan.json',
     pos: 'positioning.json',
+    assurance: 'complianceCatalogue.json',
     // `frameworks.json` is NOT here. It moved to src/frameworks/data/ in D5 stage
     // B and is declared by `_spine`, because DMBOK2, DCAM and COBIT are shared
     // with TAIW and HAIW. `crosswalk.json` stays: it holds all 91 pillar

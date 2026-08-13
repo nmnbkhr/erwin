@@ -60,7 +60,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { execFileSync } from 'node:child_process'
+import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
@@ -168,6 +168,66 @@ const MUTATIONS = [
     what: 'the selection storage base drops out of engagement export, duplicate and delete',
     touches: ['src/engagement/types.ts'],
     apply: () => sub('src/engagement/types.ts', "  'dgiw.use-cases',\n", ''),
+  },
+
+  // ── shared compliance assurance ─────────────────────────────────────────
+  {
+    code: 'ASSURANCE-REFERENTIAL',
+    what: 'an obligation points to a control the assurance catalogue does not contain',
+    touches: [`${DGIW}/complianceCatalogue.json`],
+    apply: () => json(`${DGIW}/complianceCatalogue.json`, (d) => { d.obligations[0].controlIds[0] = 'CTL-MISSING' }),
+  },
+  {
+    code: 'ASSURANCE-CLAIM',
+    what: 'implemented work with no evidence is promoted past the evidence-pending boundary',
+    touches: ['src/dgiw/assurance/registry.ts'],
+    apply: () => sub(
+      'src/dgiw/assurance/registry.ts',
+      "  if (!assessment.evidenceReference.trim() || !assessment.evidenceSummary.trim()) return 'evidence-pending'",
+      "  if (false) return 'evidence-pending'",
+    ),
+  },
+  {
+    code: 'ASSURANCE-CLAIM',
+    what: 'HIPAA is made globally applicable instead of remaining US-only',
+    touches: [`${DGIW}/complianceCatalogue.json`],
+    apply: () => json(`${DGIW}/complianceCatalogue.json`, (d) => {
+      d.instruments.find((row) => row.id === 'INST-HIPAA-SEC').jurisdictions = ['GLOBAL']
+    }),
+  },
+  {
+    code: 'ASSURANCE-STATE',
+    what: 'the stored assurance guard accepts stale control and malformed assessment keys',
+    touches: ['src/dgiw/assurance/state.ts'],
+    apply: () => sub(
+      'src/dgiw/assurance/state.ts',
+      '.every(([id, assessment]) => controlIds.has(id) && isAssessment(assessment))',
+      '.every(() => true)',
+    ),
+  },
+  {
+    code: 'ASSURANCE-STATE',
+    what: 'the assurance storage base drops out of engagement export, duplicate and delete',
+    touches: ['src/engagement/types.ts'],
+    apply: () => sub('src/engagement/types.ts', "  'dgiw.assurance',\n", ''),
+  },
+  {
+    code: 'ASSURANCE-COVERAGE',
+    what: 'TAIW loses every path from selected trade use cases to assurance obligations',
+    touches: [`${DGIW}/complianceCatalogue.json`],
+    apply: () => json(`${DGIW}/complianceCatalogue.json`, (d) => {
+      for (const obligation of d.obligations) obligation.sourceModules = obligation.sourceModules.filter((module) => module !== 'taiw')
+    }),
+  },
+  {
+    code: 'ASSURANCE-OUTPUT',
+    what: 'the assurance CSV drops its explicit non-certification claim boundary',
+    touches: ['src/dgiw/report/complianceAssurance.ts'],
+    apply: () => sub(
+      'src/dgiw/report/complianceAssurance.ts',
+      "        claimBoundary: 'Evidence register only — not a certification or legal opinion.',",
+      "        claimBoundary: '',",
+    ),
   },
 
   // ── §1–9: the eighteen codes no document names ──────────────────────────
@@ -1657,7 +1717,7 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     code: 'REGISTRY',
     what: 'an empty registry — the gate would otherwise print 0 entries, 0 checks and pass',
     touches: ['scripts/check/modules/index.mjs'],
-    apply: () => sub('scripts/check/modules/index.mjs', 'export default [spine, industry, baiw, taiw, haiw, coe, alm, dgiw]', 'export default []'),
+    apply: () => sub('scripts/check/modules/index.mjs', 'export default [spine, industry, assurance, baiw, taiw, haiw, coe, alm, dgiw]', 'export default []'),
   },
   {
     code: 'VACUOUS',
@@ -1820,17 +1880,29 @@ const restore = (m) => {
   // pristine control is re-run at the end.
 }
 
-/** Never throws — the exit code is the datum, not an accident. */
+/** Never throws — the exit code and both output streams are data. */
 const run = (script, args) => {
+  // Node 22's Console may lose buffered writes when a short-lived child exits
+  // with stdout/stderr as anonymous pipes. Real files give console synchronous
+  // descriptors and make the failure transcript reliably readable.
+  const stdoutPath = path.join(SCRATCH, '.selftest.stdout')
+  const stderrPath = path.join(SCRATCH, '.selftest.stderr')
+  const stdout = fs.openSync(stdoutPath, 'w')
+  const stderr = fs.openSync(stderrPath, 'w')
+  let result
   try {
-    const out = execFileSync(process.execPath, [path.join(SCRATCH, ...script), ...args], {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
+    result = spawnSync(process.execPath, [path.join(SCRATCH, ...script), ...args], {
+      stdio: ['ignore', stdout, stderr],
     })
-    return { status: 0, out, err: '' }
-  } catch (e) {
-    return { status: e.status ?? 1, out: e.stdout ?? '', err: e.stderr ?? String(e) }
+  } finally {
+    fs.closeSync(stdout)
+    fs.closeSync(stderr)
   }
+  const out = fs.readFileSync(stdoutPath, 'utf8')
+  const err = fs.readFileSync(stderrPath, 'utf8')
+  fs.rmSync(stdoutPath, { force: true })
+  fs.rmSync(stderrPath, { force: true })
+  return { status: result.status ?? 1, out, err: err || result.error?.message || '' }
 }
 
 const runGate = () => run(['scripts', 'check.mjs'], ['--root', SCRATCH])

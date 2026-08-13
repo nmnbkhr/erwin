@@ -5,6 +5,7 @@ import {
   ListChecks, CalendarRange, Megaphone, Package, Network, ChevronLeft, ChevronRight, ArrowLeft, Home,
   ChartLine,
   Briefcase,
+  Scale,
 } from 'lucide-react'
 import { useLayer } from './layer'
 import EngagementSwitcher from '../components/shared/EngagementSwitcher'
@@ -28,6 +29,7 @@ const navItems = [
   { path: '/dg', label: 'Practice Overview', icon: LayoutDashboard },
   { path: '/dg/design', label: 'Program Design', icon: ClipboardList },
   { path: '/dg/use-cases', label: 'Industry Use Cases', icon: Briefcase },
+  { path: '/dg/compliance', label: 'Compliance Assurance', icon: Scale },
   { path: '/dg/diagnostic', label: 'Diagnostic Instrument', icon: ClipboardCheck },
   { path: '/dg/gaps', label: 'Gap Register', icon: Crosshair },
   { path: '/dg/trajectory', label: 'Trajectory', icon: ChartLine },

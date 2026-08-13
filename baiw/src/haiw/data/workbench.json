@@ -122,7 +122,7 @@
           { "name": "Patient Portal & App", "purpose": "Personal health record, appointments, reminders" },
           { "name": "Population Health Cockpit", "purpose": "Cohort management, care-gap lists and outreach" },
           { "name": "Payer & Contract Analytics", "purpose": "Risk adjustment, contract performance and network reporting" },
-          { "name": "Regulatory & Accreditation Reports", "purpose": "SBP, JCI, HEDIS and other regulatory returns" }
+          { "name": "Regulatory & Accreditation Reports", "purpose": "National and provincial health authorities, JCI, HEDIS and other applicable returns" }
         ]
       }
     ],

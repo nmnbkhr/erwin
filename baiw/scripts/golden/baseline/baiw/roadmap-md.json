@@ -2,8 +2,8 @@
   "artefact": "roadmap-md",
   "bytes": 3839,
   "capturedEnvVars": {
-    "LANG": "en_US.UTF-8",
-    "LC_ALL": null,
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
     "reexeced": false
   },
   "capturedWith": {

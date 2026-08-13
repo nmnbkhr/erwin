@@ -2,8 +2,8 @@
   "artefact": "framework-alignment-fw-01-pdf",
   "bytes": 108299,
   "capturedEnvVars": {
-    "LANG": "en_US.UTF-8",
-    "LC_ALL": null,
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
     "reexeced": false
   },
   "capturedWith": {

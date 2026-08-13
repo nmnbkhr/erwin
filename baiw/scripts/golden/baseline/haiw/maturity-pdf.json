@@ -1,9 +1,9 @@
 {
   "artefact": "maturity-pdf",
-  "bytes": 140879,
+  "bytes": 141063,
   "capturedEnvVars": {
-    "LANG": "en_US.UTF-8",
-    "LC_ALL": null,
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
     "reexeced": false
   },
   "capturedWith": {
@@ -29,11 +29,11 @@
   "filename": "MR-HAIW-MATURITY_fixture-health-authority_all_2026-07-31.pdf",
   "filenameNormalised": "MR-HAIW-MATURITY_fixture-health-authority_all_2026-07-31.pdf",
   "generator": "generateHealthMaturityPDF",
-  "glyphCount": 16915,
+  "glyphCount": 17005,
   "kind": "pdf",
   "module": "haiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "60b27aff5b1760c133d3c07883f88f46292332adffff38a5569173f583614d46",
+  "normalisedTextSha256": "ec4cfd57fc5ba601a9f404becbdb42026b07fa5e3df95e1e93650a3afce1025f",
   "notReproducible": {},
   "pageCount": 18,
   "pages": [
@@ -325,7 +325,7 @@
       "widthPt": 595.28
     },
     {
-      "glyphs": 995,
+      "glyphs": 1085,
       "heightPt": 841.89,
       "multiColumnBaselines": 12,
       "page": 7,
@@ -362,7 +362,8 @@
         "Requires structured investment and capability building",
         "Recommended Actions",
         "•",
-        "Establish patient data governance committee with HIPAA/local compliance focus",
+        "Establish a patient data governance committee for applicable national privacy and security requirements; apply HIPAA only to US-covered",
+        "entities and business associates",
         "•",
         "Implement master patient index (MPI) across all facilities",
         "•",
@@ -370,7 +371,7 @@
         "Prepared by Godaitec | godai.tech",
         "Page 7 of 18"
       ],
-      "textRuns": 31,
+      "textRuns": 32,
       "utf16Runs": 0,
       "widestText": "Powered by HAIW",
       "widthPt": 595.28
@@ -1049,9 +1050,9 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "9e0f7f944e43e4c3783331cb41533df711b2b701a1e3ecb6c0c0087dfa369241",
+  "rawBytesSha256": "c3aeb77c804b8cdb4e24ef3a9d3baa6b0f10a6180a256d32858a3bb26a443676",
   "tableRowsTotal": 58,
-  "textRunCount": 650,
+  "textRunCount": 651,
   "unknownFonts": [],
   "usedFonts": [
     "Helvetica",

@@ -2,8 +2,8 @@
   "artefact": "operating-model-pdf",
   "bytes": 276094,
   "capturedEnvVars": {
-    "LANG": "en_US.UTF-8",
-    "LC_ALL": null,
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
     "reexeced": false
   },
   "capturedWith": {
@@ -18,8 +18,8 @@
   },
   "datasets": {
     "dir": "src/dgiw/data",
-    "files": 11,
-    "sha256": "d4da13cee0991fb7b39a4497290580304a9ed7a8fc783ee17b8d5c2d3a725cc1",
+    "files": 12,
+    "sha256": "29d743a40e09cfa5e4ae2247a9bb308bc894227736978e80db995577250b51ec",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -31,7 +31,7 @@
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "7b772d21c28b1e4b3f051267425d1546008c38c8c0a1e855152daf1d351fdb07",
+  "normalisedTextSha256": "96087586b5cbdb6ea6a42b26f7bab2e6ce7d1e8a86b7484ebdc1cc5826cdee36",
   "notReproducible": {},
   "pageCount": 21,
   "pages": [
@@ -673,7 +673,7 @@
         "Every step, checklist item and artefact names one owner as free text. The role registry resolves those strings to archetypes — 32 of 32 registry",
         "entries are in scope under the current layer. Without that mapping the RACI is prose: \"Head of Credit Risk\" and \"Data Owner\" are unrelated",
         "strings until something joins them.",
-        "All 145 owned records in scope resolve to exactly one archetype. No record is unowned and none names two accountable",
+        "All 146 owned records in scope resolve to exactly one archetype. No record is unowned and none names two accountable",
         "parties.",
         "Accountability load by archetype",
         "Steps in scope for which each in-scope archetype is the accountable owner. A zero is a real reading, not a gap: that archetype owns no step",
@@ -1933,7 +1933,7 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "13e3c18ecf307587fb3a5f3b1d725829bbc939ea3db3514296f3098a1213e9c9",
+  "rawBytesSha256": "322610183dce45274b564e32b1ca7eb17943df0ffc158fd3c418e7af7a15b067",
   "tableRowsTotal": 164,
   "textRunCount": 1476,
   "unknownFonts": [],

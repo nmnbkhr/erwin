@@ -400,6 +400,10 @@ for (const mod of modules) {
 if (fails.length) {
   console.error(`\n${fails.length} ${plural(fails.length, 'problem')}:`)
   for (const l of fails.lines()) console.error('  ' + l)
-  process.exit(1)
+  // Do not terminate synchronously here. check/selftest.mjs invokes this file
+  // with stdout/stderr piped; process.exit() can discard the buffered finding
+  // lines before the parent reads them, making a working rule look unreachable.
+  process.exitCode = 1
+} else {
+  log('\n  OK — all checks passed')
 }
-log('\n  OK — all checks passed')

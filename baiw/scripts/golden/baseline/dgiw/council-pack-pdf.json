@@ -2,8 +2,8 @@
   "artefact": "council-pack-pdf",
   "bytes": 52979,
   "capturedEnvVars": {
-    "LANG": "en_US.UTF-8",
-    "LC_ALL": null,
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
     "reexeced": false
   },
   "capturedWith": {
@@ -18,8 +18,8 @@
   },
   "datasets": {
     "dir": "src/dgiw/data",
-    "files": 11,
-    "sha256": "d4da13cee0991fb7b39a4497290580304a9ed7a8fc783ee17b8d5c2d3a725cc1",
+    "files": 12,
+    "sha256": "29d743a40e09cfa5e4ae2247a9bb308bc894227736978e80db995577250b51ec",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]
@@ -31,7 +31,7 @@
   "kind": "pdf",
   "module": "dgiw",
   "nonWinAnsiFonts": [],
-  "normalisedTextSha256": "294dfc259f10d2b22ca01a24618a85614dd3b6aa44efb6b57ae285333a7edba2",
+  "normalisedTextSha256": "aaa4db2aa0d6b9ce9dc711d6eb70b0ba0f6c386491146d6794ad954dde81c817",
   "notReproducible": {},
   "pageCount": 7,
   "pages": [
@@ -224,7 +224,7 @@
         "accepted",
         "1",
         "not tracked",
-        "56 of the 58 catalogued artefacts",
+        "57 of the 59 catalogued artefacts",
         "Transitions in this period",
         "Verbatim from the log, regressions included — a state moving backwards is a recorded fact of the engagement, not an error to hide.",
         "Artefact",
@@ -417,7 +417,7 @@
     }
   ],
   "rawBytesAsserted": true,
-  "rawBytesSha256": "d04f12214171345447ff2cf41a7d96c1a76bfb13e744ce8012a28e4cb51bd5c0",
+  "rawBytesSha256": "e2b754d7a36336b3e35122cd22346573c04e04dc2173a317e517f057632338de",
   "tableRowsTotal": 34,
   "textRunCount": 240,
   "unknownFonts": [],

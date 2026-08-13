@@ -64,6 +64,9 @@ import { gapRegister } from '../gap/register'
 // input. Pure pair logic from snapshots.ts; the list from the state hook.
 import { useSnapshots } from '../trajectory/state'
 import { comparableSnapshotPairs } from '../trajectory/snapshots'
+import { useUseCaseSelection } from '../../industry/selectionState'
+import { applicableControls, applicableObligations } from '../assurance/registry'
+import { useAssuranceState } from '../assurance/state'
 // G4: the plan composition — pure too; AR-56's card count and AR-04's
 // engagement input both read it.
 import { planSlices } from '../plan/slices'
@@ -115,6 +118,8 @@ interface Spec {
   countLabel: string
   /** Where the same buttons live inside the workbench. */
   shortcut: string
+  /** CSV-first working registers may intentionally have no lossy PDF summary. */
+  pdfSummary?: boolean
   /**
    * The boundary statement, rendered in amber rather than folded into `blurb`.
    *
@@ -466,6 +471,23 @@ const SPECS: Spec[] = [
     shortcut: '/dg/trajectory',
   },
   {
+    artefactId: 'AR-59',
+    title: 'Industry Compliance Assurance Register',
+    blurb:
+      'The engagement evidence register joining selected industry use cases to applicable obligations, ' +
+      'shared controls, evidence citations, independent review and authoritative source records.',
+    caveat:
+      'EVIDENCE ASSURANCE, NOT CERTIFICATION. VERIFIED means the recorded control evidence was accepted ' +
+      'by the named reviewer on the recorded date. It is not a legal opinion, regulator approval, ' +
+      'framework certification or claim that the organisation is compliant.',
+    primary: 'csv',
+    // Overridden below from engagement-scoped use-case selection and assurance state.
+    count: () => 0,
+    countLabel: 'applicable controls',
+    shortcut: '/dg/compliance',
+    pdfSummary: false,
+  },
+  {
     artefactId: 'AR-56',
     title: 'Per-Pillar Implementation Plan',
     blurb:
@@ -506,6 +528,16 @@ export default function Deliverables() {
   // trend input. The capture surface is the Diagnostic results view.
   const [snapshots] = useSnapshots()
   const snapshotPairs = useMemo(() => comparableSnapshotPairs(snapshots), [snapshots])
+  const [selectedUseCases] = useUseCaseSelection()
+  const [assuranceState] = useAssuranceState()
+  const assuranceObligations = useMemo(
+    () => applicableObligations(selectedUseCases, assuranceState),
+    [selectedUseCases, assuranceState],
+  )
+  const assuranceControls = useMemo(
+    () => applicableControls(assuranceObligations),
+    [assuranceObligations],
+  )
   // G5.1: the denominator is the WHOLE register, not just this page's cards —
   // the control now reaches every row (ImplementationPlan's register listing),
   // and the pack already counted all of them.
@@ -553,10 +585,12 @@ export default function Deliverables() {
                   ? gapEntries.length + totalTransitions + kpiLog.length
                   : spec.artefactId === 'AR-58'
                     ? snapshotPairs.length
+                    : spec.artefactId === 'AR-59'
+                      ? assuranceControls.length
                     : spec.count(filter)
         return { spec, artefact, count }
       }),
-    [filter, actionable, scopeCount, gapEntries, slices, totalTransitions, kpiLog, snapshotPairs],
+    [filter, actionable, scopeCount, gapEntries, slices, totalTransitions, kpiLog, snapshotPairs, assuranceControls],
   )
 
   const available = cards.filter((c) => c.count > 0).length
@@ -608,6 +642,17 @@ export default function Deliverables() {
           return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
             ? null
             : 'No consumption points are reachable under the current layer, so there is nothing to trace back from and no file was written.'
+        }
+        case 'AR-59': {
+          const { buildComplianceAssuranceRows } = await import('../report/complianceAssurance')
+          const { rows, columns } = buildComplianceAssuranceRows({
+            meta,
+            selectedUseCaseIds: selectedUseCases,
+            state: assuranceState,
+          })
+          return downloadCsv(rows, columns, reportFilename(meta, 'csv'), meta)
+            ? null
+            : 'No applicable obligation-control rows exist. Select use cases and confirm jurisdiction before exporting.'
         }
         default: {
           const { buildDqRuleSpecRows } = await import('../report/dqRuleSpec')
@@ -984,18 +1029,20 @@ export default function Deliverables() {
                       {csvBusy ? 'Generating…' : 'Download CSV'}
                     </button>
                   )}
-                  <button
-                    onClick={() => pdfFor(spec.artefactId)}
-                    disabled={unavailable || anyBusy}
-                    className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${
-                      spec.primary === 'pdf'
-                        ? 'bg-rose-600 text-white hover:bg-rose-700'
-                        : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    <FileText size={15} />
-                    {pdfBusy ? 'Generating…' : spec.primary === 'pdf' ? 'Download PDF' : 'PDF summary'}
-                  </button>
+                  {(spec.primary === 'pdf' || spec.pdfSummary !== false) && (
+                    <button
+                      onClick={() => pdfFor(spec.artefactId)}
+                      disabled={unavailable || anyBusy}
+                      className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${
+                        spec.primary === 'pdf'
+                          ? 'bg-rose-600 text-white hover:bg-rose-700'
+                          : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                      }`}
+                    >
+                      <FileText size={15} />
+                      {pdfBusy ? 'Generating…' : spec.primary === 'pdf' ? 'Download PDF' : 'PDF summary'}
+                    </button>
+                  )}
                   {unavailable && (
                     <span className="text-xs text-amber-700">
                       Nothing in scope to put in this document.
@@ -1003,7 +1050,7 @@ export default function Deliverables() {
                   )}
                 </div>
 
-                {spec.primary === 'csv' && (
+                {spec.primary === 'csv' && spec.pdfSummary !== false && (
                   <p className="text-xs text-slate-400 leading-relaxed">
                     The CSV is the artefact — it carries every column. The PDF summarises it for the
                     pack and is not a substitute for the register.

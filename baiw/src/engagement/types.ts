@@ -71,6 +71,9 @@ export const PERSISTED_BASES = [
   // Industry portfolio scope. Optional and empty for every pre-registry
   // engagement; registering it makes duplicate/export/import/delete complete.
   'dgiw.use-cases',
+  // Evidence-based assurance state derived from that scope. This includes
+  // jurisdiction, reasoned applicability exclusions and per-control review.
+  'dgiw.assurance',
 ] as const
 
 export type PersistedBase = (typeof PERSISTED_BASES)[number]

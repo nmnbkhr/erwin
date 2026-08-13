@@ -2,8 +2,8 @@
   "artefact": "framework-alignment-fw-01-pdf",
   "bytes": 91580,
   "capturedEnvVars": {
-    "LANG": "en_US.UTF-8",
-    "LC_ALL": null,
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
     "reexeced": false
   },
   "capturedWith": {
@@ -18,8 +18,8 @@
   },
   "datasets": {
     "dir": "src/dgiw/data",
-    "files": 11,
-    "sha256": "d4da13cee0991fb7b39a4497290580304a9ed7a8fc783ee17b8d5c2d3a725cc1",
+    "files": 12,
+    "sha256": "29d743a40e09cfa5e4ae2247a9bb308bc894227736978e80db995577250b51ec",
     "shared": [
       "src/frameworks/data/frameworks.json"
     ]

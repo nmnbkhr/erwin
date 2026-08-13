@@ -505,6 +505,10 @@
     {
       "id": "AR-58",
       "reason": "Recurring re-assessment output — regenerated whenever a new comparable snapshot is captured; movement between captures belongs to no single wave, exactly as AR-57 belongs to no single period."
+    },
+    {
+      "id": "AR-59",
+      "reason": "Recurring engagement assurance output — regenerated as jurisdiction, applicability, evidence and independent review decisions change; it is not one wave's deliverable."
     }
   ],
   "artefactRegister": [
@@ -1378,6 +1382,22 @@
           "dgiw/data/pillars.json"
         ],
         "note": "G6. Movement between two FROZEN workbench snapshots of the diagnostic, computed by the single delta engine (trajectory/deltas.ts) the /dg/trajectory page renders. NOT AR-40 (DQ rule results over time, observed at the client), NOT AR-41 (council runtime), NOT AR-42 (client-measured benefits against the AR-03 baseline, whose own note says gate G6 rejects a retro-fitted baseline) - all three were read before this id was minted, the AR-46/AR-47 precedent applied before building. Deltas exist only between captures at the same tier and layer with the pillar scored in BOTH; anything else is an exclusion with its reason, never a zero. Every claim cites both snapshot content digests. Movement is reported as past fact - no forward-looking language, no line drawn beyond the captures. ENGAGEMENT MODE ONLY on AR-55's refusal pattern: refuses without two comparable snapshots, because there is no reference mode for measurements."
+      }
+    },
+    {
+      "id": "AR-59",
+      "artefact": "Industry compliance assurance register",
+      "pillarId": "P08",
+      "rung": 2,
+      "owner": "Engagement Lead",
+      "format": "Interactive register + CSV",
+      "layer": "core",
+      "builtFrom": {
+        "evidence": "derived",
+        "datasets": [
+          "dgiw/data/complianceCatalogue.json"
+        ],
+        "note": "Derived from selected industry use cases, the engagement's jurisdiction profile, reasoned applicability exclusions and per-control evidence/reviewer decisions. The catalogue records source URL, version, legal force, verification date and limitation for every instrument. Output statuses are NOT ASSESSED, IN PROGRESS, EVIDENCE PENDING, REVIEW PENDING, REJECTED or VERIFIED; it never emits COMPLIANT. Framework maturity remains separate because alignment is not legal applicability and evidence acceptance is not a maturity score."
       }
     }
   ]
