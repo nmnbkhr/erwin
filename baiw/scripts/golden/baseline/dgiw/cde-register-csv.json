@@ -3,8 +3,8 @@
   "assertableSha256": "f6edbacd536800e63816252d52272b6ced0beb7783157e12df883b60b609dd01",
   "bytes": 32837,
   "capturedEnvVars": {
-    "LANG": "C.UTF-8",
-    "LC_ALL": "C.UTF-8",
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "en_US.UTF-8",
     "reexeced": false
   },
   "capturedWith": {

@@ -109,7 +109,28 @@ export const PINNED = {
 export function pinEnvironment() {
   process.env.TZ = PINNED.TZ
   const locale = new Intl.DateTimeFormat().resolvedOptions().locale
-  if (locale === PINNED.locale) return
+  if (locale === PINNED.locale) {
+    /*
+     * The ICU locale is already right, so no re-exec is needed — but the raw
+     * vars BEHIND it are still whatever this machine happened to have, and
+     * environmentVars() persists them into all 66 baselines. Two machines that
+     * both resolve en-US, one through LANG=C.UTF-8 and one through
+     * LANG=en_US.UTF-8, therefore rewrite every baseline on a field compare.mjs
+     * deliberately never reads. Measured: a capture on a second machine moved
+     * 65 files and changed no byte of any artefact.
+     *
+     * Normalising here keeps the record deterministic without making it untrue.
+     * These ARE the values in process.env at capture time once assigned, the
+     * assignment cannot change ICU (see the note above this function, which is
+     * why it is safe to do after the guard rather than before), and the
+     * EFFECTIVE locale is recorded and compared separately by
+     * environmentStamp(). `reexeced` still distinguishes "the pin had to
+     * intervene" from "it did not", which is the actionable half of the field.
+     */
+    process.env.LANG = PINNED.LANG
+    process.env.LC_ALL = PINNED.LC_ALL
+    return
+  }
 
   if (process.env.GOLDEN_REEXEC === '1') {
     throw new Error(
@@ -130,10 +151,17 @@ export function pinEnvironment() {
  * The EFFECTIVE environment — what actually decides what the generators render.
  * Recorded in every baseline so a mismatch is visible rather than mysterious.
  *
- * Deliberately not the raw env vars: pinEnvironment() may or may not have needed
- * to re-exec, so LC_ALL is set on one machine and unset on another while both
- * resolve `en-US`. Comparing the raw vars would flag a difference that changes
- * no byte of output. The raw vars are recorded separately, as context.
+ * Deliberately not the raw env vars: what a generator renders is decided by the
+ * RESOLVED ICU locale and timezone, not by the strings that produced them.
+ * Comparing the raw vars would flag differences that change no byte of output.
+ * The raw vars are recorded separately, as context.
+ *
+ * pinEnvironment() now normalises LANG/LC_ALL to PINNED on both paths, so those
+ * recorded strings no longer vary by machine. They did until that change, and
+ * the cost was a 65-file baseline rewrite every time a second machine captured.
+ * This function is unchanged: it reports what is in process.env, which is now
+ * deterministic because the pin makes it so, not because this reads it
+ * differently.
  */
 export function environmentStamp() {
   const resolved = new Intl.DateTimeFormat().resolvedOptions()
