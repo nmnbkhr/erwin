@@ -357,5 +357,76 @@
       },
       "digest": "7D53885F474155DEC7B1F27D797C06E4"
     }
-  ]
+  ],
+  "assurance": {
+    "selectedUseCaseIds": [
+      "baiw:UC-P01",
+      "haiw:HAIW-U01",
+      "taiw:TAIW-U01"
+    ],
+    "state": {
+      "jurisdictions": [
+        "PK"
+      ],
+      "exclusions": {
+        "OBL-TRADE-02": {
+          "reason": "Foreign-exchange reporting sits with Treasury under a separate engagement and is out of contracted scope for this register.",
+          "reviewer": "Engagement Lead",
+          "reviewedOn": "2026-08-13"
+        }
+      },
+      "assessments": {
+        "CTL-001": {
+          "implementation": "implemented",
+          "owner": "Chief Data Officer",
+          "evidenceReference": "EV-CTL-001",
+          "evidenceSummary": "Approved data governance charter and two council decision records covering the current period.",
+          "reviewer": "Internal Audit",
+          "reviewedOn": "2026-08-10",
+          "reviewDecision": "accepted",
+          "notes": ""
+        },
+        "CTL-003": {
+          "implementation": "in-progress",
+          "owner": "Data Owner - Retail",
+          "evidenceReference": "",
+          "evidenceSummary": "",
+          "reviewer": "",
+          "reviewedOn": "",
+          "reviewDecision": "pending",
+          "notes": ""
+        },
+        "CTL-004": {
+          "implementation": "implemented",
+          "owner": "Data Quality Lead",
+          "evidenceReference": "",
+          "evidenceSummary": "",
+          "reviewer": "",
+          "reviewedOn": "",
+          "reviewDecision": "pending",
+          "notes": ""
+        },
+        "CTL-006": {
+          "implementation": "implemented",
+          "owner": "Chief Information Security Officer",
+          "evidenceReference": "EV-CTL-006",
+          "evidenceSummary": "Access-control matrix and quarterly recertification export.",
+          "reviewer": "",
+          "reviewedOn": "",
+          "reviewDecision": "pending",
+          "notes": ""
+        },
+        "CTL-012": {
+          "implementation": "implemented",
+          "owner": "Head of Internal Audit",
+          "evidenceReference": "EV-CTL-012",
+          "evidenceSummary": "Prior-period evidence pack submitted for independent review.",
+          "reviewer": "External Assurance",
+          "reviewedOn": "2026-08-12",
+          "reviewDecision": "rejected",
+          "notes": ""
+        }
+      }
+    }
+  }
 }

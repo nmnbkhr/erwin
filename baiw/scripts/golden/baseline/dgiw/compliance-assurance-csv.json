@@ -1,0 +1,74 @@
+{
+  "artefact": "compliance-assurance-csv",
+  "assertableSha256": "6c61cc0f3d123e6f67a0a1e67105db0577af6629dac688a5630e21d694a0e120",
+  "bytes": 20466,
+  "capturedEnvVars": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "en_US.UTF-8",
+    "reexeced": false
+  },
+  "capturedWith": {
+    "icuLocale": "en-US",
+    "icuTimeZone": "UTC",
+    "tz": "UTC"
+  },
+  "columnCount": 24,
+  "datasets": {
+    "dir": "src/dgiw/data",
+    "files": 12,
+    "sha256": "29d743a40e09cfa5e4ae2247a9bb308bc894227736978e80db995577250b51ec",
+    "shared": [
+      "src/frameworks/data/frameworks.json"
+    ]
+  },
+  "filename": "AR-59_fixture-bank-limited_all_2026-07-31.csv",
+  "filenameNormalised": "AR-59_fixture-bank-limited_all_2026-07-31.csv",
+  "firstThreeRows": [
+    "\"CTL-001\",\"Governance authority and accountability\",\"VERIFIED\",\"implemented\",\"Chief Data Officer\",\"EV-CTL-001\",\"Approved data governance charter and two council decision records covering the current period.\",\"Internal Audit\",\"2026-08-10\",\"accepted\",\"OBL-BANK-05\",\"Demonstrate accountable banking governance\",\"Board and control-function governance\",\"Corporate Governance Regulatory Framework for Banks/DFIs\",\"BPRD Circular No. 05 of 2021\",\"State Bank of Pakistan\",\"regulation\",\"PK\",\"baiw; coe; alm\",\"baiw:UC-P01\",\"https://www.sbp.org.pk/circulars/bprd-circular-no-05-of-2021\",\"source-verified\",\"A qualified Pakistani banking compliance reviewer must confirm entity type, amendments and clause applicability.\",\"Evidence register only — not a certification or legal opinion.\"\r",
+    "\"CTL-001\",\"Governance authority and accountability\",\"VERIFIED\",\"implemented\",\"Chief Data Officer\",\"EV-CTL-001\",\"Approved data governance charter and two council decision records covering the current period.\",\"Internal Audit\",\"2026-08-10\",\"accepted\",\"OBL-GOV-01\",\"Establish accountable data governance\",\"Data Governance knowledge area\",\"DAMA-DMBOK2 Data Management Body of Knowledge\",\"2nd edition / revised second edition\",\"DAMA International\",\"guidance\",\"GLOBAL\",\"baiw; coe; alm; taiw; haiw\",\"baiw:UC-P01; haiw:HAIW-U01; taiw:TAIW-U01\",\"https://dama.org/learning-resources/dama-data-management-body-of-knowledge-dmbok/\",\"source-verified\",\"DMBOK provides professional guidance, not certification or a regulatory conclusion. DGIW uses its own 1-5 maturity scale and editorial crosswalk weights.\",\"Evidence register only — not a certification or legal opinion.\"\r",
+    "\"CTL-001\",\"Governance authority and accountability\",\"VERIFIED\",\"implemented\",\"Chief Data Officer\",\"EV-CTL-001\",\"Approved data governance charter and two council decision records covering the current period.\",\"Internal Audit\",\"2026-08-10\",\"accepted\",\"OBL-GOV-02\",\"Assess capability using auditable evidence\",\"Engagement, process and evidence model\",\"Data Management Capability Assessment Model\",\"DCAM v3\",\"EDM Association\",\"guidance\",\"GLOBAL\",\"baiw; coe; alm; taiw; haiw\",\"baiw:UC-P01; haiw:HAIW-U01; taiw:TAIW-U01\",\"https://edmcouncil.org/frameworks/dcam/\",\"source-verified\",\"The suite framework scorecard still models DCAM v2.2 and must not be described as a DCAM v3 assessment until its licensed structure is migrated and reviewed.\",\"Evidence register only — not a certification or legal opinion.\"\r"
+  ],
+  "fullTextSha256": "6c61cc0f3d123e6f67a0a1e67105db0577af6629dac688a5630e21d694a0e120",
+  "generator": "buildComplianceAssuranceRows",
+  "header": [
+    "﻿Control ID",
+    "Control",
+    "Assurance status",
+    "Implementation",
+    "Control owner",
+    "Evidence reference",
+    "Evidence summary",
+    "Independent reviewer",
+    "Reviewed on",
+    "Review decision",
+    "Obligation ID",
+    "Obligation",
+    "Clause or principle reference",
+    "Instrument",
+    "Version",
+    "Authority or standards body",
+    "Legal force",
+    "Jurisdictions",
+    "Applicable workbenches",
+    "Selected use cases",
+    "Official source",
+    "Source review state",
+    "Limitation",
+    "Claim boundary\r"
+  ],
+  "kind": "csv",
+  "lastThreeRows": [
+    "\"CTL-012\",\"Independent review and evidence retention\",\"REJECTED\",\"implemented\",\"Head of Internal Audit\",\"EV-CTL-012\",\"Prior-period evidence pack submitted for independent review.\",\"External Assurance\",\"2026-08-12\",\"rejected\",\"OBL-GOV-02\",\"Assess capability using auditable evidence\",\"Engagement, process and evidence model\",\"Data Management Capability Assessment Model\",\"DCAM v3\",\"EDM Association\",\"guidance\",\"GLOBAL\",\"baiw; coe; alm; taiw; haiw\",\"baiw:UC-P01; haiw:HAIW-U01; taiw:TAIW-U01\",\"https://edmcouncil.org/frameworks/dcam/\",\"source-verified\",\"The suite framework scorecard still models DCAM v2.2 and must not be described as a DCAM v3 assessment until its licensed structure is migrated and reviewed.\",\"Evidence register only — not a certification or legal opinion.\"\r",
+    "\"CTL-012\",\"Independent review and evidence retention\",\"REJECTED\",\"implemented\",\"Head of Internal Audit\",\"EV-CTL-012\",\"Prior-period evidence pack submitted for independent review.\",\"External Assurance\",\"2026-08-12\",\"rejected\",\"OBL-GOV-03\",\"Operate governance decision rights\",\"Decision rights, accountabilities and controls\",\"DGI Data Governance Framework\",\"Ten-component framework\",\"Data Governance Institute\",\"guidance\",\"GLOBAL\",\"baiw; coe; alm; taiw; haiw\",\"baiw:UC-P01; haiw:HAIW-U01; taiw:TAIW-U01\",\"https://datagovernance.com/the-dgi-data-governance-framework/\",\"review-required\",\"DGI does not publish the 1-5 maturity scale used by DGIW; the grouping and weights are editorial and require reviewer acceptance.\",\"Evidence register only — not a certification or legal opinion.\"\r",
+    "\"CTL-012\",\"Independent review and evidence retention\",\"REJECTED\",\"implemented\",\"Head of Internal Audit\",\"EV-CTL-012\",\"Prior-period evidence pack submitted for independent review.\",\"External Assurance\",\"2026-08-12\",\"rejected\",\"OBL-HEALTH-02\",\"Govern interoperable digital health data\",\"Digital health governance\",\"WHO data principles and digital health governance guidance\",\"Current online guidance\",\"World Health Organization\",\"guidance\",\"GLOBAL\",\"haiw\",\"haiw:HAIW-U01\",\"https://www.who.int/data/principles\",\"source-verified\",\"WHO principles are guidance and must be localized to national health, privacy and professional rules.\",\"Evidence register only — not a certification or legal opinion.\""
+  ],
+  "module": "dgiw",
+  "notReproducible": {},
+  "rawBytesAsserted": true,
+  "rawBytesSha256": "6c61cc0f3d123e6f67a0a1e67105db0577af6629dac688a5630e21d694a0e120",
+  "rowCount": 29,
+  "sampleRowsMasked": false,
+  "unassertable": [],
+  "unassertableColumnIndexes": [],
+  "unassertableReason": null
+}

@@ -24,8 +24,11 @@ const sourceIdentity = {
   run(ctx) {
     const registry = ctx.ts?.registry
     if (!registry) {
+      // examined 0, not 1: nothing WAS examined. The fail() is what carries the
+      // finding — reporting a phantom unit of work here would make a load
+      // failure indistinguishable from a check that ran over one row.
       ctx.fail(`src/industry/registry.ts could not be loaded: ${ctx.tsLoadError ?? 'unknown error'}`)
-      return { examined: 1 }
+      return { examined: 0 }
     }
     const cases = registry.INDUSTRY_USE_CASES ?? []
     let examined = 0
@@ -50,8 +53,9 @@ const contract = {
   run(ctx) {
     const registry = ctx.ts?.registry
     if (!registry) {
+      // See sourceIdentity: examined 0 on a load failure, never a phantom 1.
       ctx.fail(`src/industry/registry.ts could not be loaded: ${ctx.tsLoadError ?? 'unknown error'}`)
-      return { examined: 1 }
+      return { examined: 0 }
     }
     const cases = registry.INDUSTRY_USE_CASES ?? []
     const domains = registry.INDUSTRY_DOMAIN_DEFINITIONS ?? []

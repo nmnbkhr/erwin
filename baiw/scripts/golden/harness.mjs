@@ -746,6 +746,47 @@ export const REGISTRY = {
           return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'), c.meta)
         },
       },
+      /*
+       * AR-59 — the industry compliance assurance register. Every other DGIW
+       * deliverable had a frozen record and this one did not, so its bytes
+       * could move and no harness would say so. ASSURANCE-OUTPUT drives the
+       * same builder and asserts six PROPERTIES of the result; this freezes the
+       * result itself, which is the thing a client receives.
+       *
+       * The fixture scope is deliberate rather than convenient. Three use cases
+       * span baiw/haiw/taiw so the module-applicability filter does real work;
+       * one obligation carries a reasoned exclusion so the "excluded rows are
+       * not exported" path is in the bytes; and the five seeded assessments
+       * reach every status the engine can emit — verified, in-progress,
+       * evidence-pending, review-pending, rejected — while six controls are
+       * left ABSENT so not-assessed is exercised too. All six statuses on one
+       * capture, on the same reasoning as the partial fixtures: at
+       * everything-answered the correct and the broken engine agree.
+       *
+       * Jurisdiction is PK ONLY, and that is the highest-value line here. HIPAA
+       * is US-scoped, so OBL-HEALTH-US-01/-02 must be absent from these bytes
+       * even though a health use case is in scope. ASSURANCE-CLAIM asserts that
+       * boundary in process; this makes a regression visible as a diff in a
+       * client-facing artefact rather than only as a failing check.
+       *
+       * Plain `c.meta`, no mode override: ComplianceAssurance.tsx calls
+       * metaFor(id) with no mode, and a golden entry that invoked the generator
+       * differently from the application would be verifying something the
+       * application does not do.
+       */
+      {
+        id: 'compliance-assurance-csv', entry: DGIW_REPORT('complianceAssurance'), kind: 'csv',
+        exportName: 'buildComplianceAssuranceRows', artefactIdExport: 'COMPLIANCE_ASSURANCE_ARTEFACT_ID',
+        assertRawBytes: true,
+        call: (m, f, c) => {
+          const { rows, columns } = m.buildComplianceAssuranceRows({
+            meta: c.meta,
+            selectedUseCaseIds: f.assurance.selectedUseCaseIds,
+            state: f.assurance.state,
+          })
+          return c.downloadCsv(rows, columns, c.reportFilename(c.meta, 'csv'), c.meta)
+        },
+      },
       {
         id: 'roadmap-pdf', entry: DGIW_REPORT('roadmap'), kind: 'pdf',
         exportName: 'buildRoadmapPdf', artefactIdExport: 'ROADMAP_ARTEFACT_ID',
