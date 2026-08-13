@@ -68,6 +68,9 @@ export const PERSISTED_BASES = [
   // G6: frozen assessment snapshots — the second audit-trail seed. Registered
   // the day it shipped, which is the whole point of the comment above.
   'dgiw.snapshots',
+  // Industry portfolio scope. Optional and empty for every pre-registry
+  // engagement; registering it makes duplicate/export/import/delete complete.
+  'dgiw.use-cases',
 ] as const
 
 export type PersistedBase = (typeof PERSISTED_BASES)[number]

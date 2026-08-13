@@ -140,6 +140,36 @@ const writeGeometryProbe = () => {
 // restored wholesale. Everything a mutation writes must be listed, or the next
 // mutation runs against a dirty tree.
 const MUTATIONS = [
+  // ── shared industry registry ────────────────────────────────────────────
+  {
+    code: 'INDUSTRY-SOURCE',
+    what: 'an adapter silently drops a source use case from the shared portfolio',
+    touches: ['src/industry/adapters/banking.ts'],
+    apply: () => sub('src/industry/adapters/banking.ts',
+      'profitabilityWorkbench.useCases.map((u) => ({',
+      'profitabilityWorkbench.useCases.slice(1).map((u) => ({'),
+  },
+  {
+    code: 'INDUSTRY-CONTRACT',
+    what: 'COE is misclassified as trade instead of a banking use-case domain',
+    touches: ['src/industry/adapters/cash.ts'],
+    apply: () => sub('src/industry/adapters/cash.ts', "  sector: 'banking',", "  sector: 'trade',"),
+  },
+  {
+    code: 'INDUSTRY-SELECTION',
+    what: 'the stored selection guard accepts an id the source registry no longer contains',
+    touches: ['src/industry/selection.ts'],
+    apply: () => sub('src/industry/selection.ts',
+      'ids.every((id) => IDS.has(id))',
+      'ids.every(() => true)'),
+  },
+  {
+    code: 'INDUSTRY-SELECTION',
+    what: 'the selection storage base drops out of engagement export, duplicate and delete',
+    touches: ['src/engagement/types.ts'],
+    apply: () => sub('src/engagement/types.ts', "  'dgiw.use-cases',\n", ''),
+  },
+
   // ── §1–9: the eighteen codes no document names ──────────────────────────
   {
     code: 'LAYER',
@@ -1627,7 +1657,7 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     code: 'REGISTRY',
     what: 'an empty registry — the gate would otherwise print 0 entries, 0 checks and pass',
     touches: ['scripts/check/modules/index.mjs'],
-    apply: () => sub('scripts/check/modules/index.mjs', 'export default [spine, baiw, taiw, haiw, coe, alm, dgiw]', 'export default []'),
+    apply: () => sub('scripts/check/modules/index.mjs', 'export default [spine, industry, baiw, taiw, haiw, coe, alm, dgiw]', 'export default []'),
   },
   {
     code: 'VACUOUS',

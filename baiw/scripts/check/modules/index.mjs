@@ -17,6 +17,7 @@
  * checks` and exit 0.
  */
 import spine from './_spine.mjs'
+import industry from './_industry.mjs'
 import baiw from './baiw.mjs'
 import taiw from './taiw.mjs'
 import haiw from './haiw.mjs'
@@ -31,4 +32,4 @@ import dgiw from './dgiw.mjs'
  * order and a better authority than the order the sections happened to sit in
  * inside check-dgiw.mjs.
  */
-export default [spine, baiw, taiw, haiw, coe, alm, dgiw]
+export default [spine, industry, baiw, taiw, haiw, coe, alm, dgiw]

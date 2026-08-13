@@ -4,6 +4,7 @@ import {
   LayoutDashboard, ClipboardCheck, ClipboardList, Crosshair, Layers, Users, Database, ShieldCheck,
   ListChecks, CalendarRange, Megaphone, Package, Network, ChevronLeft, ChevronRight, ArrowLeft, Home,
   ChartLine,
+  Briefcase,
 } from 'lucide-react'
 import { useLayer } from './layer'
 import EngagementSwitcher from '../components/shared/EngagementSwitcher'
@@ -26,6 +27,7 @@ const INVENTORY = [
 const navItems = [
   { path: '/dg', label: 'Practice Overview', icon: LayoutDashboard },
   { path: '/dg/design', label: 'Program Design', icon: ClipboardList },
+  { path: '/dg/use-cases', label: 'Industry Use Cases', icon: Briefcase },
   { path: '/dg/diagnostic', label: 'Diagnostic Instrument', icon: ClipboardCheck },
   { path: '/dg/gaps', label: 'Gap Register', icon: Crosshair },
   { path: '/dg/trajectory', label: 'Trajectory', icon: ChartLine },
