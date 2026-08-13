@@ -1534,7 +1534,29 @@ over retyping it.
 - `git` history is 23 coarse commits over five months. It will not explain any
   individual decision. `archive/build-prompts/` is the closer design record.
 - Never `pkill -f vite` or `pkill -f node`. Those patterns kill every project
-  on the machine. Kill by port: `lsof -ti:5174 | xargs -r kill`.
+  on the machine. Kill by port, **and filter on socket state**:
+
+  ```
+  lsof -ti:5174 -sTCP:LISTEN | xargs -r kill
+  ```
+
+  **`-sTCP:LISTEN` is not optional and this file shipped without it.** `lsof -i:PORT`
+  matches *either endpoint* of a socket, and a TCP connection has two: the vite
+  server is `LISTEN` on `*:5174`, and every browser tab holding the app open has an
+  `ESTABLISHED` socket whose remote address is `127.0.0.1:5174`. Both match, `-t`
+  reduces them to a bare PID list that no longer says which is which, and the kill
+  takes out Chrome's network service alongside the dev server. Measured on
+  2026-08-13: `lsof -ti:5174` returned the vite pid **and** Chrome's
+  `network.mojom.NetworkService`; the same query with `-sTCP:LISTEN` returned the
+  vite pid alone.
+
+  It only misfires when the app is **open in a browser**, which is exactly when you
+  restart a dev server, and it presents as an unrelated browser crash because
+  killing that one Chrome process drops networking for every tab. Same class as
+  `pkill` — a pattern that matches more than the thing you named — one layer down.
+
+  Note vite **auto-increments** when its port is taken: a second `--port 5174` lands
+  on 5175 and a stale server can sit on either. Check both.
 - `npm run lint` has a standing baseline of **53** problems (44 errors, 9
   warnings), all pre-existing. Lint is not part of `npm run build`. Report the
   count; do not fix them as a side quest. It was 55 until D-012: the two errors
