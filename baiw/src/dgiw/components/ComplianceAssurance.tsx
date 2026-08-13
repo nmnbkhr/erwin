@@ -10,6 +10,7 @@ import {
   assuranceStatus,
   authorityById,
   instrumentById,
+  segregationOf,
 } from '../assurance/registry'
 import { useAssuranceState } from '../assurance/state'
 import { EMPTY_CONTROL_ASSESSMENT, JURISDICTIONS, type ControlAssessment, type Jurisdiction } from '../assurance/types'
@@ -30,16 +31,27 @@ const STATUS_STYLE = {
   'in-progress': 'bg-blue-50 text-blue-700',
   'evidence-pending': 'bg-amber-50 text-amber-700',
   'review-pending': 'bg-violet-50 text-violet-700',
+  // Orange, not amber: a segregation breach is a control failure, not a queue.
+  'segregation-blocked': 'bg-orange-100 text-orange-800',
   verified: 'bg-emerald-50 text-emerald-700',
   rejected: 'bg-rose-50 text-rose-700',
 } as const
+
+const SEGREGATION_MESSAGE: Record<string, string> = {
+  'maker-missing': 'Name the control owner. A verified control with nobody accountable for it is not evidence of anything.',
+  'checker-missing': 'Name the independent reviewer who accepted this evidence.',
+  'same-person': 'The control owner and the reviewer are the same person. Maker-checker requires the evidence to be accepted by someone other than whoever is accountable for the control.',
+}
 
 const label = (value: string) => value.replaceAll('-', ' ')
 
 interface ExclusionDraft {
   reason: string
   reviewer: string
+  reviewedOn: string
 }
+
+const EMPTY_DRAFT: ExclusionDraft = { reason: '', reviewer: '', reviewedOn: '' }
 
 export default function ComplianceAssurance() {
   const { active } = useEngagement()
@@ -138,8 +150,20 @@ export default function ComplianceAssurance() {
         <Stat value={selectedUseCases.length} label="Use cases in engagement scope" tone="rose" />
         <Stat value={candidates.length} label="Candidate obligations" />
         <Stat value={controls.length} label="Applicable controls" />
-        <Stat value={verified} label="Verified controls" tone="green" />
-        <Stat value={gaps} label="Controls not verified" tone={gaps ? 'amber' : 'green'} />
+        {/*
+          Nothing in scope is NOT nothing outstanding. Before any control is
+          applicable both counts are 0, and a green 0 there reads as "all clear"
+          when the truth is "unmeasured" - the same collapse of unmeasured into
+          satisfied that D-003 and D-013 were filed for. An em dash on a neutral
+          tone says the question has not been asked yet; the colours return the
+          moment a control is genuinely applicable.
+        */}
+        <Stat value={controls.length ? verified : '—'} label="Verified controls" tone={controls.length ? 'green' : undefined} />
+        <Stat
+          value={controls.length ? gaps : '—'}
+          label={controls.length ? 'Controls not verified' : 'Controls not verified — none in scope yet'}
+          tone={controls.length ? (gaps ? 'amber' : 'green') : undefined}
+        />
       </div>
 
       {!hasScope && (
@@ -212,7 +236,7 @@ export default function ComplianceAssurance() {
           {candidates.map((obligation) => {
             const instrument = instrumentById.get(obligation.instrumentId)
             const excluded = state.exclusions[obligation.id]
-            const draft = exclusionDrafts[obligation.id] ?? { reason: '', reviewer: '' }
+            const draft = exclusionDrafts[obligation.id] ?? EMPTY_DRAFT
             return (
               <details key={obligation.id} className={`rounded-lg border p-3 ${excluded ? 'border-slate-200 bg-slate-50' : 'border-emerald-200 bg-emerald-50/40'}`}>
                 <summary className="cursor-pointer list-none flex flex-wrap items-center gap-2 text-sm">
@@ -238,14 +262,24 @@ export default function ComplianceAssurance() {
                       >Return to applicable scope</button>
                     </div>
                   ) : (
-                    <div className="grid md:grid-cols-3 gap-2">
+                    // Every field is captured, none is stamped. Removing an
+                    // obligation from the register is the decision that makes a
+                    // row disappear from a client-facing document, so it carries
+                    // the same evidence burden as verifying a control: a stated
+                    // reason, a named reviewer and the date THEY decided - not
+                    // the date the form happened to be submitted.
+                    <div className="grid md:grid-cols-4 gap-2">
                       <input
                         value={draft.reason}
                         onChange={(event) => {
                           setExclusionError(null)
+                          const reason = event.target.value
                           setExclusionDrafts((current) => ({
                             ...current,
-                            [obligation.id]: { ...draft, reason: event.target.value },
+                            // Read from `current`, never the draft captured at render:
+                            // two fields edited inside one batch would otherwise
+                            // resurrect the other's pre-keystroke value.
+                            [obligation.id]: { ...(current[obligation.id] ?? EMPTY_DRAFT), reason },
                           }))
                         }}
                         placeholder="Reason not applicable"
@@ -254,12 +288,30 @@ export default function ComplianceAssurance() {
                       />
                       <input
                         value={draft.reviewer}
-                        onChange={(event) => setExclusionDrafts((current) => ({
-                          ...current,
-                          [obligation.id]: { ...draft, reviewer: event.target.value },
-                        }))}
+                        onChange={(event) => {
+                          setExclusionError(null)
+                          const reviewer = event.target.value
+                          setExclusionDrafts((current) => ({
+                            ...current,
+                            [obligation.id]: { ...(current[obligation.id] ?? EMPTY_DRAFT), reviewer },
+                          }))
+                        }}
                         placeholder="Applicability reviewer"
                         aria-label={`${obligation.id} applicability reviewer`}
+                        className="px-3 py-2 text-sm border border-slate-200 rounded-lg"
+                      />
+                      <input
+                        type="date"
+                        value={draft.reviewedOn}
+                        onChange={(event) => {
+                          setExclusionError(null)
+                          const reviewedOn = event.target.value
+                          setExclusionDrafts((current) => ({
+                            ...current,
+                            [obligation.id]: { ...(current[obligation.id] ?? EMPTY_DRAFT), reviewedOn },
+                          }))
+                        }}
+                        aria-label={`${obligation.id} applicability review date`}
                         className="px-3 py-2 text-sm border border-slate-200 rounded-lg"
                       />
                       <button
@@ -267,13 +319,14 @@ export default function ComplianceAssurance() {
                         onClick={() => {
                           const reason = draft.reason.trim()
                           const reviewer = draft.reviewer.trim()
-                          if (!reason) {
+                          const reviewedOn = draft.reviewedOn.trim()
+                          if (!reason || !reviewer || !reviewedOn) {
                             setExclusionError(obligation.id)
                             return
                           }
                           setState((current) => ({
                             ...current,
-                            exclusions: { ...current.exclusions, [obligation.id]: { reason, reviewer, reviewedOn: new Date().toISOString().slice(0, 10) } },
+                            exclusions: { ...current.exclusions, [obligation.id]: { reason, reviewer, reviewedOn } },
                           }))
                           setExclusionDrafts((current) => {
                             const next = { ...current }
@@ -285,8 +338,9 @@ export default function ComplianceAssurance() {
                         className="px-3 py-2 text-sm rounded-lg border border-slate-200 bg-white text-slate-600 disabled:opacity-40"
                       >Record reasoned exclusion</button>
                       {exclusionError === obligation.id && (
-                        <p role="alert" className="md:col-span-3 text-xs text-rose-700">
-                          State why the obligation is not applicable before excluding it.
+                        <p role="alert" className="md:col-span-4 text-xs text-rose-700">
+                          An exclusion needs a stated reason, a named reviewer and the date they decided. A control cannot
+                          reach verified without those; removing an obligation from the register should not be easier.
                         </p>
                       )}
                     </div>
@@ -384,7 +438,7 @@ export default function ComplianceAssurance() {
                         <option value="not-started">Not started</option><option value="in-progress">In progress</option><option value="implemented">Implemented</option>
                       </select>
                     </label>
-                    <label className="text-xs text-slate-500">Control owner
+                    <label className="text-xs text-slate-500">Control owner <span className="text-slate-400">(maker)</span>
                       <input disabled={!active} value={assessment.owner} onChange={(event) => updateAssessment(control.id, { owner: event.target.value })} placeholder={control.ownerRole} className="mt-1 block w-full px-3 py-2 text-sm rounded-lg border border-slate-200 disabled:opacity-40" />
                     </label>
                     <label className="text-xs text-slate-500">Evidence reference
@@ -393,7 +447,7 @@ export default function ComplianceAssurance() {
                     <label className="text-xs text-slate-500 md:col-span-2 xl:col-span-3">Evidence summary
                       <textarea disabled={!active} value={assessment.evidenceSummary} onChange={(event) => updateAssessment(control.id, { evidenceSummary: event.target.value })} placeholder="What was reviewed, its period and what it demonstrates" rows={2} className="mt-1 block w-full px-3 py-2 text-sm rounded-lg border border-slate-200 disabled:opacity-40" />
                     </label>
-                    <label className="text-xs text-slate-500">Independent reviewer
+                    <label className="text-xs text-slate-500">Independent reviewer <span className="text-slate-400">(checker)</span>
                       <input disabled={!active} value={assessment.reviewer} onChange={(event) => updateAssessment(control.id, { reviewer: event.target.value })} className="mt-1 block w-full px-3 py-2 text-sm rounded-lg border border-slate-200 disabled:opacity-40" />
                     </label>
                     <label className="text-xs text-slate-500">Reviewed on
@@ -405,12 +459,36 @@ export default function ComplianceAssurance() {
                       </select>
                     </label>
                   </div>
-                  {status === 'verified' && <p className="flex items-center gap-2 text-sm text-emerald-700"><CheckCircle2 size={16} /> Evidence accepted by {assessment.reviewer} on {assessment.reviewedOn}. This verifies the control record; it is not an organisation-wide certification.</p>}
+                  {status === 'verified' && <p className="flex items-center gap-2 text-sm text-emerald-700"><CheckCircle2 size={16} /> Evidence accepted by {assessment.reviewer} on {assessment.reviewedOn}, independently of {assessment.owner}. This verifies the control record; it is not an organisation-wide certification.</p>}
+                  {status === 'segregation-blocked' && (
+                    <p role="alert" className="flex items-start gap-2 text-sm text-orange-800 bg-orange-50 border border-orange-200 rounded-lg p-3">
+                      <AlertTriangle size={16} className="shrink-0 mt-0.5" />
+                      <span>
+                        <span className="font-semibold">Accepted, but not verified.</span>{' '}
+                        {SEGREGATION_MESSAGE[segregationOf(assessment)]}
+                      </span>
+                    </p>
+                  )}
                 </div>
               )}
             </Card>
           )
         })}
+        {/*
+          A filter that matches nothing rendered an empty region and said
+          nothing, which reads as a broken screen and sends the user to retry
+          rather than to change the filter. Name which filter is hiding the rows
+          and how many exist behind it.
+        */}
+        {hasScope && controls.length > 0 && visibleControls.length === 0 && (
+          <Card className="p-4 border-dashed">
+            <p className="text-sm font-medium text-slate-700">No control is at &ldquo;{label(statusFilter)}&rdquo;</p>
+            <p className="text-sm text-slate-500 mt-1">
+              {controls.length} control{controls.length === 1 ? ' is' : 's are'} applicable in this scope, none of them at that
+              status. <button onClick={() => setStatusFilter('all')} className="font-medium text-rose-600 underline">Show all statuses</button>
+            </p>
+          </Card>
+        )}
       </div>
 
       <Card className="overflow-hidden">

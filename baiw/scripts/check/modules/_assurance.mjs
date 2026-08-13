@@ -115,12 +115,42 @@ const stateContract = {
       ctx.fail(`assurance state guard could not be loaded: ${ctx.tsLoadError ?? 'unknown error'}`)
       return { examined: 0 }
     }
-    let examined = 5
+    let examined = 7
+    const good = {
+      implementation: 'implemented', owner: 'Owner', evidenceReference: 'EV-1', evidenceSummary: 'Reviewed',
+      reviewer: 'Reviewer', reviewedOn: '2026-08-13', reviewDecision: 'accepted', notes: '',
+    }
     if (!state.isAssuranceState(state.EMPTY_ASSURANCE_STATE)) ctx.fail('the assurance state guard rejects its own empty state')
     if (state.isAssuranceState({ ...state.EMPTY_ASSURANCE_STATE, jurisdictions: ['PK', 'PK'] })) ctx.fail('the assurance state guard accepts duplicate jurisdictions')
-    if (state.isAssuranceState({ ...state.EMPTY_ASSURANCE_STATE, assessments: { 'CTL-STALE': {} } })) ctx.fail('the assurance state guard accepts a stale control id')
+    if (state.isAssuranceState({ ...state.EMPTY_ASSURANCE_STATE, assessments: { 'CTL-001': { ...good, implementation: 'invented' } } }))
+      ctx.fail('the assurance state guard accepts a malformed assessment — a record nothing can be salvaged from must be rejected outright')
     if (state.isAssuranceState({ ...state.EMPTY_ASSURANCE_STATE, exclusions: { 'OBL-GOV-01': { reason: '', reviewer: '', reviewedOn: '' } } }))
       ctx.fail('the assurance state guard accepts a reasonless applicability exclusion')
+
+    /*
+     * The data-loss guard. usePersistedState DESTROYS anything its validator
+     * rejects — it substitutes the initial value and writes that back — so id
+     * membership must never be a rejection. A control or obligation that leaves
+     * the catalogue has to prune that ONE entry and leave every sibling intact;
+     * when this lived in the guard, a single renamed id in complianceCatalogue
+     * .json wiped an engagement's whole evidence record, exclusions and
+     * jurisdiction included. Asserting the survivor is the point of this check:
+     * a prune that returned an empty object would satisfy "stale id removed".
+     */
+    const stale = {
+      jurisdictions: ['PK', 'US'],
+      exclusions: { 'OBL-GOV-01': { reason: 'Out of scope', reviewer: 'Lead', reviewedOn: '2026-08-13' }, 'OBL-GONE': { reason: 'x', reviewer: 'y', reviewedOn: '2026-08-13' } },
+      assessments: { 'CTL-001': good, 'CTL-GONE': good },
+    }
+    if (!state.isAssuranceState(stale)) ctx.fail('a state carrying an id the catalogue dropped is rejected outright — the whole record would be destroyed on reload')
+    const pruned = state.pruneAssuranceState(stale)
+    const keptA = Object.keys(pruned.assessments ?? {}), keptE = Object.keys(pruned.exclusions ?? {})
+    if (keptA.join(',') !== 'CTL-001') ctx.fail(`pruning left assessments [${keptA.join(', ')}] — expected the stale id dropped and CTL-001 kept`)
+    if (keptE.join(',') !== 'OBL-GOV-01') ctx.fail(`pruning left exclusions [${keptE.join(', ')}] — expected the stale id dropped and OBL-GOV-01 kept`)
+    if ((pruned.jurisdictions ?? []).join(',') !== 'PK,US') ctx.fail('pruning did not preserve the recorded jurisdictions')
+    const clean = { ...state.EMPTY_ASSURANCE_STATE, assessments: { 'CTL-001': good } }
+    if (state.pruneAssuranceState(clean) !== clean) ctx.fail('pruning a state with nothing stale returned a new object — the common path must be identity so React sees a stable reference')
+
     const engagementTypes = fs.readFileSync(path.join(ctx.root, 'src/engagement/types.ts'), 'utf8')
     if (!engagementTypes.includes("'dgiw.assurance'")) ctx.fail('dgiw.assurance is absent from PERSISTED_BASES — evidence would be omitted by duplicate, export/import and delete')
     return { examined }

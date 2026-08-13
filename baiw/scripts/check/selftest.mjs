@@ -197,12 +197,26 @@ const MUTATIONS = [
   },
   {
     code: 'ASSURANCE-STATE',
-    what: 'the stored assurance guard accepts stale control and malformed assessment keys',
+    what: 'the stored assurance guard accepts a malformed assessment',
     touches: ['src/dgiw/assurance/state.ts'],
     apply: () => sub(
       'src/dgiw/assurance/state.ts',
-      '.every(([id, assessment]) => controlIds.has(id) && isAssessment(assessment))',
+      '.every((assessment) => isAssessment(assessment))',
       '.every(() => true)',
+    ),
+  },
+  {
+    // Branch-isolated from the row above: that one is "malformed is rejected",
+    // this one is "stale is PRUNED, not rejected". Collapsing them would prove
+    // nothing about which half caught the regression, and the difference is the
+    // one that decides whether an engagement keeps its evidence.
+    code: 'ASSURANCE-STATE',
+    what: 'a control id the catalogue dropped stops being pruned, so stale entries survive into the register',
+    touches: ['src/dgiw/assurance/state.ts'],
+    apply: () => sub(
+      'src/dgiw/assurance/state.ts',
+      '  if (staleExclusions.length === 0 && staleAssessments.length === 0) return state',
+      '  if (true) return state',
     ),
   },
   {

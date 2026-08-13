@@ -91,6 +91,14 @@ export type AssuranceStatus =
   | 'in-progress'
   | 'evidence-pending'
   | 'review-pending'
+  /**
+   * Maker-checker failed: the evidence was accepted, but not by a second person.
+   * Deliberately its OWN state rather than being folded into review-pending —
+   * "nobody has reviewed this yet" and "one person recorded and accepted their
+   * own evidence" are different facts, and a register that showed the second as
+   * the first would hide a segregation-of-duties breach as ordinary backlog.
+   */
+  | 'segregation-blocked'
   | 'verified'
   | 'rejected'
 
