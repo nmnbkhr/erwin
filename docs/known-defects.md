@@ -2263,3 +2263,52 @@ shared subscription in `usePersistedState` (suite-level change, every module
 affected) or passing live state into `useGapRegister` the way `capture` now
 takes it — both beyond G6's declared scope. Filed here so the next person who
 sees a stale roadmap row knows it is the wiring, not the register.
+
+## D-024 — `verify:quick`'s refusal parser lost the worked example that justifies it, and the mechanical fix would gut the argument
+
+**Not a bug. The code is correct and must not change.** This is a comment whose
+specimen was consolidated out from under it, filed rather than fixed inline
+because all three available fixes are judgement calls and the obvious one is
+the worst of them.
+
+`scripts/verify.mjs::scriptsChanged()` — the refusal in hard rule 11 — parses
+`git status --porcelain -z` rather than v1. Porcelain v1 quotes and
+backslash-escapes any path containing a space or a non-ASCII byte, so a parser
+that unquoted wrongly would silently stop matching paths under `scripts/`.
+That is **a refusal that quietly stops refusing**: the worst shape available to
+a safety condition, and the same class as every other check in this repo that
+ran while its verdict lied.
+
+The comment at `verify.mjs:160` anchors that reasoning to the repo's one live
+specimen — *"this repo already contains one (`e/CANON_PHASE_PLAN (1).md`)"*.
+The CANON consolidation (`2a7f9ea`) promoted that file to
+`docs/future/CANON_PHASE_PLAN.md`, which contains no space. **The repo may now
+carry no space-bearing tracked path at all**, so the branch is
+correct-but-unexemplified and the comment asserts a fact about the repo that is
+no longer true.
+
+**Pointing the comment at the new path would be worse than leaving it stale.**
+`docs/future/CANON_PHASE_PLAN.md` has no space, so a reader would rightly ask
+why `-z` is there at all and could conclude the parsing is unnecessary — the
+comment would then be actively arguing against the code it guards. A stale
+example misleads about history; a wrong example misleads about the mechanism.
+
+Three real options, none mechanical:
+
+| | |
+|---|---|
+| **a** | Leave the reasoning, mark the specimen historical — record that it was consolidated out and that no live example remains |
+| **b** | Commit a deliberate space-bearing fixture so the branch keeps a live specimen, on the `check:selftest` precedent that a guard wants a demonstration |
+| **c** | Simplify to v1 parsing, **only** on an established claim that no tracked path will ever carry a space — which is a promise about the future, and this repo's worst failure class is exactly that kind of quiet judgement |
+
+(c) is the one to be most careful with: it trades a working guard for a
+prediction, and the failure mode is silent. (b) is the only option that leaves
+the branch demonstrable rather than merely argued, which is the standard
+`GEOMETRY-OVERFLOW` and the selftest matrix already hold everything else to.
+
+**Nothing verifies this class.** No gate asserts that a comment's cited example
+still resolves, and none could cheaply — this was found by `git grep` during
+the consolidation's reference-integrity step, which is the only reason it was
+seen at all. The general shape is worth naming: **a comment that cites a
+specific artefact is a reference with no integrity check behind it**, and this
+repo has 39 report-source files' worth of prose carrying exactly that risk.
