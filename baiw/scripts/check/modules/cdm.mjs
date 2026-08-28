@@ -76,18 +76,27 @@ const dossierCandidates = (root, rel) => [path.join(root, rel), path.join(root, 
 /**
  * The model set the three classes range over.
  *
- * At CDM-P1 there is no bundle store: CDM_MODELS holds DESCRIPTORS and the only
- * content bundles in the repo are the fixture's. CDM-P2 adds the real store and
- * widens this function; until then a registered descriptor with no bundle is
- * reported by CDM-COVERAGE rather than skipped, because a model that is declared
- * and has no content is exactly the condition the stage floors exist to catch.
+ * CDM-P2 added the real store, which is what this function was always going to
+ * need to be widened for. A descriptor's content comes from CDM_CONTENT keyed
+ * by modelId; the fixture's comes from its own bundles, which carry their own
+ * descriptors and never enter CDM_MODELS.
+ *
+ * A registered descriptor with NO content at all still produces an entry with a
+ * null bundle rather than being skipped, and CDM-COVERAGE reports it: a model
+ * that is declared and has no content is exactly the condition the stage floors
+ * exist to catch, and skipping it would make the worst case invisible.
  */
 const modelsOf = (ctx) => {
   const declared = ctx.ts?.meta?.CDM_MODELS ?? []
+  const content = ctx.ts?.content?.CDM_CONTENT ?? {}
   const bundles = FIXTURE_ON ? (ctx.ts?.fixture?.CDM_FIXTURE_BUNDLES ?? []) : []
   const byId = new Map(bundles.map((b) => [b.descriptor.modelId, b]))
   const out = bundles.map((b) => ({ descriptor: b.descriptor, bundle: b }))
-  for (const d of declared) if (!byId.has(d.modelId)) out.push({ descriptor: d, bundle: null })
+  for (const d of declared) {
+    if (byId.has(d.modelId)) continue
+    const body = content[d.modelId]
+    out.push({ descriptor: d, bundle: body ? { descriptor: d, ...body } : null })
+  }
   return out
 }
 
@@ -313,6 +322,7 @@ export default {
   title: 'CDM — industry canonical data models',
   tsModules: {
     meta: 'src/cdm/meta/cdmMeta.ts',
+    content: 'src/cdm/meta/content.ts',
     pages: 'src/cdm/meta/useCasePages.ts',
     fixture: 'scripts/fixtures/cdm-fixture.mts',
   },

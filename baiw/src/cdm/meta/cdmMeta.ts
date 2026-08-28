@@ -217,10 +217,12 @@ export const CDM_MODELS: CdmModelDescriptor[] = [
           'read here as the schema for parsing the e-Repository, not shipped.',
       },
     ],
-    // STAGE 0 UNTIL THE CONTENT EXISTS. Stage 1 is claimed at CP4, after the
-    // subject areas are in the repo — a stage is a claim about what has been
-    // done, and CDM-COVERAGE is what makes the claim cost something.
-    stage: 0,
+    // STAGE 1: the 36 business areas are in the repo as subject areas
+    // (cdm/iso20022/subjectAreas.ts, reached through CDM_CONTENT). The number
+    // moves in the same commit as the content it claims — CDM-COVERAGE fails
+    // a stage 1 descriptor with no subject areas, so this cannot be advanced
+    // ahead of the work.
+    stage: 1,
     hostWorkbench: 'baiw',
   },
 ];
