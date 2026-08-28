@@ -172,4 +172,55 @@ export interface CdmModelContent {
  * vacuously green over an empty registry, and the selftest mutations
  * exercise them against fixture content instead).
  */
-export const CDM_MODELS: CdmModelDescriptor[] = [];
+export const CDM_MODELS: CdmModelDescriptor[] = [
+  {
+    modelId: 'iso20022',
+    name: 'ISO 20022 Financial Repository',
+    publisher: 'ISO TC68 / ISO 20022 Registration Authority (SWIFT as RA)',
+    // Taken from the e-Repository artifact's own filename stamp, prefixed so
+    // the string says what kind of artifact it identifies. Must equal the
+    // dossier frontmatter — CDM-VERSION-PIN asserts it.
+    versionPin: 'eRepo-20260626',
+    // A royalty-free USE license, not a redistribution license. The practical
+    // consequence is a HOLD on bulk verbatim definition text, which is why
+    // Stage 1 ships names and identifiers and paraphrases everything else.
+    // Full analysis in the dossier's License section.
+    regime: 'open-use-restricted',
+    dossierPath: 'docs/cdm/dossiers/iso20022.md',
+    sources: [
+      {
+        id: 'iso20022-erepo',
+        title: 'ISO 20022 e-Repository (EMF/XMI distribution)',
+        publisher: 'ISO 20022 Registration Authority',
+        version: 'eRepo-20260626',
+        url: 'https://www.iso20022.org/iso-20022-message-definitions',
+        accessed: '2026-08-28',
+        sha256: '9a9d060dd94b6858a4ef4836ca36a9a67308e96b69d7d184ff97f28295b96039',
+        licenseNote:
+          'Non-exclusive, royalty-free license to USE published repository information; ' +
+          'not a redistribution licence. Names and identifiers may ship verbatim; ' +
+          'bulk verbatim definition text is on HOLD.',
+      },
+      {
+        id: 'iso20022-ecore',
+        title: 'ISO 20022 ecore implementation metamodel (2013 edition)',
+        publisher: 'ISO 20022 Registration Authority',
+        // The EDITION, not the file date. The archived file's mtime is 2016-06-03;
+        // a re-cut of an unchanged edition moves that and not this. The dossier
+        // records the distinction rather than resolving it.
+        version: '2013 edition',
+        url: 'https://www.iso20022.org/purpose-and-scope-repository',
+        accessed: '2026-08-28',
+        sha256: 'ec6ce7a0615c9767676af4ea1033c4c21ae3b257e0aa6e88a50bb69febe6717c',
+        licenseNote:
+          'Published alongside the repository under the same royalty-free use terms; ' +
+          'read here as the schema for parsing the e-Repository, not shipped.',
+      },
+    ],
+    // STAGE 0 UNTIL THE CONTENT EXISTS. Stage 1 is claimed at CP4, after the
+    // subject areas are in the repo — a stage is a claim about what has been
+    // done, and CDM-COVERAGE is what makes the claim cost something.
+    stage: 0,
+    hostWorkbench: 'baiw',
+  },
+];
