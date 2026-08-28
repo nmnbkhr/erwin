@@ -17,6 +17,9 @@
  */
 import type { CdmModelContent } from './cdmMeta';
 import { ISO20022_SUBJECT_AREAS } from '../iso20022/subjectAreas';
+import { ISO20022_ENTITIES } from '../iso20022/entities';
+import { ISO20022_ATTRIBUTES } from '../iso20022/attributes';
+import { ISO20022_RELATIONSHIPS } from '../iso20022/relationships';
 
 /** Everything a bundle holds except the descriptor, which lives in CDM_MODELS. */
 export type CdmModelBody = Omit<CdmModelContent, 'descriptor'>;
@@ -24,13 +27,13 @@ export type CdmModelBody = Omit<CdmModelContent, 'descriptor'>;
 export const CDM_CONTENT: Record<string, CdmModelBody> = {
   iso20022: {
     subjectAreas: ISO20022_SUBJECT_AREAS,
-    // Stage 2 and 3. Empty is the honest state at stage 1, not a placeholder:
-    // the descriptor claims stage 1 and CDM-COVERAGE requires exactly this
-    // much and no more. Filling either one is what advances the stage, and the
-    // stage number moves in the same commit or the claim is false.
-    entities: [],
-    attributes: [],
-    relationships: [],
+    entities: ISO20022_ENTITIES,
+    attributes: ISO20022_ATTRIBUTES,
+    relationships: ISO20022_RELATIONSHIPS,
+    // Stage 3. Empty is the honest state at stage 2, not a placeholder: the
+    // descriptor claims stage 2 and CDM-COVERAGE requires exactly this much and
+    // no more. Filling this is what advances the stage, and the stage number
+    // moves in the same commit as the content or the claim is false.
     useCaseMappings: [],
   },
 };

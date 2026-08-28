@@ -513,4 +513,33 @@ export const ISO20022_SUBJECT_AREAS: CdmSubjectArea[] = [
       verifiedOn: '2026-08-28',
     },
   },
+  // ── CP1.3 RUNG (c): the dictionary-wide area ────────────────────────────
+  // NOT a business area. The 36 above come from the business process
+  // catalogue; this one exists because the DATA DICTIONARY has no partition of
+  // its own and its 791 business components must still belong somewhere.
+  //
+  // Measured, not assumed: zero of the 791 components reference any of the 36
+  // area ids, and the dictionary is flat — 24,252 sibling topLevelDictionaryEntry
+  // with no grouping containers. The only path from a component toward an area
+  // runs through `derivationComponent` into the MESSAGE layer, which this stage
+  // excludes by decision; and it would not work anyway, since 365 of the 791
+  // carry no derivationComponent at all and fan-out reaches 971, so it could
+  // never yield a single-valued subjectAreaId.
+  //
+  // method is 'derived' — unlike every other record here — because the NAME is
+  // ours. The repository does not call this anything; it is the container we
+  // are naming so that entities have an honest home. Inventing a taxonomy of
+  // plausible-looking areas would have been the D-001 shape at model scale.
+  {
+    id: 'iso20022-data-dictionary',
+    modelId: 'iso20022',
+    name: 'Data dictionary',
+    description: '',
+    provenance: {
+      sourceId: 'iso20022-erepo',
+      locator: "dataDictionary",
+      method: 'derived',
+      verifiedOn: '2026-08-28',
+    },
+  },
 ];
