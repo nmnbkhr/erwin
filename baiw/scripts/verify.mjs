@@ -293,8 +293,15 @@ const STEPS = [
       'not merely that the check ran. Its two real catches were a shared helper hardcoding one code, ' +
       'and a refactor dropping an assertion while moving it between classes; both were edits under scripts/.',
     gate: (r) => (r.code === 0 ? null : `exited ${r.code}`),
-    summarise: (r) => (/(\d+) of (\d+) mutations tripped their target/.exec(r.out)?.[0] ?? '') +
-      ' · ' + (/(\d+) of (\d+) distinct codes demonstrated/.exec(r.out)?.[0] ?? ''),
+    // The control tally joins the line when there are controls. A summary that
+    // reported only mutations and codes would omit the one assertion no positive
+    // row can make — that a class does not fire on a legal edit — and this
+    // summary is what hard rule 11 says to paste.
+    summarise: (r) => [
+      /(\d+) of (\d+) mutations tripped their target/.exec(r.out)?.[0],
+      /(\d+) of (\d+) negative control\(s\) stayed green/.exec(r.out)?.[0],
+      /(\d+) of (\d+) distinct codes demonstrated/.exec(r.out)?.[0],
+    ].filter(Boolean).join(' · '),
   },
   {
     name: 'compare',

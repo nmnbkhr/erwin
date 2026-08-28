@@ -25,6 +25,7 @@ import haiw from './haiw.mjs'
 import coe from './coe.mjs'
 import alm from './alm.mjs'
 import dgiw from './dgiw.mjs'
+import cdm from './cdm.mjs'
 
 /**
  * The shared spine first — every generator goes through it, so it is the floor
@@ -33,4 +34,7 @@ import dgiw from './dgiw.mjs'
  * order and a better authority than the order the sections happened to sit in
  * inside check-dgiw.mjs.
  */
-export default [spine, industry, assurance, baiw, taiw, haiw, coe, alm, dgiw]
+// CDM last: it is the newest entry and the only one whose classes examine
+// nothing on a normal build, so its summary lines read at the bottom where
+// the REGISTRY line's `cdm 3` is still on screen beside them.
+export default [spine, industry, assurance, baiw, taiw, haiw, coe, alm, dgiw, cdm]

@@ -76,7 +76,12 @@ export const loadTsModules = async (outRoot, srcRoot, specs) => {
     const modules = {}
     for (const n of names) {
       // Mirrors the declared path under buildDir, per the outbase note above.
-      const rel = specs[n].replace(/\.tsx?$/, '.mjs')
+      // `.mts` is in the set because the CDM fixture is one: esbuild names the
+      // output from outExtension regardless of the entry's TS extension, so the
+      // loader has to map every accepted extension to the same `.mjs`. A `.mts`
+      // entry silently resolved to a file esbuild never wrote — `Cannot find
+      // module ...cdm-fixture.mts` — because `\.tsx?$` does not match `.mts`.
+      const rel = specs[n].replace(/\.(mts|cts|tsx|ts)$/, '.mjs')
       modules[n] = await import(pathToFileURL(path.join(buildDir, rel)).href)
     }
     return { modules, error: null }

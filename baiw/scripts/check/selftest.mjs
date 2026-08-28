@@ -43,6 +43,14 @@
  * TRIPPED      the mutation produced its target code, and the tool exited 1.
  * NOT TRIPPED  it did not. That is a finding: either the mutation is wrong or the
  *              branch is gone. Both are worth knowing and both exit 1 here.
+ * CONTROL OK   a NEGATIVE CONTROL: the edit is legal and the gate stayed green
+ *              over it, as it must. Declared `expect: 'pass'`.
+ * CONTROL BAD  the class fired on a legal edit. That is OVER-firing, and no
+ *              positive row can detect it — a class that rejected everything
+ *              would score a perfect matrix without one. Exits 1.
+ *
+ * Controls are excluded from the `codes demonstrated` tally on purpose: a row
+ * asserting a code does NOT fire demonstrates nothing about whether it can.
  *
  * Two assertions close the matrix, not one: EVERY ROW must trip, and every CODE
  * must be demonstrated. The second alone was asserted until D5 stage H, which
@@ -100,6 +108,45 @@ const TAIW = 'src/data/taiw'
 const HAIW = 'src/data/haiw'
 /** BAIW's datasets sit at the top of src/data/, not in a module subdirectory. */
 const BAIW_DATA = 'src/data'
+/**
+ * The CDM check fixture and its dossier — the targets of the seventeen CDM rows.
+ *
+ * These are the only mutation targets in this file that are not application data
+ * or application source: CDM_MODELS lands empty at CDM-P1, so there is no real
+ * model content to break yet and the fixture is what the three classes are
+ * proved against. See check/modules/cdm.mjs for why it is env-gated.
+ */
+const CDM_FIXTURE = 'scripts/fixtures/cdm-fixture.mts'
+const CDM_DOSSIER = 'scripts/fixtures/cdm-fixture-dossier.md'
+
+/**
+ * Append statements that mutate the already-exported fixture objects.
+ *
+ * The bundles are module-level consts and CDM_FIXTURE_BUNDLES holds references
+ * to the same objects, so assigning a property after the exports is visible to
+ * the gate. Preferred over substituting into the object literal because it
+ * cannot be silently defeated by reformatting, and because the statement reads
+ * as exactly the branch being broken.
+ */
+const cdmPatch = (...statements) => append(CDM_FIXTURE, `${CDM_ENTITY_HELPER}${statements.join('\n')}\n`)
+
+/**
+ * Emitted into the fixture ahead of every cdmPatch, so a row names the record it
+ * breaks rather than indexing into an array whose order is not load-bearing.
+ *
+ * It THROWS when the id is gone rather than returning undefined. A row whose
+ * target has been renamed would otherwise append a statement that quietly does
+ * nothing, and report NOT TRIPPED for a reason that has nothing to do with the
+ * branch — the same contract `sub` keeps by refusing a missing anchor.
+ */
+const CDM_ENTITY_HELPER = `
+const cdmFixtureEntity = (id) => {
+  const found = cdmFixtureBundle.entities.find((e) => e.id === id)
+  if (!found) throw new Error('selftest: fixture has no entity ' + id + ' — this row is measuring nothing')
+  return found
+}
+`
+
 const RAW_BAIW = 'scripts/golden/raw/baiw'
 const GEOM_PROBE = `${RAW_BAIW}/__geomprobe.pdf`
 
@@ -1731,7 +1778,13 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     code: 'REGISTRY',
     what: 'an empty registry — the gate would otherwise print 0 entries, 0 checks and pass',
     touches: ['scripts/check/modules/index.mjs'],
-    apply: () => sub('scripts/check/modules/index.mjs', 'export default [spine, industry, assurance, baiw, taiw, haiw, coe, alm, dgiw]', 'export default []'),
+    // ANCHORED ON THE OPENING, NOT THE WHOLE ARRAY. The anchor used to be the
+    // full module list, so registering `cdm` invalidated it and this row went
+    // NOT TRIPPED — the registry's own growth silently disarming the check that
+    // guards the registry. `sub` refusing a missing anchor is what surfaced it
+    // rather than letting the row no-op, and moving the anchor off the member
+    // list means the next module addition cannot repeat it.
+    apply: () => sub('scripts/check/modules/index.mjs', 'export default [spine', 'export default []\nconst __selftestDisabledRegistry = [spine'),
   },
   {
     code: 'VACUOUS',
@@ -1852,6 +1905,162 @@ function __selftestProbe(doc: jsPDF, s: string): void {
       return `${p.source}: ${p.before} -> ${p.after}`
     },
   },
+
+  // ── CDM, CDM-P1 — seventeen rows over the check fixture ─────────────────
+  //
+  // THESE ROWS ARE THE ONLY THING THAT PROVES THE THREE CDM CLASSES CAN FIRE.
+  // CDM_MODELS lands empty, so on a normal build all three examine nothing and
+  // declare `mayBeEmpty` — a state indistinguishable, in every printed line,
+  // from three classes that stopped running. Hence CDM_SELFTEST_FIXTURE=1,
+  // which puts scripts/fixtures/cdm-fixture.mts in scope for these rows and
+  // nothing else. Without the env var every row below would report NOT TRIPPED
+  // over an empty registry.
+  //
+  // ONE BRANCH PER ROW. Where breaking a branch would drag a second class in
+  // with it, the row repairs the collateral: PR-M3 moves the regime in the
+  // dossier as well as the descriptor, because changing only one of them also
+  // trips CDM-VERSION-PIN's regime-drift branch and the row would then prove
+  // nothing about which assertion caught it. That is the HACR-INSTRUMENT
+  // lesson, applied across classes rather than within one.
+  //
+  // Content mutations are appended as statements rather than substituted into
+  // the literal: the bundle objects are module-level and CDM_FIXTURE_BUNDLES
+  // holds references to them, so `bundle.x = y` after the exports is both
+  // formatting-proof and readable as exactly the branch being broken.
+  ...[
+    // ── CDM-VERSION-PIN: a descriptor must never outrun its dossier ───────
+    {
+      code: 'CDM-VERSION-PIN',
+      what: 'the dossier a model descriptor names is not on disk',
+      touches: [CDM_DOSSIER],
+      apply: () => remove(CDM_DOSSIER),
+    },
+    {
+      code: 'CDM-VERSION-PIN',
+      what: 'a descriptor versionPin bumped past the version its dossier records',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("cdmFixtureBundle.descriptor.versionPin = 'fixture-9.9.9'"),
+    },
+    {
+      code: 'CDM-VERSION-PIN',
+      what: 'a model built past a dossier verdict that is not go',
+      touches: [CDM_FIXTURE, CDM_DOSSIER],
+      apply: () => {
+        cdmPatch('cdmFixtureBundle.descriptor.stage = 1')
+        sub(CDM_DOSSIER, 'verdict: go', 'verdict: wait')
+      },
+    },
+    {
+      code: 'CDM-VERSION-PIN',
+      what: 'the licensing regime in the dossier drifts from the one the descriptor declares',
+      touches: [CDM_DOSSIER],
+      apply: () => sub(CDM_DOSSIER, 'regime: open-redistributable', 'regime: open-use-restricted'),
+    },
+    {
+      code: 'CDM-VERSION-PIN',
+      what: 'a model built past an UNPINNED version — pinning is the first act of Stage 1',
+      touches: [CDM_FIXTURE, CDM_DOSSIER],
+      // The dossier moves too, so the mismatch branch above stays quiet and this
+      // row isolates the unpinned-at-stage>=1 branch alone.
+      apply: () => {
+        cdmPatch("cdmFixtureBundle.descriptor.stage = 1", "cdmFixtureBundle.descriptor.versionPin = 'UNPINNED (stage-0)'")
+        sub(CDM_DOSSIER, 'versionPin: "fixture-1.0.0"', 'versionPin: "UNPINNED (stage-0)"')
+      },
+    },
+
+    // ── CDM-PROVENANCE: the fabrication firewall, at record level ─────────
+    {
+      code: 'CDM-PROVENANCE',
+      what: 'a non-extension entity carries no provenance — content nobody can trace',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("delete cdmFixtureEntity('ent-account').provenance"),
+    },
+    {
+      code: 'CDM-PROVENANCE',
+      what: 'a record cites a sourceId the descriptor does not declare — a dangling citation',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("cdmFixtureEntity('ent-account').provenance.sourceId = 'nonexistent-src'"),
+    },
+    {
+      code: 'CDM-PROVENANCE',
+      what: "a 'verbatim' record under a derived-synthetic regime — the FSDM/D-001 firewall",
+      touches: [CDM_FIXTURE, CDM_DOSSIER],
+      // The dossier regime moves with the descriptor's, so CDM-VERSION-PIN's
+      // drift branch stays quiet and this row measures the firewall alone.
+      apply: () => {
+        cdmPatch("cdmFixtureBundle.descriptor.regime = 'derived-synthetic'", "cdmFixtureEntity('ent-party').provenance.method = 'verbatim'")
+        sub(CDM_DOSSIER, 'regime: open-redistributable', 'regime: derived-synthetic')
+      },
+    },
+    {
+      code: 'CDM-PROVENANCE',
+      what: 'a blank locator — a citation a human cannot re-find is not a citation',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("cdmFixtureEntity('ent-party').provenance.locator = '   '"),
+    },
+    {
+      code: 'CDM-PROVENANCE',
+      what: "a use-case mapping recorded as 'synthetic' — a mapping is authored judgment by definition",
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("cdmFixtureBundle.useCaseMappings[0].provenance.method = 'synthetic'"),
+    },
+    {
+      code: 'CDM-PROVENANCE',
+      expect: 'pass',
+      what: 'NEGATIVE CONTROL: the same provenance-less entity, flagged workbenchExtension — the escape hatch must hold',
+      touches: [CDM_FIXTURE],
+      // Identical to PR-M1 except for the flag. If this fires, the class rejects
+      // the documented way to declare a workbench-specific addition, and every
+      // TAIW-additions-shaped record in CDM-P2 would have to be smuggled past it.
+      apply: () => cdmPatch(
+        "delete cdmFixtureEntity('ent-account').provenance",
+        "cdmFixtureEntity('ent-account').workbenchExtension = true",
+      ),
+    },
+
+    // ── CDM-COVERAGE: a declared stage is a claim, and it must cost ───────
+    {
+      code: 'CDM-COVERAGE',
+      what: 'stage 3 declared with no use-case mappings — a roadmap wearing a completion badge',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch('cdmFixtureBundle.useCaseMappings = []'),
+    },
+    {
+      code: 'CDM-COVERAGE',
+      what: 'an entity pointing at a subject area its model does not contain',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("cdmFixtureEntity('ent-account').subjectAreaId = 'sa-nonexistent'"),
+    },
+    {
+      code: 'CDM-COVERAGE',
+      what: 'a mapping reaching an entity in a SECOND model without declaring crossModel',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("cdmFixtureBundle.useCaseMappings[0].entityIds.push('alt-ent-counterparty')"),
+    },
+    {
+      code: 'CDM-COVERAGE',
+      expect: 'pass',
+      what: 'NEGATIVE CONTROL: the same cross-model reach WITH crossModel: true — the reserved flag must be honoured',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch(
+        "cdmFixtureBundle.useCaseMappings[0].entityIds.push('alt-ent-counterparty')",
+        'cdmFixtureBundle.useCaseMappings[0].crossModel = true',
+      ),
+    },
+    {
+      code: 'CDM-COVERAGE',
+      what: 'a duplicate entity id — every reference to it becomes ambiguous',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("cdmFixtureBundle.entities.push({ ...cdmFixtureEntity('ent-party') })"),
+    },
+    {
+      code: 'CDM-COVERAGE',
+      what: 'a mapping naming a use-case page the host workbench registry does not contain',
+      touches: [CDM_FIXTURE],
+      apply: () => cdmPatch("cdmFixtureBundle.useCaseMappings[0].useCasePageId = 'fixture-page-unregistered'"),
+    },
+  ].map((m) => ({ ...m, env: { CDM_SELFTEST_FIXTURE: '1' } })),
+
 ]
 
 // ── scratch root ────────────────────────────────────────────────────────────
@@ -1895,7 +2104,7 @@ const restore = (m) => {
 }
 
 /** Never throws — the exit code and both output streams are data. */
-const run = (script, args) => {
+const run = (script, args, env) => {
   // Node 22's Console may lose buffered writes when a short-lived child exits
   // with stdout/stderr as anonymous pipes. Real files give console synchronous
   // descriptors and make the failure transcript reliably readable.
@@ -1907,6 +2116,10 @@ const run = (script, args) => {
   try {
     result = spawnSync(process.execPath, [path.join(SCRATCH, ...script), ...args], {
       stdio: ['ignore', stdout, stderr],
+      // Per-row env. The CDM rows are the only users: their classes examine
+      // nothing unless the fixture is switched on, which is the behaviour under
+      // test — see check/modules/cdm.mjs.
+      env: env ? { ...process.env, ...env } : process.env,
     })
   } finally {
     fs.closeSync(stdout)
@@ -1919,7 +2132,7 @@ const run = (script, args) => {
   return { status: result.status ?? 1, out, err: err || result.error?.message || '' }
 }
 
-const runGate = () => run(['scripts', 'check.mjs'], ['--root', SCRATCH])
+const runGate = (env) => run(['scripts', 'check.mjs'], ['--root', SCRATCH], env)
 const runGeometry = () => run(['scripts', 'golden', 'geometry.mjs'], ['--module', 'baiw', '--fail-on-overflow'])
 
 /** Codes named in the problem list, in first-seen order. */
@@ -1998,28 +2211,41 @@ for (const m of selected) {
     if (m.tool === 'geometry') {
       const r = runGeometry()
       const v = geometryVerdict(r)
-      result = { code: m.code, what: m.what, tripped: v.hit, exit: r.status, also: [], sample: v.sample, note: v.note ?? null, detail }
+      result = { code: m.code, what: m.what, control: false, tripped: v.hit, satisfied: v.hit, exit: r.status, also: [], sample: v.sample, note: v.note ?? null, detail }
     } else {
-      const r = runGate()
+      const r = runGate(m.env)
       const codes = codesIn(r.err)
       const hit = codes.includes(m.code)
+      // A NEGATIVE CONTROL inverts the expectation: the mutation is a legal
+      // edit and the gate must stay green over it. Without these a class that
+      // fired on everything would score a perfect matrix — every row TRIPPED,
+      // every code demonstrated — while being useless. `expect: 'pass'` is how
+      // a row asserts the class is not over-firing.
+      const control = m.expect === 'pass'
       result = {
         code: m.code,
         what: m.what,
+        control,
         tripped: hit && r.status !== 0,
+        satisfied: control ? !hit && r.status === 0 : hit && r.status !== 0,
         exit: r.status,
-        also: codes.filter((c) => c !== m.code),
+        also: control ? codes : codes.filter((c) => c !== m.code),
         // First line of the target code's finding, for the transcript.
         sample: (r.err.split('\n').find((l) => l.trim().startsWith(`${m.code}: `)) ?? '').trim(),
-        note: hit && r.status === 0 ? 'code reported but the gate exited 0' : null,
+        note: control
+          ? (hit ? `${m.code} fired on a legal edit — the class is over-firing` : r.status !== 0 ? `gate exited ${r.status} on a legal edit` : null)
+          : hit && r.status === 0 ? 'code reported but the gate exited 0' : null,
       }
     }
   } catch (err) {
-    result = { code: m.code, what: m.what, tripped: false, exit: null, also: [], sample: '', note: `mutation could not be applied: ${err?.message ?? err}` }
+    result = { code: m.code, what: m.what, control: m.expect === 'pass', tripped: false, satisfied: false, exit: null, also: [], sample: '', note: `mutation could not be applied: ${err?.message ?? err}` }
   }
   restore(m)
   rows.push(result)
-  process.stdout.write(`  ${result.tripped ? 'TRIPPED    ' : 'NOT TRIPPED'}  ${result.code.padEnd(23)} ${result.what}\n`)
+  const verdict = result.control
+    ? (result.satisfied ? 'CONTROL OK ' : 'CONTROL BAD')
+    : (result.tripped ? 'TRIPPED    ' : 'NOT TRIPPED')
+  process.stdout.write(`  ${verdict}  ${result.code.padEnd(23)} ${result.what}\n`)
   if (result.sample) console.log(`                 ↳ ${result.sample.slice(0, 150)}${result.sample.length > 150 ? '…' : ''}`)
   if (result.also.length) console.log(`                 +also ${result.also.join(', ')}`)
   if (result.note) console.log(`                 NOTE ${result.note}`)
@@ -2043,11 +2269,25 @@ if (geomAfter.status !== 0) {
 
 if (!keep) fs.rmSync(SCRATCH, { recursive: true, force: true })
 
-const codes = [...new Set(selected.map((m) => m.code))].sort()
+// A NEGATIVE CONTROL demonstrates nothing, by construction — it asserts a code
+// does NOT fire. Counting one toward `codes` would let a class whose only rows
+// were controls report itself demonstrated while never having fired once.
+const codes = [...new Set(selected.filter((m) => m.expect !== 'pass').map((m) => m.code))].sort()
 const trippedCodes = new Set(rows.filter((r) => r.tripped).map((r) => r.code))
 const unreachable = codes.filter((c) => !trippedCodes.has(c))
+const controls = rows.filter((r) => r.control)
+const positives = rows.filter((r) => !r.control)
 
-console.log(`\n  ${rows.filter((r) => r.tripped).length} of ${rows.length} mutations tripped their target`)
+console.log(`\n  ${positives.filter((r) => r.tripped).length} of ${positives.length} mutations tripped their target`)
+if (controls.length) {
+  // The trailing clause is CONDITIONAL. `0 of 1 negative control(s) stayed
+  // green — the classes are not over-firing` asserted the opposite of what had
+  // just happened, which is the exact shape recorded against compare.mjs: a
+  // summary reading clean above its own rejection.
+  const green = controls.filter((r) => r.satisfied).length
+  console.log(`  ${green} of ${controls.length} negative control(s) stayed green` +
+    (green === controls.length ? ' — the classes are not over-firing' : ' — SEE BELOW, a class fired on a legal edit'))
+}
 console.log(`  ${trippedCodes.size} of ${codes.length} distinct codes demonstrated${keep ? `\n  scratch root kept at ${path.relative(REPO, SCRATCH)}` : ''}`)
 
 // TWO assertions, because they answer two different questions and only one of
@@ -2070,13 +2310,18 @@ console.log(`  ${trippedCodes.size} of ${codes.length} distinct codes demonstrat
 // declared, `compare.mjs`'s summary reading clean above a rejection, and now a
 // sibling row masking a dead one. The check running is not the same fact as the
 // check reporting what it found.
-const dead = rows.filter((r) => !r.tripped)
+// `satisfied`, not `tripped`: a row is judged against its OWN expectation, so a
+// negative control that started firing fails here exactly as a positive row that
+// stopped firing does. Both mean the row no longer proves what it was written
+// to prove.
+const dead = rows.filter((r) => !r.satisfied)
 let failed = false
 
 if (dead.length) {
-  console.error(`\n  ${dead.length} row(s) NOT TRIPPED:`)
-  for (const r of dead) console.error(`    ${r.code.padEnd(23)} ${r.what}`)
+  console.error(`\n  ${dead.length} row(s) DID NOT MEET THEIR EXPECTATION:`)
+  for (const r of dead) console.error(`    ${r.control ? 'control fired ' : 'NOT TRIPPED  '} ${r.code.padEnd(23)} ${r.what}`)
   console.error(`  A row that stops tripping has stopped proving its branch, whether or not a sibling row shares its code.`)
+  console.error(`  A negative control that fires means the class rejects a legal edit — over-firing, which no positive row can detect.`)
   failed = true
 }
 if (unreachable.length) {
@@ -2085,4 +2330,4 @@ if (unreachable.length) {
   failed = true
 }
 if (failed) process.exit(1)
-console.log(`\n  OK — every row tripped its branch and every code has a reachable failure path`)
+console.log(`\n  OK — every row met its expectation and every code has a reachable failure path`)
