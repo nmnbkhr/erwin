@@ -11,9 +11,30 @@ Shared inputs: the `CDM_MODELS` registry plus each model's content bundle
 All three checks are **vacuously green over an empty registry** — CDM-P1 lands
 before any model content exists, so first-run green must not be mistaken for
 coverage. The mutations below run against a fixture bundle
-(`scripts/fixtures/cdm-fixture.mts`) containing one minimal well-formed model
-(1 source, 2 subject areas, 3 entities incl. one extension, 1 relationship,
-1 mapping) so every rule has a real target to break.
+(`scripts/fixtures/cdm-fixture.mts`) so every rule has a real target to break.
+
+**As built, the fixture is TWO models, not one**, and the primary one carries an
+attribute this spec did not list. Both departures exist to stop a branch being
+dead, and neither is optional:
+
+| | |
+|---|---|
+| `cdm-fixture` — 1 source, 2 subject areas, **3 entities** (one `workbenchExtension`, carrying no provenance), **1 attribute**, 1 relationship, 1 mapping, stage 3 | the primary target |
+| `cdm-fixture-alt` — 1 source, 1 subject area, 1 entity, stage 1 | exists only for CV-M3/CV-M4 |
+
+- **The attribute.** CDM-PROVENANCE ranges over `CdmAttribute` and CDM-COVERAGE
+  resolves `attribute.entityId`. With `attributes: []` both branches would be
+  unexercised while the fixture still looked complete — the shape this whole
+  document exists to prevent, one level down.
+- **The second model.** CV-M3 needs an `entityId` that genuinely belongs to
+  ANOTHER model. Against a single-model fixture the only available id would be
+  one that resolves nowhere, and *foreign id* and *nonexistent id* are different
+  defects on different branches. A fixture that could not tell them apart would
+  let the `crossModel` branch pass for the wrong reason.
+
+Both fixture dossiers carry `verdict: go`, because their descriptors declare
+stage ≥ 1 and CDM-VERSION-PIN fails a non-`go` verdict there; a `wait` would
+fail the fixture for a reason unrelated to whichever branch is under test.
 
 ---
 

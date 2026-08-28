@@ -113,6 +113,9 @@ All three follow standing conventions: registered in the `scripts/check.mjs`
 module registry, each demonstrated failing via selftest mutations before the
 first green run is believed, SKIP inside `verify:quick` expected.
 
+The three CDM classes are mayBeEmpty — green on a normal build means no model is
+declared yet, not that declared models are sound.
+
 ## Execution order
 
 1. **CDM-P1**: meta-schema module + three check classes + selftest mutations
