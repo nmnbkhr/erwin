@@ -2086,7 +2086,24 @@ function __selftestProbe(doc: jsPDF, s: string): void {
 ]
 
 // ── scratch root ────────────────────────────────────────────────────────────
-const COPY = ['src', 'scripts']
+/**
+ * `docs` joined the list when CDM-P2 registered the first real model. A CDM
+ * descriptor's `dossierPath` is repo-root-relative, so CDM-VERSION-PIN reads
+ * docs/cdm/dossiers/ — and with only src and scripts copied, the PRISTINE
+ * CONTROL failed: the dossier was simply not in the scratch tree. The harness
+ * has to copy everything a check reads, and what checks read grew.
+ */
+const COPY = ['src', 'scripts', 'docs']
+
+/**
+ * Where a scratch-relative path comes FROM. `docs/` lives at the repo root,
+ * one level above baiw/, so it cannot be joined onto REPO like the other two.
+ * Used by both the initial copy and `restore`, so the two cannot disagree —
+ * a restore that looked in the wrong place would put back nothing and leave
+ * every later row measuring a dirty tree.
+ */
+const sourceOf = (rel) =>
+  rel === 'docs' || rel.startsWith('docs/') ? path.join(REPO, '..', rel) : path.join(REPO, rel)
 
 /**
  * A node_modules of the scratch root's own, entry by entry, symlinked to the
@@ -2108,14 +2125,14 @@ const linkNodeModules = () => {
 const buildScratch = () => {
   fs.rmSync(SCRATCH, { recursive: true, force: true })
   fs.mkdirSync(SCRATCH, { recursive: true })
-  for (const d of COPY) fs.cpSync(path.join(REPO, d), path.join(SCRATCH, d), { recursive: true })
+  for (const d of COPY) fs.cpSync(sourceOf(d), path.join(SCRATCH, d), { recursive: true })
   linkNodeModules()
 }
 
 /** Put back exactly what a mutation touched, and delete what it created. */
 const restore = (m) => {
   for (const rel of m.touches ?? []) {
-    const from = path.join(REPO, rel)
+    const from = sourceOf(rel)
     const to = P(rel)
     fs.rmSync(to, { recursive: true, force: true })
     fs.cpSync(from, to, { recursive: true })
