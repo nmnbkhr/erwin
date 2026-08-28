@@ -88,16 +88,43 @@ const dossierCandidates = (root, rel) => [path.join(root, rel), path.join(root, 
  */
 const modelsOf = (ctx) => {
   const declared = ctx.ts?.meta?.CDM_MODELS ?? []
-  const content = ctx.ts?.content?.CDM_CONTENT ?? {}
   const bundles = FIXTURE_ON ? (ctx.ts?.fixture?.CDM_FIXTURE_BUNDLES ?? []) : []
   const byId = new Map(bundles.map((b) => [b.descriptor.modelId, b]))
   const out = bundles.map((b) => ({ descriptor: b.descriptor, bundle: b }))
   for (const d of declared) {
     if (byId.has(d.modelId)) continue
-    const body = content[d.modelId]
-    out.push({ descriptor: d, bundle: body ? { descriptor: d, ...body } : null })
+    out.push({ descriptor: d, bundle: bodyOf(ctx, d.modelId) })
   }
   return out
+}
+
+/**
+ * A model's content bundle, assembled from the DECLARED DATASETS.
+ *
+ * CDM-P2c moved the record sets out of the TS module graph into static JSON
+ * under `public/cdm/iso20022/`, fetched by the browser at runtime. The gate now
+ * reads those same files as datasets, which is strictly better than the
+ * tsModules route it replaced: the registry validates THE BYTES THE BROWSER
+ * FETCHES rather than a second copy compiled from TS, and a dataset that fails
+ * to resolve is a REGISTRY failure by name rather than a silently empty bundle.
+ *
+ * Mappings are the exception and stay in the bundle — three records that name
+ * pages of this app. See src/cdm/meta/content.ts.
+ *
+ * Returns null for a model with no content at all, which CDM-COVERAGE reports
+ * against the declared stage rather than skipping.
+ */
+const bodyOf = (ctx, modelId) => {
+  if (modelId !== 'iso20022') return null
+  const d = ctx.data ?? {}
+  if (!d.iso20022Entities) return null
+  return {
+    subjectAreas: d.iso20022SubjectAreas ?? [],
+    entities: d.iso20022Entities ?? [],
+    attributes: d.iso20022Attributes ?? [],
+    relationships: d.iso20022Relationships ?? [],
+    useCaseMappings: ctx.ts?.mappings?.CDM_MAPPINGS?.[modelId] ?? [],
+  }
 }
 
 /**
@@ -408,9 +435,20 @@ const pageRegistrySync = {
 export default {
   id: 'cdm',
   title: 'CDM — industry canonical data models',
+  // The record sets are DATASETS now, not tsModules — the same static JSON the
+  // browser fetches. REGISTRY fails by name if any of the four stops resolving,
+  // which the tsModules route could not do: a missing export there was an empty
+  // bundle, indistinguishable from a stage-0 model.
+  dataDir: 'public',
+  datasets: {
+    iso20022SubjectAreas: 'cdm/iso20022/subjectAreas.json',
+    iso20022Entities: 'cdm/iso20022/entities.json',
+    iso20022Attributes: 'cdm/iso20022/attributes.json',
+    iso20022Relationships: 'cdm/iso20022/relationships.json',
+  },
   tsModules: {
     meta: 'src/cdm/meta/cdmMeta.ts',
-    content: 'src/cdm/meta/content.ts',
+    mappings: 'src/cdm/meta/content.ts',
     pages: 'src/cdm/meta/useCasePages.ts',
     fixture: 'scripts/fixtures/cdm-fixture.mts',
   },
@@ -422,6 +460,20 @@ export default {
       `CDM ${declared.length} model(s) declared in CDM_MODELS, ${models.length} in scope` +
         (FIXTURE_ON ? '  — CDM_SELFTEST_FIXTURE=1, the check fixture is in scope' : ''),
     ]
+    // PRINT WHAT THE CLASSES ACTUALLY WALKED, per model and per collection.
+    // CDM-P2c moved the record sets from TS modules to fetched JSON, and the
+    // invariant of that move is that the same content is validated afterwards.
+    // A one-off before/after comparison proves it for one commit; printing the
+    // counts makes it checkable on every build, which is the difference between
+    // a measurement and a guarantee.
+    for (const { descriptor: d, bundle } of models) {
+      if (!bundle) { lines.push(`  ${d.modelId} stage ${d.stage}  NO CONTENT BUNDLE`); continue }
+      lines.push(
+        `  ${d.modelId} stage ${d.stage}  subject areas ${bundle.subjectAreas.length}` +
+          `  entities ${bundle.entities.length}  attributes ${bundle.attributes.length}` +
+          `  relationships ${bundle.relationships.length}  mappings ${bundle.useCaseMappings.length}`,
+      )
+    }
     if (declared.length === 0 && !FIXTURE_ON) {
       lines.push(`  the registry is EMPTY, so all three classes examined 0 and declare mayBeEmpty — green here means`)
       lines.push(`  "no model is declared yet", NOT "the declared models are sound". check:selftest's CDM rows are`)

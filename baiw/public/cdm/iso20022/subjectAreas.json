@@ -1,0 +1,446 @@
+[
+  {
+    "id": "iso20022-catp",
+    "modelId": "iso20022",
+    "name": "ATM Card Transaction",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_cAIjQIniEeSEIt-Xs5V4sA']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-caam",
+    "modelId": "iso20022",
+    "name": "ATM Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_9QyroIniEeSEIt-Xs5V4sA']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-caaa",
+    "modelId": "iso20022",
+    "name": "Acceptor to Acquirer Card Transaction",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='__mfms02aEeGsmMHwuJF_aQ']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-acmt",
+    "modelId": "iso20022",
+    "name": "Account Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sOqY0mtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-cain",
+    "modelId": "iso20022",
+    "name": "Acquirer to Issuer Card Transaction",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_3RIecXq8EeSqmf43GdBXXQ']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-admi",
+    "modelId": "iso20022",
+    "name": "Administration",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sOziyGtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-auth",
+    "modelId": "iso20022",
+    "name": "Authorities",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_UyZuAMG-EeGE64q4lXx5Mw']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-head",
+    "modelId": "iso20022",
+    "name": "Business Application Header",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_qwPV8ORREemE5LyhzjFiwg']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-caad",
+    "modelId": "iso20022",
+    "name": "Card Administration",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sx6JEHV_Eemxsq9wkxEiDg']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-camt",
+    "modelId": "iso20022",
+    "name": "Cash Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sPGdsGtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-colr",
+    "modelId": "iso20022",
+    "name": "Collateral Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_LMRXA02bEeGsmMHwuJF_aQ']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-nvlp",
+    "modelId": "iso20022",
+    "name": "Envelope",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_S4JWwGDfEe2yZ71w6P_HbQ']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-cafc",
+    "modelId": "iso20022",
+    "name": "Fee collection",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_hHQ08HWBEemxsq9wkxEiDg']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-cafm",
+    "modelId": "iso20022",
+    "name": "File Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_vvykkHWBEemxsq9wkxEiDg']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-fxtr",
+    "modelId": "iso20022",
+    "name": "Foreign Exchange Trade",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_X2bLUDy7EeOhTf-dOBgT3g']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-cafr",
+    "modelId": "iso20022",
+    "name": "Fraud Reporting and Disposition",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_iB_W0HWMEemxsq9wkxEiDg']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-canm",
+    "modelId": "iso20022",
+    "name": "Network Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_5u6gIHWBEemxsq9wkxEiDg']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-othermessages",
+    "modelId": "iso20022",
+    "name": "OtherMessages",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='OtherMessages_ID']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-pacs",
+    "modelId": "iso20022",
+    "name": "Payments Clearing and Settlement",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sPQOvmtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-pain",
+    "modelId": "iso20022",
+    "name": "Payments Initiation",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sPjJomtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-remt",
+    "modelId": "iso20022",
+    "name": "Payments Remittance Advice",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_Yq2z4KuTEeO6YrnGem_Z3g']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-reda",
+    "modelId": "iso20022",
+    "name": "Reference Data",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sPs6qGtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-casp",
+    "modelId": "iso20022",
+    "name": "Sale to POI Card Transactions",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_Be36cMChEeicl8OqlySPkA']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-secl",
+    "modelId": "iso20022",
+    "name": "Securities Clearing",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_t4ZF402dEeGsmMHwuJF_aQ']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-seev",
+    "modelId": "iso20022",
+    "name": "Securities Events",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sP2rq2tdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-semt",
+    "modelId": "iso20022",
+    "name": "Securities Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sQSwgGtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-sese",
+    "modelId": "iso20022",
+    "name": "Securities Settlement",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sQvceGtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-setr",
+    "modelId": "iso20022",
+    "name": "Securities Trade",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sRC-cGtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-casr",
+    "modelId": "iso20022",
+    "name": "Settlement Reporting",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_JkNk4HWCEemxsq9wkxEiDg']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-supl",
+    "modelId": "iso20022",
+    "name": "Supplementary Data",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_3mDhM3UKEeKtmPJ81L3P6w']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-catm",
+    "modelId": "iso20022",
+    "name": "Terminal Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_C41Ls_OsEeK4-5jRl1NONQ']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-tsrv",
+    "modelId": "iso20022",
+    "name": "Trade Services",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_ziaEYHTwEeK8T8FFySHvcw']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-tsin",
+    "modelId": "iso20022",
+    "name": "Trade Services Initiation",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_8C0kQ02dEeGsmMHwuJF_aQ']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-tsmt",
+    "modelId": "iso20022",
+    "name": "Trade Services Management",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sRfDUGtdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-trck",
+    "modelId": "iso20022",
+    "name": "Transaction Tracker",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_Rt4akM7uEemEIuVuDudp4g']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-trea",
+    "modelId": "iso20022",
+    "name": "Treasury",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "businessProcessCatalogue/topLevelCatalogueEntry[@xmi:id='_sRMIa2tdEeCY4-KZ9JEyUQ_-735475843']",
+      "method": "verbatim",
+      "verifiedOn": "2026-08-28"
+    }
+  },
+  {
+    "id": "iso20022-data-dictionary",
+    "modelId": "iso20022",
+    "name": "Data dictionary",
+    "description": "",
+    "provenance": {
+      "sourceId": "iso20022-erepo",
+      "locator": "dataDictionary",
+      "method": "derived",
+      "verifiedOn": "2026-08-28"
+    }
+  }
+]

@@ -2141,13 +2141,25 @@ function __selftestProbe(doc: jsPDF, s: string): void {
 
 // ── scratch root ────────────────────────────────────────────────────────────
 /**
- * `docs` joined the list when CDM-P2 registered the first real model. A CDM
- * descriptor's `dossierPath` is repo-root-relative, so CDM-VERSION-PIN reads
- * docs/cdm/dossiers/ — and with only src and scripts copied, the PRISTINE
- * CONTROL failed: the dossier was simply not in the scratch tree. The harness
- * has to copy everything a check reads, and what checks read grew.
+ * THE HARNESS MUST COPY EVERYTHING A CHECK READS, AND WHAT CHECKS READ KEEPS
+ * GROWING. Both additions past `src`/`scripts` were found the same way — by the
+ * pristine control failing loudly and refusing to report any mutation result
+ * above it — and neither could have been found by inspection:
+ *
+ *   `docs`    CDM-P2 registered the first real model, whose `dossierPath` is
+ *             repo-root-relative, so CDM-VERSION-PIN reads docs/cdm/dossiers/.
+ *   `public`  CDM-P2c moved the iso20022 record sets to static JSON that the
+ *             browser fetches and the gate declares as datasets, so the cdm
+ *             module's dataDir is now `public`.
+ *
+ * This list is hand-maintained against what the registry declares, which is a
+ * coupling worth naming. It is left hand-maintained deliberately: the omission
+ * is not silent — `CONTROL FAILED` is the loudest failure this harness has, and
+ * it fires before a single mutation is reported. Deriving the list from the
+ * registry's dataDir set is the fix if a third instance appears; it has not
+ * earned the mechanism yet.
  */
-const COPY = ['src', 'scripts', 'docs']
+const COPY = ['src', 'scripts', 'docs', 'public']
 
 /**
  * Where a scratch-relative path comes FROM. `docs/` lives at the repo root,
