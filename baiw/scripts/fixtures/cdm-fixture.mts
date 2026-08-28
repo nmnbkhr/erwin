@@ -201,14 +201,12 @@ export const cdmFixtureAltBundle: CdmModelContent = {
 }
 
 /**
- * The tiny use-case page registry CDM-COVERAGE resolves `useCasePageId`
- * against, keyed by `hostWorkbench`. The real workbenches resolve into
- * src/industry/registry.ts; the fixture host is 'fixture' and has its own,
- * so a mutation cannot accidentally depend on live use-case content.
+ * THE FIXTURE NO LONGER DECLARES ITS OWN PAGES. Its two ids moved into
+ * src/cdm/meta/useCasePages.ts under workbenchId 'fixture', which is the one
+ * registry every workbench now resolves through. A private copy here would be
+ * a second place a page id is declared, and the whole point of that file is
+ * that there is not one.
  */
-export const CDM_FIXTURE_PAGE_REGISTRY: Record<string, readonly string[]> = {
-  fixture: ['fixture-page-party-360', 'fixture-page-settlement'],
-}
 
 /** Declared, never globbed — the order is the order findings print in. */
 export const CDM_FIXTURE_BUNDLES: CdmModelContent[] = [cdmFixtureBundle, cdmFixtureAltBundle]

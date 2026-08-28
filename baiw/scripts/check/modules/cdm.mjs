@@ -91,10 +91,22 @@ const modelsOf = (ctx) => {
   return out
 }
 
-/** The use-case page registry a mapping's `useCasePageId` must resolve into. */
-const pageRegistryFor = (ctx, hostWorkbench) => {
-  const fixtureReg = FIXTURE_ON ? (ctx.ts?.fixture?.CDM_FIXTURE_PAGE_REGISTRY ?? {}) : {}
-  return fixtureReg[hostWorkbench] ?? null
+/**
+ * The use-case page registry a mapping's `useCasePageId` must resolve into.
+ *
+ * ONE registry for every workbench, real or fixture — src/cdm/meta/useCasePages.ts.
+ * This used to read a private map the fixture carried, so every real
+ * hostWorkbench resolved to null and failed as "unresolvable by design". That
+ * was honest while no real model existed and is now simply wrong: iso20022 is
+ * hosted on baiw, and baiw has eighteen pages.
+ *
+ * A workbench nobody has registered yields an EMPTY list, not null, and a
+ * mapping into it fails as an unresolvable page id — which is the same finding
+ * a typo'd id gets, because they are the same defect from the reader's side.
+ */
+const pageIdsFor = (ctx, hostWorkbench) => {
+  const pages = ctx.ts?.pages?.USE_CASE_PAGES ?? []
+  return pages.filter((p) => p.workbenchId === hostWorkbench).map((p) => p.pageId)
 }
 
 /** Shared load-failure guard. examined 0, never a phantom 1 — the _industry rule. */
@@ -274,9 +286,14 @@ const coverage = {
             ctx.fail(`${d.modelId} mapping ${m.id} references entityId ${JSON.stringify(id)}, which no model in scope contains`)
           }
         }
-        const pages = pageRegistryFor(ctx, d.hostWorkbench)
-        if (pages === null) ctx.fail(`${d.modelId} mapping ${m.id} cannot be resolved: no use-case page registry is known for hostWorkbench ${JSON.stringify(d.hostWorkbench)} — an unresolvable page id is unverifiable, not acceptable`)
-        else if (!pages.includes(m.useCasePageId)) ctx.fail(`${d.modelId} mapping ${m.id} names useCasePageId ${JSON.stringify(m.useCasePageId)}, which the ${d.hostWorkbench} page registry does not contain`)
+        // CROSS-WORKBENCH RESOLUTION MUST NOT LEAK. The list is filtered to this
+        // descriptor's OWN hostWorkbench before the membership test, so a
+        // mapping naming a real page belonging to another workbench fails
+        // exactly as a nonexistent one does. Resolving against every page in
+        // the registry would silently let a fixture model reach a live BAIW
+        // page — a join across two workbenches that nothing declared.
+        const pages = pageIdsFor(ctx, d.hostWorkbench)
+        if (!pages.includes(m.useCasePageId)) ctx.fail(`${d.modelId} mapping ${m.id} names useCasePageId ${JSON.stringify(m.useCasePageId)}, which the ${d.hostWorkbench} page registry does not contain (${pages.length} page(s) registered for that workbench)`)
       }
 
       for (const [kind, records] of [['subjectAreas', sa], ['entities', ent], ['attributes', attr], ['relationships', rel], ['useCaseMappings', map]]) {
@@ -296,6 +313,7 @@ export default {
   title: 'CDM — industry canonical data models',
   tsModules: {
     meta: 'src/cdm/meta/cdmMeta.ts',
+    pages: 'src/cdm/meta/useCasePages.ts',
     fixture: 'scripts/fixtures/cdm-fixture.mts',
   },
   checks: [versionPin, provenance, coverage],

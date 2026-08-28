@@ -2081,6 +2081,19 @@ function __selftestProbe(doc: jsPDF, s: string): void {
       touches: [CDM_FIXTURE],
       apply: () => cdmPatch("cdmFixtureBundle.useCaseMappings[0].useCasePageId = 'fixture-page-unregistered'"),
     },
+    {
+      code: 'CDM-COVERAGE',
+      what: 'a fixture-hosted mapping reaching a REAL baiw page — cross-workbench resolution must not leak',
+      touches: [CDM_FIXTURE],
+      // DISTINCT FROM THE ROW ABOVE, and the distinction is the whole point.
+      // That one names an id nothing registers; this one names
+      // `cash-optimization`, which is a real, registered BAIW page — just not
+      // one belonging to this model's workbench. Resolving against the whole
+      // registry instead of the hostWorkbench's slice would pass this and
+      // silently let a fixture model reach a live BAIW page. Only a real id
+      // from another workbench can tell those two implementations apart.
+      apply: () => cdmPatch("cdmFixtureBundle.useCaseMappings[0].useCasePageId = 'cash-optimization'"),
+    },
   ].map((m) => ({ ...m, env: { CDM_SELFTEST_FIXTURE: '1' } })),
 
 ]
