@@ -1787,6 +1787,28 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     apply: () => sub('scripts/check/modules/index.mjs', 'export default [spine', 'export default []\nconst __selftestDisabledRegistry = [spine'),
   },
   {
+    code: 'REGISTRY',
+    what: 'a phantom module registered with a dataset that does not resolve',
+    touches: ['scripts/check/modules/index.mjs'],
+    // THE OTHER DIRECTION FROM THE MISSING-DATASET ROW ABOVE. That one deletes a
+    // file a real module declares; this one declares a file no module should. The
+    // branch is the same resolution check, reached from the declaration side
+    // rather than the filesystem side, and only this side proves an entry
+    // APPENDED to the array is still seen at all.
+    //
+    // That is the surface the re-anchoring above moved. The empty-registry row
+    // now rewrites the array's OPENING, so it would keep passing even if entries
+    // after the first were being dropped on the floor; nothing else asserted that
+    // a newly registered entry is read. `checks: []` keeps the entry legal in
+    // every other respect, so REGISTRY is the only code that fires and the row
+    // isolates one branch.
+    apply: () => sub(
+      'scripts/check/modules/index.mjs',
+      'export default [spine',
+      "export default [{ id: 'phantom', title: 'phantom module', checks: [], dataDir: 'src', datasets: { ghost: 'data/__phantom_does_not_exist__.json' } }, spine",
+    ),
+  },
+  {
     code: 'VACUOUS',
     what: 'a check that examines nothing and reports nothing',
     touches: ['scripts/check/modules/dgiw.mjs'],
