@@ -2312,3 +2312,64 @@ the consolidation's reference-integrity step, which is the only reason it was
 seen at all. The general shape is worth naming: **a comment that cites a
 specific artefact is a reference with no integrity check behind it**, and this
 repo has 39 report-source files' worth of prose carrying exactly that risk.
+
+## D-025 — `coe.json`'s `fsdmEntities` names resolve 10 of 14, and the most-used name is one of the four that do not
+
+**Filed, not fixed.** Every available fix is a domain judgement, and the
+obvious one — substitute the nearest plausible entity name — is D-001 in
+miniature: a plausible value put where a real one is missing, in a field a
+reader takes as sourced.
+
+Each of `src/data/coe.json`'s ten use cases carries
+`fsdmEntities: [{entity, domain, usage}]` — authored evidence linking a cash
+use case to Teradata FSDM entities, with a usage rationale per link. It is the
+only entity-level evidence any BAIW page carries, which is what makes it worth
+filing rather than shrugging at.
+
+| | |
+|---|---|
+| distinct entity names across the ten use cases | 14 |
+| resolve against `src/data/entities.json` (3,917 entities) | **10** |
+| do not resolve | **4** — `FINANCIAL_TRANSACTION`, `CHANNEL`, `MARKET_MEASURE`, `REGULATION` |
+| `domain` field agreement, among the 10 that resolve | **10 of 10** |
+
+**The authoring was done at the wrong level of abstraction, not carelessly.**
+That is what the last row above establishes: where a name resolves, its
+declared domain agrees with `entities.json` every time. And three of the four
+failures line up with DOMAIN names rather than entity names —
+`FINANCIAL_TRANSACTION` against the domain `Financial Transaction`, `CHANNEL`
+against `Channel Management`, `MARKET_MEASURE` against `Campaign & Marketing`.
+`REGULATION` matches nothing in either file. Someone reached for the concept at
+domain granularity while the field wanted an entity.
+
+**`FINANCIAL_TRANSACTION` is referenced by 7 of the 10 use cases** — UC-01, 02,
+03, 05, 07, 09, 10. The single most-used name in the only entity-level evidence
+base BAIW has is one that does not exist. `MARKET_MEASURE` is used by 3,
+`REGULATION` and `CHANNEL` by 2 each.
+
+**UC-04 is the worst-hit and the most instructive: 1 of its 3 names resolve.**
+Both `REGULATION` ("SBP CRR requirement parameters and thresholds") and
+`MARKET_MEASURE` ("SBP policy rate and money market rates") are phantoms, and
+they are precisely the regulatory-parameter dimension of CRR float engineering.
+Its one resolving entity, `AGREEMENT_BALANCE_TYPE_METRIC`, covers only the
+balance dimension.
+
+### When this is fixed, two things must be re-examined in the same pass
+
+- **The CDM Stage 3 cluster that was cut for proving too much.** A candidate
+  ISO 20022 mapping over `Payment` / `PaymentInstruction` / `PaymentExecution`
+  for the cash-optimization page was rejected because its rationale — cash
+  demand comes from transactions — is true of nearly every BAIW page. Its
+  FSDM-side evidence was carried almost entirely by `FINANCIAL_TRANSACTION`.
+  **The weakness and the broken key are correlated, not independent**: a
+  rationale resting on a name that resolves to nothing is a rationale nobody
+  could have checked. Whatever `FINANCIAL_TRANSACTION` is corrected to may or
+  may not support that cluster, and that is a reviewable question rather than a
+  restoration.
+- **UC-04's unmapped regulatory dimension**, for the same reason and with the
+  same correlation.
+
+Related: the CDM Stage 3 scope rule admits a page only if it carries a
+use-case dataset with entity evidence. `coe.json` is the exemplar of that
+shape, so this defect sits directly under the mapping work rather than beside
+it.
