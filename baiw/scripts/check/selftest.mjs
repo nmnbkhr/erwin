@@ -2096,6 +2096,37 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     },
   ].map((m) => ({ ...m, env: { CDM_SELFTEST_FIXTURE: '1' } })),
 
+  // ── PAGE-REGISTRY-SYNC, CDM-P2b — one row per DIRECTION ─────────────────
+  // The registry and the app can disagree two ways and they are different
+  // defects: a page registered that the app does not serve, and a page the app
+  // serves that nothing registered. One row each, because a single mutation
+  // that broke both would not say which direction the check can still see.
+  //
+  // These rows need no fixture env: the check reads App.tsx, Sidebar.tsx and
+  // the real registry, all of which the scratch copy already carries.
+  {
+    code: 'PAGE-REGISTRY-SYNC',
+    what: 'a page registered in useCasePages.ts that the app does not serve',
+    touches: ['src/cdm/meta/useCasePages.ts'],
+    apply: () => sub(
+      'src/cdm/meta/useCasePages.ts',
+      "  { pageId: 'architecture', workbenchId: 'baiw', title: 'Architecture Cockpit' },",
+      "  { pageId: 'architecture', workbenchId: 'baiw', title: 'Architecture Cockpit' },\n  { pageId: 'phantom-page', workbenchId: 'baiw', title: 'Phantom' },",
+    ),
+  },
+  {
+    code: 'PAGE-REGISTRY-SYNC',
+    what: 'a route the app serves that the registry does not carry — the SuiteLanding drift shape',
+    touches: ['src/App.tsx'],
+    // Renames the route rather than adding one, so the mutation cannot depend
+    // on a component that does not exist.
+    apply: () => sub(
+      'src/App.tsx',
+      '<Route path="/architecture" element={<ArchitectureCockpit />} />',
+      '<Route path="/architecture-v2" element={<ArchitectureCockpit />} />',
+    ),
+  },
+
 ]
 
 // ── scratch root ────────────────────────────────────────────────────────────

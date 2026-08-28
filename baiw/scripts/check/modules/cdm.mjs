@@ -317,6 +317,81 @@ const coverage = {
   },
 }
 
+
+// ── PAGE-REGISTRY-SYNC ──────────────────────────────────────────────────────
+// The registry must MIRROR the app, and nothing re-made that claim until now.
+//
+// useCasePages.ts' baiw rows were derived once, by hand, from two sources that
+// were asserted equal at the time: the <Route> paths inside App.tsx's path="*"
+// block, and Sidebar.tsx's navItems. A hand assertion made once is exactly the
+// SuiteLanding.tsx shape CLAUDE.md records — hardcoded counts that were right
+// when typed and wrong four datasets later. Add a route without a nav item, or
+// rename either, and the registry silently stops describing the app while every
+// other check stays green.
+//
+// THREE SOURCES, ASSERTED PAIRWISE. Reading only the routes would let the nav
+// drift; reading only the nav would let a route go unregistered. The registry
+// is the third, and it is the one a CDM mapping actually resolves against.
+//
+// It reads the .tsx as TEXT rather than executing it. These are React component
+// modules — importing them pulls the whole render tree — and the declarations
+// wanted are literal arrays a regex can read exactly. A parse that finds NO
+// routes or NO navItems fails rather than reporting an empty set equal to an
+// empty set, which is the VACUOUS shape one level down.
+const pageRegistrySync = {
+  code: 'PAGE-REGISTRY-SYNC',
+  run(ctx) {
+    const read = (rel) => {
+      const abs = path.join(ctx.root, rel)
+      return fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null
+    }
+    const appSrc = read('src/App.tsx')
+    const navSrc = read('src/components/layout/Sidebar.tsx')
+    if (appSrc === null || navSrc === null) {
+      ctx.fail(`cannot read the routing sources: src/App.tsx ${appSrc === null ? 'MISSING' : 'ok'}, src/components/layout/Sidebar.tsx ${navSrc === null ? 'MISSING' : 'ok'} — the registry cannot be checked against an app that is not there`)
+      return { examined: 0 }
+    }
+
+    // BAIW is the catch-all, so its routes are the ones after `path="*"`.
+    const marker = appSrc.indexOf('<Route path="*"')
+    const inner = marker === -1 ? '' : appSrc.slice(marker)
+    const routes = [...inner.matchAll(/<Route path="\/([^"*][^"]*)"/g)].map((m) => m[1])
+    const nav = [...navSrc.matchAll(/\{ path: '\/([^']+)', label: '([^']+)'/g)].map((m) => ({ id: m[1], label: m[2] }))
+
+    if (routes.length === 0) {
+      ctx.fail(`no BAIW routes parsed out of src/App.tsx — either the catch-all block moved or the <Route> form changed. Reporting zero routes as "equal to the registry" would be a check that stopped running`)
+      return { examined: 0 }
+    }
+    if (nav.length === 0) {
+      ctx.fail(`no navItems parsed out of src/components/layout/Sidebar.tsx — the declaration form changed and this check can no longer see it`)
+      return { examined: 0 }
+    }
+
+    const registry = (ctx.ts?.pages?.USE_CASE_PAGES ?? []).filter((p) => p.workbenchId === 'baiw')
+    const diff = (a, b) => a.filter((x) => !b.includes(x))
+    const routeIds = routes
+    const navIds = nav.map((n) => n.id)
+    const regIds = registry.map((p) => p.pageId)
+
+    for (const [missing, where, from] of [
+      [diff(routeIds, regIds), 'the registry', 'App.tsx routes'],
+      [diff(regIds, routeIds), 'App.tsx routes', 'the registry'],
+      [diff(navIds, regIds), 'the registry', 'Sidebar.tsx navItems'],
+      [diff(regIds, navIds), 'Sidebar.tsx navItems', 'the registry'],
+    ]) {
+      if (missing.length) ctx.fail(`${missing.length} page(s) in ${from} and not in ${where}: ${missing.join(', ')} — useCasePages.ts must MIRROR the app, and a CDM mapping resolves against the registry rather than against the routes`)
+    }
+
+    // Titles come from the nav, so a renamed label must move the registry too.
+    for (const n of nav) {
+      const row = registry.find((p) => p.pageId === n.id)
+      if (row && row.title !== n.label) ctx.fail(`page ${n.id} is titled ${JSON.stringify(row.title)} in the registry and ${JSON.stringify(n.label)} in Sidebar.tsx navItems`)
+    }
+
+    return { examined: routeIds.length + navIds.length + regIds.length, routes: routeIds.length, nav: navIds.length, registry: regIds.length }
+  },
+}
+
 export default {
   id: 'cdm',
   title: 'CDM — industry canonical data models',
@@ -326,7 +401,7 @@ export default {
     pages: 'src/cdm/meta/useCasePages.ts',
     fixture: 'scripts/fixtures/cdm-fixture.mts',
   },
-  checks: [versionPin, provenance, coverage],
+  checks: [versionPin, provenance, coverage, pageRegistrySync],
   summary(ctx) {
     const declared = ctx.ts?.meta?.CDM_MODELS ?? []
     const models = modelsOf(ctx)
