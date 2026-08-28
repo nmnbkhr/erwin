@@ -1980,6 +1980,16 @@ function __selftestProbe(doc: jsPDF, s: string): void {
     },
     {
       code: 'CDM-VERSION-PIN',
+      what: 'a source sha256 that is not 64 lowercase hex — shape is all a check can assert about a file it cannot reach',
+      touches: [CDM_FIXTURE],
+      // The artifact a digest names lives outside the repo by design, so no
+      // check here can hash it. This row proves the class still catches the
+      // error that IS reachable: a digest truncated on paste, upper-cased, or
+      // carrying a stray prefix.
+      apply: () => cdmPatch("cdmFixtureBundle.descriptor.sources[0].sha256 = 'NOTAHASH'"),
+    },
+    {
+      code: 'CDM-VERSION-PIN',
       what: 'a model built past an UNPINNED version — pinning is the first act of Stage 1',
       touches: [CDM_FIXTURE, CDM_DOSSIER],
       // The dossier moves too, so the mismatch branch above stays quiet and this

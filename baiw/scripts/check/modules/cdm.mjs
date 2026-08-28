@@ -137,6 +137,15 @@ const EMPTY_REASON =
 // nobody reviewed.
 const versionPin = {
   code: 'CDM-VERSION-PIN',
+  // Where a source carries a sha256, its SHAPE is asserted: 64 lowercase hex.
+  // matching the external artifact is human pre-flight by design; this check
+  // asserts shape only.
+  //
+  // The artifact lives outside the repo — ~/erwin-artifacts/ is never
+  // committed — so no check running here can hash it, and one that claimed to
+  // would be worse than one that states its limit. What this catches is the
+  // realistic error: a digest truncated on paste, upper-cased, or carrying a
+  // stray `sha256:` prefix.
   mayBeEmpty: EMPTY_REASON,
   run(ctx) {
     if (loadFailed(ctx)) return { examined: 0 }
@@ -167,6 +176,10 @@ const versionPin = {
       if (d.stage >= 1 && fm.verdict !== 'go') ctx.fail(`${d.modelId}: descriptor declares stage ${d.stage} while the dossier verdict is ${JSON.stringify(fm.verdict)} — building past a verdict that is not go`)
       // Pinning the exact downloaded version is the FIRST act of Stage 1, so an
       // UNPINNED value is legal at stage 0 and nowhere else.
+      for (const src of d.sources ?? []) {
+        if (src.sha256 === undefined) continue
+        if (typeof src.sha256 !== 'string' || !/^[0-9a-f]{64}$/.test(src.sha256)) ctx.fail(`${d.modelId} source ${src.id} carries sha256 ${JSON.stringify(src.sha256)}, which is not 64 lowercase hex characters — matching the external artifact is human pre-flight by design, so shape is all this check can assert and it must assert that much`)
+      }
       if (d.stage >= 1 && typeof d.versionPin === 'string' && d.versionPin.startsWith('UNPINNED')) ctx.fail(`${d.modelId}: versionPin ${JSON.stringify(d.versionPin)} at stage ${d.stage} — pinning the exact downloaded version is the first act of Stage 1, so building past an unpinned model is a fail`)
     }
     return { examined, models: models.length }
