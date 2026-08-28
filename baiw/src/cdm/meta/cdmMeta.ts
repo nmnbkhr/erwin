@@ -217,15 +217,16 @@ export const CDM_MODELS: CdmModelDescriptor[] = [
           'read here as the schema for parsing the e-Repository, not shipped.',
       },
     ],
-    // STAGE 2: the business layer of the data dictionary is in the repo — 791
-    // entities, 2,408 attributes, 1,137 relationships, reached through
-    // CDM_CONTENT. The number moves in the same commit as the content it
-    // claims: CDM-COVERAGE fails a stage 2 descriptor with no entities, so
-    // this cannot be advanced ahead of the work.
+    // STAGE 3: three reviewed use-case mappings onto the cash-optimization
+    // page are in the repo (cdm/iso20022/mappings.ts). The number moves in the
+    // same commit as the content it claims: CDM-COVERAGE fails a stage 3
+    // descriptor with no mappings, so this cannot be advanced ahead of the
+    // work.
     //
-    // Stage 3 is use-case mappings and is CDM-P2c. The message layer stays out
-    // at every stage — see the dossier''''''s "Layer decision".
-    stage: 2,
+    // Stage 4 is enrichment against the authoritative artifact, and its gate is
+    // a file-exists condition on docs/cdm/enrichment/. The message layer stays
+    // out at every stage — see the dossier''''''s "Layer decision".
+    stage: 3,
     hostWorkbench: 'baiw',
   },
 ];
