@@ -32,6 +32,22 @@ export interface CdmSource {
   url?: string;
   /** ISO date the source was accessed/downloaded. */
   accessed: string;
+  /**
+   * SHA-256 of the artifact as downloaded, lowercase hex.
+   *
+   * Separate from `version` on purpose. A version string is what the publisher
+   * CALLS the artifact and a digest is what the bytes ARE, and the two answer
+   * different questions: a repository re-cut under an unchanged publication
+   * identifier is a different artifact with the same version. Folding the
+   * digest into `version` — or into `licenseNote`, which is a license
+   * characterization — would make a field mean two things, which is the
+   * condition D-007 was filed over.
+   *
+   * Optional because not every source is a downloadable file; a source that IS
+   * one should carry it. NOTHING VALIDATES THIS YET — no check asserts its
+   * shape, and none could assert it matches a file that lives outside the repo.
+   */
+  sha256?: string;
   /** One-line license characterization; full analysis lives in the dossier. */
   licenseNote: string;
 }
