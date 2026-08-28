@@ -72,6 +72,34 @@ CDM-COVERAGE.
   (CDM-COVERAGE); no mapping cites entities from a different `modelId` unless
   flagged `crossModel: true` (reserved for the future cross-model crosswalk).
 
+**Scope rule.** A page enters Stage 3 mapping scope iff its use-case evidence
+resolves against a registered CDM model's vocabulary. Evidence presence alone
+is insufficient. Scope walks must cover both static and dynamic imports.
+
+Each sentence was bought by a specific failure, and none is redundant:
+
+- **Resolution, not presence.** BAIW's `customer-profitability-workbench`
+  carries 8 authored use cases with a `dataEntities` field, so it passes
+  presence — and its ten names resolve 0 of 10, because they are a star-schema
+  warehouse design (`FACT_*`, `DIM_*`, `AGG_*`) rather than the conceptual
+  layer. Not a defect; a different vocabulary, at a layer no registered model
+  speaks.
+- **Both import kinds.** The first scope walk returned one page instead of two,
+  because that dataset is reached through a dynamic
+  `await import('...json')` that a static `from '...json'` scan cannot see. It
+  reported a clean, wrong answer and was caught by implausibility rather than
+  by complaint.
+
+**Current BAIW result: 2 pages pass evidence-presence, 1 passes resolution.**
+`cash-optimization` is in scope and mapped; `customer-profitability-workbench`
+is the reported near-miss. The reasoning for both, and for what was cut and
+left unmapped within the mapped page, is in
+`docs/cdm/mapping-notes/iso20022-cash-optimization.md`.
+
+A page you want mapped that carries no use-case dataset is not blocked by this
+rule — it is missing the prerequisite. Authoring that dataset is prior work,
+not a reason to map from nothing.
+
 ### Stage 4 — Enrichment against authoritative artifact
 - Deliverable: reconciliation report + corrections. Discrepancies between
   shipped content and the authoritative distribution are filed as D-numbers,
